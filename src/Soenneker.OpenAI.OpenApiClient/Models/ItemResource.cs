@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutputResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalRequest"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalResponseResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPListTools"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OutputMessage"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolCall"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CompactionBody"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutputResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalRequest"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalResponseResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPListTools"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OutputMessage"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolCall"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ItemResource : IComposedTypeWrapper, IParsable
@@ -37,6 +37,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall CodeInterpreterToolCall { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CompactionBody"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionBody? CompactionBody { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionBody CompactionBody { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCall"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -52,6 +60,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource ComputerToolCallOutputResource { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputResource"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputResource? CustomToolCallOutputResource { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputResource CustomToolCallOutputResource { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallResource"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallResource? CustomToolCallResource { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallResource CustomToolCallResource { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -165,6 +189,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.OutputMessage OutputMessage { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem? ReasoningItem { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem ReasoningItem { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -211,6 +243,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.CodeInterpreterToolCall = new global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall();
             }
+            else if("CompactionBody".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CompactionBody = new global::Soenneker.OpenAI.OpenApiClient.Models.CompactionBody();
+            }
             else if("ComputerToolCall".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ComputerToolCall = new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCall();
@@ -218,6 +254,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if("ComputerToolCallOutputResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ComputerToolCallOutputResource = new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource();
+            }
+            else if("CustomToolCallOutputResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CustomToolCallOutputResource = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputResource();
+            }
+            else if("CustomToolCallResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CustomToolCallResource = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallResource();
             }
             else if("FileSearchToolCall".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -275,6 +319,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.OutputMessage = new global::Soenneker.OpenAI.OpenApiClient.Models.OutputMessage();
             }
+            else if("ReasoningItem".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReasoningItem = new global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem();
+            }
             else if("ToolSearchCall".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ToolSearchCall = new global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall();
@@ -307,6 +355,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 return CodeInterpreterToolCall.GetFieldDeserializers();
             }
+            else if(CompactionBody != null)
+            {
+                return CompactionBody.GetFieldDeserializers();
+            }
             else if(ComputerToolCall != null)
             {
                 return ComputerToolCall.GetFieldDeserializers();
@@ -314,6 +366,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(ComputerToolCallOutputResource != null)
             {
                 return ComputerToolCallOutputResource.GetFieldDeserializers();
+            }
+            else if(CustomToolCallOutputResource != null)
+            {
+                return CustomToolCallOutputResource.GetFieldDeserializers();
+            }
+            else if(CustomToolCallResource != null)
+            {
+                return CustomToolCallResource.GetFieldDeserializers();
             }
             else if(FileSearchToolCall != null)
             {
@@ -371,6 +431,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 return OutputMessage.GetFieldDeserializers();
             }
+            else if(ReasoningItem != null)
+            {
+                return ReasoningItem.GetFieldDeserializers();
+            }
             else if(ToolSearchCall != null)
             {
                 return ToolSearchCall.GetFieldDeserializers();
@@ -404,6 +468,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall>(null, CodeInterpreterToolCall);
             }
+            else if(CompactionBody != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionBody>(null, CompactionBody);
+            }
             else if(ComputerToolCall != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCall>(null, ComputerToolCall);
@@ -411,6 +479,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(ComputerToolCallOutputResource != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource>(null, ComputerToolCallOutputResource);
+            }
+            else if(CustomToolCallOutputResource != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputResource>(null, CustomToolCallOutputResource);
+            }
+            else if(CustomToolCallResource != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallResource>(null, CustomToolCallResource);
             }
             else if(FileSearchToolCall != null)
             {
@@ -467,6 +543,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(OutputMessage != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputMessage>(null, OutputMessage);
+            }
+            else if(ReasoningItem != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem>(null, ReasoningItem);
             }
             else if(ToolSearchCall != null)
             {

@@ -9,7 +9,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class FunctionToolCallResource : global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCall, IParsable
+    public partial class CustomToolCallOutputResource : global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutput, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The identifier of the actor that created the item.</summary>
@@ -20,15 +20,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string CreatedBy { get; set; }
 #endif
+        /// <summary>The status of the item. One of `in_progress`, `completed`, or`incomplete`. Populated when items are returned via API.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallOutputStatusEnum? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallResource"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputResource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallResource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallResource();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputResource();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -39,6 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallOutputStatusEnum>(); } },
             };
         }
         /// <summary>
@@ -50,6 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("created_by", CreatedBy);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallOutputStatusEnum>("status", Status);
         }
     }
 }

@@ -12,6 +12,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class FunctionToolCallOutputResource : global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutput, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The identifier of the actor that created the item.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedBy { get; set; }
+#nullable restore
+#else
+        public string CreatedBy { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,6 +38,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "created_by", n => { CreatedBy = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -40,6 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteStringValue("created_by", CreatedBy);
         }
     }
 }
