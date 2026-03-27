@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.Files
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ListVectorStoreFilesResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ListVectorStoreFilesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a vector store file by attaching a [File](/docs/api-reference/files) to a [vector store](/docs/api-reference/vector-stores/object).
+        /// This endpoint is subject to a per-vector-store write rate limit of 300 requests per minute, shared with `/vector_stores/{vector_store_id}/file_batches`.For uploading multiple files to the same vector store, use the file batches endpoint to reduce request volume.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject"/></returns>
         /// <param name="body">The request body</param>
@@ -104,7 +104,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.Files
             return requestInfo;
         }
         /// <summary>
-        /// Create a vector store file by attaching a [File](/docs/api-reference/files) to a [vector store](/docs/api-reference/vector-stores/object).
+        /// This endpoint is subject to a per-vector-store write rate limit of 300 requests per minute, shared with `/vector_stores/{vector_store_id}/file_batches`.For uploading multiple files to the same vector store, use the file batches endpoint to reduce request volume.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

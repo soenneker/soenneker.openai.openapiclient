@@ -28,7 +28,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChunkingStrategyRequestParam ChunkingStrategy { get; set; }
 #endif
-        /// <summary>A [File](/docs/api-reference/files) ID that the vector store should use. Useful for tools like `file_search` that can access files.</summary>
+        /// <summary>A [File](/docs/api-reference/files) ID that the vector store should use. Useful for tools like `file_search` that can access files. For multi-file ingestion, we recommend [`file_batches`](/docs/api-reference/vector-stores-file-batches/createBatch) to minimize per-vector-store write requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FileId { get; set; }

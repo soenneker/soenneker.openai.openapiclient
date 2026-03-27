@@ -47,7 +47,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches
         {
         }
         /// <summary>
-        /// The maximum number of files in a single batch request is 2000.
+        /// The maximum number of files in a single batch request is 2000.Vector store file attach requests are rate limited per vector store (300 requests per minute across both this endpoint and `/vector_stores/{vector_store_id}/files`).For ingesting multiple files into the same vector store, this batch endpoint is recommended.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject"/></returns>
         /// <param name="body">The request body</param>
@@ -67,7 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The maximum number of files in a single batch request is 2000.
+        /// The maximum number of files in a single batch request is 2000.Vector store file attach requests are rate limited per vector store (300 requests per minute across both this endpoint and `/vector_stores/{vector_store_id}/files`).For ingesting multiple files into the same vector store, this batch endpoint is recommended.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
