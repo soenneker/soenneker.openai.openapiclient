@@ -87,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_tools> Tools { get; set; }
 #endif
-        /// <summary>Realtime API can write session traces to the [Traces Dashboard](/logs?api=traces). Set to null to disable tracing. Oncetracing is enabled for a session, the configuration cannot be modified.`auto` will create a trace for the session with default values for theworkflow name, group id, and metadata.</summary>
+        /// <summary>Realtime API can write session traces to the [Traces Dashboard](https://platform.openai.com/logs?api=traces). Set to null to disable tracing. Oncetracing is enabled for a session, the configuration cannot be modified.`auto` will create a trace for the session with default values for theworkflow name, group id, and metadata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_tracing? Tracing { get; set; }
