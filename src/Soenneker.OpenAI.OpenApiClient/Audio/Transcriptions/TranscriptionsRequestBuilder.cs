@@ -42,37 +42,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsPostResponse?> PostAsTranscriptionsPostResponseAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsPostResponse?> PostAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsPostResponse> PostAsTranscriptionsPostResponseAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsPostResponse> PostAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsPostResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Transcribes audio into the input language.Returns a transcription object in `json`, `diarized_json`, or `verbose_json`format, or a stream of transcript events.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsTranscriptionsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsResponse?> PostAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsResponse> PostAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Transcribes audio into the input language.Returns a transcription object in `json`, `diarized_json`, or `verbose_json`format, or a stream of transcript events.
@@ -145,109 +124,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsPostResponse();
-                if("CreateTranscriptionResponseDiarizedJson".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.CreateTranscriptionResponseDiarizedJson = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJson();
-                }
-                else if("CreateTranscriptionResponseJson".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.CreateTranscriptionResponseJson = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJson();
-                }
-                else if("CreateTranscriptionResponseVerboseJson".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.CreateTranscriptionResponseVerboseJson = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseVerboseJson();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(CreateTranscriptionResponseDiarizedJson != null)
-                {
-                    return CreateTranscriptionResponseDiarizedJson.GetFieldDeserializers();
-                }
-                else if(CreateTranscriptionResponseJson != null)
-                {
-                    return CreateTranscriptionResponseJson.GetFieldDeserializers();
-                }
-                else if(CreateTranscriptionResponseVerboseJson != null)
-                {
-                    return CreateTranscriptionResponseVerboseJson.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(CreateTranscriptionResponseDiarizedJson != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJson>(null, CreateTranscriptionResponseDiarizedJson);
-                }
-                else if(CreateTranscriptionResponseJson != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJson>(null, CreateTranscriptionResponseJson);
-                }
-                else if(CreateTranscriptionResponseVerboseJson != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseVerboseJson>(null, CreateTranscriptionResponseVerboseJson);
-                }
-            }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class TranscriptionsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJson"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJson"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseVerboseJson"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class TranscriptionsResponse : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJson"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJson? CreateTranscriptionResponseDiarizedJson { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJson CreateTranscriptionResponseDiarizedJson { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJson"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJson? CreateTranscriptionResponseJson { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJson CreateTranscriptionResponseJson { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseVerboseJson"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseVerboseJson? CreateTranscriptionResponseVerboseJson { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseVerboseJson CreateTranscriptionResponseVerboseJson { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsResponse"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder.TranscriptionsResponse();
                 if("CreateTranscriptionResponseDiarizedJson".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.CreateTranscriptionResponseDiarizedJson = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJson();

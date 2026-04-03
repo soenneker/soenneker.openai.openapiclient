@@ -96,42 +96,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images
             public string[] ApiKeyIds { get; set; }
 #endif
             /// <summary>Width of each time bucket in response. Currently `1m`, `1h` and `1d` are supported, default to `1d`.</summary>
-            [Obsolete("This property is deprecated, use BucketWidthAsGetBucketWidthQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("bucket_width")]
-            public string? BucketWidth { get; set; }
-#nullable restore
-#else
-            [QueryParameter("bucket_width")]
-            public string BucketWidth { get; set; }
-#endif
-            /// <summary>Width of each time bucket in response. Currently `1m`, `1h` and `1d` are supported, default to `1d`.</summary>
-            [QueryParameter("bucket_width")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.GetBucket_widthQueryParameterType? BucketWidthAsGetBucketWidthQueryParameterType { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.GetBucket_widthQueryParameterType? BucketWidth { get; set; }
             /// <summary>End time (Unix seconds) of the query time range, exclusive.</summary>
             [QueryParameter("end_time")]
             public int? EndTime { get; set; }
             /// <summary>Group the usage data by the specified fields. Support fields include `project_id`, `user_id`, `api_key_id`, `model`, `size`, `source` or any combination of them.</summary>
-            [Obsolete("This property is deprecated, use GroupByAsGetGroupByQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("group_by")]
-            public string[]? GroupBy { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.GetGroup_byQueryParameterType[]? GroupBy { get; set; }
 #nullable restore
 #else
             [QueryParameter("group_by")]
-            public string[] GroupBy { get; set; }
-#endif
-            /// <summary>Group the usage data by the specified fields. Support fields include `project_id`, `user_id`, `api_key_id`, `model`, `size`, `source` or any combination of them.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("group_by")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.GetGroup_byQueryParameterType[]? GroupByAsGetGroupByQueryParameterType { get; set; }
-#nullable restore
-#else
-            [QueryParameter("group_by")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.GetGroup_byQueryParameterType[] GroupByAsGetGroupByQueryParameterType { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.GetGroup_byQueryParameterType[] GroupBy { get; set; }
 #endif
             /// <summary>Specifies the number of buckets to return.- `bucket_width=1d`: default: 7, max: 31- `bucket_width=1h`: default: 24, max: 168- `bucket_width=1m`: default: 60, max: 1440</summary>
             [QueryParameter("limit")]
@@ -167,46 +145,24 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images
             public string[] ProjectIds { get; set; }
 #endif
             /// <summary>Return only usages for these image sizes. Possible values are `256x256`, `512x512`, `1024x1024`, `1792x1792`, `1024x1792` or any combination of them.</summary>
-            [Obsolete("This property is deprecated, use SizesAsGetSizesQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sizes")]
-            public string[]? Sizes { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.GetSizesQueryParameterType[]? Sizes { get; set; }
 #nullable restore
 #else
             [QueryParameter("sizes")]
-            public string[] Sizes { get; set; }
-#endif
-            /// <summary>Return only usages for these image sizes. Possible values are `256x256`, `512x512`, `1024x1024`, `1792x1792`, `1024x1792` or any combination of them.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("sizes")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.GetSizesQueryParameterType[]? SizesAsGetSizesQueryParameterType { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sizes")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.GetSizesQueryParameterType[] SizesAsGetSizesQueryParameterType { get; set; }
-#endif
-            /// <summary>Return only usages for these sources. Possible values are `image.generation`, `image.edit`, `image.variation` or any combination of them.</summary>
-            [Obsolete("This property is deprecated, use SourcesAsGetSourcesQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("sources")]
-            public string[]? Sources { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sources")]
-            public string[] Sources { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.GetSizesQueryParameterType[] Sizes { get; set; }
 #endif
             /// <summary>Return only usages for these sources. Possible values are `image.generation`, `image.edit`, `image.variation` or any combination of them.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sources")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.GetSourcesQueryParameterType[]? SourcesAsGetSourcesQueryParameterType { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.GetSourcesQueryParameterType[]? Sources { get; set; }
 #nullable restore
 #else
             [QueryParameter("sources")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.GetSourcesQueryParameterType[] SourcesAsGetSourcesQueryParameterType { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.GetSourcesQueryParameterType[] Sources { get; set; }
 #endif
             /// <summary>Start time (Unix seconds) of the query time range, inclusive.</summary>
             [QueryParameter("start_time")]
@@ -221,14 +177,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images
             [QueryParameter("user_ids")]
             public string[] UserIds { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ImagesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.ImagesRequestBuilder.ImagesRequestBuilderGetQueryParameters>
-        {
         }
     }
 }
