@@ -11,6 +11,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         File_search_callResults,
         #pragma warning restore CS1591
+        [EnumMember(Value = "web_search_call.results")]
+        #pragma warning disable CS1591
+        Web_search_callResults,
+        #pragma warning restore CS1591
         [EnumMember(Value = "web_search_call.action.sources")]
         #pragma warning disable CS1591
         Web_search_callActionSources,
