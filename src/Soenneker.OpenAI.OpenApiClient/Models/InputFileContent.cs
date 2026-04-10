@@ -15,6 +15,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The detail level of the file to be sent to the model. Use `low` for the default rendering behavior, or `high` to render the file at higher quality. Defaults to `low`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileInputDetail? Detail { get; set; }
         /// <summary>The content of the file to be sent to the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,6 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "detail", n => { Detail = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileInputDetail>(); } },
                 { "file_data", n => { FileData = n.GetStringValue(); } },
                 { "file_id", n => { FileId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent.InputFileContent_file_id>(global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent.InputFileContent_file_id.CreateFromDiscriminatorValue); } },
                 { "file_url", n => { FileUrl = n.GetStringValue(); } },
@@ -89,6 +92,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileInputDetail>("detail", Detail);
             writer.WriteStringValue("file_data", FileData);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent.InputFileContent_file_id>("file_id", FileId);
             writer.WriteStringValue("filename", Filename);
