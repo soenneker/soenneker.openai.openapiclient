@@ -5,7 +5,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>The status of the shell call output. One of `in_progress`, `completed`, or `incomplete`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum LocalShellCallOutputStatusEnum
+    public enum FunctionShellCallOutputStatusEnum
     {
         [EnumMember(Value = "in_progress")]
         #pragma warning disable CS1591

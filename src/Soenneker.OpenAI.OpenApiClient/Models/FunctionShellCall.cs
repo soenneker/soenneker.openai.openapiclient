@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The status of the shell call. One of `in_progress`, `completed`, or `incomplete`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallStatus? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallStatus? Status { get; set; }
         /// <summary>The type of the item. Always `shell_call`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall_type? Type { get; set; }
         /// <summary>
@@ -90,7 +90,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "environment", n => { Environment = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall_type>(); } },
             };
         }
@@ -106,7 +106,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteObjectValue<UntypedNode>("environment", Environment);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

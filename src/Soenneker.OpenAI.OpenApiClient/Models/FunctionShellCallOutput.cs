@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputContent> Output { get; set; }
 #endif
         /// <summary>The status of the shell call output. One of `in_progress`, `completed`, or `incomplete`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallOutputStatusEnum? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputStatusEnum? Status { get; set; }
         /// <summary>The type of the shell call output. Always `shell_call_output`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput_type? Type { get; set; }
         /// <summary>
@@ -90,7 +90,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "max_output_length", n => { MaxOutputLength = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput.FunctionShellCallOutput_max_output_length>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput.FunctionShellCallOutput_max_output_length.CreateFromDiscriminatorValue); } },
                 { "output", n => { Output = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputContent>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputContent.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallOutputStatusEnum>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputStatusEnum>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput_type>(); } },
             };
         }
@@ -106,7 +106,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput.FunctionShellCallOutput_max_output_length>("max_output_length", MaxOutputLength);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputContent>("output", Output);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallOutputStatusEnum>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputStatusEnum>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
