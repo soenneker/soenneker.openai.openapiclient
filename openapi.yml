@@ -13912,6 +13912,8 @@ paths:
               }
   /organization/admin_api_keys:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: List organization API keys
       operationId: admin-api-keys-list
       description: Retrieve a paginated list of organization admin API keys.
@@ -13986,6 +13988,8 @@ paths:
               "has_more": false
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Create an organization admin API key
       operationId: admin-api-keys-create
       description: Create a new admin-level API key for the organization.
@@ -14041,6 +14045,8 @@ paths:
             }
   /organization/admin_api_keys/{key_id}:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Retrieve a single organization API key
       operationId: admin-api-keys-get
       description: Get details for a specific organization API key by its ID.
@@ -14086,6 +14092,8 @@ paths:
               }
             }
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: Delete an organization admin API key
       operationId: admin-api-keys-delete
       description: Delete the specified admin API key.
@@ -14131,6 +14139,8 @@ paths:
             }
   /organization/audit_logs:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: List user actions and configuration changes within this organization.
       operationId: list-audit-logs
       tags:
@@ -14318,6 +14328,8 @@ paths:
             }
   /organization/certificates:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: List uploaded certificates for this organization.
       operationId: listOrganizationCertificates
       tags:
@@ -14389,6 +14401,8 @@ paths:
               "has_more": false
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: >
         Upload a certificate to the organization. This does **not**
         automatically activate the certificate.
@@ -14438,6 +14452,8 @@ paths:
             }
   /organization/certificates/activate:
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: >
         Activate certificates at the organization level.
 
@@ -14507,6 +14523,8 @@ paths:
             }
   /organization/certificates/deactivate:
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: >
         Deactivate certificates at the organization level.
 
@@ -14576,6 +14594,8 @@ paths:
             }
   /organization/certificates/{certificate_id}:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: |
         Get a certificate that has been uploaded to the organization.
 
@@ -14634,6 +14654,8 @@ paths:
               }
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: |
         Modify a certificate. Note that only the name can be modified.
       operationId: modifyCertificate
@@ -14688,6 +14710,8 @@ paths:
               }
             }
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: |
         Delete a certificate from the organization.
 
@@ -14726,6 +14750,8 @@ paths:
             }
   /organization/costs:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Get costs details for the organization.
       operationId: usage-costs
       tags:
@@ -14837,6 +14863,8 @@ paths:
             }
   /organization/groups:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Lists all groups in the organization.
       operationId: list-groups
       tags:
@@ -14907,6 +14935,8 @@ paths:
                 "next": null
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Creates a new group in the organization.
       operationId: create-group
       tags:
@@ -14947,6 +14977,8 @@ paths:
             }
   /organization/groups/{group_id}:
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Updates a group's information.
       operationId: update-group
       tags:
@@ -14994,6 +15026,8 @@ paths:
                 "is_scim_managed": false
             }
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: Deletes a group from the organization.
       operationId: delete-group
       tags:
@@ -15031,6 +15065,8 @@ paths:
             }
   /organization/groups/{group_id}/roles:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: >-
         Lists the organization roles assigned to a group within the
         organization.
@@ -15118,6 +15154,8 @@ paths:
                 "next": null
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Assigns an organization role to a group within the organization.
       operationId: assign-group-role
       tags:
@@ -15182,6 +15220,8 @@ paths:
             }
   /organization/groups/{group_id}/roles/{role_id}:
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: Unassigns an organization role from a group within the organization.
       operationId: unassign-group-role
       tags:
@@ -15224,6 +15264,8 @@ paths:
             }
   /organization/groups/{group_id}/users:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Lists the users assigned to a group.
       operationId: list-group-users
       tags:
@@ -15299,6 +15341,8 @@ paths:
                 "next": null
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Adds a user to a group.
       operationId: add-group-user
       tags:
@@ -15346,6 +15390,8 @@ paths:
             }
   /organization/groups/{group_id}/users/{user_id}:
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: Removes a user from a group.
       operationId: remove-group-user
       tags:
@@ -15388,6 +15434,8 @@ paths:
             }
   /organization/invites:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Returns a list of invites in the organization.
       operationId: list-invites
       tags:
@@ -15450,6 +15498,8 @@ paths:
               "has_more": false
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: >-
         Create an invite for a user to the organization. The invite must be
         accepted by the user before they have access to the organization.
@@ -15516,6 +15566,8 @@ paths:
             }
   /organization/invites/{invite_id}:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Retrieves an invite.
       operationId: retrieve-invite
       tags:
@@ -15555,6 +15607,8 @@ paths:
                 "accepted_at": 1711471533
             }
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: >-
         Delete an invite. If the invite has already been accepted, it cannot be
         deleted.
@@ -15595,6 +15649,8 @@ paths:
     get:
       summary: Returns a list of projects.
       operationId: list-projects
+      security:
+        - AdminApiKeyAuth: []
       tags:
         - Projects
       parameters:
@@ -15665,6 +15721,8 @@ paths:
         Create a new project in the organization. Projects can be created and
         archived, but cannot be deleted.
       operationId: create-project
+      security:
+        - AdminApiKeyAuth: []
       tags:
         - Projects
       requestBody:
@@ -15706,6 +15764,8 @@ paths:
     get:
       summary: Retrieves a project.
       operationId: retrieve-project
+      security:
+        - AdminApiKeyAuth: []
       tags:
         - Projects
       parameters:
@@ -15744,6 +15804,8 @@ paths:
     post:
       summary: Modifies a project in the organization.
       operationId: modify-project
+      security:
+        - AdminApiKeyAuth: []
       tags:
         - Projects
       parameters:
@@ -15789,6 +15851,8 @@ paths:
           response: ''
   /organization/projects/{project_id}/api_keys:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Returns a list of API keys in the project.
       operationId: list-project-api-keys
       tags:
@@ -15867,6 +15931,8 @@ paths:
             }
   /organization/projects/{project_id}/api_keys/{key_id}:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Retrieves an API key in the project.
       operationId: retrieve-project-api-key
       tags:
@@ -15923,6 +15989,8 @@ paths:
                 }
             }
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: >
         Deletes an API key from the project.
 
@@ -15983,6 +16051,8 @@ paths:
         Archives a project in the organization. Archived projects cannot be used
         or updated.
       operationId: archive-project
+      security:
+        - AdminApiKeyAuth: []
       tags:
         - Projects
       parameters:
@@ -16020,6 +16090,8 @@ paths:
             }
   /organization/projects/{project_id}/certificates:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: List certificates for this project.
       operationId: listProjectCertificates
       tags:
@@ -16101,6 +16173,8 @@ paths:
             }
   /organization/projects/{project_id}/certificates/activate:
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: >
         Activate certificates at the project level.
 
@@ -16178,6 +16252,8 @@ paths:
             }
   /organization/projects/{project_id}/certificates/deactivate:
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: |
         Deactivate certificates at the project level. You can atomically and 
         idempotently deactivate up to 10 certificates at a time.
@@ -16252,6 +16328,8 @@ paths:
             }
   /organization/projects/{project_id}/groups:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Lists the groups that have access to a project.
       operationId: list-project-groups
       tags:
@@ -16324,6 +16402,8 @@ paths:
                 "next": null
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Grants a group access to a project.
       operationId: add-project-group
       tags:
@@ -16374,6 +16454,8 @@ paths:
             }
   /organization/projects/{project_id}/groups/{group_id}:
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: Revokes a group's access to a project.
       operationId: remove-project-group
       tags:
@@ -16416,6 +16498,8 @@ paths:
             }
   /organization/projects/{project_id}/rate_limits:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Returns the rate limits per model for a project.
       operationId: list-project-rate-limits
       tags:
@@ -16498,6 +16582,8 @@ paths:
             }
   /organization/projects/{project_id}/rate_limits/{rate_limit_id}:
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Updates a project rate limit.
       operationId: update-project-rate-limits
       tags:
@@ -16565,6 +16651,8 @@ paths:
             }
   /organization/projects/{project_id}/service_accounts:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Returns a list of service accounts in the project.
       operationId: list-project-service-accounts
       tags:
@@ -16636,6 +16724,8 @@ paths:
                 "has_more": false
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: >-
         Creates a new service account in the project. This also returns an
         unredacted API key for the service account.
@@ -16700,6 +16790,8 @@ paths:
             }
   /organization/projects/{project_id}/service_accounts/{service_account_id}:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Retrieves a service account in the project.
       operationId: retrieve-project-service-account
       tags:
@@ -16744,6 +16836,8 @@ paths:
                 "created_at": 1711471533
             }
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: >
         Deletes a service account from the project.
 
@@ -16794,6 +16888,8 @@ paths:
             }
   /organization/projects/{project_id}/users:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Returns a list of users in the project.
       operationId: list-project-users
       tags:
@@ -16866,6 +16962,8 @@ paths:
                 "has_more": false
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: >-
         Adds a user to the project. Users must already be members of the
         organization to be added to a project.
@@ -16923,6 +17021,8 @@ paths:
             }
   /organization/projects/{project_id}/users/{user_id}:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Retrieves a user in the project.
       operationId: retrieve-project-user
       tags:
@@ -16968,6 +17068,8 @@ paths:
                 "added_at": 1711471533
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Modifies a user's role in the project.
       operationId: modify-project-user
       tags:
@@ -17029,6 +17131,8 @@ paths:
                 "added_at": 1711471533
             }
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: >
         Deletes a user from the project.
 
@@ -17085,6 +17189,8 @@ paths:
             }
   /organization/roles:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Lists the roles configured for the organization.
       operationId: list-roles
       tags:
@@ -17154,6 +17260,8 @@ paths:
                 "next": null
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Creates a custom role for the organization.
       operationId: create-role
       tags:
@@ -17204,6 +17312,8 @@ paths:
             }
   /organization/roles/{role_id}:
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Updates an existing organization role.
       operationId: update-role
       tags:
@@ -17261,6 +17371,8 @@ paths:
                 "predefined_role": false
             }
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: Deletes a custom role from the organization.
       operationId: delete-role
       tags:
@@ -17297,6 +17409,8 @@ paths:
             }
   /organization/usage/audio_speeches:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Get audio speeches usage details for the organization.
       operationId: usage-audio-speeches
       tags:
@@ -17438,6 +17552,8 @@ paths:
             }
   /organization/usage/audio_transcriptions:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Get audio transcriptions usage details for the organization.
       operationId: usage-audio-transcriptions
       tags:
@@ -17579,6 +17695,8 @@ paths:
             }
   /organization/usage/code_interpreter_sessions:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Get code interpreter sessions usage details for the organization.
       operationId: usage-code-interpreter-sessions
       tags:
@@ -17688,6 +17806,8 @@ paths:
             }
   /organization/usage/completions:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Get completions usage details for the organization.
       operationId: usage-completions
       tags:
@@ -17845,6 +17965,8 @@ paths:
             }
   /organization/usage/embeddings:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Get embeddings usage details for the organization.
       operationId: usage-embeddings
       tags:
@@ -17986,6 +18108,8 @@ paths:
             }
   /organization/usage/images:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Get images usage details for the organization.
       operationId: usage-images
       tags:
@@ -18163,6 +18287,8 @@ paths:
             }
   /organization/usage/moderations:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Get moderations usage details for the organization.
       operationId: usage-moderations
       tags:
@@ -18304,6 +18430,8 @@ paths:
             }
   /organization/usage/vector_stores:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Get vector stores usage details for the organization.
       operationId: usage-vector-stores
       tags:
@@ -18413,6 +18541,8 @@ paths:
             }
   /organization/users:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Lists all of the users in the organization.
       operationId: list-users
       tags:
@@ -18482,6 +18612,8 @@ paths:
             }
   /organization/users/{user_id}:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Retrieves a user by their identifier.
       operationId: retrieve-user
       tags:
@@ -18519,6 +18651,8 @@ paths:
                 "added_at": 1711471533
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Modifies a user's role in the organization.
       operationId: modify-user
       tags:
@@ -18567,6 +18701,8 @@ paths:
                 "added_at": 1711471533
             }
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: Deletes a user from the organization.
       operationId: delete-user
       tags:
@@ -18603,6 +18739,8 @@ paths:
             }
   /organization/users/{user_id}/roles:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Lists the organization roles assigned to a user within the organization.
       operationId: list-user-role-assignments
       tags:
@@ -18685,6 +18823,8 @@ paths:
                 "next": null
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Assigns an organization role to a user within the organization.
       operationId: assign-user-role
       tags:
@@ -18749,6 +18889,8 @@ paths:
             }
   /organization/users/{user_id}/roles/{role_id}:
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: Unassigns an organization role from a user within the organization.
       operationId: unassign-user-role
       tags:
@@ -18791,6 +18933,8 @@ paths:
             }
   /projects/{project_id}/groups/{group_id}/roles:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Lists the project roles assigned to a group within a project.
       operationId: list-project-group-role-assignments
       tags:
@@ -18880,6 +19024,8 @@ paths:
                 "next": null
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Assigns a project role to a group within a project.
       operationId: assign-project-group-role
       tags:
@@ -18950,6 +19096,8 @@ paths:
             }
   /projects/{project_id}/groups/{group_id}/roles/{role_id}:
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: Unassigns a project role from a group within a project.
       operationId: unassign-project-group-role
       tags:
@@ -18998,6 +19146,8 @@ paths:
             }
   /projects/{project_id}/roles:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Lists the roles configured for a project.
       operationId: list-project-roles
       tags:
@@ -19074,6 +19224,8 @@ paths:
                 "next": null
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Creates a custom role for a project.
       operationId: create-project-role
       tags:
@@ -19132,6 +19284,8 @@ paths:
             }
   /projects/{project_id}/roles/{role_id}:
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Updates an existing project role.
       operationId: update-project-role
       tags:
@@ -19196,6 +19350,8 @@ paths:
                 "predefined_role": false
             }
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: Deletes a custom role from a project.
       operationId: delete-project-role
       tags:
@@ -19239,6 +19395,8 @@ paths:
             }
   /projects/{project_id}/users/{user_id}/roles:
     get:
+      security:
+        - AdminApiKeyAuth: []
       summary: Lists the project roles assigned to a user within a project.
       operationId: list-project-user-role-assignments
       tags:
@@ -19328,6 +19486,8 @@ paths:
                 "next": null
             }
     post:
+      security:
+        - AdminApiKeyAuth: []
       summary: Assigns a project role to a user within a project.
       operationId: assign-project-user-role
       tags:
@@ -19399,6 +19559,8 @@ paths:
             }
   /projects/{project_id}/users/{user_id}/roles/{role_id}:
     delete:
+      security:
+        - AdminApiKeyAuth: []
       summary: Unassigns a project role from a user within a project.
       operationId: unassign-project-user-role
       tags:
@@ -32811,13 +32973,13 @@ components:
           description: The value of the API key. Only shown on create.
         created_at:
           type: integer
-          format: int64
+          format: unixtime
           example: 1711471533
           description: The Unix timestamp (in seconds) of when the API key was created
         last_used_at:
           anyOf:
             - type: integer
-              format: int64
+              format: unixtime
               example: 1711471534
               description: >-
                 The Unix timestamp (in seconds) of when the API key was last
@@ -32844,7 +33006,7 @@ components:
               description: The name of the user
             created_at:
               type: integer
-              format: int64
+              format: unixtime
               example: 1711471533
               description: The Unix timestamp (in seconds) of when the user was created
             role:
@@ -32929,7 +33091,7 @@ components:
           description: When the role was created.
           anyOf:
             - type: integer
-              format: int64
+              format: unixtime
             - type: 'null'
         updated_at:
           description: When the role was last updated.
@@ -32983,6 +33145,7 @@ components:
         created_at:
           description: The Unix timestamp (in seconds) for when the assistant was created.
           type: integer
+          format: unixtime
         name:
           anyOf:
             - description: |
@@ -33458,6 +33621,7 @@ components:
           $ref: '#/components/schemas/AuditLogEventType'
         effective_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) of the event.
         project:
           type: object
@@ -34365,36 +34529,45 @@ components:
           description: The ID of the file containing the outputs of requests with errors.
         created_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the batch was created.
         in_progress_at:
           type: integer
+          format: unixtime
           description: >-
             The Unix timestamp (in seconds) for when the batch started
             processing.
         expires_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the batch will expire.
         finalizing_at:
           type: integer
+          format: unixtime
           description: >-
             The Unix timestamp (in seconds) for when the batch started
             finalizing.
         completed_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the batch was completed.
         failed_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the batch failed.
         expired_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the batch expired.
         cancelling_at:
           type: integer
+          format: unixtime
           description: >-
             The Unix timestamp (in seconds) for when the batch started
             cancelling.
         cancelled_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the batch was cancelled.
         request_counts:
           type: object
@@ -34536,6 +34709,7 @@ components:
             The number of seconds after the anchor time that the file will
             expire. Must be between 3600 (1 hour) and 2592000 (30 days).
           type: integer
+          format: int64
           minimum: 3600
           maximum: 2592000
       required:
@@ -34572,6 +34746,7 @@ components:
           description: The name of the certificate.
         created_at:
           type: integer
+          format: unixtime
           description: >-
             The Unix timestamp (in seconds) of when the certificate was
             uploaded.
@@ -34580,11 +34755,13 @@ components:
           properties:
             valid_at:
               type: integer
+              format: unixtime
               description: >-
                 The Unix timestamp (in seconds) of when the certificate becomes
                 valid.
             expires_at:
               type: integer
+              format: unixtime
               description: The Unix timestamp (in seconds) of when the certificate expires.
             content:
               type: string
@@ -35553,6 +35730,7 @@ components:
                       the message.
                   url:
                     type: string
+                    format: uri
                     description: The URL of the web resource.
                   title:
                     type: string
@@ -35604,6 +35782,7 @@ components:
                   description: Unique identifier for this audio response.
                 expires_at:
                   type: integer
+                  format: unixtime
                   description: >
                     The Unix timestamp (in seconds) for when this audio response
                     will
@@ -36215,6 +36394,7 @@ components:
           x-stainless-const: true
         image_url:
           type: string
+          format: uri
           description: The URL of the screenshot image.
         file_id:
           type: string
@@ -36383,6 +36563,7 @@ components:
           description: The container this file belongs to.
         created_at:
           type: integer
+          format: unixtime
           description: Unix timestamp (in seconds) when the file was created.
         bytes:
           type: integer
@@ -36456,12 +36637,14 @@ components:
           description: Name of the container.
         created_at:
           type: integer
+          format: unixtime
           description: Unix timestamp (in seconds) when the container was created.
         status:
           type: string
           description: Status of the container (e.g., active, deleted).
         last_active_at:
           type: integer
+          format: unixtime
           description: Unix timestamp (in seconds) when the container was last active.
         expires_after:
           type: object
@@ -37364,6 +37547,7 @@ components:
                   - type: 'null'
         created:
           type: integer
+          format: unixtime
           description: >-
             The Unix timestamp (in seconds) of when the chat completion was
             created.
@@ -37516,6 +37700,7 @@ components:
                 description: The index of the choice in the list of choices.
         created:
           type: integer
+          format: unixtime
           description: >-
             The Unix timestamp (in seconds) of when the chat completion was
             created. Each chunk has the same timestamp.
@@ -37903,6 +38088,7 @@ components:
                 type: string
         created:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) of when the completion was created.
         model:
           type: string
@@ -40919,6 +41105,7 @@ components:
           x-stainless-const: true
         duration:
           type: number
+          format: double
           description: Duration of the input audio in seconds.
         text:
           type: string
@@ -41052,6 +41239,7 @@ components:
           description: The language of the input audio.
         duration:
           type: number
+          format: double
           description: The duration of the input audio.
         text:
           type: string
@@ -41172,6 +41360,7 @@ components:
           description: The language of the output translation (always `english`).
         duration:
           type: number
+          format: double
           description: The duration of the input audio.
         text:
           type: string
@@ -42110,6 +42299,7 @@ components:
               - $ref: '#/components/schemas/EvalGraderScoreModel'
         created_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the eval was created.
         metadata:
           $ref: '#/components/schemas/Metadata'
@@ -42423,6 +42613,7 @@ components:
           x-stainless-const: true
         image_url:
           type: string
+          format: uri
           description: |
             The URL of the image input.
         detail:
@@ -42757,9 +42948,11 @@ components:
           description: The name of the evaluation run.
         created_at:
           type: integer
+          format: unixtime
           description: Unix timestamp (in seconds) when the evaluation run was created.
         report_url:
           type: string
+          format: uri
           description: The URL to the rendered evaluation run report on the UI dashboard.
         result_counts:
           type: object
@@ -43134,6 +43327,7 @@ components:
           description: The identifier of the evaluation group.
         created_at:
           type: integer
+          format: unixtime
           description: Unix timestamp (in seconds) when the evaluation run was created.
         status:
           type: string
@@ -43559,6 +43753,7 @@ components:
             The number of seconds after the anchor time that the file will
             expire. Must be between 3600 (1 hour) and 2592000 (30 days).
           type: integer
+          format: int64
           minimum: 3600
           maximum: 2592000
       required:
@@ -43963,6 +44158,7 @@ components:
             endpoints.
         created_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the permission was created.
         project_id:
           type: string
@@ -44059,6 +44255,7 @@ components:
           description: The object identifier, which can be referenced in the API endpoints.
         created_at:
           type: integer
+          format: unixtime
           description: >-
             The Unix timestamp (in seconds) for when the fine-tuning job was
             created.
@@ -44098,6 +44295,7 @@ components:
         finished_at:
           anyOf:
             - type: integer
+              format: unixtime
               description: >-
                 The Unix timestamp (in seconds) for when the fine-tuning job was
                 finished. The value will be null if the fine-tuning job is still
@@ -44226,6 +44424,7 @@ components:
         estimated_finish:
           anyOf:
             - type: integer
+              format: unixtime
               description: >-
                 The Unix timestamp (in seconds) for when the fine-tuning job is
                 estimated to finish. The value will be null if the fine-tuning
@@ -44305,6 +44504,7 @@ components:
             endpoints.
         created_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the checkpoint was created.
         fine_tuned_model_checkpoint:
           type: string
@@ -44384,6 +44584,7 @@ components:
           description: The object identifier.
         created_at:
           type: integer
+          format: unixtime
           description: >-
             The Unix timestamp (in seconds) for when the fine-tuning job was
             created.
@@ -45039,7 +45240,7 @@ components:
           description: Display name of the group.
         created_at:
           type: integer
-          format: int64
+          format: unixtime
           description: Unix timestamp (in seconds) when the group was created.
         scim_managed:
           type: boolean
@@ -45151,7 +45352,7 @@ components:
           description: Updated display name for the group.
         created_at:
           type: integer
-          format: int64
+          format: unixtime
           description: Unix timestamp (in seconds) when the group was created.
         is_scim_managed:
           type: boolean
@@ -45183,7 +45384,7 @@ components:
           description: Display name of the group.
         created_at:
           type: integer
-          format: int64
+          format: unixtime
           description: Unix timestamp (in seconds) when the group was created.
         is_scim_managed:
           type: boolean
@@ -45312,6 +45513,7 @@ components:
             set to `b64_json` for `dall-e-2` and `dall-e-3`.
         url:
           type: string
+          format: uri
           description: >-
             When using `dall-e-2` or `dall-e-3`, the URL of the generated image
             if `response_format` is set to `url` (default value). Unsupported
@@ -45341,6 +45543,7 @@ components:
             image.
         created_at:
           type: integer
+          format: unixtime
           description: |
             The Unix timestamp when the event was created.
         size:
@@ -45430,6 +45633,7 @@ components:
             image.
         created_at:
           type: integer
+          format: unixtime
           description: |
             The Unix timestamp when the event was created.
         size:
@@ -45518,6 +45722,7 @@ components:
             Base64-encoded image data, suitable for rendering as an image.
         created_at:
           type: integer
+          format: unixtime
           description: |
             The Unix timestamp when the event was created.
         size:
@@ -45607,6 +45812,7 @@ components:
             image.
         created_at:
           type: integer
+          format: unixtime
           description: |
             The Unix timestamp when the event was created.
         size:
@@ -45838,6 +46044,7 @@ components:
       properties:
         image_url:
           type: string
+          format: uri
           maxLength: 20971520
           description: A fully qualified URL or base64-encoded data URL.
           example: https://example.com/source-image.png
@@ -45862,6 +46069,7 @@ components:
       properties:
         created:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) of when the image was created.
         data:
           type: array
@@ -46140,12 +46348,15 @@ components:
           description: '`accepted`,`expired`, or `pending`'
         invited_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) of when the invite was sent.
         expires_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) of when the invite expires.
         accepted_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) of when the invite was accepted.
         projects:
           type: array
@@ -47056,6 +47267,7 @@ components:
             A label for this MCP server, used to identify it in tool calls.
         server_url:
           type: string
+          format: uri
           description: >
             The URL for the MCP server. One of `server_url` or `connector_id`
             must be
@@ -47518,6 +47730,7 @@ components:
                 The URL of the image, must be a supported image types: jpeg,
                 jpg, png, gif, webp.
               type: string
+              format: uri
             detail:
               type: string
               description: >-
@@ -47730,6 +47943,7 @@ components:
         created_at:
           description: The Unix timestamp (in seconds) for when the message was created.
           type: integer
+          format: unixtime
         thread_id:
           description: >-
             The [thread](/docs/api-reference/threads) ID that this message
@@ -47769,6 +47983,7 @@ components:
                 The Unix timestamp (in seconds) for when the message was
                 completed.
               type: integer
+              format: unixtime
             - type: 'null'
         incomplete_at:
           anyOf:
@@ -47776,6 +47991,7 @@ components:
                 The Unix timestamp (in seconds) for when the message was marked
                 as incomplete.
               type: integer
+              format: unixtime
             - type: 'null'
         role:
           description: The entity that produced the message. One of `user` or `assistant`.
@@ -48021,6 +48237,7 @@ components:
           description: The model identifier, which can be referenced in the API endpoints.
         created:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) when the model was created.
         object:
           type: string
@@ -48474,9 +48691,11 @@ components:
           description: The size of the file, in bytes.
         created_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the file was created.
         expires_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the file will expire.
         filename:
           type: string
@@ -48764,10 +48983,12 @@ components:
           description: The name of the project. This appears in reporting.
         created_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) of when the project was created.
         archived_at:
           anyOf:
             - type: integer
+              format: unixtime
               description: >-
                 The Unix timestamp (in seconds) of when the project was archived
                 or `null`.
@@ -48813,9 +49034,11 @@ components:
           description: The name of the API key
         created_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) of when the API key was created
         last_used_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) of when the API key was last used.
         id:
           type: string
@@ -48949,7 +49172,7 @@ components:
           description: Display name of the group.
         created_at:
           type: integer
-          format: int64
+          format: unixtime
           description: >-
             Unix timestamp (in seconds) when the group was granted project
             access.
@@ -49193,6 +49416,7 @@ components:
           description: '`owner` or `member`'
         created_at:
           type: integer
+          format: unixtime
           description: >-
             The Unix timestamp (in seconds) of when the service account was
             created
@@ -49229,6 +49453,7 @@ components:
           type: string
         created_at:
           type: integer
+          format: unixtime
         id:
           type: string
       required:
@@ -49265,6 +49490,7 @@ components:
           x-stainless-const: true
         created_at:
           type: integer
+          format: unixtime
         api_key:
           $ref: '#/components/schemas/ProjectServiceAccountApiKey'
       required:
@@ -49349,6 +49575,7 @@ components:
           description: '`owner` or `member`'
         added_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) of when the project was added.
       required:
         - object
@@ -50997,11 +51224,11 @@ components:
           description: The detected speaker label for this segment.
         start:
           type: number
-          format: float
+          format: double
           description: Start time of the segment in seconds.
         end:
           type: number
-          format: float
+          format: double
           description: End time of the segment in seconds.
       required:
         - event_id
@@ -53807,6 +54034,7 @@ components:
                   specified.
               image_url:
                 type: string
+                format: uri
                 description: >-
                   Base64-encoded image bytes (for `input_image`) as a data URI.
                   For example
@@ -54006,6 +54234,7 @@ components:
               x-stainless-const: true
             seconds:
               type: integer
+              format: int64
               description: >
                 The number of seconds from the anchor point to the expiration.
                 Select a value between `10` and `7200` (2 hours). This default
@@ -54034,6 +54263,7 @@ components:
           description: The generated client secret value.
         expires_at:
           type: integer
+          format: unixtime
           description: Expiration timestamp for the client secret, in seconds since epoch.
         session:
           title: Session configuration
@@ -55247,11 +55477,11 @@ components:
           description: The detected speaker label for this segment.
         start:
           type: number
-          format: float
+          format: double
           description: Start time of the segment in seconds.
         end:
           type: number
-          format: float
+          format: double
           description: End time of the segment in seconds.
       required:
         - event_id
@@ -57535,6 +57765,7 @@ components:
             given model. Defaults to `inf`.
         expires_at:
           type: integer
+          format: unixtime
           description: Expiration timestamp for the session, in seconds since epoch.
         prompt:
           anyOf:
@@ -57575,6 +57806,7 @@ components:
                 a standard API token, which should only be used server-side.
             expires_at:
               type: integer
+              format: unixtime
               description: >
                 Timestamp for when the token expires. Currently, all tokens
                 expire
@@ -58108,6 +58340,7 @@ components:
           description: The object type. Always `realtime.session`.
         expires_at:
           type: integer
+          format: unixtime
           description: Expiration timestamp for the session, in seconds since epoch.
         include:
           type: array
@@ -58376,6 +58609,7 @@ components:
                 be used server-side.
             expires_at:
               type: integer
+              format: unixtime
               description: >
                 Timestamp for when the token expires. Currently, all tokens
                 expire
@@ -58824,6 +59058,7 @@ components:
                 a standard API token, which should only be used server-side.
             expires_at:
               type: integer
+              format: unixtime
               description: >
                 Timestamp for when the token expires. Currently, all tokens
                 expire
@@ -58940,6 +59175,7 @@ components:
           description: The object type. Always `realtime.transcription_session`.
         expires_at:
           type: integer
+          format: unixtime
           description: Expiration timestamp for the session, in seconds since epoch.
         include:
           type: array
@@ -59477,12 +59713,14 @@ components:
                 - queued
                 - incomplete
             created_at:
-              type: number
+              type: integer
+              format: unixtime
               description: |
                 Unix timestamp (in seconds) of when this Response was created.
             completed_at:
               anyOf:
-                - type: number
+                - type: integer
+                  format: unixtime
                   description: >
                     Unix timestamp (in seconds) of when this Response was
                     completed.
@@ -62952,6 +63190,7 @@ components:
         created_at:
           description: The Unix timestamp (in seconds) for when the run was created.
           type: integer
+          format: unixtime
         thread_id:
           description: >-
             The ID of the [thread](/docs/api-reference/threads) that was
@@ -63030,22 +63269,27 @@ components:
         expires_at:
           description: The Unix timestamp (in seconds) for when the run will expire.
           type: integer
+          format: unixtime
           nullable: true
         started_at:
           description: The Unix timestamp (in seconds) for when the run was started.
           type: integer
+          format: unixtime
           nullable: true
         cancelled_at:
           description: The Unix timestamp (in seconds) for when the run was cancelled.
           type: integer
+          format: unixtime
           nullable: true
         failed_at:
           description: The Unix timestamp (in seconds) for when the run failed.
           type: integer
+          format: unixtime
           nullable: true
         completed_at:
           description: The Unix timestamp (in seconds) for when the run was completed.
           type: integer
+          format: unixtime
           nullable: true
         incomplete_details:
           description: >-
@@ -63745,6 +63989,7 @@ components:
         created_at:
           description: The Unix timestamp (in seconds) for when the run step was created.
           type: integer
+          format: unixtime
         assistant_id:
           description: >-
             The ID of the [assistant](/docs/api-reference/assistants) associated
@@ -63809,6 +64054,7 @@ components:
                 The Unix timestamp (in seconds) for when the run step expired. A
                 step is considered expired if the parent run is expired.
               type: integer
+              format: unixtime
             - type: 'null'
         cancelled_at:
           anyOf:
@@ -63816,16 +64062,19 @@ components:
                 The Unix timestamp (in seconds) for when the run step was
                 cancelled.
               type: integer
+              format: unixtime
             - type: 'null'
         failed_at:
           anyOf:
             - description: The Unix timestamp (in seconds) for when the run step failed.
               type: integer
+              format: unixtime
             - type: 'null'
         completed_at:
           anyOf:
             - description: The Unix timestamp (in seconds) for when the run step completed.
               type: integer
+              format: unixtime
             - type: 'null'
         metadata:
           $ref: '#/components/schemas/Metadata'
@@ -64497,6 +64746,7 @@ components:
         created_at:
           description: The Unix timestamp (in seconds) for when the thread was created.
           type: integer
+          format: unixtime
         tool_resources:
           anyOf:
             - type: object
@@ -64959,11 +65209,11 @@ components:
           description: Unique identifier for the segment.
         start:
           type: number
-          format: float
+          format: double
           description: Start timestamp of the segment in seconds.
         end:
           type: number
-          format: float
+          format: double
           description: End timestamp of the segment in seconds.
         text:
           type: string
@@ -65003,6 +65253,7 @@ components:
           x-stainless-const: true
         seconds:
           type: number
+          format: double
           description: Duration of the input audio in seconds.
       required:
         - type
@@ -65082,11 +65333,11 @@ components:
           description: Unique identifier for the segment.
         start:
           type: number
-          format: float
+          format: double
           description: Start timestamp of the segment in seconds.
         end:
           type: number
-          format: float
+          format: double
           description: End timestamp of the segment in seconds.
         text:
           type: string
@@ -65120,11 +65371,11 @@ components:
           description: Seek offset of the segment.
         start:
           type: number
-          format: float
+          format: double
           description: Start time of the segment in seconds.
         end:
           type: number
-          format: float
+          format: double
           description: End time of the segment in seconds.
         text:
           type: string
@@ -65175,11 +65426,11 @@ components:
           description: The text content of the word.
         start:
           type: number
-          format: float
+          format: double
           description: Start time of the word in seconds.
         end:
           type: number
-          format: float
+          format: double
           description: End time of the word in seconds.
       required:
         - word
@@ -65275,6 +65526,7 @@ components:
             endpoints.
         created_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the Upload was created.
         filename:
           type: string
@@ -65298,6 +65550,7 @@ components:
             - expired
         expires_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the Upload will expire.
         object:
           type: string
@@ -65364,6 +65617,7 @@ components:
             endpoints.
         created_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the Part was created.
         upload_id:
           type: string
@@ -65460,6 +65714,7 @@ components:
           x-stainless-const: true
         seconds:
           type: integer
+          format: int64
           description: The number of seconds processed.
         num_model_requests:
           type: integer
@@ -65944,6 +66199,7 @@ components:
           description: '`owner` or `reader`'
         added_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) of when the user was added.
       required:
         - object
@@ -66243,6 +66499,7 @@ components:
             The Unix timestamp (in seconds) for when the vector store files
             batch was created.
           type: integer
+          format: unixtime
         vector_store_id:
           description: >-
             The ID of the [vector
@@ -66367,6 +66624,7 @@ components:
             The Unix timestamp (in seconds) for when the vector store file was
             created.
           type: integer
+          format: unixtime
         vector_store_id:
           description: >-
             The ID of the [vector
@@ -66464,6 +66722,7 @@ components:
             The Unix timestamp (in seconds) for when the vector store was
             created.
           type: integer
+          format: unixtime
         name:
           description: The name of the vector store.
           type: string
@@ -66512,6 +66771,7 @@ components:
                 The Unix timestamp (in seconds) for when the vector store will
                 expire.
               type: integer
+              format: unixtime
             - type: 'null'
         last_active_at:
           anyOf:
@@ -66519,6 +66779,7 @@ components:
                 The Unix timestamp (in seconds) for when the vector store was
                 last active.
               type: integer
+              format: unixtime
             - type: 'null'
         metadata:
           $ref: '#/components/schemas/Metadata'
@@ -66805,6 +67066,7 @@ components:
             `en-US`).
         created_at:
           type: integer
+          format: unixtime
           description: >-
             The Unix timestamp (in seconds) for when the consent recording was
             created.
@@ -66876,6 +67138,7 @@ components:
           description: The name of the voice.
         created_at:
           type: integer
+          format: unixtime
           description: The Unix timestamp (in seconds) for when the voice was created.
       required:
         - object
@@ -66985,6 +67248,7 @@ components:
                 x-stainless-const: true
               url:
                 type: string
+                format: uri
                 description: |
                   The URL of the source.
             required:
@@ -67195,6 +67459,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: >
             The Unix timestamp (in seconds) of when the batch API request was
             cancelled.
@@ -67252,6 +67517,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: >
             The Unix timestamp (in seconds) of when the batch API request was
             completed.
@@ -67309,6 +67575,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: >
             The Unix timestamp (in seconds) of when the batch API request
             expired.
@@ -67366,6 +67633,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: >
             The Unix timestamp (in seconds) of when the batch API request
             failed.
@@ -67423,6 +67691,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: |
             The Unix timestamp (in seconds) of when the eval run was canceled.
         id:
@@ -67479,6 +67748,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: |
             The Unix timestamp (in seconds) of when the eval run failed.
         id:
@@ -67535,6 +67805,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: |
             The Unix timestamp (in seconds) of when the eval run succeeded.
         id:
@@ -67591,6 +67862,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: >
             The Unix timestamp (in seconds) of when the fine-tuning job was
             cancelled.
@@ -67648,6 +67920,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: |
             The Unix timestamp (in seconds) of when the fine-tuning job failed.
         id:
@@ -67704,6 +67977,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: >
             The Unix timestamp (in seconds) of when the fine-tuning job
             succeeded.
@@ -67761,6 +68035,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: >
             The Unix timestamp (in seconds) of when the model response was
             completed.
@@ -67844,6 +68119,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: >
             The Unix timestamp (in seconds) of when the model response was
             cancelled.
@@ -67901,6 +68177,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: >
             The Unix timestamp (in seconds) of when the model response was
             completed.
@@ -67958,6 +68235,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: |
             The Unix timestamp (in seconds) of when the model response failed.
         id:
@@ -68014,6 +68292,7 @@ components:
       properties:
         created_at:
           type: integer
+          format: unixtime
           description: >
             The Unix timestamp (in seconds) of when the model response was
             interrupted.
@@ -73198,6 +73477,9 @@ components:
       description: 'An x/y coordinate pair, e.g. `{ x: 100, y: 200 }`.'
   securitySchemes:
     ApiKeyAuth:
+      type: http
+      scheme: bearer
+    AdminApiKeyAuth:
       type: http
       scheme: bearer
 x-oaiMeta:

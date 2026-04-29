@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Unix timestamp (in seconds) when the group was granted project access.</summary>
-        public long? CreatedAt { get; set; }
+        public int? CreatedAt { get; set; }
         /// <summary>Identifier of the group that has access to the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
+                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "group_id", n => { GroupId = n.GetStringValue(); } },
                 { "group_name", n => { GroupName = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroup_object>(); } },
@@ -82,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteLongValue("created_at", CreatedAt);
+            writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("group_id", GroupId);
             writer.WriteStringValue("group_name", GroupName);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroup_object>("object", Object);

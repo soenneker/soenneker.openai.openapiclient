@@ -44,7 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResult.UsageAudioTranscriptionsResult_project_id ProjectId { get; set; }
 #endif
         /// <summary>The number of seconds processed.</summary>
-        public int? Seconds { get; set; }
+        public long? Seconds { get; set; }
         /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,7 +83,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "num_model_requests", n => { NumModelRequests = n.GetIntValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResult_object>(); } },
                 { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResult.UsageAudioTranscriptionsResult_project_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResult.UsageAudioTranscriptionsResult_project_id.CreateFromDiscriminatorValue); } },
-                { "seconds", n => { Seconds = n.GetIntValue(); } },
+                { "seconds", n => { Seconds = n.GetLongValue(); } },
                 { "user_id", n => { UserId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResult.UsageAudioTranscriptionsResult_user_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResult.UsageAudioTranscriptionsResult_user_id.CreateFromDiscriminatorValue); } },
             };
         }
@@ -99,7 +99,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("num_model_requests", NumModelRequests);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResult_object>("object", Object);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResult.UsageAudioTranscriptionsResult_project_id>("project_id", ProjectId);
-            writer.WriteIntValue("seconds", Seconds);
+            writer.WriteLongValue("seconds", Seconds);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResult.UsageAudioTranscriptionsResult_user_id>("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }

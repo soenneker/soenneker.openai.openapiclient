@@ -18,7 +18,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Anchor timestamp after which the expiration policy applies. Supported anchors: `created_at`. Note that the anchor is the file creation time, not the time the batch is created.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BatchFileExpirationAfter_anchor? Anchor { get; set; }
         /// <summary>The number of seconds after the anchor time that the file will expire. Must be between 3600 (1 hour) and 2592000 (30 days).</summary>
-        public int? Seconds { get; set; }
+        public long? Seconds { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BatchFileExpirationAfter"/> and sets the default values.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "anchor", n => { Anchor = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchFileExpirationAfter_anchor>(); } },
-                { "seconds", n => { Seconds = n.GetIntValue(); } },
+                { "seconds", n => { Seconds = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchFileExpirationAfter_anchor>("anchor", Anchor);
-            writer.WriteIntValue("seconds", Seconds);
+            writer.WriteLongValue("seconds", Seconds);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

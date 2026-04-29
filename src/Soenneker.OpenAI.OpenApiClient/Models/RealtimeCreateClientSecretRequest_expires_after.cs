@@ -18,7 +18,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The anchor point for the client secret expiration, meaning that `seconds` will be added to the `created_at` time of the client secret to produce an expiration timestamp. Only `created_at` is currently supported.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequest_expires_after_anchor? Anchor { get; set; }
         /// <summary>The number of seconds from the anchor point to the expiration. Select a value between `10` and `7200` (2 hours). This default to 600 seconds (10 minutes) if not specified.</summary>
-        public int? Seconds { get; set; }
+        public long? Seconds { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequest_expires_after"/> and sets the default values.
         /// </summary>
@@ -46,7 +46,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "anchor", n => { Anchor = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequest_expires_after_anchor>(); } },
-                { "seconds", n => { Seconds = n.GetIntValue(); } },
+                { "seconds", n => { Seconds = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequest_expires_after_anchor>("anchor", Anchor);
-            writer.WriteIntValue("seconds", Seconds);
+            writer.WriteLongValue("seconds", Seconds);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

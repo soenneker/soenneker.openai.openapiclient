@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Unix timestamp (in seconds) of when the API key was created</summary>
-        public long? CreatedAt { get; set; }
+        public int? CreatedAt { get; set; }
         /// <summary>The identifier, which can be referenced in API endpoints</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,7 +98,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
+                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_used_at", n => { LastUsedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey.AdminApiKey_last_used_at>(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey.AdminApiKey_last_used_at.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -115,7 +115,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteLongValue("created_at", CreatedAt);
+            writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey.AdminApiKey_last_used_at>("last_used_at", LastUsedAt);
             writer.WriteStringValue("name", Name);
@@ -126,7 +126,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey_last_used_atMember1"/>, <see cref="long"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey_last_used_atMember1"/>, <see cref="int"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AdminApiKey_last_used_at : IComposedTypeWrapper, IParsable
@@ -139,8 +139,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
             public global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey_last_used_atMember1 AdminApiKeyLastUsedAtMember1 { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="long"/></summary>
-            public long? Int64 { get; set; }
+            /// <summary>Composed type representation for type <see cref="int"/></summary>
+            public int? Integer { get; set; }
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
@@ -150,9 +150,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey.AdminApiKey_last_used_at();
-                if(parseNode.GetLongValue() is long int64Value)
+                if(parseNode.GetIntValue() is int integerValue)
                 {
-                    result.Int64 = int64Value;
+                    result.Integer = integerValue;
                 }
                 else {
                     result.AdminApiKeyLastUsedAtMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey_last_used_atMember1();
@@ -178,9 +178,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Int64 != null)
+                if(Integer != null)
                 {
-                    writer.WriteLongValue(null, Int64);
+                    writer.WriteIntValue(null, Integer);
                 }
                 else {
                     writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey_last_used_atMember1>(null, AdminApiKeyLastUsedAtMember1);

@@ -15,9 +15,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>End time of the word in seconds.</summary>
-        public float? End { get; set; }
+        public double? End { get; set; }
         /// <summary>Start time of the word in seconds.</summary>
-        public float? Start { get; set; }
+        public double? Start { get; set; }
         /// <summary>The text content of the word.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,8 +51,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "end", n => { End = n.GetFloatValue(); } },
-                { "start", n => { Start = n.GetFloatValue(); } },
+                { "end", n => { End = n.GetDoubleValue(); } },
+                { "start", n => { Start = n.GetDoubleValue(); } },
                 { "word", n => { Word = n.GetStringValue(); } },
             };
         }
@@ -63,8 +63,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteFloatValue("end", End);
-            writer.WriteFloatValue("start", Start);
+            writer.WriteDoubleValue("end", End);
+            writer.WriteDoubleValue("start", Start);
             writer.WriteStringValue("word", Word);
             writer.WriteAdditionalData(AdditionalData);
         }

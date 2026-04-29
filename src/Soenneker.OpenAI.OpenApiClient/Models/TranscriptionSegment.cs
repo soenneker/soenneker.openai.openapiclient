@@ -19,7 +19,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Compression ratio of the segment. If the value is greater than 2.4, consider the compression failed.</summary>
         public float? CompressionRatio { get; set; }
         /// <summary>End time of the segment in seconds.</summary>
-        public float? End { get; set; }
+        public double? End { get; set; }
         /// <summary>Unique identifier of the segment.</summary>
         public int? Id { get; set; }
         /// <summary>Probability of no speech in the segment. If the value is higher than 1.0 and the `avg_logprob` is below -1, consider this segment silent.</summary>
@@ -27,7 +27,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Seek offset of the segment.</summary>
         public int? Seek { get; set; }
         /// <summary>Start time of the segment in seconds.</summary>
-        public float? Start { get; set; }
+        public double? Start { get; set; }
         /// <summary>Temperature parameter used for generating the segment.</summary>
         public float? Temperature { get; set; }
         /// <summary>Text content of the segment.</summary>
@@ -73,11 +73,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "avg_logprob", n => { AvgLogprob = n.GetFloatValue(); } },
                 { "compression_ratio", n => { CompressionRatio = n.GetFloatValue(); } },
-                { "end", n => { End = n.GetFloatValue(); } },
+                { "end", n => { End = n.GetDoubleValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "no_speech_prob", n => { NoSpeechProb = n.GetFloatValue(); } },
                 { "seek", n => { Seek = n.GetIntValue(); } },
-                { "start", n => { Start = n.GetFloatValue(); } },
+                { "start", n => { Start = n.GetDoubleValue(); } },
                 { "temperature", n => { Temperature = n.GetFloatValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "tokens", n => { Tokens = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
@@ -92,11 +92,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteFloatValue("avg_logprob", AvgLogprob);
             writer.WriteFloatValue("compression_ratio", CompressionRatio);
-            writer.WriteFloatValue("end", End);
+            writer.WriteDoubleValue("end", End);
             writer.WriteIntValue("id", Id);
             writer.WriteFloatValue("no_speech_prob", NoSpeechProb);
             writer.WriteIntValue("seek", Seek);
-            writer.WriteFloatValue("start", Start);
+            writer.WriteDoubleValue("start", Start);
             writer.WriteFloatValue("temperature", Temperature);
             writer.WriteStringValue("text", Text);
             writer.WriteCollectionOfPrimitiveValues<int?>("tokens", Tokens);

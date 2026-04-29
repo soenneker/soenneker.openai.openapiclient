@@ -156,7 +156,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_created_atMember1"/>, <see cref="long"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_created_atMember1"/>, <see cref="int"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AssignedRoleDetails_created_at : IComposedTypeWrapper, IParsable
@@ -169,8 +169,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
             public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_created_atMember1 AssignedRoleDetailsCreatedAtMember1 { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="long"/></summary>
-            public long? Int64 { get; set; }
+            /// <summary>Composed type representation for type <see cref="int"/></summary>
+            public int? Integer { get; set; }
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
@@ -180,9 +180,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_created_at();
-                if(parseNode.GetLongValue() is long int64Value)
+                if(parseNode.GetIntValue() is int integerValue)
                 {
-                    result.Int64 = int64Value;
+                    result.Integer = integerValue;
                 }
                 else {
                     result.AssignedRoleDetailsCreatedAtMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_created_atMember1();
@@ -208,9 +208,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Int64 != null)
+                if(Integer != null)
                 {
-                    writer.WriteLongValue(null, Int64);
+                    writer.WriteIntValue(null, Integer);
                 }
                 else {
                     writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_created_atMember1>(null, AssignedRoleDetailsCreatedAtMember1);

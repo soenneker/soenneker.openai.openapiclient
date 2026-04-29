@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>End timestamp of the segment in seconds.</summary>
-        public float? End { get; set; }
+        public double? End { get; set; }
         /// <summary>Unique identifier for the segment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Speaker { get; set; }
 #endif
         /// <summary>Start timestamp of the segment in seconds.</summary>
-        public float? Start { get; set; }
+        public double? Start { get; set; }
         /// <summary>Transcript text for this segment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,10 +70,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "end", n => { End = n.GetFloatValue(); } },
+                { "end", n => { End = n.GetDoubleValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "speaker", n => { Speaker = n.GetStringValue(); } },
-                { "start", n => { Start = n.GetFloatValue(); } },
+                { "start", n => { Start = n.GetDoubleValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionDiarizedSegment_type>(); } },
             };
@@ -85,10 +85,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteFloatValue("end", End);
+            writer.WriteDoubleValue("end", End);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("speaker", Speaker);
-            writer.WriteFloatValue("start", Start);
+            writer.WriteDoubleValue("start", Start);
             writer.WriteStringValue("text", Text);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionDiarizedSegment_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
