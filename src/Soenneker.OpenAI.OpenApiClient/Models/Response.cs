@@ -39,7 +39,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.Conversation2 Conversation { get; set; }
 #endif
         /// <summary>Unix timestamp (in seconds) of when this Response was created.</summary>
-        public int? CreatedAt { get; set; }
+        public double? CreatedAt { get; set; }
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -283,7 +283,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "background", n => { Background = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Response.Response_background>(global::Soenneker.OpenAI.OpenApiClient.Models.Response.Response_background.CreateFromDiscriminatorValue); } },
                 { "completed_at", n => { CompletedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Response.Response_completed_at>(global::Soenneker.OpenAI.OpenApiClient.Models.Response.Response_completed_at.CreateFromDiscriminatorValue); } },
                 { "conversation", n => { Conversation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Conversation2>(global::Soenneker.OpenAI.OpenApiClient.Models.Conversation2.CreateFromDiscriminatorValue); } },
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDoubleValue(); } },
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseError>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseError.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "incomplete_details", n => { IncompleteDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Response.Response_incomplete_details>(global::Soenneker.OpenAI.OpenApiClient.Models.Response.Response_incomplete_details.CreateFromDiscriminatorValue); } },
@@ -325,7 +325,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Response.Response_background>("background", Background);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Response.Response_completed_at>("completed_at", CompletedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Conversation2>("conversation", Conversation);
-            writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteDoubleValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseError>("error", Error);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Response.Response_incomplete_details>("incomplete_details", IncompleteDetails);
@@ -420,13 +420,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             }
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Response_completed_atMember1"/>, <see cref="int"/>
+        /// Composed type wrapper for classes <see cref="double"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Response_completed_atMember1"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Response_completed_at : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
+            /// <summary>Composed type representation for type <see cref="double"/></summary>
+            public double? Double { get; set; }
             /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Response_completed_atMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -444,9 +444,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Response.Response_completed_at();
-                if(parseNode.GetIntValue() is int integerValue)
+                if(parseNode.GetDoubleValue() is double doubleValue)
                 {
-                    result.Integer = integerValue;
+                    result.Double = doubleValue;
                 }
                 else {
                     result.ResponseCompletedAtMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.Response_completed_atMember1();
@@ -472,9 +472,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
+                if(Double != null)
                 {
-                    writer.WriteIntValue(null, Integer);
+                    writer.WriteDoubleValue(null, Double);
                 }
                 else {
                     writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Response_completed_atMember1>(null, ResponseCompletedAtMember1);

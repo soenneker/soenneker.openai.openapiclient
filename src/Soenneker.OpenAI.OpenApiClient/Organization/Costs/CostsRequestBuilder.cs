@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Costs
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CostsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/costs?start_time={start_time}{&bucket_width*,end_time*,group_by*,limit*,page*,project_ids*}", pathParameters)
+        public CostsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/costs?start_time={start_time}{&api_key_ids*,bucket_width*,end_time*,group_by*,limit*,page*,project_ids*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Costs
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CostsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/costs?start_time={start_time}{&bucket_width*,end_time*,group_by*,limit*,page*,project_ids*}", rawUrl)
+        public CostsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/costs?start_time={start_time}{&api_key_ids*,bucket_width*,end_time*,group_by*,limit*,page*,project_ids*}", rawUrl)
         {
         }
         /// <summary>
@@ -85,13 +85,23 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Costs
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CostsRequestBuilderGetQueryParameters 
         {
+            /// <summary>Return only costs for these API keys.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("api_key_ids")]
+            public string[]? ApiKeyIds { get; set; }
+#nullable restore
+#else
+            [QueryParameter("api_key_ids")]
+            public string[] ApiKeyIds { get; set; }
+#endif
             /// <summary>Width of each time bucket in response. Currently only `1d` is supported, default to `1d`.</summary>
             [QueryParameter("bucket_width")]
             public global::Soenneker.OpenAI.OpenApiClient.Organization.Costs.GetBucket_widthQueryParameterType? BucketWidth { get; set; }
             /// <summary>End time (Unix seconds) of the query time range, exclusive.</summary>
             [QueryParameter("end_time")]
             public int? EndTime { get; set; }
-            /// <summary>Group the costs by the specified fields. Support fields include `project_id`, `line_item` and any combination of them.</summary>
+            /// <summary>Group the costs by the specified fields. Support fields include `project_id`, `line_item`, `api_key_id` and any combination of them.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("group_by")]

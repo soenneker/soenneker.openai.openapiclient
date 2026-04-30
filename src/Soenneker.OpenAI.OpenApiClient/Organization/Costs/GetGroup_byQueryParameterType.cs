@@ -16,5 +16,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Costs
         #pragma warning disable CS1591
         Line_item,
         #pragma warning restore CS1591
+        [EnumMember(Value = "api_key_id")]
+        #pragma warning disable CS1591
+        Api_key_id,
+        #pragma warning restore CS1591
     }
 }
