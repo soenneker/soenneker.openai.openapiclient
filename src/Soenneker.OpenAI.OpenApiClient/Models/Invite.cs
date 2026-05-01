@@ -14,9 +14,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class Invite : IAdditionalDataHolder, IParsable
     {
         /// <summary>The Unix timestamp (in seconds) of when the invite was accepted.</summary>
-        public int? AcceptedAt { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_accepted_at? AcceptedAt { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_accepted_at AcceptedAt { get; set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The Unix timestamp (in seconds) of when the invite was sent.</summary>
+        public int? CreatedAt { get; set; }
         /// <summary>The email address of the individual to whom the invite was sent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -26,7 +34,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Email { get; set; }
 #endif
         /// <summary>The Unix timestamp (in seconds) of when the invite expires.</summary>
-        public int? ExpiresAt { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_expires_at? ExpiresAt { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_expires_at ExpiresAt { get; set; }
+#endif
         /// <summary>The identifier, which can be referenced in API endpoints</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -35,8 +49,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The Unix timestamp (in seconds) of when the invite was sent.</summary>
-        public int? InvitedAt { get; set; }
         /// <summary>The object type, which is always `organization.invite`</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.Invite_object? Object { get; set; }
         /// <summary>The projects that were granted membership upon acceptance of the invite.</summary>
@@ -76,11 +88,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accepted_at", n => { AcceptedAt = n.GetIntValue(); } },
+                { "accepted_at", n => { AcceptedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_accepted_at>(global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_accepted_at.CreateFromDiscriminatorValue); } },
+                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
+                { "expires_at", n => { ExpiresAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_expires_at>(global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_expires_at.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "invited_at", n => { InvitedAt = n.GetIntValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_object>(); } },
                 { "projects", n => { Projects = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_projects>(global::Soenneker.OpenAI.OpenApiClient.Models.Invite_projects.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_role>(); } },
@@ -94,16 +106,140 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("accepted_at", AcceptedAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_accepted_at>("accepted_at", AcceptedAt);
+            writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("email", Email);
-            writer.WriteIntValue("expires_at", ExpiresAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_expires_at>("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteIntValue("invited_at", InvitedAt);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_object>("object", Object);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_projects>("projects", Projects);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_role>("role", Role);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_status>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Invite_accepted_atMember1"/>, <see cref="int"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class Invite_accepted_at : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="int"/></summary>
+            public int? Integer { get; set; }
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Invite_accepted_atMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.Invite_accepted_atMember1? InviteAcceptedAtMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.Invite_accepted_atMember1 InviteAcceptedAtMember1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_accepted_at"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_accepted_at CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_accepted_at();
+                if(parseNode.GetIntValue() is int integerValue)
+                {
+                    result.Integer = integerValue;
+                }
+                else {
+                    result.InviteAcceptedAtMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.Invite_accepted_atMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(InviteAcceptedAtMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(InviteAcceptedAtMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(Integer != null)
+                {
+                    writer.WriteIntValue(null, Integer);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_accepted_atMember1>(null, InviteAcceptedAtMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Invite_expires_atMember1"/>, <see cref="int"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class Invite_expires_at : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="int"/></summary>
+            public int? Integer { get; set; }
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Invite_expires_atMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.Invite_expires_atMember1? InviteExpiresAtMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.Invite_expires_atMember1 InviteExpiresAtMember1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_expires_at"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_expires_at CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Invite.Invite_expires_at();
+                if(parseNode.GetIntValue() is int integerValue)
+                {
+                    result.Integer = integerValue;
+                }
+                else {
+                    result.InviteExpiresAtMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.Invite_expires_atMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(InviteExpiresAtMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(InviteExpiresAtMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(Integer != null)
+                {
+                    writer.WriteIntValue(null, Integer);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_expires_atMember1>(null, InviteExpiresAtMember1);
+                }
+            }
         }
     }
 }

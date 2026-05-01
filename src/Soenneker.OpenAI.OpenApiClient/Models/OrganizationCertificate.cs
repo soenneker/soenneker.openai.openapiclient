@@ -8,22 +8,22 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Represents an individual `certificate` uploaded to the organization.
+    /// Represents an individual certificate configured at the organization level.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Certificate : IAdditionalDataHolder, IParsable
+    public partial class OrganizationCertificate : IAdditionalDataHolder, IParsable
     {
-        /// <summary>Whether the certificate is currently active at the specified scope. Not returned when getting details for a specific certificate.</summary>
+        /// <summary>Whether the certificate is currently active at the organization level.</summary>
         public bool? Active { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The certificate_details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Certificate_certificate_details? CertificateDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate_certificate_details? CertificateDetails { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Certificate_certificate_details CertificateDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate_certificate_details CertificateDetails { get; set; }
 #endif
         /// <summary>The Unix timestamp (in seconds) of when the certificate was uploaded.</summary>
         public int? CreatedAt { get; set; }
@@ -38,29 +38,29 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The name of the certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Certificate.Certificate_name? Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate.OrganizationCertificate_name? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Certificate.Certificate_name Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate.OrganizationCertificate_name Name { get; set; }
 #endif
-        /// <summary>The object type.- If creating, updating, or getting a specific certificate, the object type is `certificate`.- If listing, activating, or deactivating certificates for the organization, the object type is `organization.certificate`.- If listing, activating, or deactivating certificates for a project, the object type is `organization.project.certificate`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Certificate_object? Object { get; set; }
+        /// <summary>The object type, which is always `organization.certificate`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate_object? Object { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Certificate"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate"/> and sets the default values.
         /// </summary>
-        public Certificate()
+        public OrganizationCertificate()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Certificate"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.Certificate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.Certificate();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,11 +71,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
-                { "certificate_details", n => { CertificateDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Certificate_certificate_details>(global::Soenneker.OpenAI.OpenApiClient.Models.Certificate_certificate_details.CreateFromDiscriminatorValue); } },
+                { "certificate_details", n => { CertificateDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate_certificate_details>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate_certificate_details.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Certificate.Certificate_name>(global::Soenneker.OpenAI.OpenApiClient.Models.Certificate.Certificate_name.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Certificate_object>(); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate.OrganizationCertificate_name>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate.OrganizationCertificate_name.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate_object>(); } },
             };
         }
         /// <summary>
@@ -86,26 +86,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Certificate_certificate_details>("certificate_details", CertificateDetails);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate_certificate_details>("certificate_details", CertificateDetails);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Certificate.Certificate_name>("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Certificate_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate.OrganizationCertificate_name>("name", Name);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate_object>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Certificate_nameMember1"/>, <see cref="string"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate_nameMember1"/>, <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Certificate_name : IComposedTypeWrapper, IParsable
+        public partial class OrganizationCertificate_name : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Certificate_nameMember1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate_nameMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Certificate_nameMember1? CertificateNameMember1 { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate_nameMember1? OrganizationCertificateNameMember1 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Certificate_nameMember1 CertificateNameMember1 { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate_nameMember1 OrganizationCertificateNameMember1 { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -118,18 +118,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Certificate.Certificate_name"/></returns>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate.OrganizationCertificate_name"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.Certificate.Certificate_name CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate.OrganizationCertificate_name CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Certificate.Certificate_name();
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate.OrganizationCertificate_name();
                 if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
                 else {
-                    result.CertificateNameMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.Certificate_nameMember1();
+                    result.OrganizationCertificateNameMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate_nameMember1();
                 }
                 return result;
             }
@@ -139,9 +139,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(CertificateNameMember1 != null)
+                if(OrganizationCertificateNameMember1 != null)
                 {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CertificateNameMember1);
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(OrganizationCertificateNameMember1);
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -157,7 +157,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                     writer.WriteStringValue(null, String);
                 }
                 else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Certificate_nameMember1>(null, CertificateNameMember1);
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate_nameMember1>(null, OrganizationCertificateNameMember1);
                 }
             }
         }

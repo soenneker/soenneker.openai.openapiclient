@@ -12,25 +12,25 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organization\projects\{project_id}\api_keys\{key_id}
+    /// Builds and executes requests for operations under \organization\projects\{project_id}\api_keys\{api_key_id}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WithKey_ItemRequestBuilder : BaseRequestBuilder
+    public partial class WithApi_key_ItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithKey_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithApi_key_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithKey_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/api_keys/{key_id}", pathParameters)
+        public WithApi_key_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/api_keys/{api_key_id}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithKey_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithApi_key_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithKey_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/api_keys/{key_id}", rawUrl)
+        public WithApi_key_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/api_keys/{api_key_id}", rawUrl)
         {
         }
         /// <summary>
@@ -115,11 +115,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Ite
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithKey_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithApi_key_ItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithKey_ItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithApi_key_ItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithKey_ItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithApi_key_ItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuditLog : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The actor who performed the audit logged action.</summary>
+        /// <summary>The actor property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor? Actor { get; set; }

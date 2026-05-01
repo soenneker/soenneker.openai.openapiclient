@@ -18,13 +18,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? EndTime { get; set; }
         /// <summary>The object property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket_object? Object { get; set; }
-        /// <summary>The result property</summary>
+        /// <summary>The results property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_result>? Result { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_results>? Results { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_result> Result { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_results> Results { get; set; }
 #endif
         /// <summary>The start_time property</summary>
         public int? StartTime { get; set; }
@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "end_time", n => { EndTime = n.GetIntValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket_object>(); } },
-                { "result", n => { Result = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_result>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_result.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_results>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_results.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "start_time", n => { StartTime = n.GetIntValue(); } },
             };
         }
@@ -68,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("end_time", EndTime);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket_object>("object", Object);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_result>("result", Result);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_results>("results", Results);
             writer.WriteIntValue("start_time", StartTime);
             writer.WriteAdditionalData(AdditionalData);
         }
@@ -76,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageModerationsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResult"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class UsageTimeBucket_result : IComposedTypeWrapper, IParsable
+        public partial class UsageTimeBucket_results : IComposedTypeWrapper, IParsable
         {
             /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResult"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -153,13 +153,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_result"/></returns>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_results"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_result CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_results CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_result();
+                var mappingValue = parseNode.GetChildNode("object")?.GetStringValue();
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.UsageTimeBucket_results();
                 if("CostsResult".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.CostsResult = new global::Soenneker.OpenAI.OpenApiClient.Models.CostsResult();

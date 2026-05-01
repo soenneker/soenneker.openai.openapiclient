@@ -48,20 +48,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates
         /// <summary>
         /// List certificates for this project.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListProjectCertificatesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates.CertificatesRequestBuilder.CertificatesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ListProjectCertificatesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates.CertificatesRequestBuilder.CertificatesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates.CertificatesRequestBuilder.CertificatesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ListProjectCertificatesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates.CertificatesRequestBuilder.CertificatesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ListProjectCertificatesResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ListProjectCertificatesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List certificates for this project.

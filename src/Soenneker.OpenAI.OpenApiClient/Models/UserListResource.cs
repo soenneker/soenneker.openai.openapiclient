@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Users in the current page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.User>? Data { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUser>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.User> Data { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUser> Data { get; set; }
 #endif
         /// <summary>Whether more users are available when paginating.</summary>
         public bool? HasMore { get; set; }
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.User>(global::Soenneker.OpenAI.OpenApiClient.Models.User.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUser>(global::Soenneker.OpenAI.OpenApiClient.Models.GroupUser.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
                 { "next", n => { Next = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserListResource.UserListResource_next>(global::Soenneker.OpenAI.OpenApiClient.Models.UserListResource.UserListResource_next.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserListResource_object>(); } },
@@ -73,7 +73,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.User>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUser>("data", Data);
             writer.WriteBoolValue("has_more", HasMore);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserListResource.UserListResource_next>("next", Next);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserListResource_object>("object", Object);

@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.organization.projects.item.api_keys.item collection</summary>
         /// <param name="position">The ID of the API key.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithKey_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithKey_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithApi_key_ItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithApi_key_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("key_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithKey_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("api_key_id", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithApi_key_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

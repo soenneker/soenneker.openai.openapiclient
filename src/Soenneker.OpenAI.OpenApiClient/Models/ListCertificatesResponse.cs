@@ -17,28 +17,28 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.Certificate>? Data { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.Certificate> Data { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate> Data { get; set; }
 #endif
         /// <summary>The first_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_first_id? FirstId { get; set; }
 #nullable restore
 #else
-        public string FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_first_id FirstId { get; set; }
 #endif
         /// <summary>The has_more property</summary>
         public bool? HasMore { get; set; }
         /// <summary>The last_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_last_id? LastId { get; set; }
 #nullable restore
 #else
-        public string LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_last_id LastId { get; set; }
 #endif
         /// <summary>The object property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_object? Object { get; set; }
@@ -67,10 +67,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Certificate>(global::Soenneker.OpenAI.OpenApiClient.Models.Certificate.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "first_id", n => { FirstId = n.GetStringValue(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_first_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_first_id.CreateFromDiscriminatorValue); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "last_id", n => { LastId = n.GetStringValue(); } },
+                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_last_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_last_id.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_object>(); } },
             };
         }
@@ -81,12 +81,148 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Certificate>("data", Data);
-            writer.WriteStringValue("first_id", FirstId);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_first_id>("first_id", FirstId);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteStringValue("last_id", LastId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_last_id>("last_id", LastId);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_object>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_first_idMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ListCertificatesResponse_first_id : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_first_idMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_first_idMember1? ListCertificatesResponseFirstIdMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_first_idMember1 ListCertificatesResponseFirstIdMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_first_id"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_first_id CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_first_id();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.ListCertificatesResponseFirstIdMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_first_idMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(ListCertificatesResponseFirstIdMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ListCertificatesResponseFirstIdMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_first_idMember1>(null, ListCertificatesResponseFirstIdMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_last_idMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ListCertificatesResponse_last_id : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_last_idMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_last_idMember1? ListCertificatesResponseLastIdMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_last_idMember1 ListCertificatesResponseLastIdMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_last_id"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_last_id CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse.ListCertificatesResponse_last_id();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.ListCertificatesResponseLastIdMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_last_idMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(ListCertificatesResponseLastIdMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ListCertificatesResponseLastIdMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListCertificatesResponse_last_idMember1>(null, ListCertificatesResponseLastIdMember1);
+                }
+            }
         }
     }
 }

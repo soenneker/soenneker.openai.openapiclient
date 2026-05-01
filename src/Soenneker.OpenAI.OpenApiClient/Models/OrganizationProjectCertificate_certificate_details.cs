@@ -9,43 +9,31 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class UploadCertificateRequest : IAdditionalDataHolder, IParsable
+    public partial class OrganizationProjectCertificate_certificate_details : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The certificate content in PEM format</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Certificate { get; set; }
-#nullable restore
-#else
-        public string Certificate { get; set; }
-#endif
-        /// <summary>An optional name for the certificate</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
-#endif
+        /// <summary>The Unix timestamp (in seconds) of when the certificate expires.</summary>
+        public int? ExpiresAt { get; set; }
+        /// <summary>The Unix timestamp (in seconds) of when the certificate becomes valid.</summary>
+        public int? ValidAt { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UploadCertificateRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate_certificate_details"/> and sets the default values.
         /// </summary>
-        public UploadCertificateRequest()
+        public OrganizationProjectCertificate_certificate_details()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UploadCertificateRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate_certificate_details"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.UploadCertificateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate_certificate_details CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.UploadCertificateRequest();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate_certificate_details();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +43,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "certificate", n => { Certificate = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
+                { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
+                { "valid_at", n => { ValidAt = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -66,8 +54,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("certificate", Certificate);
-            writer.WriteStringValue("name", Name);
+            writer.WriteIntValue("expires_at", ExpiresAt);
+            writer.WriteIntValue("valid_at", ValidAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

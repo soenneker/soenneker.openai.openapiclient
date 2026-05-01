@@ -42,13 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.admin_api_key`</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Object { get; set; }
-#nullable restore
-#else
-        public string Object { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey_object? Object { get; set; }
         /// <summary>The owner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -102,7 +96,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_used_at", n => { LastUsedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey.AdminApiKey_last_used_at>(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey.AdminApiKey_last_used_at.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetStringValue(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey_object>(); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey_owner>(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey_owner.CreateFromDiscriminatorValue); } },
                 { "redacted_value", n => { RedactedValue = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
@@ -119,7 +113,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey.AdminApiKey_last_used_at>("last_used_at", LastUsedAt);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey_object>("object", Object);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey_owner>("owner", Owner);
             writer.WriteStringValue("redacted_value", RedactedValue);
             writer.WriteStringValue("value", Value);

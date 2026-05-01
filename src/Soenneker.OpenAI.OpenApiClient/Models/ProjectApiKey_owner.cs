@@ -14,23 +14,23 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Represents an individual service account in a project.</summary>
+        /// <summary>The service account that owns a project API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccount? ServiceAccount { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerServiceAccount? ServiceAccount { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccount ServiceAccount { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerServiceAccount ServiceAccount { get; set; }
 #endif
         /// <summary>`user` or `service_account`</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKey_owner_type? Type { get; set; }
-        /// <summary>Represents an individual user in a project.</summary>
+        /// <summary>The user that owns a project API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser? User { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerUser? User { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser User { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerUser User { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKey_owner"/> and sets the default values.
@@ -57,9 +57,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "service_account", n => { ServiceAccount = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccount>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccount.CreateFromDiscriminatorValue); } },
+                { "service_account", n => { ServiceAccount = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerServiceAccount>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerServiceAccount.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKey_owner_type>(); } },
-                { "user", n => { User = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser.CreateFromDiscriminatorValue); } },
+                { "user", n => { User = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerUser>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerUser.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -69,9 +69,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccount>("service_account", ServiceAccount);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerServiceAccount>("service_account", ServiceAccount);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKey_owner_type>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser>("user", User);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
