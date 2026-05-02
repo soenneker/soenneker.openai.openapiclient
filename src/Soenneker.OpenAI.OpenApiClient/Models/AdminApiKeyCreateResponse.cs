@@ -13,6 +13,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AdminApiKeyCreateResponse : global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey, IParsable
     {
+        /// <summary>The value of the API key. Only shown on create.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Value { get; set; }
+#nullable restore
+#else
+        public string Value { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -31,6 +39,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "value", n => { Value = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -41,6 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteStringValue("value", Value);
         }
     }
 }

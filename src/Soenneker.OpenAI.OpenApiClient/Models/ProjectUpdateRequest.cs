@@ -14,13 +14,29 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>External key ID to associate with the project.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_external_key_id? ExternalKeyId { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_external_key_id ExternalKeyId { get; set; }
+#endif
+        /// <summary>Geography for the project.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_geography? Geography { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_geography Geography { get; set; }
+#endif
         /// <summary>The updated name of the project, this name appears in reports.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_name? Name { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_name Name { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest"/> and sets the default values.
@@ -47,7 +63,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "name", n => { Name = n.GetStringValue(); } },
+                { "external_key_id", n => { ExternalKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_external_key_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_external_key_id.CreateFromDiscriminatorValue); } },
+                { "geography", n => { Geography = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_geography>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_geography.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_name>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_name.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,8 +75,214 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_external_key_id>("external_key_id", ExternalKeyId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_geography>("geography", Geography);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_name>("name", Name);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_external_key_idMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ProjectUpdateRequest_external_key_id : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_external_key_idMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_external_key_idMember1? ProjectUpdateRequestExternalKeyIdMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_external_key_idMember1 ProjectUpdateRequestExternalKeyIdMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_external_key_id"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_external_key_id CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_external_key_id();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.ProjectUpdateRequestExternalKeyIdMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_external_key_idMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(ProjectUpdateRequestExternalKeyIdMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ProjectUpdateRequestExternalKeyIdMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_external_key_idMember1>(null, ProjectUpdateRequestExternalKeyIdMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_geographyMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ProjectUpdateRequest_geography : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_geographyMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_geographyMember1? ProjectUpdateRequestGeographyMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_geographyMember1 ProjectUpdateRequestGeographyMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_geography"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_geography CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_geography();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.ProjectUpdateRequestGeographyMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_geographyMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(ProjectUpdateRequestGeographyMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ProjectUpdateRequestGeographyMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_geographyMember1>(null, ProjectUpdateRequestGeographyMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_nameMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ProjectUpdateRequest_name : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_nameMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_nameMember1? ProjectUpdateRequestNameMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_nameMember1 ProjectUpdateRequestNameMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_name"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_name CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest.ProjectUpdateRequest_name();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.ProjectUpdateRequestNameMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_nameMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(ProjectUpdateRequestNameMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ProjectUpdateRequestNameMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_nameMember1>(null, ProjectUpdateRequestNameMember1);
+                }
+            }
         }
     }
 }

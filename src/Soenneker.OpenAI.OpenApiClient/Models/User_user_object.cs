@@ -3,17 +3,14 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>`active` or `archived`</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum Project_status
+    #pragma warning disable CS1591
+    public enum User_user_object
+    #pragma warning restore CS1591
     {
-        [EnumMember(Value = "active")]
+        [EnumMember(Value = "user")]
         #pragma warning disable CS1591
-        Active,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "archived")]
-        #pragma warning disable CS1591
-        Archived,
+        User,
         #pragma warning restore CS1591
     }
 }

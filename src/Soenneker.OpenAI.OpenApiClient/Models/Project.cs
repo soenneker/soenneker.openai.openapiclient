@@ -25,6 +25,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The Unix timestamp (in seconds) of when the project was created.</summary>
         public int? CreatedAt { get; set; }
+        /// <summary>The external key associated with the project.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_external_key_id? ExternalKeyId { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_external_key_id ExternalKeyId { get; set; }
+#endif
         /// <summary>The identifier, which can be referenced in API endpoints</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,15 +44,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The name of the project. This appears in reporting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_name? Name { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_name Name { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.project`</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.Project_object? Object { get; set; }
         /// <summary>`active` or `archived`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Project_status? Status { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_status? Status { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_status Status { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Project"/> and sets the default values.
         /// </summary>
@@ -72,10 +86,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "archived_at", n => { ArchivedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_archived_at>(global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_archived_at.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "external_key_id", n => { ExternalKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_external_key_id>(global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_external_key_id.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_name>(global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_name.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_object>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_status>(); } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_status>(global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_status.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -87,10 +102,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_archived_at>("archived_at", ArchivedAt);
             writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_external_key_id>("external_key_id", ExternalKeyId);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_name>("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_object>("object", Object);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_status>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_status>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
@@ -152,6 +168,210 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 }
                 else {
                     writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_archived_atMember1>(null, ProjectArchivedAtMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Project_external_key_idMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class Project_external_key_id : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Project_external_key_idMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.Project_external_key_idMember1? ProjectExternalKeyIdMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.Project_external_key_idMember1 ProjectExternalKeyIdMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_external_key_id"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_external_key_id CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_external_key_id();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.ProjectExternalKeyIdMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.Project_external_key_idMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(ProjectExternalKeyIdMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ProjectExternalKeyIdMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_external_key_idMember1>(null, ProjectExternalKeyIdMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Project_nameMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class Project_name : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Project_nameMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.Project_nameMember1? ProjectNameMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.Project_nameMember1 ProjectNameMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_name"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_name CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_name();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.ProjectNameMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.Project_nameMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(ProjectNameMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ProjectNameMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_nameMember1>(null, ProjectNameMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Project_statusMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class Project_status : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Project_statusMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.Project_statusMember1? ProjectStatusMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.Project_statusMember1 ProjectStatusMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_status"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_status CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Project.Project_status();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.ProjectStatusMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.Project_statusMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(ProjectStatusMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ProjectStatusMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_statusMember1>(null, ProjectStatusMember1);
                 }
             }
         }

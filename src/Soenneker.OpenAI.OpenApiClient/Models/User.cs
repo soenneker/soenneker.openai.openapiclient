@@ -17,13 +17,31 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? AddedAt { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The Unix timestamp (in seconds) of the user&apos;s last API key usage.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_api_key_last_used_at? ApiKeyLastUsedAt { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_api_key_last_used_at ApiKeyLastUsedAt { get; set; }
+#endif
+        /// <summary>The Unix timestamp (in seconds) of when the user was created.</summary>
+        public int? Created { get; set; }
+        /// <summary>The developer persona metadata for the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_developer_persona? DeveloperPersona { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_developer_persona DeveloperPersona { get; set; }
+#endif
         /// <summary>The email address of the user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_email? Email { get; set; }
 #nullable restore
 #else
-        public string Email { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_email Email { get; set; }
 #endif
         /// <summary>The identifier, which can be referenced in API endpoints</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,18 +51,62 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>Whether this is the organization&apos;s default user.</summary>
+        public bool? IsDefault { get; set; }
+        /// <summary>Whether the user is an authorized purchaser for Scale Tier.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_is_scale_tier_authorized_purchaser? IsScaleTierAuthorizedPurchaser { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_is_scale_tier_authorized_purchaser IsScaleTierAuthorizedPurchaser { get; set; }
+#endif
+        /// <summary>Whether the user is managed through SCIM.</summary>
+        public bool? IsScimManaged { get; set; }
+        /// <summary>Whether the user is a service account.</summary>
+        public bool? IsServiceAccount { get; set; }
         /// <summary>The name of the user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_name? Name { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_name Name { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.user`</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.User_object? Object { get; set; }
+        /// <summary>Projects associated with the user, if included.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_projects? Projects { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_projects Projects { get; set; }
+#endif
         /// <summary>`owner` or `reader`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.User_role? Role { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_role? Role { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_role Role { get; set; }
+#endif
+        /// <summary>The technical level metadata for the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_technical_level? TechnicalLevel { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User.User_technical_level TechnicalLevel { get; set; }
+#endif
+        /// <summary>Nested user details.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User_user? UserProp { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.User_user UserProp { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User"/> and sets the default values.
         /// </summary>
@@ -71,11 +133,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "added_at", n => { AddedAt = n.GetIntValue(); } },
-                { "email", n => { Email = n.GetStringValue(); } },
+                { "api_key_last_used_at", n => { ApiKeyLastUsedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_api_key_last_used_at>(global::Soenneker.OpenAI.OpenApiClient.Models.User.User_api_key_last_used_at.CreateFromDiscriminatorValue); } },
+                { "created", n => { Created = n.GetIntValue(); } },
+                { "developer_persona", n => { DeveloperPersona = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_developer_persona>(global::Soenneker.OpenAI.OpenApiClient.Models.User.User_developer_persona.CreateFromDiscriminatorValue); } },
+                { "email", n => { Email = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_email>(global::Soenneker.OpenAI.OpenApiClient.Models.User.User_email.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
+                { "is_default", n => { IsDefault = n.GetBoolValue(); } },
+                { "is_scale_tier_authorized_purchaser", n => { IsScaleTierAuthorizedPurchaser = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_is_scale_tier_authorized_purchaser>(global::Soenneker.OpenAI.OpenApiClient.Models.User.User_is_scale_tier_authorized_purchaser.CreateFromDiscriminatorValue); } },
+                { "is_scim_managed", n => { IsScimManaged = n.GetBoolValue(); } },
+                { "is_service_account", n => { IsServiceAccount = n.GetBoolValue(); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_name>(global::Soenneker.OpenAI.OpenApiClient.Models.User.User_name.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.User_object>(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.User_role>(); } },
+                { "projects", n => { Projects = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_projects>(global::Soenneker.OpenAI.OpenApiClient.Models.User.User_projects.CreateFromDiscriminatorValue); } },
+                { "role", n => { Role = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_role>(global::Soenneker.OpenAI.OpenApiClient.Models.User.User_role.CreateFromDiscriminatorValue); } },
+                { "technical_level", n => { TechnicalLevel = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_technical_level>(global::Soenneker.OpenAI.OpenApiClient.Models.User.User_technical_level.CreateFromDiscriminatorValue); } },
+                { "user", n => { UserProp = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User_user>(global::Soenneker.OpenAI.OpenApiClient.Models.User_user.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -86,12 +158,543 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("added_at", AddedAt);
-            writer.WriteStringValue("email", Email);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_api_key_last_used_at>("api_key_last_used_at", ApiKeyLastUsedAt);
+            writer.WriteIntValue("created", Created);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_developer_persona>("developer_persona", DeveloperPersona);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_email>("email", Email);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("name", Name);
+            writer.WriteBoolValue("is_default", IsDefault);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_is_scale_tier_authorized_purchaser>("is_scale_tier_authorized_purchaser", IsScaleTierAuthorizedPurchaser);
+            writer.WriteBoolValue("is_scim_managed", IsScimManaged);
+            writer.WriteBoolValue("is_service_account", IsServiceAccount);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_name>("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.User_object>("object", Object);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.User_role>("role", Role);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_projects>("projects", Projects);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_role>("role", Role);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User.User_technical_level>("technical_level", TechnicalLevel);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User_user>("user", UserProp);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_api_key_last_used_atMember1"/>, <see cref="int"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class User_api_key_last_used_at : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="int"/></summary>
+            public int? Integer { get; set; }
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_api_key_last_used_atMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_api_key_last_used_atMember1? UserApiKeyLastUsedAtMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_api_key_last_used_atMember1 UserApiKeyLastUsedAtMember1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User.User_api_key_last_used_at"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.User.User_api_key_last_used_at CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.User.User_api_key_last_used_at();
+                if(parseNode.GetIntValue() is int integerValue)
+                {
+                    result.Integer = integerValue;
+                }
+                else {
+                    result.UserApiKeyLastUsedAtMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.User_api_key_last_used_atMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(UserApiKeyLastUsedAtMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(UserApiKeyLastUsedAtMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(Integer != null)
+                {
+                    writer.WriteIntValue(null, Integer);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User_api_key_last_used_atMember1>(null, UserApiKeyLastUsedAtMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_developer_personaMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class User_developer_persona : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_developer_personaMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_developer_personaMember1? UserDeveloperPersonaMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_developer_personaMember1 UserDeveloperPersonaMember1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User.User_developer_persona"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.User.User_developer_persona CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.User.User_developer_persona();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.UserDeveloperPersonaMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.User_developer_personaMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(UserDeveloperPersonaMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(UserDeveloperPersonaMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User_developer_personaMember1>(null, UserDeveloperPersonaMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_emailMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class User_email : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_emailMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_emailMember1? UserEmailMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_emailMember1 UserEmailMember1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User.User_email"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.User.User_email CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.User.User_email();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.UserEmailMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.User_emailMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(UserEmailMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(UserEmailMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User_emailMember1>(null, UserEmailMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_is_scale_tier_authorized_purchaserMember1"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class User_is_scale_tier_authorized_purchaser : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="bool"/></summary>
+            public bool? Boolean { get; set; }
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_is_scale_tier_authorized_purchaserMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_is_scale_tier_authorized_purchaserMember1? UserIsScaleTierAuthorizedPurchaserMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_is_scale_tier_authorized_purchaserMember1 UserIsScaleTierAuthorizedPurchaserMember1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User.User_is_scale_tier_authorized_purchaser"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.User.User_is_scale_tier_authorized_purchaser CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.User.User_is_scale_tier_authorized_purchaser();
+                if(parseNode.GetBoolValue() is bool booleanValue)
+                {
+                    result.Boolean = booleanValue;
+                }
+                else {
+                    result.UserIsScaleTierAuthorizedPurchaserMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.User_is_scale_tier_authorized_purchaserMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(UserIsScaleTierAuthorizedPurchaserMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(UserIsScaleTierAuthorizedPurchaserMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(Boolean != null)
+                {
+                    writer.WriteBoolValue(null, Boolean);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User_is_scale_tier_authorized_purchaserMember1>(null, UserIsScaleTierAuthorizedPurchaserMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_nameMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class User_name : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_nameMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_nameMember1? UserNameMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_nameMember1 UserNameMember1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User.User_name"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.User.User_name CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.User.User_name();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.UserNameMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.User_nameMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(UserNameMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(UserNameMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User_nameMember1>(null, UserNameMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_projectsMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_projectsMember2"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class User_projects : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_projectsMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_projectsMember1? UserProjectsMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_projectsMember1 UserProjectsMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_projectsMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_projectsMember2? UserProjectsMember2 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_projectsMember2 UserProjectsMember2 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User.User_projects"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.User.User_projects CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.User.User_projects();
+                result.UserProjectsMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.User_projectsMember1();
+                result.UserProjectsMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.User_projectsMember2();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(UserProjectsMember1 != null || UserProjectsMember2 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(UserProjectsMember1, UserProjectsMember2);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User_projectsMember1>(null, UserProjectsMember1, UserProjectsMember2);
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_roleMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class User_role : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_roleMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_roleMember1? UserRoleMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_roleMember1 UserRoleMember1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User.User_role"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.User.User_role CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.User.User_role();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.UserRoleMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.User_roleMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(UserRoleMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(UserRoleMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User_roleMember1>(null, UserRoleMember1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_technical_levelMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class User_technical_level : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User_technical_levelMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_technical_levelMember1? UserTechnicalLevelMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.User_technical_levelMember1 UserTechnicalLevelMember1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.User.User_technical_level"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.User.User_technical_level CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.User.User_technical_level();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else {
+                    result.UserTechnicalLevelMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.User_technical_levelMember1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(UserTechnicalLevelMember1 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(UserTechnicalLevelMember1);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.User_technical_levelMember1>(null, UserTechnicalLevelMember1);
+                }
+            }
         }
     }
 }

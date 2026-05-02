@@ -17,6 +17,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Unix timestamp (in seconds) when the group was created.</summary>
         public int? CreatedAt { get; set; }
+        /// <summary>The type of the group.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GroupType { get; set; }
+#nullable restore
+#else
+        public string GroupType { get; set; }
+#endif
         /// <summary>Identifier for the group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,6 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "group_type", n => { GroupType = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_scim_managed", n => { IsScimManaged = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -74,6 +83,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteStringValue("group_type", GroupType);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_scim_managed", IsScimManaged);
             writer.WriteStringValue("name", Name);

@@ -3,17 +3,14 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>`owner` or `reader`</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum User_role
+    #pragma warning disable CS1591
+    public enum User_projectsMember1_object
+    #pragma warning restore CS1591
     {
-        [EnumMember(Value = "owner")]
+        [EnumMember(Value = "list")]
         #pragma warning disable CS1591
-        Owner,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "reader")]
-        #pragma warning disable CS1591
-        Reader,
+        List,
         #pragma warning restore CS1591
     }
 }

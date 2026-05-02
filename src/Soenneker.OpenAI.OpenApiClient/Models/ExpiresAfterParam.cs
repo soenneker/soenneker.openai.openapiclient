@@ -18,7 +18,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Base timestamp used to calculate expiration. Currently fixed to `created_at`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParam_anchor? Anchor { get; set; }
         /// <summary>Number of seconds after the anchor when the session expires.</summary>
-        public int? Seconds { get; set; }
+        public long? Seconds { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParam"/> and sets the default values.
         /// </summary>
@@ -46,7 +46,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "anchor", n => { Anchor = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParam_anchor>(); } },
-                { "seconds", n => { Seconds = n.GetIntValue(); } },
+                { "seconds", n => { Seconds = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParam_anchor>("anchor", Anchor);
-            writer.WriteIntValue("seconds", Seconds);
+            writer.WriteLongValue("seconds", Seconds);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
