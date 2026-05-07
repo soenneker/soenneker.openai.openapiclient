@@ -33,18 +33,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration of the transcription model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription? Transcription { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse? Transcription { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription Transcription { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse Transcription { get; set; }
 #endif
-        /// <summary>Configuration for turn detection. Can be set to `null` to turn off. ServerVAD means that the model will detect the start and end of speech based onaudio volume and respond at the end of user speech.</summary>
+        /// <summary>Configuration for turn detection. For `gpt-realtime-whisper`, this must be `null`; VAD is not supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection? TurnDetection { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection? TurnDetection { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection TurnDetection { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection TurnDetection { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input"/> and sets the default values.
@@ -73,8 +73,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats.CreateFromDiscriminatorValue); } },
                 { "noise_reduction", n => { NoiseReduction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_noise_reduction>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_noise_reduction.CreateFromDiscriminatorValue); } },
-                { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.CreateFromDiscriminatorValue); } },
-                { "turn_detection", n => { TurnDetection = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection.CreateFromDiscriminatorValue); } },
+                { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse.CreateFromDiscriminatorValue); } },
+                { "turn_detection", n => { TurnDetection = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -86,9 +86,66 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats>("format", Format);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_noise_reduction>("noise_reduction", NoiseReduction);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription>("transcription", Transcription);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection>("turn_detection", TurnDetection);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse>("transcription", Transcription);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection>("turn_detection", TurnDetection);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember2"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember1? RealtimeTranscriptionSessionCreateResponseGAAudioInputTurnDetectionMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember1 RealtimeTranscriptionSessionCreateResponseGAAudioInputTurnDetectionMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember2? RealtimeTranscriptionSessionCreateResponseGAAudioInputTurnDetectionMember2 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember2 RealtimeTranscriptionSessionCreateResponseGAAudioInputTurnDetectionMember2 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection();
+                result.RealtimeTranscriptionSessionCreateResponseGAAudioInputTurnDetectionMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember1();
+                result.RealtimeTranscriptionSessionCreateResponseGAAudioInputTurnDetectionMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember2();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(RealtimeTranscriptionSessionCreateResponseGAAudioInputTurnDetectionMember1 != null || RealtimeTranscriptionSessionCreateResponseGAAudioInputTurnDetectionMember2 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RealtimeTranscriptionSessionCreateResponseGAAudioInputTurnDetectionMember1, RealtimeTranscriptionSessionCreateResponseGAAudioInputTurnDetectionMember2);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember1>(null, RealtimeTranscriptionSessionCreateResponseGAAudioInputTurnDetectionMember1, RealtimeTranscriptionSessionCreateResponseGAAudioInputTurnDetectionMember2);
+            }
         }
     }
 }

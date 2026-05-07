@@ -33,10 +33,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration for input audio transcription.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription? Transcription { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse? Transcription { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription Transcription { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse Transcription { get; set; }
 #endif
         /// <summary>Configuration for turn detection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats.CreateFromDiscriminatorValue); } },
                 { "noise_reduction", n => { NoiseReduction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_audio_input_noise_reduction>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_audio_input_noise_reduction.CreateFromDiscriminatorValue); } },
-                { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.CreateFromDiscriminatorValue); } },
+                { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse.CreateFromDiscriminatorValue); } },
                 { "turn_detection", n => { TurnDetection = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_audio_input_turn_detection>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_audio_input_turn_detection.CreateFromDiscriminatorValue); } },
             };
         }
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats>("format", Format);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_audio_input_noise_reduction>("noise_reduction", NoiseReduction);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription>("transcription", Transcription);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse>("transcription", Transcription);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_audio_input_turn_detection>("turn_detection", TurnDetection);
             writer.WriteAdditionalData(AdditionalData);
         }

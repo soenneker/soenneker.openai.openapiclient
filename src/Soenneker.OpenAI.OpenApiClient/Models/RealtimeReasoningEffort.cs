@@ -3,25 +3,29 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The size of the generated image. One of `1024x1024`, `1024x1536`,`1536x1024`, or `auto`. Default: `auto`.</summary>
+    /// <summary>Constrains effort on reasoning for reasoning-capable Realtime models such as`gpt-realtime-2`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum ImageGenTool_size
+    public enum RealtimeReasoningEffort
     {
-        [EnumMember(Value = "1024x1024")]
+        [EnumMember(Value = "minimal")]
         #pragma warning disable CS1591
-        OneZeroTwoFourx1024,
+        Minimal,
         #pragma warning restore CS1591
-        [EnumMember(Value = "1024x1536")]
+        [EnumMember(Value = "low")]
         #pragma warning disable CS1591
-        OneZeroTwoFourx1536,
+        Low,
         #pragma warning restore CS1591
-        [EnumMember(Value = "1536x1024")]
+        [EnumMember(Value = "medium")]
         #pragma warning disable CS1591
-        OneFiveThreeSixx1024,
+        Medium,
         #pragma warning restore CS1591
-        [EnumMember(Value = "auto")]
+        [EnumMember(Value = "high")]
         #pragma warning disable CS1591
-        Auto,
+        High,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "xhigh")]
+        #pragma warning disable CS1591
+        Xhigh,
         #pragma warning restore CS1591
     }
 }

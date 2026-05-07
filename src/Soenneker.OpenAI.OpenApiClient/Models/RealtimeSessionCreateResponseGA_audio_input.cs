@@ -33,10 +33,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration for input audio transcription, defaults to off and can be set to `null` to turn off once on. Input audio transcription is not native to the model, since the model consumes audio directly. Transcription runs asynchronously through [the /audio/transcriptions endpoint](/docs/api-reference/audio/createTranscription) and should be treated as guidance of input audio content rather than precisely what the model heard. The client can optionally set the language and prompt for transcription, these offer additional guidance to the transcription service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription? Transcription { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse? Transcription { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription Transcription { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse Transcription { get; set; }
 #endif
         /// <summary>The turn_detection property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats.CreateFromDiscriminatorValue); } },
                 { "noise_reduction", n => { NoiseReduction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGA_audio_input_noise_reduction>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGA_audio_input_noise_reduction.CreateFromDiscriminatorValue); } },
-                { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.CreateFromDiscriminatorValue); } },
+                { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse.CreateFromDiscriminatorValue); } },
                 { "turn_detection", n => { TurnDetection = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats>("format", Format);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGA_audio_input_noise_reduction>("noise_reduction", NoiseReduction);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription>("transcription", Transcription);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse>("transcription", Transcription);
             writer.WriteObjectValue<UntypedNode>("turn_detection", TurnDetection);
             writer.WriteAdditionalData(AdditionalData);
         }

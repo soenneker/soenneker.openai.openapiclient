@@ -8,10 +8,10 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Configuration for turn detection. Can be set to `null` to turn off. ServerVAD means that the model will detect the start and end of speech based onaudio volume and respond at the end of user speech.
+    /// Configuration for turn detection. Can be set to `null` to turn off. ServerVAD means that the model will detect the start and end of speech based onaudio volume and respond at the end of user speech. For `gpt-realtime-whisper`, this must be `null`; VAD is not supported.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection : IAdditionalDataHolder, IParsable
+    public partial class RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember1 : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -30,21 +30,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Type { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember1"/> and sets the default values.
         /// </summary>
-        public RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection()
+        public RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember1()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember1"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detection();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGA_audio_input_turn_detectionMember1();
         }
         /// <summary>
         /// The deserialization information for the current model

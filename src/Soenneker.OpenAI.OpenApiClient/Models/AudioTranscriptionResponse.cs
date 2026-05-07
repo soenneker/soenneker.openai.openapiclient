@@ -11,13 +11,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// Configuration for input audio transcription, defaults to off and can be set to `null` to turn off once on. Input audio transcription is not native to the model, since the model consumes audio directly. Transcription runs asynchronously through [the /audio/transcriptions endpoint](/docs/api-reference/audio/createTranscription) and should be treated as guidance of input audio content rather than precisely what the model heard. The client can optionally set the language and prompt for transcription, these offer additional guidance to the transcription service.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AudioTranscription : IAdditionalDataHolder, IParsable
+    public partial class AudioTranscriptionResponse : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Controls how long the model waits before emitting transcription text.Higher values can improve transcription accuracy at the cost of latency.Only supported with `gpt-realtime-whisper` in GA Realtime sessions.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription_delay? Delay { get; set; }
-        /// <summary>The language of the input audio. Supplying the input language in[ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (e.g. `en`) formatwill improve accuracy and latency.</summary>
+        /// <summary>The language of the input audio.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Language { get; set; }
@@ -25,15 +23,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Language { get; set; }
 #endif
-        /// <summary>The model to use for transcription. Current options are `whisper-1`, `gpt-4o-mini-transcribe`, `gpt-4o-mini-transcribe-2025-12-15`, `gpt-4o-transcribe`, `gpt-4o-transcribe-diarize`, and `gpt-realtime-whisper`. Use `gpt-4o-transcribe-diarize` when you need diarization with speaker labels.</summary>
+        /// <summary>The model used for transcription. Current options are `whisper-1`, `gpt-4o-mini-transcribe`, `gpt-4o-mini-transcribe-2025-12-15`, `gpt-4o-transcribe`, `gpt-4o-transcribe-diarize`, and `gpt-realtime-whisper`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse.AudioTranscriptionResponse_model? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse.AudioTranscriptionResponse_model Model { get; set; }
 #endif
-        /// <summary>An optional text to guide the model&apos;s style or continue a previous audiosegment.For `whisper-1`, the [prompt is a list of keywords](/docs/guides/speech-to-text#prompting).For `gpt-4o-transcribe` models (excluding `gpt-4o-transcribe-diarize`), the prompt is a free text string, for example &quot;expect words related to technology&quot;.Prompt is not supported with `gpt-realtime-whisper` in GA Realtime sessions.</summary>
+        /// <summary>The prompt configured for input audio transcription, when present.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Prompt { get; set; }
@@ -42,21 +40,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Prompt { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse"/> and sets the default values.
         /// </summary>
-        public AudioTranscription()
+        public AudioTranscriptionResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,9 +64,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "delay", n => { Delay = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription_delay>(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse.AudioTranscriptionResponse_model>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse.AudioTranscriptionResponse_model.CreateFromDiscriminatorValue); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
             };
         }
@@ -79,9 +76,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription_delay>("delay", Delay);
             writer.WriteStringValue("language", Language);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model>("model", Model);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse.AudioTranscriptionResponse_model>("model", Model);
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteAdditionalData(AdditionalData);
         }
@@ -89,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// Composed type wrapper for classes <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AudioTranscription_model : IComposedTypeWrapper, IParsable
+        public partial class AudioTranscriptionResponse_model : IComposedTypeWrapper, IParsable
         {
             /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -102,12 +98,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model"/></returns>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse.AudioTranscriptionResponse_model"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse.AudioTranscriptionResponse_model CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model();
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse.AudioTranscriptionResponse_model();
                 if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;

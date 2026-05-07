@@ -52,8 +52,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_quality? Quality { get; set; }
         /// <summary>The format in which generated images with `dall-e-2` and `dall-e-3` are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated. This parameter isn&apos;t supported for the GPT image models, which always return base64-encoded images.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_response_format? ResponseFormat { get; set; }
-        /// <summary>The size of the generated images. Must be one of `1024x1024`, `1536x1024` (landscape), `1024x1536` (portrait), or `auto` (default value) for the GPT image models, one of `256x256`, `512x512`, or `1024x1024` for `dall-e-2`, and one of `1024x1024`, `1792x1024`, or `1024x1792` for `dall-e-3`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_size? Size { get; set; }
+        /// <summary>The size of the generated images. For `gpt-image-2` and `gpt-image-2-2026-04-21`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model&apos;s current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing. For `dall-e-2`, use one of `256x256`, `512x512`, or `1024x1024`. For `dall-e-3`, use one of `1024x1024`, `1792x1024`, or `1024x1792`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest.CreateImageRequest_size? Size { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest.CreateImageRequest_size Size { get; set; }
+#endif
         /// <summary>Generate the image in streaming mode. Defaults to `false`. See the[Image generation guide](/docs/guides/image-generation) for more information.This parameter is only supported for the GPT image models.</summary>
         public bool? Stream { get; set; }
         /// <summary>The style of the generated images. This parameter is only supported for `dall-e-3`. Must be one of `vivid` or `natural`. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images.</summary>
@@ -77,7 +83,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             OutputFormat = global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_output_format.Png;
             Quality = global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_quality.Auto;
             ResponseFormat = global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_response_format.Url;
-            Size = global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_size.Auto;
             Style = global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_style.Vivid;
         }
         /// <summary>
@@ -108,7 +113,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
                 { "quality", n => { Quality = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_quality>(); } },
                 { "response_format", n => { ResponseFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_response_format>(); } },
-                { "size", n => { Size = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_size>(); } },
+                { "size", n => { Size = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest.CreateImageRequest_size>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest.CreateImageRequest_size.CreateFromDiscriminatorValue); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "style", n => { Style = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_style>(); } },
                 { "user", n => { User = n.GetStringValue(); } },
@@ -131,7 +136,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_quality>("quality", Quality);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_response_format>("response_format", ResponseFormat);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_size>("size", Size);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest.CreateImageRequest_size>("size", Size);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest_style>("style", Style);
             writer.WriteStringValue("user", User);
@@ -160,6 +165,56 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest.CreateImageRequest_model();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class CreateImageRequest_size : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest.CreateImageRequest_size"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest.CreateImageRequest_size CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequest.CreateImageRequest_size();
                 if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;

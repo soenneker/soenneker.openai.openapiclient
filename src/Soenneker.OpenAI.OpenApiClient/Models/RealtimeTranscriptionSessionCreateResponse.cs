@@ -34,10 +34,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration of the transcription model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription? InputAudioTranscription { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse? InputAudioTranscription { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription InputAudioTranscription { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse InputAudioTranscription { get; set; }
 #endif
         /// <summary>The set of modalities the model can respond with. To disable audio,set this to [&quot;text&quot;].</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "client_secret", n => { ClientSecret = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponse_client_secret>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponse_client_secret.CreateFromDiscriminatorValue); } },
                 { "input_audio_format", n => { InputAudioFormat = n.GetStringValue(); } },
-                { "input_audio_transcription", n => { InputAudioTranscription = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.CreateFromDiscriminatorValue); } },
+                { "input_audio_transcription", n => { InputAudioTranscription = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse.CreateFromDiscriminatorValue); } },
                 { "modalities", n => { Modalities = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "turn_detection", n => { TurnDetection = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponse_turn_detection>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponse_turn_detection.CreateFromDiscriminatorValue); } },
             };
@@ -96,7 +96,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponse_client_secret>("client_secret", ClientSecret);
             writer.WriteStringValue("input_audio_format", InputAudioFormat);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription>("input_audio_transcription", InputAudioTranscription);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse>("input_audio_transcription", InputAudioTranscription);
             writer.WriteObjectValue<UntypedNode>("modalities", Modalities);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponse_turn_detection>("turn_detection", TurnDetection);
             writer.WriteAdditionalData(AdditionalData);

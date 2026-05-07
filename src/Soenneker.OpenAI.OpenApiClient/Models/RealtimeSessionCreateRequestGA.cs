@@ -63,6 +63,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA_output_modalities?> OutputModalities { get; set; }
 #endif
+        /// <summary>Whether the model may call multiple tools in parallel. Only supported byreasoning Realtime models such as `gpt-realtime-2`.</summary>
+        public bool? ParallelToolCalls { get; set; }
         /// <summary>The prompt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,6 +72,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.Prompt Prompt { get; set; }
+#endif
+        /// <summary>Configuration for reasoning-capable Realtime models such as `gpt-realtime-2`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeReasoning? Reasoning { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeReasoning Reasoning { get; set; }
 #endif
         /// <summary>How the model chooses tools. Provide one of the string modes or force a specificfunction/MCP tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -136,7 +146,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_max_output_tokens>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_max_output_tokens.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_model>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_model.CreateFromDiscriminatorValue); } },
                 { "output_modalities", n => { OutputModalities = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA_output_modalities>()?.AsList(); } },
+                { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
                 { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Prompt>(global::Soenneker.OpenAI.OpenApiClient.Models.Prompt.CreateFromDiscriminatorValue); } },
+                { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeReasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeReasoning.CreateFromDiscriminatorValue); } },
                 { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_tool_choice>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_tool_choice.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_tools>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_tools.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tracing", n => { Tracing = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_tracing>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_tracing.CreateFromDiscriminatorValue); } },
@@ -157,7 +169,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_max_output_tokens>("max_output_tokens", MaxOutputTokens);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_model>("model", Model);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA_output_modalities>("output_modalities", OutputModalities);
+            writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Prompt>("prompt", Prompt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeReasoning>("reasoning", Reasoning);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_tool_choice>("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_tools>("tools", Tools);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGA.RealtimeSessionCreateRequestGA_tracing>("tracing", Tracing);

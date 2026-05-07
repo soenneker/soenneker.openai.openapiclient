@@ -6,6 +6,7 @@ using Soenneker.OpenAI.OpenApiClient.Realtime.Calls;
 using Soenneker.OpenAI.OpenApiClient.Realtime.Client_secrets;
 using Soenneker.OpenAI.OpenApiClient.Realtime.Sessions;
 using Soenneker.OpenAI.OpenApiClient.Realtime.Transcription_sessions;
+using Soenneker.OpenAI.OpenApiClient.Realtime.Translations;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -37,6 +38,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Realtime
         public global::Soenneker.OpenAI.OpenApiClient.Realtime.Transcription_sessions.Transcription_sessionsRequestBuilder Transcription_sessions
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Realtime.Transcription_sessions.Transcription_sessionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The translations property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Realtime.Translations.TranslationsRequestBuilder Translations
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Realtime.Translations.TranslationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Realtime.RealtimeRequestBuilder"/> and sets the default values.
