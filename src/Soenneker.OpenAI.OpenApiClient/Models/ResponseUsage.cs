@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Represents token usage details including input tokens, output tokens,a breakdown of output tokens, and the total tokens used.
+    /// Token accounting for the compaction pass, including cached, reasoning, and total tokens.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ResponseUsage : IAdditionalDataHolder, IParsable
