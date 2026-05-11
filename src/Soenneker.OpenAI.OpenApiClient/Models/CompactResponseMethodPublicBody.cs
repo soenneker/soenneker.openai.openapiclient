@@ -56,6 +56,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The prompt_cache_retention property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheRetentionEnum? PromptCacheRetention { get; set; }
+        /// <summary>The service_tier property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierEnum? ServiceTier { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBody"/> and sets the default values.
         /// </summary>
@@ -87,6 +89,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "previous_response_id", n => { PreviousResponseId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBody.CompactResponseMethodPublicBody_previous_response_id>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBody.CompactResponseMethodPublicBody_previous_response_id.CreateFromDiscriminatorValue); } },
                 { "prompt_cache_key", n => { PromptCacheKey = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBody.CompactResponseMethodPublicBody_prompt_cache_key>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBody.CompactResponseMethodPublicBody_prompt_cache_key.CreateFromDiscriminatorValue); } },
                 { "prompt_cache_retention", n => { PromptCacheRetention = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheRetentionEnum>(); } },
+                { "service_tier", n => { ServiceTier = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierEnum>(); } },
             };
         }
         /// <summary>
@@ -102,6 +105,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBody.CompactResponseMethodPublicBody_previous_response_id>("previous_response_id", PreviousResponseId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBody.CompactResponseMethodPublicBody_prompt_cache_key>("prompt_cache_key", PromptCacheKey);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheRetentionEnum>("prompt_cache_retention", PromptCacheRetention);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierEnum>("service_tier", ServiceTier);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
