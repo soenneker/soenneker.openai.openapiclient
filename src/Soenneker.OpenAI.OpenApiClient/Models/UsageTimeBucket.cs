@@ -73,7 +73,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageModerationsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResult"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageModerationsResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResult"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class UsageTimeBucket_results : IComposedTypeWrapper, IParsable
@@ -126,6 +126,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
             public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult UsageEmbeddingsResult { get; set; }
 #endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult? UsageFileSearchCallsResult { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult UsageFileSearchCallsResult { get; set; }
+#endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResult"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -149,6 +157,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
             public global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResult UsageVectorStoresResult { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult? UsageWebSearchCallsResult { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult UsageWebSearchCallsResult { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -184,6 +200,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 {
                     result.UsageEmbeddingsResult = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult();
                 }
+                else if("UsageFileSearchCallsResult".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.UsageFileSearchCallsResult = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult();
+                }
                 else if("UsageImagesResult".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.UsageImagesResult = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResult();
@@ -195,6 +215,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 else if("UsageVectorStoresResult".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.UsageVectorStoresResult = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResult();
+                }
+                else if("UsageWebSearchCallsResult".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.UsageWebSearchCallsResult = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult();
                 }
                 return result;
             }
@@ -228,6 +252,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 {
                     return UsageEmbeddingsResult.GetFieldDeserializers();
                 }
+                else if(UsageFileSearchCallsResult != null)
+                {
+                    return UsageFileSearchCallsResult.GetFieldDeserializers();
+                }
                 else if(UsageImagesResult != null)
                 {
                     return UsageImagesResult.GetFieldDeserializers();
@@ -239,6 +267,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 else if(UsageVectorStoresResult != null)
                 {
                     return UsageVectorStoresResult.GetFieldDeserializers();
+                }
+                else if(UsageWebSearchCallsResult != null)
+                {
+                    return UsageWebSearchCallsResult.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -273,6 +305,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 {
                     writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult>(null, UsageEmbeddingsResult);
                 }
+                else if(UsageFileSearchCallsResult != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult>(null, UsageFileSearchCallsResult);
+                }
                 else if(UsageImagesResult != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResult>(null, UsageImagesResult);
@@ -284,6 +320,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 else if(UsageVectorStoresResult != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResult>(null, UsageVectorStoresResult);
+                }
+                else if(UsageWebSearchCallsResult != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult>(null, UsageWebSearchCallsResult);
                 }
             }
         }

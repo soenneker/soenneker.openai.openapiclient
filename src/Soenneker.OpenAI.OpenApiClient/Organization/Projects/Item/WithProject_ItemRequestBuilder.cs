@@ -8,6 +8,8 @@ using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Archive;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups;
+using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Hosted_tool_permissions;
+using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Model_permissions;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Users;
@@ -43,6 +45,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.GroupsRequestBuilder Groups
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.GroupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The hosted_tool_permissions property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Hosted_tool_permissions.Hosted_tool_permissionsRequestBuilder Hosted_tool_permissions
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Hosted_tool_permissions.Hosted_tool_permissionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The model_permissions property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Model_permissions.Model_permissionsRequestBuilder Model_permissions
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Model_permissions.Model_permissionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The rate_limits property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits.Rate_limitsRequestBuilder Rate_limits

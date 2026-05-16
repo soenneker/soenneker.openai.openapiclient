@@ -7,9 +7,11 @@ using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Audio_transcriptions;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Code_interpreter_sessions;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Completions;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Embeddings;
+using Soenneker.OpenAI.OpenApiClient.Organization.Usage.File_search_calls;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Moderations;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Vector_stores;
+using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Web_search_calls;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -47,6 +49,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Usage
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Embeddings.EmbeddingsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The file_search_calls property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.File_search_calls.File_search_callsRequestBuilder File_search_calls
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.File_search_calls.File_search_callsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The images property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images.ImagesRequestBuilder Images
         {
@@ -61,6 +68,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Usage
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Vector_stores.Vector_storesRequestBuilder Vector_stores
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Vector_stores.Vector_storesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The web_search_calls property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Web_search_calls.Web_search_callsRequestBuilder Web_search_calls
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Web_search_calls.Web_search_callsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.UsageRequestBuilder"/> and sets the default values.

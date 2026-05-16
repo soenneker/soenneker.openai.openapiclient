@@ -15,6 +15,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CompactionTriggerItemParam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionTriggerItemParam? CompactionTriggerItemParam { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionTriggerItemParam CompactionTriggerItemParam { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessage"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,7 +64,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.InputItem();
-            if("EasyInputMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("CompactionTriggerItemParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CompactionTriggerItemParam = new global::Soenneker.OpenAI.OpenApiClient.Models.CompactionTriggerItemParam();
+            }
+            else if("EasyInputMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EasyInputMessage = new global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessage();
             }
@@ -76,7 +88,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(EasyInputMessage != null)
+            if(CompactionTriggerItemParam != null)
+            {
+                return CompactionTriggerItemParam.GetFieldDeserializers();
+            }
+            else if(EasyInputMessage != null)
             {
                 return EasyInputMessage.GetFieldDeserializers();
             }
@@ -97,7 +113,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(EasyInputMessage != null)
+            if(CompactionTriggerItemParam != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionTriggerItemParam>(null, CompactionTriggerItemParam);
+            }
+            else if(EasyInputMessage != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessage>(null, EasyInputMessage);
             }
