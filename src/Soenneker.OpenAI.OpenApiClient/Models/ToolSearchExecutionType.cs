@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>Whether tool search was executed by the server or by the client.</summary>
+    /// <summary>Whether tool search is executed by the server or by the client.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ToolSearchExecutionType
     {
