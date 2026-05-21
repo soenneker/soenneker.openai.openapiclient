@@ -19,7 +19,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups
     public partial class GroupsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.organization.projects.item.groups.item collection</summary>
-        /// <param name="position">The ID of the group to remove from the project.</param>
+        /// <param name="position">The ID of the group to retrieve.</param>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder"/></returns>
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder this[string position]
         {

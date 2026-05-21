@@ -19,7 +19,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Projects.Item.Users.Item.Roles
     public partial class RolesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.projects.item.users.item.roles.item collection</summary>
-        /// <param name="position">The ID of the project role to remove from the user.</param>
+        /// <param name="position">The ID of the project role to retrieve for the user.</param>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Users.Item.Roles.Item.WithRole_ItemRequestBuilder"/></returns>
         public global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Users.Item.Roles.Item.WithRole_ItemRequestBuilder this[string position]
         {

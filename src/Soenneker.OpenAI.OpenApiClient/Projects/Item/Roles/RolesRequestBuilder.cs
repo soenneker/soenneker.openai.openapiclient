@@ -19,7 +19,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Projects.Item.Roles
     public partial class RolesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.projects.item.roles.item collection</summary>
-        /// <param name="position">The ID of the role to update.</param>
+        /// <param name="position">The ID of the role to retrieve.</param>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Roles.Item.WithRole_ItemRequestBuilder"/></returns>
         public global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Roles.Item.WithRole_ItemRequestBuilder this[string position]
         {

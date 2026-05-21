@@ -6,10 +6,12 @@ using Soenneker.OpenAI.OpenApiClient.Organization.Admin_api_keys;
 using Soenneker.OpenAI.OpenApiClient.Organization.Audit_logs;
 using Soenneker.OpenAI.OpenApiClient.Organization.Certificates;
 using Soenneker.OpenAI.OpenApiClient.Organization.Costs;
+using Soenneker.OpenAI.OpenApiClient.Organization.Data_retention;
 using Soenneker.OpenAI.OpenApiClient.Organization.Groups;
 using Soenneker.OpenAI.OpenApiClient.Organization.Invites;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects;
 using Soenneker.OpenAI.OpenApiClient.Organization.Roles;
+using Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage;
 using Soenneker.OpenAI.OpenApiClient.Organization.Users;
 using System.Collections.Generic;
@@ -44,6 +46,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Costs.CostsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The data_retention property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Data_retention.Data_retentionRequestBuilder Data_retention
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Data_retention.Data_retentionRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The groups property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Groups.GroupsRequestBuilder Groups
         {
@@ -63,6 +70,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Roles.RolesRequestBuilder Roles
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Roles.RolesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The spend_alerts property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts.Spend_alertsRequestBuilder Spend_alerts
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts.Spend_alertsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The usage property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.UsageRequestBuilder Usage

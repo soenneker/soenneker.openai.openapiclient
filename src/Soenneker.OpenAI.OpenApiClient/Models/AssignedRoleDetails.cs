@@ -15,6 +15,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Principals from which the role assignment is inherited, when available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_assignment_sources? AssignmentSources { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_assignment_sources AssignmentSources { get; set; }
+#endif
         /// <summary>When the role was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -122,6 +130,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "assignment_sources", n => { AssignmentSources = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_assignment_sources>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_assignment_sources.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_created_at>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_created_at.CreateFromDiscriminatorValue); } },
                 { "created_by", n => { CreatedBy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_created_by>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_created_by.CreateFromDiscriminatorValue); } },
                 { "created_by_user_obj", n => { CreatedByUserObj = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
@@ -142,6 +151,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_assignment_sources>("assignment_sources", AssignmentSources);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_created_at>("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_created_by>("created_by", CreatedBy);
             writer.WriteObjectValue<UntypedNode>("created_by_user_obj", CreatedByUserObj);
@@ -154,6 +164,74 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("resource_type", ResourceType);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_updated_at>("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_assignment_sourcesMember2"/>, List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_assignment_sourcesMember1&gt;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class AssignedRoleDetails_assignment_sources : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_assignment_sourcesMember1&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public List<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_assignment_sourcesMember1>? AssignedRoleDetailsAssignmentSourcesMember1 { get; set; }
+#nullable restore
+#else
+            public List<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_assignment_sourcesMember1> AssignedRoleDetailsAssignmentSourcesMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_assignment_sourcesMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_assignment_sourcesMember2? AssignedRoleDetailsAssignmentSourcesMember2 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_assignment_sourcesMember2 AssignedRoleDetailsAssignmentSourcesMember2 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_assignment_sources"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_assignment_sources CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_assignment_sources();
+                if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_assignment_sourcesMember1>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_assignment_sourcesMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_assignment_sourcesMember1> assignedRoleDetailsAssignmentSourcesMember1Value)
+                {
+                    result.AssignedRoleDetailsAssignmentSourcesMember1 = assignedRoleDetailsAssignmentSourcesMember1Value;
+                }
+                else {
+                    result.AssignedRoleDetailsAssignmentSourcesMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_assignment_sourcesMember2();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(AssignedRoleDetailsAssignmentSourcesMember2 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AssignedRoleDetailsAssignmentSourcesMember2);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(AssignedRoleDetailsAssignmentSourcesMember1 != null)
+                {
+                    writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_assignment_sourcesMember1>(null, AssignedRoleDetailsAssignmentSourcesMember1);
+                }
+                else {
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_assignment_sourcesMember2>(null, AssignedRoleDetailsAssignmentSourcesMember2);
+                }
+            }
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_created_atMember1"/>, <see cref="int"/>
@@ -354,7 +432,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             }
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_updated_atMember1"/>, <see cref="long"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_updated_atMember1"/>, <see cref="int"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AssignedRoleDetails_updated_at : IComposedTypeWrapper, IParsable
@@ -367,8 +445,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
             public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_updated_atMember1 AssignedRoleDetailsUpdatedAtMember1 { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="long"/></summary>
-            public long? Int64 { get; set; }
+            /// <summary>Composed type representation for type <see cref="int"/></summary>
+            public int? Integer { get; set; }
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
@@ -378,9 +456,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.AssignedRoleDetails_updated_at();
-                if(parseNode.GetLongValue() is long int64Value)
+                if(parseNode.GetIntValue() is int integerValue)
                 {
-                    result.Int64 = int64Value;
+                    result.Integer = integerValue;
                 }
                 else {
                     result.AssignedRoleDetailsUpdatedAtMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_updated_atMember1();
@@ -406,9 +484,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Int64 != null)
+                if(Integer != null)
                 {
-                    writer.WriteLongValue(null, Int64);
+                    writer.WriteIntValue(null, Integer);
                 }
                 else {
                     writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails_updated_atMember1>(null, AssignedRoleDetailsUpdatedAtMember1);

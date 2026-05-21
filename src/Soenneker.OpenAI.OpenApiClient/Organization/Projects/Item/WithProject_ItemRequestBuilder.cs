@@ -7,11 +7,13 @@ using Soenneker.OpenAI.OpenApiClient.Models;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Archive;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates;
+using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Data_retention;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Hosted_tool_permissions;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Model_permissions;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts;
+using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Users;
 using System.Collections.Generic;
 using System.IO;
@@ -41,6 +43,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates.CertificatesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The data_retention property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Data_retention.Data_retentionRequestBuilder Data_retention
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Data_retention.Data_retentionRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The groups property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.GroupsRequestBuilder Groups
         {
@@ -65,6 +72,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts.Service_accountsRequestBuilder Service_accounts
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts.Service_accountsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The spend_alerts property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts.Spend_alertsRequestBuilder Spend_alerts
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts.Spend_alertsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The users property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Users.UsersRequestBuilder Users

@@ -19,7 +19,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Groups.Item.Roles
     public partial class RolesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.organization.groups.item.roles.item collection</summary>
-        /// <param name="position">The ID of the organization role to remove from the group.</param>
+        /// <param name="position">The ID of the organization role to retrieve for the group.</param>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Groups.Item.Roles.Item.WithRole_ItemRequestBuilder"/></returns>
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Groups.Item.Roles.Item.WithRole_ItemRequestBuilder this[string position]
         {

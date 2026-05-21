@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithGroup_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/groups/{group_id}", pathParameters)
+        public WithGroup_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/groups/{group_id}{?group_type*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithGroup_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/groups/{group_id}", rawUrl)
+        public WithGroup_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/groups/{group_id}{?group_type*}", rawUrl)
         {
         }
         /// <summary>
@@ -52,6 +52,24 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroupDeletedResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroupDeletedResource.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
+        /// Retrieves a project&apos;s group.
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroup"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroup?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder.WithGroup_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroup> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder.WithGroup_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToGetRequestInformation(requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroup>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroup.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
         /// Revokes a group&apos;s access to a project.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -71,6 +89,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item
             return requestInfo;
         }
         /// <summary>
+        /// Retrieves a project&apos;s group.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder.WithGroup_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder.WithGroup_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder"/></returns>
@@ -78,6 +115,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Retrieves a project&apos;s group.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithGroup_ItemRequestBuilderGetQueryParameters 
+        {
+            /// <summary>The type of group to retrieve.</summary>
+            [QueryParameter("group_type")]
+            public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.GetGroup_typeQueryParameterType? GroupType { get; set; }
         }
     }
 }

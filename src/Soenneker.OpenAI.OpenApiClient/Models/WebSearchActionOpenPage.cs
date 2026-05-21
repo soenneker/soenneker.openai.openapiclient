@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The action type. Always `open_page`.</summary>
+        /// <summary>The action type.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPage_type? Type { get; set; }
         /// <summary>The URL opened by the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
