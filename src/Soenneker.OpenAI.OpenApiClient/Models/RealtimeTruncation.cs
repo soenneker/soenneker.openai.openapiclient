@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationMember1"/>, <see cref="string"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation_Wrapper"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RealtimeTruncation : IComposedTypeWrapper, IParsable
@@ -21,13 +21,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationMember1 RealtimeTruncationMember1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="string"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation_Wrapper"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? String { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation_Wrapper? RealtimeTruncationWrapper { get; set; }
 #nullable restore
 #else
-        public string String { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation_Wrapper RealtimeTruncationWrapper { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,15 +37,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation();
             if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RealtimeTruncationMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationMember1();
             }
-            else if(parseNode.GetStringValue() is string stringValue)
+            else if("RealtimeTruncation_Wrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.String = stringValue;
+                result.RealtimeTruncationWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation_Wrapper();
             }
             return result;
         }
@@ -58,6 +58,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(RealtimeTruncationMember1 != null)
             {
                 return RealtimeTruncationMember1.GetFieldDeserializers();
+            }
+            else if(RealtimeTruncationWrapper != null)
+            {
+                return RealtimeTruncationWrapper.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -72,9 +76,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationMember1>(null, RealtimeTruncationMember1);
             }
-            else if(String != null)
+            else if(RealtimeTruncationWrapper != null)
             {
-                writer.WriteStringValue(null, String);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation_Wrapper>(null, RealtimeTruncationWrapper);
             }
         }
     }

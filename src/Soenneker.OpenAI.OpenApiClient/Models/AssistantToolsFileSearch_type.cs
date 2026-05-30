@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The type of tool being defined: `file_search`</summary>
+    /// <summary>&quot;The type of tool being defined: `file_search`&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AssistantToolsFileSearch_type
     {

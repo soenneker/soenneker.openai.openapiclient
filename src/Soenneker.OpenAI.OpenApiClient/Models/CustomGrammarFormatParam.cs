@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Definition { get; set; }
 #endif
-        /// <summary>The syntax of the grammar definition. One of `lark` or `regex`.</summary>
+        /// <summary>The syntax property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.GrammarSyntax1? Syntax { get; set; }
         /// <summary>Grammar format. Always `grammar`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParam_type? Type { get; set; }
@@ -33,7 +33,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public CustomGrammarFormatParam()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParam_type.Grammar;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

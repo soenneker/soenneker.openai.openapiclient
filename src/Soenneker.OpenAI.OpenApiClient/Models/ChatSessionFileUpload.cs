@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Upload settings for the session.
+    /// Upload permissions and limits applied to the session.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatSessionFileUpload : IAdditionalDataHolder, IParsable
@@ -20,18 +20,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The max_files property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_files? MaxFiles { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_files? MaxFiles { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_files MaxFiles { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_files MaxFiles { get; set; }
 #endif
         /// <summary>The max_file_size property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_file_size? MaxFileSize { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_size? MaxFileSize { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_file_size MaxFileSize { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_size MaxFileSize { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload"/> and sets the default values.
@@ -59,8 +59,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
-                { "max_file_size", n => { MaxFileSize = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_file_size>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_file_size.CreateFromDiscriminatorValue); } },
-                { "max_files", n => { MaxFiles = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_files>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_files.CreateFromDiscriminatorValue); } },
+                { "max_file_size", n => { MaxFileSize = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_size>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_size.CreateFromDiscriminatorValue); } },
+                { "max_files", n => { MaxFiles = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_files>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_files.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -71,133 +71,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_files>("max_files", MaxFiles);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_file_size>("max_file_size", MaxFileSize);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_files>("max_files", MaxFiles);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_size>("max_file_size", MaxFileSize);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_sizeMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ChatSessionFileUpload_max_file_size : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_sizeMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_sizeMember1? ChatSessionFileUploadMaxFileSizeMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_sizeMember1 ChatSessionFileUploadMaxFileSizeMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_file_size"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_file_size CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_file_size();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.ChatSessionFileUploadMaxFileSizeMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_sizeMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ChatSessionFileUploadMaxFileSizeMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ChatSessionFileUploadMaxFileSizeMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_sizeMember1>(null, ChatSessionFileUploadMaxFileSizeMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_filesMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ChatSessionFileUpload_max_files : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_filesMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_filesMember1? ChatSessionFileUploadMaxFilesMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_filesMember1 ChatSessionFileUploadMaxFilesMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_files"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_files CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload.ChatSessionFileUpload_max_files();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.ChatSessionFileUploadMaxFilesMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_filesMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ChatSessionFileUploadMaxFilesMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ChatSessionFileUploadMaxFilesMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_filesMember1>(null, ChatSessionFileUploadMaxFilesMember1);
-                }
-            }
         }
     }
 }

@@ -20,10 +20,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The file_counts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_file_counts? FileCounts { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectFileCounts? FileCounts { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_file_counts FileCounts { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectFileCounts FileCounts { get; set; }
 #endif
         /// <summary>The identifier, which can be referenced in API endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "file_counts", n => { FileCounts = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_file_counts>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_file_counts.CreateFromDiscriminatorValue); } },
+                { "file_counts", n => { FileCounts = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectFileCounts>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectFileCounts.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_object>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_status>(); } },
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_file_counts>("file_counts", FileCounts);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectFileCounts>("file_counts", FileCounts);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_object>("object", Object);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_status>("status", Status);

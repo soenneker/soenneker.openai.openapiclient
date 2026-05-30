@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration for translation input and output audio.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSession_audio? Audio { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudio? Audio { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSession_audio Audio { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudio Audio { get; set; }
 #endif
         /// <summary>Expiration timestamp for the session, in seconds since epoch.</summary>
         public int? ExpiresAt { get; set; }
@@ -68,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "audio", n => { Audio = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSession_audio>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSession_audio.CreateFromDiscriminatorValue); } },
+                { "audio", n => { Audio = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudio>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudio.CreateFromDiscriminatorValue); } },
                 { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
@@ -82,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSession_audio>("audio", Audio);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudio>("audio", Audio);
             writer.WriteIntValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("model", Model);

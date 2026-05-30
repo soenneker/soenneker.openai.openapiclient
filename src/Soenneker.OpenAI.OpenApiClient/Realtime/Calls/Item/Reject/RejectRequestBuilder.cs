@@ -36,22 +36,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.Reject
         /// <summary>
         /// Decline an incoming SIP call by returning a SIP status code to the caller.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.Reject.RejectPostResponse"/></returns>
         /// <param name="body">Parameters used to decline an incoming SIP call handled by the Realtime API.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCallRejectRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.Reject.RejectPostResponse?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCallRejectRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCallRejectRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.Reject.RejectPostResponse> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCallRejectRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.Reject.RejectPostResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.Reject.RejectPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Decline an incoming SIP call by returning a SIP status code to the caller.
@@ -71,6 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.Reject
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }

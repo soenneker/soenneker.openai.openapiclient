@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The function property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoice_function? Function { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceFunction? Function { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoice_function Function { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceFunction Function { get; set; }
 #endif
         /// <summary>For function calling, the type is always `function`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoice_type? Type { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "function", n => { Function = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoice_function>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoice_function.CreateFromDiscriminatorValue); } },
+                { "function", n => { Function = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceFunction>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceFunction.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoice_type>(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoice_function>("function", Function);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceFunction>("function", Function);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoice_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

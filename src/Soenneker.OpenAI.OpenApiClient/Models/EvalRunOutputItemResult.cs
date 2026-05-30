@@ -28,10 +28,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Optional sample or intermediate data produced by the grader.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Sample { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult_sample? Sample { get; set; }
 #nullable restore
 #else
-        public UntypedNode Sample { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult_sample Sample { get; set; }
 #endif
         /// <summary>The numeric score produced by the grader.</summary>
         public double? Score { get; set; }
@@ -70,7 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "passed", n => { Passed = n.GetBoolValue(); } },
-                { "sample", n => { Sample = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "sample", n => { Sample = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult_sample>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult_sample.CreateFromDiscriminatorValue); } },
                 { "score", n => { Score = n.GetDoubleValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -84,7 +84,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("passed", Passed);
-            writer.WriteObjectValue<UntypedNode>("sample", Sample);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult_sample>("sample", Sample);
             writer.WriteDoubleValue("score", Score);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);

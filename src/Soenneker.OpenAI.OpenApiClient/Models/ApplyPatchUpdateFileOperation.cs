@@ -39,7 +39,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public ApplyPatchUpdateFileOperation()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchUpdateFileOperation_type.Update_file;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

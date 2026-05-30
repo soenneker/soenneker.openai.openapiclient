@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Anchor timestamp after which the expiration policy applies. Supported anchors: `created_at`. Note that the anchor is the file creation time, not the time the batch is created.</summary>
+        /// <summary>&quot;Anchor timestamp after which the expiration policy applies. Supported anchors: `created_at`. Note that the anchor is the file creation time, not the time the batch is created.&quot;</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BatchFileExpirationAfter_anchor? Anchor { get; set; }
         /// <summary>The number of seconds after the anchor time that the file will expire. Must be between 3600 (1 hour) and 2592000 (30 days).</summary>
         public long? Seconds { get; set; }

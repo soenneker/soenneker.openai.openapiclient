@@ -19,7 +19,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? DisplayHeight { get; set; }
         /// <summary>The width of the computer display.</summary>
         public int? DisplayWidth { get; set; }
-        /// <summary>The type of computer environment to control.</summary>
+        /// <summary>The environment property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerEnvironment? Environment { get; set; }
         /// <summary>The type of the computer use tool. Always `computer_use_preview`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewTool_type? Type { get; set; }
@@ -29,7 +29,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public ComputerUsePreviewTool()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewTool_type.Computer_use_preview;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

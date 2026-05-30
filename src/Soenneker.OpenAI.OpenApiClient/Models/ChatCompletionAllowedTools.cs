@@ -17,7 +17,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Constrains the tools available to the model to a pre-defined set.`auto` allows the model to pick from among the allowed tools and generate amessage.`required` requires the model to call one or more of the allowed tools.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools_mode? Mode { get; set; }
-        /// <summary>A list of tool definitions that the model should be allowed to call.For the Chat Completions API, the list of tool definitions might look like:```json[  { &quot;type&quot;: &quot;function&quot;, &quot;function&quot;: { &quot;name&quot;: &quot;get_weather&quot; } },  { &quot;type&quot;: &quot;function&quot;, &quot;function&quot;: { &quot;name&quot;: &quot;get_time&quot; } }]```</summary>
+        /// <summary>&quot;A list of tool definitions that the model should be allowed to call.For the Chat Completions API, the list of tool definitions might look like:```json[  { \&quot;type\&quot;: \&quot;function\&quot;, \&quot;function\&quot;: { \&quot;name\&quot;: \&quot;get_weather\&quot; } },  { \&quot;type\&quot;: \&quot;function\&quot;, \&quot;function\&quot;: { \&quot;name\&quot;: \&quot;get_time\&quot; } }]```&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools_tools>? Tools { get; set; }

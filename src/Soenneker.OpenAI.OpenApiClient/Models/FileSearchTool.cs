@@ -18,14 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The filters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Filters? Filters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchTool_filters? Filters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Filters Filters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchTool_filters Filters { get; set; }
 #endif
         /// <summary>The maximum number of results to return. This number should be between 1 and 50 inclusive.</summary>
         public int? MaxNumResults { get; set; }
-        /// <summary>Ranking options for search.</summary>
+        /// <summary>The ranking_options property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.RankingOptions? RankingOptions { get; set; }
@@ -49,7 +49,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public FileSearchTool()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchTool_type.File_search;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -69,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Filters>(global::Soenneker.OpenAI.OpenApiClient.Models.Filters.CreateFromDiscriminatorValue); } },
+                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchTool_filters>(global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchTool_filters.CreateFromDiscriminatorValue); } },
                 { "max_num_results", n => { MaxNumResults = n.GetIntValue(); } },
                 { "ranking_options", n => { RankingOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RankingOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.RankingOptions.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchTool_type>(); } },
@@ -83,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Filters>("filters", Filters);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchTool_filters>("filters", Filters);
             writer.WriteIntValue("max_num_results", MaxNumResults);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RankingOptions>("ranking_options", RankingOptions);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchTool_type>("type", Type);

@@ -17,18 +17,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Arguments used for the tool search call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Arguments { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_arguments? Arguments { get; set; }
 #nullable restore
 #else
-        public UntypedNode Arguments { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_arguments Arguments { get; set; }
 #endif
         /// <summary>The call_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall.ToolSearchCall_call_id? CallId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_id? CallId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall.ToolSearchCall_call_id CallId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_id CallId { get; set; }
 #endif
         /// <summary>The identifier of the actor that created the item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,7 +38,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string CreatedBy { get; set; }
 #endif
-        /// <summary>Whether tool search was executed by the server or by the client.</summary>
+        /// <summary>The execution property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType? Execution { get; set; }
         /// <summary>The unique ID of the tool search call item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,7 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The status of the tool search call item that was recorded.</summary>
+        /// <summary>The status property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallStatus? Status { get; set; }
         /// <summary>The type of the item. Always `tool_search_call`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_type? Type { get; set; }
@@ -58,7 +58,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public ToolSearchCall()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_type.Tool_search_call;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -78,8 +77,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "arguments", n => { Arguments = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "call_id", n => { CallId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall.ToolSearchCall_call_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall.ToolSearchCall_call_id.CreateFromDiscriminatorValue); } },
+                { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_arguments>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_arguments.CreateFromDiscriminatorValue); } },
+                { "call_id", n => { CallId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_id.CreateFromDiscriminatorValue); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "execution", n => { Execution = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -94,82 +93,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<UntypedNode>("arguments", Arguments);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall.ToolSearchCall_call_id>("call_id", CallId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_arguments>("arguments", Arguments);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_id>("call_id", CallId);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>("execution", Execution);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ToolSearchCall_call_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_idMember1? ToolSearchCallCallIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_idMember1 ToolSearchCallCallIdMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall.ToolSearchCall_call_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall.ToolSearchCall_call_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall.ToolSearchCall_call_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ToolSearchCallCallIdMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ToolSearchCallCallIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ToolSearchCallCallIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_idMember1>(null, ToolSearchCallCallIdMember1);
-                }
-            }
         }
     }
 }

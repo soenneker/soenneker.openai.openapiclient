@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>Anchor timestamp after which the expiration policy applies. Supported anchors: `last_active_at`.</summary>
+    /// <summary>&quot;Anchor timestamp after which the expiration policy applies. Supported anchors: `last_active_at`.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum VectorStoreExpirationAfter_anchor
     {

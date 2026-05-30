@@ -47,7 +47,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public NamespaceToolParam()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam_type.Namespace;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration for the client secret expiration. Expiration refers to the time after whicha client secret will no longer be valid for creating sessions. The session itself maycontinue after that time once started. A secret can be used to create multiple sessionsuntil it expires.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequest_expires_after? ExpiresAfter { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter? ExpiresAfter { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequest_expires_after ExpiresAfter { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter ExpiresAfter { get; set; }
 #endif
         /// <summary>Session configuration to use for the client secret. Choose either a realtimesession or a transcription session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "expires_after", n => { ExpiresAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequest_expires_after>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequest_expires_after.CreateFromDiscriminatorValue); } },
+                { "expires_after", n => { ExpiresAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter.CreateFromDiscriminatorValue); } },
                 { "session", n => { Session = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequest.RealtimeCreateClientSecretRequest_session>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequest.RealtimeCreateClientSecretRequest_session.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,7 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequest_expires_after>("expires_after", ExpiresAfter);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter>("expires_after", ExpiresAfter);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequest.RealtimeCreateClientSecretRequest_session>("session", Session);
             writer.WriteAdditionalData(AdditionalData);
         }

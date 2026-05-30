@@ -34,18 +34,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The schema for the response format, described as a JSON Schema object.Learn how to build JSON schemas [here](https://json-schema.org/).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaSchema? Schema { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_schema? Schema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaSchema Schema { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_schema Schema { get; set; }
 #endif
         /// <summary>The strict property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema.TextResponseFormatJsonSchema_strict? Strict { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_strict? Strict { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema.TextResponseFormatJsonSchema_strict Strict { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_strict Strict { get; set; }
 #endif
         /// <summary>The type of response format being defined. Always `json_schema`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_type? Type { get; set; }
@@ -76,8 +76,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaSchema>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaSchema.CreateFromDiscriminatorValue); } },
-                { "strict", n => { Strict = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema.TextResponseFormatJsonSchema_strict>(global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema.TextResponseFormatJsonSchema_strict.CreateFromDiscriminatorValue); } },
+                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_schema>(global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_schema.CreateFromDiscriminatorValue); } },
+                { "strict", n => { Strict = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_strict>(global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_strict.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_type>(); } },
             };
         }
@@ -90,72 +90,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaSchema>("schema", Schema);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema.TextResponseFormatJsonSchema_strict>("strict", Strict);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_schema>("schema", Schema);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_strict>("strict", Strict);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_strictMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class TextResponseFormatJsonSchema_strict : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="bool"/></summary>
-            public bool? Boolean { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_strictMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_strictMember1? TextResponseFormatJsonSchemaStrictMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_strictMember1 TextResponseFormatJsonSchemaStrictMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema.TextResponseFormatJsonSchema_strict"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema.TextResponseFormatJsonSchema_strict CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema.TextResponseFormatJsonSchema_strict();
-                if(parseNode.GetBoolValue() is bool booleanValue)
-                {
-                    result.Boolean = booleanValue;
-                }
-                else {
-                    result.TextResponseFormatJsonSchemaStrictMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_strictMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(TextResponseFormatJsonSchemaStrictMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(TextResponseFormatJsonSchemaStrictMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Boolean != null)
-                {
-                    writer.WriteBoolValue(null, Boolean);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema_strictMember1>(null, TextResponseFormatJsonSchemaStrictMember1);
-                }
-            }
         }
     }
 }

@@ -28,12 +28,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration for input audio noise reduction. This can be set to `null` to turn off.Noise reduction filters audio added to the input audio buffer before it is sent to VAD and the model.Filtering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest_input_audio_noise_reduction? InputAudioNoiseReduction { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction? InputAudioNoiseReduction { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest_input_audio_noise_reduction InputAudioNoiseReduction { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction InputAudioNoiseReduction { get; set; }
 #endif
-        /// <summary>Configuration for input audio transcription. The client can optionally set the language and prompt for transcription, these offer additional guidance to the transcription service.</summary>
+        /// <summary>The input_audio_transcription property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription? InputAudioTranscription { get; set; }
@@ -44,10 +44,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration for turn detection. Can be set to `null` to turn off. Server VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest_turn_detection? TurnDetection { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestTurnDetection? TurnDetection { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest_turn_detection TurnDetection { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestTurnDetection TurnDetection { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest"/> and sets the default values.
@@ -77,9 +77,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "include", n => { Include = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest_include>()?.AsList(); } },
                 { "input_audio_format", n => { InputAudioFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest_input_audio_format>(); } },
-                { "input_audio_noise_reduction", n => { InputAudioNoiseReduction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest_input_audio_noise_reduction>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest_input_audio_noise_reduction.CreateFromDiscriminatorValue); } },
+                { "input_audio_noise_reduction", n => { InputAudioNoiseReduction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction.CreateFromDiscriminatorValue); } },
                 { "input_audio_transcription", n => { InputAudioTranscription = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.CreateFromDiscriminatorValue); } },
-                { "turn_detection", n => { TurnDetection = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest_turn_detection>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest_turn_detection.CreateFromDiscriminatorValue); } },
+                { "turn_detection", n => { TurnDetection = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestTurnDetection>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestTurnDetection.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -91,9 +91,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest_include>("include", Include);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest_input_audio_format>("input_audio_format", InputAudioFormat);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest_input_audio_noise_reduction>("input_audio_noise_reduction", InputAudioNoiseReduction);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction>("input_audio_noise_reduction", InputAudioNoiseReduction);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription>("input_audio_transcription", InputAudioTranscription);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequest_turn_detection>("turn_detection", TurnDetection);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestTurnDetection>("turn_detection", TurnDetection);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

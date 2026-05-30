@@ -31,7 +31,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public RefusalContent()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContent_type.Refusal;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

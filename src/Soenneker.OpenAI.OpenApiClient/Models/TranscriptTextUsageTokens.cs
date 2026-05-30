@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Details about the input tokens billed for this request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokens_input_token_details? InputTokenDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokensInputTokenDetails? InputTokenDetails { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokens_input_token_details InputTokenDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokensInputTokenDetails InputTokenDetails { get; set; }
 #endif
         /// <summary>Number of input tokens billed for this request.</summary>
         public int? InputTokens { get; set; }
@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "input_token_details", n => { InputTokenDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokens_input_token_details>(global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokens_input_token_details.CreateFromDiscriminatorValue); } },
+                { "input_token_details", n => { InputTokenDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokensInputTokenDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokensInputTokenDetails.CreateFromDiscriminatorValue); } },
                 { "input_tokens", n => { InputTokens = n.GetIntValue(); } },
                 { "output_tokens", n => { OutputTokens = n.GetIntValue(); } },
                 { "total_tokens", n => { TotalTokens = n.GetIntValue(); } },
@@ -70,7 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokens_input_token_details>("input_token_details", InputTokenDetails);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokensInputTokenDetails>("input_token_details", InputTokenDetails);
             writer.WriteIntValue("input_tokens", InputTokens);
             writer.WriteIntValue("output_tokens", OutputTokens);
             writer.WriteIntValue("total_tokens", TotalTokens);

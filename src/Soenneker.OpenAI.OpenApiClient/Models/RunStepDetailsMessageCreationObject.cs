@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The message_creation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObject_message_creation? MessageCreation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObjectMessageCreation? MessageCreation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObject_message_creation MessageCreation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObjectMessageCreation MessageCreation { get; set; }
 #endif
         /// <summary>Always `message_creation`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObject_type? Type { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "message_creation", n => { MessageCreation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObject_message_creation>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObject_message_creation.CreateFromDiscriminatorValue); } },
+                { "message_creation", n => { MessageCreation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObjectMessageCreation>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObjectMessageCreation.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObject_type>(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObject_message_creation>("message_creation", MessageCreation);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObjectMessageCreation>("message_creation", MessageCreation);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObject_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -18,28 +18,28 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The completed_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_completed_at? CompletedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_completed_at? CompletedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_completed_at CompletedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_completed_at CompletedAt { get; set; }
 #endif
         /// <summary>Unix timestamp (seconds) for when the job was created.</summary>
         public int? CreatedAt { get; set; }
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Error2? Error { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_error? Error { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Error2 Error { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_error Error { get; set; }
 #endif
         /// <summary>The expires_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_expires_at? ExpiresAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_expires_at? ExpiresAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_expires_at ExpiresAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_expires_at ExpiresAt { get; set; }
 #endif
         /// <summary>Unique identifier for the video job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,7 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The video generation model that produced the job.</summary>
+        /// <summary>The model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel? Model { get; set; }
@@ -64,18 +64,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The prompt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_prompt? Prompt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_prompt? Prompt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_prompt Prompt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_prompt Prompt { get; set; }
 #endif
         /// <summary>The remixed_from_video_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_remixed_from_video_id? RemixedFromVideoId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_remixed_from_video_id? RemixedFromVideoId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_remixed_from_video_id RemixedFromVideoId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_remixed_from_video_id RemixedFromVideoId { get; set; }
 #endif
         /// <summary>Duration of the generated clip in seconds. For extensions, this is the stitched total duration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,9 +85,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Seconds { get; set; }
 #endif
-        /// <summary>The resolution of the generated video.</summary>
+        /// <summary>The size property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoSize? Size { get; set; }
-        /// <summary>Current lifecycle status of the video job.</summary>
+        /// <summary>The status property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource"/> and sets the default values.
@@ -115,16 +115,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "completed_at", n => { CompletedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_completed_at>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_completed_at.CreateFromDiscriminatorValue); } },
+                { "completed_at", n => { CompletedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_completed_at>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_completed_at.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Error2>(global::Soenneker.OpenAI.OpenApiClient.Models.Error2.CreateFromDiscriminatorValue); } },
-                { "expires_at", n => { ExpiresAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_expires_at>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_expires_at.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_error>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_error.CreateFromDiscriminatorValue); } },
+                { "expires_at", n => { ExpiresAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_expires_at>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_expires_at.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_object>(); } },
                 { "progress", n => { Progress = n.GetIntValue(); } },
-                { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_prompt>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_prompt.CreateFromDiscriminatorValue); } },
-                { "remixed_from_video_id", n => { RemixedFromVideoId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_remixed_from_video_id>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_remixed_from_video_id.CreateFromDiscriminatorValue); } },
+                { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_prompt>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_prompt.CreateFromDiscriminatorValue); } },
+                { "remixed_from_video_id", n => { RemixedFromVideoId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_remixed_from_video_id>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_remixed_from_video_id.CreateFromDiscriminatorValue); } },
                 { "seconds", n => { Seconds = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSize>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoStatus>(); } },
@@ -137,280 +137,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_completed_at>("completed_at", CompletedAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_completed_at>("completed_at", CompletedAt);
             writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Error2>("error", Error);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_expires_at>("expires_at", ExpiresAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_error>("error", Error);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_expires_at>("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel>("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_object>("object", Object);
             writer.WriteIntValue("progress", Progress);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_prompt>("prompt", Prompt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_remixed_from_video_id>("remixed_from_video_id", RemixedFromVideoId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_prompt>("prompt", Prompt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_remixed_from_video_id>("remixed_from_video_id", RemixedFromVideoId);
             writer.WriteStringValue("seconds", Seconds);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSize>("size", Size);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_completed_atMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class VideoResource_completed_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_completed_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_completed_atMember1? VideoResourceCompletedAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_completed_atMember1 VideoResourceCompletedAtMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_completed_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_completed_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_completed_at();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.VideoResourceCompletedAtMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_completed_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(VideoResourceCompletedAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(VideoResourceCompletedAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_completed_atMember1>(null, VideoResourceCompletedAtMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_expires_atMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class VideoResource_expires_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_expires_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_expires_atMember1? VideoResourceExpiresAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_expires_atMember1 VideoResourceExpiresAtMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_expires_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_expires_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_expires_at();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.VideoResourceExpiresAtMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_expires_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(VideoResourceExpiresAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(VideoResourceExpiresAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_expires_atMember1>(null, VideoResourceExpiresAtMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_promptMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class VideoResource_prompt : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_promptMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_promptMember1? VideoResourcePromptMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_promptMember1 VideoResourcePromptMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_prompt"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_prompt CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_prompt();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.VideoResourcePromptMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_promptMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(VideoResourcePromptMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(VideoResourcePromptMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_promptMember1>(null, VideoResourcePromptMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_remixed_from_video_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class VideoResource_remixed_from_video_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_remixed_from_video_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_remixed_from_video_idMember1? VideoResourceRemixedFromVideoIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_remixed_from_video_idMember1 VideoResourceRemixedFromVideoIdMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_remixed_from_video_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_remixed_from_video_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.VideoResource_remixed_from_video_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.VideoResourceRemixedFromVideoIdMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_remixed_from_video_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(VideoResourceRemixedFromVideoIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(VideoResourceRemixedFromVideoIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource_remixed_from_video_idMember1>(null, VideoResourceRemixedFromVideoIdMember1);
-                }
-            }
         }
     }
 }

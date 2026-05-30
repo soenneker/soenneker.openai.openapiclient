@@ -15,7 +15,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The type of integration to enable. Currently, only &quot;wandb&quot; (Weights and Biases) is supported.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest_integrations_type? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch? Type { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch Type { get; set; }
+#endif
         /// <summary>The settings for your integration with Weights and Biases. This payload specifies the project thatmetrics will be sent to. Optionally, you can set an explicit display name for your run, add tagsto your run, and set a default entity (team, username, etc) to be associated with your run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest_integrations_type>(); } },
+                { "type", n => { Type = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>(global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
                 { "wandb", n => { Wandb = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest_integrations_wandb>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest_integrations_wandb.CreateFromDiscriminatorValue); } },
             };
         }
@@ -60,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest_integrations_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>("type", Type);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest_integrations_wandb>("wandb", Wandb);
             writer.WriteAdditionalData(AdditionalData);
         }

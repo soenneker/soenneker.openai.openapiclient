@@ -25,7 +25,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public FunctionShellCallOutputExitOutcome()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputExitOutcome_type.Exit;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

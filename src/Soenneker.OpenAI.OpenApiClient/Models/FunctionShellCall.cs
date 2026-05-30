@@ -13,7 +13,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FunctionShellCall : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The shell commands and limits that describe how to run the tool call.</summary>
+        /// <summary>Execute a shell command.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellAction? Action { get; set; }
@@ -42,10 +42,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall_environment? Environment { get; set; }
 #nullable restore
 #else
-        public UntypedNode Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall_environment Environment { get; set; }
 #endif
         /// <summary>The unique ID of the shell tool call. Populated when this item is returned via API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The status of the shell call. One of `in_progress`, `completed`, or `incomplete`.</summary>
+        /// <summary>The status property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallStatus? Status { get; set; }
         /// <summary>The type of the item. Always `shell_call`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall_type? Type { get; set; }
@@ -65,7 +65,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public FunctionShellCall()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall_type.Shell_call;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -88,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "action", n => { Action = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellAction>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellAction.CreateFromDiscriminatorValue); } },
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
-                { "environment", n => { Environment = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall_environment>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall_environment.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall_type>(); } },
@@ -104,7 +103,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellAction>("action", Action);
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("created_by", CreatedBy);
-            writer.WriteObjectValue<UntypedNode>("environment", Environment);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall_environment>("environment", Environment);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall_type>("type", Type);

@@ -17,10 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Container expiration time in seconds relative to the &apos;anchor&apos; time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBody_expires_after? ExpiresAfter { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBodyExpiresAfter? ExpiresAfter { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBody_expires_after ExpiresAfter { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBodyExpiresAfter ExpiresAfter { get; set; }
 #endif
         /// <summary>IDs of files to copy to the container.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "expires_after", n => { ExpiresAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBody_expires_after>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBody_expires_after.CreateFromDiscriminatorValue); } },
+                { "expires_after", n => { ExpiresAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBodyExpiresAfter>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBodyExpiresAfter.CreateFromDiscriminatorValue); } },
                 { "file_ids", n => { FileIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "memory_limit", n => { MemoryLimit = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBody_memory_limit>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -96,7 +96,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBody_expires_after>("expires_after", ExpiresAfter);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBodyExpiresAfter>("expires_after", ExpiresAfter);
             writer.WriteCollectionOfPrimitiveValues<string>("file_ids", FileIds);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBody_memory_limit>("memory_limit", MemoryLimit);
             writer.WriteStringValue("name", Name);

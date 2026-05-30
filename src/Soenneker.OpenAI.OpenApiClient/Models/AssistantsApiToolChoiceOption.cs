@@ -8,27 +8,38 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoice"/>, <see cref="string"/>
+    /// &quot;Controls which (if any) tool is called by the model.`none` means the model will not call any tools and instead generates a message.`auto` is the default value and means the model can pick between generating a message or calling one or more tools.`required` means the model must call one or more tools before responding to the user.Specifying a particular tool like `{\&quot;type\&quot;: \&quot;file_search\&quot;}` or `{\&quot;type\&quot;: \&quot;function\&quot;, \&quot;function\&quot;: {\&quot;name\&quot;: \&quot;my_function\&quot;}}` forces the model to call that tool.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AssistantsApiToolChoiceOption : IComposedTypeWrapper, IParsable
+    public partial class AssistantsApiToolChoiceOption : IAdditionalDataHolder, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoice"/></summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The function property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoice? AssistantsNamedToolChoice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceFunction? Function { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoice AssistantsNamedToolChoice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceFunction Function { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="string"/></summary>
+        /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? String { get; set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public string String { get; set; }
+        public string Type { get; set; }
 #endif
+        /// <summary>`none` means the model will not call any tools and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools before responding to the user.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption_value? Value { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption"/> and sets the default values.
+        /// </summary>
+        public AssistantsApiToolChoiceOption()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,17 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption();
-            if("AssistantsNamedToolChoice".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.AssistantsNamedToolChoice = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoice();
-            }
-            else if(parseNode.GetStringValue() is string stringValue)
-            {
-                result.String = stringValue;
-            }
-            return result;
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,11 +56,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(AssistantsNamedToolChoice != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return AssistantsNamedToolChoice.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "function", n => { Function = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceFunction>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceFunction.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption_value>(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -68,14 +70,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(AssistantsNamedToolChoice != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoice>(null, AssistantsNamedToolChoice);
-            }
-            else if(String != null)
-            {
-                writer.WriteStringValue(null, String);
-            }
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceFunction>("function", Function);
+            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption_value>("value", Value);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

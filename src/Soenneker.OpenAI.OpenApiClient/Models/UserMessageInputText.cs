@@ -31,7 +31,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public UserMessageInputText()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageInputText_type.Input_text;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The quality of the generated image. One of `low`, `medium`, `high`,or `auto`. Default: `auto`.</summary>
+    /// <summary>&quot;The quality of the generated image. One of `low`, `medium`, `high`,or `auto`. Default: `auto`.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ImageGenTool_quality
     {

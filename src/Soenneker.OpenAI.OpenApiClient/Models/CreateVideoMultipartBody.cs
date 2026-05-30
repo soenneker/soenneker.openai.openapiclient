@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoMultipartBody.CreateVideoMultipartBody_input_reference InputReference { get; set; }
 #endif
-        /// <summary>The video generation model to use (allowed values: sora-2, sora-2-pro). Defaults to `sora-2`.</summary>
+        /// <summary>The model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel? Model { get; set; }
@@ -39,9 +39,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Prompt { get; set; }
 #endif
-        /// <summary>Clip duration in seconds (allowed values: 4, 8, 12). Defaults to 4 seconds.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds? Seconds { get; set; }
-        /// <summary>Output resolution formatted as width x height (allowed values: 720x1280, 1280x720, 1024x1792, 1792x1024). Defaults to 720x1280.</summary>
+        /// <summary>The seconds property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Seconds { get; set; }
+#nullable restore
+#else
+        public string Seconds { get; set; }
+#endif
+        /// <summary>The size property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoSize? Size { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoMultipartBody"/> and sets the default values.
@@ -71,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "input_reference", n => { InputReference = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoMultipartBody.CreateVideoMultipartBody_input_reference>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoMultipartBody.CreateVideoMultipartBody_input_reference.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel.CreateFromDiscriminatorValue); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
-                { "seconds", n => { Seconds = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds>(); } },
+                { "seconds", n => { Seconds = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSize>(); } },
             };
         }
@@ -85,24 +91,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoMultipartBody.CreateVideoMultipartBody_input_reference>("input_reference", InputReference);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel>("model", Model);
             writer.WriteStringValue("prompt", Prompt);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds>("seconds", Seconds);
+            writer.WriteStringValue("seconds", Seconds);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSize>("size", Size);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="byte[]"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageRefParam2"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageRefParam2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CreateVideoMultipartBody_input_reference : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="byte[]"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public byte[]? Binary { get; set; }
-#nullable restore
-#else
-            public byte[] Binary { get; set; }
-#endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageRefParam2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -110,6 +108,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
             public global::Soenneker.OpenAI.OpenApiClient.Models.ImageRefParam2 ImageRefParam2 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch? UnionBranch { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch UnionBranch { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -121,13 +127,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoMultipartBody.CreateVideoMultipartBody_input_reference();
-                if("ImageRefParam-2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if("ImageRefParam2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.ImageRefParam2 = new global::Soenneker.OpenAI.OpenApiClient.Models.ImageRefParam2();
                 }
-                else if(parseNode.GetByteArrayValue() is byte[] binaryValue)
+                else if("UnionBranch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.Binary = binaryValue;
+                    result.UnionBranch = new global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch();
                 }
                 return result;
             }
@@ -140,6 +146,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 if(ImageRefParam2 != null)
                 {
                     return ImageRefParam2.GetFieldDeserializers();
+                }
+                else if(UnionBranch != null)
+                {
+                    return UnionBranch.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -154,9 +164,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 {
                     writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageRefParam2>(null, ImageRefParam2);
                 }
-                else if(Binary != null)
+                else if(UnionBranch != null)
                 {
-                    writer.WriteByteArrayValue(null, Binary);
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>(null, UnionBranch);
                 }
             }
         }

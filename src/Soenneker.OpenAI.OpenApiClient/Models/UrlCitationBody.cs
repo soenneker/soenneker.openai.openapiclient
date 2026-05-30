@@ -43,7 +43,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public UrlCitationBody()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.UrlCitationBody_type.Url_citation;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

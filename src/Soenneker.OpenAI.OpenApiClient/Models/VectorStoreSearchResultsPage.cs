@@ -25,10 +25,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The next_page property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage.VectorStoreSearchResultsPage_next_page? NextPage { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_page? NextPage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage.VectorStoreSearchResultsPage_next_page NextPage { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_page NextPage { get; set; }
 #endif
         /// <summary>The object type, which is always `vector_store.search_results.page`</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_object? Object { get; set; }
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultItem>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "next_page", n => { NextPage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage.VectorStoreSearchResultsPage_next_page>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage.VectorStoreSearchResultsPage_next_page.CreateFromDiscriminatorValue); } },
+                { "next_page", n => { NextPage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_page>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_page.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_object>(); } },
                 { "search_query", n => { SearchQuery = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
@@ -74,77 +74,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultItem>("data", Data);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage.VectorStoreSearchResultsPage_next_page>("next_page", NextPage);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_page>("next_page", NextPage);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_object>("object", Object);
             writer.WriteCollectionOfPrimitiveValues<string>("search_query", SearchQuery);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_pageMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class VectorStoreSearchResultsPage_next_page : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_pageMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_pageMember1? VectorStoreSearchResultsPageNextPageMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_pageMember1 VectorStoreSearchResultsPageNextPageMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage.VectorStoreSearchResultsPage_next_page"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage.VectorStoreSearchResultsPage_next_page CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage.VectorStoreSearchResultsPage_next_page();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.VectorStoreSearchResultsPageNextPageMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_pageMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(VectorStoreSearchResultsPageNextPageMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(VectorStoreSearchResultsPageNextPageMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_pageMember1>(null, VectorStoreSearchResultsPageNextPageMember1);
-                }
-            }
         }
     }
 }

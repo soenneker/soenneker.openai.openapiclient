@@ -18,20 +18,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam.ToolSearchToolParam_description? Description { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_description? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam.ToolSearchToolParam_description Description { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_description Description { get; set; }
 #endif
-        /// <summary>Whether tool search is executed by the server or by the client.</summary>
+        /// <summary>The execution property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType? Execution { get; set; }
         /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EmptyModelParam? Parameters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_parameters? Parameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EmptyModelParam Parameters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_parameters Parameters { get; set; }
 #endif
         /// <summary>The type of the tool. Always `tool_search`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_type? Type { get; set; }
@@ -41,7 +41,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public ToolSearchToolParam()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_type.Tool_search;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -61,9 +60,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam.ToolSearchToolParam_description>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam.ToolSearchToolParam_description.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_description>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_description.CreateFromDiscriminatorValue); } },
                 { "execution", n => { Execution = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>(); } },
-                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EmptyModelParam>(global::Soenneker.OpenAI.OpenApiClient.Models.EmptyModelParam.CreateFromDiscriminatorValue); } },
+                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_parameters>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_parameters.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_type>(); } },
             };
         }
@@ -74,79 +73,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam.ToolSearchToolParam_description>("description", Description);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_description>("description", Description);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>("execution", Execution);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EmptyModelParam>("parameters", Parameters);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_parameters>("parameters", Parameters);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_descriptionMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ToolSearchToolParam_description : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_descriptionMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_descriptionMember1? ToolSearchToolParamDescriptionMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_descriptionMember1 ToolSearchToolParamDescriptionMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam.ToolSearchToolParam_description"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam.ToolSearchToolParam_description CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam.ToolSearchToolParam_description();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ToolSearchToolParamDescriptionMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_descriptionMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ToolSearchToolParamDescriptionMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ToolSearchToolParamDescriptionMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_descriptionMember1>(null, ToolSearchToolParamDescriptionMember1);
-                }
-            }
         }
     }
 }

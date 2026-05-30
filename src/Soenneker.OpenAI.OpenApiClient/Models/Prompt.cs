@@ -7,28 +7,52 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PromptMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PromptMember2"/>
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Prompt : IComposedTypeWrapper, IParsable
+    #pragma warning disable CS1591
+    public partial class Prompt : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PromptMember1"/></summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The unique identifier of the prompt template to use.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptMember1? PromptMember1 { get; set; }
+        public string? Id { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptMember1 PromptMember1 { get; set; }
+        public string Id { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PromptMember2"/></summary>
+        /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptMember2? PromptMember2 { get; set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptMember2 PromptMember2 { get; set; }
+        public string Type { get; set; }
 #endif
+        /// <summary>The variables property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptVariables? Variables { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptVariables Variables { get; set; }
+#endif
+        /// <summary>The version property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Prompt_version? Version { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Prompt_version Version { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Prompt"/> and sets the default values.
+        /// </summary>
+        public Prompt()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,10 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.Prompt CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Prompt();
-            result.PromptMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.PromptMember1();
-            result.PromptMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.PromptMember2();
-            return result;
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.Prompt();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,11 +69,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(PromptMember1 != null || PromptMember2 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PromptMember1, PromptMember2);
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "variables", n => { Variables = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptVariables>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptVariables.CreateFromDiscriminatorValue); } },
+                { "version", n => { Version = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Prompt_version>(global::Soenneker.OpenAI.OpenApiClient.Models.Prompt_version.CreateFromDiscriminatorValue); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -61,7 +84,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptMember1>(null, PromptMember1, PromptMember2);
+            writer.WriteStringValue("id", Id);
+            writer.WriteStringValue("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptVariables>("variables", Variables);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Prompt_version>("version", Version);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -17,10 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse_metadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse_metadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadata Metadata { get; set; }
 #endif
         /// <summary>The model_grader_token_usage_per_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse_metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadata.CreateFromDiscriminatorValue); } },
                 { "model_grader_token_usage_per_model", n => { ModelGraderTokenUsagePerModel = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse_model_grader_token_usage_per_model>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse_model_grader_token_usage_per_model.CreateFromDiscriminatorValue); } },
                 { "reward", n => { Reward = n.GetDoubleValue(); } },
                 { "sub_rewards", n => { SubRewards = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse_sub_rewards>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse_sub_rewards.CreateFromDiscriminatorValue); } },
@@ -78,7 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse_model_grader_token_usage_per_model>("model_grader_token_usage_per_model", ModelGraderTokenUsagePerModel);
             writer.WriteDoubleValue("reward", Reward);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse_sub_rewards>("sub_rewards", SubRewards);

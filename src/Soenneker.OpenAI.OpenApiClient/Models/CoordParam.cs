@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// An x/y coordinate pair, e.g. `{ x: 100, y: 200 }`.
+    /// &quot;An x/y coordinate pair, e.g. `{ x: 100, y: 200 }`.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CoordParam : IAdditionalDataHolder, IParsable

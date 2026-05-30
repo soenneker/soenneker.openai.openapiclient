@@ -6,7 +6,6 @@ using Microsoft.Kiota.Serialization.Form;
 using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
-using Soenneker.OpenAI.OpenApiClient.Assistants;
 using Soenneker.OpenAI.OpenApiClient.Audio;
 using Soenneker.OpenAI.OpenApiClient.Batches;
 using Soenneker.OpenAI.OpenApiClient.Chat;
@@ -42,11 +41,6 @@ namespace Soenneker.OpenAI.OpenApiClient
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OpenAIOpenApiClient : BaseRequestBuilder
     {
-        /// <summary>The assistants property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Assistants.AssistantsRequestBuilder Assistants
-        {
-            get => new global::Soenneker.OpenAI.OpenApiClient.Assistants.AssistantsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The audio property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Audio.AudioRequestBuilder Audio
         {

@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The filters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool.WebSearchTool_filters? Filters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFilters? Filters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool.WebSearchTool_filters Filters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFilters Filters { get; set; }
 #endif
         /// <summary>High level guidance for the amount of context window space to use for the search. One of `low`, `medium`, or `high`. `medium` is the default.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_search_context_size? SearchContextSize { get; set; }
@@ -42,7 +42,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             SearchContextSize = global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_search_context_size.Medium;
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_type.Web_search;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -62,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool.WebSearchTool_filters>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool.WebSearchTool_filters.CreateFromDiscriminatorValue); } },
+                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFilters>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFilters.CreateFromDiscriminatorValue); } },
                 { "search_context_size", n => { SearchContextSize = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_search_context_size>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_type>(); } },
                 { "user_location", n => { UserLocation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation.CreateFromDiscriminatorValue); } },
@@ -75,68 +74,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool.WebSearchTool_filters>("filters", Filters);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFilters>("filters", Filters);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_search_context_size>("search_context_size", SearchContextSize);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_type>("type", Type);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation>("user_location", UserLocation);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_filtersMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_filtersMember2"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WebSearchTool_filters : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_filtersMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_filtersMember1? WebSearchToolFiltersMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_filtersMember1 WebSearchToolFiltersMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_filtersMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_filtersMember2? WebSearchToolFiltersMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_filtersMember2 WebSearchToolFiltersMember2 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool.WebSearchTool_filters"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool.WebSearchTool_filters CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool.WebSearchTool_filters();
-                result.WebSearchToolFiltersMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_filtersMember1();
-                result.WebSearchToolFiltersMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_filtersMember2();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WebSearchToolFiltersMember1 != null || WebSearchToolFiltersMember2 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WebSearchToolFiltersMember1, WebSearchToolFiltersMember2);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_filtersMember1>(null, WebSearchToolFiltersMember1, WebSearchToolFiltersMember2);
-            }
         }
     }
 }

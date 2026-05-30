@@ -17,10 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The image property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObject_image? Image { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObjectImage? Image { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObject_image Image { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObjectImage Image { get; set; }
 #endif
         /// <summary>Always `image`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObject_type? Type { get; set; }
@@ -49,7 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "image", n => { Image = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObject_image>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObject_image.CreateFromDiscriminatorValue); } },
+                { "image", n => { Image = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObjectImage>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObjectImage.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObject_type>(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObject_image>("image", Image);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObjectImage>("image", Image);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObject_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

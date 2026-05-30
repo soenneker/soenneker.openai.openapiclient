@@ -33,7 +33,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public CreateEvalCustomDataSourceConfig()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig_type.Custom;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

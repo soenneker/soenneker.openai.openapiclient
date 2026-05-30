@@ -14,6 +14,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsResponses_Wrapper"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsResponses_Wrapper? ModelIdsResponsesWrapper { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsResponses_Wrapper ModelIdsResponsesWrapper { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,14 +30,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared ModelIdsShared { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="string"/></summary>
+        /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? String { get; set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public string String { get; set; }
+        public string Type { get; set; }
 #endif
+        /// <summary>The value property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsResponses_value? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsResponses"/> and sets the default values.
         /// </summary>
@@ -46,11 +56,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsResponses();
-            if(parseNode.GetStringValue() is string stringValue)
+            if(parseNode.GetStringValue() is string typeValue)
             {
-                result.String = stringValue;
+                result.Type = typeValue;
+            }
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsResponses_value>() is global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsResponses_value valueValue)
+            {
+                result.Value = valueValue;
             }
             else {
+                result.ModelIdsResponsesWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsResponses_Wrapper();
                 result.ModelIdsShared = new global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared();
             }
             return result;
@@ -61,9 +76,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ModelIdsShared != null)
+            if(ModelIdsResponsesWrapper != null || ModelIdsShared != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ModelIdsShared);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ModelIdsResponsesWrapper, ModelIdsShared);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -74,12 +89,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(String != null)
+            if(Type != null)
             {
-                writer.WriteStringValue(null, String);
+                writer.WriteStringValue(null, Type);
+            }
+            else if(Value != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsResponses_value>(null, Value);
             }
             else {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared>(null, ModelIdsShared);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsResponses_Wrapper>(null, ModelIdsResponsesWrapper, ModelIdsShared);
             }
             writer.WriteAdditionalData(AdditionalData);
         }

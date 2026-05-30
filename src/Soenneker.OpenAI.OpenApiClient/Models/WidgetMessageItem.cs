@@ -52,7 +52,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             Object = global::Soenneker.OpenAI.OpenApiClient.Models.WidgetMessageItem_object.ChatkitThread_item;
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.WidgetMessageItem_type.ChatkitWidget;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

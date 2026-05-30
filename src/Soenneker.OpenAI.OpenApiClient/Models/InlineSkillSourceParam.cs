@@ -34,7 +34,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             MediaType = global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam_media_type.ApplicationZip;
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam_type.Base64;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

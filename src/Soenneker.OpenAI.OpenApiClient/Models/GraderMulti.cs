@@ -47,7 +47,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public GraderMulti()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.GraderMulti_type.Multi;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

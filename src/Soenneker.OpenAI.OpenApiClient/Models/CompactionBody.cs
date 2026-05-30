@@ -47,7 +47,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public CompactionBody()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.CompactionBody_type.Compaction;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

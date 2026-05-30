@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>Specifies the comparison operator: `eq`, `ne`, `gt`, `gte`, `lt`, `lte`, `in`, `nin`.- `eq`: equals- `ne`: not equal- `gt`: greater than- `gte`: greater than or equal- `lt`: less than- `lte`: less than or equal- `in`: in- `nin`: not in</summary>
+    /// <summary>&quot;Specifies the comparison operator: `eq`, `ne`, `gt`, `gte`, `lt`, `lte`, `in`, `nin`.- `eq`: equals- `ne`: not equal- `gt`: greater than- `gte`: greater than or equal- `lt`: less than- `lte`: less than or equal- `in`: in- `nin`: not in&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ComparisonFilter_type
     {

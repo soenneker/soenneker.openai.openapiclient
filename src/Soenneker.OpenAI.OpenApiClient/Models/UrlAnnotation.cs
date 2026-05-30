@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>URL referenced by the annotation.</summary>
+        /// <summary>URL backing an annotation entry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.UrlAnnotationSource? Source { get; set; }
@@ -31,7 +31,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public UrlAnnotation()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.UrlAnnotation_type.Url;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

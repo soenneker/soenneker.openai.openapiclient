@@ -35,10 +35,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The usage information for the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingResponse_usage? Usage { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingResponseUsage? Usage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingResponse_usage Usage { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingResponseUsage Usage { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingResponse"/> and sets the default values.
@@ -68,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Embedding>(global::Soenneker.OpenAI.OpenApiClient.Models.Embedding.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingResponse_object>(); } },
-                { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingResponse_usage>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingResponse_usage.CreateFromDiscriminatorValue); } },
+                { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingResponseUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingResponseUsage.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -81,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Embedding>("data", Data);
             writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingResponse_object>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingResponse_usage>("usage", Usage);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingResponseUsage>("usage", Usage);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

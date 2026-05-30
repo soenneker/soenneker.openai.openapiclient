@@ -52,10 +52,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
 #nullable restore
 #else
-        public UntypedNode Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
 #endif
         /// <summary>The model that is evaluated, if applicable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -102,10 +102,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Counters summarizing the outcomes of the evaluation run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_result_counts? ResultCounts { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunResultCounts? ResultCounts { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_result_counts ResultCounts { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunResultCounts ResultCounts { get; set; }
 #endif
         /// <summary>The status of the evaluation run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -146,14 +146,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError.CreateFromDiscriminatorValue); } },
                 { "eval_id", n => { EvalId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_object>(); } },
                 { "per_model_usage", n => { PerModelUsage = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_model_usage>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_model_usage.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "per_testing_criteria_results", n => { PerTestingCriteriaResults = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_testing_criteria_results>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_testing_criteria_results.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "report_url", n => { ReportUrl = n.GetStringValue(); } },
-                { "result_counts", n => { ResultCounts = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_result_counts>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_result_counts.CreateFromDiscriminatorValue); } },
+                { "result_counts", n => { ResultCounts = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunResultCounts>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunResultCounts.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
             };
         }
@@ -169,14 +169,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError>("error", Error);
             writer.WriteStringValue("eval_id", EvalId);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<UntypedNode>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_object>("object", Object);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_model_usage>("per_model_usage", PerModelUsage);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_testing_criteria_results>("per_testing_criteria_results", PerTestingCriteriaResults);
             writer.WriteStringValue("report_url", ReportUrl);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_result_counts>("result_counts", ResultCounts);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunResultCounts>("result_counts", ResultCounts);
             writer.WriteStringValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }

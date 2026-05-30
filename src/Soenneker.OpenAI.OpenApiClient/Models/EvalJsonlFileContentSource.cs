@@ -30,7 +30,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public EvalJsonlFileContentSource()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource_type.File_content;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -7,28 +7,60 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationMember2"/>
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WebSearchApproximateLocation : IComposedTypeWrapper, IParsable
+    #pragma warning disable CS1591
+    public partial class WebSearchApproximateLocation : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationMember1"/></summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The city property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationMember1? WebSearchApproximateLocationMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_city? City { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationMember1 WebSearchApproximateLocationMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_city City { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationMember2"/></summary>
+        /// <summary>The country property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationMember2? WebSearchApproximateLocationMember2 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_country? Country { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationMember2 WebSearchApproximateLocationMember2 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_country Country { get; set; }
 #endif
+        /// <summary>The region property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_region? Region { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_region Region { get; set; }
+#endif
+        /// <summary>The timezone property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_timezone? Timezone { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_timezone Timezone { get; set; }
+#endif
+        /// <summary>Union discriminator</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation"/> and sets the default values.
+        /// </summary>
+        public WebSearchApproximateLocation()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,10 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation();
-            result.WebSearchApproximateLocationMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationMember1();
-            result.WebSearchApproximateLocationMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationMember2();
-            return result;
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,11 +77,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(WebSearchApproximateLocationMember1 != null || WebSearchApproximateLocationMember2 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(WebSearchApproximateLocationMember1, WebSearchApproximateLocationMember2);
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "city", n => { City = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_city>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_city.CreateFromDiscriminatorValue); } },
+                { "country", n => { Country = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_country>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_country.CreateFromDiscriminatorValue); } },
+                { "region", n => { Region = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_region>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_region.CreateFromDiscriminatorValue); } },
+                { "timezone", n => { Timezone = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_timezone>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_timezone.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -61,7 +93,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationMember1>(null, WebSearchApproximateLocationMember1, WebSearchApproximateLocationMember2);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_city>("city", City);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_country>("country", Country);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_region>("region", Region);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_timezone>("timezone", Timezone);
+            writer.WriteStringValue("type", Type);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

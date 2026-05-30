@@ -26,36 +26,36 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The cancelled_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_cancelled_at? CancelledAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_cancelled_at? CancelledAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_cancelled_at CancelledAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_cancelled_at CancelledAt { get; set; }
 #endif
         /// <summary>The completed_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_completed_at? CompletedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_completed_at? CompletedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_completed_at CompletedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_completed_at CompletedAt { get; set; }
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the run step was created.</summary>
         public int? CreatedAt { get; set; }
         /// <summary>The expired_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_expired_at? ExpiredAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_expired_at? ExpiredAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_expired_at ExpiredAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_expired_at ExpiredAt { get; set; }
 #endif
         /// <summary>The failed_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_failed_at? FailedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_failed_at? FailedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_failed_at FailedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_failed_at FailedAt { get; set; }
 #endif
         /// <summary>The identifier of the run step, which can be referenced in API endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,18 +68,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The last_error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_last_error? LastError { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError? LastError { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_last_error LastError { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError LastError { get; set; }
 #endif
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
 #nullable restore
 #else
-        public UntypedNode Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
 #endif
         /// <summary>The object type, which is always `thread.run.step`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_object? Object { get; set; }
@@ -145,14 +145,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assistant_id", n => { AssistantId = n.GetStringValue(); } },
-                { "cancelled_at", n => { CancelledAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_cancelled_at>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_cancelled_at.CreateFromDiscriminatorValue); } },
-                { "completed_at", n => { CompletedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_completed_at>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_completed_at.CreateFromDiscriminatorValue); } },
+                { "cancelled_at", n => { CancelledAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_cancelled_at>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_cancelled_at.CreateFromDiscriminatorValue); } },
+                { "completed_at", n => { CompletedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_completed_at>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_completed_at.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "expired_at", n => { ExpiredAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_expired_at>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_expired_at.CreateFromDiscriminatorValue); } },
-                { "failed_at", n => { FailedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_failed_at>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_failed_at.CreateFromDiscriminatorValue); } },
+                { "expired_at", n => { ExpiredAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_expired_at>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_expired_at.CreateFromDiscriminatorValue); } },
+                { "failed_at", n => { FailedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_failed_at>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_failed_at.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "last_error", n => { LastError = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_last_error>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_last_error.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "last_error", n => { LastError = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_object>(); } },
                 { "run_id", n => { RunId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_status>(); } },
@@ -170,14 +170,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("assistant_id", AssistantId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_cancelled_at>("cancelled_at", CancelledAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_completed_at>("completed_at", CompletedAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_cancelled_at>("cancelled_at", CancelledAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_completed_at>("completed_at", CompletedAt);
             writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_expired_at>("expired_at", ExpiredAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_failed_at>("failed_at", FailedAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_expired_at>("expired_at", ExpiredAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_failed_at>("failed_at", FailedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_last_error>("last_error", LastError);
-            writer.WriteObjectValue<UntypedNode>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError>("last_error", LastError);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_object>("object", Object);
             writer.WriteStringValue("run_id", RunId);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_status>("status", Status);
@@ -186,311 +186,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_type>("type", Type);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepCompletionUsage>("usage", Usage);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_cancelled_atMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RunStepObject_cancelled_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_cancelled_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_cancelled_atMember1? RunStepObjectCancelledAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_cancelled_atMember1 RunStepObjectCancelledAtMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_cancelled_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_cancelled_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_cancelled_at();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.RunStepObjectCancelledAtMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_cancelled_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(RunStepObjectCancelledAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RunStepObjectCancelledAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_cancelled_atMember1>(null, RunStepObjectCancelledAtMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_completed_atMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RunStepObject_completed_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_completed_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_completed_atMember1? RunStepObjectCompletedAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_completed_atMember1 RunStepObjectCompletedAtMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_completed_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_completed_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_completed_at();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.RunStepObjectCompletedAtMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_completed_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(RunStepObjectCompletedAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RunStepObjectCompletedAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_completed_atMember1>(null, RunStepObjectCompletedAtMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_expired_atMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RunStepObject_expired_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_expired_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_expired_atMember1? RunStepObjectExpiredAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_expired_atMember1 RunStepObjectExpiredAtMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_expired_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_expired_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_expired_at();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.RunStepObjectExpiredAtMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_expired_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(RunStepObjectExpiredAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RunStepObjectExpiredAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_expired_atMember1>(null, RunStepObjectExpiredAtMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_failed_atMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RunStepObject_failed_at : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_failed_atMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_failed_atMember1? RunStepObjectFailedAtMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_failed_atMember1 RunStepObjectFailedAtMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_failed_at"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_failed_at CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_failed_at();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.RunStepObjectFailedAtMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_failed_atMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(RunStepObjectFailedAtMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RunStepObjectFailedAtMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_failed_atMember1>(null, RunStepObjectFailedAtMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_last_errorMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_last_errorMember2"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RunStepObject_last_error : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_last_errorMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_last_errorMember1? RunStepObjectLastErrorMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_last_errorMember1 RunStepObjectLastErrorMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_last_errorMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_last_errorMember2? RunStepObjectLastErrorMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_last_errorMember2 RunStepObjectLastErrorMember2 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_last_error"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_last_error CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.RunStepObject_last_error();
-                result.RunStepObjectLastErrorMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_last_errorMember1();
-                result.RunStepObjectLastErrorMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_last_errorMember2();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(RunStepObjectLastErrorMember1 != null || RunStepObjectLastErrorMember2 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RunStepObjectLastErrorMember1, RunStepObjectLastErrorMember2);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject_last_errorMember1>(null, RunStepObjectLastErrorMember1, RunStepObjectLastErrorMember2);
-            }
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObject"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject"/>

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Audio.Translations
 {
-    /// <summary>The format of the output, in one of these options: `json`, `text`, `srt`, `verbose_json`, or `vtt`.</summary>
+    /// <summary>&quot;The format of the output, in one of these options: `json`, `text`, `srt`, `verbose_json`, or `vtt`.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateTranslationRequestPostRequestBody
     {

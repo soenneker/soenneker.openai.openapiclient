@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The attributes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Attributes { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes? Attributes { get; set; }
 #nullable restore
 #else
-        public UntypedNode Attributes { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes Attributes { get; set; }
 #endif
         /// <summary>The strategy used to chunk the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,10 +44,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The last_error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject.VectorStoreFileObject_last_error? LastError { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObjectLastError? LastError { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject.VectorStoreFileObject_last_error LastError { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObjectLastError LastError { get; set; }
 #endif
         /// <summary>The object type, which is always `vector_store.file`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_object? Object { get; set; }
@@ -88,11 +88,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attributes", n => { Attributes = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes.CreateFromDiscriminatorValue); } },
                 { "chunking_strategy", n => { ChunkingStrategy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject.VectorStoreFileObject_chunking_strategy>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject.VectorStoreFileObject_chunking_strategy.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "last_error", n => { LastError = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject.VectorStoreFileObject_last_error>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject.VectorStoreFileObject_last_error.CreateFromDiscriminatorValue); } },
+                { "last_error", n => { LastError = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObjectLastError>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObjectLastError.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_object>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_status>(); } },
                 { "usage_bytes", n => { UsageBytes = n.GetIntValue(); } },
@@ -106,11 +106,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<UntypedNode>("attributes", Attributes);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes>("attributes", Attributes);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject.VectorStoreFileObject_chunking_strategy>("chunking_strategy", ChunkingStrategy);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject.VectorStoreFileObject_last_error>("last_error", LastError);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObjectLastError>("last_error", LastError);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_object>("object", Object);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_status>("status", Status);
             writer.WriteIntValue("usage_bytes", UsageBytes);
@@ -190,63 +190,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 {
                     writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.StaticChunkingStrategyResponseParam>(null, StaticChunkingStrategyResponseParam);
                 }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_last_errorMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_last_errorMember2"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class VectorStoreFileObject_last_error : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_last_errorMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_last_errorMember1? VectorStoreFileObjectLastErrorMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_last_errorMember1 VectorStoreFileObjectLastErrorMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_last_errorMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_last_errorMember2? VectorStoreFileObjectLastErrorMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_last_errorMember2 VectorStoreFileObjectLastErrorMember2 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject.VectorStoreFileObject_last_error"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject.VectorStoreFileObject_last_error CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject.VectorStoreFileObject_last_error();
-                result.VectorStoreFileObjectLastErrorMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_last_errorMember1();
-                result.VectorStoreFileObjectLastErrorMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_last_errorMember2();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(VectorStoreFileObjectLastErrorMember1 != null || VectorStoreFileObjectLastErrorMember2 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(VectorStoreFileObjectLastErrorMember1, VectorStoreFileObjectLastErrorMember2);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObject_last_errorMember1>(null, VectorStoreFileObjectLastErrorMember1, VectorStoreFileObjectLastErrorMember2);
             }
         }
     }

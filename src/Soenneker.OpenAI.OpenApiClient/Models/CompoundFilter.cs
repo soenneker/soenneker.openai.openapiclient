@@ -16,12 +16,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Array of filters to combine. Items can be `ComparisonFilter` or `CompoundFilter`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilter>? Filters { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilter_filters>? Filters { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilter> Filters { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilter_filters> Filters { get; set; }
 #endif
-        /// <summary>Type of operation: `and` or `or`.</summary>
+        /// <summary>&quot;Type of operation: `and` or `or`.&quot;</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilter_type? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -41,7 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilter>(global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilter.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilter_filters>(global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilter_filters.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilter_type>(); } },
             };
         }
@@ -52,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilter>("filters", Filters);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilter_filters>("filters", Filters);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilter_type>("type", Type);
         }
     }

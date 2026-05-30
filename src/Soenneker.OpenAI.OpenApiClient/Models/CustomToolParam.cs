@@ -49,7 +49,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public CustomToolParam()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam_type.Custom;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Properties of the custom tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletions_custom? Custom { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustom? Custom { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletions_custom Custom { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustom Custom { get; set; }
 #endif
         /// <summary>The type of the custom tool. Always `custom`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletions_type? Type { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "custom", n => { Custom = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletions_custom>(global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletions_custom.CreateFromDiscriminatorValue); } },
+                { "custom", n => { Custom = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustom>(global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustom.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletions_type>(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletions_custom>("custom", Custom);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustom>("custom", Custom);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletions_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

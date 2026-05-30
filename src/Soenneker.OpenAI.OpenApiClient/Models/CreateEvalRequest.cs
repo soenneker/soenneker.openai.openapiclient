@@ -25,10 +25,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
 #nullable restore
 #else
-        public UntypedNode Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
 #endif
         /// <summary>The name of the evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data_source_config", n => { DataSourceConfig = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequest.CreateEvalRequest_data_source_config>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequest.CreateEvalRequest_data_source_config.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "testing_criteria", n => { TestingCriteria = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequest.CreateEvalRequest_testing_criteria>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequest.CreateEvalRequest_testing_criteria.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -85,13 +85,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequest.CreateEvalRequest_data_source_config>("data_source_config", DataSourceConfig);
-            writer.WriteObjectValue<UntypedNode>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequest.CreateEvalRequest_testing_criteria>("testing_criteria", TestingCriteria);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfig"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig"/>, <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CreateEvalRequest_data_source_config : IComposedTypeWrapper, IParsable
@@ -112,13 +112,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
             public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig CreateEvalLogsDataSourceConfig { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfig"/></summary>
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfig? CreateEvalStoredCompletionsDataSourceConfig { get; set; }
+            public string? String { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfig CreateEvalStoredCompletionsDataSourceConfig { get; set; }
+            public string String { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -138,9 +138,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 {
                     result.CreateEvalLogsDataSourceConfig = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig();
                 }
-                else if("CreateEvalStoredCompletionsDataSourceConfig".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if(parseNode.GetStringValue() is string stringValue)
                 {
-                    result.CreateEvalStoredCompletionsDataSourceConfig = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfig();
+                    result.String = stringValue;
                 }
                 return result;
             }
@@ -157,10 +157,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 else if(CreateEvalLogsDataSourceConfig != null)
                 {
                     return CreateEvalLogsDataSourceConfig.GetFieldDeserializers();
-                }
-                else if(CreateEvalStoredCompletionsDataSourceConfig != null)
-                {
-                    return CreateEvalStoredCompletionsDataSourceConfig.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -179,9 +175,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 {
                     writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig>(null, CreateEvalLogsDataSourceConfig);
                 }
-                else if(CreateEvalStoredCompletionsDataSourceConfig != null)
+                else if(String != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfig>(null, CreateEvalStoredCompletionsDataSourceConfig);
+                    writer.WriteStringValue(null, String);
                 }
             }
         }

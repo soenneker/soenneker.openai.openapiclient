@@ -7,28 +7,36 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesMember2"/>, List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesMember1&gt;
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ResponseModalities : IComposedTypeWrapper, IParsable
+    #pragma warning disable CS1591
+    public partial class ResponseModalities : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Composed type representation for type List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesMember1&gt;</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesMember1>? ResponseModalitiesMember1 { get; set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesMember1> ResponseModalitiesMember1 { get; set; }
+        public string Type { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesMember2"/></summary>
+        /// <summary>Output types that you would like the model to generate.Most models are capable of generating text, which is the default:`[&quot;text&quot;]`The `gpt-4o-audio-preview` model can also be used to[generate audio](/docs/guides/audio). To request that this model generateboth text and audio responses, you can use:`[&quot;text&quot;, &quot;audio&quot;]`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesMember2? ResponseModalitiesMember2 { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalities_value?>? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesMember2 ResponseModalitiesMember2 { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalities_value?> Value { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalities"/> and sets the default values.
+        /// </summary>
+        public ResponseModalities()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,15 +45,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalities CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalities();
-            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesMember1>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesMember1> responseModalitiesMember1Value)
-            {
-                result.ResponseModalitiesMember1 = responseModalitiesMember1Value;
-            }
-            else {
-                result.ResponseModalitiesMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesMember2();
-            }
-            return result;
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalities();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,11 +53,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ResponseModalitiesMember2 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ResponseModalitiesMember2);
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalities_value>()?.AsList(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -66,13 +66,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ResponseModalitiesMember1 != null)
-            {
-                writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesMember1>(null, ResponseModalitiesMember1);
-            }
-            else {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesMember2>(null, ResponseModalitiesMember2);
-            }
+            writer.WriteStringValue("type", Type);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalities_value>("value", Value);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

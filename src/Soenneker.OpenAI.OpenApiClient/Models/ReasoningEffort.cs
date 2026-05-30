@@ -9,33 +9,28 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ReasoningEffort : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
+    public partial class ReasoningEffort : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortMember1"/></summary>
+        /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortMember1? ReasoningEffortMember1 { get; set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortMember1 ReasoningEffortMember1 { get; set; }
+        public string Type { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? String { get; set; }
-#nullable restore
-#else
-        public string String { get; set; }
-#endif
+        /// <summary>Constrains effort on reasoning for[reasoning models](https://platform.openai.com/docs/guides/reasoning).Currently supported values are `none`, `minimal`, `low`, `medium`, `high`, and `xhigh`. Reducingreasoning effort can result in faster responses and fewer tokens usedon reasoning in a response.- `gpt-5.1` defaults to `none`, which does not perform reasoning. The supported reasoning values for `gpt-5.1` are `none`, `low`, `medium`, and `high`. Tool calls are supported for all reasoning values in gpt-5.1.- All models before `gpt-5.1` default to `medium` reasoning effort, and do not support `none`.- The `gpt-5-pro` model defaults to (and only supports) `high` reasoning effort.- `xhigh` is supported for all models after `gpt-5.1-codex-max`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort_value? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort"/> and sets the default values.
         /// </summary>
         public ReasoningEffort()
         {
             AdditionalData = new Dictionary<string, object>();
+            Value = global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort_value.Medium;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,15 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort();
-            if(parseNode.GetStringValue() is string stringValue)
-            {
-                result.String = stringValue;
-            }
-            else {
-                result.ReasoningEffortMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortMember1();
-            }
-            return result;
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,11 +48,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ReasoningEffortMember1 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ReasoningEffortMember1);
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort_value>(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -74,13 +61,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(String != null)
-            {
-                writer.WriteStringValue(null, String);
-            }
-            else {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortMember1>(null, ReasoningEffortMember1);
-            }
+            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort_value>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

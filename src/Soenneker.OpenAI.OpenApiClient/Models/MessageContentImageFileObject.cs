@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The image_file property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject_image_file? ImageFile { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile? ImageFile { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject_image_file ImageFile { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile ImageFile { get; set; }
 #endif
         /// <summary>Always `image_file`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject_type? Type { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "image_file", n => { ImageFile = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject_image_file>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject_image_file.CreateFromDiscriminatorValue); } },
+                { "image_file", n => { ImageFile = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject_type>(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject_image_file>("image_file", ImageFile);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile>("image_file", ImageFile);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

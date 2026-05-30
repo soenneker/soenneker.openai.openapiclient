@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.Submit_tool_outp
         {
         }
         /// <summary>
-        /// When a run has the `status: &quot;requires_action&quot;` and `required_action.type` is `submit_tool_outputs`, this endpoint can be used to submit the outputs from the tool calls once they&apos;re all completed. All outputs must be submitted in a single request.
+        /// &quot;When a run has the `status: \&quot;requires_action\&quot;` and `required_action.type` is `submit_tool_outputs`, this endpoint can be used to submit the outputs from the tool calls once they&apos;re all completed. All outputs must be submitted in a single request.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunObject"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.Submit_tool_outp
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.RunObject.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// When a run has the `status: &quot;requires_action&quot;` and `required_action.type` is `submit_tool_outputs`, this endpoint can be used to submit the outputs from the tool calls once they&apos;re all completed. All outputs must be submitted in a single request.
+        /// &quot;When a run has the `status: \&quot;requires_action\&quot;` and `required_action.type` is `submit_tool_outputs`, this endpoint can be used to submit the outputs from the tool calls once they&apos;re all completed. All outputs must be submitted in a single request.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

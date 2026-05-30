@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The type of tool being defined: `code_interpreter`</summary>
+    /// <summary>&quot;The type of tool being defined: `code_interpreter`&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AssistantToolsCode_type
     {

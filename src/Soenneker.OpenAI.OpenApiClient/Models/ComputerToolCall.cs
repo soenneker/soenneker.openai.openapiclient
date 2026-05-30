@@ -65,7 +65,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public ComputerToolCall()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCall_type.Computer_call;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

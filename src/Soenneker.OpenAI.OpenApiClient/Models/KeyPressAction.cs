@@ -31,7 +31,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public KeyPressAction()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.KeyPressAction_type.Keypress;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

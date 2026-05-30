@@ -20,20 +20,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>A detailed breakdown of the input tokens.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsage_input_tokens_details? InputTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageInputTokensDetails? InputTokensDetails { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsage_input_tokens_details InputTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageInputTokensDetails InputTokensDetails { get; set; }
 #endif
         /// <summary>The number of output tokens.</summary>
         public int? OutputTokens { get; set; }
         /// <summary>A detailed breakdown of the output tokens.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsage_output_tokens_details? OutputTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageOutputTokensDetails? OutputTokensDetails { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsage_output_tokens_details OutputTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageOutputTokensDetails OutputTokensDetails { get; set; }
 #endif
         /// <summary>The total number of tokens used.</summary>
         public int? TotalTokens { get; set; }
@@ -63,9 +63,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "input_tokens", n => { InputTokens = n.GetIntValue(); } },
-                { "input_tokens_details", n => { InputTokensDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsage_input_tokens_details>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsage_input_tokens_details.CreateFromDiscriminatorValue); } },
+                { "input_tokens_details", n => { InputTokensDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageInputTokensDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageInputTokensDetails.CreateFromDiscriminatorValue); } },
                 { "output_tokens", n => { OutputTokens = n.GetIntValue(); } },
-                { "output_tokens_details", n => { OutputTokensDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsage_output_tokens_details>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsage_output_tokens_details.CreateFromDiscriminatorValue); } },
+                { "output_tokens_details", n => { OutputTokensDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageOutputTokensDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageOutputTokensDetails.CreateFromDiscriminatorValue); } },
                 { "total_tokens", n => { TotalTokens = n.GetIntValue(); } },
             };
         }
@@ -77,9 +77,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("input_tokens", InputTokens);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsage_input_tokens_details>("input_tokens_details", InputTokensDetails);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageInputTokensDetails>("input_tokens_details", InputTokensDetails);
             writer.WriteIntValue("output_tokens", OutputTokens);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsage_output_tokens_details>("output_tokens_details", OutputTokensDetails);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageOutputTokensDetails>("output_tokens_details", OutputTokensDetails);
             writer.WriteIntValue("total_tokens", TotalTokens);
             writer.WriteAdditionalData(AdditionalData);
         }

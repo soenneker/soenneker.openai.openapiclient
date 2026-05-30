@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Resolved ChatKit feature configuration for the session.
+    /// ChatKit configuration for the session.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatSessionChatkitConfiguration : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Automatic thread titling preferences.</summary>
+        /// <summary>Automatic thread title preferences for the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionAutomaticThreadTitling? AutomaticThreadTitling { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionAutomaticThreadTitling AutomaticThreadTitling { get; set; }
 #endif
-        /// <summary>Upload settings for the session.</summary>
+        /// <summary>Upload permissions and limits applied to the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload? FileUpload { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload FileUpload { get; set; }
 #endif
-        /// <summary>History retention configuration.</summary>
+        /// <summary>History retention preferences returned for the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistory? History { get; set; }

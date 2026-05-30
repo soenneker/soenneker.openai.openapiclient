@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="string"/>, List&lt;string&gt;
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration_Branch2"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class StopConfiguration : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration_Branch2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration_Branch2? StopConfigurationBranch2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration_Branch2 StopConfigurationBranch2 { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StopConfigurationString { get; set; }
+        public string? String { get; set; }
 #nullable restore
 #else
-        public string StopConfigurationString { get; set; }
-#endif
-        /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? String { get; set; }
-#nullable restore
-#else
-        public List<string> String { get; set; }
+        public string String { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,13 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration();
-            if(parseNode.GetStringValue() is string stopConfigurationStringValue)
+            if("StopConfiguration_2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.StopConfigurationString = stopConfigurationStringValue;
+                result.StopConfigurationBranch2 = new global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration_Branch2();
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+            else if(parseNode.GetStringValue() is string stringValue)
             {
                 result.String = stringValue;
             }
@@ -55,6 +55,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if(StopConfigurationBranch2 != null)
+            {
+                return StopConfigurationBranch2.GetFieldDeserializers();
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -64,13 +68,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(StopConfigurationString != null)
+            if(StopConfigurationBranch2 != null)
             {
-                writer.WriteStringValue(null, StopConfigurationString);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration_Branch2>(null, StopConfigurationBranch2);
             }
             else if(String != null)
             {
-                writer.WriteCollectionOfPrimitiveValues<string>(null, String);
+                writer.WriteStringValue(null, String);
             }
         }
     }

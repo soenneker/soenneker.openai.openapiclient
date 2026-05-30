@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The image_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject_image_url? ImageUrl { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObjectImageUrl? ImageUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject_image_url ImageUrl { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObjectImageUrl ImageUrl { get; set; }
 #endif
         /// <summary>The type of the content part.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject_type? Type { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "image_url", n => { ImageUrl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject_image_url>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject_image_url.CreateFromDiscriminatorValue); } },
+                { "image_url", n => { ImageUrl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObjectImageUrl>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObjectImageUrl.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject_type>(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject_image_url>("image_url", ImageUrl);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObjectImageUrl>("image_url", ImageUrl);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

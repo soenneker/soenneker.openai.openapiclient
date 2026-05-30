@@ -9,9 +9,27 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ComputerToolCallOutputResource : global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutput, IParsable
+    public partial class ComputerToolCallOutputResource : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The safety checks reported by the API that have been acknowledged by thedeveloper.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam>? AcknowledgedSafetyChecks { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam> AcknowledgedSafetyChecks { get; set; }
+#endif
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The ID of the computer tool call that produced the output.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CallId { get; set; }
+#nullable restore
+#else
+        public string CallId { get; set; }
+#endif
         /// <summary>The identifier of the actor that created the item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,12 +38,39 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string CreatedBy { get; set; }
 #endif
+        /// <summary>The ID of the computer tool call output.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; set; }
+#nullable restore
+#else
+        public string Id { get; set; }
+#endif
+        /// <summary>A computer screenshot image used with the computer use tool.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage? Output { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage Output { get; set; }
+#endif
+        /// <summary>The status of the message input. One of `in_progress`, `completed`, or`incomplete`. Populated when input items are returned via API.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource_status? Status { get; set; }
+        /// <summary>The type of the computer tool call output. Always `computer_call_output`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource_type? Type { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource"/> and sets the default values.
+        /// </summary>
+        public ComputerToolCallOutputResource()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource();
@@ -34,22 +79,34 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "acknowledged_safety_checks", n => { AcknowledgedSafetyChecks = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource_status>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource_type>(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam>("acknowledged_safety_checks", AcknowledgedSafetyChecks);
+            writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("created_by", CreatedBy);
+            writer.WriteStringValue("id", Id);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage>("output", Output);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource_type>("type", Type);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

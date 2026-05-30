@@ -3,9 +3,10 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The syntax of the grammar definition. One of `lark` or `regex`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public enum GrammarSyntax1
+    #pragma warning restore CS1591
     {
         [EnumMember(Value = "lark")]
         #pragma warning disable CS1591

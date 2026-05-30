@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemField> Output { get; set; }
 #endif
-        /// <summary>Token accounting for the compaction pass, including cached, reasoning, and total tokens.</summary>
+        /// <summary>Represents token usage details including input tokens, output tokens,a breakdown of output tokens, and the total tokens used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsage? Usage { get; set; }

@@ -16,134 +16,134 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The actor property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor? Actor { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_actor? Actor { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor Actor { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_actor Actor { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyCreated? ApiKeyCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated? ApiKeyCreated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyCreated ApiKeyCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated ApiKeyCreated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyDeleted? ApiKeyDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted? ApiKeyDeleted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyDeleted ApiKeyDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted ApiKeyDeleted { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyUpdated? ApiKeyUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated? ApiKeyUpdated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyUpdated ApiKeyUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated ApiKeyUpdated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateCreated? CertificateCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateCreated? CertificateCreated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateCreated CertificateCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateCreated CertificateCreated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateDeleted? CertificateDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateDeleted? CertificateDeleted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateDeleted CertificateDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateDeleted CertificateDeleted { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificatesActivated? CertificatesActivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated? CertificatesActivated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificatesActivated CertificatesActivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated CertificatesActivated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificatesDeactivated? CertificatesDeactivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesDeactivated? CertificatesDeactivated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificatesDeactivated CertificatesDeactivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesDeactivated CertificatesDeactivated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateUpdated? CertificateUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateUpdated? CertificateUpdated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateUpdated CertificateUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateUpdated CertificateUpdated { get; set; }
 #endif
         /// <summary>The project and fine-tuned model checkpoint that the checkpoint permission was created for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_checkpointPermissionCreated? CheckpointPermissionCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionCreated? CheckpointPermissionCreated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_checkpointPermissionCreated CheckpointPermissionCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionCreated CheckpointPermissionCreated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_checkpointPermissionDeleted? CheckpointPermissionDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted? CheckpointPermissionDeleted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_checkpointPermissionDeleted CheckpointPermissionDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted CheckpointPermissionDeleted { get; set; }
 #endif
         /// <summary>The Unix timestamp (in seconds) of the event.</summary>
         public int? EffectiveAt { get; set; }
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_external_keyRegistered? ExternalKeyRegistered { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered? ExternalKeyRegistered { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_external_keyRegistered ExternalKeyRegistered { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered ExternalKeyRegistered { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_external_keyRemoved? ExternalKeyRemoved { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved? ExternalKeyRemoved { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_external_keyRemoved ExternalKeyRemoved { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved ExternalKeyRemoved { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupCreated? GroupCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated? GroupCreated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupCreated GroupCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated GroupCreated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupDeleted? GroupDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupDeleted? GroupDeleted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupDeleted GroupDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupDeleted GroupDeleted { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupUpdated? GroupUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupUpdated? GroupUpdated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupUpdated GroupUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupUpdated GroupUpdated { get; set; }
 #endif
         /// <summary>The ID of this log.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -156,74 +156,74 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteAccepted? InviteAccepted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteAccepted? InviteAccepted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteAccepted InviteAccepted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteAccepted InviteAccepted { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteDeleted? InviteDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteDeleted? InviteDeleted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteDeleted InviteDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteDeleted InviteDeleted { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteSent? InviteSent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteSent? InviteSent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteSent InviteSent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteSent InviteSent { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistConfigActivated? IpAllowlistConfigActivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated? IpAllowlistConfigActivated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistConfigActivated IpAllowlistConfigActivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated IpAllowlistConfigActivated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistConfigDeactivated? IpAllowlistConfigDeactivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigDeactivated? IpAllowlistConfigDeactivated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistConfigDeactivated IpAllowlistConfigDeactivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigDeactivated IpAllowlistConfigDeactivated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistCreated? IpAllowlistCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistCreated? IpAllowlistCreated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistCreated IpAllowlistCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistCreated IpAllowlistCreated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistDeleted? IpAllowlistDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistDeleted? IpAllowlistDeleted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistDeleted IpAllowlistDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistDeleted IpAllowlistDeleted { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistUpdated? IpAllowlistUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistUpdated? IpAllowlistUpdated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistUpdated IpAllowlistUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistUpdated IpAllowlistUpdated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_loginFailed? LoginFailed { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginFailed? LoginFailed { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_loginFailed LoginFailed { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginFailed LoginFailed { get; set; }
 #endif
         /// <summary>This event has no additional fields beyond the standard audit log attributes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -236,10 +236,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_logoutFailed? LogoutFailed { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutFailed? LogoutFailed { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_logoutFailed LogoutFailed { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutFailed LogoutFailed { get; set; }
 #endif
         /// <summary>This event has no additional fields beyond the standard audit log attributes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -252,172 +252,172 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_organizationUpdated? OrganizationUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdated? OrganizationUpdated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_organizationUpdated OrganizationUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdated OrganizationUpdated { get; set; }
 #endif
         /// <summary>The project that the action was scoped to. Absent for actions not scoped to projects. Note that any admin actions taken via Admin API keys are associated with the default project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_project? Project { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProject? Project { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_project Project { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProject Project { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectArchived? ProjectArchived { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectArchived? ProjectArchived { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectArchived ProjectArchived { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectArchived ProjectArchived { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectCreated? ProjectCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectCreated? ProjectCreated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectCreated ProjectCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectCreated ProjectCreated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectDeleted? ProjectDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectDeleted? ProjectDeleted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectDeleted ProjectDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectDeleted ProjectDeleted { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectUpdated? ProjectUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectUpdated? ProjectUpdated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectUpdated ProjectUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectUpdated ProjectUpdated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_rate_limitDeleted? RateLimitDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitDeleted? RateLimitDeleted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_rate_limitDeleted RateLimitDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitDeleted RateLimitDeleted { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_rate_limitUpdated? RateLimitUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitUpdated? RateLimitUpdated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_rate_limitUpdated RateLimitUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitUpdated RateLimitUpdated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleAssignmentCreated? RoleAssignmentCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentCreated? RoleAssignmentCreated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleAssignmentCreated RoleAssignmentCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentCreated RoleAssignmentCreated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleAssignmentDeleted? RoleAssignmentDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentDeleted? RoleAssignmentDeleted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleAssignmentDeleted RoleAssignmentDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentDeleted RoleAssignmentDeleted { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleCreated? RoleCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated? RoleCreated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleCreated RoleCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated RoleCreated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleDeleted? RoleDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted? RoleDeleted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleDeleted RoleDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted RoleDeleted { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleUpdated? RoleUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdated? RoleUpdated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleUpdated RoleUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdated RoleUpdated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_scimDisabled? ScimDisabled { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimDisabled? ScimDisabled { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_scimDisabled ScimDisabled { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimDisabled ScimDisabled { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_scimEnabled? ScimEnabled { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimEnabled? ScimEnabled { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_scimEnabled ScimEnabled { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimEnabled ScimEnabled { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountCreated? ServiceAccountCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountCreated? ServiceAccountCreated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountCreated ServiceAccountCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountCreated ServiceAccountCreated { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountDeleted? ServiceAccountDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountDeleted? ServiceAccountDeleted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountDeleted ServiceAccountDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountDeleted ServiceAccountDeleted { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountUpdated? ServiceAccountUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountUpdated? ServiceAccountUpdated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountUpdated ServiceAccountUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountUpdated ServiceAccountUpdated { get; set; }
 #endif
         /// <summary>The event type.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogEventType? Type { get; set; }
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userAdded? UserAdded { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserAdded? UserAdded { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userAdded UserAdded { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserAdded UserAdded { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userDeleted? UserDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserDeleted? UserDeleted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userDeleted UserDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserDeleted UserDeleted { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userUpdated? UserUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated? UserUpdated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userUpdated UserUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated UserUpdated { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog"/> and sets the default values.
@@ -444,58 +444,58 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor.CreateFromDiscriminatorValue); } },
-                { "api_key.created", n => { ApiKeyCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyCreated.CreateFromDiscriminatorValue); } },
-                { "api_key.deleted", n => { ApiKeyDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyDeleted.CreateFromDiscriminatorValue); } },
-                { "api_key.updated", n => { ApiKeyUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyUpdated.CreateFromDiscriminatorValue); } },
-                { "certificate.created", n => { CertificateCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateCreated.CreateFromDiscriminatorValue); } },
-                { "certificate.deleted", n => { CertificateDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateDeleted.CreateFromDiscriminatorValue); } },
-                { "certificate.updated", n => { CertificateUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateUpdated.CreateFromDiscriminatorValue); } },
-                { "certificates.activated", n => { CertificatesActivated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificatesActivated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificatesActivated.CreateFromDiscriminatorValue); } },
-                { "certificates.deactivated", n => { CertificatesDeactivated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificatesDeactivated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificatesDeactivated.CreateFromDiscriminatorValue); } },
-                { "checkpoint.permission.created", n => { CheckpointPermissionCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_checkpointPermissionCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_checkpointPermissionCreated.CreateFromDiscriminatorValue); } },
-                { "checkpoint.permission.deleted", n => { CheckpointPermissionDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_checkpointPermissionDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_checkpointPermissionDeleted.CreateFromDiscriminatorValue); } },
+                { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_actor>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_actor.CreateFromDiscriminatorValue); } },
+                { "api_key.created", n => { ApiKeyCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated.CreateFromDiscriminatorValue); } },
+                { "api_key.deleted", n => { ApiKeyDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted.CreateFromDiscriminatorValue); } },
+                { "api_key.updated", n => { ApiKeyUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated.CreateFromDiscriminatorValue); } },
+                { "certificate.created", n => { CertificateCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateCreated.CreateFromDiscriminatorValue); } },
+                { "certificate.deleted", n => { CertificateDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateDeleted.CreateFromDiscriminatorValue); } },
+                { "certificate.updated", n => { CertificateUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateUpdated.CreateFromDiscriminatorValue); } },
+                { "certificates.activated", n => { CertificatesActivated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated.CreateFromDiscriminatorValue); } },
+                { "certificates.deactivated", n => { CertificatesDeactivated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesDeactivated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesDeactivated.CreateFromDiscriminatorValue); } },
+                { "checkpoint.permission.created", n => { CheckpointPermissionCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionCreated.CreateFromDiscriminatorValue); } },
+                { "checkpoint.permission.deleted", n => { CheckpointPermissionDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted.CreateFromDiscriminatorValue); } },
                 { "effective_at", n => { EffectiveAt = n.GetIntValue(); } },
-                { "external_key.registered", n => { ExternalKeyRegistered = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_external_keyRegistered>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_external_keyRegistered.CreateFromDiscriminatorValue); } },
-                { "external_key.removed", n => { ExternalKeyRemoved = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_external_keyRemoved>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_external_keyRemoved.CreateFromDiscriminatorValue); } },
-                { "group.created", n => { GroupCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupCreated.CreateFromDiscriminatorValue); } },
-                { "group.deleted", n => { GroupDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupDeleted.CreateFromDiscriminatorValue); } },
-                { "group.updated", n => { GroupUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupUpdated.CreateFromDiscriminatorValue); } },
+                { "external_key.registered", n => { ExternalKeyRegistered = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered.CreateFromDiscriminatorValue); } },
+                { "external_key.removed", n => { ExternalKeyRemoved = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved.CreateFromDiscriminatorValue); } },
+                { "group.created", n => { GroupCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated.CreateFromDiscriminatorValue); } },
+                { "group.deleted", n => { GroupDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupDeleted.CreateFromDiscriminatorValue); } },
+                { "group.updated", n => { GroupUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupUpdated.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "invite.accepted", n => { InviteAccepted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteAccepted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteAccepted.CreateFromDiscriminatorValue); } },
-                { "invite.deleted", n => { InviteDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteDeleted.CreateFromDiscriminatorValue); } },
-                { "invite.sent", n => { InviteSent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteSent>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteSent.CreateFromDiscriminatorValue); } },
-                { "ip_allowlist.config.activated", n => { IpAllowlistConfigActivated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistConfigActivated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistConfigActivated.CreateFromDiscriminatorValue); } },
-                { "ip_allowlist.config.deactivated", n => { IpAllowlistConfigDeactivated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistConfigDeactivated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistConfigDeactivated.CreateFromDiscriminatorValue); } },
-                { "ip_allowlist.created", n => { IpAllowlistCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistCreated.CreateFromDiscriminatorValue); } },
-                { "ip_allowlist.deleted", n => { IpAllowlistDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistDeleted.CreateFromDiscriminatorValue); } },
-                { "ip_allowlist.updated", n => { IpAllowlistUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistUpdated.CreateFromDiscriminatorValue); } },
-                { "login.failed", n => { LoginFailed = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_loginFailed>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_loginFailed.CreateFromDiscriminatorValue); } },
+                { "invite.accepted", n => { InviteAccepted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteAccepted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteAccepted.CreateFromDiscriminatorValue); } },
+                { "invite.deleted", n => { InviteDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteDeleted.CreateFromDiscriminatorValue); } },
+                { "invite.sent", n => { InviteSent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteSent>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteSent.CreateFromDiscriminatorValue); } },
+                { "ip_allowlist.config.activated", n => { IpAllowlistConfigActivated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated.CreateFromDiscriminatorValue); } },
+                { "ip_allowlist.config.deactivated", n => { IpAllowlistConfigDeactivated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigDeactivated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigDeactivated.CreateFromDiscriminatorValue); } },
+                { "ip_allowlist.created", n => { IpAllowlistCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistCreated.CreateFromDiscriminatorValue); } },
+                { "ip_allowlist.deleted", n => { IpAllowlistDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistDeleted.CreateFromDiscriminatorValue); } },
+                { "ip_allowlist.updated", n => { IpAllowlistUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistUpdated.CreateFromDiscriminatorValue); } },
+                { "login.failed", n => { LoginFailed = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginFailed>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginFailed.CreateFromDiscriminatorValue); } },
                 { "login.succeeded", n => { LoginSucceeded = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_loginSucceeded>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_loginSucceeded.CreateFromDiscriminatorValue); } },
-                { "logout.failed", n => { LogoutFailed = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_logoutFailed>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_logoutFailed.CreateFromDiscriminatorValue); } },
+                { "logout.failed", n => { LogoutFailed = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutFailed>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutFailed.CreateFromDiscriminatorValue); } },
                 { "logout.succeeded", n => { LogoutSucceeded = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_logoutSucceeded>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_logoutSucceeded.CreateFromDiscriminatorValue); } },
-                { "organization.updated", n => { OrganizationUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_organizationUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_organizationUpdated.CreateFromDiscriminatorValue); } },
-                { "project", n => { Project = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_project>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_project.CreateFromDiscriminatorValue); } },
-                { "project.archived", n => { ProjectArchived = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectArchived>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectArchived.CreateFromDiscriminatorValue); } },
-                { "project.created", n => { ProjectCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectCreated.CreateFromDiscriminatorValue); } },
-                { "project.deleted", n => { ProjectDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectDeleted.CreateFromDiscriminatorValue); } },
-                { "project.updated", n => { ProjectUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectUpdated.CreateFromDiscriminatorValue); } },
-                { "rate_limit.deleted", n => { RateLimitDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_rate_limitDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_rate_limitDeleted.CreateFromDiscriminatorValue); } },
-                { "rate_limit.updated", n => { RateLimitUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_rate_limitUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_rate_limitUpdated.CreateFromDiscriminatorValue); } },
-                { "role.assignment.created", n => { RoleAssignmentCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleAssignmentCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleAssignmentCreated.CreateFromDiscriminatorValue); } },
-                { "role.assignment.deleted", n => { RoleAssignmentDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleAssignmentDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleAssignmentDeleted.CreateFromDiscriminatorValue); } },
-                { "role.created", n => { RoleCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleCreated.CreateFromDiscriminatorValue); } },
-                { "role.deleted", n => { RoleDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleDeleted.CreateFromDiscriminatorValue); } },
-                { "role.updated", n => { RoleUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleUpdated.CreateFromDiscriminatorValue); } },
-                { "scim.disabled", n => { ScimDisabled = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_scimDisabled>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_scimDisabled.CreateFromDiscriminatorValue); } },
-                { "scim.enabled", n => { ScimEnabled = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_scimEnabled>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_scimEnabled.CreateFromDiscriminatorValue); } },
-                { "service_account.created", n => { ServiceAccountCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountCreated.CreateFromDiscriminatorValue); } },
-                { "service_account.deleted", n => { ServiceAccountDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountDeleted.CreateFromDiscriminatorValue); } },
-                { "service_account.updated", n => { ServiceAccountUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountUpdated.CreateFromDiscriminatorValue); } },
+                { "organization.updated", n => { OrganizationUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdated.CreateFromDiscriminatorValue); } },
+                { "project", n => { Project = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProject>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProject.CreateFromDiscriminatorValue); } },
+                { "project.archived", n => { ProjectArchived = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectArchived>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectArchived.CreateFromDiscriminatorValue); } },
+                { "project.created", n => { ProjectCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectCreated.CreateFromDiscriminatorValue); } },
+                { "project.deleted", n => { ProjectDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectDeleted.CreateFromDiscriminatorValue); } },
+                { "project.updated", n => { ProjectUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectUpdated.CreateFromDiscriminatorValue); } },
+                { "rate_limit.deleted", n => { RateLimitDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitDeleted.CreateFromDiscriminatorValue); } },
+                { "rate_limit.updated", n => { RateLimitUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitUpdated.CreateFromDiscriminatorValue); } },
+                { "role.assignment.created", n => { RoleAssignmentCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentCreated.CreateFromDiscriminatorValue); } },
+                { "role.assignment.deleted", n => { RoleAssignmentDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentDeleted.CreateFromDiscriminatorValue); } },
+                { "role.created", n => { RoleCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated.CreateFromDiscriminatorValue); } },
+                { "role.deleted", n => { RoleDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted.CreateFromDiscriminatorValue); } },
+                { "role.updated", n => { RoleUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdated.CreateFromDiscriminatorValue); } },
+                { "scim.disabled", n => { ScimDisabled = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimDisabled>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimDisabled.CreateFromDiscriminatorValue); } },
+                { "scim.enabled", n => { ScimEnabled = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimEnabled>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimEnabled.CreateFromDiscriminatorValue); } },
+                { "service_account.created", n => { ServiceAccountCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountCreated.CreateFromDiscriminatorValue); } },
+                { "service_account.deleted", n => { ServiceAccountDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountDeleted.CreateFromDiscriminatorValue); } },
+                { "service_account.updated", n => { ServiceAccountUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountUpdated.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogEventType>(); } },
-                { "user.added", n => { UserAdded = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userAdded>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userAdded.CreateFromDiscriminatorValue); } },
-                { "user.deleted", n => { UserDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userDeleted.CreateFromDiscriminatorValue); } },
-                { "user.updated", n => { UserUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userUpdated.CreateFromDiscriminatorValue); } },
+                { "user.added", n => { UserAdded = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserAdded>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserAdded.CreateFromDiscriminatorValue); } },
+                { "user.deleted", n => { UserDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserDeleted.CreateFromDiscriminatorValue); } },
+                { "user.updated", n => { UserUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -505,58 +505,58 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor>("actor", Actor);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyCreated>("api_key.created", ApiKeyCreated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyDeleted>("api_key.deleted", ApiKeyDeleted);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_api_keyUpdated>("api_key.updated", ApiKeyUpdated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateCreated>("certificate.created", CertificateCreated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateDeleted>("certificate.deleted", CertificateDeleted);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificatesActivated>("certificates.activated", CertificatesActivated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificatesDeactivated>("certificates.deactivated", CertificatesDeactivated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_certificateUpdated>("certificate.updated", CertificateUpdated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_checkpointPermissionCreated>("checkpoint.permission.created", CheckpointPermissionCreated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_checkpointPermissionDeleted>("checkpoint.permission.deleted", CheckpointPermissionDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_actor>("actor", Actor);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated>("api_key.created", ApiKeyCreated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted>("api_key.deleted", ApiKeyDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated>("api_key.updated", ApiKeyUpdated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateCreated>("certificate.created", CertificateCreated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateDeleted>("certificate.deleted", CertificateDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated>("certificates.activated", CertificatesActivated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesDeactivated>("certificates.deactivated", CertificatesDeactivated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateUpdated>("certificate.updated", CertificateUpdated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionCreated>("checkpoint.permission.created", CheckpointPermissionCreated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted>("checkpoint.permission.deleted", CheckpointPermissionDeleted);
             writer.WriteIntValue("effective_at", EffectiveAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_external_keyRegistered>("external_key.registered", ExternalKeyRegistered);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_external_keyRemoved>("external_key.removed", ExternalKeyRemoved);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupCreated>("group.created", GroupCreated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupDeleted>("group.deleted", GroupDeleted);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_groupUpdated>("group.updated", GroupUpdated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered>("external_key.registered", ExternalKeyRegistered);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved>("external_key.removed", ExternalKeyRemoved);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated>("group.created", GroupCreated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupDeleted>("group.deleted", GroupDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupUpdated>("group.updated", GroupUpdated);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteAccepted>("invite.accepted", InviteAccepted);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteDeleted>("invite.deleted", InviteDeleted);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_inviteSent>("invite.sent", InviteSent);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistConfigActivated>("ip_allowlist.config.activated", IpAllowlistConfigActivated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistConfigDeactivated>("ip_allowlist.config.deactivated", IpAllowlistConfigDeactivated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistCreated>("ip_allowlist.created", IpAllowlistCreated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistDeleted>("ip_allowlist.deleted", IpAllowlistDeleted);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_ip_allowlistUpdated>("ip_allowlist.updated", IpAllowlistUpdated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_loginFailed>("login.failed", LoginFailed);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteAccepted>("invite.accepted", InviteAccepted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteDeleted>("invite.deleted", InviteDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteSent>("invite.sent", InviteSent);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated>("ip_allowlist.config.activated", IpAllowlistConfigActivated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigDeactivated>("ip_allowlist.config.deactivated", IpAllowlistConfigDeactivated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistCreated>("ip_allowlist.created", IpAllowlistCreated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistDeleted>("ip_allowlist.deleted", IpAllowlistDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistUpdated>("ip_allowlist.updated", IpAllowlistUpdated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginFailed>("login.failed", LoginFailed);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_loginSucceeded>("login.succeeded", LoginSucceeded);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_logoutFailed>("logout.failed", LogoutFailed);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutFailed>("logout.failed", LogoutFailed);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_logoutSucceeded>("logout.succeeded", LogoutSucceeded);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_organizationUpdated>("organization.updated", OrganizationUpdated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_project>("project", Project);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectArchived>("project.archived", ProjectArchived);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectCreated>("project.created", ProjectCreated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectDeleted>("project.deleted", ProjectDeleted);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_projectUpdated>("project.updated", ProjectUpdated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_rate_limitDeleted>("rate_limit.deleted", RateLimitDeleted);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_rate_limitUpdated>("rate_limit.updated", RateLimitUpdated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleAssignmentCreated>("role.assignment.created", RoleAssignmentCreated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleAssignmentDeleted>("role.assignment.deleted", RoleAssignmentDeleted);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleCreated>("role.created", RoleCreated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleDeleted>("role.deleted", RoleDeleted);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_roleUpdated>("role.updated", RoleUpdated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_scimDisabled>("scim.disabled", ScimDisabled);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_scimEnabled>("scim.enabled", ScimEnabled);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountCreated>("service_account.created", ServiceAccountCreated);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountDeleted>("service_account.deleted", ServiceAccountDeleted);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_service_accountUpdated>("service_account.updated", ServiceAccountUpdated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdated>("organization.updated", OrganizationUpdated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProject>("project", Project);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectArchived>("project.archived", ProjectArchived);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectCreated>("project.created", ProjectCreated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectDeleted>("project.deleted", ProjectDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectUpdated>("project.updated", ProjectUpdated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitDeleted>("rate_limit.deleted", RateLimitDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitUpdated>("rate_limit.updated", RateLimitUpdated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentCreated>("role.assignment.created", RoleAssignmentCreated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentDeleted>("role.assignment.deleted", RoleAssignmentDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated>("role.created", RoleCreated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted>("role.deleted", RoleDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdated>("role.updated", RoleUpdated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimDisabled>("scim.disabled", ScimDisabled);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimEnabled>("scim.enabled", ScimEnabled);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountCreated>("service_account.created", ServiceAccountCreated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountDeleted>("service_account.deleted", ServiceAccountDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountUpdated>("service_account.updated", ServiceAccountUpdated);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogEventType>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userAdded>("user.added", UserAdded);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userDeleted>("user.deleted", UserDeleted);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_userUpdated>("user.updated", UserUpdated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserAdded>("user.added", UserAdded);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserDeleted>("user.deleted", UserDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated>("user.updated", UserUpdated);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

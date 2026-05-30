@@ -24,7 +24,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<string> FileIds { get; set; }
 #endif
         /// <summary>The memory_limit property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerMemoryLimit? MemoryLimit { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_memory_limit? MemoryLimit { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_memory_limit MemoryLimit { get; set; }
+#endif
         /// <summary>Network access policy for the container.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,7 +47,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public AutoCodeInterpreterToolParam()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_type.Auto;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -62,7 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "file_ids", n => { FileIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "memory_limit", n => { MemoryLimit = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerMemoryLimit>(); } },
+                { "memory_limit", n => { MemoryLimit = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_memory_limit>(global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_memory_limit.CreateFromDiscriminatorValue); } },
                 { "network_policy", n => { NetworkPolicy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam.AutoCodeInterpreterToolParam_network_policy>(global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam.AutoCodeInterpreterToolParam_network_policy.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_type>(); } },
             };
@@ -75,7 +80,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("file_ids", FileIds);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerMemoryLimit>("memory_limit", MemoryLimit);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_memory_limit>("memory_limit", MemoryLimit);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam.AutoCodeInterpreterToolParam_network_policy>("network_policy", NetworkPolicy);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

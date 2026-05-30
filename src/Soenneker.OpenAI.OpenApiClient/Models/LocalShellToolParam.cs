@@ -23,7 +23,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public LocalShellToolParam()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolParam_type.Local_shell;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

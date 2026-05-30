@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Action type &quot;find_in_page&quot;: Searches for a pattern within a loaded page.
+    /// &quot;Action type \&quot;find_in_page\&quot;: Searches for a pattern within a loaded page.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebSearchActionFind : IAdditionalDataHolder, IParsable

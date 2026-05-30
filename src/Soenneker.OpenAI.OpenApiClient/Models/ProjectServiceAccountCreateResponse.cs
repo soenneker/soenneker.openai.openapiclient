@@ -17,10 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountApiKey? ApiKey { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_api_key? ApiKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountApiKey ApiKey { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_api_key ApiKey { get; set; }
 #endif
         /// <summary>The created_at property</summary>
         public int? CreatedAt { get; set; }
@@ -69,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountApiKey>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountApiKey.CreateFromDiscriminatorValue); } },
+                { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_api_key>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_api_key.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -84,7 +84,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountApiKey>("api_key", ApiKey);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_api_key>("api_key", ApiKey);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);

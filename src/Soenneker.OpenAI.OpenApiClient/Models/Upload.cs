@@ -24,10 +24,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The file property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OpenAIFile? File { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Upload_file? File { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OpenAIFile File { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Upload_file File { get; set; }
 #endif
         /// <summary>The name of the file to be uploaded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "bytes", n => { Bytes = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
-                { "file", n => { File = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAIFile>(global::Soenneker.OpenAI.OpenApiClient.Models.OpenAIFile.CreateFromDiscriminatorValue); } },
+                { "file", n => { File = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Upload_file>(global::Soenneker.OpenAI.OpenApiClient.Models.Upload_file.CreateFromDiscriminatorValue); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Upload_object>(); } },
@@ -103,7 +103,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("bytes", Bytes);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteIntValue("expires_at", ExpiresAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAIFile>("file", File);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Upload_file>("file", File);
             writer.WriteStringValue("filename", Filename);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Upload_object>("object", Object);

@@ -7,28 +7,31 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityMember1"/>, <see cref="string"/>
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Verbosity : IComposedTypeWrapper, IParsable
+    #pragma warning disable CS1591
+    public partial class Verbosity : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Composed type representation for type <see cref="string"/></summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? String { get; set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public string String { get; set; }
+        public string Type { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityMember1? VerbosityMember1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityMember1 VerbosityMember1 { get; set; }
-#endif
+        /// <summary>Constrains the verbosity of the model&apos;s response. Lower values will result inmore concise responses, while higher values will result in more verbose responses.Currently supported values are `low`, `medium`, and `high`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity_value? Value { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity"/> and sets the default values.
+        /// </summary>
+        public Verbosity()
+        {
+            AdditionalData = new Dictionary<string, object>();
+            Value = global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity_value.Medium;
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,15 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity();
-            if(parseNode.GetStringValue() is string stringValue)
-            {
-                result.String = stringValue;
-            }
-            else {
-                result.VerbosityMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityMember1();
-            }
-            return result;
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,11 +48,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(VerbosityMember1 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(VerbosityMember1);
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity_value>(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -66,13 +61,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(String != null)
-            {
-                writer.WriteStringValue(null, String);
-            }
-            else {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityMember1>(null, VerbosityMember1);
-            }
+            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity_value>("value", Value);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

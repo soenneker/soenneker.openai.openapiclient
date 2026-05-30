@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Specifying a particular function via `{&quot;name&quot;: &quot;my_function&quot;}` forces the model to call that function.
+    /// &quot;Specifying a particular function via `{\&quot;name\&quot;: \&quot;my_function\&quot;}` forces the model to call that function.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatCompletionFunctionCallOption : IAdditionalDataHolder, IParsable

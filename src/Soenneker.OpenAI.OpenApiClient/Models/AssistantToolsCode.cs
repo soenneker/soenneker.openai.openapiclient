@@ -14,7 +14,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The type of tool being defined: `code_interpreter`</summary>
+        /// <summary>&quot;The type of tool being defined: `code_interpreter`&quot;</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsCode_type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsCode"/> and sets the default values.

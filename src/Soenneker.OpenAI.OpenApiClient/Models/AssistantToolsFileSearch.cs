@@ -17,12 +17,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Overrides for the file search tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch_file_search? FileSearch { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearchFileSearch? FileSearch { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch_file_search FileSearch { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearchFileSearch FileSearch { get; set; }
 #endif
-        /// <summary>The type of tool being defined: `file_search`</summary>
+        /// <summary>&quot;The type of tool being defined: `file_search`&quot;</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch_type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch"/> and sets the default values.
@@ -49,7 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "file_search", n => { FileSearch = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch_file_search>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch_file_search.CreateFromDiscriminatorValue); } },
+                { "file_search", n => { FileSearch = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearchFileSearch>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearchFileSearch.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch_type>(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch_file_search>("file_search", FileSearch);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearchFileSearch>("file_search", FileSearch);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

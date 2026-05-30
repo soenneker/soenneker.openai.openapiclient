@@ -47,7 +47,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall.ApplyPatchToolCall_operation Operation { get; set; }
 #endif
-        /// <summary>The status of the apply patch tool call. One of `in_progress` or `completed`.</summary>
+        /// <summary>The status property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallStatus? Status { get; set; }
         /// <summary>The type of the item. Always `apply_patch_call`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall_type? Type { get; set; }
@@ -57,7 +57,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public ApplyPatchToolCall()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall_type.Apply_patch_call;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

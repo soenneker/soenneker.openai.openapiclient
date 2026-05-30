@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam"/>, <see cref="string"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CodeInterpreterTool_container : IComposedTypeWrapper, IParsable
@@ -79,13 +79,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
             public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam AutoCodeInterpreterToolParam { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public string? String { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch? UnionBranch { get; set; }
 #nullable restore
 #else
-            public string String { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch UnionBranch { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -101,9 +101,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 {
                     result.AutoCodeInterpreterToolParam = new global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam();
                 }
-                else if(parseNode.GetStringValue() is string stringValue)
+                else if("UnionBranch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.String = stringValue;
+                    result.UnionBranch = new global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch();
                 }
                 return result;
             }
@@ -116,6 +116,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 if(AutoCodeInterpreterToolParam != null)
                 {
                     return AutoCodeInterpreterToolParam.GetFieldDeserializers();
+                }
+                else if(UnionBranch != null)
+                {
+                    return UnionBranch.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -130,9 +134,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 {
                     writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam>(null, AutoCodeInterpreterToolParam);
                 }
-                else if(String != null)
+                else if(UnionBranch != null)
                 {
-                    writer.WriteStringValue(null, String);
+                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>(null, UnionBranch);
                 }
             }
         }

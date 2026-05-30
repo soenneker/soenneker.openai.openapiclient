@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject_text? Text { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObjectText? Text { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject_text Text { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObjectText Text { get; set; }
 #endif
         /// <summary>Always `text`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject_type? Type { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject_text>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject_text.CreateFromDiscriminatorValue); } },
+                { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObjectText>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObjectText.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject_type>(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject_text>("text", Text);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObjectText>("text", Text);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -7,12 +7,57 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// The newly created admin API key. The `value` field is only returned once, when the key is created.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AdminApiKeyCreateResponse : global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey, IParsable
+    #pragma warning disable CS1591
+    public partial class AdminApiKeyCreateResponse : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The Unix timestamp (in seconds) of when the API key was created</summary>
+        public int? CreatedAt { get; set; }
+        /// <summary>The identifier, which can be referenced in API endpoints</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; set; }
+#nullable restore
+#else
+        public string Id { get; set; }
+#endif
+        /// <summary>The last_used_at property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse_last_used_at? LastUsedAt { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse_last_used_at LastUsedAt { get; set; }
+#endif
+        /// <summary>The name of the API key</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse_name? Name { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse_name Name { get; set; }
+#endif
+        /// <summary>The object type, which is always `organization.admin_api_key`</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse_object? Object { get; set; }
+        /// <summary>The owner property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyOwner? Owner { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyOwner Owner { get; set; }
+#endif
+        /// <summary>The redacted value of the API key</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RedactedValue { get; set; }
+#nullable restore
+#else
+        public string RedactedValue { get; set; }
+#endif
         /// <summary>The value of the API key. Only shown on create.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,11 +67,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Value { get; set; }
 #endif
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse"/> and sets the default values.
+        /// </summary>
+        public AdminApiKeyCreateResponse()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse();
@@ -35,10 +87,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "last_used_at", n => { LastUsedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse_last_used_at>(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse_last_used_at.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse_name>(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse_name.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse_object>(); } },
+                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyOwner>(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyOwner.CreateFromDiscriminatorValue); } },
+                { "redacted_value", n => { RedactedValue = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
         }
@@ -46,11 +105,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteStringValue("id", Id);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse_last_used_at>("last_used_at", LastUsedAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse_name>("name", Name);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyOwner>("owner", Owner);
+            writer.WriteStringValue("redacted_value", RedactedValue);
             writer.WriteStringValue("value", Value);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

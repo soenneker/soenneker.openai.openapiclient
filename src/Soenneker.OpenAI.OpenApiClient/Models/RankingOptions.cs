@@ -7,15 +7,14 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// Ranking options for search.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class RankingOptions : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Weights that control how reciprocal rank fusion balances semantic embedding matches versus sparse keyword matches when hybrid search is enabled.</summary>
+        /// <summary>The hybrid_search property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.HybridSearchOptions? HybridSearch { get; set; }
@@ -23,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.HybridSearchOptions HybridSearch { get; set; }
 #endif
-        /// <summary>The ranker to use for the file search.</summary>
+        /// <summary>The ranker property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.RankerVersionType? Ranker { get; set; }
         /// <summary>The score threshold for the file search, a number between 0 and 1. Numbers closer to 1 will attempt to return only the most relevant results, but may return fewer results.</summary>
         public double? ScoreThreshold { get; set; }

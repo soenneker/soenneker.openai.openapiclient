@@ -20,20 +20,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Breakdown of tokens used in a completion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage_completion_tokens_details? CompletionTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsageCompletionTokensDetails? CompletionTokensDetails { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage_completion_tokens_details CompletionTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsageCompletionTokensDetails CompletionTokensDetails { get; set; }
 #endif
         /// <summary>Number of tokens in the prompt.</summary>
         public int? PromptTokens { get; set; }
         /// <summary>Breakdown of tokens used in the prompt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage_prompt_tokens_details? PromptTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails? PromptTokensDetails { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage_prompt_tokens_details PromptTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails PromptTokensDetails { get; set; }
 #endif
         /// <summary>Total number of tokens used in the request (prompt + completion).</summary>
         public int? TotalTokens { get; set; }
@@ -63,9 +63,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "completion_tokens", n => { CompletionTokens = n.GetIntValue(); } },
-                { "completion_tokens_details", n => { CompletionTokensDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage_completion_tokens_details>(global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage_completion_tokens_details.CreateFromDiscriminatorValue); } },
+                { "completion_tokens_details", n => { CompletionTokensDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsageCompletionTokensDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsageCompletionTokensDetails.CreateFromDiscriminatorValue); } },
                 { "prompt_tokens", n => { PromptTokens = n.GetIntValue(); } },
-                { "prompt_tokens_details", n => { PromptTokensDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage_prompt_tokens_details>(global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage_prompt_tokens_details.CreateFromDiscriminatorValue); } },
+                { "prompt_tokens_details", n => { PromptTokensDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails.CreateFromDiscriminatorValue); } },
                 { "total_tokens", n => { TotalTokens = n.GetIntValue(); } },
             };
         }
@@ -77,9 +77,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("completion_tokens", CompletionTokens);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage_completion_tokens_details>("completion_tokens_details", CompletionTokensDetails);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsageCompletionTokensDetails>("completion_tokens_details", CompletionTokensDetails);
             writer.WriteIntValue("prompt_tokens", PromptTokens);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage_prompt_tokens_details>("prompt_tokens_details", PromptTokensDetails);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails>("prompt_tokens_details", PromptTokensDetails);
             writer.WriteIntValue("total_tokens", TotalTokens);
             writer.WriteAdditionalData(AdditionalData);
         }

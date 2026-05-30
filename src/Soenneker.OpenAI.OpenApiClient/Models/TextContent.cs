@@ -31,7 +31,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public TextContent()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.TextContent_type.Text;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

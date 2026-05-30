@@ -16,10 +16,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The acknowledged_safety_checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam>? AcknowledgedSafetyChecks { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_acknowledged_safety_checks? AcknowledgedSafetyChecks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam> AcknowledgedSafetyChecks { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_acknowledged_safety_checks AcknowledgedSafetyChecks { get; set; }
 #endif
         /// <summary>The action property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,10 +68,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_code? Code { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_code? Code { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_code Code { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_code Code { get; set; }
 #endif
         /// <summary>The ID of the container used to run the code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,28 +92,28 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The encrypted_content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_encrypted_content? EncryptedContent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_encrypted_content? EncryptedContent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_encrypted_content EncryptedContent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_encrypted_content EncryptedContent { get; set; }
 #endif
         /// <summary>The environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_environment? Environment { get; set; }
 #nullable restore
 #else
-        public UntypedNode Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_environment Environment { get; set; }
 #endif
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_error? Error { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_error? Error { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_error Error { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_error Error { get; set; }
 #endif
-        /// <summary>Whether tool search was executed by the server or by the client.</summary>
+        /// <summary>The execution property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType? Execution { get; set; }
         /// <summary>The unique ID of the output message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -134,10 +134,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The max_output_length property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_max_output_length? MaxOutputLength { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_max_output_length? MaxOutputLength { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_max_output_length MaxOutputLength { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_max_output_length MaxOutputLength { get; set; }
 #endif
         /// <summary>The name of the function to run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -155,7 +155,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Namespace { get; set; }
 #endif
-        /// <summary>The specific create, delete, or update instruction for the apply_patch tool call.</summary>
+        /// <summary>One of the create_file, delete_file, or update_file operations supplied to the apply_patch tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchOperationParam? Operation { get; set; }
@@ -174,10 +174,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The outputs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterOutputImage>? Outputs { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_outputs? Outputs { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterOutputImage> Outputs { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_outputs Outputs { get; set; }
 #endif
         /// <summary>The pending safety checks for the computer call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -188,7 +188,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam> PendingSafetyChecks { get; set; }
 #endif
         /// <summary>The phase property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhase? Phase { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_phase? Phase { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_phase Phase { get; set; }
+#endif
         /// <summary>The queries used to search for files.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -200,26 +206,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The reason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_reason? Reason { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_reason? Reason { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_reason Reason { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_reason Reason { get; set; }
 #endif
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_result? Result { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_result? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_result Result { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_result Result { get; set; }
 #endif
         /// <summary>The results property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_results? Results { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_results? Results { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_results Results { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_results Results { get; set; }
 #endif
         /// <summary>The role of the message input. One of `user`, `system`, or `developer`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.Item_role? Role { get; set; }
@@ -249,8 +255,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.Tool> Tools { get; set; }
 #endif
-        /// <summary>The type of the message input. Always set to `message`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item_type? Type { get; set; }
+        /// <summary>Union discriminator</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item"/> and sets the default values.
         /// </summary>
@@ -276,40 +288,40 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "acknowledged_safety_checks", n => { AcknowledgedSafetyChecks = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "acknowledged_safety_checks", n => { AcknowledgedSafetyChecks = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_acknowledged_safety_checks>(global::Soenneker.OpenAI.OpenApiClient.Models.Item_acknowledged_safety_checks.CreateFromDiscriminatorValue); } },
                 { "action", n => { Action = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerAction>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerAction.CreateFromDiscriminatorValue); } },
                 { "actions", n => { Actions = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerAction>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerAction.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "approval_request_id", n => { ApprovalRequestId = n.GetStringValue(); } },
                 { "approve", n => { Approve = n.GetBoolValue(); } },
                 { "arguments", n => { Arguments = n.GetStringValue(); } },
                 { "call_id", n => { CallId = n.GetStringValue(); } },
-                { "code", n => { Code = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_code>(global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_code.CreateFromDiscriminatorValue); } },
+                { "code", n => { Code = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_code>(global::Soenneker.OpenAI.OpenApiClient.Models.Item_code.CreateFromDiscriminatorValue); } },
                 { "container_id", n => { ContainerId = n.GetStringValue(); } },
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InputContent>(global::Soenneker.OpenAI.OpenApiClient.Models.InputContent.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "encrypted_content", n => { EncryptedContent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_encrypted_content>(global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_encrypted_content.CreateFromDiscriminatorValue); } },
-                { "environment", n => { Environment = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_error>(global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_error.CreateFromDiscriminatorValue); } },
+                { "encrypted_content", n => { EncryptedContent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_encrypted_content>(global::Soenneker.OpenAI.OpenApiClient.Models.Item_encrypted_content.CreateFromDiscriminatorValue); } },
+                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_environment>(global::Soenneker.OpenAI.OpenApiClient.Models.Item_environment.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_error>(global::Soenneker.OpenAI.OpenApiClient.Models.Item_error.CreateFromDiscriminatorValue); } },
                 { "execution", n => { Execution = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "input", n => { Input = n.GetStringValue(); } },
-                { "max_output_length", n => { MaxOutputLength = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_max_output_length>(global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_max_output_length.CreateFromDiscriminatorValue); } },
+                { "max_output_length", n => { MaxOutputLength = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_max_output_length>(global::Soenneker.OpenAI.OpenApiClient.Models.Item_max_output_length.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "namespace", n => { Namespace = n.GetStringValue(); } },
                 { "operation", n => { Operation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchOperationParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchOperationParam.CreateFromDiscriminatorValue); } },
                 { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage.CreateFromDiscriminatorValue); } },
-                { "outputs", n => { Outputs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterOutputImage>(global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterOutputImage.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "outputs", n => { Outputs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_outputs>(global::Soenneker.OpenAI.OpenApiClient.Models.Item_outputs.CreateFromDiscriminatorValue); } },
                 { "pending_safety_checks", n => { PendingSafetyChecks = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "phase", n => { Phase = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhase>(); } },
+                { "phase", n => { Phase = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_phase>(global::Soenneker.OpenAI.OpenApiClient.Models.Item_phase.CreateFromDiscriminatorValue); } },
                 { "queries", n => { Queries = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "reason", n => { Reason = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_reason>(global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_reason.CreateFromDiscriminatorValue); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_result>(global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_result.CreateFromDiscriminatorValue); } },
-                { "results", n => { Results = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_results>(global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_results.CreateFromDiscriminatorValue); } },
+                { "reason", n => { Reason = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_reason>(global::Soenneker.OpenAI.OpenApiClient.Models.Item_reason.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_result>(global::Soenneker.OpenAI.OpenApiClient.Models.Item_result.CreateFromDiscriminatorValue); } },
+                { "results", n => { Results = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_results>(global::Soenneker.OpenAI.OpenApiClient.Models.Item_results.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_role>(); } },
                 { "server_label", n => { ServerLabel = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_status>(); } },
                 { "summary", n => { Summary = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent>(global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Tool>(global::Soenneker.OpenAI.OpenApiClient.Models.Tool.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_type>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -319,511 +331,41 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam>("acknowledged_safety_checks", AcknowledgedSafetyChecks);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_acknowledged_safety_checks>("acknowledged_safety_checks", AcknowledgedSafetyChecks);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerAction>("action", Action);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerAction>("actions", Actions);
             writer.WriteStringValue("approval_request_id", ApprovalRequestId);
             writer.WriteBoolValue("approve", Approve);
             writer.WriteStringValue("arguments", Arguments);
             writer.WriteStringValue("call_id", CallId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_code>("code", Code);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_code>("code", Code);
             writer.WriteStringValue("container_id", ContainerId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InputContent>("content", Content);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_encrypted_content>("encrypted_content", EncryptedContent);
-            writer.WriteObjectValue<UntypedNode>("environment", Environment);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_error>("error", Error);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_encrypted_content>("encrypted_content", EncryptedContent);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_environment>("environment", Environment);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_error>("error", Error);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>("execution", Execution);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("input", Input);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_max_output_length>("max_output_length", MaxOutputLength);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_max_output_length>("max_output_length", MaxOutputLength);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("namespace", Namespace);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchOperationParam>("operation", Operation);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage>("output", Output);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterOutputImage>("outputs", Outputs);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_outputs>("outputs", Outputs);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam>("pending_safety_checks", PendingSafetyChecks);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhase>("phase", Phase);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_phase>("phase", Phase);
             writer.WriteCollectionOfPrimitiveValues<string>("queries", Queries);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_reason>("reason", Reason);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_result>("result", Result);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_results>("results", Results);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_reason>("reason", Reason);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_result>("result", Result);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_results>("results", Results);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_role>("role", Role);
             writer.WriteStringValue("server_label", ServerLabel);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_status>("status", Status);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent>("summary", Summary);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Tool>("tools", Tools);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_type>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item_codeMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Item_code : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item_codeMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Item_codeMember1? ItemCodeMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Item_codeMember1 ItemCodeMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_code"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_code CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_code();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ItemCodeMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.Item_codeMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ItemCodeMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ItemCodeMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_codeMember1>(null, ItemCodeMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item_encrypted_contentMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Item_encrypted_content : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item_encrypted_contentMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Item_encrypted_contentMember1? ItemEncryptedContentMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Item_encrypted_contentMember1 ItemEncryptedContentMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_encrypted_content"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_encrypted_content CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_encrypted_content();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ItemEncryptedContentMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.Item_encrypted_contentMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ItemEncryptedContentMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ItemEncryptedContentMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_encrypted_contentMember1>(null, ItemEncryptedContentMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item_errorMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Item_error : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item_errorMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Item_errorMember1? ItemErrorMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Item_errorMember1 ItemErrorMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_error"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_error CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_error();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ItemErrorMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.Item_errorMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ItemErrorMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ItemErrorMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_errorMember1>(null, ItemErrorMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item_max_output_lengthMember1"/>, <see cref="int"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Item_max_output_length : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item_max_output_lengthMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Item_max_output_lengthMember1? ItemMaxOutputLengthMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Item_max_output_lengthMember1 ItemMaxOutputLengthMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_max_output_length"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_max_output_length CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_max_output_length();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else {
-                    result.ItemMaxOutputLengthMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.Item_max_output_lengthMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ItemMaxOutputLengthMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ItemMaxOutputLengthMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_max_output_lengthMember1>(null, ItemMaxOutputLengthMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item_reasonMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Item_reason : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item_reasonMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Item_reasonMember1? ItemReasonMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Item_reasonMember1 ItemReasonMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_reason"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_reason CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_reason();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ItemReasonMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.Item_reasonMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ItemReasonMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ItemReasonMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_reasonMember1>(null, ItemReasonMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Item_result : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultMember1? ItemResultMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultMember1 ItemResultMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_result"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_result CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_result();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ItemResultMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ItemResultMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ItemResultMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultMember1>(null, ItemResultMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultsMember2"/>, List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultsMember1&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Item_results : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultsMember1&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultsMember1>? ItemResultsMember1 { get; set; }
-#nullable restore
-#else
-            public List<global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultsMember1> ItemResultsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultsMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultsMember2? ItemResultsMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultsMember2 ItemResultsMember2 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_results"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_results CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Item.Item_results();
-                if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultsMember1>(global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultsMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultsMember1> itemResultsMember1Value)
-                {
-                    result.ItemResultsMember1 = itemResultsMember1Value;
-                }
-                else {
-                    result.ItemResultsMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultsMember2();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ItemResultsMember2 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ItemResultsMember2);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(ItemResultsMember1 != null)
-                {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultsMember1>(null, ItemResultsMember1);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item_resultsMember2>(null, ItemResultsMember2);
-                }
-            }
         }
     }
 }

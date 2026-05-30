@@ -8,20 +8,18 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.Setting to `{ &quot;type&quot;: &quot;json_schema&quot;, &quot;json_schema&quot;: {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).Setting to `{ &quot;type&quot;: &quot;json_object&quot; }` enables JSON mode, which ensures the message the model generates is valid JSON.**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly &quot;stuck&quot; request. Also note that the message content may be partially cut off if `finish_reason=&quot;length&quot;`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_Wrapper"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AssistantsApiResponseFormatOption : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
+    public partial class AssistantsApiResponseFormatOption : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Structured Outputs configuration options, including a JSON Schema.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_Wrapper"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_json_schema? JsonSchema { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_Wrapper? AssistantsApiResponseFormatOptionWrapper { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_json_schema JsonSchema { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_Wrapper AssistantsApiResponseFormatOptionWrapper { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,23 +45,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText ResponseFormatText { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? String { get; set; }
-#nullable restore
-#else
-        public string String { get; set; }
-#endif
-        /// <summary>The type of response format being defined. Always `text`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_type? Type { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption"/> and sets the default values.
-        /// </summary>
-        public AssistantsApiResponseFormatOption()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -72,11 +53,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption();
             if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.JsonSchema = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_json_schema();
+                result.AssistantsApiResponseFormatOptionWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_Wrapper();
             }
             else if("ResponseFormatJsonObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -90,14 +71,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.ResponseFormatText = new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText();
             }
-            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_type>() is global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_type typeValue)
-            {
-                result.Type = typeValue;
-            }
-            else if(parseNode.GetStringValue() is string stringValue)
-            {
-                result.String = stringValue;
-            }
             return result;
         }
         /// <summary>
@@ -106,9 +79,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(JsonSchema != null)
+            if(AssistantsApiResponseFormatOptionWrapper != null)
             {
-                return JsonSchema.GetFieldDeserializers();
+                return AssistantsApiResponseFormatOptionWrapper.GetFieldDeserializers();
             }
             else if(ResponseFormatJsonObject != null)
             {
@@ -131,9 +104,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(JsonSchema != null)
+            if(AssistantsApiResponseFormatOptionWrapper != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_json_schema>(null, JsonSchema);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_Wrapper>(null, AssistantsApiResponseFormatOptionWrapper);
             }
             else if(ResponseFormatJsonObject != null)
             {
@@ -147,15 +120,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText>(null, ResponseFormatText);
             }
-            else if(Type != null)
-            {
-                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_type>(null, Type);
-            }
-            else if(String != null)
-            {
-                writer.WriteStringValue(null, String);
-            }
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

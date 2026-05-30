@@ -23,7 +23,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public ActiveStatus()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.ActiveStatus_type.Active;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

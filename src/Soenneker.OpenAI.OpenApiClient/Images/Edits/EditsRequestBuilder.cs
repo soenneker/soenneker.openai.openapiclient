@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Images.Edits
         {
         }
         /// <summary>
-        /// You can call this endpoint with either:- `multipart/form-data`: use binary uploads via `image` (and optional `mask`).- `application/json`: use `images` (and optional `mask`) as references with either `image_url` or `file_id`.Note that JSON requests use `images` (array) instead of the multipart `image` field.
+        /// &quot;You can call this endpoint with either:- `multipart/form-data`: use binary uploads via `image` (and optional `mask`).- `application/json`: use `images` (and optional `mask`) as references with either `image_url` or `file_id`.Note that JSON requests use `images` (array) instead of the multipart `image` field.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Images.Edits
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// You can call this endpoint with either:- `multipart/form-data`: use binary uploads via `image` (and optional `mask`).- `application/json`: use `images` (and optional `mask`) as references with either `image_url` or `file_id`.Note that JSON requests use `images` (array) instead of the multipart `image` field.
+        /// &quot;You can call this endpoint with either:- `multipart/form-data`: use binary uploads via `image` (and optional `mask`).- `application/json`: use `images` (and optional `mask`) as references with either `image_url` or `file_id`.Note that JSON requests use `images` (array) instead of the multipart `image` field.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

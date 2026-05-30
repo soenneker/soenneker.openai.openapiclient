@@ -8,13 +8,11 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// An array of tools the model may call while generating a response. You can specify which tool to use by setting the `tool_choice` parameter.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Tool : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
+    public partial class Tool : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolParam"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -135,13 +133,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool WebSearchTool { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Tool"/> and sets the default values.
-        /// </summary>
-        public Tool()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -349,7 +340,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool>(null, WebSearchTool);
             }
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -19,10 +19,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The container will expire after this time period.The anchor is the reference point for the expiration.The minutes is the number of minutes after the anchor before the container expires.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_expires_after? ExpiresAfter { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfter? ExpiresAfter { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_expires_after ExpiresAfter { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfter ExpiresAfter { get; set; }
 #endif
         /// <summary>Unique identifier for the container.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,10 +47,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Network access policy for the container.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_network_policy? NetworkPolicy { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy? NetworkPolicy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_network_policy NetworkPolicy { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy NetworkPolicy { get; set; }
 #endif
         /// <summary>The type of this object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -94,12 +94,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "expires_after", n => { ExpiresAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_expires_after>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_expires_after.CreateFromDiscriminatorValue); } },
+                { "expires_after", n => { ExpiresAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfter>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfter.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_active_at", n => { LastActiveAt = n.GetIntValue(); } },
                 { "memory_limit", n => { MemoryLimit = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_memory_limit>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "network_policy", n => { NetworkPolicy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_network_policy>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_network_policy.CreateFromDiscriminatorValue); } },
+                { "network_policy", n => { NetworkPolicy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
             };
@@ -112,12 +112,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_expires_after>("expires_after", ExpiresAfter);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfter>("expires_after", ExpiresAfter);
             writer.WriteStringValue("id", Id);
             writer.WriteIntValue("last_active_at", LastActiveAt);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_memory_limit>("memory_limit", MemoryLimit);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_network_policy>("network_policy", NetworkPolicy);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy>("network_policy", NetworkPolicy);
             writer.WriteStringValue("object", Object);
             writer.WriteStringValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);

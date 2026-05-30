@@ -73,11 +73,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationItemList?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsPostRequestBody body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationItemList?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateConversationItems body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationItemList> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsPostRequestBody body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationItemList> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateConversationItems body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -111,11 +111,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsPostRequestBody body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.CreateConversationItems body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsPostRequestBody body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.CreateConversationItems body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -150,7 +150,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items
             [QueryParameter("after")]
             public string After { get; set; }
 #endif
-            /// <summary>Specify additional output data to include in the model response. Currently supported values are:- `web_search_call.action.sources`: Include the sources of the web search tool call.- `code_interpreter_call.outputs`: Includes the outputs of python code execution in code interpreter tool call items.- `computer_call_output.output.image_url`: Include image urls from the computer call output.- `file_search_call.results`: Include the search results of the file search tool call.- `message.input_image.image_url`: Include image urls from the input message.- `message.output_text.logprobs`: Include logprobs with assistant messages.- `reasoning.encrypted_content`: Includes an encrypted version of reasoning tokens in reasoning item outputs. This enables reasoning items to be used in multi-turn conversations when using the Responses API statelessly (like when the `store` parameter is set to `false`, or when an organization is enrolled in the zero data retention program).</summary>
+            /// <summary>&quot;Specify additional output data to include in the model response. Currently supported values are:- `web_search_call.action.sources`: Include the sources of the web search tool call.- `code_interpreter_call.outputs`: Includes the outputs of python code execution in code interpreter tool call items.- `computer_call_output.output.image_url`: Include image urls from the computer call output.- `file_search_call.results`: Include the search results of the file search tool call.- `message.input_image.image_url`: Include image urls from the input message.- `message.output_text.logprobs`: Include logprobs with assistant messages.- `reasoning.encrypted_content`: Includes an encrypted version of reasoning tokens in reasoning item outputs. This enables reasoning items to be used in multi-turn conversations when using the Responses API statelessly (like when the `store` parameter is set to `false`, or when an organization is enrolled in the zero data retention program).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("include")]
@@ -163,7 +163,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items
             /// <summary>A limit on the number of objects to be returned. Limit can range between1 and 100, and the default is 20.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>The order to return the input items in. Default is `desc`.- `asc`: Return the input items in ascending order.- `desc`: Return the input items in descending order.</summary>
+            /// <summary>&quot;The order to return the input items in. Default is `desc`.- `asc`: Return the input items in ascending order.- `desc`: Return the input items in descending order.&quot;</summary>
             [QueryParameter("order")]
             public global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.GetOrderQueryParameterType? Order { get; set; }
         }

@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The api_key_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_api_key_id? ApiKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_api_key_id? ApiKeyId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_api_key_id ApiKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_api_key_id ApiKeyId { get; set; }
 #endif
         /// <summary>The count of file search calls.</summary>
         public int? NumRequests { get; set; }
@@ -30,26 +30,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_project_id? ProjectId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_project_id? ProjectId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_project_id ProjectId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_project_id ProjectId { get; set; }
 #endif
         /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_user_id? UserId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_user_id? UserId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_user_id UserId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_user_id UserId { get; set; }
 #endif
         /// <summary>The vector_store_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_vector_store_id? VectorStoreId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_vector_store_id? VectorStoreId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_vector_store_id VectorStoreId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_vector_store_id VectorStoreId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult"/> and sets the default values.
@@ -76,12 +76,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key_id", n => { ApiKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_api_key_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_api_key_id.CreateFromDiscriminatorValue); } },
+                { "api_key_id", n => { ApiKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_api_key_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_api_key_id.CreateFromDiscriminatorValue); } },
                 { "num_requests", n => { NumRequests = n.GetIntValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_object>(); } },
-                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_project_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_project_id.CreateFromDiscriminatorValue); } },
-                { "user_id", n => { UserId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_user_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_user_id.CreateFromDiscriminatorValue); } },
-                { "vector_store_id", n => { VectorStoreId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_vector_store_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_vector_store_id.CreateFromDiscriminatorValue); } },
+                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_project_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_project_id.CreateFromDiscriminatorValue); } },
+                { "user_id", n => { UserId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_user_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_user_id.CreateFromDiscriminatorValue); } },
+                { "vector_store_id", n => { VectorStoreId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_vector_store_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_vector_store_id.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -91,285 +91,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_api_key_id>("api_key_id", ApiKeyId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_api_key_id>("api_key_id", ApiKeyId);
             writer.WriteIntValue("num_requests", NumRequests);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_object>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_project_id>("project_id", ProjectId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_user_id>("user_id", UserId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_vector_store_id>("vector_store_id", VectorStoreId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_project_id>("project_id", ProjectId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_user_id>("user_id", UserId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_vector_store_id>("vector_store_id", VectorStoreId);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_api_key_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class UsageFileSearchCallsResult_api_key_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_api_key_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_api_key_idMember1? UsageFileSearchCallsResultApiKeyIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_api_key_idMember1 UsageFileSearchCallsResultApiKeyIdMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_api_key_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_api_key_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_api_key_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.UsageFileSearchCallsResultApiKeyIdMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_api_key_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(UsageFileSearchCallsResultApiKeyIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(UsageFileSearchCallsResultApiKeyIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_api_key_idMember1>(null, UsageFileSearchCallsResultApiKeyIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_project_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class UsageFileSearchCallsResult_project_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_project_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_project_idMember1? UsageFileSearchCallsResultProjectIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_project_idMember1 UsageFileSearchCallsResultProjectIdMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_project_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_project_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_project_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.UsageFileSearchCallsResultProjectIdMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_project_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(UsageFileSearchCallsResultProjectIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(UsageFileSearchCallsResultProjectIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_project_idMember1>(null, UsageFileSearchCallsResultProjectIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_user_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class UsageFileSearchCallsResult_user_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_user_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_user_idMember1? UsageFileSearchCallsResultUserIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_user_idMember1 UsageFileSearchCallsResultUserIdMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_user_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_user_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_user_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.UsageFileSearchCallsResultUserIdMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_user_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(UsageFileSearchCallsResultUserIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(UsageFileSearchCallsResultUserIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_user_idMember1>(null, UsageFileSearchCallsResultUserIdMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_vector_store_idMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class UsageFileSearchCallsResult_vector_store_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_vector_store_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_vector_store_idMember1? UsageFileSearchCallsResultVectorStoreIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_vector_store_idMember1 UsageFileSearchCallsResultVectorStoreIdMember1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_vector_store_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_vector_store_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult.UsageFileSearchCallsResult_vector_store_id();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.UsageFileSearchCallsResultVectorStoreIdMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_vector_store_idMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(UsageFileSearchCallsResultVectorStoreIdMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(UsageFileSearchCallsResultVectorStoreIdMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResult_vector_store_idMember1>(null, UsageFileSearchCallsResultVectorStoreIdMember1);
-                }
-            }
         }
     }
 }

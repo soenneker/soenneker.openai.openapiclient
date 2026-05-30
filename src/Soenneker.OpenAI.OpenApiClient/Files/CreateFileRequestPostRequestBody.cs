@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Files
 {
-    /// <summary>The intended purpose of the uploaded file. One of:- `assistants`: Used in the Assistants API- `batch`: Used in the Batch API- `fine-tune`: Used for fine-tuning- `vision`: Images used for vision fine-tuning- `user_data`: Flexible file type for any purpose- `evals`: Used for eval data sets</summary>
+    /// <summary>&quot;The intended purpose of the uploaded file. One of:- `assistants`: Used in the Assistants API- `batch`: Used in the Batch API- `fine-tune`: Used for fine-tuning- `vision`: Images used for vision fine-tuning- `user_data`: Flexible file type for any purpose- `evals`: Used for eval data sets&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateFileRequestPostRequestBody
     {

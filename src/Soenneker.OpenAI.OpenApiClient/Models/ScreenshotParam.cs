@@ -23,7 +23,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public ScreenshotParam()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.ScreenshotParam_type.Screenshot;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

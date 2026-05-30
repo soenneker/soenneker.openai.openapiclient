@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Optional overrides for ChatKit runtime configuration features</summary>
+        /// <summary>Optional per-session configuration settings for ChatKit behavior.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitConfigurationParam? ChatkitConfiguration { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitConfigurationParam ChatkitConfiguration { get; set; }
 #endif
-        /// <summary>Optional override for session expiration timing in seconds from creation. Defaults to 10 minutes.</summary>
+        /// <summary>Controls when the session expires relative to an anchor timestamp.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParam? ExpiresAfter { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParam ExpiresAfter { get; set; }
 #endif
-        /// <summary>Optional override for per-minute request limits. When omitted, defaults to 10.</summary>
+        /// <summary>Controls request rate limits for the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.RateLimitsParam? RateLimits { get; set; }
@@ -47,7 +47,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string User { get; set; }
 #endif
-        /// <summary>Workflow that powers the session.</summary>
+        /// <summary>Workflow reference and overrides applied to the chat session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParam? Workflow { get; set; }

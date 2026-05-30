@@ -23,7 +23,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public SpecificApplyPatchParam()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.SpecificApplyPatchParam_type.Apply_patch;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

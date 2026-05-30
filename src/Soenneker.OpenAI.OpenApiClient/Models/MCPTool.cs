@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The allowed_tools property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? AllowedTools { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MCPTool_allowed_tools? AllowedTools { get; set; }
 #nullable restore
 #else
-        public UntypedNode AllowedTools { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MCPTool_allowed_tools AllowedTools { get; set; }
 #endif
         /// <summary>An OAuth access token that can be used with a remote MCP server, eitherwith a custom MCP server URL or a service connector. Your applicationmust handle the OAuth authorization flow and provide the token here.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,25 +31,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Authorization { get; set; }
 #endif
-        /// <summary>Identifier for service connectors, like those available in ChatGPT. One of`server_url` or `connector_id` must be provided. Learn more about serviceconnectors [here](/docs/guides/tools-remote-mcp#connectors).Currently supported `connector_id` values are:- Dropbox: `connector_dropbox`- Gmail: `connector_gmail`- Google Calendar: `connector_googlecalendar`- Google Drive: `connector_googledrive`- Microsoft Teams: `connector_microsoftteams`- Outlook Calendar: `connector_outlookcalendar`- Outlook Email: `connector_outlookemail`- SharePoint: `connector_sharepoint`</summary>
+        /// <summary>&quot;Identifier for service connectors, like those available in ChatGPT. One of`server_url` or `connector_id` must be provided. Learn more about serviceconnectors [here](/docs/guides/tools-remote-mcp#connectors).Currently supported `connector_id` values are:- Dropbox: `connector_dropbox`- Gmail: `connector_gmail`- Google Calendar: `connector_googlecalendar`- Google Drive: `connector_googledrive`- Microsoft Teams: `connector_microsoftteams`- Outlook Calendar: `connector_outlookcalendar`- Outlook Email: `connector_outlookemail`- SharePoint: `connector_sharepoint`&quot;</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MCPTool_connector_id? ConnectorId { get; set; }
         /// <summary>Whether this MCP tool is deferred and discovered via tool search.</summary>
         public bool? DeferLoading { get; set; }
         /// <summary>The headers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Headers { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolHeaders? Headers { get; set; }
 #nullable restore
 #else
-        public UntypedNode Headers { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolHeaders Headers { get; set; }
 #endif
         /// <summary>The require_approval property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? RequireApproval { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolRequireApproval? RequireApproval { get; set; }
 #nullable restore
 #else
-        public UntypedNode RequireApproval { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolRequireApproval RequireApproval { get; set; }
 #endif
         /// <summary>Optional description of the MCP server, used to provide more context.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -102,12 +102,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowed_tools", n => { AllowedTools = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "allowed_tools", n => { AllowedTools = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MCPTool_allowed_tools>(global::Soenneker.OpenAI.OpenApiClient.Models.MCPTool_allowed_tools.CreateFromDiscriminatorValue); } },
                 { "authorization", n => { Authorization = n.GetStringValue(); } },
                 { "connector_id", n => { ConnectorId = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MCPTool_connector_id>(); } },
                 { "defer_loading", n => { DeferLoading = n.GetBoolValue(); } },
-                { "headers", n => { Headers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "require_approval", n => { RequireApproval = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolHeaders>(global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolHeaders.CreateFromDiscriminatorValue); } },
+                { "require_approval", n => { RequireApproval = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolRequireApproval>(global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolRequireApproval.CreateFromDiscriminatorValue); } },
                 { "server_description", n => { ServerDescription = n.GetStringValue(); } },
                 { "server_label", n => { ServerLabel = n.GetStringValue(); } },
                 { "server_url", n => { ServerUrl = n.GetStringValue(); } },
@@ -121,12 +121,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<UntypedNode>("allowed_tools", AllowedTools);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MCPTool_allowed_tools>("allowed_tools", AllowedTools);
             writer.WriteStringValue("authorization", Authorization);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MCPTool_connector_id>("connector_id", ConnectorId);
             writer.WriteBoolValue("defer_loading", DeferLoading);
-            writer.WriteObjectValue<UntypedNode>("headers", Headers);
-            writer.WriteObjectValue<UntypedNode>("require_approval", RequireApproval);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolHeaders>("headers", Headers);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolRequireApproval>("require_approval", RequireApproval);
             writer.WriteStringValue("server_description", ServerDescription);
             writer.WriteStringValue("server_label", ServerLabel);
             writer.WriteStringValue("server_url", ServerUrl);

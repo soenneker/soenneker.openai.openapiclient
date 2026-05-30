@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Anchor timestamp after which the expiration policy applies. Supported anchors: `last_active_at`.</summary>
+        /// <summary>&quot;Anchor timestamp after which the expiration policy applies. Supported anchors: `last_active_at`.&quot;</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfter_anchor? Anchor { get; set; }
         /// <summary>The number of days after the anchor time that the vector store will expire.</summary>
         public int? Days { get; set; }

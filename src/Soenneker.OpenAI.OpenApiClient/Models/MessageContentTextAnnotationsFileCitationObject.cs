@@ -20,10 +20,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The file_citation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject_file_citation? FileCitation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectFileCitation? FileCitation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject_file_citation FileCitation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectFileCitation FileCitation { get; set; }
 #endif
         /// <summary>The start_index property</summary>
         public int? StartIndex { get; set; }
@@ -63,7 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "end_index", n => { EndIndex = n.GetIntValue(); } },
-                { "file_citation", n => { FileCitation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject_file_citation>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject_file_citation.CreateFromDiscriminatorValue); } },
+                { "file_citation", n => { FileCitation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectFileCitation>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectFileCitation.CreateFromDiscriminatorValue); } },
                 { "start_index", n => { StartIndex = n.GetIntValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject_type>(); } },
@@ -77,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("end_index", EndIndex);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject_file_citation>("file_citation", FileCitation);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectFileCitation>("file_citation", FileCitation);
             writer.WriteIntValue("start_index", StartIndex);
             writer.WriteStringValue("text", Text);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject_type>("type", Type);

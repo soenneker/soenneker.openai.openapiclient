@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>Background type for the generated image. One of `transparent`,`opaque`, or `auto`. Default: `auto`.</summary>
+    /// <summary>&quot;Background type for the generated image. One of `transparent`,`opaque`, or `auto`. Default: `auto`.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ImageGenTool_background
     {

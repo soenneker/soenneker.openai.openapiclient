@@ -31,7 +31,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public TypeParam()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.TypeParam_type.Type;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

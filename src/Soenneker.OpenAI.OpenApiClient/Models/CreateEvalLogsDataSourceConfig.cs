@@ -31,7 +31,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public CreateEvalLogsDataSourceConfig()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig_type.Logs;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

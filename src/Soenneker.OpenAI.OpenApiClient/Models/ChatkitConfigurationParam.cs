@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Optional overrides for ChatKit runtime configuration features
+    /// Optional per-session configuration settings for ChatKit behavior.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatkitConfigurationParam : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Configuration for automatic thread titling. When omitted, automatic thread titling is enabled by default.</summary>
+        /// <summary>Controls whether ChatKit automatically generates thread titles.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.AutomaticThreadTitlingParam? AutomaticThreadTitling { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.AutomaticThreadTitlingParam AutomaticThreadTitling { get; set; }
 #endif
-        /// <summary>Configuration for upload enablement and limits. When omitted, uploads are disabled by default (max_files 10, max_file_size 512 MB).</summary>
+        /// <summary>Controls whether users can upload files.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.FileUploadParam? FileUpload { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.FileUploadParam FileUpload { get; set; }
 #endif
-        /// <summary>Configuration for chat history retention. When omitted, history is enabled by default with no limit on recent_threads (null).</summary>
+        /// <summary>Controls how much historical context is retained for the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.HistoryParam? History { get; set; }

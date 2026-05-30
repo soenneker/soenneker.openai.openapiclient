@@ -72,10 +72,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
 #nullable restore
 #else
-        public UntypedNode Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
 #endif
         /// <summary>The model that the [assistant](/docs/api-reference/assistants) used for this run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -97,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_required_action RequiredAction { get; set; }
 #endif
-        /// <summary>Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.Setting to `{ &quot;type&quot;: &quot;json_schema&quot;, &quot;json_schema&quot;: {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).Setting to `{ &quot;type&quot;: &quot;json_object&quot; }` enables JSON mode, which ensures the message the model generates is valid JSON.**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly &quot;stuck&quot; request. Also note that the message content may be partially cut off if `finish_reason=&quot;length&quot;`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.</summary>
+        /// <summary>&quot;Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.Setting to `{ \&quot;type\&quot;: \&quot;json_schema\&quot;, \&quot;json_schema\&quot;: {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).Setting to `{ \&quot;type\&quot;: \&quot;json_object\&quot; }` enables JSON mode, which ensures the message the model generates is valid JSON.**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \&quot;stuck\&quot; request. Also note that the message content may be partially cut off if `finish_reason=\&quot;length\&quot;`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption? ResponseFormat { get; set; }
@@ -122,10 +122,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The tool_choice property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption? ToolChoice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_tool_choice? ToolChoice { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption ToolChoice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_tool_choice ToolChoice { get; set; }
 #endif
         /// <summary>The list of tools that the [assistant](/docs/api-reference/assistants) used for this run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -140,10 +140,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The truncation_strategy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject? TruncationStrategy { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_truncation_strategy? TruncationStrategy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject TruncationStrategy { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_truncation_strategy TruncationStrategy { get; set; }
 #endif
         /// <summary>The usage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -190,7 +190,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "last_error", n => { LastError = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_last_error>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_last_error.CreateFromDiscriminatorValue); } },
                 { "max_completion_tokens", n => { MaxCompletionTokens = n.GetIntValue(); } },
                 { "max_prompt_tokens", n => { MaxPromptTokens = n.GetIntValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_object>(); } },
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
@@ -200,10 +200,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_status>(); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "thread_id", n => { ThreadId = n.GetStringValue(); } },
-                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption.CreateFromDiscriminatorValue); } },
+                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_tool_choice>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_tool_choice.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject.RunObject_tools>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObject.RunObject_tools.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },
-                { "truncation_strategy", n => { TruncationStrategy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject>(global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject.CreateFromDiscriminatorValue); } },
+                { "truncation_strategy", n => { TruncationStrategy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_truncation_strategy>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_truncation_strategy.CreateFromDiscriminatorValue); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunCompletionUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.RunCompletionUsage.CreateFromDiscriminatorValue); } },
             };
         }
@@ -226,7 +226,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_last_error>("last_error", LastError);
             writer.WriteIntValue("max_completion_tokens", MaxCompletionTokens);
             writer.WriteIntValue("max_prompt_tokens", MaxPromptTokens);
-            writer.WriteObjectValue<UntypedNode>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_object>("object", Object);
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
@@ -236,10 +236,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_status>("status", Status);
             writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteStringValue("thread_id", ThreadId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption>("tool_choice", ToolChoice);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_tool_choice>("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject.RunObject_tools>("tools", Tools);
             writer.WriteDoubleValue("top_p", TopP);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject>("truncation_strategy", TruncationStrategy);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_truncation_strategy>("truncation_strategy", TruncationStrategy);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunCompletionUsage>("usage", Usage);
             writer.WriteAdditionalData(AdditionalData);
         }

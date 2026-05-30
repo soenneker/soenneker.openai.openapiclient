@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// File attachment referenced by the annotation.
+    /// Attachment source referenced by an annotation.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FileAnnotationSource : IAdditionalDataHolder, IParsable
@@ -31,7 +31,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public FileAnnotationSource()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.FileAnnotationSource_type.File;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

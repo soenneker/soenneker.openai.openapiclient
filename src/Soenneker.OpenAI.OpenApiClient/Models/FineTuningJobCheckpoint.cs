@@ -44,10 +44,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Metrics at the step number during the fine-tuning job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint_metrics? Metrics { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics? Metrics { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint_metrics Metrics { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics Metrics { get; set; }
 #endif
         /// <summary>The object type, which is always &quot;fine_tuning.job.checkpoint&quot;.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint_object? Object { get; set; }
@@ -82,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "fine_tuned_model_checkpoint", n => { FineTunedModelCheckpoint = n.GetStringValue(); } },
                 { "fine_tuning_job_id", n => { FineTuningJobId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint_metrics>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint_metrics.CreateFromDiscriminatorValue); } },
+                { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint_object>(); } },
                 { "step_number", n => { StepNumber = n.GetIntValue(); } },
             };
@@ -98,7 +98,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("fine_tuned_model_checkpoint", FineTunedModelCheckpoint);
             writer.WriteStringValue("fine_tuning_job_id", FineTuningJobId);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint_metrics>("metrics", Metrics);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics>("metrics", Metrics);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint_object>("object", Object);
             writer.WriteIntValue("step_number", StepNumber);
             writer.WriteAdditionalData(AdditionalData);

@@ -31,7 +31,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public ApplyPatchDeleteFileOperation()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchDeleteFileOperation_type.Delete_file;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

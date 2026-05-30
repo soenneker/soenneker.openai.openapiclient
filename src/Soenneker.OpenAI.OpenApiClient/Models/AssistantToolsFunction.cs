@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject Function { get; set; }
 #endif
-        /// <summary>The type of tool being defined: `function`</summary>
+        /// <summary>&quot;The type of tool being defined: `function`&quot;</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFunction_type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFunction"/> and sets the default values.

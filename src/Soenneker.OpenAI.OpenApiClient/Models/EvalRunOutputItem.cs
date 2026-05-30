@@ -64,10 +64,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>A sample containing the input and output of the evaluation run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_sample? Sample { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample? Sample { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_sample Sample { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample Sample { get; set; }
 #endif
         /// <summary>The status of the evaluation run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +111,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_object>(); } },
                 { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "run_id", n => { RunId = n.GetStringValue(); } },
-                { "sample", n => { Sample = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_sample>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_sample.CreateFromDiscriminatorValue); } },
+                { "sample", n => { Sample = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
             };
         }
@@ -130,7 +130,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_object>("object", Object);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult>("results", Results);
             writer.WriteStringValue("run_id", RunId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_sample>("sample", Sample);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample>("sample", Sample);
             writer.WriteStringValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }

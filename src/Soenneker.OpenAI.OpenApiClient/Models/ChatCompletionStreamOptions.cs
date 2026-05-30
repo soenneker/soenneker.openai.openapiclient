@@ -7,28 +7,32 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptionsMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptionsMember2"/>
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ChatCompletionStreamOptions : IComposedTypeWrapper, IParsable
+    #pragma warning disable CS1591
+    public partial class ChatCompletionStreamOptions : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptionsMember1"/></summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>When true, stream obfuscation will be enabled. Stream obfuscation addsrandom characters to an `obfuscation` field on streaming delta events tonormalize payload sizes as a mitigation to certain side-channel attacks.These obfuscation fields are included by default, but add a small amountof overhead to the data stream. You can set `include_obfuscation` tofalse to optimize for bandwidth if you trust the network links betweenyour application and the OpenAI API.</summary>
+        public bool? IncludeObfuscation { get; set; }
+        /// <summary>&quot;If set, an additional chunk will be streamed before the `data: [DONE]`message. The `usage` field on this chunk shows the token usage statisticsfor the entire request, and the `choices` field will always be an emptyarray.All other chunks will also include a `usage` field, but with a nullvalue. **NOTE:** If the stream is interrupted, you may not receive thefinal usage chunk which contains the total token usage for the request.&quot;</summary>
+        public bool? IncludeUsage { get; set; }
+        /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptionsMember1? ChatCompletionStreamOptionsMember1 { get; set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptionsMember1 ChatCompletionStreamOptionsMember1 { get; set; }
+        public string Type { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptionsMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptionsMember2? ChatCompletionStreamOptionsMember2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptionsMember2 ChatCompletionStreamOptionsMember2 { get; set; }
-#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions"/> and sets the default values.
+        /// </summary>
+        public ChatCompletionStreamOptions()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,10 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions();
-            result.ChatCompletionStreamOptionsMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptionsMember1();
-            result.ChatCompletionStreamOptionsMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptionsMember2();
-            return result;
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,11 +49,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ChatCompletionStreamOptionsMember1 != null || ChatCompletionStreamOptionsMember2 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ChatCompletionStreamOptionsMember1, ChatCompletionStreamOptionsMember2);
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "include_obfuscation", n => { IncludeObfuscation = n.GetBoolValue(); } },
+                { "include_usage", n => { IncludeUsage = n.GetBoolValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -61,7 +63,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptionsMember1>(null, ChatCompletionStreamOptionsMember1, ChatCompletionStreamOptionsMember2);
+            writer.WriteBoolValue("include_obfuscation", IncludeObfuscation);
+            writer.WriteBoolValue("include_usage", IncludeUsage);
+            writer.WriteStringValue("type", Type);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

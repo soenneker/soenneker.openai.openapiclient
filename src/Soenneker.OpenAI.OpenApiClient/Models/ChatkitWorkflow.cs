@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Workflow metadata for the session.
+    /// Workflow metadata and state returned for the session.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatkitWorkflow : IAdditionalDataHolder, IParsable
@@ -26,12 +26,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The state_variables property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? StateVariables { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariables? StateVariables { get; set; }
 #nullable restore
 #else
-        public UntypedNode StateVariables { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariables StateVariables { get; set; }
 #endif
-        /// <summary>Tracing settings applied to the workflow.</summary>
+        /// <summary>Controls diagnostic tracing during the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowTracing? Tracing { get; set; }
@@ -42,10 +42,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow.ChatkitWorkflow_version? Version { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_version? Version { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow.ChatkitWorkflow_version Version { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_version Version { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow"/> and sets the default values.
@@ -73,9 +73,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "state_variables", n => { StateVariables = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "state_variables", n => { StateVariables = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariables>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariables.CreateFromDiscriminatorValue); } },
                 { "tracing", n => { Tracing = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowTracing>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowTracing.CreateFromDiscriminatorValue); } },
-                { "version", n => { Version = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow.ChatkitWorkflow_version>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow.ChatkitWorkflow_version.CreateFromDiscriminatorValue); } },
+                { "version", n => { Version = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_version>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_version.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -86,78 +86,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<UntypedNode>("state_variables", StateVariables);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariables>("state_variables", StateVariables);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowTracing>("tracing", Tracing);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow.ChatkitWorkflow_version>("version", Version);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_version>("version", Version);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_versionMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ChatkitWorkflow_version : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_versionMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_versionMember1? ChatkitWorkflowVersionMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_versionMember1 ChatkitWorkflowVersionMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow.ChatkitWorkflow_version"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow.ChatkitWorkflow_version CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow.ChatkitWorkflow_version();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.ChatkitWorkflowVersionMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_versionMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ChatkitWorkflowVersionMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ChatkitWorkflowVersionMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_versionMember1>(null, ChatkitWorkflowVersionMember1);
-                }
-            }
         }
     }
 }

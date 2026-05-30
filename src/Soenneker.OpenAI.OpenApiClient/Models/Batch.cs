@@ -49,10 +49,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Batch_errors? Errors { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrors? Errors { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Batch_errors Errors { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrors Errors { get; set; }
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the batch expired.</summary>
         public int? ExpiredAt { get; set; }
@@ -83,10 +83,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
 #nullable restore
 #else
-        public UntypedNode Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
 #endif
         /// <summary>Model ID used to process the batch, like `gpt-5-2025-08-07`. OpenAIoffers a wide range of models with different capabilities, performancecharacteristics, and price points. Refer to the [modelguide](/docs/models) to browse and compare available models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,20 +109,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The request counts for different statuses within the batch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Batch_request_counts? RequestCounts { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchRequestCounts? RequestCounts { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Batch_request_counts RequestCounts { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchRequestCounts RequestCounts { get; set; }
 #endif
         /// <summary>The current status of the batch.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.Batch_status? Status { get; set; }
         /// <summary>Represents token usage details including input tokens, output tokens, abreakdown of output tokens, and the total tokens used. Only populated onbatches created after September 7, 2025.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Batch_usage? Usage { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchUsage? Usage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Batch_usage Usage { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchUsage Usage { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Batch"/> and sets the default values.
@@ -156,7 +156,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "endpoint", n => { Endpoint = n.GetStringValue(); } },
                 { "error_file_id", n => { ErrorFileId = n.GetStringValue(); } },
-                { "errors", n => { Errors = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Batch_errors>(global::Soenneker.OpenAI.OpenApiClient.Models.Batch_errors.CreateFromDiscriminatorValue); } },
+                { "errors", n => { Errors = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrors>(global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrors.CreateFromDiscriminatorValue); } },
                 { "expired_at", n => { ExpiredAt = n.GetIntValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
                 { "failed_at", n => { FailedAt = n.GetIntValue(); } },
@@ -164,13 +164,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "in_progress_at", n => { InProgressAt = n.GetIntValue(); } },
                 { "input_file_id", n => { InputFileId = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Batch_object>(); } },
                 { "output_file_id", n => { OutputFileId = n.GetStringValue(); } },
-                { "request_counts", n => { RequestCounts = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Batch_request_counts>(global::Soenneker.OpenAI.OpenApiClient.Models.Batch_request_counts.CreateFromDiscriminatorValue); } },
+                { "request_counts", n => { RequestCounts = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchRequestCounts>(global::Soenneker.OpenAI.OpenApiClient.Models.BatchRequestCounts.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Batch_status>(); } },
-                { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Batch_usage>(global::Soenneker.OpenAI.OpenApiClient.Models.Batch_usage.CreateFromDiscriminatorValue); } },
+                { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.BatchUsage.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -187,7 +187,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("endpoint", Endpoint);
             writer.WriteStringValue("error_file_id", ErrorFileId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Batch_errors>("errors", Errors);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrors>("errors", Errors);
             writer.WriteIntValue("expired_at", ExpiredAt);
             writer.WriteIntValue("expires_at", ExpiresAt);
             writer.WriteIntValue("failed_at", FailedAt);
@@ -195,13 +195,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteIntValue("in_progress_at", InProgressAt);
             writer.WriteStringValue("input_file_id", InputFileId);
-            writer.WriteObjectValue<UntypedNode>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Batch_object>("object", Object);
             writer.WriteStringValue("output_file_id", OutputFileId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Batch_request_counts>("request_counts", RequestCounts);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchRequestCounts>("request_counts", RequestCounts);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Batch_status>("status", Status);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Batch_usage>("usage", Usage);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchUsage>("usage", Usage);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -3,9 +3,10 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The type of computer environment to control.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public enum ComputerEnvironment
+    #pragma warning restore CS1591
     {
         [EnumMember(Value = "windows")]
         #pragma warning disable CS1591

@@ -51,7 +51,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public ContainerFileCitationBody()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.OpenAI.OpenApiClient.Models.ContainerFileCitationBody_type.Container_file_citation;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
