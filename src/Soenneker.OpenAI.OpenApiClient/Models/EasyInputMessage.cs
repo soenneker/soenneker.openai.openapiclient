@@ -80,26 +80,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageContentList_Wrapper"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch"/>
+        /// Composed type wrapper for classes <see cref="string"/>, List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.InputContent&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EasyInputMessage_content : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageContentList_Wrapper"/></summary>
+            /// <summary>Composed type representation for type List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.InputContent&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageContentList_Wrapper? InputMessageContentListWrapper { get; set; }
+            public List<global::Soenneker.OpenAI.OpenApiClient.Models.InputContent>? InputContent { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageContentList_Wrapper InputMessageContentListWrapper { get; set; }
+            public List<global::Soenneker.OpenAI.OpenApiClient.Models.InputContent> InputContent { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch"/></summary>
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch? UnionBranch { get; set; }
+            public string? String { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch UnionBranch { get; set; }
+            public string String { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -111,13 +111,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessage.EasyInputMessage_content();
-                if("InputMessageContentList_Wrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if(parseNode.GetStringValue() is string stringValue)
                 {
-                    result.InputMessageContentListWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageContentList_Wrapper();
+                    result.String = stringValue;
                 }
-                else if("UnionBranch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InputContent>(global::Soenneker.OpenAI.OpenApiClient.Models.InputContent.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.InputContent> inputContentValue)
                 {
-                    result.UnionBranch = new global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch();
+                    result.InputContent = inputContentValue;
                 }
                 return result;
             }
@@ -127,14 +127,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(InputMessageContentListWrapper != null)
-                {
-                    return InputMessageContentListWrapper.GetFieldDeserializers();
-                }
-                else if(UnionBranch != null)
-                {
-                    return UnionBranch.GetFieldDeserializers();
-                }
                 return new Dictionary<string, Action<IParseNode>>();
             }
             /// <summary>
@@ -144,13 +136,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(InputMessageContentListWrapper != null)
+                if(String != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageContentList_Wrapper>(null, InputMessageContentListWrapper);
+                    writer.WriteStringValue(null, String);
                 }
-                else if(UnionBranch != null)
+                else if(InputContent != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>(null, UnionBranch);
+                    writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InputContent>(null, InputContent);
                 }
             }
         }

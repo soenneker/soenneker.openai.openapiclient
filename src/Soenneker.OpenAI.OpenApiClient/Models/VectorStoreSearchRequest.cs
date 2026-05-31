@@ -25,10 +25,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>A query string for a search</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch? Query { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest.VectorStoreSearchRequest_query? Query { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch Query { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest.VectorStoreSearchRequest_query Query { get; set; }
 #endif
         /// <summary>Ranking options for search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest.VectorStoreSearchRequest_filters>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest.VectorStoreSearchRequest_filters.CreateFromDiscriminatorValue); } },
                 { "max_num_results", n => { MaxNumResults = n.GetIntValue(); } },
-                { "query", n => { Query = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>(global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "query", n => { Query = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest.VectorStoreSearchRequest_query>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest.VectorStoreSearchRequest_query.CreateFromDiscriminatorValue); } },
                 { "ranking_options", n => { RankingOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptions.CreateFromDiscriminatorValue); } },
                 { "rewrite_query", n => { RewriteQuery = n.GetBoolValue(); } },
             };
@@ -74,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest.VectorStoreSearchRequest_filters>("filters", Filters);
             writer.WriteIntValue("max_num_results", MaxNumResults);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>("query", Query);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest.VectorStoreSearchRequest_query>("query", Query);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptions>("ranking_options", RankingOptions);
             writer.WriteBoolValue("rewrite_query", RewriteQuery);
         }
@@ -150,6 +150,73 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 else if(CompoundFilter != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilter>(null, CompoundFilter);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="string"/>, List&lt;string&gt;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class VectorStoreSearchRequest_query : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public List<string>? String { get; set; }
+#nullable restore
+#else
+            public List<string> String { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? VectorStoreSearchRequestQueryString { get; set; }
+#nullable restore
+#else
+            public string VectorStoreSearchRequestQueryString { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest.VectorStoreSearchRequest_query"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest.VectorStoreSearchRequest_query CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest.VectorStoreSearchRequest_query();
+                if(parseNode.GetStringValue() is string vectorStoreSearchRequestQueryStringValue)
+                {
+                    result.VectorStoreSearchRequestQueryString = vectorStoreSearchRequestQueryStringValue;
+                }
+                else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(VectorStoreSearchRequestQueryString != null)
+                {
+                    writer.WriteStringValue(null, VectorStoreSearchRequestQueryString);
+                }
+                else if(String != null)
+                {
+                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
                 }
             }
         }

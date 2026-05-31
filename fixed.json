@@ -13576,7 +13576,19 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "whisper-1",
+                  "gpt-4o-mini-transcribe",
+                  "gpt-4o-mini-transcribe-2025-12-15",
+                  "gpt-4o-transcribe",
+                  "gpt-4o-transcribe-diarize",
+                  "gpt-realtime-whisper"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "The model to use for transcription. Current options are `whisper-1`, `gpt-4o-mini-transcribe`, `gpt-4o-mini-transcribe-2025-12-15`, `gpt-4o-transcribe`, `gpt-4o-transcribe-diarize`, and `gpt-realtime-whisper`. Use `gpt-4o-transcribe-diarize` when you need diarization with speaker labels.\n"
@@ -13610,7 +13622,19 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "whisper-1",
+                  "gpt-4o-mini-transcribe",
+                  "gpt-4o-mini-transcribe-2025-12-15",
+                  "gpt-4o-transcribe",
+                  "gpt-4o-transcribe-diarize",
+                  "gpt-realtime-whisper"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "The model used for transcription. Current options are `whisper-1`, `gpt-4o-mini-transcribe`, `gpt-4o-mini-transcribe-2025-12-15`, `gpt-4o-transcribe`, `gpt-4o-transcribe-diarize`, and `gpt-realtime-whisper`.\n"
@@ -14643,15 +14667,13 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
         },
         "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "ChatCompletionModalities_1": "#/components/schemas/ChatCompletionModalities_Branch1"
-          }
+          "propertyName": "type"
         }
       },
       "ChatCompletionNamedToolChoice": {
@@ -14714,7 +14736,18 @@
                 "type": "object",
                 "oneOf": [
                   {
-                    "$ref": "#/components/schemas/UnionBranch"
+                    "title": "Text content",
+                    "type": "string",
+                    "description": "The contents of the assistant message."
+                  },
+                  {
+                    "title": "Array of content parts",
+                    "minItems": 1,
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ChatCompletionRequestAssistantMessageContentPart"
+                    },
+                    "description": "An array of content parts with a defined type. Can be one or more of type `text`, or exactly one of type `refusal`."
                   }
                 ],
                 "description": "The contents of the assistant message. Required unless `tool_calls` or `function_call` is specified.\n"
@@ -14823,7 +14856,18 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "title": "Text content",
+                "type": "string",
+                "description": "The contents of the developer message."
+              },
+              {
+                "title": "Array of content parts",
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ChatCompletionRequestMessageContentPartText"
+                },
+                "description": "An array of content parts with a defined type. For developer messages, only type `text` is supported."
               }
             ],
             "description": "The contents of the developer message."
@@ -15027,7 +15071,18 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "title": "Text content",
+                "type": "string",
+                "description": "The contents of the system message."
+              },
+              {
+                "title": "Array of content parts",
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ChatCompletionRequestSystemMessageContentPart"
+                },
+                "description": "An array of content parts with a defined type. For system messages, only type `text` is supported."
               }
             ],
             "description": "The contents of the system message."
@@ -15094,7 +15149,18 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "title": "Text content",
+                "type": "string",
+                "description": "The contents of the tool message."
+              },
+              {
+                "title": "Array of content parts",
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ChatCompletionRequestToolMessageContentPart"
+                },
+                "description": "An array of content parts with a defined type. For tool messages, only type `text` is supported."
               }
             ],
             "description": "The contents of the tool message."
@@ -15141,7 +15207,18 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "title": "Text content",
+                "type": "string",
+                "description": "The text contents of the message."
+              },
+              {
+                "title": "Array of content parts",
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ChatCompletionRequestUserMessageContentPart"
+                },
+                "description": "An array of content parts with a defined type. Supported options differ based on the [model](/docs/models) being used to generate the response. Can contain text, image, or audio inputs."
               }
             ],
             "description": "The contents of the user message.\n"
@@ -15763,7 +15840,27 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                }
               }
             ],
             "description": "The value to compare against the attribute key; supports string, number, or boolean types."
@@ -16334,6 +16431,7 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -16621,10 +16719,10 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
               },
               {
-                "$ref": "#/components/schemas/AssistantSupportedModels_Wrapper"
+                "$ref": "#/components/schemas/AssistantSupportedModels"
               }
             ],
             "description": "ID of the model to use. You can use the [List models](/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](/docs/models) for descriptions of them.\n",
@@ -17239,7 +17337,16 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "gpt-3.5-turbo-instruct",
+                  "davinci-002",
+                  "babbage-002"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "ID of the model to use. You can use the [List models](/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](/docs/models) for descriptions of them.\n",
@@ -17248,7 +17355,37 @@
           "prompt": {
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string",
+                "default": "",
+                "example": "This is a test."
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "default": "",
+                  "example": "This is a test."
+                }
+              },
+              {
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "example": "[1212, 318, 257, 1332, 13]"
+              },
+              {
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "minItems": 1,
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "example": "[[1212, 318, 257, 1332, 13]]"
               }
             ],
             "description": "The prompt(s) to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays.\n\nNote that <|endoftext|> is the document separator that the model sees during training, so if a prompt is not specified the model will generate as if from the beginning of a new document.\n",
@@ -17594,7 +17731,49 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "title": "string",
+                "type": "string",
+                "description": "The string that will be turned into an embedding.",
+                "default": "",
+                "example": "This is a test."
+              },
+              {
+                "title": "array",
+                "maxItems": 2048,
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "default": "",
+                  "example": "['This is a test.']"
+                },
+                "description": "The array of strings that will be turned into an embedding."
+              },
+              {
+                "title": "array",
+                "maxItems": 2048,
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "The array of integers that will be turned into an embedding.",
+                "example": "[1212, 318, 257, 1332, 13]"
+              },
+              {
+                "title": "array",
+                "maxItems": 2048,
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "minItems": 1,
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "description": "The array of arrays containing integers that will be turned into an embedding.",
+                "example": "[[1212, 318, 257, 1332, 13]]"
               }
             ],
             "description": "Input text to embed, encoded as a string or array of tokens. To embed multiple inputs in a single request, pass an array of strings or array of token arrays. The input must not exceed the max input tokens for the model (8192 tokens for all embedding models), cannot be an empty string, and any array must be 2048 dimensions or less. [Example Python code](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken) for counting tokens. In addition to the per-input token limit, all embedding  models enforce a maximum of 300,000 tokens summed across all inputs in a  single request.\n",
@@ -17604,7 +17783,16 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "text-embedding-ada-002",
+                  "text-embedding-3-small",
+                  "text-embedding-3-large"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "ID of the model to use. You can use the [List models](/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](/docs/models) for descriptions of them.\n",
@@ -18132,7 +18320,17 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "babbage-002",
+                  "davinci-002",
+                  "gpt-3.5-turbo",
+                  "gpt-4o-mini"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "The name of the model to fine-tune. You can select one of the\n[supported models](/docs/guides/fine-tuning#which-models-can-be-fine-tuned).\n",
@@ -18174,7 +18372,12 @@
                   "type": "object",
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/UnionBranch"
+                      "enum": [
+                        "wandb"
+                      ],
+                      "type": "string",
+                      "additionalProperties": false,
+                      "x-stainless-const": true
                     }
                   ],
                   "description": "The type of integration to enable. Currently, only \"wandb\" (Weights and Biases) is supported.\n"
@@ -18277,7 +18480,16 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string",
+                "format": "binary"
+              },
+              {
+                "maxItems": 16,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "binary"
+                }
               }
             ],
             "description": "The image(s) to edit. Must be a supported image file or an array of images.\n\nFor the GPT image models (`gpt-image-1`, `gpt-image-1-mini`, and `gpt-image-1.5`), each image should be a `png`, `webp`, or `jpg`\nfile less than 50MB. You can provide up to 16 images.\n`chatgpt-image-latest` follows the same input constraints as GPT image models.\n\nFor `dall-e-2`, you can only provide one image, and it should be a square\n`png` file less than 4MB.\n"
@@ -18308,7 +18520,19 @@
           "model": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "gpt-image-1.5",
+                  "dall-e-2",
+                  "gpt-image-1",
+                  "gpt-image-1-mini",
+                  "chatgpt-image-latest"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
               }
             ],
             "description": "The model to use for image generation. Defaults to `gpt-image-1.5`.",
@@ -18328,7 +18552,19 @@
           "size": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "256x256",
+                  "512x512",
+                  "1024x1024",
+                  "1536x1024",
+                  "1024x1536",
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "The size of the generated images. For `gpt-image-2` and `gpt-image-2-2026-04-21`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model's current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing. For `dall-e-2`, use one of `256x256`, `512x512`, or `1024x1024`. For `dall-e-3`, use one of `1024x1024`, `1792x1024`, or `1024x1792`.",
@@ -18423,7 +18659,18 @@
           "model": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "gpt-image-1.5",
+                  "dall-e-2",
+                  "dall-e-3",
+                  "gpt-image-1",
+                  "gpt-image-1-mini"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "The model to use for image generation. One of `dall-e-2`, `dall-e-3`, or a GPT image model (`gpt-image-1`, `gpt-image-1-mini`, `gpt-image-1.5`). Defaults to `dall-e-2` unless a parameter specific to the GPT image models is used.",
@@ -18501,7 +18748,21 @@
           "size": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "auto",
+                  "1024x1024",
+                  "1536x1024",
+                  "1024x1536",
+                  "256x256",
+                  "512x512",
+                  "1792x1024",
+                  "1024x1792"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "The size of the generated images. For `gpt-image-2` and `gpt-image-2-2026-04-21`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model's current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing. For `dall-e-2`, use one of `256x256`, `512x512`, or `1024x1024`. For `dall-e-3`, use one of `1024x1024`, `1792x1024`, or `1024x1792`.",
@@ -18566,7 +18827,15 @@
           "model": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "dall-e-2"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
               }
             ],
             "description": "The model to use for image generation. Only `dall-e-2` is supported at this time.",
@@ -18635,7 +18904,29 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "title": "Text content",
+                "type": "string",
+                "description": "The text contents of the message."
+              },
+              {
+                "title": "Array of content parts",
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/MessageContentImageFileObject"
+                    },
+                    {
+                      "$ref": "#/components/schemas/MessageContentImageUrlObject"
+                    },
+                    {
+                      "$ref": "#/components/schemas/MessageRequestContentTextObject"
+                    }
+                  ]
+                },
+                "description": "An array of content parts with a defined type, each can be of type `text` or images can be passed with `image_url` or `image_file`. Image types are only supported on [Vision-compatible models](/docs/models)."
               }
             ]
           },
@@ -18738,7 +19029,86 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string",
+                "description": "A string of text to classify for moderation.",
+                "default": "",
+                "example": "I want to kill them."
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "default": "",
+                  "example": "I want to kill them."
+                },
+                "description": "An array of strings to classify for moderation."
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "oneOf": [
+                    {
+                      "required": [
+                        "type",
+                        "image_url"
+                      ],
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "enum": [
+                            "image_url"
+                          ],
+                          "type": "string",
+                          "additionalProperties": false,
+                          "description": "Always `image_url`.",
+                          "x-stainless-const": true
+                        },
+                        "image_url": {
+                          "required": [
+                            "url"
+                          ],
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": "string",
+                              "description": "Either a URL of the image or the base64 encoded image data.",
+                              "format": "uri",
+                              "example": "https://example.com/image.jpg"
+                            }
+                          },
+                          "description": "Contains either an image URL or a data URL for a base64 encoded image."
+                        }
+                      },
+                      "description": "An object describing an image to classify."
+                    },
+                    {
+                      "required": [
+                        "type",
+                        "text"
+                      ],
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "enum": [
+                            "text"
+                          ],
+                          "type": "string",
+                          "additionalProperties": false,
+                          "description": "Always `text`.",
+                          "x-stainless-const": true
+                        },
+                        "text": {
+                          "type": "string",
+                          "description": "A string of text to classify.",
+                          "example": "I want to kill them"
+                        }
+                      },
+                      "description": "An object describing text to classify."
+                    }
+                  ]
+                },
+                "description": "An array of multi-modal inputs to the moderation model."
               }
             ],
             "description": "Input (or inputs) to classify. Can be a single string, an array of strings, or\nan array of multi-modal input objects similar to other models.\n"
@@ -18747,7 +19117,17 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "omni-moderation-latest",
+                  "omni-moderation-2024-09-26",
+                  "text-moderation-latest",
+                  "text-moderation-stable"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "The content moderation model you would like to use. Learn more in\n[the moderation guide](/docs/guides/moderation), and learn about\navailable models [here](/docs/models#moderation).\n",
@@ -19388,10 +19768,10 @@
           "model": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
               },
               {
-                "$ref": "#/components/schemas/AssistantSupportedModels_Wrapper"
+                "$ref": "#/components/schemas/AssistantSupportedModels"
               }
             ],
             "description": "The ID of the [Model](/docs/api-reference/models) to be used to execute this run. If a value is provided here, it will override the model associated with the assistant. If not, the model associated with the assistant will be used.",
@@ -19544,7 +19924,17 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "tts-1",
+                  "tts-1-hd",
+                  "gpt-4o-mini-tts",
+                  "gpt-4o-mini-tts-2025-12-15"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "\"One of the available [TTS models](/docs/models#tts): `tts-1`, `tts-1-hd`, `gpt-4o-mini-tts`, or `gpt-4o-mini-tts-2025-12-15`.\n\"",
@@ -19677,7 +20067,51 @@
           "model": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "gpt-5",
+                  "gpt-5-mini",
+                  "gpt-5-nano",
+                  "gpt-5-2025-08-07",
+                  "gpt-5-mini-2025-08-07",
+                  "gpt-5-nano-2025-08-07",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "gpt-4.1-2025-04-14",
+                  "gpt-4.1-mini-2025-04-14",
+                  "gpt-4.1-nano-2025-04-14",
+                  "gpt-4o",
+                  "gpt-4o-2024-11-20",
+                  "gpt-4o-2024-08-06",
+                  "gpt-4o-2024-05-13",
+                  "gpt-4o-mini",
+                  "gpt-4o-mini-2024-07-18",
+                  "gpt-4.5-preview",
+                  "gpt-4.5-preview-2025-02-27",
+                  "gpt-4-turbo",
+                  "gpt-4-turbo-2024-04-09",
+                  "gpt-4-0125-preview",
+                  "gpt-4-turbo-preview",
+                  "gpt-4-1106-preview",
+                  "gpt-4-vision-preview",
+                  "gpt-4",
+                  "gpt-4-0314",
+                  "gpt-4-0613",
+                  "gpt-4-32k",
+                  "gpt-4-32k-0314",
+                  "gpt-4-32k-0613",
+                  "gpt-3.5-turbo",
+                  "gpt-3.5-turbo-16k",
+                  "gpt-3.5-turbo-0613",
+                  "gpt-3.5-turbo-1106",
+                  "gpt-3.5-turbo-0125",
+                  "gpt-3.5-turbo-16k-0613"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "The ID of the [Model](/docs/api-reference/models) to be used to execute this run. If a value is provided here, it will override the model associated with the assistant. If not, the model associated with the assistant will be used.",
@@ -19873,7 +20307,19 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "whisper-1",
+                  "gpt-4o-transcribe",
+                  "gpt-4o-mini-transcribe",
+                  "gpt-4o-mini-transcribe-2025-12-15",
+                  "gpt-4o-transcribe-diarize"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
               }
             ],
             "description": "ID of the model to use. The options are `gpt-4o-transcribe`, `gpt-4o-mini-transcribe`, `gpt-4o-mini-transcribe-2025-12-15`, `whisper-1` (which is powered by our open source Whisper V2 model), and `gpt-4o-transcribe-diarize`.\n",
@@ -20186,7 +20632,15 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "whisper-1"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
               }
             ],
             "description": "ID of the model to use. Only `whisper-1` (which is powered by our open source Whisper V2 model) is currently available.\n",
@@ -20342,6 +20796,7 @@
             "$ref": "#/components/schemas/VectorStoreFileAttributes"
           },
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -20532,7 +20987,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "title": "string output",
+                "type": "string",
+                "description": "A string of the output of the custom tool call.\n"
+              },
+              {
+                "title": "output content list",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FunctionAndCustomToolCallOutput"
+                },
+                "description": "Text, image, or file output of the custom tool call.\n"
               }
             ],
             "description": "The output from the custom tool call generated by your code.\nCan be a string or an list of output content.\n"
@@ -20572,7 +21037,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "title": "string output",
+                "type": "string",
+                "description": "A string of the output of the custom tool call.\n"
+              },
+              {
+                "title": "output content list",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FunctionAndCustomToolCallOutput"
+                },
+                "description": "Text, image, or file output of the custom tool call.\n"
               }
             ],
             "description": "The output from the custom tool call generated by your code.\nCan be a string or an list of output content.\n"
@@ -20975,10 +21450,16 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "title": "Text input",
+                "type": "string",
+                "description": "A text input to the model.\n"
               },
               {
-                "$ref": "#/components/schemas/InputMessageContentList_Wrapper"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/InputContent"
+                },
+                "description": "A list of one or many input items to the model, containing different content \ntypes.\n"
               }
             ],
             "description": "Text, image, or audio input to the model, used to generate a response.\nCan also contain previous assistant responses.\n"
@@ -21720,6 +22201,7 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -22759,7 +23241,18 @@
                 "type": "object",
                 "oneOf": [
                   {
-                    "$ref": "#/components/schemas/UnionBranch"
+                    "title": "Text content",
+                    "type": "string",
+                    "description": "The contents of the assistant message."
+                  },
+                  {
+                    "title": "Array of content parts",
+                    "minItems": 1,
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ChatCompletionRequestAssistantMessageContentPart"
+                    },
+                    "description": "An array of content parts with a defined type. Can be one or more of type `text`, or exactly one of type `refusal`."
                   }
                 ],
                 "description": "The contents of the assistant message. Required unless `tool_calls` or `function_call` is specified.\n"
@@ -22834,7 +23327,18 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "maximum": 2,
+                "minimum": true,
+                "exclusiveMinimum": true,
+                "type": "number"
               }
             ],
             "description": "The beta value for the DPO method. A higher beta value will increase the weight of the penalty between the policy and reference model.\n"
@@ -22843,7 +23347,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "maximum": 256,
+                "minimum": 1,
+                "type": "integer"
               }
             ],
             "description": "Number of examples in each batch. A larger batch size means that model parameters are updated less frequently, but with lower variance.\n"
@@ -22852,7 +23366,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "minimum": true,
+                "exclusiveMinimum": true,
+                "type": "number"
               }
             ],
             "description": "Scaling factor for the learning rate. A smaller learning rate may be useful to avoid overfitting.\n"
@@ -22861,7 +23385,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "maximum": 50,
+                "minimum": 1,
+                "type": "integer"
               }
             ],
             "description": "The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.\n"
@@ -22913,7 +23447,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "maximum": 256,
+                "minimum": 1,
+                "type": "integer"
               }
             ],
             "description": "Number of examples in each batch. A larger batch size means that model parameters are updated less frequently, but with lower variance.\n"
@@ -22922,7 +23466,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "minimum": true,
+                "exclusiveMinimum": true,
+                "type": "number"
               }
             ],
             "description": "Scaling factor for the learning rate. A smaller learning rate may be useful to avoid overfitting.\n"
@@ -22931,7 +23485,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "maximum": 50,
+                "minimum": 1,
+                "type": "integer"
               }
             ],
             "description": "The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.\n"
@@ -22952,7 +23516,18 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "maximum": 10,
+                "minimum": true,
+                "exclusiveMinimum": true,
+                "type": "number"
               }
             ],
             "description": "Multiplier on amount of compute used for exploring search space during training.\n"
@@ -22961,7 +23536,16 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "minimum": 1,
+                "type": "integer"
               }
             ],
             "description": "The number of training steps between evaluation runs.\n"
@@ -22970,7 +23554,16 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "minimum": 1,
+                "type": "integer"
               }
             ],
             "description": "Number of evaluation samples to generate per training step.\n"
@@ -23018,7 +23611,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "maximum": 256,
+                "minimum": 1,
+                "type": "integer"
               }
             ],
             "description": "Number of examples in each batch. A larger batch size means that model parameters are updated less frequently, but with lower variance.\n"
@@ -23027,7 +23630,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "minimum": true,
+                "exclusiveMinimum": true,
+                "type": "number"
               }
             ],
             "description": "Scaling factor for the learning rate. A smaller learning rate may be useful to avoid overfitting.\n"
@@ -23036,7 +23649,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "maximum": 50,
+                "minimum": 1,
+                "type": "integer"
               }
             ],
             "description": "The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.\n"
@@ -23539,7 +24162,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "title": "string output",
+                "type": "string",
+                "description": "A string of the output of the function call.\n"
+              },
+              {
+                "title": "output content list",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FunctionAndCustomToolCallOutput"
+                },
+                "description": "Text, image, or file output of the function call.\n"
               }
             ],
             "description": "The output from the function call generated by your code.\nCan be a string or an list of output content.\n"
@@ -23588,7 +24221,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "title": "string output",
+                "type": "string",
+                "description": "A string of the output of the function call.\n"
+              },
+              {
+                "title": "output content list",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FunctionAndCustomToolCallOutput"
+                },
+                "description": "Text, image, or file output of the function call.\n"
               }
             ],
             "description": "The output from the function call generated by your code.\nCan be a string or an list of output content.\n"
@@ -24826,7 +25469,18 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "gpt-image-1",
+                  "gpt-image-1-mini",
+                  "gpt-image-1.5"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "description": "\"The image generation model to use. Default: `gpt-image-1`.\n\"",
+                "default": "gpt-image-1"
               }
             ]
           },
@@ -24846,7 +25500,17 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "1024x1024",
+                  "1024x1536",
+                  "1536x1024",
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "The size of the generated images. For `gpt-image-2` and `gpt-image-2-2026-04-21`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model's current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing. For `dall-e-2`, use one of `256x256`, `512x512`, or `1024x1024`. For `dall-e-3`, use one of `1024x1024`, `1792x1024`, or `1024x1792`."
@@ -25004,6 +25668,7 @@
             "example": "file-abc123"
           },
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -25322,17 +25987,14 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
         },
         "description": "Text, image, or file inputs to the model, used to generate a response.\n\nLearn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Image inputs](/docs/guides/images)\n- [File inputs](/docs/guides/pdf-files)\n- [Conversation state](/docs/guides/conversation-state)\n- [Function calling](/docs/guides/function-calling)\n",
         "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "InputParam_1": "#/components/schemas/InputParam_Branch1",
-            "InputParam_2": "#/components/schemas/InputParam_Branch2"
-          }
+          "propertyName": "type"
         }
       },
       "Invite": {
@@ -27757,6 +28419,7 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -27787,6 +28450,7 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -27795,8 +28459,7 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "ModelIdsResponses": "#/components/schemas/ModelIdsResponses",
-            "ModelIdsCompaction_2": "#/components/schemas/ModelIdsCompaction_Branch2"
+            "ModelIdsResponses": "#/components/schemas/ModelIdsResponses"
           }
         }
       },
@@ -27815,6 +28478,7 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -27842,15 +28506,13 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
         },
         "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "ModelIdsShared_1": "#/components/schemas/ModelIdsShared_Branch1"
-          }
+          "propertyName": "type"
         },
         "example": "gpt-5.4"
       },
@@ -27933,10 +28595,10 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
               },
               {
-                "$ref": "#/components/schemas/AssistantSupportedModels_Wrapper"
+                "$ref": "#/components/schemas/AssistantSupportedModels"
               }
             ],
             "description": "ID of the model to use. You can use the [List models](/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](/docs/models) for descriptions of them.\n"
@@ -28852,15 +29514,13 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
         },
         "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "PartialImages_1": "#/components/schemas/PartialImages_Branch1"
-          }
+          "propertyName": "type"
         }
       },
       "PredictionContent": {
@@ -28884,7 +29544,18 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "title": "Text content",
+                "type": "string",
+                "description": "The content used for a Predicted Output. This is often the\ntext of a file you are regenerating with minor changes.\n"
+              },
+              {
+                "title": "Array of content parts",
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ChatCompletionRequestMessageContentPartText"
+                },
+                "description": "An array of content parts with a defined type. Supported options differ based on the [model](/docs/models) being used to generate the response. Can contain text inputs."
               }
             ],
             "description": "The content that should be matched when generating a model response.\nIf generated tokens would match this content, the entire model response\ncan be returned much more quickly.\n"
@@ -31044,7 +31715,15 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "inf"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
               }
             ],
             "description": "Maximum number of output tokens for a single assistant response,\ninclusive of tool calls, that was used in this response.\n"
@@ -31137,7 +31816,15 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "inf"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
               }
             ],
             "description": "Maximum number of output tokens for a single assistant response,\ninclusive of tool calls. Provide an integer between 1 and 4096 to\nlimit output tokens, or `inf` for the maximum available tokens for a\ngiven model. Defaults to `inf`.\n"
@@ -31146,7 +31833,16 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "auto",
+                  "none"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "default": "auto"
               }
             ],
             "description": "Controls which conversation the response is added to. Currently supports\n`auto` and `none`, with `auto` as the default value. The `auto` value\nmeans that the contents of the response will be added to the default\nconversation. Set this to `none` to create an out-of-band response which \nwill not add items to default conversation.\n"
@@ -32953,7 +33649,30 @@
                 "type": "object",
                 "anyOf": [
                   {
-                    "$ref": "#/components/schemas/UnionBranch"
+                    "type": "string"
+                  },
+                  {
+                    "enum": [
+                      "gpt-realtime",
+                      "gpt-realtime-1.5",
+                      "gpt-realtime-2",
+                      "gpt-realtime-2025-08-28",
+                      "gpt-4o-realtime-preview",
+                      "gpt-4o-realtime-preview-2024-10-01",
+                      "gpt-4o-realtime-preview-2024-12-17",
+                      "gpt-4o-realtime-preview-2025-06-03",
+                      "gpt-4o-mini-realtime-preview",
+                      "gpt-4o-mini-realtime-preview-2024-12-17",
+                      "gpt-realtime-mini",
+                      "gpt-realtime-mini-2025-10-06",
+                      "gpt-realtime-mini-2025-12-15",
+                      "gpt-audio-1.5",
+                      "gpt-audio-mini",
+                      "gpt-audio-mini-2025-10-06",
+                      "gpt-audio-mini-2025-12-15"
+                    ],
+                    "type": "string",
+                    "additionalProperties": false
                   }
                 ],
                 "description": "The Realtime model used for this session.\n"
@@ -33020,7 +33739,15 @@
                 "type": "object",
                 "oneOf": [
                   {
-                    "$ref": "#/components/schemas/UnionBranch"
+                    "type": "integer"
+                  },
+                  {
+                    "enum": [
+                      "inf"
+                    ],
+                    "type": "string",
+                    "additionalProperties": false,
+                    "x-stainless-const": true
                   }
                 ],
                 "description": "Maximum number of output tokens for a single assistant response,\ninclusive of tool calls. Provide an integer between 1 and 4096 to\nlimit output tokens, or `inf` for the maximum available tokens for a\ngiven model. Defaults to `inf`.\n"
@@ -34517,7 +35244,15 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "inf"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
               }
             ],
             "description": "Maximum number of output tokens for a single assistant response,\ninclusive of tool calls, that was used in this response.\n"
@@ -34588,7 +35323,15 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "inf"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
               }
             ],
             "description": "Maximum number of output tokens for a single assistant response,\ninclusive of tool calls. Provide an integer between 1 and 4096 to\nlimit output tokens, or `inf` for the maximum available tokens for a\ngiven model. Defaults to `inf`.\n"
@@ -34597,7 +35340,16 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "auto",
+                  "none"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "default": "auto"
               }
             ],
             "description": "Controls which conversation the response is added to. Currently supports\n`auto` and `none`, with `auto` as the default value. The `auto` value\nmeans that the contents of the response will be added to the default\nconversation. Set this to `none` to create an out-of-band response which\nwill not add items to default conversation.\n"
@@ -36874,7 +37626,29 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "gpt-realtime",
+                  "gpt-realtime-1.5",
+                  "gpt-realtime-2025-08-28",
+                  "gpt-4o-realtime-preview",
+                  "gpt-4o-realtime-preview-2024-10-01",
+                  "gpt-4o-realtime-preview-2024-12-17",
+                  "gpt-4o-realtime-preview-2025-06-03",
+                  "gpt-4o-mini-realtime-preview",
+                  "gpt-4o-mini-realtime-preview-2024-12-17",
+                  "gpt-realtime-mini",
+                  "gpt-realtime-mini-2025-10-06",
+                  "gpt-realtime-mini-2025-12-15",
+                  "gpt-audio-1.5",
+                  "gpt-audio-mini",
+                  "gpt-audio-mini-2025-10-06",
+                  "gpt-audio-mini-2025-12-15"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "The Realtime model used for this session.\n"
@@ -36918,7 +37692,19 @@
                     "type": "object",
                     "anyOf": [
                       {
-                        "$ref": "#/components/schemas/UnionBranch"
+                        "type": "string"
+                      },
+                      {
+                        "enum": [
+                          "whisper-1",
+                          "gpt-4o-mini-transcribe",
+                          "gpt-4o-mini-transcribe-2025-12-15",
+                          "gpt-4o-transcribe",
+                          "gpt-4o-transcribe-diarize",
+                          "gpt-realtime-whisper"
+                        ],
+                        "type": "string",
+                        "additionalProperties": false
                       }
                     ],
                     "description": "The model used for transcription. Current options are `whisper-1`, `gpt-4o-mini-transcribe`, `gpt-4o-mini-transcribe-2025-12-15`, `gpt-4o-transcribe`, `gpt-4o-transcribe-diarize`, and `gpt-realtime-whisper`.\n"
@@ -36976,7 +37762,15 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "inf"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
               }
             ],
             "description": "Maximum number of output tokens for a single assistant response,\ninclusive of tool calls. Provide an integer between 1 and 4096 to\nlimit output tokens, or `inf` for the maximum available tokens for a\ngiven model. Defaults to `inf`.\n"
@@ -37105,7 +37899,15 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "inf"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
               }
             ],
             "description": "Maximum number of output tokens for a single assistant response,\ninclusive of tool calls. Provide an integer between 1 and 4096 to\nlimit output tokens, or `inf` for the maximum available tokens for a\ngiven model. Defaults to `inf`.\n"
@@ -37159,7 +37961,30 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "gpt-realtime",
+                  "gpt-realtime-1.5",
+                  "gpt-realtime-2",
+                  "gpt-realtime-2025-08-28",
+                  "gpt-4o-realtime-preview",
+                  "gpt-4o-realtime-preview-2024-10-01",
+                  "gpt-4o-realtime-preview-2024-12-17",
+                  "gpt-4o-realtime-preview-2025-06-03",
+                  "gpt-4o-mini-realtime-preview",
+                  "gpt-4o-mini-realtime-preview-2024-12-17",
+                  "gpt-realtime-mini",
+                  "gpt-realtime-mini-2025-10-06",
+                  "gpt-realtime-mini-2025-12-15",
+                  "gpt-audio-1.5",
+                  "gpt-audio-mini",
+                  "gpt-audio-mini-2025-10-06",
+                  "gpt-audio-mini-2025-12-15"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "The Realtime model used for this session.\n"
@@ -37226,7 +38051,15 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "inf"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
               }
             ],
             "description": "Maximum number of output tokens for a single assistant response,\ninclusive of tool calls. Provide an integer between 1 and 4096 to\nlimit output tokens, or `inf` for the maximum available tokens for a\ngiven model. Defaults to `inf`.\n"
@@ -37312,7 +38145,15 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "inf"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
               }
             ],
             "description": "Maximum number of output tokens for a single assistant response,\ninclusive of tool calls. Provide an integer between 1 and 4096 to\nlimit output tokens, or `inf` for the maximum available tokens for a\ngiven model. Defaults to `inf`.\n"
@@ -37380,7 +38221,30 @@
             "type": "object",
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "gpt-realtime",
+                  "gpt-realtime-1.5",
+                  "gpt-realtime-2",
+                  "gpt-realtime-2025-08-28",
+                  "gpt-4o-realtime-preview",
+                  "gpt-4o-realtime-preview-2024-10-01",
+                  "gpt-4o-realtime-preview-2024-12-17",
+                  "gpt-4o-realtime-preview-2025-06-03",
+                  "gpt-4o-mini-realtime-preview",
+                  "gpt-4o-mini-realtime-preview-2024-12-17",
+                  "gpt-realtime-mini",
+                  "gpt-realtime-mini-2025-10-06",
+                  "gpt-realtime-mini-2025-12-15",
+                  "gpt-audio-1.5",
+                  "gpt-audio-mini",
+                  "gpt-audio-mini-2025-10-06",
+                  "gpt-audio-mini-2025-12-15"
+                ],
+                "type": "string",
+                "additionalProperties": false
               }
             ],
             "description": "The Realtime model used for this session.\n"
@@ -37443,7 +38307,15 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "inf"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
               }
             ],
             "description": "Maximum number of output tokens for a single assistant response,\ninclusive of tool calls. Provide an integer between 1 and 4096 to\nlimit output tokens, or `inf` for the maximum available tokens for a\ngiven model. Defaults to `inf`.\n"
@@ -38337,6 +39209,7 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -38392,6 +39265,7 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -38703,7 +39577,16 @@
                 "type": "object",
                 "oneOf": [
                   {
-                    "$ref": "#/components/schemas/UnionBranch"
+                    "type": "string",
+                    "description": "A text input to the model, equivalent to a text input with the\n`developer` role.\n"
+                  },
+                  {
+                    "title": "Input item list",
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/InputItem"
+                    },
+                    "description": "A list of one or many input items to the model, containing\ndifferent content types.\n"
                   }
                 ],
                 "description": "A system (or developer) message inserted into the model's context.\n\nWhen using along with `previous_response_id`, the instructions from a previous\nresponse will not be carried over to the next response. This makes it simple\nto swap out system (or developer) messages in new responses.\n"
@@ -40496,15 +41379,13 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
         },
         "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "ResponseModalities_1": "#/components/schemas/ResponseModalities_Branch1"
-          }
+          "propertyName": "type"
         }
       },
       "ResponseOutputItemAddedEvent": {
@@ -43729,6 +44610,7 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -43914,6 +44796,7 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -43921,10 +44804,7 @@
         "description": "Not supported with latest reasoning models `o3` and `o4-mini`.\n\nUp to 4 sequences where the API will stop generating further tokens. The\nreturned text will not contain the stop sequence.\n",
         "nullable": true,
         "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "StopConfiguration_2": "#/components/schemas/StopConfiguration_Branch2"
-          }
+          "propertyName": "type"
         }
       },
       "SubmitToolOutputsRunRequest": {
@@ -46550,7 +47430,14 @@
               "type": "object",
               "oneOf": [
                 {
-                  "$ref": "#/components/schemas/UnionBranch"
+                  "maxLength": 512,
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
                 }
               ]
             },
@@ -46861,7 +47748,15 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "minItems": 1,
+                  "type": "string",
+                  "description": "A list of queries to search for."
+                }
               }
             ],
             "description": "A query string for a search"
@@ -47034,6 +47929,7 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -47228,15 +48124,13 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
         },
         "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "VoiceIdsShared_1": "#/components/schemas/VoiceIdsShared_Branch1"
-          }
+          "propertyName": "type"
         },
         "example": "ash"
       },
@@ -51605,7 +52499,39 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "maxLength": 10485760,
+                "type": "string",
+                "description": "A JSON string of the output of the function tool call."
+              },
+              {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "type"
+                  ],
+                  "type": "object",
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/InputTextContentParam"
+                    },
+                    {
+                      "$ref": "#/components/schemas/InputImageContentParamAutoParam"
+                    },
+                    {
+                      "$ref": "#/components/schemas/InputFileContentParam"
+                    }
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "description": "A piece of message content, such as text, an image, or a file.",
+                  "discriminator": {
+                    "propertyName": "type"
+                  }
+                },
+                "description": "An array of content outputs (text, image, file) for the function tool call."
               }
             ],
             "description": "Text, image, or file output of the function tool call."
@@ -52637,15 +53563,13 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
         },
         "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "VideoModel_1": "#/components/schemas/VideoModel_Branch1"
-          }
+          "propertyName": "type"
         }
       },
       "VideoStatus": {
@@ -53204,7 +54128,16 @@
                 "type": "object",
                 "oneOf": [
                   {
-                    "$ref": "#/components/schemas/UnionBranch"
+                    "maxLength": 10485760,
+                    "type": "string",
+                    "description": "A text input to the model, equivalent to a text input with the `user` role."
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/InputItem"
+                    },
+                    "description": "A list of one or many input items to the model, containing different content types."
                   }
                 ],
                 "description": "Text, image, or file inputs to the model, used to generate a response"
@@ -53367,7 +54300,16 @@
                 "type": "object",
                 "oneOf": [
                   {
-                    "$ref": "#/components/schemas/UnionBranch"
+                    "maxLength": 10485760,
+                    "type": "string",
+                    "description": "A text input to the model, equivalent to a text input with the `user` role."
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/InputItem"
+                    },
+                    "description": "A list of one or many input items to the model, containing different content types."
                   }
                 ],
                 "description": "Text, image, or file inputs to the model, used to generate a response"
@@ -53749,7 +54691,18 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "maxItems": 500,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "description": "Skill files to upload (directory upload) or a single zip file."
+              },
+              {
+                "type": "string",
+                "description": "Skill zip file to upload.",
+                "format": "binary"
               }
             ]
           }
@@ -53910,7 +54863,18 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "maxItems": 500,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "description": "Skill files to upload (directory upload) or a single zip file."
+              },
+              {
+                "type": "string",
+                "description": "Skill zip file to upload.",
+                "format": "binary"
               }
             ]
           },
@@ -54245,7 +55209,17 @@
               "type": "object",
               "oneOf": [
                 {
-                  "$ref": "#/components/schemas/UnionBranch"
+                  "maxLength": 10485760,
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "number"
                 }
               ]
             },
@@ -57094,7 +58068,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "maximum": 256,
+                "minimum": 1,
+                "type": "integer"
               }
             ],
             "description": "Number of examples in each batch. A larger batch size means that model parameters\nare updated less frequently, but with lower variance.\n"
@@ -57103,7 +58087,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "minimum": true,
+                "exclusiveMinimum": true,
+                "type": "number"
               }
             ],
             "description": "Scaling factor for the learning rate. A smaller learning rate may be useful to avoid\noverfitting.\n"
@@ -57112,7 +58106,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "maximum": 50,
+                "minimum": 1,
+                "type": "integer"
               }
             ],
             "description": "The number of epochs to train the model for. An epoch refers to one full cycle\nthrough the training dataset.\n"
@@ -57515,7 +58519,17 @@
                 "type": "object",
                 "oneOf": [
                   {
-                    "$ref": "#/components/schemas/UnionBranch"
+                    "enum": [
+                      "auto"
+                    ],
+                    "type": "string",
+                    "additionalProperties": false,
+                    "x-stainless-const": true
+                  },
+                  {
+                    "maximum": 256,
+                    "minimum": 1,
+                    "type": "integer"
                   }
                 ],
                 "description": "Number of examples in each batch. A larger batch size means that model parameters\nare updated less frequently, but with lower variance.\n"
@@ -57529,7 +58543,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "minimum": true,
+                "exclusiveMinimum": true,
+                "type": "number"
               }
             ],
             "description": "Scaling factor for the learning rate. A smaller learning rate may be useful to avoid\noverfitting.\n"
@@ -57538,7 +58562,17 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "enum": [
+                  "auto"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "x-stainless-const": true
+              },
+              {
+                "maximum": 50,
+                "minimum": 1,
+                "type": "integer"
               }
             ],
             "description": "The number of epochs to train the model for. An epoch refers to one full cycle\nthrough the training dataset.\n"
@@ -57743,6 +58777,7 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -58639,6 +59674,7 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -58920,6 +59956,7 @@
         ],
         "properties": {
           "type": {
+            "title": "type",
             "type": "string",
             "description": "Union discriminator"
           }
@@ -60192,7 +61229,16 @@
               "type": "object",
               "oneOf": [
                 {
-                  "$ref": "#/components/schemas/UnionBranch"
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "number"
                 }
               ]
             },
@@ -60220,7 +61266,17 @@
           "type": "object",
           "oneOf": [
             {
-              "$ref": "#/components/schemas/UnionBranch"
+              "maxLength": 10485760,
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "number"
             }
           ]
         },
@@ -62240,17 +63296,6 @@
           }
         }
       },
-      "AssistantSupportedModels_Wrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/AssistantSupportedModels"
-          }
-        }
-      },
       "InputFidelity_Wrapper": {
         "required": [
           "value"
@@ -62259,21 +63304,6 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/InputFidelity"
-          }
-        }
-      },
-      "InputMessageContentList_Wrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/InputContent"
-            },
-            "description": "A list of one or many input items to the model, containing different content \ntypes.\n"
           }
         }
       },

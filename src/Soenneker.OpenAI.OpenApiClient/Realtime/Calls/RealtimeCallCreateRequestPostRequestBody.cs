@@ -43,18 +43,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Realtime.Calls
         /// <summary>Maximum number of output tokens for a single assistant response,inclusive of tool calls. Provide an integer between 1 and 4096 tolimit output tokens, or `inf` for the maximum available tokens for agiven model. Defaults to `inf`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch? MaxOutputTokens { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_max_output_tokens? MaxOutputTokens { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch MaxOutputTokens { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_max_output_tokens MaxOutputTokens { get; set; }
 #endif
         /// <summary>The Realtime model used for this session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_model? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_model Model { get; set; }
 #endif
         /// <summary>The set of modalities the model can respond with. It defaults to `[&quot;audio&quot;]`, indicatingthat the model will respond with audio plus a transcript. `[&quot;text&quot;]` can be used to makethe model respond with text only. It is not possible to request both `text` and `audio` at the same time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -144,8 +144,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Realtime.Calls
                 { "audio", n => { Audio = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGAAudio>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGAAudio.CreateFromDiscriminatorValue); } },
                 { "include", n => { Include = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody_include>()?.AsList(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
-                { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>(global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>(global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_max_output_tokens>(global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_max_output_tokens.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_model>(global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_model.CreateFromDiscriminatorValue); } },
                 { "output_modalities", n => { OutputModalities = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody_output_modalities>()?.AsList(); } },
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
                 { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Prompt>(global::Soenneker.OpenAI.OpenApiClient.Models.Prompt.CreateFromDiscriminatorValue); } },
@@ -167,8 +167,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Realtime.Calls
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGAAudio>("audio", Audio);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody_include>("include", Include);
             writer.WriteStringValue("instructions", Instructions);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>("max_output_tokens", MaxOutputTokens);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>("model", Model);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_max_output_tokens>("max_output_tokens", MaxOutputTokens);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_model>("model", Model);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody_output_modalities>("output_modalities", OutputModalities);
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Prompt>("prompt", Prompt);
@@ -179,6 +179,117 @@ namespace Soenneker.OpenAI.OpenApiClient.Realtime.Calls
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation>("truncation", Truncation);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="int"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class RealtimeCallCreateRequestPostRequestBody_max_output_tokens : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="int"/></summary>
+            public int? Integer { get; set; }
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_max_output_tokens"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_max_output_tokens CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_max_output_tokens();
+                if(parseNode.GetIntValue() is int integerValue)
+                {
+                    result.Integer = integerValue;
+                }
+                else if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(Integer != null)
+                {
+                    writer.WriteIntValue(null, Integer);
+                }
+                else if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class RealtimeCallCreateRequestPostRequestBody_model : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_model"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_model CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.RealtimeCallCreateRequestPostRequestBody.RealtimeCallCreateRequestPostRequestBody_model();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceFunction"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMCP"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions_Wrapper_2"/>

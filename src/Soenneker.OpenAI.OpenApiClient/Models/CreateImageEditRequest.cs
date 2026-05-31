@@ -19,10 +19,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The image(s) to edit. Must be a supported image file or an array of images.For the GPT image models (`gpt-image-1`, `gpt-image-1-mini`, and `gpt-image-1.5`), each image should be a `png`, `webp`, or `jpg`file less than 50MB. You can provide up to 16 images.`chatgpt-image-latest` follows the same input constraints as GPT image models.For `dall-e-2`, you can only provide one image, and it should be a square`png` file less than 4MB.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch? Image { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_image? Image { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch Image { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_image Image { get; set; }
 #endif
         /// <summary>The input_fidelity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,10 +43,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The model to use for image generation. Defaults to `gpt-image-1.5`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_model? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_model Model { get; set; }
 #endif
         /// <summary>The number of images to generate. Must be between 1 and 10.</summary>
         public int? N { get; set; }
@@ -77,10 +77,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The size of the generated images. For `gpt-image-2` and `gpt-image-2-2026-04-21`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model&apos;s current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing. For `dall-e-2`, use one of `256x256`, `512x512`, or `1024x1024`. For `dall-e-3`, use one of `1024x1024`, `1792x1024`, or `1024x1792`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch? Size { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_size? Size { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch Size { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_size Size { get; set; }
 #endif
         /// <summary>Edit the image in streaming mode. Defaults to `false`. See the[Image generation guide](/docs/guides/image-generation) for more information.</summary>
         public bool? Stream { get; set; }
@@ -121,10 +121,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "background", n => { Background = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest_background>(); } },
-                { "image", n => { Image = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>(global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "image", n => { Image = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_image>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_image.CreateFromDiscriminatorValue); } },
                 { "input_fidelity", n => { InputFidelity = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest_input_fidelity>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest_input_fidelity.CreateFromDiscriminatorValue); } },
                 { "mask", n => { Mask = n.GetByteArrayValue(); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>(global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_model>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_model.CreateFromDiscriminatorValue); } },
                 { "n", n => { N = n.GetIntValue(); } },
                 { "output_compression", n => { OutputCompression = n.GetIntValue(); } },
                 { "output_format", n => { OutputFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest_output_format>(); } },
@@ -132,7 +132,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
                 { "quality", n => { Quality = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest_quality>(); } },
                 { "response_format", n => { ResponseFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest_response_format>(); } },
-                { "size", n => { Size = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>(global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "size", n => { Size = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_size>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_size.CreateFromDiscriminatorValue); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "user", n => { User = n.GetStringValue(); } },
             };
@@ -145,10 +145,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest_background>("background", Background);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>("image", Image);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_image>("image", Image);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest_input_fidelity>("input_fidelity", InputFidelity);
             writer.WriteByteArrayValue("mask", Mask);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>("model", Model);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_model>("model", Model);
             writer.WriteIntValue("n", N);
             writer.WriteIntValue("output_compression", OutputCompression);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest_output_format>("output_format", OutputFormat);
@@ -156,10 +156,176 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest_quality>("quality", Quality);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest_response_format>("response_format", ResponseFormat);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>("size", Size);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_size>("size", Size);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteStringValue("user", User);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="byte[]"/>, List&lt;byte[]&gt;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class CreateImageEditRequest_image : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type List&lt;byte[]&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public List<byte[]>? Binary { get; set; }
+#nullable restore
+#else
+            public List<byte[]> Binary { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="byte[]"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public byte[]? CreateImageEditRequestImageBinary { get; set; }
+#nullable restore
+#else
+            public byte[] CreateImageEditRequestImageBinary { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_image"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_image CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_image();
+                if(parseNode.GetByteArrayValue() is byte[] createImageEditRequestImageBinaryValue)
+                {
+                    result.CreateImageEditRequestImageBinary = createImageEditRequestImageBinaryValue;
+                }
+                else if(parseNode.GetCollectionOfPrimitiveValues<byte[]>()?.AsList() is List<byte[]> binaryValue)
+                {
+                    result.Binary = binaryValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(CreateImageEditRequestImageBinary != null)
+                {
+                    writer.WriteByteArrayValue(null, CreateImageEditRequestImageBinary);
+                }
+                else if(Binary != null)
+                {
+                    writer.WriteCollectionOfPrimitiveValues<byte[]>(null, Binary);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class CreateImageEditRequest_model : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_model"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_model CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_model();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class CreateImageEditRequest_size : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_size"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_size CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest.CreateImageEditRequest_size();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
         }
     }
 }

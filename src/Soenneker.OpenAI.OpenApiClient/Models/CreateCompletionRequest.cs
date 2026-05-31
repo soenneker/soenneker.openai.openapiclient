@@ -35,10 +35,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>ID of the model to use. You can use the [List models](/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](/docs/models) for descriptions of them.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_model? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_model Model { get; set; }
 #endif
         /// <summary>How many completions to generate for each prompt.**Note:** Because this parameter generates many completions, it can quickly consume your token quota. Use carefully and ensure that you have reasonable settings for `max_tokens` and `stop`.</summary>
         public int? N { get; set; }
@@ -47,10 +47,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The prompt(s) to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays.Note that &lt;|endoftext|&gt; is the document separator that the model sees during training, so if a prompt is not specified the model will generate as if from the beginning of a new document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch? Prompt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_prompt? Prompt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch Prompt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_prompt Prompt { get; set; }
 #endif
         /// <summary>If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend.</summary>
         public long? Seed { get; set; }
@@ -123,10 +123,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "logit_bias", n => { LogitBias = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest_logit_bias>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest_logit_bias.CreateFromDiscriminatorValue); } },
                 { "logprobs", n => { Logprobs = n.GetIntValue(); } },
                 { "max_tokens", n => { MaxTokens = n.GetIntValue(); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>(global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_model>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_model.CreateFromDiscriminatorValue); } },
                 { "n", n => { N = n.GetIntValue(); } },
                 { "presence_penalty", n => { PresencePenalty = n.GetDoubleValue(); } },
-                { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>(global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_prompt>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_prompt.CreateFromDiscriminatorValue); } },
                 { "seed", n => { Seed = n.GetLongValue(); } },
                 { "stop", n => { Stop = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration>(global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration.CreateFromDiscriminatorValue); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
@@ -150,10 +150,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest_logit_bias>("logit_bias", LogitBias);
             writer.WriteIntValue("logprobs", Logprobs);
             writer.WriteIntValue("max_tokens", MaxTokens);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>("model", Model);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_model>("model", Model);
             writer.WriteIntValue("n", N);
             writer.WriteDoubleValue("presence_penalty", PresencePenalty);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>("prompt", Prompt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_prompt>("prompt", Prompt);
             writer.WriteLongValue("seed", Seed);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration>("stop", Stop);
             writer.WriteBoolValue("stream", Stream);
@@ -163,6 +163,155 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteDoubleValue("top_p", TopP);
             writer.WriteStringValue("user", User);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class CreateCompletionRequest_model : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_model"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_model CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_model();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="string"/>, List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest_promptMember1&gt;, List&lt;int&gt;, List&lt;string&gt;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class CreateCompletionRequest_prompt : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest_promptMember1&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest_promptMember1>? CreateCompletionRequestPromptMember1 { get; set; }
+#nullable restore
+#else
+            public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest_promptMember1> CreateCompletionRequestPromptMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? CreateCompletionRequestPromptString { get; set; }
+#nullable restore
+#else
+            public string CreateCompletionRequestPromptString { get; set; }
+#endif
+            /// <summary>Composed type representation for type List&lt;int&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public List<int?>? Integer { get; set; }
+#nullable restore
+#else
+            public List<int?> Integer { get; set; }
+#endif
+            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public List<string>? String { get; set; }
+#nullable restore
+#else
+            public List<string> String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_prompt"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_prompt CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest.CreateCompletionRequest_prompt();
+                if(parseNode.GetStringValue() is string createCompletionRequestPromptStringValue)
+                {
+                    result.CreateCompletionRequestPromptString = createCompletionRequestPromptStringValue;
+                }
+                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest_promptMember1>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest_promptMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest_promptMember1> createCompletionRequestPromptMember1Value)
+                {
+                    result.CreateCompletionRequestPromptMember1 = createCompletionRequestPromptMember1Value;
+                }
+                else if(parseNode.GetCollectionOfPrimitiveValues<int?>()?.AsList() is List<int?> integerValue)
+                {
+                    result.Integer = integerValue;
+                }
+                else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(CreateCompletionRequestPromptString != null)
+                {
+                    writer.WriteStringValue(null, CreateCompletionRequestPromptString);
+                }
+                else if(CreateCompletionRequestPromptMember1 != null)
+                {
+                    writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequest_promptMember1>(null, CreateCompletionRequestPromptMember1);
+                }
+                else if(Integer != null)
+                {
+                    writer.WriteCollectionOfPrimitiveValues<int?>(null, Integer);
+                }
+                else if(String != null)
+                {
+                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
+                }
+            }
         }
     }
 }

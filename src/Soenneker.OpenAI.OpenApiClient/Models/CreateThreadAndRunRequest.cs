@@ -43,10 +43,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The ID of the [Model](/docs/api-reference/models) to be used to execute this run. If a value is provided here, it will override the model associated with the assistant. If not, the model associated with the assistant will be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequest.CreateThreadAndRunRequest_model? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequest.CreateThreadAndRunRequest_model Model { get; set; }
 #endif
         /// <summary>Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.</summary>
         public bool? ParallelToolCalls { get; set; }
@@ -127,7 +127,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "max_completion_tokens", n => { MaxCompletionTokens = n.GetIntValue(); } },
                 { "max_prompt_tokens", n => { MaxPromptTokens = n.GetIntValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>(global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequest.CreateThreadAndRunRequest_model>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequest.CreateThreadAndRunRequest_model.CreateFromDiscriminatorValue); } },
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
                 { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption.CreateFromDiscriminatorValue); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
@@ -152,7 +152,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("max_completion_tokens", MaxCompletionTokens);
             writer.WriteIntValue("max_prompt_tokens", MaxPromptTokens);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UnionBranch>("model", Model);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequest.CreateThreadAndRunRequest_model>("model", Model);
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption>("response_format", ResponseFormat);
             writer.WriteBoolValue("stream", Stream);
@@ -163,6 +163,56 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequest.CreateThreadAndRunRequest_tools>("tools", Tools);
             writer.WriteDoubleValue("top_p", TopP);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequest_truncation_strategy>("truncation_strategy", TruncationStrategy);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class CreateThreadAndRunRequest_model : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequest.CreateThreadAndRunRequest_model"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequest.CreateThreadAndRunRequest_model CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequest.CreateThreadAndRunRequest_model();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsCode"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFunction"/>

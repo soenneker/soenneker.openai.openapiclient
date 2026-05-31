@@ -39,7 +39,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration();
-            if("StopConfiguration_2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("StopConfiguration_Branch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.StopConfigurationBranch2 = new global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration_Branch2();
             }
