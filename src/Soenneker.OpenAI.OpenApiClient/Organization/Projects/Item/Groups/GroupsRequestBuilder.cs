@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organization\projects\{project_id}\groups
+    /// Builds and executes requests for operations under \organization\projects\{projectId}\groups
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GroupsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.organization.projects.item.groups.item collection</summary>
         /// <param name="position">The ID of the group to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroupItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroupItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("group_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("groupId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.Item.WithGroupItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GroupsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/groups{?after*,limit*,order*}", pathParameters)
+        public GroupsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{projectId}/groups{?after*,limit*,order*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GroupsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/groups{?after*,limit*,order*}", rawUrl)
+        public GroupsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{projectId}/groups{?after*,limit*,order*}", rawUrl)
         {
         }
         /// <summary>
@@ -155,7 +155,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups
             public int? Limit { get; set; }
             /// <summary>Sort order for the returned groups.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Groups.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListProjectGroupsOrderParameter? Order { get; set; }
         }
     }
 }

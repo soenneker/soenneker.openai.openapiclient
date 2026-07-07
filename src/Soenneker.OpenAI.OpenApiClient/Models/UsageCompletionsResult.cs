@@ -18,18 +18,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The api_key_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_api_key_id? ApiKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultApiKeyId? ApiKeyId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_api_key_id ApiKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultApiKeyId ApiKeyId { get; set; }
 #endif
         /// <summary>The batch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_batch? Batch { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultBatch? Batch { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_batch Batch { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultBatch Batch { get; set; }
 #endif
         /// <summary>The aggregated number of audio input tokens used, including cached tokens.</summary>
         public int? InputAudioTokens { get; set; }
@@ -40,15 +40,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_model? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultModel? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_model Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultModel Model { get; set; }
 #endif
         /// <summary>The count of requests made to the model.</summary>
         public int? NumModelRequests { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultObject? Object { get; set; }
         /// <summary>The aggregated number of audio output tokens used.</summary>
         public int? OutputAudioTokens { get; set; }
         /// <summary>The aggregated number of text output tokens used. For customers subscribe to scale tier, this includes scale tier tokens.</summary>
@@ -56,26 +56,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_project_id? ProjectId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultProjectId? ProjectId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_project_id ProjectId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultProjectId ProjectId { get; set; }
 #endif
         /// <summary>The service_tier property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_service_tier? ServiceTier { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultServiceTier? ServiceTier { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_service_tier ServiceTier { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultServiceTier ServiceTier { get; set; }
 #endif
         /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_user_id? UserId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultUserId? UserId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_user_id UserId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultUserId UserId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult"/> and sets the default values.
@@ -102,19 +102,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key_id", n => { ApiKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_api_key_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_api_key_id.CreateFromDiscriminatorValue); } },
-                { "batch", n => { Batch = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_batch>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_batch.CreateFromDiscriminatorValue); } },
+                { "api_key_id", n => { ApiKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultApiKeyId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultApiKeyId.CreateFromDiscriminatorValue); } },
+                { "batch", n => { Batch = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultBatch>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultBatch.CreateFromDiscriminatorValue); } },
                 { "input_audio_tokens", n => { InputAudioTokens = n.GetIntValue(); } },
                 { "input_cached_tokens", n => { InputCachedTokens = n.GetIntValue(); } },
                 { "input_tokens", n => { InputTokens = n.GetIntValue(); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_model>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_model.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultModel>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultModel.CreateFromDiscriminatorValue); } },
                 { "num_model_requests", n => { NumModelRequests = n.GetIntValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultObject>(); } },
                 { "output_audio_tokens", n => { OutputAudioTokens = n.GetIntValue(); } },
                 { "output_tokens", n => { OutputTokens = n.GetIntValue(); } },
-                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_project_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_project_id.CreateFromDiscriminatorValue); } },
-                { "service_tier", n => { ServiceTier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_service_tier>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_service_tier.CreateFromDiscriminatorValue); } },
-                { "user_id", n => { UserId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_user_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_user_id.CreateFromDiscriminatorValue); } },
+                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultProjectId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultProjectId.CreateFromDiscriminatorValue); } },
+                { "service_tier", n => { ServiceTier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultServiceTier>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultServiceTier.CreateFromDiscriminatorValue); } },
+                { "user_id", n => { UserId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultUserId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultUserId.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -124,19 +124,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_api_key_id>("api_key_id", ApiKeyId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_batch>("batch", Batch);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultApiKeyId>("api_key_id", ApiKeyId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultBatch>("batch", Batch);
             writer.WriteIntValue("input_audio_tokens", InputAudioTokens);
             writer.WriteIntValue("input_cached_tokens", InputCachedTokens);
             writer.WriteIntValue("input_tokens", InputTokens);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_model>("model", Model);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultModel>("model", Model);
             writer.WriteIntValue("num_model_requests", NumModelRequests);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultObject>("object", Object);
             writer.WriteIntValue("output_audio_tokens", OutputAudioTokens);
             writer.WriteIntValue("output_tokens", OutputTokens);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_project_id>("project_id", ProjectId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_service_tier>("service_tier", ServiceTier);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResult_user_id>("user_id", UserId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultProjectId>("project_id", ProjectId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultServiceTier>("service_tier", ServiceTier);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultUserId>("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

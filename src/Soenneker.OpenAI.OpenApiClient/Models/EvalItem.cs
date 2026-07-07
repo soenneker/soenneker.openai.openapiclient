@@ -24,9 +24,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContent Content { get; set; }
 #endif
         /// <summary>The role of the message input. One of `user`, `assistant`, `system`, or`developer`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItem_role? Role { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemRole? Role { get; set; }
         /// <summary>The type of the message input. Always `message`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItem_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItem"/> and sets the default values.
         /// </summary>
@@ -53,8 +53,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContent>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContent.CreateFromDiscriminatorValue); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItem_role>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItem_type>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemRole>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemType>(); } },
             };
         }
         /// <summary>
@@ -65,8 +65,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContent>("content", Content);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItem_role>("role", Role);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItem_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemRole>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

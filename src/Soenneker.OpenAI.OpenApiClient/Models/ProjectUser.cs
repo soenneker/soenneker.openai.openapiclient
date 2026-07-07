@@ -20,10 +20,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The email address of the user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser_email? Email { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserEmail? Email { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser_email Email { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserEmail Email { get; set; }
 #endif
         /// <summary>The identifier, which can be referenced in API endpoints</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,13 +36,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The name of the user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser_name? Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserName? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser_name Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserName Name { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.project.user`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserObject? Object { get; set; }
         /// <summary>`owner` or `member`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,10 +77,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "added_at", n => { AddedAt = n.GetIntValue(); } },
-                { "email", n => { Email = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser_email>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser_email.CreateFromDiscriminatorValue); } },
+                { "email", n => { Email = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserEmail>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserEmail.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser_name>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser_name.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser_object>(); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserName>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserName.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserObject>(); } },
                 { "role", n => { Role = n.GetStringValue(); } },
             };
         }
@@ -92,10 +92,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("added_at", AddedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser_email>("email", Email);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserEmail>("email", Email);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser_name>("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserName>("name", Name);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserObject>("object", Object);
             writer.WriteStringValue("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_code? Code { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallCode? Code { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_code Code { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallCode Code { get; set; }
 #endif
         /// <summary>The ID of the container used to run the code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,15 +42,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The outputs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_outputs? Outputs { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs? Outputs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_outputs Outputs { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs Outputs { get; set; }
 #endif
         /// <summary>The status of the code interpreter tool call. Valid values are `in_progress`, `completed`, `incomplete`, `interpreting`, and `failed`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_status? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallStatus? Status { get; set; }
         /// <summary>The type of the code interpreter tool call. Always `code_interpreter_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall"/> and sets the default values.
         /// </summary>
@@ -76,12 +76,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_code>(global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_code.CreateFromDiscriminatorValue); } },
+                { "code", n => { Code = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallCode>(global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallCode.CreateFromDiscriminatorValue); } },
                 { "container_id", n => { ContainerId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "outputs", n => { Outputs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_outputs>(global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_outputs.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_status>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_type>(); } },
+                { "outputs", n => { Outputs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs>(global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallStatus>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallType>(); } },
             };
         }
         /// <summary>
@@ -91,12 +91,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_code>("code", Code);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallCode>("code", Code);
             writer.WriteStringValue("container_id", ContainerId);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_outputs>("outputs", Outputs);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs>("outputs", Outputs);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

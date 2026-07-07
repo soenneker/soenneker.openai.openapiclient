@@ -18,20 +18,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The archived_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Project_archived_at? ArchivedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectArchivedAt? ArchivedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Project_archived_at ArchivedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectArchivedAt ArchivedAt { get; set; }
 #endif
         /// <summary>The Unix timestamp (in seconds) of when the project was created.</summary>
         public int? CreatedAt { get; set; }
         /// <summary>The external key associated with the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Project_external_key_id? ExternalKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectExternalKeyId? ExternalKeyId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Project_external_key_id ExternalKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectExternalKeyId ExternalKeyId { get; set; }
 #endif
         /// <summary>The identifier, which can be referenced in API endpoints</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,20 +44,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The name of the project. This appears in reporting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Project_name? Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectName? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Project_name Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectName Name { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.project`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Project_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectObject? Object { get; set; }
         /// <summary>`active` or `archived`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Project_status? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectStatus? Status { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Project_status Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectStatus Status { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Project"/> and sets the default values.
@@ -84,13 +84,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "archived_at", n => { ArchivedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_archived_at>(global::Soenneker.OpenAI.OpenApiClient.Models.Project_archived_at.CreateFromDiscriminatorValue); } },
+                { "archived_at", n => { ArchivedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectArchivedAt>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectArchivedAt.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "external_key_id", n => { ExternalKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_external_key_id>(global::Soenneker.OpenAI.OpenApiClient.Models.Project_external_key_id.CreateFromDiscriminatorValue); } },
+                { "external_key_id", n => { ExternalKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectExternalKeyId>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectExternalKeyId.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_name>(global::Soenneker.OpenAI.OpenApiClient.Models.Project_name.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_object>(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_status>(global::Soenneker.OpenAI.OpenApiClient.Models.Project_status.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectName>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectName.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectObject>(); } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectStatus>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -100,13 +100,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_archived_at>("archived_at", ArchivedAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectArchivedAt>("archived_at", ArchivedAt);
             writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_external_key_id>("external_key_id", ExternalKeyId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectExternalKeyId>("external_key_id", ExternalKeyId);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_name>("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_object>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Project_status>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectName>("name", Name);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectObject>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -26,10 +26,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>State variables forwarded to the workflow. Keys may be up to 64 characters, values must be primitive types, and the map defaults to an empty object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParam_state_variables? StateVariables { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParamStateVariablesProperty? StateVariables { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParam_state_variables StateVariables { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParamStateVariablesProperty StateVariables { get; set; }
 #endif
         /// <summary>Controls diagnostic tracing during the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "state_variables", n => { StateVariables = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParam_state_variables>(global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParam_state_variables.CreateFromDiscriminatorValue); } },
+                { "state_variables", n => { StateVariables = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParamStateVariablesProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParamStateVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "tracing", n => { Tracing = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowTracingParam>(global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowTracingParam.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParam_state_variables>("state_variables", StateVariables);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParamStateVariablesProperty>("state_variables", StateVariables);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowTracingParam>("tracing", Tracing);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);

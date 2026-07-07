@@ -28,10 +28,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The expires_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_expires_at? ExpiresAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectExpiresAt? ExpiresAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_expires_at ExpiresAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectExpiresAt ExpiresAt { get; set; }
 #endif
         /// <summary>The file_counts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,10 +52,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The last_active_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_last_active_at? LastActiveAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectLastActiveAt? LastActiveAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_last_active_at LastActiveAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectLastActiveAt LastActiveAt { get; set; }
 #endif
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,9 +74,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object type, which is always `vector_store`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectObject? Object { get; set; }
         /// <summary>The status of the vector store, which can be either `expired`, `in_progress`, or `completed`. A status of `completed` indicates that the vector store is ready for use.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_status? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectStatus? Status { get; set; }
         /// <summary>The total number of bytes used by the files in the vector store.</summary>
         public int? UsageBytes { get; set; }
         /// <summary>
@@ -106,14 +106,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "expires_after", n => { ExpiresAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfter>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfter.CreateFromDiscriminatorValue); } },
-                { "expires_at", n => { ExpiresAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_expires_at>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_expires_at.CreateFromDiscriminatorValue); } },
+                { "expires_at", n => { ExpiresAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectExpiresAt>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectExpiresAt.CreateFromDiscriminatorValue); } },
                 { "file_counts", n => { FileCounts = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectFileCounts>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectFileCounts.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "last_active_at", n => { LastActiveAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_last_active_at>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_last_active_at.CreateFromDiscriminatorValue); } },
+                { "last_active_at", n => { LastActiveAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectLastActiveAt>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectLastActiveAt.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_object>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_status>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectObject>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectStatus>(); } },
                 { "usage_bytes", n => { UsageBytes = n.GetIntValue(); } },
             };
         }
@@ -126,14 +126,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfter>("expires_after", ExpiresAfter);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_expires_at>("expires_at", ExpiresAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectExpiresAt>("expires_at", ExpiresAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectFileCounts>("file_counts", FileCounts);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_last_active_at>("last_active_at", LastActiveAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectLastActiveAt>("last_active_at", LastActiveAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_object>("object", Object);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObject_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectStatus>("status", Status);
             writer.WriteIntValue("usage_bytes", UsageBytes);
             writer.WriteAdditionalData(AdditionalData);
         }

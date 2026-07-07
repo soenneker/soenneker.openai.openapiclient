@@ -8,18 +8,18 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoiceMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsShared"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoiceAnyOf2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsShared"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VoiceIdsOrCustomVoice : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoiceMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoiceAnyOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoiceMember1? VoiceIdsOrCustomVoiceMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoiceAnyOf2? VoiceIdsOrCustomVoiceAnyOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoiceMember1 VoiceIdsOrCustomVoiceMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoiceAnyOf2 VoiceIdsOrCustomVoiceAnyOf2 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsShared"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,7 +38,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice();
-            result.VoiceIdsOrCustomVoiceMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoiceMember1();
+            result.VoiceIdsOrCustomVoiceAnyOf2 = new global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoiceAnyOf2();
             result.VoiceIdsShared = new global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsShared();
             return result;
         }
@@ -48,9 +48,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(VoiceIdsOrCustomVoiceMember1 != null || VoiceIdsShared != null)
+            if(VoiceIdsOrCustomVoiceAnyOf2 != null || VoiceIdsShared != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(VoiceIdsOrCustomVoiceMember1, VoiceIdsShared);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(VoiceIdsOrCustomVoiceAnyOf2, VoiceIdsShared);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoiceMember1>(null, VoiceIdsOrCustomVoiceMember1, VoiceIdsShared);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoiceAnyOf2>(null, VoiceIdsOrCustomVoiceAnyOf2, VoiceIdsShared);
         }
     }
 }

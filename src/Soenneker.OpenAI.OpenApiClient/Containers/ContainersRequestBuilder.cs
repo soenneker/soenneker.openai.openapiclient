@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Containers
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.containers.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Containers.Item.WithContainer_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Containers.Item.WithContainer_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Containers.Item.WithContainerItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Containers.Item.WithContainerItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("container_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Containers.Item.WithContainer_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("containerId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Containers.Item.WithContainerItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -165,7 +165,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Containers
 #endif
             /// <summary>Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Containers.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListContainersOrderParameter? Order { get; set; }
         }
     }
 }

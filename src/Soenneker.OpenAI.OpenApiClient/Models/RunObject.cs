@@ -44,10 +44,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Details on why the run is incomplete. Will be `null` if the run is not incomplete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_incomplete_details? IncompleteDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectIncompleteDetails? IncompleteDetails { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_incomplete_details IncompleteDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectIncompleteDetails IncompleteDetails { get; set; }
 #endif
         /// <summary>The instructions that the [assistant](/docs/api-reference/assistants) used for this run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,10 +60,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The last error associated with this run. Will be `null` if there are no errors.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_last_error? LastError { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectLastError? LastError { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_last_error LastError { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectLastError LastError { get; set; }
 #endif
         /// <summary>The maximum number of completion tokens specified to have been used over the course of the run.</summary>
         public int? MaxCompletionTokens { get; set; }
@@ -86,16 +86,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Model { get; set; }
 #endif
         /// <summary>The object type, which is always `thread.run`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectObject? Object { get; set; }
         /// <summary>Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.</summary>
         public bool? ParallelToolCalls { get; set; }
         /// <summary>Details on the action required to continue the run. Will be `null` if no action is required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_required_action? RequiredAction { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredAction? RequiredAction { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_required_action RequiredAction { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredAction RequiredAction { get; set; }
 #endif
         /// <summary>&quot;Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.Setting to `{ \&quot;type\&quot;: \&quot;json_schema\&quot;, \&quot;json_schema\&quot;: {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).Setting to `{ \&quot;type\&quot;: \&quot;json_object\&quot; }` enables JSON mode, which ensures the message the model generates is valid JSON.**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \&quot;stuck\&quot; request. Also note that the message content may be partially cut off if `finish_reason=\&quot;length\&quot;`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,7 +108,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The Unix timestamp (in seconds) for when the run was started.</summary>
         public int? StartedAt { get; set; }
         /// <summary>The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, `incomplete`, or `expired`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_status? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectStatus? Status { get; set; }
         /// <summary>The sampling temperature used for this run. If not set, defaults to 1.</summary>
         public double? Temperature { get; set; }
         /// <summary>The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run.</summary>
@@ -122,28 +122,28 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The tool_choice property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_tool_choice? ToolChoice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolChoice? ToolChoice { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_tool_choice ToolChoice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolChoice ToolChoice { get; set; }
 #endif
         /// <summary>The list of tools that the [assistant](/docs/api-reference/assistants) used for this run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject.RunObject_tools>? Tools { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolsItem>? Tools { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject.RunObject_tools> Tools { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolsItem> Tools { get; set; }
 #endif
         /// <summary>The nucleus sampling value used for this run. If not set, defaults to 1.</summary>
         public double? TopP { get; set; }
         /// <summary>The truncation_strategy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_truncation_strategy? TruncationStrategy { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy? TruncationStrategy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_truncation_strategy TruncationStrategy { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy TruncationStrategy { get; set; }
 #endif
         /// <summary>The usage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -185,25 +185,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
                 { "failed_at", n => { FailedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "incomplete_details", n => { IncompleteDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_incomplete_details>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_incomplete_details.CreateFromDiscriminatorValue); } },
+                { "incomplete_details", n => { IncompleteDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectIncompleteDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectIncompleteDetails.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
-                { "last_error", n => { LastError = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_last_error>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_last_error.CreateFromDiscriminatorValue); } },
+                { "last_error", n => { LastError = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectLastError>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectLastError.CreateFromDiscriminatorValue); } },
                 { "max_completion_tokens", n => { MaxCompletionTokens = n.GetIntValue(); } },
                 { "max_prompt_tokens", n => { MaxPromptTokens = n.GetIntValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectObject>(); } },
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
-                { "required_action", n => { RequiredAction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_required_action>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_required_action.CreateFromDiscriminatorValue); } },
+                { "required_action", n => { RequiredAction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredAction>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredAction.CreateFromDiscriminatorValue); } },
                 { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption.CreateFromDiscriminatorValue); } },
                 { "started_at", n => { StartedAt = n.GetIntValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectStatus>(); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "thread_id", n => { ThreadId = n.GetStringValue(); } },
-                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_tool_choice>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_tool_choice.CreateFromDiscriminatorValue); } },
-                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject.RunObject_tools>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObject.RunObject_tools.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolChoice>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolChoice.CreateFromDiscriminatorValue); } },
+                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },
-                { "truncation_strategy", n => { TruncationStrategy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_truncation_strategy>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_truncation_strategy.CreateFromDiscriminatorValue); } },
+                { "truncation_strategy", n => { TruncationStrategy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy.CreateFromDiscriminatorValue); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunCompletionUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.RunCompletionUsage.CreateFromDiscriminatorValue); } },
             };
         }
@@ -221,122 +221,27 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("expires_at", ExpiresAt);
             writer.WriteIntValue("failed_at", FailedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_incomplete_details>("incomplete_details", IncompleteDetails);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectIncompleteDetails>("incomplete_details", IncompleteDetails);
             writer.WriteStringValue("instructions", Instructions);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_last_error>("last_error", LastError);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectLastError>("last_error", LastError);
             writer.WriteIntValue("max_completion_tokens", MaxCompletionTokens);
             writer.WriteIntValue("max_prompt_tokens", MaxPromptTokens);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectObject>("object", Object);
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_required_action>("required_action", RequiredAction);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredAction>("required_action", RequiredAction);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption>("response_format", ResponseFormat);
             writer.WriteIntValue("started_at", StartedAt);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectStatus>("status", Status);
             writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteStringValue("thread_id", ThreadId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_tool_choice>("tool_choice", ToolChoice);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject.RunObject_tools>("tools", Tools);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolChoice>("tool_choice", ToolChoice);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolsItem>("tools", Tools);
             writer.WriteDoubleValue("top_p", TopP);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject_truncation_strategy>("truncation_strategy", TruncationStrategy);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy>("truncation_strategy", TruncationStrategy);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunCompletionUsage>("usage", Usage);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsCode"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFunction"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RunObject_tools : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsCode"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsCode? AssistantToolsCode { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsCode AssistantToolsCode { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch? AssistantToolsFileSearch { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch AssistantToolsFileSearch { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFunction"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFunction? AssistantToolsFunction { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFunction AssistantToolsFunction { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunObject.RunObject_tools"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.RunObject.RunObject_tools CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RunObject.RunObject_tools();
-                if("AssistantToolsCode".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.AssistantToolsCode = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsCode();
-                }
-                else if("AssistantToolsFileSearch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.AssistantToolsFileSearch = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch();
-                }
-                else if("AssistantToolsFunction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.AssistantToolsFunction = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFunction();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AssistantToolsCode != null)
-                {
-                    return AssistantToolsCode.GetFieldDeserializers();
-                }
-                else if(AssistantToolsFileSearch != null)
-                {
-                    return AssistantToolsFileSearch.GetFieldDeserializers();
-                }
-                else if(AssistantToolsFunction != null)
-                {
-                    return AssistantToolsFunction.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(AssistantToolsCode != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsCode>(null, AssistantToolsCode);
-                }
-                else if(AssistantToolsFileSearch != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch>(null, AssistantToolsFileSearch);
-                }
-                else if(AssistantToolsFunction != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFunction>(null, AssistantToolsFunction);
-                }
-            }
         }
     }
 }

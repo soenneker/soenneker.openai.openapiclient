@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates.Deactivate
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organization\projects\{project_id}\certificates\deactivate
+    /// Builds and executes requests for operations under \organization\projects\{projectId}\certificates\deactivate
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DeactivateRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DeactivateRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/certificates/deactivate", pathParameters)
+        public DeactivateRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{projectId}/certificates/deactivate", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DeactivateRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/certificates/deactivate", rawUrl)
+        public DeactivateRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{projectId}/certificates/deactivate", rawUrl)
         {
         }
         /// <summary>

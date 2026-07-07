@@ -16,14 +16,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Constrains the tools available to the model to a pre-defined set.`auto` allows the model to pick from among the allowed tools and generate amessage.`required` requires the model to call one or more of the allowed tools.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools_mode? Mode { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsMode? Mode { get; set; }
         /// <summary>&quot;A list of tool definitions that the model should be allowed to call.For the Chat Completions API, the list of tool definitions might look like:```json[  { \&quot;type\&quot;: \&quot;function\&quot;, \&quot;function\&quot;: { \&quot;name\&quot;: \&quot;get_weather\&quot; } },  { \&quot;type\&quot;: \&quot;function\&quot;, \&quot;function\&quot;: { \&quot;name\&quot;: \&quot;get_time\&quot; } }]```&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools_tools>? Tools { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty>? Tools { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools_tools> Tools { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty> Tools { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools"/> and sets the default values.
@@ -50,8 +50,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools_mode>(); } },
-                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools_tools>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools_tools.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsMode>(); } },
+                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -61,8 +61,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools_mode>("mode", Mode);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools_tools>("tools", Tools);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsMode>("mode", Mode);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty>("tools", Tools);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

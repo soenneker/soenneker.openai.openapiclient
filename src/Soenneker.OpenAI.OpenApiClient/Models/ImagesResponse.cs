@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The background parameter used for the image generation. Either `transparent` or `opaque`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse_background? Background { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseBackground? Background { get; set; }
         /// <summary>The Unix timestamp (in seconds) of when the image was created.</summary>
         public int? Created { get; set; }
         /// <summary>The list of generated images.</summary>
@@ -28,11 +28,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.Image> Data { get; set; }
 #endif
         /// <summary>The output format of the image generation. Either `png`, `webp`, or `jpeg`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse_output_format? OutputFormat { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseOutputFormat? OutputFormat { get; set; }
         /// <summary>The quality of the image generated. Either `low`, `medium`, or `high`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse_quality? Quality { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseQuality? Quality { get; set; }
         /// <summary>The size of the image generated. Either `1024x1024`, `1024x1536`, or `1536x1024`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse_size? Size { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseSize? Size { get; set; }
         /// <summary>For `gpt-image-1` only, the token usage information for the image generation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,12 +66,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "background", n => { Background = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse_background>(); } },
+                { "background", n => { Background = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseBackground>(); } },
                 { "created", n => { Created = n.GetIntValue(); } },
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Image>(global::Soenneker.OpenAI.OpenApiClient.Models.Image.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "output_format", n => { OutputFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse_output_format>(); } },
-                { "quality", n => { Quality = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse_quality>(); } },
-                { "size", n => { Size = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse_size>(); } },
+                { "output_format", n => { OutputFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseOutputFormat>(); } },
+                { "quality", n => { Quality = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseQuality>(); } },
+                { "size", n => { Size = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseSize>(); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenUsage.CreateFromDiscriminatorValue); } },
             };
         }
@@ -82,12 +82,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse_background>("background", Background);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseBackground>("background", Background);
             writer.WriteIntValue("created", Created);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Image>("data", Data);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse_output_format>("output_format", OutputFormat);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse_quality>("quality", Quality);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponse_size>("size", Size);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseOutputFormat>("output_format", OutputFormat);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseQuality>("quality", Quality);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseSize>("size", Size);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenUsage>("usage", Usage);
             writer.WriteAdditionalData(AdditionalData);
         }

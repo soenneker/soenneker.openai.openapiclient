@@ -25,7 +25,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The has_more property</summary>
         public bool? HasMore { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ListPaginatedFineTuningJobsResponse_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListPaginatedFineTuningJobsResponseObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListPaginatedFineTuningJobsResponse"/> and sets the default values.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListPaginatedFineTuningJobsResponse_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListPaginatedFineTuningJobsResponseObject>(); } },
             };
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob>("data", Data);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListPaginatedFineTuningJobsResponse_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListPaginatedFineTuningJobsResponseObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Optional description of the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicCreateOrganizationRoleBody_description? Description { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicCreateOrganizationRoleBodyDescription? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicCreateOrganizationRoleBody_description Description { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicCreateOrganizationRoleBodyDescription Description { get; set; }
 #endif
         /// <summary>Permissions to grant to the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicCreateOrganizationRoleBody_description>(global::Soenneker.OpenAI.OpenApiClient.Models.PublicCreateOrganizationRoleBody_description.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicCreateOrganizationRoleBodyDescription>(global::Soenneker.OpenAI.OpenApiClient.Models.PublicCreateOrganizationRoleBodyDescription.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "role_name", n => { RoleName = n.GetStringValue(); } },
             };
@@ -76,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicCreateOrganizationRoleBody_description>("description", Description);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicCreateOrganizationRoleBodyDescription>("description", Description);
             writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
             writer.WriteStringValue("role_name", RoleName);
             writer.WriteAdditionalData(AdditionalData);

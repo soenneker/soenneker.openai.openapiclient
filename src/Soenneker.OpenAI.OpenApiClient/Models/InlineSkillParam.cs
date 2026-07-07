@@ -39,7 +39,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam Source { get; set; }
 #endif
         /// <summary>Defines an inline skill for this request.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillParam_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillParamType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillParam"/> and sets the default values.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam>(global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillParam_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillParamType>(); } },
             };
         }
         /// <summary>
@@ -81,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam>("source", Source);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillParam_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillParamType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

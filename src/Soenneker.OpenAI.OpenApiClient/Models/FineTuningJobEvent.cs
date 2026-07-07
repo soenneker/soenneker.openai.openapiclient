@@ -20,10 +20,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The data associated with the event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent_data? Data { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEventDataProperty? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent_data Data { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEventDataProperty Data { get; set; }
 #endif
         /// <summary>The object identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The log level of the event.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent_level? Level { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEventLevel? Level { get; set; }
         /// <summary>The message of the event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,9 +44,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Message { get; set; }
 #endif
         /// <summary>The object type, which is always &quot;fine_tuning.job.event&quot;.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEventObject? Object { get; set; }
         /// <summary>The type of event.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEventType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent"/> and sets the default values.
         /// </summary>
@@ -73,12 +73,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent_data>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent_data.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEventDataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEventDataProperty.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "level", n => { Level = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent_level>(); } },
+                { "level", n => { Level = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEventLevel>(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent_object>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent_type>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEventObject>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEventType>(); } },
             };
         }
         /// <summary>
@@ -89,12 +89,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent_data>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEventDataProperty>("data", Data);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent_level>("level", Level);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEventLevel>("level", Level);
             writer.WriteStringValue("message", Message);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent_object>("object", Object);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEventObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEventType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -20,10 +20,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The heading property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_heading? Heading { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemHeading? Heading { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_heading Heading { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemHeading Heading { get; set; }
 #endif
         /// <summary>Identifier of the thread item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,14 +34,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>Type discriminator that is always `chatkit.thread_item`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemObject? Object { get; set; }
         /// <summary>The summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_summary? Summary { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemSummary? Summary { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_summary Summary { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemSummary Summary { get; set; }
 #endif
         /// <summary>The task_type property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.TaskType? TaskType { get; set; }
@@ -54,14 +54,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string ThreadId { get; set; }
 #endif
         /// <summary>Type discriminator that is always `chatkit.task`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem"/> and sets the default values.
         /// </summary>
         public TaskItem()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_object.ChatkitThread_item;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -82,13 +81,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "heading", n => { Heading = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_heading>(global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_heading.CreateFromDiscriminatorValue); } },
+                { "heading", n => { Heading = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemHeading>(global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemHeading.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_object>(); } },
-                { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_summary>(global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_summary.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemObject>(); } },
+                { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemSummary>(global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemSummary.CreateFromDiscriminatorValue); } },
                 { "task_type", n => { TaskType = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskType>(); } },
                 { "thread_id", n => { ThreadId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemType>(); } },
             };
         }
         /// <summary>
@@ -99,13 +98,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_heading>("heading", Heading);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemHeading>("heading", Heading);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_object>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_summary>("summary", Summary);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemObject>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemSummary>("summary", Summary);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskType>("task_type", TaskType);
             writer.WriteStringValue("thread_id", ThreadId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItem_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskItemType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

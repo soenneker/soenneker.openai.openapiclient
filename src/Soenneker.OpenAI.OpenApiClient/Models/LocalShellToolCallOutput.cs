@@ -34,13 +34,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput_status? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus? Status { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput_status Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus Status { get; set; }
 #endif
         /// <summary>The type of the local shell tool call output. Always `local_shell_call_output`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput"/> and sets the default values.
         /// </summary>
@@ -68,8 +68,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput_status>(global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput_status.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput_type>(); } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus>(global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputType>(); } },
             };
         }
         /// <summary>
@@ -81,8 +81,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("output", Output);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

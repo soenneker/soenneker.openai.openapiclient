@@ -32,7 +32,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorServiceAccount ServiceAccount { get; set; }
 #endif
         /// <summary>The type of API key. Can be either `user` or `service_account`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorApiKey_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorApiKeyType? Type { get; set; }
         /// <summary>The user who performed the audit logged action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "service_account", n => { ServiceAccount = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorServiceAccount>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorServiceAccount.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorApiKey_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorApiKeyType>(); } },
                 { "user", n => { User = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorUser>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorUser.CreateFromDiscriminatorValue); } },
             };
         }
@@ -81,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorServiceAccount>("service_account", ServiceAccount);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorApiKey_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorApiKeyType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }

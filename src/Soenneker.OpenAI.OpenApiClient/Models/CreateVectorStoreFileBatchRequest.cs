@@ -44,14 +44,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreFileRequest> Files { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -74,7 +66,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "chunking_strategy", n => { ChunkingStrategy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChunkingStrategyRequestParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ChunkingStrategyRequestParam.CreateFromDiscriminatorValue); } },
                 { "file_ids", n => { FileIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreFileRequest>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreFileRequest.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -88,7 +79,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChunkingStrategyRequestParam>("chunking_strategy", ChunkingStrategy);
             writer.WriteCollectionOfPrimitiveValues<string>("file_ids", FileIds);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreFileRequest>("files", Files);
-            writer.WriteStringValue("type", Type);
         }
     }
 }

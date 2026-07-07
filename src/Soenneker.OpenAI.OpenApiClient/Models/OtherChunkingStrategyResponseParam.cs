@@ -14,7 +14,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class OtherChunkingStrategyResponseParam : IParsable
     {
         /// <summary>Always `other`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OtherChunkingStrategyResponseParam_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OtherChunkingStrategyResponseParamType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -33,7 +33,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OtherChunkingStrategyResponseParam_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OtherChunkingStrategyResponseParamType>(); } },
             };
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OtherChunkingStrategyResponseParam_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OtherChunkingStrategyResponseParamType>("type", Type);
         }
     }
 }

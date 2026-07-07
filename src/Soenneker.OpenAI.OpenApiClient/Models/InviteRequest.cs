@@ -25,13 +25,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>An array of projects to which membership is granted at the same time the org invite is accepted. If omitted, the user will be invited to the default project for compatibility with legacy behavior. If empty list is passed, the user will not be invited to any projects, including the default one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequest_projects>? Projects { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequestProjectsItem>? Projects { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequest_projects> Projects { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequestProjectsItem> Projects { get; set; }
 #endif
         /// <summary>`owner` or `reader`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequest_role? Role { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequestRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequest"/> and sets the default values.
         /// </summary>
@@ -58,8 +58,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "projects", n => { Projects = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequest_projects>(global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequest_projects.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequest_role>(); } },
+                { "projects", n => { Projects = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequestProjectsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequestProjectsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequestRole>(); } },
             };
         }
         /// <summary>
@@ -70,8 +70,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequest_projects>("projects", Projects);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequest_role>("role", Role);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequestProjectsItem>("projects", Projects);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRequestRole>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

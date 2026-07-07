@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The type of hosted tool the model should to use. Learn more about[built-in tools](/docs/guides/tools).Allowed values are:- `file_search`- `web_search_preview`- `computer`- `computer_use_preview`- `computer_use`- `code_interpreter`- `image_generation`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceTypes_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceTypesType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceTypes"/> and sets the default values.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceTypes_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceTypesType>(); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceTypes_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceTypesType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

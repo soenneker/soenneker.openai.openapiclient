@@ -24,9 +24,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFilters Filters { get; set; }
 #endif
         /// <summary>High level guidance for the amount of context window space to use for the search. One of `low`, `medium`, or `high`. `medium` is the default.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_search_context_size? SearchContextSize { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolSearchContextSize? SearchContextSize { get; set; }
         /// <summary>The type of the web search tool. One of `web_search` or `web_search_2025_08_26`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolType? Type { get; set; }
         /// <summary>The user_location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,7 +41,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public WebSearchTool()
         {
             AdditionalData = new Dictionary<string, object>();
-            SearchContextSize = global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_search_context_size.Medium;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -62,8 +61,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFilters>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFilters.CreateFromDiscriminatorValue); } },
-                { "search_context_size", n => { SearchContextSize = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_search_context_size>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_type>(); } },
+                { "search_context_size", n => { SearchContextSize = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolSearchContextSize>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolType>(); } },
                 { "user_location", n => { UserLocation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation.CreateFromDiscriminatorValue); } },
             };
         }
@@ -75,8 +74,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFilters>("filters", Filters);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_search_context_size>("search_context_size", SearchContextSize);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolSearchContextSize>("search_context_size", SearchContextSize);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation>("user_location", UserLocation);
             writer.WriteAdditionalData(AdditionalData);
         }

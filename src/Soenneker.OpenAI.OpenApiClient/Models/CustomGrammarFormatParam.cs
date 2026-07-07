@@ -26,7 +26,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The syntax property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.GrammarSyntax1? Syntax { get; set; }
         /// <summary>Grammar format. Always `grammar`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParam_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParamType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParam"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "definition", n => { Definition = n.GetStringValue(); } },
                 { "syntax", n => { Syntax = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GrammarSyntax1>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParam_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParamType>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("definition", Definition);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GrammarSyntax1>("syntax", Syntax);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParam_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParamType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

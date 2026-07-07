@@ -27,20 +27,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can be         useful for storing additional information about the object in a structured         format, and querying for objects via API or the dashboard.        Keys are strings with a maximum length of 64 characters. Values are strings         with a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResource_metadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResourceMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResource_metadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResourceMetadata Metadata { get; set; }
 #endif
         /// <summary>The object type, which is always `conversation`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResource_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResourceObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResource"/> and sets the default values.
         /// </summary>
         public ConversationResource()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResource_object.Conversation;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -62,8 +61,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResource_metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResource_metadata.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResource_object>(); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResourceMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResourceMetadata.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResourceObject>(); } },
             };
         }
         /// <summary>
@@ -75,8 +74,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResource_metadata>("metadata", Metadata);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResource_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResourceMetadata>("metadata", Metadata);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationResourceObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

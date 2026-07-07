@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches.Item.Files
 {
     /// <summary>
-    /// Builds and executes requests for operations under \vector_stores\{vector_store_id}\file_batches\{batch_id}\files
+    /// Builds and executes requests for operations under \vector_stores\{vectorStoreId}\file_batches\{batchId}\files
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FilesRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches.Item.Fi
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FilesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/vector_stores/{vector_store_id}/file_batches/{batch_id}/files{?after*,before*,filter*,limit*,order*}", pathParameters)
+        public FilesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/vector_stores/{vectorStoreId}/file_batches/{batchId}/files{?after*,before*,filter*,limit*,order*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches.Item.Fi
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FilesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/vector_stores/{vector_store_id}/file_batches/{batch_id}/files{?after*,before*,filter*,limit*,order*}", rawUrl)
+        public FilesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/vector_stores/{vectorStoreId}/file_batches/{batchId}/files{?after*,before*,filter*,limit*,order*}", rawUrl)
         {
         }
         /// <summary>
@@ -107,13 +107,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches.Item.Fi
 #endif
             /// <summary>Filter by file status. One of `in_progress`, `completed`, `failed`, `cancelled`.</summary>
             [QueryParameter("filter")]
-            public global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches.Item.Files.GetFilterQueryParameterType? Filter { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListFilesInVectorStoreBatchFilterParameter? Filter { get; set; }
             /// <summary>A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
             /// <summary>Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches.Item.Files.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListFilesInVectorStoreBatchOrderParameter? Order { get; set; }
         }
     }
 }

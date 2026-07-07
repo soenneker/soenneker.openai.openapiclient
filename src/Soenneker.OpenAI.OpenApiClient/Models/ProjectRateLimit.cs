@@ -44,7 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Model { get; set; }
 #endif
         /// <summary>The object type, which is always `project.rate_limit`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimit_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimitObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimit"/> and sets the default values.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "max_requests_per_1_minute", n => { MaxRequestsPer1Minute = n.GetIntValue(); } },
                 { "max_tokens_per_1_minute", n => { MaxTokensPer1Minute = n.GetIntValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimit_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimitObject>(); } },
             };
         }
         /// <summary>
@@ -96,7 +96,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("max_requests_per_1_minute", MaxRequestsPer1Minute);
             writer.WriteIntValue("max_tokens_per_1_minute", MaxTokensPer1Minute);
             writer.WriteStringValue("model", Model);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimit_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimitObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

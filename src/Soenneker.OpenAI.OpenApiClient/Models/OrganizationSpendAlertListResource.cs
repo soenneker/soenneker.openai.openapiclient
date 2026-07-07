@@ -26,23 +26,23 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The ID of the first spend alert in this page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResource_first_id? FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResourceFirstId? FirstId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResource_first_id FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResourceFirstId FirstId { get; set; }
 #endif
         /// <summary>Whether more spend alerts are available when paginating.</summary>
         public bool? HasMore { get; set; }
         /// <summary>The ID of the last spend alert in this page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResource_last_id? LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResourceLastId? LastId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResource_last_id LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResourceLastId LastId { get; set; }
 #endif
         /// <summary>Always `list`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResource_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResourceObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResource"/> and sets the default values.
         /// </summary>
@@ -69,10 +69,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlert>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlert.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResource_first_id>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResource_first_id.CreateFromDiscriminatorValue); } },
+                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResourceFirstId>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResourceFirstId.CreateFromDiscriminatorValue); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResource_last_id>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResource_last_id.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResource_object>(); } },
+                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResourceLastId>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResourceLastId.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResourceObject>(); } },
             };
         }
         /// <summary>
@@ -83,10 +83,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlert>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResource_first_id>("first_id", FirstId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResourceFirstId>("first_id", FirstId);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResource_last_id>("last_id", LastId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResource_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResourceLastId>("last_id", LastId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendAlertListResourceObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

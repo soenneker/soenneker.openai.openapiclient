@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<string> AllowedDomains { get; set; }
 #endif
         /// <summary>The network policy mode.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicyType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allowed_domains", n => { AllowedDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicyType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_domains", AllowedDomains);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicyType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

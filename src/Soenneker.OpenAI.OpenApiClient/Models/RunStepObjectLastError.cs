@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>One of `server_error` or `rate_limit_exceeded`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError_code? Code { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastErrorAnyOf1Code? Code { get; set; }
         /// <summary>A human-readable description of the error.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,7 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError_code>(); } },
+                { "code", n => { Code = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastErrorAnyOf1Code>(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -69,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError_code>("code", Code);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastErrorAnyOf1Code>("code", Code);
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);

@@ -18,17 +18,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The keys property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParam_keys? Keys { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParamKeys? Keys { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParam_keys Keys { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParamKeys Keys { get; set; }
 #endif
         /// <summary>The horizontal scroll distance.</summary>
         public int? ScrollX { get; set; }
         /// <summary>The vertical scroll distance.</summary>
         public int? ScrollY { get; set; }
         /// <summary>Specifies the event type. For a scroll action, this property is always set to `scroll`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParam_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParamType? Type { get; set; }
         /// <summary>The x-coordinate where the scroll occurred.</summary>
         public int? X { get; set; }
         /// <summary>The y-coordinate where the scroll occurred.</summary>
@@ -58,10 +58,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "keys", n => { Keys = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParam_keys>(global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParam_keys.CreateFromDiscriminatorValue); } },
+                { "keys", n => { Keys = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParamKeys>(global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParamKeys.CreateFromDiscriminatorValue); } },
                 { "scroll_x", n => { ScrollX = n.GetIntValue(); } },
                 { "scroll_y", n => { ScrollY = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParam_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParamType>(); } },
                 { "x", n => { X = n.GetIntValue(); } },
                 { "y", n => { Y = n.GetIntValue(); } },
             };
@@ -73,10 +73,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParam_keys>("keys", Keys);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParamKeys>("keys", Keys);
             writer.WriteIntValue("scroll_x", ScrollX);
             writer.WriteIntValue("scroll_y", ScrollY);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParam_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParamType>("type", Type);
             writer.WriteIntValue("x", X);
             writer.WriteIntValue("y", Y);
             writer.WriteAdditionalData(AdditionalData);

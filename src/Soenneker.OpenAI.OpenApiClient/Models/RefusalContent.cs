@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Refusal { get; set; }
 #endif
         /// <summary>The type of the refusal. Always `refusal`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContent_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContent"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "refusal", n => { Refusal = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContent_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContentType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("refusal", Refusal);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContent_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -32,14 +32,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses
         }
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.responses.item collection</summary>
         /// <param name="position">The ID of the response to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Responses.Item.WithResponse_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Responses.Item.WithResponse_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Responses.Item.WithResponseItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Responses.Item.WithResponseItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("response_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Responses.Item.WithResponse_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("responseId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Responses.Item.WithResponseItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -61,22 +61,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses
         /// <summary>
         /// Creates a model response. Provide [text](/docs/guides/text) or[image](/docs/guides/images) inputs to generate [text](/docs/guides/text)or [JSON](/docs/guides/structured-outputs) outputs. Have the model callyour own [custom code](/docs/guides/function-calling) or use built-in[tools](/docs/guides/tools) like [web search](/docs/guides/tools-web-search)or [file search](/docs/guides/tools-file-search) to use your own dataas input for the model&apos;s response.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.Response?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.Response> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.Response>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a model response. Provide [text](/docs/guides/text) or[image](/docs/guides/images) inputs to generate [text](/docs/guides/text)or [JSON](/docs/guides/structured-outputs) outputs. Have the model callyour own [custom code](/docs/guides/function-calling) or use built-in[tools](/docs/guides/tools) like [web search](/docs/guides/tools-web-search)or [file search](/docs/guides/tools-file-search) to use your own dataas input for the model&apos;s response.

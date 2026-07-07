@@ -28,10 +28,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The Unix timestamp (in seconds) of when the API key was last used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKey_last_used_at? LastUsedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyLastUsedAt? LastUsedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKey_last_used_at LastUsedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyLastUsedAt LastUsedAt { get; set; }
 #endif
         /// <summary>The name of the API key</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.project.api_key`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKey_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyObject? Object { get; set; }
         /// <summary>The owner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,9 +86,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "last_used_at", n => { LastUsedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKey_last_used_at>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKey_last_used_at.CreateFromDiscriminatorValue); } },
+                { "last_used_at", n => { LastUsedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyLastUsedAt>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyLastUsedAt.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKey_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyObject>(); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwner>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwner.CreateFromDiscriminatorValue); } },
                 { "redacted_value", n => { RedactedValue = n.GetStringValue(); } },
             };
@@ -102,9 +102,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKey_last_used_at>("last_used_at", LastUsedAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyLastUsedAt>("last_used_at", LastUsedAt);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKey_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyObject>("object", Object);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwner>("owner", Owner);
             writer.WriteStringValue("redacted_value", RedactedValue);
             writer.WriteAdditionalData(AdditionalData);

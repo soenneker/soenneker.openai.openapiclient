@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.fine_tuning.jobs.item collection</summary>
         /// <param name="position">The ID of the fine-tuning job.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.WithFine_tuning_job_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.WithFine_tuning_job_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.WithFineTuningJobItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.WithFineTuningJobItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("fine_tuning_job_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.WithFine_tuning_job_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("fineTuningJobId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.WithFineTuningJobItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

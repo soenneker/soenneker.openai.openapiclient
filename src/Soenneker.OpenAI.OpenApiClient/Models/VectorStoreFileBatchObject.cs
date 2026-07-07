@@ -34,9 +34,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The object type, which is always `vector_store.file_batch`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectObject? Object { get; set; }
         /// <summary>The status of the vector store files batch, which can be either `in_progress`, `completed`, `cancelled` or `failed`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_status? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectStatus? Status { get; set; }
         /// <summary>The ID of the [vector store](/docs/api-reference/vector-stores/object) that the [File](/docs/api-reference/files) is attached to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,8 +73,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "file_counts", n => { FileCounts = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectFileCounts>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectFileCounts.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_object>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_status>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectObject>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectStatus>(); } },
                 { "vector_store_id", n => { VectorStoreId = n.GetStringValue(); } },
             };
         }
@@ -88,8 +88,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectFileCounts>("file_counts", FileCounts);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_object>("object", Object);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObject_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectStatus>("status", Status);
             writer.WriteStringValue("vector_store_id", VectorStoreId);
             writer.WriteAdditionalData(AdditionalData);
         }

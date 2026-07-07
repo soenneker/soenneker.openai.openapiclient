@@ -44,7 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The index of the first character of the container file citation in the message.</summary>
         public int? StartIndex { get; set; }
         /// <summary>The type of the container file citation. Always `container_file_citation`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerFileCitationBody_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerFileCitationBodyType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ContainerFileCitationBody"/> and sets the default values.
         /// </summary>
@@ -75,7 +75,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "file_id", n => { FileId = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "start_index", n => { StartIndex = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerFileCitationBody_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerFileCitationBodyType>(); } },
             };
         }
         /// <summary>
@@ -90,7 +90,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("file_id", FileId);
             writer.WriteStringValue("filename", Filename);
             writer.WriteIntValue("start_index", StartIndex);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerFileCitationBody_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerFileCitationBodyType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

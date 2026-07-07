@@ -32,7 +32,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string ImageUrl { get; set; }
 #endif
         /// <summary>The type of the image input. Always `input_image`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemInputImage_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemInputImageType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemInputImage"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "detail", n => { Detail = n.GetStringValue(); } },
                 { "image_url", n => { ImageUrl = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemInputImage_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemInputImageType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("detail", Detail);
             writer.WriteStringValue("image_url", ImageUrl);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemInputImage_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemInputImageType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

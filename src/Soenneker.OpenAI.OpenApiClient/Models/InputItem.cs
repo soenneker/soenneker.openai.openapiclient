@@ -8,11 +8,13 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CompactionTriggerItemParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessage"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ItemReferenceParam"/>
+    /// A list of one or many input items to the model, containingdifferent content types.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class InputItem : IComposedTypeWrapper, IParsable
+    public partial class InputItem : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CompactionTriggerItemParam"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,14 +31,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessage EasyInputMessage { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Item"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item? Item { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Item Item { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ItemReferenceParam"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,6 +39,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ItemReferenceParam ItemReferenceParam { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue? ItemValue { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue ItemValue { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputItem"/> and sets the default values.
+        /// </summary>
+        public InputItem()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -62,10 +71,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if("EasyInputMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EasyInputMessage = new global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessage();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.Item = new global::Soenneker.OpenAI.OpenApiClient.Models.Item();
             }
             else if("ItemReferenceParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -87,13 +92,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 return EasyInputMessage.GetFieldDeserializers();
             }
-            else if(Item != null)
-            {
-                return Item.GetFieldDeserializers();
-            }
             else if(ItemReferenceParam != null)
             {
                 return ItemReferenceParam.GetFieldDeserializers();
+            }
+            else if(ItemValue != null)
+            {
+                return ItemValue.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -112,14 +117,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessage>(null, EasyInputMessage);
             }
-            else if(Item != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Item>(null, Item);
-            }
             else if(ItemReferenceParam != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ItemReferenceParam>(null, ItemReferenceParam);
             }
+            else if(ItemValue != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue>(null, ItemValue);
+            }
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

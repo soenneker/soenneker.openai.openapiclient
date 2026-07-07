@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObjectImage Image { get; set; }
 #endif
         /// <summary>Always `image`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObject_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObjectType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObject"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "image", n => { Image = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObjectImage>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObjectImage.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObject_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObjectType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObjectImage>("image", Image);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObject_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObjectType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

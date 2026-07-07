@@ -39,7 +39,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string MimeType { get; set; }
 #endif
         /// <summary>The intended purpose of the uploaded file.See the [documentation on Filepurposes](/docs/api-reference/files/create#files-create-purpose).</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateUploadRequest_purpose? Purpose { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateUploadRequestPurpose? Purpose { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "expires_after", n => { ExpiresAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileExpirationAfter>(global::Soenneker.OpenAI.OpenApiClient.Models.FileExpirationAfter.CreateFromDiscriminatorValue); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "mime_type", n => { MimeType = n.GetStringValue(); } },
-                { "purpose", n => { Purpose = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateUploadRequest_purpose>(); } },
+                { "purpose", n => { Purpose = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateUploadRequestPurpose>(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileExpirationAfter>("expires_after", ExpiresAfter);
             writer.WriteStringValue("filename", Filename);
             writer.WriteStringValue("mime_type", MimeType);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateUploadRequest_purpose>("purpose", Purpose);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateUploadRequestPurpose>("purpose", Purpose);
         }
     }
 }

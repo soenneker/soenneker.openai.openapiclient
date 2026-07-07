@@ -38,14 +38,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Videos
         }
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.videos.item collection</summary>
         /// <param name="position">The identifier of the video to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Videos.Item.WithVideo_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Videos.Item.WithVideo_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Videos.Item.WithVideoItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Videos.Item.WithVideoItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("video_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Videos.Item.WithVideo_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("videoId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Videos.Item.WithVideoItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

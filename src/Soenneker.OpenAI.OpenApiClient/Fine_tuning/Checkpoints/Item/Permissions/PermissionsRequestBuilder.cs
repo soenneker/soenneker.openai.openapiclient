@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.Permissions
 {
     /// <summary>
-    /// Builds and executes requests for operations under \fine_tuning\checkpoints\{fine_tuned_model_checkpoint}\permissions
+    /// Builds and executes requests for operations under \fine_tuning\checkpoints\{fineTunedModelCheckpoint}\permissions
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PermissionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.fine_tuning.checkpoints.item.permissions.item collection</summary>
         /// <param name="position">The ID of the fine-tuned model checkpoint permission to delete.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.Permissions.Item.WithPermission_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.Permissions.Item.WithPermission_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.Permissions.Item.WithPermissionItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.Permissions.Item.WithPermissionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("permission_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.Permissions.Item.WithPermission_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("permissionId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.Permissions.Item.WithPermissionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.Permission
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PermissionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/checkpoints/{fine_tuned_model_checkpoint}/permissions{?after*,limit*,order*,project_id*}", pathParameters)
+        public PermissionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/checkpoints/{fineTunedModelCheckpoint}/permissions{?after*,limit*,order*,project_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.Permission
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PermissionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/checkpoints/{fine_tuned_model_checkpoint}/permissions{?after*,limit*,order*,project_id*}", rawUrl)
+        public PermissionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/checkpoints/{fineTunedModelCheckpoint}/permissions{?after*,limit*,order*,project_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -155,7 +155,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.Permission
             public int? Limit { get; set; }
             /// <summary>The order in which to retrieve permissions.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.Permissions.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionsOrderParameter? Order { get; set; }
             /// <summary>The ID of the project to get permissions for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

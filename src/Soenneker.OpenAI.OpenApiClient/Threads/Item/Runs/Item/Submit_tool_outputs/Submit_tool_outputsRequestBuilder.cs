@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.Submit_tool_outputs
 {
     /// <summary>
-    /// Builds and executes requests for operations under \threads\{thread_id}\runs\{run_id}\submit_tool_outputs
+    /// Builds and executes requests for operations under \threads\{threadId}\runs\{runId}\submit_tool_outputs
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Submit_tool_outputsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.Submit_tool_outp
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Submit_tool_outputsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/threads/{thread_id}/runs/{run_id}/submit_tool_outputs", pathParameters)
+        public Submit_tool_outputsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/threads/{threadId}/runs/{runId}/submit_tool_outputs", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.Submit_tool_outp
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Submit_tool_outputsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/threads/{thread_id}/runs/{run_id}/submit_tool_outputs", rawUrl)
+        public Submit_tool_outputsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/threads/{threadId}/runs/{runId}/submit_tool_outputs", rawUrl)
         {
         }
         /// <summary>

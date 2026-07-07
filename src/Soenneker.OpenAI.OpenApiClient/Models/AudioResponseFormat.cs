@@ -21,7 +21,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "verbose_json")]
         #pragma warning disable CS1591
-        Verbose_json,
+        VerboseJson,
         #pragma warning restore CS1591
         [EnumMember(Value = "vtt")]
         #pragma warning disable CS1591
@@ -29,7 +29,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "diarized_json")]
         #pragma warning disable CS1591
-        Diarized_json,
+        DiarizedJson,
         #pragma warning restore CS1591
     }
 }

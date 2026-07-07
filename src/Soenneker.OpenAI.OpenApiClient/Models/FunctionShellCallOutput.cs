@@ -42,10 +42,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The max_output_length property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput_max_output_length? MaxOutputLength { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputMaxOutputLength? MaxOutputLength { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput_max_output_length MaxOutputLength { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputMaxOutputLength MaxOutputLength { get; set; }
 #endif
         /// <summary>An array of shell call output contents</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputStatusEnum? Status { get; set; }
         /// <summary>The type of the shell call output. Always `shell_call_output`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput"/> and sets the default values.
         /// </summary>
@@ -87,10 +87,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "max_output_length", n => { MaxOutputLength = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput_max_output_length>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput_max_output_length.CreateFromDiscriminatorValue); } },
+                { "max_output_length", n => { MaxOutputLength = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputMaxOutputLength>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputMaxOutputLength.CreateFromDiscriminatorValue); } },
                 { "output", n => { Output = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputContent>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputContent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputStatusEnum>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputType>(); } },
             };
         }
         /// <summary>
@@ -103,10 +103,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput_max_output_length>("max_output_length", MaxOutputLength);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputMaxOutputLength>("max_output_length", MaxOutputLength);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputContent>("output", Output);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputStatusEnum>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

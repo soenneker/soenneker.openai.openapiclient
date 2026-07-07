@@ -25,20 +25,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The first_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponse_first_id? FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponseFirstId? FirstId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponse_first_id FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponseFirstId FirstId { get; set; }
 #endif
         /// <summary>The has_more property</summary>
         public bool? HasMore { get; set; }
         /// <summary>The last_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponse_last_id? LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponseLastId? LastId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponse_last_id LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponseLastId LastId { get; set; }
 #endif
         /// <summary>The object property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,9 +74,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponse_first_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponse_first_id.CreateFromDiscriminatorValue); } },
+                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponseFirstId>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponseFirstId.CreateFromDiscriminatorValue); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponse_last_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponse_last_id.CreateFromDiscriminatorValue); } },
+                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponseLastId>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponseLastId.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetStringValue(); } },
             };
         }
@@ -88,9 +88,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUser>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponse_first_id>("first_id", FirstId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponseFirstId>("first_id", FirstId);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponse_last_id>("last_id", LastId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserListResponseLastId>("last_id", LastId);
             writer.WriteStringValue("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }

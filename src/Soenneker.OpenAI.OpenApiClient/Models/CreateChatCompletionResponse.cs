@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>A list of chat completion choices. Can be more than one if `n` is greater than 1.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse_choices>? Choices { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItem>? Choices { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse_choices> Choices { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItem> Choices { get; set; }
 #endif
         /// <summary>The Unix timestamp (in seconds) of when the chat completion was created.</summary>
         public int? Created { get; set; }
@@ -41,8 +41,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Model { get; set; }
 #endif
+        /// <summary>The moderation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration? Moderation { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration Moderation { get; set; }
+#endif
         /// <summary>The object type, which is always `chat.completion`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseObject? Object { get; set; }
         /// <summary>The service_tier property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,11 +101,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "choices", n => { Choices = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse_choices>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse_choices.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "choices", n => { Choices = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItem>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created", n => { Created = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse_object>(); } },
+                { "moderation", n => { Moderation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseObject>(); } },
                 { "service_tier", n => { ServiceTier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier>(global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier.CreateFromDiscriminatorValue); } },
                 { "system_fingerprint", n => { SystemFingerprint = n.GetStringValue(); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage.CreateFromDiscriminatorValue); } },
@@ -110,11 +119,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse_choices>("choices", Choices);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItem>("choices", Choices);
             writer.WriteIntValue("created", Created);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("model", Model);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration>("moderation", Moderation);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseObject>("object", Object);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier>("service_tier", ServiceTier);
             writer.WriteStringValue("system_fingerprint", SystemFingerprint);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage>("usage", Usage);

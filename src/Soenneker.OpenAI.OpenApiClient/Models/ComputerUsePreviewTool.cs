@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The environment property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerEnvironment? Environment { get; set; }
         /// <summary>The type of the computer use tool. Always `computer_use_preview`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewTool_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewToolType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewTool"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "display_height", n => { DisplayHeight = n.GetIntValue(); } },
                 { "display_width", n => { DisplayWidth = n.GetIntValue(); } },
                 { "environment", n => { Environment = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerEnvironment>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewTool_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewToolType>(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("display_height", DisplayHeight);
             writer.WriteIntValue("display_width", DisplayWidth);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerEnvironment>("environment", Environment);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewTool_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewToolType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

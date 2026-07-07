@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate> Data { get; set; }
 #endif
         /// <summary>The project certificate deactivation result type.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateDeactivationResponse_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateDeactivationResponseObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateDeactivationResponse"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateDeactivationResponse_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateDeactivationResponseObject>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate>("data", Data);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateDeactivationResponse_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateDeactivationResponseObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -20,19 +20,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The json schema for each row in the data source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig_item_schema? ItemSchema { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty? ItemSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig_item_schema ItemSchema { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty ItemSchema { get; set; }
 #endif
         /// <summary>The type of data source. Always `custom`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig"/> and sets the default values.
         /// </summary>
         public CreateEvalCustomDataSourceConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            IncludeSampleSchema = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -53,8 +54,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "include_sample_schema", n => { IncludeSampleSchema = n.GetBoolValue(); } },
-                { "item_schema", n => { ItemSchema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig_item_schema>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig_item_schema.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig_type>(); } },
+                { "item_schema", n => { ItemSchema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigType>(); } },
             };
         }
         /// <summary>
@@ -65,8 +66,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("include_sample_schema", IncludeSampleSchema);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig_item_schema>("item_schema", ItemSchema);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty>("item_schema", ItemSchema);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

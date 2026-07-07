@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The desired project data retention type.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateProjectDataRetentionBody_retention_type? RetentionType { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateProjectDataRetentionBodyRetentionType? RetentionType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UpdateProjectDataRetentionBody"/> and sets the default values.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "retention_type", n => { RetentionType = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateProjectDataRetentionBody_retention_type>(); } },
+                { "retention_type", n => { RetentionType = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateProjectDataRetentionBodyRetentionType>(); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateProjectDataRetentionBody_retention_type>("retention_type", RetentionType);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateProjectDataRetentionBodyRetentionType>("retention_type", RetentionType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

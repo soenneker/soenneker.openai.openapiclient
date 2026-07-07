@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<string> PassingLabels { get; set; }
 #endif
         /// <summary>The object type, which is always `label_model`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModel_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModelType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModel"/> and sets the default values.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "passing_labels", n => { PassingLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModel_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModelType>(); } },
             };
         }
         /// <summary>
@@ -101,7 +101,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("passing_labels", PassingLabels);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModel_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModelType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

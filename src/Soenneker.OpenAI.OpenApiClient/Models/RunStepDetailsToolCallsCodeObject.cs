@@ -32,7 +32,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The type of tool call. This is always going to be `code_interpreter` for this type of tool call.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObject_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObjectType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObject"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "code_interpreter", n => { CodeInterpreter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObjectCodeInterpreter>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObjectCodeInterpreter.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObject_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObjectType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObjectCodeInterpreter>("code_interpreter", CodeInterpreter);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObject_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObjectType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

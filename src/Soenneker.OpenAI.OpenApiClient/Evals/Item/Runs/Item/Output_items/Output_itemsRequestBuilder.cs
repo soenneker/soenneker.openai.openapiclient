@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.Output_items
 {
     /// <summary>
-    /// Builds and executes requests for operations under \evals\{eval_id}\runs\{run_id}\output_items
+    /// Builds and executes requests for operations under \evals\{evalId}\runs\{runId}\output_items
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Output_itemsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.evals.item.runs.item.output_items.item collection</summary>
         /// <param name="position">The ID of the output item to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.Output_items.Item.WithOutput_item_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.Output_items.Item.WithOutput_item_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.Output_items.Item.WithOutputItemItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.Output_items.Item.WithOutputItemItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("output_item_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.Output_items.Item.WithOutput_item_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("outputItemId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.Output_items.Item.WithOutputItemItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.Output_items
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Output_itemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/evals/{eval_id}/runs/{run_id}/output_items{?after*,limit*,order*,status*}", pathParameters)
+        public Output_itemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/evals/{evalId}/runs/{runId}/output_items{?after*,limit*,order*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.Output_items
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Output_itemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/evals/{eval_id}/runs/{run_id}/output_items{?after*,limit*,order*,status*}", rawUrl)
+        public Output_itemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/evals/{evalId}/runs/{runId}/output_items{?after*,limit*,order*,status*}", rawUrl)
         {
         }
         /// <summary>
@@ -113,10 +113,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.Output_items
             public int? Limit { get; set; }
             /// <summary>Sort order for output items by timestamp. Use `asc` for ascending order or `desc` for descending order. Defaults to `asc`.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.Output_items.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.GetEvalRunOutputItemsOrderParameter? Order { get; set; }
             /// <summary>Filter output items by status. Use `failed` to filter by failed outputitems or `pass` to filter by passed output items.</summary>
             [QueryParameter("status")]
-            public global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.Output_items.GetStatusQueryParameterType? Status { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.GetEvalRunOutputItemsStatusParameter? Status { get; set; }
         }
     }
 }

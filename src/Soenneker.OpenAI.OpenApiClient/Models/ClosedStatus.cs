@@ -18,13 +18,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The reason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatus_reason? Reason { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatusReason? Reason { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatus_reason Reason { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatusReason Reason { get; set; }
 #endif
         /// <summary>Status discriminator that is always `closed`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatus_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatusType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatus"/> and sets the default values.
         /// </summary>
@@ -50,8 +50,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "reason", n => { Reason = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatus_reason>(global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatus_reason.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatus_type>(); } },
+                { "reason", n => { Reason = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatusReason>(global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatusReason.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatusType>(); } },
             };
         }
         /// <summary>
@@ -61,8 +61,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatus_reason>("reason", Reason);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatus_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatusReason>("reason", Reason);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatusType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -33,10 +33,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The param property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError_param? Param { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1Param? Param { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError_param Param { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1Param Param { get; set; }
 #endif
         /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "param", n => { Param = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError_param>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError_param.CreateFromDiscriminatorValue); } },
+                { "param", n => { Param = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1Param>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1Param.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("message", Message);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError_param>("param", Param);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1Param>("param", Param);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

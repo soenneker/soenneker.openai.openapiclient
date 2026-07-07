@@ -34,15 +34,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The results property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall_results? Results { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults? Results { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall_results Results { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults Results { get; set; }
 #endif
         /// <summary>The status of the file search tool call. One of `in_progress`,`searching`, `incomplete` or `failed`,</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall_status? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallStatus? Status { get; set; }
         /// <summary>The type of the file search tool call. Always `file_search_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall"/> and sets the default values.
         /// </summary>
@@ -70,9 +70,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "queries", n => { Queries = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "results", n => { Results = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall_results>(global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall_results.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall_status>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall_type>(); } },
+                { "results", n => { Results = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults>(global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallStatus>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallType>(); } },
             };
         }
         /// <summary>
@@ -84,9 +84,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("queries", Queries);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall_results>("results", Results);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults>("results", Results);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

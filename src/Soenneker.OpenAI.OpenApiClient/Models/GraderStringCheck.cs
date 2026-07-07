@@ -32,7 +32,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The string check operation to perform. One of `eq`, `ne`, `like`, or `ilike`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderStringCheck_operation? Operation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheckOperation? Operation { get; set; }
         /// <summary>The reference text. This may include template strings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Reference { get; set; }
 #endif
         /// <summary>The object type, which is always `string_check`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderStringCheck_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheckType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.GraderStringCheck"/> and sets the default values.
         /// </summary>
@@ -70,9 +70,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "input", n => { Input = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderStringCheck_operation>(); } },
+                { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheckOperation>(); } },
                 { "reference", n => { Reference = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderStringCheck_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheckType>(); } },
             };
         }
         /// <summary>
@@ -84,9 +84,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("input", Input);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderStringCheck_operation>("operation", Operation);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheckOperation>("operation", Operation);
             writer.WriteStringValue("reference", Reference);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderStringCheck_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheckType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

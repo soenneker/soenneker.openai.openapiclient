@@ -14,7 +14,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class VectorStoreSearchRequestRankingOptions : IParsable
     {
         /// <summary>Enable re-ranking; set to `none` to disable, which can help reduce latency.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptions_ranker? Ranker { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptionsRanker? Ranker { get; set; }
         /// <summary>The score_threshold property</summary>
         public double? ScoreThreshold { get; set; }
         /// <summary>
@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// </summary>
         public VectorStoreSearchRequestRankingOptions()
         {
-            Ranker = global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptions_ranker.Auto;
+            ScoreThreshold = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ranker", n => { Ranker = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptions_ranker>(); } },
+                { "ranker", n => { Ranker = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptionsRanker>(); } },
                 { "score_threshold", n => { ScoreThreshold = n.GetDoubleValue(); } },
             };
         }
@@ -53,7 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptions_ranker>("ranker", Ranker);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptionsRanker>("ranker", Ranker);
             writer.WriteDoubleValue("score_threshold", ScoreThreshold);
         }
     }

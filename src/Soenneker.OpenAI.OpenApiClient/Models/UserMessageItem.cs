@@ -26,10 +26,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Ordered content elements supplied by the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem.UserMessageItem_content>? Content { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemContentItem>? Content { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem.UserMessageItem_content> Content { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemContentItem> Content { get; set; }
 #endif
         /// <summary>Unix timestamp (in seconds) for when the item was created.</summary>
         public int? CreatedAt { get; set; }
@@ -44,13 +44,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The inference_options property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem_inference_options? InferenceOptions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemInferenceOptions? InferenceOptions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem_inference_options InferenceOptions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemInferenceOptions InferenceOptions { get; set; }
 #endif
         /// <summary>Type discriminator that is always `chatkit.thread_item`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemObject? Object { get; set; }
         /// <summary>Identifier of the parent thread.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,14 +60,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string ThreadId { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem"/> and sets the default values.
         /// </summary>
         public UserMessageItem()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem_object.ChatkitThread_item;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -88,13 +87,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Attachment>(global::Soenneker.OpenAI.OpenApiClient.Models.Attachment.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem.UserMessageItem_content>(global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem.UserMessageItem_content.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "inference_options", n => { InferenceOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem_inference_options>(global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem_inference_options.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem_object>(); } },
+                { "inference_options", n => { InferenceOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemInferenceOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemInferenceOptions.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemObject>(); } },
                 { "thread_id", n => { ThreadId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemType>(); } },
             };
         }
         /// <summary>
@@ -105,89 +104,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Attachment>("attachments", Attachments);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem.UserMessageItem_content>("content", Content);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemContentItem>("content", Content);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem_inference_options>("inference_options", InferenceOptions);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemInferenceOptions>("inference_options", InferenceOptions);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemObject>("object", Object);
             writer.WriteStringValue("thread_id", ThreadId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageInputText"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageQuotedText"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class UserMessageItem_content : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageInputText"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageInputText? UserMessageInputText { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageInputText UserMessageInputText { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageQuotedText"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageQuotedText? UserMessageQuotedText { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageQuotedText UserMessageQuotedText { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem.UserMessageItem_content"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem.UserMessageItem_content CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem.UserMessageItem_content();
-                if("UserMessageInputText".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.UserMessageInputText = new global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageInputText();
-                }
-                else if("UserMessageQuotedText".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.UserMessageQuotedText = new global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageQuotedText();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(UserMessageInputText != null)
-                {
-                    return UserMessageInputText.GetFieldDeserializers();
-                }
-                else if(UserMessageQuotedText != null)
-                {
-                    return UserMessageQuotedText.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(UserMessageInputText != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageInputText>(null, UserMessageInputText);
-                }
-                else if(UserMessageQuotedText != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageQuotedText>(null, UserMessageQuotedText);
-                }
-            }
         }
     }
 }

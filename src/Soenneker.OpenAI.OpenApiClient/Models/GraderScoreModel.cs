@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams SamplingParams { get; set; }
 #endif
         /// <summary>The object type, which is always `score_model`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModel_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModelType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModel"/> and sets the default values.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "range", n => { Range = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "sampling_params", n => { SamplingParams = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams>(global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModel_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModelType>(); } },
             };
         }
         /// <summary>
@@ -102,7 +102,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<double?>("range", Range);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams>("sampling_params", SamplingParams);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModel_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModelType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

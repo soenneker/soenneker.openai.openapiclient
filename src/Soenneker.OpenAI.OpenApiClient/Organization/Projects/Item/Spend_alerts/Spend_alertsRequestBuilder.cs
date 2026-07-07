@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organization\projects\{project_id}\spend_alerts
+    /// Builds and executes requests for operations under \organization\projects\{projectId}\spend_alerts
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Spend_alertsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.organization.projects.item.spend_alerts.item collection</summary>
-        /// <param name="position">The ID of the spend alert to update.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts.Item.WithAlert_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts.Item.WithAlert_ItemRequestBuilder this[string position]
+        /// <param name="position">The ID of the spend alert to retrieve.</param>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts.Item.WithAlertItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts.Item.WithAlertItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("alert_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts.Item.WithAlert_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("alertId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts.Item.WithAlertItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Spend_alertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/spend_alerts{?after*,before*,limit*,order*}", pathParameters)
+        public Spend_alertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{projectId}/spend_alerts{?after*,before*,limit*,order*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Spend_alertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/spend_alerts{?after*,before*,limit*,order*}", rawUrl)
+        public Spend_alertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{projectId}/spend_alerts{?after*,before*,limit*,order*}", rawUrl)
         {
         }
         /// <summary>
@@ -165,7 +165,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts
             public int? Limit { get; set; }
             /// <summary>Sort order for the returned spend alerts.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListProjectSpendAlertsOrderParameter? Order { get; set; }
         }
     }
 }

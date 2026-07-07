@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesMember2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateEvalCompletionsRunDataSourceInputMessages : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesMember1? CreateEvalCompletionsRunDataSourceInputMessagesMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages? CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesMember1 CreateEvalCompletionsRunDataSourceInputMessagesMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesMember2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesMember2? CreateEvalCompletionsRunDataSourceInputMessagesMember2 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages? CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesMember2 CreateEvalCompletionsRunDataSourceInputMessagesMember2 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +39,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessages();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CreateEvalCompletionsRunDataSourceInputMessagesMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesMember1();
+                result.CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CreateEvalCompletionsRunDataSourceInputMessagesMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesMember2();
+                result.CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages();
             }
             return result;
         }
@@ -55,13 +55,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateEvalCompletionsRunDataSourceInputMessagesMember1 != null)
+            if(CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages != null)
             {
-                return CreateEvalCompletionsRunDataSourceInputMessagesMember1.GetFieldDeserializers();
+                return CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages.GetFieldDeserializers();
             }
-            else if(CreateEvalCompletionsRunDataSourceInputMessagesMember2 != null)
+            else if(CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages != null)
             {
-                return CreateEvalCompletionsRunDataSourceInputMessagesMember2.GetFieldDeserializers();
+                return CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -72,13 +72,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateEvalCompletionsRunDataSourceInputMessagesMember1 != null)
+            if(CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesMember1>(null, CreateEvalCompletionsRunDataSourceInputMessagesMember1);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages>(null, CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages);
             }
-            else if(CreateEvalCompletionsRunDataSourceInputMessagesMember2 != null)
+            else if(CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesMember2>(null, CreateEvalCompletionsRunDataSourceInputMessagesMember2);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages>(null, CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages);
             }
         }
     }

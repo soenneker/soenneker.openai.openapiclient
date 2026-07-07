@@ -17,10 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAIFile>? Data { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAIFile> Data { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile> Data { get; set; }
 #endif
         /// <summary>The first_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAIFile>(global::Soenneker.OpenAI.OpenApiClient.Models.OpenAIFile.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile>(global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "first_id", n => { FirstId = n.GetStringValue(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
                 { "last_id", n => { LastId = n.GetStringValue(); } },
@@ -87,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAIFile>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile>("data", Data);
             writer.WriteStringValue("first_id", FirstId);
             writer.WriteBoolValue("has_more", HasMore);
             writer.WriteStringValue("last_id", LastId);

@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.Events
 {
     /// <summary>
-    /// Builds and executes requests for operations under \fine_tuning\jobs\{fine_tuning_job_id}\events
+    /// Builds and executes requests for operations under \fine_tuning\jobs\{fineTuningJobId}\events
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EventsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.Events
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/jobs/{fine_tuning_job_id}/events{?after*,limit*}", pathParameters)
+        public EventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/jobs/{fineTuningJobId}/events{?after*,limit*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.Events
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/jobs/{fine_tuning_job_id}/events{?after*,limit*}", rawUrl)
+        public EventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/jobs/{fineTuningJobId}/events{?after*,limit*}", rawUrl)
         {
         }
         /// <summary>

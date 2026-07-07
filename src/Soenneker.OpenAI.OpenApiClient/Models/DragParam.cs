@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The keys property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DragParam_keys? Keys { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DragParamKeys? Keys { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DragParam_keys Keys { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DragParamKeys Keys { get; set; }
 #endif
         /// <summary>&quot;An array of coordinates representing the path of the drag action. Coordinates will appear as an array of objects, eg```[  { x: 100, y: 200 },  { x: 200, y: 300 }]```&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,7 +32,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.CoordParam> Path { get; set; }
 #endif
         /// <summary>Specifies the event type. For a drag action, this property is always set to `drag`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DragParam_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DragParamType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.DragParam"/> and sets the default values.
         /// </summary>
@@ -58,9 +58,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "keys", n => { Keys = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DragParam_keys>(global::Soenneker.OpenAI.OpenApiClient.Models.DragParam_keys.CreateFromDiscriminatorValue); } },
+                { "keys", n => { Keys = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DragParamKeys>(global::Soenneker.OpenAI.OpenApiClient.Models.DragParamKeys.CreateFromDiscriminatorValue); } },
                 { "path", n => { Path = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CoordParam>(global::Soenneker.OpenAI.OpenApiClient.Models.CoordParam.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DragParam_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DragParamType>(); } },
             };
         }
         /// <summary>
@@ -70,9 +70,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DragParam_keys>("keys", Keys);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DragParamKeys>("keys", Keys);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CoordParam>("path", Path);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DragParam_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DragParamType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

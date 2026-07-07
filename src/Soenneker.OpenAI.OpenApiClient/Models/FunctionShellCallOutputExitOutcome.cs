@@ -18,7 +18,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Exit code from the shell process.</summary>
         public int? ExitCode { get; set; }
         /// <summary>The outcome type. Always `exit`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputExitOutcome_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputExitOutcomeType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputExitOutcome"/> and sets the default values.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "exit_code", n => { ExitCode = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputExitOutcome_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputExitOutcomeType>(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("exit_code", ExitCode);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputExitOutcome_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutputExitOutcomeType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

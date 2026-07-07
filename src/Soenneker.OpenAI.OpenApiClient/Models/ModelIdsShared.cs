@@ -14,29 +14,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared_Branch1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsSharedBranch1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared_Branch1? ModelIdsSharedBranch1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsSharedBranch1? ModelIdsSharedBranch1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared_Branch1 ModelIdsSharedBranch1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsSharedBranch1 ModelIdsSharedBranch1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared_Wrapper"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsSharedWrapper"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared_Wrapper? ModelIdsSharedWrapper { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsSharedWrapper? ModelIdsSharedWrapper { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared_Wrapper ModelIdsSharedWrapper { get; set; }
-#endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsSharedWrapper ModelIdsSharedWrapper { get; set; }
 #endif
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,17 +54,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared();
-            if(parseNode.GetStringValue() is string typeValue)
-            {
-                result.Type = typeValue;
-            }
-            else if(parseNode.GetStringValue() is string valueValue)
+            if(parseNode.GetStringValue() is string valueValue)
             {
                 result.Value = valueValue;
             }
             else {
-                result.ModelIdsSharedBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared_Branch1();
-                result.ModelIdsSharedWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared_Wrapper();
+                result.ModelIdsSharedBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsSharedBranch1();
+                result.ModelIdsSharedWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsSharedWrapper();
             }
             return result;
         }
@@ -95,16 +83,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(Type != null)
-            {
-                writer.WriteStringValue(null, Type);
-            }
-            else if(Value != null)
+            if(Value != null)
             {
                 writer.WriteStringValue(null, Value);
             }
             else {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared_Branch1>(null, ModelIdsSharedBranch1, ModelIdsSharedWrapper);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsSharedBranch1>(null, ModelIdsSharedBranch1, ModelIdsSharedWrapper);
             }
             writer.WriteAdditionalData(AdditionalData);
         }

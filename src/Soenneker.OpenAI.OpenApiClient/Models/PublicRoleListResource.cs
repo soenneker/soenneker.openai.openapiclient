@@ -28,13 +28,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Cursor to fetch the next page of results, or `null` when there are no additional roles.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResource_next? Next { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceNext? Next { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResource_next Next { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceNext Next { get; set; }
 #endif
         /// <summary>Always `list`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResource_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResource"/> and sets the default values.
         /// </summary>
@@ -62,8 +62,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Role>(global::Soenneker.OpenAI.OpenApiClient.Models.Role.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "next", n => { Next = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResource_next>(global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResource_next.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResource_object>(); } },
+                { "next", n => { Next = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceNext>(global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceNext.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceObject>(); } },
             };
         }
         /// <summary>
@@ -75,8 +75,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Role>("data", Data);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResource_next>("next", Next);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResource_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceNext>("next", Next);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

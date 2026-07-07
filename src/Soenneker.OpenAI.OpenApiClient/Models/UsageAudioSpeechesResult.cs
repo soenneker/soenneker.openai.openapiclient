@@ -18,40 +18,40 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The api_key_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_api_key_id? ApiKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultApiKeyId? ApiKeyId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_api_key_id ApiKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultApiKeyId ApiKeyId { get; set; }
 #endif
         /// <summary>The number of characters processed.</summary>
         public int? Characters { get; set; }
         /// <summary>The model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_model? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultModel? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_model Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultModel Model { get; set; }
 #endif
         /// <summary>The count of requests made to the model.</summary>
         public int? NumModelRequests { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultObject? Object { get; set; }
         /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_project_id? ProjectId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultProjectId? ProjectId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_project_id ProjectId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultProjectId ProjectId { get; set; }
 #endif
         /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_user_id? UserId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultUserId? UserId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_user_id UserId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultUserId UserId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult"/> and sets the default values.
@@ -78,13 +78,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key_id", n => { ApiKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_api_key_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_api_key_id.CreateFromDiscriminatorValue); } },
+                { "api_key_id", n => { ApiKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultApiKeyId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultApiKeyId.CreateFromDiscriminatorValue); } },
                 { "characters", n => { Characters = n.GetIntValue(); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_model>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_model.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultModel>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultModel.CreateFromDiscriminatorValue); } },
                 { "num_model_requests", n => { NumModelRequests = n.GetIntValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_object>(); } },
-                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_project_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_project_id.CreateFromDiscriminatorValue); } },
-                { "user_id", n => { UserId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_user_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_user_id.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultObject>(); } },
+                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultProjectId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultProjectId.CreateFromDiscriminatorValue); } },
+                { "user_id", n => { UserId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultUserId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultUserId.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -94,13 +94,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_api_key_id>("api_key_id", ApiKeyId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultApiKeyId>("api_key_id", ApiKeyId);
             writer.WriteIntValue("characters", Characters);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_model>("model", Model);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultModel>("model", Model);
             writer.WriteIntValue("num_model_requests", NumModelRequests);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_object>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_project_id>("project_id", ProjectId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult_user_id>("user_id", UserId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultObject>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultProjectId>("project_id", ProjectId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultUserId>("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

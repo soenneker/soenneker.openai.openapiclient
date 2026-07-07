@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies the detail level of the image if specified by the user. `low` uses fewer tokens, you can opt in to high resolution using `high`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile_detail? Detail { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFileDetail? Detail { get; set; }
         /// <summary>The [File](/docs/api-reference/files) ID of the image in the message content. Set `purpose=&quot;vision&quot;` when uploading the File if you need to later display the file content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,7 +30,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public MessageContentImageFileObjectImageFile()
         {
             AdditionalData = new Dictionary<string, object>();
-            Detail = global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile_detail.Auto;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,7 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "detail", n => { Detail = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile_detail>(); } },
+                { "detail", n => { Detail = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFileDetail>(); } },
                 { "file_id", n => { FileId = n.GetStringValue(); } },
             };
         }
@@ -61,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile_detail>("detail", Detail);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFileDetail>("detail", Detail);
             writer.WriteStringValue("file_id", FileId);
             writer.WriteAdditionalData(AdditionalData);
         }

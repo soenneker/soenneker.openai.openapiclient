@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Chat.Completions
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.chat.completions.item collection</summary>
         /// <param name="position">The ID of the chat completion to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Chat.Completions.Item.WithCompletion_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Chat.Completions.Item.WithCompletion_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Chat.Completions.Item.WithCompletionItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Chat.Completions.Item.WithCompletionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("completion_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Chat.Completions.Item.WithCompletion_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("completionId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Chat.Completions.Item.WithCompletionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -175,7 +175,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Chat.Completions
 #endif
             /// <summary>Sort order for Chat Completions by timestamp. Use `asc` for ascending order or `desc` for descending order. Defaults to `asc`.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Chat.Completions.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListChatCompletionsOrderParameter? Order { get; set; }
         }
     }
 }

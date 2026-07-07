@@ -17,14 +17,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.fine_tuning.checkpoints.item collection</summary>
         /// <param name="position">The ID of the fine-tuned model checkpoint to get permissions for.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.WithFine_tuned_model_checkpointItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.WithFine_tuned_model_checkpointItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.WithFineTunedModelCheckpointItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.WithFineTunedModelCheckpointItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("fine_tuned_model_checkpoint", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.WithFine_tuned_model_checkpointItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("fineTunedModelCheckpoint", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.WithFineTunedModelCheckpointItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -42,10 +42,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The preview_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Attachment_preview_url? PreviewUrl { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentPreviewUrl? PreviewUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Attachment_preview_url PreviewUrl { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentPreviewUrl PreviewUrl { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentType? Type { get; set; }
@@ -77,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "mime_type", n => { MimeType = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "preview_url", n => { PreviewUrl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Attachment_preview_url>(global::Soenneker.OpenAI.OpenApiClient.Models.Attachment_preview_url.CreateFromDiscriminatorValue); } },
+                { "preview_url", n => { PreviewUrl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentPreviewUrl>(global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentPreviewUrl.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentType>(); } },
             };
         }
@@ -91,7 +91,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("mime_type", MimeType);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Attachment_preview_url>("preview_url", PreviewUrl);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentPreviewUrl>("preview_url", PreviewUrl);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

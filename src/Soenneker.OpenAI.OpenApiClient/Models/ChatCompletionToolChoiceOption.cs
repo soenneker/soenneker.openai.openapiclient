@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsChoice"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoice"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustom"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOption_Wrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsChoice"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoice"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustom"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOptionWrapper"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatCompletionToolChoiceOption : IComposedTypeWrapper, IParsable
@@ -37,13 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustom ChatCompletionNamedToolChoiceCustom { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOption_Wrapper"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOptionWrapper"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOption_Wrapper? ChatCompletionToolChoiceOptionWrapper { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOptionWrapper? ChatCompletionToolChoiceOptionWrapper { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOption_Wrapper ChatCompletionToolChoiceOptionWrapper { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOptionWrapper ChatCompletionToolChoiceOptionWrapper { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -66,10 +66,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if("ChatCompletionNamedToolChoiceCustom".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ChatCompletionNamedToolChoiceCustom = new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustom();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ChatCompletionToolChoiceOptionWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOption_Wrapper();
             }
             return result;
         }
@@ -118,7 +114,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             }
             else if(ChatCompletionToolChoiceOptionWrapper != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOption_Wrapper>(null, ChatCompletionToolChoiceOptionWrapper);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOptionWrapper>(null, ChatCompletionToolChoiceOptionWrapper);
             }
         }
     }

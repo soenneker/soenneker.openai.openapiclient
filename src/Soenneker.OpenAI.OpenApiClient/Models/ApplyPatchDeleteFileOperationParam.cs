@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Path { get; set; }
 #endif
         /// <summary>The operation type. Always `delete_file`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchDeleteFileOperationParam_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchDeleteFileOperationParamType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchDeleteFileOperationParam"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "path", n => { Path = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchDeleteFileOperationParam_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchDeleteFileOperationParamType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("path", Path);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchDeleteFileOperationParam_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchDeleteFileOperationParamType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

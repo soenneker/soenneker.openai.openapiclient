@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items
 {
     /// <summary>
-    /// Builds and executes requests for operations under \conversations\{conversation_id}\items
+    /// Builds and executes requests for operations under \conversations\{conversationId}\items
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ItemsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.conversations.item.items.item collection</summary>
         /// <param name="position">The ID of the item to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.Item.WithItem_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.Item.WithItem_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.Item.WithItemItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.Item.WithItemItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("item_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.Item.WithItem_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("itemId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.Item.WithItemItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ItemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conversations/{conversation_id}/items{?after*,include*,limit*,order*}", pathParameters)
+        public ItemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conversations/{conversationId}/items{?after*,include*,limit*,order*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ItemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conversations/{conversation_id}/items{?after*,include*,limit*,order*}", rawUrl)
+        public ItemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conversations/{conversationId}/items{?after*,include*,limit*,order*}", rawUrl)
         {
         }
         /// <summary>
@@ -73,11 +73,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationItemList?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateConversationItems body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationItemList?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateConversationItemsRequest body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationItemList> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateConversationItems body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationItemList> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateConversationItemsRequest body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -111,11 +111,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.CreateConversationItems body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.CreateConversationItemsRequest body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.CreateConversationItems body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.CreateConversationItemsRequest body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.ItemsRequestBuilder.ItemsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -165,7 +165,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items
             public int? Limit { get; set; }
             /// <summary>&quot;The order to return the input items in. Default is `desc`.- `asc`: Return the input items in ascending order.- `desc`: Return the input items in descending order.&quot;</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Conversations.Item.Items.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListConversationItemsOrderParameter? Order { get; set; }
         }
         /// <summary>
         /// Create items in a conversation with the given ID.

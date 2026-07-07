@@ -42,10 +42,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_version? Version { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowVersion? Version { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_version Version { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowVersion Version { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow"/> and sets the default values.
@@ -75,7 +75,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "state_variables", n => { StateVariables = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariables>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariables.CreateFromDiscriminatorValue); } },
                 { "tracing", n => { Tracing = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowTracing>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowTracing.CreateFromDiscriminatorValue); } },
-                { "version", n => { Version = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_version>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_version.CreateFromDiscriminatorValue); } },
+                { "version", n => { Version = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowVersion>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowVersion.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -88,7 +88,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariables>("state_variables", StateVariables);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowTracing>("tracing", Tracing);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow_version>("version", Version);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowVersion>("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

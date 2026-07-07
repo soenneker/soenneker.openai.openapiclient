@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustom Custom { get; set; }
 #endif
         /// <summary>The type of the custom tool. Always `custom`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletions_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletions"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "custom", n => { Custom = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustom>(global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustom.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletions_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustom>("custom", Custom);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletions_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

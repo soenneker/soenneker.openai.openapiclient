@@ -19,18 +19,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResource_id? Id { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResourceId? Id { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResource_id Id { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResourceId Id { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResource_name? Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResourceName? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResource_name Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResourceName Name { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResource"/> and sets the default values.
@@ -58,8 +58,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "id", n => { Id = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResource_id>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResource_id.CreateFromDiscriminatorValue); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResource_name>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResource_name.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResourceId>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResourceId.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResourceName>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResourceName.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -70,8 +70,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResource_id>("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResource_name>("name", Name);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResourceId>("id", Id);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoCharacterResourceName>("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

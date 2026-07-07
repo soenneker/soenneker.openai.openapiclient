@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Projects.Item.Roles
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{project_id}\roles
+    /// Builds and executes requests for operations under \projects\{projectId}\roles
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RolesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.projects.item.roles.item collection</summary>
         /// <param name="position">The ID of the role to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Roles.Item.WithRole_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Roles.Item.WithRole_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Roles.Item.WithRoleItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Roles.Item.WithRoleItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("role_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Roles.Item.WithRole_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("roleId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Roles.Item.WithRoleItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Projects.Item.Roles
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RolesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/roles{?after*,limit*,order*}", pathParameters)
+        public RolesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/roles{?after*,limit*,order*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Projects.Item.Roles
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RolesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/roles{?after*,limit*,order*}", rawUrl)
+        public RolesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/roles{?after*,limit*,order*}", rawUrl)
         {
         }
         /// <summary>
@@ -155,7 +155,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Projects.Item.Roles
             public int? Limit { get; set; }
             /// <summary>Sort order for the returned roles.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Roles.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListProjectRolesOrderParameter? Order { get; set; }
         }
     }
 }

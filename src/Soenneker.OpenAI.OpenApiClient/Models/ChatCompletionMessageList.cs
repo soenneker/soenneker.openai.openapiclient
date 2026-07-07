@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>An array of chat completion message objects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageList_data>? Data { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageListDataItem>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageList_data> Data { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageListDataItem> Data { get; set; }
 #endif
         /// <summary>The identifier of the first chat message in the data array.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,14 +42,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string LastId { get; set; }
 #endif
         /// <summary>The type of this object. It is always set to &quot;list&quot;.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageList_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageListObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageList"/> and sets the default values.
         /// </summary>
         public ChatCompletionMessageList()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageList_object.List;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -69,11 +68,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageList_data>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageList_data.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageListDataItem>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageListDataItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "first_id", n => { FirstId = n.GetStringValue(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
                 { "last_id", n => { LastId = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageList_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageListObject>(); } },
             };
         }
         /// <summary>
@@ -83,11 +82,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageList_data>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageListDataItem>("data", Data);
             writer.WriteStringValue("first_id", FirstId);
             writer.WriteBoolValue("has_more", HasMore);
             writer.WriteStringValue("last_id", LastId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageList_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageListObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

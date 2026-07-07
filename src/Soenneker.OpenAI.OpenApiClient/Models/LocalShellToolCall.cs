@@ -40,9 +40,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The status of the local shell call.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCall_status? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallStatus? Status { get; set; }
         /// <summary>The type of the local shell call. Always `local_shell_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCall_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCall"/> and sets the default values.
         /// </summary>
@@ -71,8 +71,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "action", n => { Action = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecAction>(global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecAction.CreateFromDiscriminatorValue); } },
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCall_status>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCall_type>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallStatus>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallType>(); } },
             };
         }
         /// <summary>
@@ -85,8 +85,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecAction>("action", Action);
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCall_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCall_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

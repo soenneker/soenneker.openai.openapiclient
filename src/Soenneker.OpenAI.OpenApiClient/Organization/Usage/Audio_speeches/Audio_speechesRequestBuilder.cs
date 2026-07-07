@@ -97,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Usage.Audio_speeches
 #endif
             /// <summary>Width of each time bucket in response. Currently `1m`, `1h` and `1d` are supported, default to `1d`.</summary>
             [QueryParameter("bucket_width")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Audio_speeches.GetBucket_widthQueryParameterType? BucketWidth { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesBucketWidthParameter? BucketWidth { get; set; }
             /// <summary>End time (Unix seconds) of the query time range, exclusive.</summary>
             [QueryParameter("end_time")]
             public int? EndTime { get; set; }
@@ -105,11 +105,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Usage.Audio_speeches
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("group_by")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Audio_speeches.GetGroup_byQueryParameterType[]? GroupBy { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesGroupByParameterItem[]? GroupBy { get; set; }
 #nullable restore
 #else
             [QueryParameter("group_by")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Audio_speeches.GetGroup_byQueryParameterType[] GroupBy { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesGroupByParameterItem[] GroupBy { get; set; }
 #endif
             /// <summary>&quot;Specifies the number of buckets to return.- `bucket_width=1d`: default: 7, max: 31- `bucket_width=1h`: default: 24, max: 168- `bucket_width=1m`: default: 60, max: 1440&quot;</summary>
             [QueryParameter("limit")]

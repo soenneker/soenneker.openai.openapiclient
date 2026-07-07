@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Videos.Characters
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.videos.characters.item collection</summary>
         /// <param name="position">The identifier of the character to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Videos.Characters.Item.WithCharacter_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Videos.Characters.Item.WithCharacter_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Videos.Characters.Item.WithCharacterItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Videos.Characters.Item.WithCharacterItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("character_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Videos.Characters.Item.WithCharacter_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("characterId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Videos.Characters.Item.WithCharacterItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

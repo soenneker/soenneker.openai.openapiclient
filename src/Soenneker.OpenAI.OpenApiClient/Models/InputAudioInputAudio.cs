@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Data { get; set; }
 #endif
         /// <summary>The format of the audio data. Currently supported formats are `mp3` and`wav`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio_format? Format { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudioFormat? Format { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetStringValue(); } },
-                { "format", n => { Format = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio_format>(); } },
+                { "format", n => { Format = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudioFormat>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("data", Data);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio_format>("format", Format);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudioFormat>("format", Format);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

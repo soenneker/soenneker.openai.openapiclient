@@ -19,14 +19,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Realtime.Calls
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.realtime.calls.item collection</summary>
         /// <param name="position">The identifier for the call provided in the[`realtime.call.incoming`](/docs/api-reference/webhook-events/realtime/call/incoming)webhook.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.WithCall_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.WithCall_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.WithCallItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.WithCallItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("call_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.WithCall_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("callId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.WithCallItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

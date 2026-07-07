@@ -26,7 +26,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The object type, which is always &quot;checkpoint.permission&quot;.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningCheckpointPermission_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningCheckpointPermissionObject? Object { get; set; }
         /// <summary>The project identifier that the permission is for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningCheckpointPermission_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningCheckpointPermissionObject>(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
             };
         }
@@ -75,7 +75,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningCheckpointPermission_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningCheckpointPermissionObject>("object", Object);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteAdditionalData(AdditionalData);
         }

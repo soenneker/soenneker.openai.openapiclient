@@ -26,15 +26,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall_result? Result { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallResult? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall_result Result { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallResult Result { get; set; }
 #endif
         /// <summary>The status of the image generation call.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall_status? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallStatus? Status { get; set; }
         /// <summary>The type of the image generation call. Always `image_generation_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall"/> and sets the default values.
         /// </summary>
@@ -61,9 +61,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall_result>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall_result.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall_status>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall_type>(); } },
+                { "result", n => { Result = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallResult>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallResult.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallStatus>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallType>(); } },
             };
         }
         /// <summary>
@@ -74,9 +74,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall_result>("result", Result);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallResult>("result", Result);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

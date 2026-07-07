@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<string> Keys { get; set; }
 #endif
         /// <summary>Specifies the event type. For a keypress action, this property is always set to `keypress`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.KeyPressAction_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.KeyPressActionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.KeyPressAction"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "keys", n => { Keys = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.KeyPressAction_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.KeyPressActionType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("keys", Keys);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.KeyPressAction_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.KeyPressActionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

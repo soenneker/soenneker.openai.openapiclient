@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics Metrics { get; set; }
 #endif
         /// <summary>The object type, which is always &quot;fine_tuning.job.checkpoint&quot;.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointObject? Object { get; set; }
         /// <summary>The step number that the checkpoint was created at.</summary>
         public int? StepNumber { get; set; }
         /// <summary>
@@ -83,7 +83,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "fine_tuning_job_id", n => { FineTuningJobId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointObject>(); } },
                 { "step_number", n => { StepNumber = n.GetIntValue(); } },
             };
         }
@@ -99,7 +99,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("fine_tuning_job_id", FineTuningJobId);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics>("metrics", Metrics);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointObject>("object", Object);
             writer.WriteIntValue("step_number", StepNumber);
             writer.WriteAdditionalData(AdditionalData);
         }

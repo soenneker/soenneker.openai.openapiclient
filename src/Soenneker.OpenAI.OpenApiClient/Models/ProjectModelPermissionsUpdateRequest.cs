@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The model permissions mode to apply.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsUpdateRequest_mode? Mode { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsUpdateRequestMode? Mode { get; set; }
         /// <summary>The model IDs included in this permissions policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsUpdateRequest_mode>(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsUpdateRequestMode>(); } },
                 { "model_ids", n => { ModelIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsUpdateRequest_mode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsUpdateRequestMode>("mode", Mode);
             writer.WriteCollectionOfPrimitiveValues<string>("model_ids", ModelIds);
             writer.WriteAdditionalData(AdditionalData);
         }

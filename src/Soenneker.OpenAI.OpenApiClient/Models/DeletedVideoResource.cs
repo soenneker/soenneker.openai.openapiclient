@@ -26,14 +26,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The object type that signals the deletion response.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DeletedVideoResource_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DeletedVideoResourceObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.DeletedVideoResource"/> and sets the default values.
         /// </summary>
         public DeletedVideoResource()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.DeletedVideoResource_object.VideoDeleted;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -55,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "deleted", n => { Deleted = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DeletedVideoResource_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DeletedVideoResourceObject>(); } },
             };
         }
         /// <summary>
@@ -67,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("deleted", Deleted);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DeletedVideoResource_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DeletedVideoResourceObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

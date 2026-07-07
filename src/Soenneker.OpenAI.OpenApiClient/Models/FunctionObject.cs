@@ -33,18 +33,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. Omitting `parameters` defines a function with an empty parameter list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject_parameters? Parameters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectParameters? Parameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject_parameters Parameters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectParameters Parameters { get; set; }
 #endif
         /// <summary>The strict property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject_strict? Strict { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectStrict? Strict { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject_strict Strict { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectStrict Strict { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject"/> and sets the default values.
@@ -73,8 +73,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject_parameters>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject_parameters.CreateFromDiscriminatorValue); } },
-                { "strict", n => { Strict = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject_strict>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject_strict.CreateFromDiscriminatorValue); } },
+                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectParameters>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectParameters.CreateFromDiscriminatorValue); } },
+                { "strict", n => { Strict = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectStrict>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectStrict.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -86,8 +86,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject_parameters>("parameters", Parameters);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject_strict>("strict", Strict);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectParameters>("parameters", Parameters);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectStrict>("strict", Strict);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

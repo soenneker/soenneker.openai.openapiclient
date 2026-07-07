@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.Checkpoints
 {
     /// <summary>
-    /// Builds and executes requests for operations under \fine_tuning\jobs\{fine_tuning_job_id}\checkpoints
+    /// Builds and executes requests for operations under \fine_tuning\jobs\{fineTuningJobId}\checkpoints
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CheckpointsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.Checkpoints
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CheckpointsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/jobs/{fine_tuning_job_id}/checkpoints{?after*,limit*}", pathParameters)
+        public CheckpointsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/jobs/{fineTuningJobId}/checkpoints{?after*,limit*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.Checkpoints
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CheckpointsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/jobs/{fine_tuning_job_id}/checkpoints{?after*,limit*}", rawUrl)
+        public CheckpointsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/jobs/{fineTuningJobId}/checkpoints{?after*,limit*}", rawUrl)
         {
         }
         /// <summary>

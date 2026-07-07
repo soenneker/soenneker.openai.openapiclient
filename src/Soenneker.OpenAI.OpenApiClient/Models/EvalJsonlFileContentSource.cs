@@ -17,13 +17,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The content of the jsonl file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource_content>? Content { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItem>? Content { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource_content> Content { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItem> Content { get; set; }
 #endif
         /// <summary>The type of jsonl source. Always `file_content`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource"/> and sets the default values.
         /// </summary>
@@ -49,8 +49,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource_content>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource_content.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource_type>(); } },
+                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceType>(); } },
             };
         }
         /// <summary>
@@ -60,8 +60,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource_content>("content", Content);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource_type>("type", Type);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItem>("content", Content);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

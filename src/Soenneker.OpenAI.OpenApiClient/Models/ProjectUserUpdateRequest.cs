@@ -17,10 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>`owner` or `member`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserUpdateRequest_role? Role { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserUpdateRequestRole? Role { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserUpdateRequest_role Role { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserUpdateRequestRole Role { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserUpdateRequest"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "role", n => { Role = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserUpdateRequest_role>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserUpdateRequest_role.CreateFromDiscriminatorValue); } },
+                { "role", n => { Role = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserUpdateRequestRole>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserUpdateRequestRole.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserUpdateRequest_role>("role", Role);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUserUpdateRequestRole>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

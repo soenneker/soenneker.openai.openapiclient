@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "DF3BF47D41C19FE42077FA9CAC70A5FC9DF06114D2889EC3B225D181069CB5FC93616605D2E6464A046A963D694E9C298F4AE5620D960DE19F529788A1D3BAE7",
+  "descriptionHash": "AB94EE73707358B5DC9A8B689B39905C844CE38BBE80E86BB269B100F0399B0B617B280CCA8E94DE273BF8D55B861186F43FBEC9C0AFC9AC87A229C6AC399CD5",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.31.1",
+  "kiotaVersion": "1.33.0",
   "clientClassName": "OpenAIOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.OpenAI.OpenApiClient",
@@ -30,5 +30,6 @@
   ],
   "includePatterns": [],
   "excludePatterns": [],
-  "disabledValidationRules": []
+  "disabledValidationRules": [],
+  "allowedExternalOrigins": []
 }

@@ -18,13 +18,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Metadata filters for the logs data source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig_metadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfigMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig_metadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfigMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>The type of data source. Always `logs`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfigType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig"/> and sets the default values.
         /// </summary>
@@ -50,8 +50,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig_metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig_metadata.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig_type>(); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfigMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfigMetadataProperty.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfigType>(); } },
             };
         }
         /// <summary>
@@ -61,8 +61,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig_metadata>("metadata", Metadata);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfigMetadataProperty>("metadata", Metadata);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfigType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

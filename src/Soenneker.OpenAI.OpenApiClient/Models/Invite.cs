@@ -16,10 +16,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The Unix timestamp (in seconds) of when the invite was accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Invite_accepted_at? AcceptedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InviteAcceptedAt? AcceptedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Invite_accepted_at AcceptedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InviteAcceptedAt AcceptedAt { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -36,10 +36,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The Unix timestamp (in seconds) of when the invite expires.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Invite_expires_at? ExpiresAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InviteExpiresAt? ExpiresAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Invite_expires_at ExpiresAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InviteExpiresAt ExpiresAt { get; set; }
 #endif
         /// <summary>The identifier, which can be referenced in API endpoints</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,19 +50,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.invite`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Invite_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InviteObject? Object { get; set; }
         /// <summary>The projects that were granted membership upon acceptance of the invite.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_projects>? Projects { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.InviteProjectsItem>? Projects { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_projects> Projects { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.InviteProjectsItem> Projects { get; set; }
 #endif
         /// <summary>`owner` or `reader`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Invite_role? Role { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InviteRole? Role { get; set; }
         /// <summary>`accepted`,`expired`, or `pending`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Invite_status? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InviteStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Invite"/> and sets the default values.
         /// </summary>
@@ -88,15 +88,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accepted_at", n => { AcceptedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_accepted_at>(global::Soenneker.OpenAI.OpenApiClient.Models.Invite_accepted_at.CreateFromDiscriminatorValue); } },
+                { "accepted_at", n => { AcceptedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteAcceptedAt>(global::Soenneker.OpenAI.OpenApiClient.Models.InviteAcceptedAt.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "expires_at", n => { ExpiresAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_expires_at>(global::Soenneker.OpenAI.OpenApiClient.Models.Invite_expires_at.CreateFromDiscriminatorValue); } },
+                { "expires_at", n => { ExpiresAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteExpiresAt>(global::Soenneker.OpenAI.OpenApiClient.Models.InviteExpiresAt.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_object>(); } },
-                { "projects", n => { Projects = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_projects>(global::Soenneker.OpenAI.OpenApiClient.Models.Invite_projects.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_role>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_status>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteObject>(); } },
+                { "projects", n => { Projects = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InviteProjectsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.InviteProjectsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRole>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteStatus>(); } },
             };
         }
         /// <summary>
@@ -106,15 +106,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_accepted_at>("accepted_at", AcceptedAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteAcceptedAt>("accepted_at", AcceptedAt);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("email", Email);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_expires_at>("expires_at", ExpiresAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteExpiresAt>("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_object>("object", Object);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_projects>("projects", Projects);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_role>("role", Role);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Invite_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteObject>("object", Object);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InviteProjectsItem>("projects", Projects);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRole>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

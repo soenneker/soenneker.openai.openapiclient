@@ -32,14 +32,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Certificates
         }
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.organization.certificates.item collection</summary>
         /// <param name="position">Unique ID of the certificate to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Certificates.Item.WithCertificate_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Organization.Certificates.Item.WithCertificate_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Certificates.Item.WithCertificateItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Certificates.Item.WithCertificateItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("certificate_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Certificates.Item.WithCertificate_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("certificateId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Certificates.Item.WithCertificateItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -167,7 +167,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Certificates
             public int? Limit { get; set; }
             /// <summary>Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Certificates.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListOrganizationCertificatesOrderParameter? Order { get; set; }
         }
     }
 }

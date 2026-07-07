@@ -9,11 +9,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         [EnumMember(Value = "near_field")]
         #pragma warning disable CS1591
-        Near_field,
+        NearField,
         #pragma warning restore CS1591
         [EnumMember(Value = "far_field")]
         #pragma warning disable CS1591
-        Far_field,
+        FarField,
         #pragma warning restore CS1591
     }
 }

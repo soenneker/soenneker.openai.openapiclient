@@ -25,23 +25,23 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The first_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyList_first_id? FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyListFirstId? FirstId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyList_first_id FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyListFirstId FirstId { get; set; }
 #endif
         /// <summary>The has_more property</summary>
         public bool? HasMore { get; set; }
         /// <summary>The last_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyList_last_id? LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyListLastId? LastId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyList_last_id LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyListLastId LastId { get; set; }
 #endif
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyList_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyListObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyList"/> and sets the default values.
         /// </summary>
@@ -68,10 +68,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey>(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyList_first_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyList_first_id.CreateFromDiscriminatorValue); } },
+                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyListFirstId>(global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyListFirstId.CreateFromDiscriminatorValue); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyList_last_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyList_last_id.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyList_object>(); } },
+                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyListLastId>(global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyListLastId.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyListObject>(); } },
             };
         }
         /// <summary>
@@ -82,10 +82,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKey>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyList_first_id>("first_id", FirstId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyListFirstId>("first_id", FirstId);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyList_last_id>("last_id", LastId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyList_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyListLastId>("last_id", LastId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApiKeyListObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

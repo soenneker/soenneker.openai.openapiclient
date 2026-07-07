@@ -36,7 +36,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Text { get; set; }
 #endif
         /// <summary>Always `file_citation`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject"/> and sets the default values.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "file_citation", n => { FileCitation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectFileCitation>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectFileCitation.CreateFromDiscriminatorValue); } },
                 { "start_index", n => { StartIndex = n.GetIntValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectType>(); } },
             };
         }
         /// <summary>
@@ -80,7 +80,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectFileCitation>("file_citation", FileCitation);
             writer.WriteIntValue("start_index", StartIndex);
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -18,48 +18,48 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The api_key_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_api_key_id? ApiKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultApiKeyId? ApiKeyId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_api_key_id ApiKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultApiKeyId ApiKeyId { get; set; }
 #endif
         /// <summary>The context_level property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_context_level? ContextLevel { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultContextLevel? ContextLevel { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_context_level ContextLevel { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultContextLevel ContextLevel { get; set; }
 #endif
         /// <summary>The model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_model? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultModel? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_model Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultModel Model { get; set; }
 #endif
         /// <summary>The count of model requests.</summary>
         public int? NumModelRequests { get; set; }
         /// <summary>The count of web search calls.</summary>
         public int? NumRequests { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultObject? Object { get; set; }
         /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_project_id? ProjectId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultProjectId? ProjectId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_project_id ProjectId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultProjectId ProjectId { get; set; }
 #endif
         /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_user_id? UserId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultUserId? UserId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_user_id UserId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultUserId UserId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult"/> and sets the default values.
@@ -86,14 +86,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key_id", n => { ApiKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_api_key_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_api_key_id.CreateFromDiscriminatorValue); } },
-                { "context_level", n => { ContextLevel = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_context_level>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_context_level.CreateFromDiscriminatorValue); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_model>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_model.CreateFromDiscriminatorValue); } },
+                { "api_key_id", n => { ApiKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultApiKeyId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultApiKeyId.CreateFromDiscriminatorValue); } },
+                { "context_level", n => { ContextLevel = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultContextLevel>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultContextLevel.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultModel>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultModel.CreateFromDiscriminatorValue); } },
                 { "num_model_requests", n => { NumModelRequests = n.GetIntValue(); } },
                 { "num_requests", n => { NumRequests = n.GetIntValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_object>(); } },
-                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_project_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_project_id.CreateFromDiscriminatorValue); } },
-                { "user_id", n => { UserId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_user_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_user_id.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultObject>(); } },
+                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultProjectId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultProjectId.CreateFromDiscriminatorValue); } },
+                { "user_id", n => { UserId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultUserId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultUserId.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -103,14 +103,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_api_key_id>("api_key_id", ApiKeyId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_context_level>("context_level", ContextLevel);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_model>("model", Model);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultApiKeyId>("api_key_id", ApiKeyId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultContextLevel>("context_level", ContextLevel);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultModel>("model", Model);
             writer.WriteIntValue("num_model_requests", NumModelRequests);
             writer.WriteIntValue("num_requests", NumRequests);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_object>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_project_id>("project_id", ProjectId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult_user_id>("user_id", UserId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultObject>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultProjectId>("project_id", ProjectId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultUserId>("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

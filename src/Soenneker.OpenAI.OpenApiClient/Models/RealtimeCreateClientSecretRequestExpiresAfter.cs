@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The anchor point for the client secret expiration, meaning that `seconds` will be added to the `created_at` time of the client secret to produce an expiration timestamp. Only `created_at` is currently supported.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter_anchor? Anchor { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfterAnchor? Anchor { get; set; }
         /// <summary>The number of seconds from the anchor point to the expiration. Select a value between `10` and `7200` (2 hours). This default to 600 seconds (10 minutes) if not specified.</summary>
         public long? Seconds { get; set; }
         /// <summary>
@@ -25,7 +25,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public RealtimeCreateClientSecretRequestExpiresAfter()
         {
             AdditionalData = new Dictionary<string, object>();
-            Anchor = global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter_anchor.Created_at;
+            Seconds = 600;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,7 +45,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "anchor", n => { Anchor = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter_anchor>(); } },
+                { "anchor", n => { Anchor = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfterAnchor>(); } },
                 { "seconds", n => { Seconds = n.GetLongValue(); } },
             };
         }
@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter_anchor>("anchor", Anchor);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfterAnchor>("anchor", Anchor);
             writer.WriteLongValue("seconds", Seconds);
             writer.WriteAdditionalData(AdditionalData);
         }

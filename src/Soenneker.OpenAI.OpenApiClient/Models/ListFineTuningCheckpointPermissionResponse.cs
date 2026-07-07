@@ -25,23 +25,23 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The first_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponse_first_id? FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponseFirstId? FirstId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponse_first_id FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponseFirstId FirstId { get; set; }
 #endif
         /// <summary>The has_more property</summary>
         public bool? HasMore { get; set; }
         /// <summary>The last_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponse_last_id? LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponseLastId? LastId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponse_last_id LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponseLastId LastId { get; set; }
 #endif
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponse_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponseObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponse"/> and sets the default values.
         /// </summary>
@@ -68,10 +68,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningCheckpointPermission>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningCheckpointPermission.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponse_first_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponse_first_id.CreateFromDiscriminatorValue); } },
+                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponseFirstId>(global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponseFirstId.CreateFromDiscriminatorValue); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponse_last_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponse_last_id.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponse_object>(); } },
+                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponseLastId>(global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponseLastId.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponseObject>(); } },
             };
         }
         /// <summary>
@@ -82,10 +82,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningCheckpointPermission>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponse_first_id>("first_id", FirstId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponseFirstId>("first_id", FirstId);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponse_last_id>("last_id", LastId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponse_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponseLastId>("last_id", LastId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningCheckpointPermissionResponseObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

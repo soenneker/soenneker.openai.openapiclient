@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Ordered list of annotations attached to the response text.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText.ResponseOutputText_annotations>? Annotations { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputTextAnnotationsItem>? Annotations { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText.ResponseOutputText_annotations> Annotations { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputTextAnnotationsItem> Annotations { get; set; }
 #endif
         /// <summary>Assistant generated text.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,7 +32,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Text { get; set; }
 #endif
         /// <summary>Type discriminator that is always `output_text`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputTextType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText"/> and sets the default values.
         /// </summary>
@@ -58,9 +58,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "annotations", n => { Annotations = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText.ResponseOutputText_annotations>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText.ResponseOutputText_annotations.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "annotations", n => { Annotations = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputTextAnnotationsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputTextAnnotationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputTextType>(); } },
             };
         }
         /// <summary>
@@ -70,85 +70,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText.ResponseOutputText_annotations>("annotations", Annotations);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputTextAnnotationsItem>("annotations", Annotations);
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputTextType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FileAnnotation"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UrlAnnotation"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ResponseOutputText_annotations : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FileAnnotation"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.FileAnnotation? FileAnnotation { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.FileAnnotation FileAnnotation { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UrlAnnotation"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UrlAnnotation? UrlAnnotation { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UrlAnnotation UrlAnnotation { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText.ResponseOutputText_annotations"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText.ResponseOutputText_annotations CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText.ResponseOutputText_annotations();
-                if("FileAnnotation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.FileAnnotation = new global::Soenneker.OpenAI.OpenApiClient.Models.FileAnnotation();
-                }
-                else if("UrlAnnotation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.UrlAnnotation = new global::Soenneker.OpenAI.OpenApiClient.Models.UrlAnnotation();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FileAnnotation != null)
-                {
-                    return FileAnnotation.GetFieldDeserializers();
-                }
-                else if(UrlAnnotation != null)
-                {
-                    return UrlAnnotation.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(FileAnnotation != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileAnnotation>(null, FileAnnotation);
-                }
-                else if(UrlAnnotation != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UrlAnnotation>(null, UrlAnnotation);
-                }
-            }
         }
     }
 }

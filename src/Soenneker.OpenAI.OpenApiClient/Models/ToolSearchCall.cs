@@ -17,18 +17,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Arguments used for the tool search call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_arguments? Arguments { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallArguments? Arguments { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_arguments Arguments { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallArguments Arguments { get; set; }
 #endif
         /// <summary>The call_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_id? CallId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallCallId? CallId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_id CallId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallCallId CallId { get; set; }
 #endif
         /// <summary>The identifier of the actor that created the item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallStatus? Status { get; set; }
         /// <summary>The type of the item. Always `tool_search_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall"/> and sets the default values.
         /// </summary>
@@ -77,13 +77,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_arguments>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_arguments.CreateFromDiscriminatorValue); } },
-                { "call_id", n => { CallId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_id.CreateFromDiscriminatorValue); } },
+                { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallArguments>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallArguments.CreateFromDiscriminatorValue); } },
+                { "call_id", n => { CallId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallCallId>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallCallId.CreateFromDiscriminatorValue); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "execution", n => { Execution = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallType>(); } },
             };
         }
         /// <summary>
@@ -93,13 +93,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_arguments>("arguments", Arguments);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_call_id>("call_id", CallId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallArguments>("arguments", Arguments);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallCallId>("call_id", CallId);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>("execution", Execution);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

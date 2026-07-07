@@ -10,19 +10,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         [EnumMember(Value = "1g")]
         #pragma warning disable CS1591
-        Oneg,
+        Value1G,
         #pragma warning restore CS1591
         [EnumMember(Value = "4g")]
         #pragma warning disable CS1591
-        Fourg,
+        Value4G,
         #pragma warning restore CS1591
         [EnumMember(Value = "16g")]
         #pragma warning disable CS1591
-        OneSixg,
+        Value16G,
         #pragma warning restore CS1591
         [EnumMember(Value = "64g")]
         #pragma warning disable CS1591
-        SixFourg,
+        Value64G,
         #pragma warning restore CS1591
     }
 }

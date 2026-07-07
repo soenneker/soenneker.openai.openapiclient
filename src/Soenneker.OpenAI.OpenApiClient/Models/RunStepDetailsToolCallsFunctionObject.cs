@@ -31,7 +31,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The type of tool call. This is always going to be `function` for this type of tool call.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObject_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObject"/> and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "function", n => { Function = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunction>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunction.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObject_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectType>(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunction>("function", Function);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObject_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

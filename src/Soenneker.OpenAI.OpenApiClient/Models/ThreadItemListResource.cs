@@ -26,30 +26,29 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The first_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource_first_id? FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResourceFirstId? FirstId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource_first_id FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResourceFirstId FirstId { get; set; }
 #endif
         /// <summary>Whether there are more items available.</summary>
         public bool? HasMore { get; set; }
         /// <summary>The last_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource_last_id? LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResourceLastId? LastId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource_last_id LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResourceLastId LastId { get; set; }
 #endif
         /// <summary>The type of object returned, must be `list`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResourceObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource"/> and sets the default values.
         /// </summary>
         public ThreadItemListResource()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource_object.List;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -70,10 +69,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItem>(global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource_first_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource_first_id.CreateFromDiscriminatorValue); } },
+                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResourceFirstId>(global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResourceFirstId.CreateFromDiscriminatorValue); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource_last_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource_last_id.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource_object>(); } },
+                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResourceLastId>(global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResourceLastId.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResourceObject>(); } },
             };
         }
         /// <summary>
@@ -84,10 +83,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItem>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource_first_id>("first_id", FirstId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResourceFirstId>("first_id", FirstId);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource_last_id>("last_id", LastId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResource_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResourceLastId>("last_id", LastId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadItemListResourceObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -42,13 +42,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Determines what populates the `item` namespace in this run&apos;s data source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource.CreateEvalCompletionsRunDataSource_source? Source { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSource? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource.CreateEvalCompletionsRunDataSource_source Source { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSource Source { get; set; }
 #endif
         /// <summary>The type of run data source. Always `completions`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource"/> and sets the default values.
         /// </summary>
@@ -77,8 +77,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "input_messages", n => { InputMessages = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessages>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessages.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "sampling_params", n => { SamplingParams = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParams>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParams.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource.CreateEvalCompletionsRunDataSource_source>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource.CreateEvalCompletionsRunDataSource_source.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource_type>(); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSource>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSource.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceType>(); } },
             };
         }
         /// <summary>
@@ -91,104 +91,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessages>("input_messages", InputMessages);
             writer.WriteStringValue("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParams>("sampling_params", SamplingParams);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource.CreateEvalCompletionsRunDataSource_source>("source", Source);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSource>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileIdSource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSource"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CreateEvalCompletionsRunDataSource_source : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource? EvalJsonlFileContentSource { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource EvalJsonlFileContentSource { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileIdSource"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileIdSource? EvalJsonlFileIdSource { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileIdSource EvalJsonlFileIdSource { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSource"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSource? EvalStoredCompletionsSource { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSource EvalStoredCompletionsSource { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource.CreateEvalCompletionsRunDataSource_source"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource.CreateEvalCompletionsRunDataSource_source CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource.CreateEvalCompletionsRunDataSource_source();
-                if("EvalJsonlFileContentSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvalJsonlFileContentSource = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource();
-                }
-                else if("EvalJsonlFileIdSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvalJsonlFileIdSource = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileIdSource();
-                }
-                else if("EvalStoredCompletionsSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvalStoredCompletionsSource = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSource();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EvalJsonlFileContentSource != null)
-                {
-                    return EvalJsonlFileContentSource.GetFieldDeserializers();
-                }
-                else if(EvalJsonlFileIdSource != null)
-                {
-                    return EvalJsonlFileIdSource.GetFieldDeserializers();
-                }
-                else if(EvalStoredCompletionsSource != null)
-                {
-                    return EvalStoredCompletionsSource.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(EvalJsonlFileContentSource != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource>(null, EvalJsonlFileContentSource);
-                }
-                else if(EvalJsonlFileIdSource != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileIdSource>(null, EvalJsonlFileIdSource);
-                }
-                else if(EvalStoredCompletionsSource != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSource>(null, EvalStoredCompletionsSource);
-                }
-            }
         }
     }
 }

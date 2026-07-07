@@ -15,18 +15,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The stream property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequest_stream? Stream { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestStream? Stream { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequest_stream Stream { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestStream Stream { get; set; }
 #endif
         /// <summary>A list of tools for which the outputs are being submitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequest_tool_outputs>? ToolOutputs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem>? ToolOutputs { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequest_tool_outputs> ToolOutputs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem> ToolOutputs { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -46,8 +46,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "stream", n => { Stream = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequest_stream>(global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequest_stream.CreateFromDiscriminatorValue); } },
-                { "tool_outputs", n => { ToolOutputs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequest_tool_outputs>(global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequest_tool_outputs.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "stream", n => { Stream = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestStream>(global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestStream.CreateFromDiscriminatorValue); } },
+                { "tool_outputs", n => { ToolOutputs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,8 +57,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequest_stream>("stream", Stream);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequest_tool_outputs>("tool_outputs", ToolOutputs);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestStream>("stream", Stream);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem>("tool_outputs", ToolOutputs);
         }
     }
 }

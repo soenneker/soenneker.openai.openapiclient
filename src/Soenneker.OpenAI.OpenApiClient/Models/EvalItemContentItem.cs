@@ -23,13 +23,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Detail { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem_Branch1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItemBranch1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem_Branch1? EvalItemContentItemBranch1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItemBranch1? EvalItemContentItemBranch1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem_Branch1 EvalItemContentItemBranch1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItemBranch1 EvalItemContentItemBranch1 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentOutputText"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -122,7 +122,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem();
             if("EvalItemContentItem_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EvalItemContentItemBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem_Branch1();
+                result.EvalItemContentItemBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItemBranch1();
             }
             else if("EvalItemContentOutputText".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -139,10 +139,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if("InputTextContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InputTextContent = new global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.Input_audio = new global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio();
             }
             else if(parseNode.GetStringValue() is string detailValue)
             {
@@ -207,7 +203,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(EvalItemContentItemBranch1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem_Branch1>(null, EvalItemContentItemBranch1);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItemBranch1>(null, EvalItemContentItemBranch1);
             }
             else if(EvalItemContentOutputText != null)
             {

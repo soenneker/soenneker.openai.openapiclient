@@ -8,34 +8,34 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember3"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmaAudioFormat"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmAudioFormat"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmuAudioFormat"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RealtimeAudioFormats : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmaAudioFormat"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember1? RealtimeAudioFormatsMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmaAudioFormat? RealtimeAudioFormatsPcmaAudioFormat { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember1 RealtimeAudioFormatsMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmaAudioFormat RealtimeAudioFormatsPcmaAudioFormat { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmAudioFormat"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember2? RealtimeAudioFormatsMember2 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmAudioFormat? RealtimeAudioFormatsPcmAudioFormat { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember2 RealtimeAudioFormatsMember2 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmAudioFormat RealtimeAudioFormatsPcmAudioFormat { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember3"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmuAudioFormat"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember3? RealtimeAudioFormatsMember3 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmuAudioFormat? RealtimeAudioFormatsPcmuAudioFormat { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember3 RealtimeAudioFormatsMember3 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmuAudioFormat RealtimeAudioFormatsPcmuAudioFormat { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -46,9 +46,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats();
-            result.RealtimeAudioFormatsMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember1();
-            result.RealtimeAudioFormatsMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember2();
-            result.RealtimeAudioFormatsMember3 = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember3();
+            result.RealtimeAudioFormatsPcmaAudioFormat = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmaAudioFormat();
+            result.RealtimeAudioFormatsPcmAudioFormat = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmAudioFormat();
+            result.RealtimeAudioFormatsPcmuAudioFormat = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmuAudioFormat();
             return result;
         }
         /// <summary>
@@ -57,9 +57,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(RealtimeAudioFormatsMember1 != null || RealtimeAudioFormatsMember2 != null || RealtimeAudioFormatsMember3 != null)
+            if(RealtimeAudioFormatsPcmaAudioFormat != null || RealtimeAudioFormatsPcmAudioFormat != null || RealtimeAudioFormatsPcmuAudioFormat != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RealtimeAudioFormatsMember1, RealtimeAudioFormatsMember2, RealtimeAudioFormatsMember3);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(RealtimeAudioFormatsPcmaAudioFormat, RealtimeAudioFormatsPcmAudioFormat, RealtimeAudioFormatsPcmuAudioFormat);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -70,7 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsMember1>(null, RealtimeAudioFormatsMember1, RealtimeAudioFormatsMember2, RealtimeAudioFormatsMember3);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmaAudioFormat>(null, RealtimeAudioFormatsPcmaAudioFormat, RealtimeAudioFormatsPcmAudioFormat, RealtimeAudioFormatsPcmuAudioFormat);
         }
     }
 }

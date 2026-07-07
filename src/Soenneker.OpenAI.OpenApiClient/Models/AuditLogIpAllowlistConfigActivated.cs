@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The configurations that were activated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated_configs>? Configs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivatedConfigsItem>? Configs { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated_configs> Configs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivatedConfigsItem> Configs { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "configs", n => { Configs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated_configs>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated_configs.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "configs", n => { Configs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivatedConfigsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivatedConfigsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated_configs>("configs", Configs);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivatedConfigsItem>("configs", Configs);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

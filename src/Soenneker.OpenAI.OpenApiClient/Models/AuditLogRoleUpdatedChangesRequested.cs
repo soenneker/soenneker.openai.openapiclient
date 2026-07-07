@@ -26,10 +26,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Additional metadata stored on the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequested_metadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequestedMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequested_metadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequestedMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>The permissions added to the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -97,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequested_metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequested_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequestedMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequestedMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "permissions_added", n => { PermissionsAdded = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "permissions_removed", n => { PermissionsRemoved = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "resource_id", n => { ResourceId = n.GetStringValue(); } },
@@ -113,7 +113,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequested_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequestedMetadataProperty>("metadata", Metadata);
             writer.WriteCollectionOfPrimitiveValues<string>("permissions_added", PermissionsAdded);
             writer.WriteCollectionOfPrimitiveValues<string>("permissions_removed", PermissionsRemoved);
             writer.WriteStringValue("resource_id", ResourceId);

@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallStatus? Status { get; set; }
         /// <summary>The type of the custom tool call. Always `custom_tool_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallResource_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallResource"/> and sets the default values.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "namespace", n => { Namespace = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallResource_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallType>(); } },
             };
         }
         /// <summary>
@@ -115,7 +115,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("namespace", Namespace);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallResource_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

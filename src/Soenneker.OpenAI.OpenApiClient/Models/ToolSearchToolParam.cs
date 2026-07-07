@@ -18,23 +18,23 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_description? Description { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParamDescription? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_description Description { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParamDescription Description { get; set; }
 #endif
         /// <summary>The execution property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType? Execution { get; set; }
         /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_parameters? Parameters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParamParameters? Parameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_parameters Parameters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParamParameters Parameters { get; set; }
 #endif
         /// <summary>The type of the tool. Always `tool_search`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParamType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam"/> and sets the default values.
         /// </summary>
@@ -60,10 +60,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_description>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_description.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParamDescription>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParamDescription.CreateFromDiscriminatorValue); } },
                 { "execution", n => { Execution = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>(); } },
-                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_parameters>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_parameters.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_type>(); } },
+                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParamParameters>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParamParameters.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParamType>(); } },
             };
         }
         /// <summary>
@@ -73,10 +73,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_description>("description", Description);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParamDescription>("description", Description);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>("execution", Execution);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_parameters>("parameters", Parameters);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParamParameters>("parameters", Parameters);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParamType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

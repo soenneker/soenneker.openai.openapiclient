@@ -23,7 +23,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<string> Queries { get; set; }
 #endif
-        /// <summary>[DEPRECATED] The search query.</summary>
+        /// <summary>The search query.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Query { get; set; }
@@ -34,13 +35,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The sources used in the search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearch_sources>? Sources { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchSourcesItem>? Sources { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearch_sources> Sources { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchSourcesItem> Sources { get; set; }
 #endif
         /// <summary>The action type.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearch_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearch"/> and sets the default values.
         /// </summary>
@@ -68,8 +69,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "queries", n => { Queries = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "query", n => { Query = n.GetStringValue(); } },
-                { "sources", n => { Sources = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearch_sources>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearch_sources.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearch_type>(); } },
+                { "sources", n => { Sources = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchSourcesItem>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchSourcesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchType>(); } },
             };
         }
         /// <summary>
@@ -81,8 +82,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("queries", Queries);
             writer.WriteStringValue("query", Query);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearch_sources>("sources", Sources);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearch_type>("type", Type);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchSourcesItem>("sources", Sources);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

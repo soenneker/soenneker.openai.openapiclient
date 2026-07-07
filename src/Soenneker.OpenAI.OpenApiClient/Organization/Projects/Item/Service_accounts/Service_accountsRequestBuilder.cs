@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organization\projects\{project_id}\service_accounts
+    /// Builds and executes requests for operations under \organization\projects\{projectId}\service_accounts
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Service_accountsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.organization.projects.item.service_accounts.item collection</summary>
         /// <param name="position">The ID of the service account.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts.Item.WithService_account_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts.Item.WithService_account_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts.Item.WithServiceAccountItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts.Item.WithServiceAccountItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("service_account_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts.Item.WithService_account_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("serviceAccountId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts.Item.WithServiceAccountItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_acco
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Service_accountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/service_accounts{?after*,limit*}", pathParameters)
+        public Service_accountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{projectId}/service_accounts{?after*,limit*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_acco
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Service_accountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/service_accounts{?after*,limit*}", rawUrl)
+        public Service_accountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{projectId}/service_accounts{?after*,limit*}", rawUrl)
         {
         }
         /// <summary>

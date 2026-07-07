@@ -9,15 +9,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         [EnumMember(Value = "api_key.created")]
         #pragma warning disable CS1591
-        Api_keyCreated,
+        ApiKeyCreated,
         #pragma warning restore CS1591
         [EnumMember(Value = "api_key.updated")]
         #pragma warning disable CS1591
-        Api_keyUpdated,
+        ApiKeyUpdated,
         #pragma warning restore CS1591
         [EnumMember(Value = "api_key.deleted")]
         #pragma warning disable CS1591
-        Api_keyDeleted,
+        ApiKeyDeleted,
         #pragma warning restore CS1591
         [EnumMember(Value = "certificate.created")]
         #pragma warning disable CS1591
@@ -49,11 +49,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "external_key.registered")]
         #pragma warning disable CS1591
-        External_keyRegistered,
+        ExternalKeyRegistered,
         #pragma warning restore CS1591
         [EnumMember(Value = "external_key.removed")]
         #pragma warning disable CS1591
-        External_keyRemoved,
+        ExternalKeyRemoved,
         #pragma warning restore CS1591
         [EnumMember(Value = "group.created")]
         #pragma warning disable CS1591
@@ -81,23 +81,23 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "ip_allowlist.created")]
         #pragma warning disable CS1591
-        Ip_allowlistCreated,
+        IpAllowlistCreated,
         #pragma warning restore CS1591
         [EnumMember(Value = "ip_allowlist.updated")]
         #pragma warning disable CS1591
-        Ip_allowlistUpdated,
+        IpAllowlistUpdated,
         #pragma warning restore CS1591
         [EnumMember(Value = "ip_allowlist.deleted")]
         #pragma warning disable CS1591
-        Ip_allowlistDeleted,
+        IpAllowlistDeleted,
         #pragma warning restore CS1591
         [EnumMember(Value = "ip_allowlist.config.activated")]
         #pragma warning disable CS1591
-        Ip_allowlistConfigActivated,
+        IpAllowlistConfigActivated,
         #pragma warning restore CS1591
         [EnumMember(Value = "ip_allowlist.config.deactivated")]
         #pragma warning disable CS1591
-        Ip_allowlistConfigDeactivated,
+        IpAllowlistConfigDeactivated,
         #pragma warning restore CS1591
         [EnumMember(Value = "login.succeeded")]
         #pragma warning disable CS1591
@@ -137,11 +137,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "rate_limit.updated")]
         #pragma warning disable CS1591
-        Rate_limitUpdated,
+        RateLimitUpdated,
         #pragma warning restore CS1591
         [EnumMember(Value = "rate_limit.deleted")]
         #pragma warning disable CS1591
-        Rate_limitDeleted,
+        RateLimitDeleted,
         #pragma warning restore CS1591
         [EnumMember(Value = "resource.deleted")]
         #pragma warning disable CS1591
@@ -158,6 +158,30 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "tunnel.deleted")]
         #pragma warning disable CS1591
         TunnelDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "workload_identity_provider.created")]
+        #pragma warning disable CS1591
+        WorkloadIdentityProviderCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "workload_identity_provider.updated")]
+        #pragma warning disable CS1591
+        WorkloadIdentityProviderUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "workload_identity_provider.deleted")]
+        #pragma warning disable CS1591
+        WorkloadIdentityProviderDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "workload_identity_provider_mapping.created")]
+        #pragma warning disable CS1591
+        WorkloadIdentityProviderMappingCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "workload_identity_provider_mapping.updated")]
+        #pragma warning disable CS1591
+        WorkloadIdentityProviderMappingUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "workload_identity_provider_mapping.deleted")]
+        #pragma warning disable CS1591
+        WorkloadIdentityProviderMappingDeleted,
         #pragma warning restore CS1591
         [EnumMember(Value = "role.created")]
         #pragma warning disable CS1591
@@ -179,6 +203,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         RoleAssignmentDeleted,
         #pragma warning restore CS1591
+        [EnumMember(Value = "role.bound_to_resource")]
+        #pragma warning disable CS1591
+        RoleBoundToResource,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "role.unbound_from_resource")]
+        #pragma warning disable CS1591
+        RoleUnboundFromResource,
+        #pragma warning restore CS1591
         [EnumMember(Value = "scim.enabled")]
         #pragma warning disable CS1591
         ScimEnabled,
@@ -189,15 +221,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "service_account.created")]
         #pragma warning disable CS1591
-        Service_accountCreated,
+        ServiceAccountCreated,
         #pragma warning restore CS1591
         [EnumMember(Value = "service_account.updated")]
         #pragma warning disable CS1591
-        Service_accountUpdated,
+        ServiceAccountUpdated,
         #pragma warning restore CS1591
         [EnumMember(Value = "service_account.deleted")]
         #pragma warning disable CS1591
-        Service_accountDeleted,
+        ServiceAccountDeleted,
         #pragma warning restore CS1591
         [EnumMember(Value = "user.added")]
         #pragma warning disable CS1591

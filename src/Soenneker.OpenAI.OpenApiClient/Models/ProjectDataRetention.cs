@@ -16,9 +16,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The object type, which is always `project.data_retention`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectDataRetention_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectDataRetentionObject? Object { get; set; }
         /// <summary>The configured project data retention type.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectDataRetention_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectDataRetentionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectDataRetention"/> and sets the default values.
         /// </summary>
@@ -44,8 +44,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectDataRetention_object>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectDataRetention_type>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectDataRetentionObject>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectDataRetentionType>(); } },
             };
         }
         /// <summary>
@@ -55,8 +55,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectDataRetention_object>("object", Object);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectDataRetention_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectDataRetentionObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectDataRetentionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

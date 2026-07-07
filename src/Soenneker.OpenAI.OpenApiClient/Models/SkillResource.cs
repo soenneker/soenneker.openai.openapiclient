@@ -57,14 +57,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object type, which is `skill`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillResource_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillResourceObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SkillResource"/> and sets the default values.
         /// </summary>
         public SkillResource()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.SkillResource_object.Skill;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -90,7 +89,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "latest_version", n => { LatestVersion = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillResource_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillResourceObject>(); } },
             };
         }
         /// <summary>
@@ -106,7 +105,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("latest_version", LatestVersion);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillResource_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillResourceObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

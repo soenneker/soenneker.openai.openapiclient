@@ -17,18 +17,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>External key ID to associate with the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequest_external_key_id? ExternalKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequestExternalKeyId? ExternalKeyId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequest_external_key_id ExternalKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequestExternalKeyId ExternalKeyId { get; set; }
 #endif
         /// <summary>Create the project with the specified data residency region. Your organization must have access to Data residency functionality in order to use. See [data residency controls](/docs/guides/your-data#data-residency-controls) to review the functionality and limitations of setting this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequest_geography? Geography { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequestGeography? Geography { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequest_geography Geography { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequestGeography Geography { get; set; }
 #endif
         /// <summary>The friendly name of the project, this name appears in reports.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,8 +63,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "external_key_id", n => { ExternalKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequest_external_key_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequest_external_key_id.CreateFromDiscriminatorValue); } },
-                { "geography", n => { Geography = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequest_geography>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequest_geography.CreateFromDiscriminatorValue); } },
+                { "external_key_id", n => { ExternalKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequestExternalKeyId>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequestExternalKeyId.CreateFromDiscriminatorValue); } },
+                { "geography", n => { Geography = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequestGeography>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequestGeography.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -75,8 +75,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequest_external_key_id>("external_key_id", ExternalKeyId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequest_geography>("geography", Geography);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequestExternalKeyId>("external_key_id", ExternalKeyId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequestGeography>("geography", Geography);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

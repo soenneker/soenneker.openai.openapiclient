@@ -41,10 +41,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Prompt_version? Version { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptAnyOf1Version? Version { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Prompt_version Version { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptAnyOf1Version Version { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Prompt"/> and sets the default values.
@@ -74,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
                 { "variables", n => { Variables = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptVariables>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptVariables.CreateFromDiscriminatorValue); } },
-                { "version", n => { Version = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Prompt_version>(global::Soenneker.OpenAI.OpenApiClient.Models.Prompt_version.CreateFromDiscriminatorValue); } },
+                { "version", n => { Version = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptAnyOf1Version>(global::Soenneker.OpenAI.OpenApiClient.Models.PromptAnyOf1Version.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -87,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("type", Type);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptVariables>("variables", Variables);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Prompt_version>("version", Version);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptAnyOf1Version>("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -34,13 +34,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The function/custom tools available inside this namespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam.NamespaceToolParam_tools>? Tools { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamToolsItem>? Tools { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam.NamespaceToolParam_tools> Tools { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamToolsItem> Tools { get; set; }
 #endif
         /// <summary>The type of the tool. Always `namespace`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam"/> and sets the default values.
         /// </summary>
@@ -68,8 +68,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam.NamespaceToolParam_tools>(global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam.NamespaceToolParam_tools.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam_type>(); } },
+                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamToolsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamType>(); } },
             };
         }
         /// <summary>
@@ -81,84 +81,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam.NamespaceToolParam_tools>("tools", Tools);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam_type>("type", Type);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamToolsItem>("tools", Tools);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParam"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class NamespaceToolParam_tools : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam? CustomToolParam { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam CustomToolParam { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParam"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParam? FunctionToolParam { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParam FunctionToolParam { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam.NamespaceToolParam_tools"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam.NamespaceToolParam_tools CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam.NamespaceToolParam_tools();
-                if("CustomToolParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.CustomToolParam = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam();
-                }
-                else if("FunctionToolParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.FunctionToolParam = new global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParam();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(CustomToolParam != null)
-                {
-                    return CustomToolParam.GetFieldDeserializers();
-                }
-                else if(FunctionToolParam != null)
-                {
-                    return FunctionToolParam.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(CustomToolParam != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam>(null, CustomToolParam);
-                }
-                else if(FunctionToolParam != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParam>(null, FunctionToolParam);
-                }
-            }
         }
     }
 }

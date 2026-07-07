@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Chatkit.Threads
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.chatkit.threads.item collection</summary>
         /// <param name="position">Identifier of the ChatKit thread to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Chatkit.Threads.Item.WithThread_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Chatkit.Threads.Item.WithThread_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Chatkit.Threads.Item.WithThreadItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Chatkit.Threads.Item.WithThreadItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("thread_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Chatkit.Threads.Item.WithThread_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("threadId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Chatkit.Threads.Item.WithThreadItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

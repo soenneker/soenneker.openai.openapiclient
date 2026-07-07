@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string SkillId { get; set; }
 #endif
         /// <summary>References a skill created with the /v1/skills endpoint.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillReferenceParam_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillReferenceParamType? Type { get; set; }
         /// <summary>Optional skill version. Use a positive integer or &apos;latest&apos;. Omit for default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "skill_id", n => { SkillId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillReferenceParam_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillReferenceParamType>(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -70,7 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("skill_id", SkillId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillReferenceParam_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillReferenceParamType>("type", Type);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }

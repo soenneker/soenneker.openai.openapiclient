@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Total number of tokens used (input + output).</summary>
         public int? TotalTokens { get; set; }
         /// <summary>The type of the usage object. Always `tokens` for this variant.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokens_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokensType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokens"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "input_tokens", n => { InputTokens = n.GetIntValue(); } },
                 { "output_tokens", n => { OutputTokens = n.GetIntValue(); } },
                 { "total_tokens", n => { TotalTokens = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokens_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokensType>(); } },
             };
         }
         /// <summary>
@@ -74,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("input_tokens", InputTokens);
             writer.WriteIntValue("output_tokens", OutputTokens);
             writer.WriteIntValue("total_tokens", TotalTokens);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokens_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageTokensType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

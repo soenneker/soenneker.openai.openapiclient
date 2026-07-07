@@ -42,13 +42,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Determines what populates the `item` namespace in this run&apos;s data source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource.CreateEvalResponsesRunDataSource_source? Source { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSource? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource.CreateEvalResponsesRunDataSource_source Source { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSource Source { get; set; }
 #endif
         /// <summary>The type of run data source. Always `responses`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource"/> and sets the default values.
         /// </summary>
@@ -77,8 +77,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "input_messages", n => { InputMessages = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessages>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessages.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "sampling_params", n => { SamplingParams = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSamplingParams>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSamplingParams.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource.CreateEvalResponsesRunDataSource_source>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource.CreateEvalResponsesRunDataSource_source.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource_type>(); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSource>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSource.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceType>(); } },
             };
         }
         /// <summary>
@@ -91,104 +91,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessages>("input_messages", InputMessages);
             writer.WriteStringValue("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSamplingParams>("sampling_params", SamplingParams);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource.CreateEvalResponsesRunDataSource_source>("source", Source);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSource>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileIdSource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CreateEvalResponsesRunDataSource_source : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource? EvalJsonlFileContentSource { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource EvalJsonlFileContentSource { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileIdSource"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileIdSource? EvalJsonlFileIdSource { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileIdSource EvalJsonlFileIdSource { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource? EvalResponsesSource { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource EvalResponsesSource { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource.CreateEvalResponsesRunDataSource_source"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource.CreateEvalResponsesRunDataSource_source CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource.CreateEvalResponsesRunDataSource_source();
-                if("EvalJsonlFileContentSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvalJsonlFileContentSource = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource();
-                }
-                else if("EvalJsonlFileIdSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvalJsonlFileIdSource = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileIdSource();
-                }
-                else if("EvalResponsesSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvalResponsesSource = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EvalJsonlFileContentSource != null)
-                {
-                    return EvalJsonlFileContentSource.GetFieldDeserializers();
-                }
-                else if(EvalJsonlFileIdSource != null)
-                {
-                    return EvalJsonlFileIdSource.GetFieldDeserializers();
-                }
-                else if(EvalResponsesSource != null)
-                {
-                    return EvalResponsesSource.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(EvalJsonlFileContentSource != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource>(null, EvalJsonlFileContentSource);
-                }
-                else if(EvalJsonlFileIdSource != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileIdSource>(null, EvalJsonlFileIdSource);
-                }
-                else if(EvalResponsesSource != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource>(null, EvalResponsesSource);
-                }
-            }
         }
     }
 }

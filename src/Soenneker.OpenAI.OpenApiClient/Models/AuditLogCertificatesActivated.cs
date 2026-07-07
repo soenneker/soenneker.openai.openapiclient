@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The certificates property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated_certificates>? Certificates { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivatedCertificatesItem>? Certificates { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated_certificates> Certificates { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivatedCertificatesItem> Certificates { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "certificates", n => { Certificates = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated_certificates>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated_certificates.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "certificates", n => { Certificates = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivatedCertificatesItem>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivatedCertificatesItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated_certificates>("certificates", Certificates);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivatedCertificatesItem>("certificates", Certificates);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

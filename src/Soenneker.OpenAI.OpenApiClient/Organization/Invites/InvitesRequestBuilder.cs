@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Invites
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.organization.invites.item collection</summary>
         /// <param name="position">The ID of the invite to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Invites.Item.WithInvite_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Organization.Invites.Item.WithInvite_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Invites.Item.WithInviteItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Invites.Item.WithInviteItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("invite_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Invites.Item.WithInvite_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("inviteId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Invites.Item.WithInviteItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

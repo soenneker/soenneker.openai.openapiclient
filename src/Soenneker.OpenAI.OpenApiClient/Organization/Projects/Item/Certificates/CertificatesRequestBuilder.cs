@@ -14,7 +14,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organization\projects\{project_id}\certificates
+    /// Builds and executes requests for operations under \organization\projects\{projectId}\certificates
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CertificatesRequestBuilder : BaseRequestBuilder
@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CertificatesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/certificates{?after*,limit*,order*}", pathParameters)
+        public CertificatesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{projectId}/certificates{?after*,limit*,order*}", pathParameters)
         {
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CertificatesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/certificates{?after*,limit*,order*}", rawUrl)
+        public CertificatesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{projectId}/certificates{?after*,limit*,order*}", rawUrl)
         {
         }
         /// <summary>
@@ -112,7 +112,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates
             public int? Limit { get; set; }
             /// <summary>Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Certificates.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListProjectCertificatesOrderParameter? Order { get; set; }
         }
     }
 }

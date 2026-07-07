@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Uploads
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.uploads.item collection</summary>
         /// <param name="position">The ID of the Upload.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Uploads.Item.WithUpload_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Uploads.Item.WithUpload_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Uploads.Item.WithUploadItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Uploads.Item.WithUploadItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("upload_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Uploads.Item.WithUpload_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("uploadId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Uploads.Item.WithUploadItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

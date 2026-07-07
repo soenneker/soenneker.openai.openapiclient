@@ -8,11 +8,19 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CompactionBody"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalRequest"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalResponseResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPListTools"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Message"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolCall"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AdditionalTools"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CompactionBody"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalRequest"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpListTools"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Message"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolCall"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ItemField : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AdditionalTools"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AdditionalTools? AdditionalTools { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AdditionalTools AdditionalTools { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -141,37 +149,37 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput LocalShellToolCallOutput { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalRequest"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalRequest"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalRequest? MCPApprovalRequest { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalRequest? McpApprovalRequest { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalRequest MCPApprovalRequest { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalRequest McpApprovalRequest { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalResponseResource"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResource"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalResponseResource? MCPApprovalResponseResource { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResource? McpApprovalResponseResource { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalResponseResource MCPApprovalResponseResource { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResource McpApprovalResponseResource { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPListTools"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpListTools"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MCPListTools? MCPListTools { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpListTools? McpListTools { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MCPListTools MCPListTools { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpListTools McpListTools { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolCall"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCall"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolCall? MCPToolCall { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCall? McpToolCall { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolCall MCPToolCall { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCall McpToolCall { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Message"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -223,7 +231,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ItemField();
-            if("ApplyPatchToolCall".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("AdditionalTools".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.AdditionalTools = new global::Soenneker.OpenAI.OpenApiClient.Models.AdditionalTools();
+            }
+            else if("ApplyPatchToolCall".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ApplyPatchToolCall = new global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall();
             }
@@ -287,21 +299,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.LocalShellToolCallOutput = new global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput();
             }
-            else if("MCPApprovalRequest".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("McpApprovalRequest".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MCPApprovalRequest = new global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalRequest();
+                result.McpApprovalRequest = new global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalRequest();
             }
-            else if("MCPApprovalResponseResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("McpApprovalResponseResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MCPApprovalResponseResource = new global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalResponseResource();
+                result.McpApprovalResponseResource = new global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResource();
             }
-            else if("MCPListTools".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("McpListTools".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MCPListTools = new global::Soenneker.OpenAI.OpenApiClient.Models.MCPListTools();
+                result.McpListTools = new global::Soenneker.OpenAI.OpenApiClient.Models.McpListTools();
             }
-            else if("MCPToolCall".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("McpToolCall".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MCPToolCall = new global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolCall();
+                result.McpToolCall = new global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCall();
             }
             else if("Message".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -331,7 +343,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ApplyPatchToolCall != null)
+            if(AdditionalTools != null)
+            {
+                return AdditionalTools.GetFieldDeserializers();
+            }
+            else if(ApplyPatchToolCall != null)
             {
                 return ApplyPatchToolCall.GetFieldDeserializers();
             }
@@ -395,21 +411,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 return LocalShellToolCallOutput.GetFieldDeserializers();
             }
-            else if(MCPApprovalRequest != null)
+            else if(McpApprovalRequest != null)
             {
-                return MCPApprovalRequest.GetFieldDeserializers();
+                return McpApprovalRequest.GetFieldDeserializers();
             }
-            else if(MCPApprovalResponseResource != null)
+            else if(McpApprovalResponseResource != null)
             {
-                return MCPApprovalResponseResource.GetFieldDeserializers();
+                return McpApprovalResponseResource.GetFieldDeserializers();
             }
-            else if(MCPListTools != null)
+            else if(McpListTools != null)
             {
-                return MCPListTools.GetFieldDeserializers();
+                return McpListTools.GetFieldDeserializers();
             }
-            else if(MCPToolCall != null)
+            else if(McpToolCall != null)
             {
-                return MCPToolCall.GetFieldDeserializers();
+                return McpToolCall.GetFieldDeserializers();
             }
             else if(Message != null)
             {
@@ -440,7 +456,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ApplyPatchToolCall != null)
+            if(AdditionalTools != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdditionalTools>(null, AdditionalTools);
+            }
+            else if(ApplyPatchToolCall != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall>(null, ApplyPatchToolCall);
             }
@@ -504,21 +524,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput>(null, LocalShellToolCallOutput);
             }
-            else if(MCPApprovalRequest != null)
+            else if(McpApprovalRequest != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalRequest>(null, MCPApprovalRequest);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalRequest>(null, McpApprovalRequest);
             }
-            else if(MCPApprovalResponseResource != null)
+            else if(McpApprovalResponseResource != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MCPApprovalResponseResource>(null, MCPApprovalResponseResource);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResource>(null, McpApprovalResponseResource);
             }
-            else if(MCPListTools != null)
+            else if(McpListTools != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MCPListTools>(null, MCPListTools);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpListTools>(null, McpListTools);
             }
-            else if(MCPToolCall != null)
+            else if(McpToolCall != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MCPToolCall>(null, MCPToolCall);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCall>(null, McpToolCall);
             }
             else if(Message != null)
             {

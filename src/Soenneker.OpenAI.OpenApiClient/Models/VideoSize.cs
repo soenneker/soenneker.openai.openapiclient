@@ -10,19 +10,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         [EnumMember(Value = "720x1280")]
         #pragma warning disable CS1591
-        SevenTwoZerox1280,
+        Value720X1280,
         #pragma warning restore CS1591
         [EnumMember(Value = "1280x720")]
         #pragma warning disable CS1591
-        OneTwoEightZerox720,
+        Value1280X720,
         #pragma warning restore CS1591
         [EnumMember(Value = "1024x1792")]
         #pragma warning disable CS1591
-        OneZeroTwoFourx1792,
+        Value1024X1792,
         #pragma warning restore CS1591
         [EnumMember(Value = "1792x1024")]
         #pragma warning disable CS1591
-        OneSevenNineTwox1024,
+        Value1792X1024,
         #pragma warning restore CS1591
     }
 }

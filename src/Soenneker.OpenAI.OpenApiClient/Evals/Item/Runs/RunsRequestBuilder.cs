@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs
 {
     /// <summary>
-    /// Builds and executes requests for operations under \evals\{eval_id}\runs
+    /// Builds and executes requests for operations under \evals\{evalId}\runs
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.evals.item.runs.item collection</summary>
         /// <param name="position">The ID of the run to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.WithRun_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.WithRun_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.WithRunItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.WithRunItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("run_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.WithRun_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("runId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.Item.WithRunItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RunsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/evals/{eval_id}/runs{?after*,limit*,order*,status*}", pathParameters)
+        public RunsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/evals/{evalId}/runs{?after*,limit*,order*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RunsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/evals/{eval_id}/runs{?after*,limit*,order*,status*}", rawUrl)
+        public RunsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/evals/{evalId}/runs{?after*,limit*,order*,status*}", rawUrl)
         {
         }
         /// <summary>
@@ -160,10 +160,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs
             public int? Limit { get; set; }
             /// <summary>Sort order for runs by timestamp. Use `asc` for ascending order or `desc` for descending order. Defaults to `asc`.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.GetEvalRunsOrderParameter? Order { get; set; }
             /// <summary>Filter runs by status. One of `queued` | `in_progress` | `failed` | `completed` | `canceled`.</summary>
             [QueryParameter("status")]
-            public global::Soenneker.OpenAI.OpenApiClient.Evals.Item.Runs.GetStatusQueryParameterType? Status { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.GetEvalRunsStatusParameter? Status { get; set; }
         }
     }
 }

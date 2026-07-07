@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Messages
 {
     /// <summary>
-    /// Builds and executes requests for operations under \threads\{thread_id}\messages
+    /// Builds and executes requests for operations under \threads\{threadId}\messages
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.threads.item.messages.item collection</summary>
         /// <param name="position">The ID of the message to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Messages.Item.WithMessage_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Messages.Item.WithMessage_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Messages.Item.WithMessageItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Messages.Item.WithMessageItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("message_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Messages.Item.WithMessage_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("messageId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Messages.Item.WithMessageItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Messages
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/threads/{thread_id}/messages{?after*,before*,limit*,order*,run_id*}", pathParameters)
+        public MessagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/threads/{threadId}/messages{?after*,before*,limit*,order*,run_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Messages
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/threads/{thread_id}/messages{?after*,before*,limit*,order*,run_id*}", rawUrl)
+        public MessagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/threads/{threadId}/messages{?after*,before*,limit*,order*,run_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -165,7 +165,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Messages
             public int? Limit { get; set; }
             /// <summary>Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Messages.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListMessagesOrderParameter? Order { get; set; }
             /// <summary>Filter messages by the run ID that generated them.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -41,7 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object type, which is `skill.version`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionResource_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionResourceObject? Object { get; set; }
         /// <summary>Identifier of the skill for this version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,7 +64,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public SkillVersionResource()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionResource_object.SkillVersion;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -88,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionResource_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionResourceObject>(); } },
                 { "skill_id", n => { SkillId = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
@@ -104,7 +103,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionResource_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionResourceObject>("object", Object);
             writer.WriteStringValue("skill_id", SkillId);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);

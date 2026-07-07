@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration for the DPO fine-tuning method.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDPOMethod? Dpo { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoMethod? Dpo { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDPOMethod Dpo { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoMethod Dpo { get; set; }
 #endif
         /// <summary>Configuration for the reinforcement fine-tuning method.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedMethod Supervised { get; set; }
 #endif
         /// <summary>The type of method. Is either `supervised`, `dpo`, or `reinforcement`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethodType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod"/> and sets the default values.
         /// </summary>
@@ -66,10 +66,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "dpo", n => { Dpo = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDPOMethod>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDPOMethod.CreateFromDiscriminatorValue); } },
+                { "dpo", n => { Dpo = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoMethod>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoMethod.CreateFromDiscriminatorValue); } },
                 { "reinforcement", n => { Reinforcement = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethod>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethod.CreateFromDiscriminatorValue); } },
                 { "supervised", n => { Supervised = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedMethod>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedMethod.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethodType>(); } },
             };
         }
         /// <summary>
@@ -79,10 +79,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDPOMethod>("dpo", Dpo);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoMethod>("dpo", Dpo);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethod>("reinforcement", Reinforcement);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedMethod>("supervised", Supervised);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethodType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

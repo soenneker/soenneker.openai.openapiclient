@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Roles
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.organization.roles.item collection</summary>
         /// <param name="position">The ID of the role to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Roles.Item.WithRole_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Organization.Roles.Item.WithRole_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Roles.Item.WithRoleItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Roles.Item.WithRoleItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("role_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Roles.Item.WithRole_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("roleId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Roles.Item.WithRoleItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -155,7 +155,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Roles
             public int? Limit { get; set; }
             /// <summary>Sort order for the returned roles.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Roles.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListRolesOrderParameter? Order { get; set; }
         }
     }
 }

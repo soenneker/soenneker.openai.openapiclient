@@ -17,18 +17,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The code_interpreter property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResources_code_interpreter? CodeInterpreter { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResourcesAnyOf1CodeInterpreter? CodeInterpreter { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResources_code_interpreter CodeInterpreter { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResourcesAnyOf1CodeInterpreter CodeInterpreter { get; set; }
 #endif
         /// <summary>The file_search property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResources_file_search? FileSearch { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResourcesAnyOf1FileSearch? FileSearch { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResources_file_search FileSearch { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResourcesAnyOf1FileSearch FileSearch { get; set; }
 #endif
         /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,8 +63,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code_interpreter", n => { CodeInterpreter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResources_code_interpreter>(global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResources_code_interpreter.CreateFromDiscriminatorValue); } },
-                { "file_search", n => { FileSearch = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResources_file_search>(global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResources_file_search.CreateFromDiscriminatorValue); } },
+                { "code_interpreter", n => { CodeInterpreter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResourcesAnyOf1CodeInterpreter>(global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResourcesAnyOf1CodeInterpreter.CreateFromDiscriminatorValue); } },
+                { "file_search", n => { FileSearch = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResourcesAnyOf1FileSearch>(global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResourcesAnyOf1FileSearch.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -75,8 +75,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResources_code_interpreter>("code_interpreter", CodeInterpreter);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResources_file_search>("file_search", FileSearch);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResourcesAnyOf1CodeInterpreter>("code_interpreter", CodeInterpreter);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadObjectToolResourcesAnyOf1FileSearch>("file_search", FileSearch);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

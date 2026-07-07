@@ -18,40 +18,40 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The api_key_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_api_key_id? ApiKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultApiKeyId? ApiKeyId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_api_key_id ApiKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultApiKeyId ApiKeyId { get; set; }
 #endif
         /// <summary>The aggregated number of input tokens used.</summary>
         public int? InputTokens { get; set; }
         /// <summary>The model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_model? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultModel? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_model Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultModel Model { get; set; }
 #endif
         /// <summary>The count of requests made to the model.</summary>
         public int? NumModelRequests { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultObject? Object { get; set; }
         /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_project_id? ProjectId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultProjectId? ProjectId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_project_id ProjectId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultProjectId ProjectId { get; set; }
 #endif
         /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_user_id? UserId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultUserId? UserId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_user_id UserId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultUserId UserId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult"/> and sets the default values.
@@ -78,13 +78,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key_id", n => { ApiKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_api_key_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_api_key_id.CreateFromDiscriminatorValue); } },
+                { "api_key_id", n => { ApiKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultApiKeyId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultApiKeyId.CreateFromDiscriminatorValue); } },
                 { "input_tokens", n => { InputTokens = n.GetIntValue(); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_model>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_model.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultModel>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultModel.CreateFromDiscriminatorValue); } },
                 { "num_model_requests", n => { NumModelRequests = n.GetIntValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_object>(); } },
-                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_project_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_project_id.CreateFromDiscriminatorValue); } },
-                { "user_id", n => { UserId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_user_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_user_id.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultObject>(); } },
+                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultProjectId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultProjectId.CreateFromDiscriminatorValue); } },
+                { "user_id", n => { UserId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultUserId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultUserId.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -94,13 +94,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_api_key_id>("api_key_id", ApiKeyId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultApiKeyId>("api_key_id", ApiKeyId);
             writer.WriteIntValue("input_tokens", InputTokens);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_model>("model", Model);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultModel>("model", Model);
             writer.WriteIntValue("num_model_requests", NumModelRequests);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_object>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_project_id>("project_id", ProjectId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResult_user_id>("user_id", UserId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultObject>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultProjectId>("project_id", ProjectId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageEmbeddingsResultUserId>("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

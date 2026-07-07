@@ -26,21 +26,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The memory_limit property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_memory_limit? MemoryLimit { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamMemoryLimit? MemoryLimit { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_memory_limit MemoryLimit { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamMemoryLimit MemoryLimit { get; set; }
 #endif
         /// <summary>Network access policy for the container.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam.AutoCodeInterpreterToolParam_network_policy? NetworkPolicy { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamNetworkPolicy? NetworkPolicy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam.AutoCodeInterpreterToolParam_network_policy NetworkPolicy { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamNetworkPolicy NetworkPolicy { get; set; }
 #endif
         /// <summary>Always `auto`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam"/> and sets the default values.
         /// </summary>
@@ -67,9 +67,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "file_ids", n => { FileIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "memory_limit", n => { MemoryLimit = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_memory_limit>(global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_memory_limit.CreateFromDiscriminatorValue); } },
-                { "network_policy", n => { NetworkPolicy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam.AutoCodeInterpreterToolParam_network_policy>(global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam.AutoCodeInterpreterToolParam_network_policy.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_type>(); } },
+                { "memory_limit", n => { MemoryLimit = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamMemoryLimit>(global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamMemoryLimit.CreateFromDiscriminatorValue); } },
+                { "network_policy", n => { NetworkPolicy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamNetworkPolicy>(global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamNetworkPolicy.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamType>(); } },
             };
         }
         /// <summary>
@@ -80,85 +80,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("file_ids", FileIds);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_memory_limit>("memory_limit", MemoryLimit);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam.AutoCodeInterpreterToolParam_network_policy>("network_policy", NetworkPolicy);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamMemoryLimit>("memory_limit", MemoryLimit);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamNetworkPolicy>("network_policy", NetworkPolicy);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDisabledParam"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AutoCodeInterpreterToolParam_network_policy : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParam"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParam? ContainerNetworkPolicyAllowlistParam { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParam ContainerNetworkPolicyAllowlistParam { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDisabledParam"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDisabledParam? ContainerNetworkPolicyDisabledParam { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDisabledParam ContainerNetworkPolicyDisabledParam { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam.AutoCodeInterpreterToolParam_network_policy"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam.AutoCodeInterpreterToolParam_network_policy CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam.AutoCodeInterpreterToolParam_network_policy();
-                if("ContainerNetworkPolicyAllowlistParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ContainerNetworkPolicyAllowlistParam = new global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParam();
-                }
-                else if("ContainerNetworkPolicyDisabledParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ContainerNetworkPolicyDisabledParam = new global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDisabledParam();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ContainerNetworkPolicyAllowlistParam != null)
-                {
-                    return ContainerNetworkPolicyAllowlistParam.GetFieldDeserializers();
-                }
-                else if(ContainerNetworkPolicyDisabledParam != null)
-                {
-                    return ContainerNetworkPolicyDisabledParam.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(ContainerNetworkPolicyAllowlistParam != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParam>(null, ContainerNetworkPolicyAllowlistParam);
-                }
-                else if(ContainerNetworkPolicyDisabledParam != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDisabledParam>(null, ContainerNetworkPolicyDisabledParam);
-                }
-            }
         }
     }
 }

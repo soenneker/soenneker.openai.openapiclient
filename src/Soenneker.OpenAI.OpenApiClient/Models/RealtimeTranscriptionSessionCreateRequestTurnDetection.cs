@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Activation threshold for VAD (0.0 to 1.0), this defaults to 0.5. Ahigher threshold will require louder audio to activate the model, andthus might perform better in noisy environments.</summary>
         public double? Threshold { get; set; }
         /// <summary>Type of turn detection. Only `server_vad` is currently supported for transcription sessions.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestTurnDetection_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestTurnDetectionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestTurnDetection"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "prefix_padding_ms", n => { PrefixPaddingMs = n.GetIntValue(); } },
                 { "silence_duration_ms", n => { SilenceDurationMs = n.GetIntValue(); } },
                 { "threshold", n => { Threshold = n.GetDoubleValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestTurnDetection_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestTurnDetectionType>(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("prefix_padding_ms", PrefixPaddingMs);
             writer.WriteIntValue("silence_duration_ms", SilenceDurationMs);
             writer.WriteDoubleValue("threshold", Threshold);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestTurnDetection_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestTurnDetectionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

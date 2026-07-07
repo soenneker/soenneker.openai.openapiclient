@@ -18,84 +18,84 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The created_after property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_created_after? CreatedAfter { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedAfter? CreatedAfter { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_created_after CreatedAfter { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedAfter CreatedAfter { get; set; }
 #endif
         /// <summary>The created_before property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_created_before? CreatedBefore { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedBefore? CreatedBefore { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_created_before CreatedBefore { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedBefore CreatedBefore { get; set; }
 #endif
         /// <summary>The instructions_search property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_instructions_search? InstructionsSearch { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceInstructionsSearch? InstructionsSearch { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_instructions_search InstructionsSearch { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceInstructionsSearch InstructionsSearch { get; set; }
 #endif
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_metadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_metadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata Metadata { get; set; }
 #endif
         /// <summary>The model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_model? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceModel? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_model Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceModel Model { get; set; }
 #endif
         /// <summary>The reasoning_effort property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_reasoning_effort? ReasoningEffort { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceReasoningEffort? ReasoningEffort { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_reasoning_effort ReasoningEffort { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceReasoningEffort ReasoningEffort { get; set; }
 #endif
         /// <summary>The temperature property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_temperature? Temperature { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTemperature? Temperature { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_temperature Temperature { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTemperature Temperature { get; set; }
 #endif
         /// <summary>The tools property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_tools? Tools { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools? Tools { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_tools Tools { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools Tools { get; set; }
 #endif
         /// <summary>The top_p property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_top_p? TopP { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTopP? TopP { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_top_p TopP { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTopP TopP { get; set; }
 #endif
         /// <summary>The type of run data source. Always `responses`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceType? Type { get; set; }
         /// <summary>The users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_users? Users { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers? Users { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_users Users { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers Users { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource"/> and sets the default values.
@@ -122,17 +122,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "created_after", n => { CreatedAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_created_after>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_created_after.CreateFromDiscriminatorValue); } },
-                { "created_before", n => { CreatedBefore = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_created_before>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_created_before.CreateFromDiscriminatorValue); } },
-                { "instructions_search", n => { InstructionsSearch = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_instructions_search>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_instructions_search.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_metadata.CreateFromDiscriminatorValue); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_model>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_model.CreateFromDiscriminatorValue); } },
-                { "reasoning_effort", n => { ReasoningEffort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_reasoning_effort>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_reasoning_effort.CreateFromDiscriminatorValue); } },
-                { "temperature", n => { Temperature = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_temperature>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_temperature.CreateFromDiscriminatorValue); } },
-                { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_tools>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_tools.CreateFromDiscriminatorValue); } },
-                { "top_p", n => { TopP = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_top_p>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_top_p.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_type>(); } },
-                { "users", n => { Users = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_users>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_users.CreateFromDiscriminatorValue); } },
+                { "created_after", n => { CreatedAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedAfter>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedAfter.CreateFromDiscriminatorValue); } },
+                { "created_before", n => { CreatedBefore = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedBefore>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedBefore.CreateFromDiscriminatorValue); } },
+                { "instructions_search", n => { InstructionsSearch = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceInstructionsSearch>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceInstructionsSearch.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceModel>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceModel.CreateFromDiscriminatorValue); } },
+                { "reasoning_effort", n => { ReasoningEffort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceReasoningEffort>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceReasoningEffort.CreateFromDiscriminatorValue); } },
+                { "temperature", n => { Temperature = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTemperature>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTemperature.CreateFromDiscriminatorValue); } },
+                { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools.CreateFromDiscriminatorValue); } },
+                { "top_p", n => { TopP = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTopP>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTopP.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceType>(); } },
+                { "users", n => { Users = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -142,17 +142,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_created_after>("created_after", CreatedAfter);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_created_before>("created_before", CreatedBefore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_instructions_search>("instructions_search", InstructionsSearch);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_metadata>("metadata", Metadata);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_model>("model", Model);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_reasoning_effort>("reasoning_effort", ReasoningEffort);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_temperature>("temperature", Temperature);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_tools>("tools", Tools);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_top_p>("top_p", TopP);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_type>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource_users>("users", Users);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedAfter>("created_after", CreatedAfter);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedBefore>("created_before", CreatedBefore);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceInstructionsSearch>("instructions_search", InstructionsSearch);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceModel>("model", Model);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceReasoningEffort>("reasoning_effort", ReasoningEffort);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTemperature>("temperature", Temperature);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools>("tools", Tools);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTopP>("top_p", TopP);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers>("users", Users);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

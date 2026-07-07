@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools AllowedTools { get; set; }
 #endif
         /// <summary>Allowed tool configuration type. Always `allowed_tools`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsChoice_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsChoiceType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsChoice"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allowed_tools", n => { AllowedTools = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsChoice_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsChoiceType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools>("allowed_tools", AllowedTools);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsChoice_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsChoiceType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

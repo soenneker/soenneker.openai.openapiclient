@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Admin_api_keys
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.organization.admin_api_keys.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Admin_api_keys.Item.WithKey_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Organization.Admin_api_keys.Item.WithKey_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Admin_api_keys.Item.WithKeyItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Admin_api_keys.Item.WithKeyItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("key_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Admin_api_keys.Item.WithKey_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("keyId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Admin_api_keys.Item.WithKeyItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -73,11 +73,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Admin_api_keys
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeysCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeysCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeysCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyCreateResponse> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeysCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -111,11 +111,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Admin_api_keys
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeysCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeysCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeysCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeysCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -152,7 +152,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Admin_api_keys
             [QueryParameter("limit")]
             public int? Limit { get; set; }
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Admin_api_keys.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeysListOrderParameter? Order { get; set; }
         }
     }
 }

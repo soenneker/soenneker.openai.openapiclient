@@ -25,13 +25,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The next_page property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_page? NextPage { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPageNextPage? NextPage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_page NextPage { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPageNextPage NextPage { get; set; }
 #endif
         /// <summary>The object type, which is always `vector_store.search_results.page`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPageObject? Object { get; set; }
         /// <summary>The search_query property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,8 +60,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultItem>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "next_page", n => { NextPage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_page>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_page.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_object>(); } },
+                { "next_page", n => { NextPage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPageNextPage>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPageNextPage.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPageObject>(); } },
                 { "search_query", n => { SearchQuery = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -74,8 +74,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultItem>("data", Data);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_next_page>("next_page", NextPage);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPage_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPageNextPage>("next_page", NextPage);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultsPageObject>("object", Object);
             writer.WriteCollectionOfPrimitiveValues<string>("search_query", SearchQuery);
         }
     }

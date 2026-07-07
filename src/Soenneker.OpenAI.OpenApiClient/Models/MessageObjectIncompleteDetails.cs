@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The reason the message is incomplete.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetails_reason? Reason { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetailsAnyOf1Reason? Reason { get; set; }
         /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "reason", n => { Reason = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetails_reason>(); } },
+                { "reason", n => { Reason = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetailsAnyOf1Reason>(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetails_reason>("reason", Reason);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetailsAnyOf1Reason>("reason", Reason);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

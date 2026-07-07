@@ -20,21 +20,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The file_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent_file_id? FileId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentFileId? FileId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent_file_id FileId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentFileId FileId { get; set; }
 #endif
         /// <summary>The image_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent_image_url? ImageUrl { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentImageUrl? ImageUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent_image_url ImageUrl { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentImageUrl ImageUrl { get; set; }
 #endif
         /// <summary>Specifies the event type. For a computer screenshot, this property is always set to `computer_screenshot`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent"/> and sets the default values.
         /// </summary>
@@ -61,9 +61,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "detail", n => { Detail = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageDetail>(); } },
-                { "file_id", n => { FileId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent_file_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent_file_id.CreateFromDiscriminatorValue); } },
-                { "image_url", n => { ImageUrl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent_image_url>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent_image_url.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent_type>(); } },
+                { "file_id", n => { FileId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentFileId>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentFileId.CreateFromDiscriminatorValue); } },
+                { "image_url", n => { ImageUrl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentImageUrl>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentImageUrl.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentType>(); } },
             };
         }
         /// <summary>
@@ -74,9 +74,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageDetail>("detail", Detail);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent_file_id>("file_id", FileId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent_image_url>("image_url", ImageUrl);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentFileId>("file_id", FileId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentImageUrl>("image_url", ImageUrl);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

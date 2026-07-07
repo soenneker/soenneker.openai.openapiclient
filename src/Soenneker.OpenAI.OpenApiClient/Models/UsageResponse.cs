@@ -27,13 +27,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The next_page property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse_next_page? NextPage { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseNextPage? NextPage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse_next_page NextPage { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseNextPage NextPage { get; set; }
 #endif
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse"/> and sets the default values.
         /// </summary>
@@ -61,8 +61,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "next_page", n => { NextPage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse_next_page>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse_next_page.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse_object>(); } },
+                { "next_page", n => { NextPage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseNextPage>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseNextPage.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseObject>(); } },
             };
         }
         /// <summary>
@@ -74,8 +74,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket>("data", Data);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse_next_page>("next_page", NextPage);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseNextPage>("next_page", NextPage);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -17,34 +17,34 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Developer persona metadata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_developer_persona? DeveloperPersona { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestDeveloperPersona? DeveloperPersona { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_developer_persona DeveloperPersona { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestDeveloperPersona DeveloperPersona { get; set; }
 #endif
         /// <summary>`owner` or `reader`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_role? Role { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestRole? Role { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_role Role { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestRole Role { get; set; }
 #endif
         /// <summary>Role ID to assign to the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_role_id? RoleId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestRoleId? RoleId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_role_id RoleId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestRoleId RoleId { get; set; }
 #endif
         /// <summary>Technical level metadata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_technical_level? TechnicalLevel { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestTechnicalLevel? TechnicalLevel { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_technical_level TechnicalLevel { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestTechnicalLevel TechnicalLevel { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest"/> and sets the default values.
@@ -71,10 +71,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "developer_persona", n => { DeveloperPersona = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_developer_persona>(global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_developer_persona.CreateFromDiscriminatorValue); } },
-                { "role", n => { Role = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_role>(global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_role.CreateFromDiscriminatorValue); } },
-                { "role_id", n => { RoleId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_role_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_role_id.CreateFromDiscriminatorValue); } },
-                { "technical_level", n => { TechnicalLevel = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_technical_level>(global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_technical_level.CreateFromDiscriminatorValue); } },
+                { "developer_persona", n => { DeveloperPersona = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestDeveloperPersona>(global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestDeveloperPersona.CreateFromDiscriminatorValue); } },
+                { "role", n => { Role = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestRole>(global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestRole.CreateFromDiscriminatorValue); } },
+                { "role_id", n => { RoleId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestRoleId>(global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestRoleId.CreateFromDiscriminatorValue); } },
+                { "technical_level", n => { TechnicalLevel = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestTechnicalLevel>(global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestTechnicalLevel.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -84,10 +84,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_developer_persona>("developer_persona", DeveloperPersona);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_role>("role", Role);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_role_id>("role_id", RoleId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequest_technical_level>("technical_level", TechnicalLevel);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestDeveloperPersona>("developer_persona", DeveloperPersona);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestRole>("role", Role);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestRoleId>("role_id", RoleId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRoleUpdateRequestTechnicalLevel>("technical_level", TechnicalLevel);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

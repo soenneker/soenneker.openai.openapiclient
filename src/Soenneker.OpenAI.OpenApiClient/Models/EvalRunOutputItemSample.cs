@@ -34,10 +34,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>An array of input messages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample_input>? Input { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSampleInputItem>? Input { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample_input> Input { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSampleInputItem> Input { get; set; }
 #endif
         /// <summary>The maximum number of tokens allowed for completion.</summary>
         public int? MaxCompletionTokens { get; set; }
@@ -52,10 +52,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>An array of output messages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample_output>? Output { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSampleOutputItem>? Output { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample_output> Output { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSampleOutputItem> Output { get; set; }
 #endif
         /// <summary>The seed used for generating the sample.</summary>
         public int? Seed { get; set; }
@@ -98,10 +98,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError.CreateFromDiscriminatorValue); } },
                 { "finish_reason", n => { FinishReason = n.GetStringValue(); } },
-                { "input", n => { Input = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample_input>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample_input.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "input", n => { Input = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSampleInputItem>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSampleInputItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "max_completion_tokens", n => { MaxCompletionTokens = n.GetIntValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "output", n => { Output = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample_output>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample_output.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "output", n => { Output = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSampleOutputItem>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSampleOutputItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "seed", n => { Seed = n.GetIntValue(); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },
@@ -117,10 +117,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError>("error", Error);
             writer.WriteStringValue("finish_reason", FinishReason);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample_input>("input", Input);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSampleInputItem>("input", Input);
             writer.WriteIntValue("max_completion_tokens", MaxCompletionTokens);
             writer.WriteStringValue("model", Model);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample_output>("output", Output);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSampleOutputItem>("output", Output);
             writer.WriteIntValue("seed", Seed);
             writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteDoubleValue("top_p", TopP);

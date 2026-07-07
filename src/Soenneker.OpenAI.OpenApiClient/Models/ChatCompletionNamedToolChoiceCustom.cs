@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustomCustom Custom { get; set; }
 #endif
         /// <summary>For custom tool calling, the type is always `custom`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustom_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustomType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustom"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "custom", n => { Custom = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustomCustom>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustomCustom.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustom_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustomType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustomCustom>("custom", Custom);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustom_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionNamedToolChoiceCustomType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

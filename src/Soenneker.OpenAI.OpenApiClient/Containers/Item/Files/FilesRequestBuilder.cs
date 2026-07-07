@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Containers.Item.Files
 {
     /// <summary>
-    /// Builds and executes requests for operations under \containers\{container_id}\files
+    /// Builds and executes requests for operations under \containers\{containerId}\files
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FilesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.containers.item.files.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Containers.Item.Files.Item.WithFile_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Containers.Item.Files.Item.WithFile_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Containers.Item.Files.Item.WithFileItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Containers.Item.Files.Item.WithFileItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("file_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Containers.Item.Files.Item.WithFile_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("fileId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Containers.Item.Files.Item.WithFileItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Containers.Item.Files
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FilesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/containers/{container_id}/files{?after*,limit*,order*}", pathParameters)
+        public FilesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/containers/{containerId}/files{?after*,limit*,order*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Containers.Item.Files
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FilesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/containers/{container_id}/files{?after*,limit*,order*}", rawUrl)
+        public FilesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/containers/{containerId}/files{?after*,limit*,order*}", rawUrl)
         {
         }
         /// <summary>
@@ -155,7 +155,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Containers.Item.Files
             public int? Limit { get; set; }
             /// <summary>Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Containers.Item.Files.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListContainerFilesOrderParameter? Order { get; set; }
         }
     }
 }

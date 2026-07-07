@@ -33,10 +33,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The prompt_cache_retention property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_prompt_cache_retention? PromptCacheRetention { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesPromptCacheRetention? PromptCacheRetention { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_prompt_cache_retention PromptCacheRetention { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesPromptCacheRetention PromptCacheRetention { get; set; }
 #endif
         /// <summary>A stable identifier used to help detect users of your application that may be violating OpenAI&apos;s usage policies.The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,26 +57,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The temperature property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_temperature? Temperature { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTemperature? Temperature { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_temperature Temperature { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTemperature Temperature { get; set; }
 #endif
         /// <summary>The top_logprobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_top_logprobs? TopLogprobs { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTopLogprobs? TopLogprobs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_top_logprobs TopLogprobs { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTopLogprobs TopLogprobs { get; set; }
 #endif
         /// <summary>The top_p property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_top_p? TopP { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTopP? TopP { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_top_p TopP { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTopP TopP { get; set; }
 #endif
         /// <summary>This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.A stable identifier for your end-users.Used to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).</summary>
         [Obsolete("")]
@@ -114,12 +114,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
                 { "prompt_cache_key", n => { PromptCacheKey = n.GetStringValue(); } },
-                { "prompt_cache_retention", n => { PromptCacheRetention = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_prompt_cache_retention>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_prompt_cache_retention.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_retention", n => { PromptCacheRetention = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesPromptCacheRetention>(global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesPromptCacheRetention.CreateFromDiscriminatorValue); } },
                 { "safety_identifier", n => { SafetyIdentifier = n.GetStringValue(); } },
                 { "service_tier", n => { ServiceTier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier>(global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier.CreateFromDiscriminatorValue); } },
-                { "temperature", n => { Temperature = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_temperature>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_temperature.CreateFromDiscriminatorValue); } },
-                { "top_logprobs", n => { TopLogprobs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_top_logprobs>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_top_logprobs.CreateFromDiscriminatorValue); } },
-                { "top_p", n => { TopP = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_top_p>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_top_p.CreateFromDiscriminatorValue); } },
+                { "temperature", n => { Temperature = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTemperature>(global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTemperature.CreateFromDiscriminatorValue); } },
+                { "top_logprobs", n => { TopLogprobs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTopLogprobs>(global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTopLogprobs.CreateFromDiscriminatorValue); } },
+                { "top_p", n => { TopP = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTopP>(global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTopP.CreateFromDiscriminatorValue); } },
                 { "user", n => { User = n.GetStringValue(); } },
             };
         }
@@ -132,12 +132,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteStringValue("prompt_cache_key", PromptCacheKey);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_prompt_cache_retention>("prompt_cache_retention", PromptCacheRetention);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesPromptCacheRetention>("prompt_cache_retention", PromptCacheRetention);
             writer.WriteStringValue("safety_identifier", SafetyIdentifier);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier>("service_tier", ServiceTier);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_temperature>("temperature", Temperature);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_top_logprobs>("top_logprobs", TopLogprobs);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties_top_p>("top_p", TopP);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTemperature>("temperature", Temperature);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTopLogprobs>("top_logprobs", TopLogprobs);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelResponsePropertiesTopP>("top_p", TopP);
             writer.WriteStringValue("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }

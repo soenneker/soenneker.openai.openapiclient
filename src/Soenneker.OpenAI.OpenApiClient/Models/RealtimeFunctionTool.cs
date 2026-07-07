@@ -33,13 +33,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Parameters of the function in JSON Schema.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool_parameters? Parameters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolParametersProperty? Parameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool_parameters Parameters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolParametersProperty Parameters { get; set; }
 #endif
         /// <summary>The type of the tool, i.e. `function`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool"/> and sets the default values.
         /// </summary>
@@ -67,8 +67,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool_parameters>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool_parameters.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool_type>(); } },
+                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolParametersProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolParametersProperty.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolType>(); } },
             };
         }
         /// <summary>
@@ -80,8 +80,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool_parameters>("parameters", Parameters);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolParametersProperty>("parameters", Parameters);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

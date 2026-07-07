@@ -25,30 +25,29 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The first_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource_first_id? FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResourceFirstId? FirstId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource_first_id FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResourceFirstId FirstId { get; set; }
 #endif
         /// <summary>Whether there are more items available.</summary>
         public bool? HasMore { get; set; }
         /// <summary>The last_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource_last_id? LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResourceLastId? LastId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource_last_id LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResourceLastId LastId { get; set; }
 #endif
         /// <summary>The type of object returned, must be `list`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResourceObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource"/> and sets the default values.
         /// </summary>
         public SkillVersionListResource()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource_object.List;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -69,10 +68,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionResource>(global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionResource.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource_first_id>(global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource_first_id.CreateFromDiscriminatorValue); } },
+                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResourceFirstId>(global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResourceFirstId.CreateFromDiscriminatorValue); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource_last_id>(global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource_last_id.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource_object>(); } },
+                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResourceLastId>(global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResourceLastId.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResourceObject>(); } },
             };
         }
         /// <summary>
@@ -83,10 +82,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionResource>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource_first_id>("first_id", FirstId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResourceFirstId>("first_id", FirstId);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource_last_id>("last_id", LastId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResource_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResourceLastId>("last_id", LastId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionListResourceObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -20,10 +20,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The recent_threads property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistory_recent_threads? RecentThreads { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistoryRecentThreads? RecentThreads { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistory_recent_threads RecentThreads { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistoryRecentThreads RecentThreads { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistory"/> and sets the default values.
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
-                { "recent_threads", n => { RecentThreads = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistory_recent_threads>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistory_recent_threads.CreateFromDiscriminatorValue); } },
+                { "recent_threads", n => { RecentThreads = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistoryRecentThreads>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistoryRecentThreads.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistory_recent_threads>("recent_threads", RecentThreads);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistoryRecentThreads>("recent_threads", RecentThreads);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

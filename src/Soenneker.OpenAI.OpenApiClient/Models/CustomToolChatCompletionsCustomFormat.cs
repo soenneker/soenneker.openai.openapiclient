@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatMember2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormat"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatTextFormat"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomToolChatCompletionsCustomFormat : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormat"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatMember1? CustomToolChatCompletionsCustomFormatMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormat? CustomToolChatCompletionsCustomFormatGrammarFormat { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatMember1 CustomToolChatCompletionsCustomFormatMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormat CustomToolChatCompletionsCustomFormatGrammarFormat { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatMember2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatTextFormat"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatMember2? CustomToolChatCompletionsCustomFormatMember2 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatTextFormat? CustomToolChatCompletionsCustomFormatTextFormat { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatMember2 CustomToolChatCompletionsCustomFormatMember2 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatTextFormat CustomToolChatCompletionsCustomFormatTextFormat { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +39,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormat();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("CustomToolChatCompletionsCustomFormatGrammarFormat".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CustomToolChatCompletionsCustomFormatMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatMember1();
+                result.CustomToolChatCompletionsCustomFormatGrammarFormat = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormat();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("CustomToolChatCompletionsCustomFormatTextFormat".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CustomToolChatCompletionsCustomFormatMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatMember2();
+                result.CustomToolChatCompletionsCustomFormatTextFormat = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatTextFormat();
             }
             return result;
         }
@@ -55,13 +55,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CustomToolChatCompletionsCustomFormatMember1 != null)
+            if(CustomToolChatCompletionsCustomFormatGrammarFormat != null)
             {
-                return CustomToolChatCompletionsCustomFormatMember1.GetFieldDeserializers();
+                return CustomToolChatCompletionsCustomFormatGrammarFormat.GetFieldDeserializers();
             }
-            else if(CustomToolChatCompletionsCustomFormatMember2 != null)
+            else if(CustomToolChatCompletionsCustomFormatTextFormat != null)
             {
-                return CustomToolChatCompletionsCustomFormatMember2.GetFieldDeserializers();
+                return CustomToolChatCompletionsCustomFormatTextFormat.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -72,13 +72,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CustomToolChatCompletionsCustomFormatMember1 != null)
+            if(CustomToolChatCompletionsCustomFormatGrammarFormat != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatMember1>(null, CustomToolChatCompletionsCustomFormatMember1);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormat>(null, CustomToolChatCompletionsCustomFormatGrammarFormat);
             }
-            else if(CustomToolChatCompletionsCustomFormatMember2 != null)
+            else if(CustomToolChatCompletionsCustomFormatTextFormat != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatMember2>(null, CustomToolChatCompletionsCustomFormatMember2);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatTextFormat>(null, CustomToolChatCompletionsCustomFormatTextFormat);
             }
         }
     }

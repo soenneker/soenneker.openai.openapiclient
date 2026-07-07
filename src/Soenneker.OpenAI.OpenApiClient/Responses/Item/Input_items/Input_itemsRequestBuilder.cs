@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_items
 {
     /// <summary>
-    /// Builds and executes requests for operations under \responses\{response_id}\input_items
+    /// Builds and executes requests for operations under \responses\{responseId}\input_items
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Input_itemsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_items
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Input_itemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/responses/{response_id}/input_items{?after*,include*,limit*,order*}", pathParameters)
+        public Input_itemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/responses/{responseId}/input_items{?after*,include*,limit*,order*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_items
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Input_itemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/responses/{response_id}/input_items{?after*,include*,limit*,order*}", rawUrl)
+        public Input_itemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/responses/{responseId}/input_items{?after*,include*,limit*,order*}", rawUrl)
         {
         }
         /// <summary>
@@ -110,7 +110,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_items
             public int? Limit { get; set; }
             /// <summary>&quot;The order to return the input items in. Default is `desc`.- `asc`: Return the input items in ascending order.- `desc`: Return the input items in descending order.&quot;</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_items.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListInputItemsOrderParameter? Order { get; set; }
         }
     }
 }

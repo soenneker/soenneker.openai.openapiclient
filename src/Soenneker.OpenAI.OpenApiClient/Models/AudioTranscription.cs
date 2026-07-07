@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Controls how long the model waits before emitting transcription text.Higher values can improve transcription accuracy at the cost of latency.Only supported with `gpt-realtime-whisper` in GA Realtime sessions.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription_delay? Delay { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionDelay? Delay { get; set; }
         /// <summary>The language of the input audio. Supplying the input language in[ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (e.g. `en`) formatwill improve accuracy and latency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -27,10 +27,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The model to use for transcription. Current options are `whisper-1`, `gpt-4o-mini-transcribe`, `gpt-4o-mini-transcribe-2025-12-15`, `gpt-4o-transcribe`, `gpt-4o-transcribe-diarize`, and `gpt-realtime-whisper`. Use `gpt-4o-transcribe-diarize` when you need diarization with speaker labels.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionModel? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionModel Model { get; set; }
 #endif
         /// <summary>An optional text to guide the model&apos;s style or continue a previous audiosegment.For `whisper-1`, the [prompt is a list of keywords](/docs/guides/speech-to-text#prompting).For `gpt-4o-transcribe` models (excluding `gpt-4o-transcribe-diarize`), the prompt is a free text string, for example &quot;expect words related to technology&quot;.Prompt is not supported with `gpt-realtime-whisper` in GA Realtime sessions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,9 +65,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "delay", n => { Delay = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription_delay>(); } },
+                { "delay", n => { Delay = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionDelay>(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionModel>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionModel.CreateFromDiscriminatorValue); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
             };
         }
@@ -78,61 +78,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription_delay>("delay", Delay);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionDelay>("delay", Delay);
             writer.WriteStringValue("language", Language);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model>("model", Model);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionModel>("model", Model);
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AudioTranscription_model : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.AudioTranscription_model();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-            }
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string ImageUrl { get; set; }
 #endif
         /// <summary>Specifies the event type. For a computer screenshot, this property is always set to `computer_screenshot`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImageType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "file_id", n => { FileId = n.GetStringValue(); } },
                 { "image_url", n => { ImageUrl = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImageType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("file_id", FileId);
             writer.WriteStringValue("image_url", ImageUrl);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImageType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

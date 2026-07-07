@@ -44,7 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Text { get; set; }
 #endif
         /// <summary>The type of the segment. Always `transcript.text.segment`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionDiarizedSegment_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionDiarizedSegmentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionDiarizedSegment"/> and sets the default values.
         /// </summary>
@@ -75,7 +75,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "speaker", n => { Speaker = n.GetStringValue(); } },
                 { "start", n => { Start = n.GetDoubleValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionDiarizedSegment_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionDiarizedSegmentType>(); } },
             };
         }
         /// <summary>
@@ -90,7 +90,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("speaker", Speaker);
             writer.WriteDoubleValue("start", Start);
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionDiarizedSegment_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionDiarizedSegmentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -57,7 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams SamplingParams { get; set; }
 #endif
         /// <summary>The object type, which is always `score_model`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModel_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModelType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModel"/> and sets the default values.
         /// </summary>
@@ -89,7 +89,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "pass_threshold", n => { PassThreshold = n.GetDoubleValue(); } },
                 { "range", n => { Range = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "sampling_params", n => { SamplingParams = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams>(global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModel_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModelType>(); } },
             };
         }
         /// <summary>
@@ -105,7 +105,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteDoubleValue("pass_threshold", PassThreshold);
             writer.WriteCollectionOfPrimitiveValues<double?>("range", Range);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams>("sampling_params", SamplingParams);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModel_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModelType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -18,13 +18,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>&quot;An array of tool calls the run step was involved in. These can be associated with one of three types of tools: `code_interpreter`, `file_search`, or `function`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject.RunStepDetailsToolCallsObject_tool_calls>? ToolCalls { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem>? ToolCalls { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject.RunStepDetailsToolCallsObject_tool_calls> ToolCalls { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem> ToolCalls { get; set; }
 #endif
         /// <summary>Always `tool_calls`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject"/> and sets the default values.
         /// </summary>
@@ -50,8 +50,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject.RunStepDetailsToolCallsObject_tool_calls>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject.RunStepDetailsToolCallsObject_tool_calls.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject_type>(); } },
+                { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectType>(); } },
             };
         }
         /// <summary>
@@ -61,104 +61,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject.RunStepDetailsToolCallsObject_tool_calls>("tool_calls", ToolCalls);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject_type>("type", Type);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem>("tool_calls", ToolCalls);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObject"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchObject"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObject"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RunStepDetailsToolCallsObject_tool_calls : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObject"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObject? RunStepDetailsToolCallsCodeObject { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObject RunStepDetailsToolCallsCodeObject { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchObject"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchObject? RunStepDetailsToolCallsFileSearchObject { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchObject RunStepDetailsToolCallsFileSearchObject { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObject"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObject? RunStepDetailsToolCallsFunctionObject { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObject RunStepDetailsToolCallsFunctionObject { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject.RunStepDetailsToolCallsObject_tool_calls"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject.RunStepDetailsToolCallsObject_tool_calls CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject.RunStepDetailsToolCallsObject_tool_calls();
-                if("RunStepDetailsToolCallsCodeObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.RunStepDetailsToolCallsCodeObject = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObject();
-                }
-                else if("RunStepDetailsToolCallsFileSearchObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.RunStepDetailsToolCallsFileSearchObject = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchObject();
-                }
-                else if("RunStepDetailsToolCallsFunctionObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.RunStepDetailsToolCallsFunctionObject = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObject();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(RunStepDetailsToolCallsCodeObject != null)
-                {
-                    return RunStepDetailsToolCallsCodeObject.GetFieldDeserializers();
-                }
-                else if(RunStepDetailsToolCallsFileSearchObject != null)
-                {
-                    return RunStepDetailsToolCallsFileSearchObject.GetFieldDeserializers();
-                }
-                else if(RunStepDetailsToolCallsFunctionObject != null)
-                {
-                    return RunStepDetailsToolCallsFunctionObject.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(RunStepDetailsToolCallsCodeObject != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObject>(null, RunStepDetailsToolCallsCodeObject);
-                }
-                else if(RunStepDetailsToolCallsFileSearchObject != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchObject>(null, RunStepDetailsToolCallsFileSearchObject);
-                }
-                else if(RunStepDetailsToolCallsFunctionObject != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObject>(null, RunStepDetailsToolCallsFunctionObject);
-                }
-            }
         }
     }
 }

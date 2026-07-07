@@ -16,14 +16,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The action type.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPage_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPageType? Type { get; set; }
         /// <summary>The URL opened by the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPage_url? Url { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPageUrl? Url { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPage_url Url { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPageUrl Url { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPage"/> and sets the default values.
@@ -50,8 +50,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPage_type>(); } },
-                { "url", n => { Url = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPage_url>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPage_url.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPageType>(); } },
+                { "url", n => { Url = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPageUrl>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPageUrl.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -61,8 +61,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPage_type>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPage_url>("url", Url);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPageType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionOpenPageUrl>("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

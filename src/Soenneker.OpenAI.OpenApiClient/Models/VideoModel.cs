@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel_Branch1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel_Wrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoModelBranch1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoModelWrapper"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VideoModel : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel_Branch1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoModelBranch1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel_Branch1? VideoModelBranch1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoModelBranch1? VideoModelBranch1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel_Branch1 VideoModelBranch1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoModelBranch1 VideoModelBranch1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel_Wrapper"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoModelWrapper"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel_Wrapper? VideoModelWrapper { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoModelWrapper? VideoModelWrapper { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel_Wrapper VideoModelWrapper { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoModelWrapper VideoModelWrapper { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,8 +38,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel();
-            result.VideoModelBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel_Branch1();
-            result.VideoModelWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel_Wrapper();
+            result.VideoModelBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.VideoModelBranch1();
+            result.VideoModelWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.VideoModelWrapper();
             return result;
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel_Branch1>(null, VideoModelBranch1, VideoModelWrapper);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoModelBranch1>(null, VideoModelBranch1, VideoModelWrapper);
         }
     }
 }

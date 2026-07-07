@@ -28,10 +28,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The file_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent_file_id? FileId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentFileId? FileId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent_file_id FileId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentFileId FileId { get; set; }
 #endif
         /// <summary>The name of the file to be sent to the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string FileUrl { get; set; }
 #endif
         /// <summary>The type of the input item. Always `input_file`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent"/> and sets the default values.
         /// </summary>
@@ -78,10 +78,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "detail", n => { Detail = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileInputDetail>(); } },
                 { "file_data", n => { FileData = n.GetStringValue(); } },
-                { "file_id", n => { FileId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent_file_id>(global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent_file_id.CreateFromDiscriminatorValue); } },
+                { "file_id", n => { FileId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentFileId>(global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentFileId.CreateFromDiscriminatorValue); } },
                 { "file_url", n => { FileUrl = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentType>(); } },
             };
         }
         /// <summary>
@@ -93,10 +93,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileInputDetail>("detail", Detail);
             writer.WriteStringValue("file_data", FileData);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent_file_id>("file_id", FileId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentFileId>("file_id", FileId);
             writer.WriteStringValue("filename", Filename);
             writer.WriteStringValue("file_url", FileUrl);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

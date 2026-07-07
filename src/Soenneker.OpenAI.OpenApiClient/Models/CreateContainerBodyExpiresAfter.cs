@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Time anchor for the expiration time. Currently only &apos;last_active_at&apos; is supported.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBodyExpiresAfter_anchor? Anchor { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBodyExpiresAfterAnchor? Anchor { get; set; }
         /// <summary>The minutes property</summary>
         public int? Minutes { get; set; }
         /// <summary>
@@ -44,7 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "anchor", n => { Anchor = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBodyExpiresAfter_anchor>(); } },
+                { "anchor", n => { Anchor = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBodyExpiresAfterAnchor>(); } },
                 { "minutes", n => { Minutes = n.GetIntValue(); } },
             };
         }
@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBodyExpiresAfter_anchor>("anchor", Anchor);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateContainerBodyExpiresAfterAnchor>("anchor", Anchor);
             writer.WriteIntValue("minutes", Minutes);
             writer.WriteAdditionalData(AdditionalData);
         }

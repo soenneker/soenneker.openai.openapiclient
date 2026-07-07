@@ -34,10 +34,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The output property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunction_output? Output { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunctionOutput? Output { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunction_output Output { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunctionOutput Output { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunction"/> and sets the default values.
@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "arguments", n => { Arguments = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunction_output>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunction_output.CreateFromDiscriminatorValue); } },
+                { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunctionOutput>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunctionOutput.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -78,7 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("arguments", Arguments);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunction_output>("output", Output);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunctionOutput>("output", Output);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

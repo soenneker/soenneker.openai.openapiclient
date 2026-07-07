@@ -23,7 +23,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public RealtimeReasoning()
         {
             AdditionalData = new Dictionary<string, object>();
-            Effort = global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeReasoningEffort.Low;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

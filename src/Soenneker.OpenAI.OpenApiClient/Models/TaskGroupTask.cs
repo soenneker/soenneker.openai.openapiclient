@@ -18,18 +18,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The heading property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTask_heading? Heading { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTaskHeading? Heading { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTask_heading Heading { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTaskHeading Heading { get; set; }
 #endif
         /// <summary>The summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTask_summary? Summary { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTaskSummary? Summary { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTask_summary Summary { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTaskSummary Summary { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.TaskType? Type { get; set; }
@@ -58,8 +58,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "heading", n => { Heading = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTask_heading>(global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTask_heading.CreateFromDiscriminatorValue); } },
-                { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTask_summary>(global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTask_summary.CreateFromDiscriminatorValue); } },
+                { "heading", n => { Heading = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTaskHeading>(global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTaskHeading.CreateFromDiscriminatorValue); } },
+                { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTaskSummary>(global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTaskSummary.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskType>(); } },
             };
         }
@@ -70,8 +70,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTask_heading>("heading", Heading);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTask_summary>("summary", Summary);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTaskHeading>("heading", Heading);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTaskSummary>("summary", Summary);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TaskType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

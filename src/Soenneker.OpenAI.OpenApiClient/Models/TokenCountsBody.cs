@@ -17,82 +17,90 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The conversation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_conversation? Conversation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyConversation? Conversation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_conversation Conversation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyConversation Conversation { get; set; }
 #endif
         /// <summary>The input property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_input? Input { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyInput? Input { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_input Input { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyInput Input { get; set; }
 #endif
         /// <summary>The instructions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_instructions? Instructions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyInstructions? Instructions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_instructions Instructions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyInstructions Instructions { get; set; }
 #endif
         /// <summary>The model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_model? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyModel? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_model Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyModel Model { get; set; }
 #endif
         /// <summary>The parallel_tool_calls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_parallel_tool_calls? ParallelToolCalls { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyParallelToolCalls? ParallelToolCalls { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_parallel_tool_calls ParallelToolCalls { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyParallelToolCalls ParallelToolCalls { get; set; }
+#endif
+        /// <summary>The personality property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PersonalityEnum? Personality { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PersonalityEnum Personality { get; set; }
 #endif
         /// <summary>The previous_response_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_previous_response_id? PreviousResponseId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyPreviousResponseId? PreviousResponseId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_previous_response_id PreviousResponseId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyPreviousResponseId PreviousResponseId { get; set; }
 #endif
         /// <summary>The reasoning property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_reasoning? Reasoning { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning? Reasoning { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_reasoning Reasoning { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning Reasoning { get; set; }
 #endif
         /// <summary>The text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_text? Text { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText? Text { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_text Text { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText Text { get; set; }
 #endif
         /// <summary>The tool_choice property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_tool_choice? ToolChoice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyToolChoice? ToolChoice { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_tool_choice ToolChoice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyToolChoice ToolChoice { get; set; }
 #endif
         /// <summary>The tools property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_tools? Tools { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyTools? Tools { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_tools Tools { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyTools Tools { get; set; }
 #endif
         /// <summary>The truncation property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.TruncationEnum? Truncation { get; set; }
@@ -121,16 +129,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "conversation", n => { Conversation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_conversation>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_conversation.CreateFromDiscriminatorValue); } },
-                { "input", n => { Input = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_input>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_input.CreateFromDiscriminatorValue); } },
-                { "instructions", n => { Instructions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_instructions>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_instructions.CreateFromDiscriminatorValue); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_model>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_model.CreateFromDiscriminatorValue); } },
-                { "parallel_tool_calls", n => { ParallelToolCalls = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_parallel_tool_calls>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_parallel_tool_calls.CreateFromDiscriminatorValue); } },
-                { "previous_response_id", n => { PreviousResponseId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_previous_response_id>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_previous_response_id.CreateFromDiscriminatorValue); } },
-                { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_reasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_reasoning.CreateFromDiscriminatorValue); } },
-                { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_text>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_text.CreateFromDiscriminatorValue); } },
-                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_tool_choice>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_tool_choice.CreateFromDiscriminatorValue); } },
-                { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_tools>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_tools.CreateFromDiscriminatorValue); } },
+                { "conversation", n => { Conversation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyConversation>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyConversation.CreateFromDiscriminatorValue); } },
+                { "input", n => { Input = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyInput>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyInput.CreateFromDiscriminatorValue); } },
+                { "instructions", n => { Instructions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyInstructions>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyInstructions.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyModel>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyModel.CreateFromDiscriminatorValue); } },
+                { "parallel_tool_calls", n => { ParallelToolCalls = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyParallelToolCalls>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyParallelToolCalls.CreateFromDiscriminatorValue); } },
+                { "personality", n => { Personality = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersonalityEnum>(global::Soenneker.OpenAI.OpenApiClient.Models.PersonalityEnum.CreateFromDiscriminatorValue); } },
+                { "previous_response_id", n => { PreviousResponseId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyPreviousResponseId>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyPreviousResponseId.CreateFromDiscriminatorValue); } },
+                { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning.CreateFromDiscriminatorValue); } },
+                { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText.CreateFromDiscriminatorValue); } },
+                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyToolChoice>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyToolChoice.CreateFromDiscriminatorValue); } },
+                { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyTools>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyTools.CreateFromDiscriminatorValue); } },
                 { "truncation", n => { Truncation = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationEnum>(); } },
             };
         }
@@ -141,16 +150,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_conversation>("conversation", Conversation);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_input>("input", Input);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_instructions>("instructions", Instructions);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_model>("model", Model);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_parallel_tool_calls>("parallel_tool_calls", ParallelToolCalls);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_previous_response_id>("previous_response_id", PreviousResponseId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_reasoning>("reasoning", Reasoning);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_text>("text", Text);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_tool_choice>("tool_choice", ToolChoice);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody_tools>("tools", Tools);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyConversation>("conversation", Conversation);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyInput>("input", Input);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyInstructions>("instructions", Instructions);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyModel>("model", Model);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyParallelToolCalls>("parallel_tool_calls", ParallelToolCalls);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersonalityEnum>("personality", Personality);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyPreviousResponseId>("previous_response_id", PreviousResponseId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning>("reasoning", Reasoning);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText>("text", Text);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyToolChoice>("tool_choice", ToolChoice);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyTools>("tools", Tools);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationEnum>("truncation", Truncation);
             writer.WriteAdditionalData(AdditionalData);
         }

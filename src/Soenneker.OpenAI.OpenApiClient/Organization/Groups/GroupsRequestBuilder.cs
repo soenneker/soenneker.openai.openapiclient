@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Groups
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.organization.groups.item collection</summary>
         /// <param name="position">The ID of the group to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Groups.Item.WithGroup_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Organization.Groups.Item.WithGroup_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Groups.Item.WithGroupItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Groups.Item.WithGroupItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("group_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Groups.Item.WithGroup_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("groupId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Groups.Item.WithGroupItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -155,7 +155,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Groups
             public int? Limit { get; set; }
             /// <summary>Specifies the sort order of the returned groups.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Groups.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListGroupsOrderParameter? Order { get; set; }
         }
     }
 }

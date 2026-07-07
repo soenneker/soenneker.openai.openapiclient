@@ -25,7 +25,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The object type, which is always &quot;checkpoint.permission&quot;.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DeleteFineTuningCheckpointPermissionResponse_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DeleteFineTuningCheckpointPermissionResponseObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.DeleteFineTuningCheckpointPermissionResponse"/> and sets the default values.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "deleted", n => { Deleted = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DeleteFineTuningCheckpointPermissionResponse_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DeleteFineTuningCheckpointPermissionResponseObject>(); } },
             };
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("deleted", Deleted);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DeleteFineTuningCheckpointPermissionResponse_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DeleteFineTuningCheckpointPermissionResponseObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

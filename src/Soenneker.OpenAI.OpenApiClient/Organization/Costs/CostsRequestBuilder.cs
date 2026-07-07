@@ -97,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Costs
 #endif
             /// <summary>Width of each time bucket in response. Currently only `1d` is supported, default to `1d`.</summary>
             [QueryParameter("bucket_width")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Costs.GetBucket_widthQueryParameterType? BucketWidth { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCostsBucketWidthParameter? BucketWidth { get; set; }
             /// <summary>End time (Unix seconds) of the query time range, exclusive.</summary>
             [QueryParameter("end_time")]
             public int? EndTime { get; set; }
@@ -105,11 +105,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Costs
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("group_by")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Costs.GetGroup_byQueryParameterType[]? GroupBy { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCostsGroupByParameterItem[]? GroupBy { get; set; }
 #nullable restore
 #else
             [QueryParameter("group_by")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Costs.GetGroup_byQueryParameterType[] GroupBy { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCostsGroupByParameterItem[] GroupBy { get; set; }
 #endif
             /// <summary>A limit on the number of buckets to be returned. Limit can range between 1 and 180, and the default is 7.</summary>
             [QueryParameter("limit")]

@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The content of the result that was found. The content is only included if requested via the include query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObject_content>? Content { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObjectContentItem>? Content { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObject_content> Content { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObjectContentItem> Content { get; set; }
 #endif
         /// <summary>The ID of the file that result was found in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObject_content>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObject_content.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObjectContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObjectContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "file_id", n => { FileId = n.GetStringValue(); } },
                 { "file_name", n => { FileName = n.GetStringValue(); } },
                 { "score", n => { Score = n.GetDoubleValue(); } },
@@ -79,7 +79,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObject_content>("content", Content);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObjectContentItem>("content", Content);
             writer.WriteStringValue("file_id", FileId);
             writer.WriteStringValue("file_name", FileName);
             writer.WriteDoubleValue("score", Score);

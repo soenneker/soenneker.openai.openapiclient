@@ -31,7 +31,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDomainSecretParam> DomainSecrets { get; set; }
 #endif
         /// <summary>Allow outbound network access only to specified domains. Always `allowlist`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParam_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParamType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParam"/> and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "allowed_domains", n => { AllowedDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "domain_secrets", n => { DomainSecrets = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDomainSecretParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDomainSecretParam.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParam_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParamType>(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_domains", AllowedDomains);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDomainSecretParam>("domain_secrets", DomainSecrets);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParam_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParamType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

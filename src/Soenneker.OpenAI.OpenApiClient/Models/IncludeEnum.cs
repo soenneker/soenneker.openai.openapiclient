@@ -9,35 +9,35 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         [EnumMember(Value = "file_search_call.results")]
         #pragma warning disable CS1591
-        File_search_callResults,
+        FileSearchCallResults,
         #pragma warning restore CS1591
         [EnumMember(Value = "web_search_call.results")]
         #pragma warning disable CS1591
-        Web_search_callResults,
+        WebSearchCallResults,
         #pragma warning restore CS1591
         [EnumMember(Value = "web_search_call.action.sources")]
         #pragma warning disable CS1591
-        Web_search_callActionSources,
+        WebSearchCallActionSources,
         #pragma warning restore CS1591
         [EnumMember(Value = "message.input_image.image_url")]
         #pragma warning disable CS1591
-        MessageInput_imageImage_url,
+        MessageInputImageImageUrl,
         #pragma warning restore CS1591
         [EnumMember(Value = "computer_call_output.output.image_url")]
         #pragma warning disable CS1591
-        Computer_call_outputOutputImage_url,
+        ComputerCallOutputOutputImageUrl,
         #pragma warning restore CS1591
         [EnumMember(Value = "code_interpreter_call.outputs")]
         #pragma warning disable CS1591
-        Code_interpreter_callOutputs,
+        CodeInterpreterCallOutputs,
         #pragma warning restore CS1591
         [EnumMember(Value = "reasoning.encrypted_content")]
         #pragma warning disable CS1591
-        ReasoningEncrypted_content,
+        ReasoningEncryptedContent,
         #pragma warning restore CS1591
         [EnumMember(Value = "message.output_text.logprobs")]
         #pragma warning disable CS1591
-        MessageOutput_textLogprobs,
+        MessageOutputTextLogprobs,
         #pragma warning restore CS1591
     }
 }

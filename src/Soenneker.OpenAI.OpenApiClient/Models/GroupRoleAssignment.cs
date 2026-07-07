@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.Group Group { get; set; }
 #endif
         /// <summary>Always `group.role`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupRoleAssignment_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupRoleAssignmentObject? Object { get; set; }
         /// <summary>Details about a role that can be assigned through the public Roles API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "group", n => { Group = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Group>(global::Soenneker.OpenAI.OpenApiClient.Models.Group.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupRoleAssignment_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupRoleAssignmentObject>(); } },
                 { "role", n => { Role = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Role>(global::Soenneker.OpenAI.OpenApiClient.Models.Role.CreateFromDiscriminatorValue); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Group>("group", Group);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupRoleAssignment_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupRoleAssignmentObject>("object", Object);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Role>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -42,14 +42,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string LastId { get; set; }
 #endif
         /// <summary>The type of this object. It is always set to &quot;list&quot;.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunList_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunListObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunList"/> and sets the default values.
         /// </summary>
         public EvalRunList()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunList_object.List;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -73,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "first_id", n => { FirstId = n.GetStringValue(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
                 { "last_id", n => { LastId = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunList_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunListObject>(); } },
             };
         }
         /// <summary>
@@ -87,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("first_id", FirstId);
             writer.WriteBoolValue("has_more", HasMore);
             writer.WriteStringValue("last_id", LastId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunList_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunListObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

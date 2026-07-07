@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Email address of the user, or `null` for users without an email.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_email? Email { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserEmail? Email { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_email Email { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserEmail Email { get; set; }
 #endif
         /// <summary>Identifier for the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,10 +34,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Whether the user is a service account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_is_service_account? IsServiceAccount { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserIsServiceAccount? IsServiceAccount { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_is_service_account IsServiceAccount { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserIsServiceAccount IsServiceAccount { get; set; }
 #endif
         /// <summary>Display name of the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,13 +50,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>URL of the user&apos;s profile picture, if available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_picture? Picture { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserPicture? Picture { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_picture Picture { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserPicture Picture { get; set; }
 #endif
         /// <summary>The type of user.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_user_type? UserType { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserUserType? UserType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser"/> and sets the default values.
         /// </summary>
@@ -82,12 +82,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "email", n => { Email = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_email>(global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_email.CreateFromDiscriminatorValue); } },
+                { "email", n => { Email = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserEmail>(global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserEmail.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "is_service_account", n => { IsServiceAccount = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_is_service_account>(global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_is_service_account.CreateFromDiscriminatorValue); } },
+                { "is_service_account", n => { IsServiceAccount = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserIsServiceAccount>(global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserIsServiceAccount.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "picture", n => { Picture = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_picture>(global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_picture.CreateFromDiscriminatorValue); } },
-                { "user_type", n => { UserType = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_user_type>(); } },
+                { "picture", n => { Picture = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserPicture>(global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserPicture.CreateFromDiscriminatorValue); } },
+                { "user_type", n => { UserType = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserUserType>(); } },
             };
         }
         /// <summary>
@@ -97,12 +97,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_email>("email", Email);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserEmail>("email", Email);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_is_service_account>("is_service_account", IsServiceAccount);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserIsServiceAccount>("is_service_account", IsServiceAccount);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_picture>("picture", Picture);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUser_user_type>("user_type", UserType);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserPicture>("picture", Picture);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupMemberUserUserType>("user_type", UserType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

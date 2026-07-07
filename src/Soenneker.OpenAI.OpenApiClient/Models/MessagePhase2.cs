@@ -14,7 +14,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "final_answer")]
         #pragma warning disable CS1591
-        Final_answer,
+        FinalAnswer,
         #pragma warning restore CS1591
     }
 }

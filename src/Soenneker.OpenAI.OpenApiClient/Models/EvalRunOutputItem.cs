@@ -20,10 +20,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Details of the input data source item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_datasource_item? DatasourceItem { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemDatasourceItemProperty? DatasourceItem { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_datasource_item DatasourceItem { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemDatasourceItemProperty DatasourceItem { get; set; }
 #endif
         /// <summary>The identifier for the data source item.</summary>
         public int? DatasourceItemId { get; set; }
@@ -44,7 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The type of the object. Always &quot;eval.run.output_item&quot;.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemObject? Object { get; set; }
         /// <summary>A list of grader results for this output item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,7 +83,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public EvalRunOutputItem()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_object.EvalRunOutput_item;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -104,11 +103,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "datasource_item", n => { DatasourceItem = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_datasource_item>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_datasource_item.CreateFromDiscriminatorValue); } },
+                { "datasource_item", n => { DatasourceItem = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemDatasourceItemProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemDatasourceItemProperty.CreateFromDiscriminatorValue); } },
                 { "datasource_item_id", n => { DatasourceItemId = n.GetIntValue(); } },
                 { "eval_id", n => { EvalId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemObject>(); } },
                 { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "run_id", n => { RunId = n.GetStringValue(); } },
                 { "sample", n => { Sample = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample.CreateFromDiscriminatorValue); } },
@@ -123,11 +122,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_datasource_item>("datasource_item", DatasourceItem);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemDatasourceItemProperty>("datasource_item", DatasourceItem);
             writer.WriteIntValue("datasource_item_id", DatasourceItemId);
             writer.WriteStringValue("eval_id", EvalId);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItem_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemObject>("object", Object);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult>("results", Results);
             writer.WriteStringValue("run_id", RunId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample>("sample", Sample);

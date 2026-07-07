@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Vector_stores
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.vector_stores.item collection</summary>
         /// <param name="position">The ID of the vector store to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.WithVector_store_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.WithVector_store_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.WithVectorStoreItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.WithVectorStoreItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("vector_store_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.WithVector_store_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("vectorStoreId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.WithVectorStoreItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -165,7 +165,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Vector_stores
             public int? Limit { get; set; }
             /// <summary>Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Vector_stores.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListVectorStoresOrderParameter? Order { get; set; }
         }
     }
 }

@@ -27,10 +27,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>&quot;An object specifying the format that the model must output.Setting to `{ \&quot;type\&quot;: \&quot;json_schema\&quot;, \&quot;json_schema\&quot;: {...} }` enablesStructured Outputs which ensures the model will match your supplied JSONschema. Learn more in the [Structured Outputsguide](/docs/guides/structured-outputs).Setting to `{ \&quot;type\&quot;: \&quot;json_object\&quot; }` enables the older JSON mode, whichensures the message the model generates is valid JSON. Using `json_schema`is preferred for models that support it.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParams.CreateEvalCompletionsRunDataSourceSamplingParams_response_format? ResponseFormat { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormat? ResponseFormat { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParams.CreateEvalCompletionsRunDataSourceSamplingParams_response_format ResponseFormat { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormat ResponseFormat { get; set; }
 #endif
         /// <summary>A seed value to initialize the randomness, during sampling.</summary>
         public int? Seed { get; set; }
@@ -52,6 +52,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public CreateEvalCompletionsRunDataSourceSamplingParams()
         {
             AdditionalData = new Dictionary<string, object>();
+            Seed = 42;
+            Temperature = 1;
+            TopP = 1;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -73,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "max_completion_tokens", n => { MaxCompletionTokens = n.GetIntValue(); } },
                 { "reasoning_effort", n => { ReasoningEffort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort.CreateFromDiscriminatorValue); } },
-                { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParams.CreateEvalCompletionsRunDataSourceSamplingParams_response_format>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParams.CreateEvalCompletionsRunDataSourceSamplingParams_response_format.CreateFromDiscriminatorValue); } },
+                { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormat>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormat.CreateFromDiscriminatorValue); } },
                 { "seed", n => { Seed = n.GetIntValue(); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTool>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTool.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -89,107 +92,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("max_completion_tokens", MaxCompletionTokens);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("reasoning_effort", ReasoningEffort);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParams.CreateEvalCompletionsRunDataSourceSamplingParams_response_format>("response_format", ResponseFormat);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParamsResponseFormat>("response_format", ResponseFormat);
             writer.WriteIntValue("seed", Seed);
             writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTool>("tools", Tools);
             writer.WriteDoubleValue("top_p", TopP);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CreateEvalCompletionsRunDataSourceSamplingParams_response_format : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject? ResponseFormatJsonObject { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject ResponseFormatJsonObject { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema? ResponseFormatJsonSchema { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema ResponseFormatJsonSchema { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText? ResponseFormatText { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText ResponseFormatText { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParams.CreateEvalCompletionsRunDataSourceSamplingParams_response_format"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParams.CreateEvalCompletionsRunDataSourceSamplingParams_response_format CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParams.CreateEvalCompletionsRunDataSourceSamplingParams_response_format();
-                if("ResponseFormatJsonObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ResponseFormatJsonObject = new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject();
-                }
-                else if("ResponseFormatJsonSchema".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ResponseFormatJsonSchema = new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema();
-                }
-                else if("ResponseFormatText".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ResponseFormatText = new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ResponseFormatJsonObject != null)
-                {
-                    return ResponseFormatJsonObject.GetFieldDeserializers();
-                }
-                else if(ResponseFormatJsonSchema != null)
-                {
-                    return ResponseFormatJsonSchema.GetFieldDeserializers();
-                }
-                else if(ResponseFormatText != null)
-                {
-                    return ResponseFormatText.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(ResponseFormatJsonObject != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject>(null, ResponseFormatJsonObject);
-                }
-                else if(ResponseFormatJsonSchema != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema>(null, ResponseFormatJsonSchema);
-                }
-                else if(ResponseFormatText != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText>(null, ResponseFormatText);
-                }
-            }
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObjectImageUrl ImageUrl { get; set; }
 #endif
         /// <summary>The type of the content part.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObjectType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "image_url", n => { ImageUrl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObjectImageUrl>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObjectImageUrl.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObjectType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObjectImageUrl>("image_url", ImageUrl);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObjectType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

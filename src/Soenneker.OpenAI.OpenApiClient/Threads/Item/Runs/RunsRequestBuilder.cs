@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs
 {
     /// <summary>
-    /// Builds and executes requests for operations under \threads\{thread_id}\runs
+    /// Builds and executes requests for operations under \threads\{threadId}\runs
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.threads.item.runs.item collection</summary>
         /// <param name="position">The ID of the run to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.WithRun_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.WithRun_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.WithRunItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.WithRunItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("run_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.WithRun_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("runId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.WithRunItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RunsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/threads/{thread_id}/runs{?after*,before*,include%5B%5D*,limit*,order*}", pathParameters)
+        public RunsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/threads/{threadId}/runs{?after*,before*,include%5B%5D*,limit*,order*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RunsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/threads/{thread_id}/runs{?after*,before*,include%5B%5D*,limit*,order*}", rawUrl)
+        public RunsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/threads/{threadId}/runs{?after*,before*,include%5B%5D*,limit*,order*}", rawUrl)
         {
         }
         /// <summary>
@@ -165,7 +165,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs
             public int? Limit { get; set; }
             /// <summary>Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListRunsOrderParameter? Order { get; set; }
         }
         /// <summary>
         /// Create a run.
@@ -177,11 +177,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("include%5B%5D")]
-            public global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.PostIncludeQueryParameterType[]? Include { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunIncludeParameterItem[]? Include { get; set; }
 #nullable restore
 #else
             [QueryParameter("include%5B%5D")]
-            public global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.PostIncludeQueryParameterType[] Include { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunIncludeParameterItem[] Include { get; set; }
 #endif
         }
     }

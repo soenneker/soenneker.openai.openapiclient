@@ -25,6 +25,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public CompletionUsagePromptTokensDetails()
         {
             AdditionalData = new Dictionary<string, object>();
+            AudioTokens = 0;
+            CachedTokens = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

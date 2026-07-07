@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The list of completion choices the model generated for the input prompt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponse_choices>? Choices { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItem>? Choices { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponse_choices> Choices { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItem> Choices { get; set; }
 #endif
         /// <summary>The Unix timestamp (in seconds) of when the completion was created.</summary>
         public int? Created { get; set; }
@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Model { get; set; }
 #endif
         /// <summary>The object type, which is always &quot;text_completion&quot;</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponse_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseObject? Object { get; set; }
         /// <summary>This fingerprint represents the backend configuration that the model runs with.Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,11 +84,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "choices", n => { Choices = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponse_choices>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponse_choices.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "choices", n => { Choices = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItem>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created", n => { Created = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponse_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseObject>(); } },
                 { "system_fingerprint", n => { SystemFingerprint = n.GetStringValue(); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage.CreateFromDiscriminatorValue); } },
             };
@@ -100,11 +100,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponse_choices>("choices", Choices);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItem>("choices", Choices);
             writer.WriteIntValue("created", Created);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("model", Model);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponse_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseObject>("object", Object);
             writer.WriteStringValue("system_fingerprint", SystemFingerprint);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage>("usage", Usage);
             writer.WriteAdditionalData(AdditionalData);

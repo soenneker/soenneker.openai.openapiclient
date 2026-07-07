@@ -17,10 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_api_key? ApiKey { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseApiKey? ApiKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_api_key ApiKey { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseApiKey ApiKey { get; set; }
 #endif
         /// <summary>The created_at property</summary>
         public int? CreatedAt { get; set; }
@@ -41,9 +41,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseObject? Object { get; set; }
         /// <summary>Service accounts can only have one role of type `member`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_role? Role { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse"/> and sets the default values.
         /// </summary>
@@ -69,12 +69,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_api_key>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_api_key.CreateFromDiscriminatorValue); } },
+                { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseApiKey>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseApiKey.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_object>(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_role>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseObject>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseRole>(); } },
             };
         }
         /// <summary>
@@ -84,12 +84,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_api_key>("api_key", ApiKey);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseApiKey>("api_key", ApiKey);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_object>("object", Object);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse_role>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseRole>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

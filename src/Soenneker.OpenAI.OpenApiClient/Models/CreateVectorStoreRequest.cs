@@ -15,10 +15,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The chunking strategy used to chunk the file(s). If not set, will use the `auto` strategy. Only applicable if `file_ids` is non-empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequest.CreateVectorStoreRequest_chunking_strategy? ChunkingStrategy { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequestChunkingStrategy? ChunkingStrategy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequest.CreateVectorStoreRequest_chunking_strategy ChunkingStrategy { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequestChunkingStrategy ChunkingStrategy { get; set; }
 #endif
         /// <summary>A description for the vector store. Can be used to describe the vector store&apos;s purpose.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -78,7 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "chunking_strategy", n => { ChunkingStrategy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequest.CreateVectorStoreRequest_chunking_strategy>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequest.CreateVectorStoreRequest_chunking_strategy.CreateFromDiscriminatorValue); } },
+                { "chunking_strategy", n => { ChunkingStrategy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequestChunkingStrategy>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequestChunkingStrategy.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "expires_after", n => { ExpiresAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfter>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfter.CreateFromDiscriminatorValue); } },
                 { "file_ids", n => { FileIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -93,87 +93,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequest.CreateVectorStoreRequest_chunking_strategy>("chunking_strategy", ChunkingStrategy);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequestChunkingStrategy>("chunking_strategy", ChunkingStrategy);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfter>("expires_after", ExpiresAfter);
             writer.WriteCollectionOfPrimitiveValues<string>("file_ids", FileIds);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AutoChunkingStrategyRequestParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.StaticChunkingStrategyRequestParam"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CreateVectorStoreRequest_chunking_strategy : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AutoChunkingStrategyRequestParam"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.AutoChunkingStrategyRequestParam? AutoChunkingStrategyRequestParam { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.AutoChunkingStrategyRequestParam AutoChunkingStrategyRequestParam { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.StaticChunkingStrategyRequestParam"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.StaticChunkingStrategyRequestParam? StaticChunkingStrategyRequestParam { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.StaticChunkingStrategyRequestParam StaticChunkingStrategyRequestParam { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequest.CreateVectorStoreRequest_chunking_strategy"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequest.CreateVectorStoreRequest_chunking_strategy CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequest.CreateVectorStoreRequest_chunking_strategy();
-                if("AutoChunkingStrategyRequestParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.AutoChunkingStrategyRequestParam = new global::Soenneker.OpenAI.OpenApiClient.Models.AutoChunkingStrategyRequestParam();
-                }
-                else if("StaticChunkingStrategyRequestParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.StaticChunkingStrategyRequestParam = new global::Soenneker.OpenAI.OpenApiClient.Models.StaticChunkingStrategyRequestParam();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AutoChunkingStrategyRequestParam != null)
-                {
-                    return AutoChunkingStrategyRequestParam.GetFieldDeserializers();
-                }
-                else if(StaticChunkingStrategyRequestParam != null)
-                {
-                    return StaticChunkingStrategyRequestParam.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(AutoChunkingStrategyRequestParam != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoChunkingStrategyRequestParam>(null, AutoChunkingStrategyRequestParam);
-                }
-                else if(StaticChunkingStrategyRequestParam != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.StaticChunkingStrategyRequestParam>(null, StaticChunkingStrategyRequestParam);
-                }
-            }
         }
     }
 }

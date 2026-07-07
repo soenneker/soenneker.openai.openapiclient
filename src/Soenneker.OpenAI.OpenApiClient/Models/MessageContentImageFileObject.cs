@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile ImageFile { get; set; }
 #endif
         /// <summary>Always `image_file`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "image_file", n => { ImageFile = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile>("image_file", ImageFile);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

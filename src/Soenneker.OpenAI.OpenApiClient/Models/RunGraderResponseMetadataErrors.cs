@@ -27,10 +27,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The model_grader_server_error_details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_model_grader_server_error_details? ModelGraderServerErrorDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsModelGraderServerErrorDetails? ModelGraderServerErrorDetails { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_model_grader_server_error_details ModelGraderServerErrorDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsModelGraderServerErrorDetails ModelGraderServerErrorDetails { get; set; }
 #endif
         /// <summary>The other_error property</summary>
         public bool? OtherError { get; set; }
@@ -39,20 +39,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The python_grader_runtime_error_details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_python_grader_runtime_error_details? PythonGraderRuntimeErrorDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsPythonGraderRuntimeErrorDetails? PythonGraderRuntimeErrorDetails { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_python_grader_runtime_error_details PythonGraderRuntimeErrorDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsPythonGraderRuntimeErrorDetails PythonGraderRuntimeErrorDetails { get; set; }
 #endif
         /// <summary>The python_grader_server_error property</summary>
         public bool? PythonGraderServerError { get; set; }
         /// <summary>The python_grader_server_error_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_python_grader_server_error_type? PythonGraderServerErrorType { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsPythonGraderServerErrorType? PythonGraderServerErrorType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_python_grader_server_error_type PythonGraderServerErrorType { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsPythonGraderServerErrorType PythonGraderServerErrorType { get; set; }
 #endif
         /// <summary>The sample_parse_error property</summary>
         public bool? SampleParseError { get; set; }
@@ -90,12 +90,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "model_grader_parse_error", n => { ModelGraderParseError = n.GetBoolValue(); } },
                 { "model_grader_refusal_error", n => { ModelGraderRefusalError = n.GetBoolValue(); } },
                 { "model_grader_server_error", n => { ModelGraderServerError = n.GetBoolValue(); } },
-                { "model_grader_server_error_details", n => { ModelGraderServerErrorDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_model_grader_server_error_details>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_model_grader_server_error_details.CreateFromDiscriminatorValue); } },
+                { "model_grader_server_error_details", n => { ModelGraderServerErrorDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsModelGraderServerErrorDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsModelGraderServerErrorDetails.CreateFromDiscriminatorValue); } },
                 { "other_error", n => { OtherError = n.GetBoolValue(); } },
                 { "python_grader_runtime_error", n => { PythonGraderRuntimeError = n.GetBoolValue(); } },
-                { "python_grader_runtime_error_details", n => { PythonGraderRuntimeErrorDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_python_grader_runtime_error_details>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_python_grader_runtime_error_details.CreateFromDiscriminatorValue); } },
+                { "python_grader_runtime_error_details", n => { PythonGraderRuntimeErrorDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsPythonGraderRuntimeErrorDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsPythonGraderRuntimeErrorDetails.CreateFromDiscriminatorValue); } },
                 { "python_grader_server_error", n => { PythonGraderServerError = n.GetBoolValue(); } },
-                { "python_grader_server_error_type", n => { PythonGraderServerErrorType = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_python_grader_server_error_type>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_python_grader_server_error_type.CreateFromDiscriminatorValue); } },
+                { "python_grader_server_error_type", n => { PythonGraderServerErrorType = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsPythonGraderServerErrorType>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsPythonGraderServerErrorType.CreateFromDiscriminatorValue); } },
                 { "sample_parse_error", n => { SampleParseError = n.GetBoolValue(); } },
                 { "truncated_observation_error", n => { TruncatedObservationError = n.GetBoolValue(); } },
                 { "unresponsive_reward_error", n => { UnresponsiveRewardError = n.GetBoolValue(); } },
@@ -113,12 +113,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteBoolValue("model_grader_parse_error", ModelGraderParseError);
             writer.WriteBoolValue("model_grader_refusal_error", ModelGraderRefusalError);
             writer.WriteBoolValue("model_grader_server_error", ModelGraderServerError);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_model_grader_server_error_details>("model_grader_server_error_details", ModelGraderServerErrorDetails);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsModelGraderServerErrorDetails>("model_grader_server_error_details", ModelGraderServerErrorDetails);
             writer.WriteBoolValue("other_error", OtherError);
             writer.WriteBoolValue("python_grader_runtime_error", PythonGraderRuntimeError);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_python_grader_runtime_error_details>("python_grader_runtime_error_details", PythonGraderRuntimeErrorDetails);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsPythonGraderRuntimeErrorDetails>("python_grader_runtime_error_details", PythonGraderRuntimeErrorDetails);
             writer.WriteBoolValue("python_grader_server_error", PythonGraderServerError);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors_python_grader_server_error_type>("python_grader_server_error_type", PythonGraderServerErrorType);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrorsPythonGraderServerErrorType>("python_grader_server_error_type", PythonGraderServerErrorType);
             writer.WriteBoolValue("sample_parse_error", SampleParseError);
             writer.WriteBoolValue("truncated_observation_error", TruncatedObservationError);
             writer.WriteBoolValue("unresponsive_reward_error", UnresponsiveRewardError);

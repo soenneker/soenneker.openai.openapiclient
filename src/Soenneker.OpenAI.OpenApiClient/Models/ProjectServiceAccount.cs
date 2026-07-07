@@ -34,9 +34,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.project.service_account`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccount_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountObject? Object { get; set; }
         /// <summary>`owner` or `member`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccount_role? Role { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccount"/> and sets the default values.
         /// </summary>
@@ -65,8 +65,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccount_object>(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccount_role>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountObject>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountRole>(); } },
             };
         }
         /// <summary>
@@ -79,8 +79,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccount_object>("object", Object);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccount_role>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountRole>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

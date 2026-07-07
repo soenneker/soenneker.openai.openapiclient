@@ -19,15 +19,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts
     public partial class Spend_alertsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.organization.spend_alerts.item collection</summary>
-        /// <param name="position">The ID of the spend alert to update.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts.Item.WithAlert_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts.Item.WithAlert_ItemRequestBuilder this[string position]
+        /// <param name="position">The ID of the spend alert to retrieve.</param>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts.Item.WithAlertItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts.Item.WithAlertItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("alert_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts.Item.WithAlert_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("alertId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts.Item.WithAlertItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -165,7 +165,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts
             public int? Limit { get; set; }
             /// <summary>Sort order for the returned spend alerts.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListOrganizationSpendAlertsOrderParameter? Order { get; set; }
         }
     }
 }

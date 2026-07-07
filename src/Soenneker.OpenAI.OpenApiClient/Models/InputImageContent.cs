@@ -20,21 +20,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The file_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent_file_id? FileId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentFileId? FileId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent_file_id FileId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentFileId FileId { get; set; }
 #endif
         /// <summary>The image_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent_image_url? ImageUrl { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentImageUrl? ImageUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent_image_url ImageUrl { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentImageUrl ImageUrl { get; set; }
 #endif
         /// <summary>The type of the input item. Always `input_image`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent"/> and sets the default values.
         /// </summary>
@@ -61,9 +61,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "detail", n => { Detail = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageDetail>(); } },
-                { "file_id", n => { FileId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent_file_id>(global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent_file_id.CreateFromDiscriminatorValue); } },
-                { "image_url", n => { ImageUrl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent_image_url>(global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent_image_url.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent_type>(); } },
+                { "file_id", n => { FileId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentFileId>(global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentFileId.CreateFromDiscriminatorValue); } },
+                { "image_url", n => { ImageUrl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentImageUrl>(global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentImageUrl.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentType>(); } },
             };
         }
         /// <summary>
@@ -74,9 +74,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageDetail>("detail", Detail);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent_file_id>("file_id", FileId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent_image_url>("image_url", ImageUrl);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentFileId>("file_id", FileId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentImageUrl>("image_url", ImageUrl);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

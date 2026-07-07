@@ -13,7 +13,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "default_2024_08_21")]
         #pragma warning disable CS1591
-        Default_2024_08_21,
+        Default20240821,
         #pragma warning restore CS1591
     }
 }

@@ -8,18 +8,18 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalItemMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItem"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalItemSimpleInputMessage"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItem"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateEvalItem : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalItemMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalItemSimpleInputMessage"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalItemMember1? CreateEvalItemMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalItemSimpleInputMessage? CreateEvalItemSimpleInputMessage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalItemMember1 CreateEvalItemMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalItemSimpleInputMessage CreateEvalItemSimpleInputMessage { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItem"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,9 +39,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalItem();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("CreateEvalItemSimpleInputMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CreateEvalItemMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalItemMember1();
+                result.CreateEvalItemSimpleInputMessage = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalItemSimpleInputMessage();
             }
             else if("EvalItem".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -55,9 +55,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateEvalItemMember1 != null)
+            if(CreateEvalItemSimpleInputMessage != null)
             {
-                return CreateEvalItemMember1.GetFieldDeserializers();
+                return CreateEvalItemSimpleInputMessage.GetFieldDeserializers();
             }
             else if(EvalItem != null)
             {
@@ -72,9 +72,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateEvalItemMember1 != null)
+            if(CreateEvalItemSimpleInputMessage != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalItemMember1>(null, CreateEvalItemMember1);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalItemSimpleInputMessage>(null, CreateEvalItemSimpleInputMessage);
             }
             else if(EvalItem != null)
             {

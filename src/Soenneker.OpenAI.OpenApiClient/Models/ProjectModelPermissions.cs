@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the project uses an allowlist or a denylist.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissions_mode? Mode { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsMode? Mode { get; set; }
         /// <summary>The model IDs included in the model permissions policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -26,7 +26,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<string> ModelIds { get; set; }
 #endif
         /// <summary>The object type, which is always `project.model_permissions`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissions_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissions"/> and sets the default values.
         /// </summary>
@@ -52,9 +52,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissions_mode>(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsMode>(); } },
                 { "model_ids", n => { ModelIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissions_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsObject>(); } },
             };
         }
         /// <summary>
@@ -64,9 +64,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissions_mode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsMode>("mode", Mode);
             writer.WriteCollectionOfPrimitiveValues<string>("model_ids", ModelIds);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissions_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

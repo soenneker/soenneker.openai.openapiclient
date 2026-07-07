@@ -14,23 +14,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>Constrains the verbosity of the model&apos;s response. Lower values will result inmore concise responses, while higher values will result in more verbose responses.Currently supported values are `low`, `medium`, and `high`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity_value? Value { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityWrapperValue? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity"/> and sets the default values.
         /// </summary>
         public Verbosity()
         {
             AdditionalData = new Dictionary<string, object>();
-            Value = global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity_value.Medium;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,8 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity_value>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityWrapperValue>(); } },
             };
         }
         /// <summary>
@@ -61,8 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("type", Type);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity_value>("value", Value);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityWrapperValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

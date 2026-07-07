@@ -18,23 +18,23 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Parsed content of the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse_data>? Data { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseDataItem>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse_data> Data { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseDataItem> Data { get; set; }
 #endif
         /// <summary>Indicates if there are more content pages to fetch.</summary>
         public bool? HasMore { get; set; }
         /// <summary>The next_page property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse_next_page? NextPage { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseNextPage? NextPage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse_next_page NextPage { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseNextPage NextPage { get; set; }
 #endif
         /// <summary>The object type, which is always `vector_store.file_content.page`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse"/> and sets the default values.
         /// </summary>
@@ -60,10 +60,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse_data>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse_data.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseDataItem>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseDataItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "next_page", n => { NextPage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse_next_page>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse_next_page.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse_object>(); } },
+                { "next_page", n => { NextPage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseNextPage>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseNextPage.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseObject>(); } },
             };
         }
         /// <summary>
@@ -73,10 +73,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse_data>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseDataItem>("data", Data);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse_next_page>("next_page", NextPage);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseNextPage>("next_page", NextPage);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

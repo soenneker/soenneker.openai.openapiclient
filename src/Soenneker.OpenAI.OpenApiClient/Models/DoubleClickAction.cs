@@ -18,13 +18,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The keys property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickAction_keys? Keys { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickActionKeys? Keys { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickAction_keys Keys { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickActionKeys Keys { get; set; }
 #endif
         /// <summary>Specifies the event type. For a double click action, this property is always set to `double_click`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickAction_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickActionType? Type { get; set; }
         /// <summary>The x-coordinate where the double click occurred.</summary>
         public int? X { get; set; }
         /// <summary>The y-coordinate where the double click occurred.</summary>
@@ -54,8 +54,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "keys", n => { Keys = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickAction_keys>(global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickAction_keys.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickAction_type>(); } },
+                { "keys", n => { Keys = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickActionKeys>(global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickActionKeys.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickActionType>(); } },
                 { "x", n => { X = n.GetIntValue(); } },
                 { "y", n => { Y = n.GetIntValue(); } },
             };
@@ -67,8 +67,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickAction_keys>("keys", Keys);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickAction_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickActionKeys>("keys", Keys);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickActionType>("type", Type);
             writer.WriteIntValue("x", X);
             writer.WriteIntValue("y", Y);
             writer.WriteAdditionalData(AdditionalData);

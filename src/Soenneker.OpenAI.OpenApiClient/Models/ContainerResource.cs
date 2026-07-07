@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Unix timestamp (in seconds) when the container was last active.</summary>
         public int? LastActiveAt { get; set; }
         /// <summary>The memory limit configured for the container.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_memory_limit? MemoryLimit { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceMemoryLimit? MemoryLimit { get; set; }
         /// <summary>Name of the container.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "expires_after", n => { ExpiresAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfter>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfter.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_active_at", n => { LastActiveAt = n.GetIntValue(); } },
-                { "memory_limit", n => { MemoryLimit = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_memory_limit>(); } },
+                { "memory_limit", n => { MemoryLimit = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceMemoryLimit>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "network_policy", n => { NetworkPolicy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetStringValue(); } },
@@ -115,7 +115,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfter>("expires_after", ExpiresAfter);
             writer.WriteStringValue("id", Id);
             writer.WriteIntValue("last_active_at", LastActiveAt);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResource_memory_limit>("memory_limit", MemoryLimit);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceMemoryLimit>("memory_limit", MemoryLimit);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy>("network_policy", NetworkPolicy);
             writer.WriteStringValue("object", Object);

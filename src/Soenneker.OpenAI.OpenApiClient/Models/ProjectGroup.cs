@@ -34,9 +34,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string GroupName { get; set; }
 #endif
         /// <summary>The type of the group.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroup_group_type? GroupType { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroupGroupType? GroupType { get; set; }
         /// <summary>Always `project.group`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroup_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroupObject? Object { get; set; }
         /// <summary>Identifier of the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,8 +73,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "group_id", n => { GroupId = n.GetStringValue(); } },
                 { "group_name", n => { GroupName = n.GetStringValue(); } },
-                { "group_type", n => { GroupType = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroup_group_type>(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroup_object>(); } },
+                { "group_type", n => { GroupType = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroupGroupType>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroupObject>(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
             };
         }
@@ -88,8 +88,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("group_id", GroupId);
             writer.WriteStringValue("group_name", GroupName);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroup_group_type>("group_type", GroupType);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroup_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroupGroupType>("group_type", GroupType);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroupObject>("object", Object);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteAdditionalData(AdditionalData);
         }

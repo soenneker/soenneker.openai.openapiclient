@@ -17,26 +17,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>External key ID to associate with the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_external_key_id? ExternalKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestExternalKeyId? ExternalKeyId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_external_key_id ExternalKeyId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestExternalKeyId ExternalKeyId { get; set; }
 #endif
         /// <summary>Geography for the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_geography? Geography { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestGeography? Geography { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_geography Geography { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestGeography Geography { get; set; }
 #endif
         /// <summary>The updated name of the project, this name appears in reports.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_name? Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestName? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_name Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestName Name { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest"/> and sets the default values.
@@ -63,9 +63,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "external_key_id", n => { ExternalKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_external_key_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_external_key_id.CreateFromDiscriminatorValue); } },
-                { "geography", n => { Geography = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_geography>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_geography.CreateFromDiscriminatorValue); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_name>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_name.CreateFromDiscriminatorValue); } },
+                { "external_key_id", n => { ExternalKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestExternalKeyId>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestExternalKeyId.CreateFromDiscriminatorValue); } },
+                { "geography", n => { Geography = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestGeography>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestGeography.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestName>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestName.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -75,9 +75,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_external_key_id>("external_key_id", ExternalKeyId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_geography>("geography", Geography);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequest_name>("name", Name);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestExternalKeyId>("external_key_id", ExternalKeyId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestGeography>("geography", Geography);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectUpdateRequestName>("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -8,18 +8,18 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_Wrapper"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOptionWrapper"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AssistantsApiResponseFormatOption : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_Wrapper"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOptionWrapper"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_Wrapper? AssistantsApiResponseFormatOptionWrapper { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOptionWrapper? AssistantsApiResponseFormatOptionWrapper { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_Wrapper AssistantsApiResponseFormatOptionWrapper { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOptionWrapper AssistantsApiResponseFormatOptionWrapper { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,11 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.AssistantsApiResponseFormatOptionWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_Wrapper();
-            }
-            else if("ResponseFormatJsonObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ResponseFormatJsonObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ResponseFormatJsonObject = new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject();
             }
@@ -106,7 +102,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(AssistantsApiResponseFormatOptionWrapper != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption_Wrapper>(null, AssistantsApiResponseFormatOptionWrapper);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOptionWrapper>(null, AssistantsApiResponseFormatOptionWrapper);
             }
             else if(ResponseFormatJsonObject != null)
             {

@@ -18,34 +18,34 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The assistant_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_assistant_id? AssistantId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAssistantId? AssistantId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_assistant_id AssistantId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAssistantId AssistantId { get; set; }
 #endif
         /// <summary>The attachments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_attachments? Attachments { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachments? Attachments { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_attachments Attachments { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachments Attachments { get; set; }
 #endif
         /// <summary>The completed_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_completed_at? CompletedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectCompletedAt? CompletedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_completed_at CompletedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectCompletedAt CompletedAt { get; set; }
 #endif
         /// <summary>The content of the message in array of text and/or images.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject.MessageObject_content>? Content { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectContentItem>? Content { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject.MessageObject_content> Content { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectContentItem> Content { get; set; }
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the message was created.</summary>
         public int? CreatedAt { get; set; }
@@ -60,10 +60,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The incomplete_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_incomplete_at? IncompleteAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteAt? IncompleteAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_incomplete_at IncompleteAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteAt IncompleteAt { get; set; }
 #endif
         /// <summary>The incomplete_details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,19 +82,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
 #endif
         /// <summary>The object type, which is always `thread.message`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectObject? Object { get; set; }
         /// <summary>The entity that produced the message. One of `user` or `assistant`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_role? Role { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectRole? Role { get; set; }
         /// <summary>The run_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_run_id? RunId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectRunId? RunId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_run_id RunId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectRunId RunId { get; set; }
 #endif
         /// <summary>The status of the message, which can be either `in_progress`, `incomplete`, or `completed`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_status? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectStatus? Status { get; set; }
         /// <summary>The [thread](/docs/api-reference/threads) ID that this message belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -128,19 +128,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assistant_id", n => { AssistantId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_assistant_id>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_assistant_id.CreateFromDiscriminatorValue); } },
-                { "attachments", n => { Attachments = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_attachments>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_attachments.CreateFromDiscriminatorValue); } },
-                { "completed_at", n => { CompletedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_completed_at>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_completed_at.CreateFromDiscriminatorValue); } },
-                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject.MessageObject_content>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject.MessageObject_content.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "assistant_id", n => { AssistantId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAssistantId>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAssistantId.CreateFromDiscriminatorValue); } },
+                { "attachments", n => { Attachments = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachments>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachments.CreateFromDiscriminatorValue); } },
+                { "completed_at", n => { CompletedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectCompletedAt>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectCompletedAt.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "incomplete_at", n => { IncompleteAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_incomplete_at>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_incomplete_at.CreateFromDiscriminatorValue); } },
+                { "incomplete_at", n => { IncompleteAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteAt>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteAt.CreateFromDiscriminatorValue); } },
                 { "incomplete_details", n => { IncompleteDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetails.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_object>(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_role>(); } },
-                { "run_id", n => { RunId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_run_id>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_run_id.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_status>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectObject>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectRole>(); } },
+                { "run_id", n => { RunId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectRunId>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectRunId.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectStatus>(); } },
                 { "thread_id", n => { ThreadId = n.GetStringValue(); } },
             };
         }
@@ -151,136 +151,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_assistant_id>("assistant_id", AssistantId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_attachments>("attachments", Attachments);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_completed_at>("completed_at", CompletedAt);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject.MessageObject_content>("content", Content);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAssistantId>("assistant_id", AssistantId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachments>("attachments", Attachments);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectCompletedAt>("completed_at", CompletedAt);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectContentItem>("content", Content);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_incomplete_at>("incomplete_at", IncompleteAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteAt>("incomplete_at", IncompleteAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetails>("incomplete_details", IncompleteDetails);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_object>("object", Object);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_role>("role", Role);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_run_id>("run_id", RunId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectRole>("role", Role);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectRunId>("run_id", RunId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectStatus>("status", Status);
             writer.WriteStringValue("thread_id", ThreadId);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentRefusalObject"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MessageObject_content : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject? MessageContentImageFileObject { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject MessageContentImageFileObject { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject? MessageContentImageUrlObject { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject MessageContentImageUrlObject { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentRefusalObject"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentRefusalObject? MessageContentRefusalObject { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentRefusalObject MessageContentRefusalObject { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject? MessageContentTextObject { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject MessageContentTextObject { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject.MessageObject_content"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject.MessageObject_content CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageObject.MessageObject_content();
-                if("MessageContentImageFileObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.MessageContentImageFileObject = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject();
-                }
-                else if("MessageContentImageUrlObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.MessageContentImageUrlObject = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject();
-                }
-                else if("MessageContentRefusalObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.MessageContentRefusalObject = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentRefusalObject();
-                }
-                else if("MessageContentTextObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.MessageContentTextObject = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(MessageContentImageFileObject != null)
-                {
-                    return MessageContentImageFileObject.GetFieldDeserializers();
-                }
-                else if(MessageContentImageUrlObject != null)
-                {
-                    return MessageContentImageUrlObject.GetFieldDeserializers();
-                }
-                else if(MessageContentRefusalObject != null)
-                {
-                    return MessageContentRefusalObject.GetFieldDeserializers();
-                }
-                else if(MessageContentTextObject != null)
-                {
-                    return MessageContentTextObject.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(MessageContentImageFileObject != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject>(null, MessageContentImageFileObject);
-                }
-                else if(MessageContentImageUrlObject != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject>(null, MessageContentImageUrlObject);
-                }
-                else if(MessageContentRefusalObject != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentRefusalObject>(null, MessageContentRefusalObject);
-                }
-                else if(MessageContentTextObject != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject>(null, MessageContentTextObject);
-                }
-            }
         }
     }
 }

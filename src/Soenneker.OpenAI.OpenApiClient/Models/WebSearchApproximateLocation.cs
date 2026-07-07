@@ -17,34 +17,34 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The city property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_city? City { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationCity? City { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_city City { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationCity City { get; set; }
 #endif
         /// <summary>The country property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_country? Country { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationCountry? Country { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_country Country { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationCountry Country { get; set; }
 #endif
         /// <summary>The region property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_region? Region { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationRegion? Region { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_region Region { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationRegion Region { get; set; }
 #endif
         /// <summary>The timezone property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_timezone? Timezone { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationTimezone? Timezone { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_timezone Timezone { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationTimezone Timezone { get; set; }
 #endif
         /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,10 +79,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "city", n => { City = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_city>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_city.CreateFromDiscriminatorValue); } },
-                { "country", n => { Country = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_country>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_country.CreateFromDiscriminatorValue); } },
-                { "region", n => { Region = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_region>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_region.CreateFromDiscriminatorValue); } },
-                { "timezone", n => { Timezone = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_timezone>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_timezone.CreateFromDiscriminatorValue); } },
+                { "city", n => { City = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationCity>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationCity.CreateFromDiscriminatorValue); } },
+                { "country", n => { Country = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationCountry>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationCountry.CreateFromDiscriminatorValue); } },
+                { "region", n => { Region = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationRegion>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationRegion.CreateFromDiscriminatorValue); } },
+                { "timezone", n => { Timezone = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationTimezone>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationTimezone.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -93,10 +93,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_city>("city", City);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_country>("country", Country);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_region>("region", Region);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation_timezone>("timezone", Timezone);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationCity>("city", City);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationCountry>("country", Country);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationRegion>("region", Region);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocationWebSearchApproximateLocationTimezone>("timezone", Timezone);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

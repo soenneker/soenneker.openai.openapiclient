@@ -20,10 +20,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Information about the run&apos;s data source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun.EvalRun_data_source? DataSource { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunDataSource? DataSource { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun.EvalRun_data_source DataSource { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunDataSource DataSource { get; set; }
 #endif
         /// <summary>An object representing an error response from the Eval API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,22 +74,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The type of the object. Always &quot;eval.run&quot;.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunObject? Object { get; set; }
         /// <summary>Usage statistics for each model during the evaluation run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_model_usage>? PerModelUsage { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunPerModelUsageItem>? PerModelUsage { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_model_usage> PerModelUsage { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunPerModelUsageItem> PerModelUsage { get; set; }
 #endif
         /// <summary>Results per testing criteria applied during the evaluation run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_testing_criteria_results>? PerTestingCriteriaResults { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunPerTestingCriteriaResultsItem>? PerTestingCriteriaResults { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_testing_criteria_results> PerTestingCriteriaResults { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunPerTestingCriteriaResultsItem> PerTestingCriteriaResults { get; set; }
 #endif
         /// <summary>The URL to the rendered evaluation run report on the UI dashboard.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -121,7 +121,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public EvalRun()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_object.EvalRun;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -142,16 +141,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "data_source", n => { DataSource = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun.EvalRun_data_source>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun.EvalRun_data_source.CreateFromDiscriminatorValue); } },
+                { "data_source", n => { DataSource = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunDataSource>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunDataSource.CreateFromDiscriminatorValue); } },
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError.CreateFromDiscriminatorValue); } },
                 { "eval_id", n => { EvalId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_object>(); } },
-                { "per_model_usage", n => { PerModelUsage = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_model_usage>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_model_usage.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "per_testing_criteria_results", n => { PerTestingCriteriaResults = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_testing_criteria_results>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_testing_criteria_results.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunObject>(); } },
+                { "per_model_usage", n => { PerModelUsage = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunPerModelUsageItem>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunPerModelUsageItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "per_testing_criteria_results", n => { PerTestingCriteriaResults = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunPerTestingCriteriaResultsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunPerTestingCriteriaResultsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "report_url", n => { ReportUrl = n.GetStringValue(); } },
                 { "result_counts", n => { ResultCounts = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunResultCounts>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunResultCounts.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -165,115 +164,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun.EvalRun_data_source>("data_source", DataSource);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunDataSource>("data_source", DataSource);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError>("error", Error);
             writer.WriteStringValue("eval_id", EvalId);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_object>("object", Object);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_model_usage>("per_model_usage", PerModelUsage);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun_per_testing_criteria_results>("per_testing_criteria_results", PerTestingCriteriaResults);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunObject>("object", Object);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunPerModelUsageItem>("per_model_usage", PerModelUsage);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunPerTestingCriteriaResultsItem>("per_testing_criteria_results", PerTestingCriteriaResults);
             writer.WriteStringValue("report_url", ReportUrl);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunResultCounts>("result_counts", ResultCounts);
             writer.WriteStringValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EvalRun_data_source : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource? CreateEvalCompletionsRunDataSource { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource CreateEvalCompletionsRunDataSource { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSource"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSource? CreateEvalJsonlRunDataSource { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSource CreateEvalJsonlRunDataSource { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource? CreateEvalResponsesRunDataSource { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource CreateEvalResponsesRunDataSource { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun.EvalRun_data_source"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun.EvalRun_data_source CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalRun.EvalRun_data_source();
-                if("CreateEvalCompletionsRunDataSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.CreateEvalCompletionsRunDataSource = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource();
-                }
-                else if("CreateEvalJsonlRunDataSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.CreateEvalJsonlRunDataSource = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSource();
-                }
-                else if("CreateEvalResponsesRunDataSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.CreateEvalResponsesRunDataSource = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(CreateEvalCompletionsRunDataSource != null)
-                {
-                    return CreateEvalCompletionsRunDataSource.GetFieldDeserializers();
-                }
-                else if(CreateEvalJsonlRunDataSource != null)
-                {
-                    return CreateEvalJsonlRunDataSource.GetFieldDeserializers();
-                }
-                else if(CreateEvalResponsesRunDataSource != null)
-                {
-                    return CreateEvalResponsesRunDataSource.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(CreateEvalCompletionsRunDataSource != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource>(null, CreateEvalCompletionsRunDataSource);
-                }
-                else if(CreateEvalJsonlRunDataSource != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSource>(null, CreateEvalJsonlRunDataSource);
-                }
-                else if(CreateEvalResponsesRunDataSource != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource>(null, CreateEvalResponsesRunDataSource);
-                }
-            }
         }
     }
 }

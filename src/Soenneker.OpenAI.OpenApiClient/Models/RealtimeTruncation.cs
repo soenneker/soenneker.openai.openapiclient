@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation_Wrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncation"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationWrapper"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RealtimeTruncation : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncation"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationMember1? RealtimeTruncationMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncation? RealtimeTruncationRetentionRatioTruncation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationMember1 RealtimeTruncationMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncation RealtimeTruncationRetentionRatioTruncation { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation_Wrapper"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationWrapper"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation_Wrapper? RealtimeTruncationWrapper { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationWrapper? RealtimeTruncationWrapper { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation_Wrapper RealtimeTruncationWrapper { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationWrapper RealtimeTruncationWrapper { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +39,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("RealtimeTruncationRetentionRatioTruncation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.RealtimeTruncationMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationMember1();
-            }
-            else if("RealtimeTruncation_Wrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.RealtimeTruncationWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation_Wrapper();
+                result.RealtimeTruncationRetentionRatioTruncation = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncation();
             }
             return result;
         }
@@ -55,9 +51,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(RealtimeTruncationMember1 != null)
+            if(RealtimeTruncationRetentionRatioTruncation != null)
             {
-                return RealtimeTruncationMember1.GetFieldDeserializers();
+                return RealtimeTruncationRetentionRatioTruncation.GetFieldDeserializers();
             }
             else if(RealtimeTruncationWrapper != null)
             {
@@ -72,13 +68,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(RealtimeTruncationMember1 != null)
+            if(RealtimeTruncationRetentionRatioTruncation != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationMember1>(null, RealtimeTruncationMember1);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncation>(null, RealtimeTruncationRetentionRatioTruncation);
             }
             else if(RealtimeTruncationWrapper != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation_Wrapper>(null, RealtimeTruncationWrapper);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationWrapper>(null, RealtimeTruncationWrapper);
             }
         }
     }

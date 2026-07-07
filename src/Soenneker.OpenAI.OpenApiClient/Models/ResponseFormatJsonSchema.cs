@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaJsonSchema JsonSchema { get; set; }
 #endif
         /// <summary>The type of response format being defined. Always `json_schema`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "json_schema", n => { JsonSchema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaJsonSchema>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaJsonSchema.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaJsonSchema>("json_schema", JsonSchema);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

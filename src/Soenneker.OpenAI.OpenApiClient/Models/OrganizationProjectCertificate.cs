@@ -38,13 +38,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The name of the certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate_name? Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateName? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate_name Name { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateName Name { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.project.certificate`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate"/> and sets the default values.
         /// </summary>
@@ -74,8 +74,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "certificate_details", n => { CertificateDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateCertificateDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateCertificateDetails.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate_name>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate_name.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate_object>(); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateName>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateName.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateObject>(); } },
             };
         }
         /// <summary>
@@ -89,8 +89,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateCertificateDetails>("certificate_details", CertificateDetails);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate_name>("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificate_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateName>("name", Name);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectCertificateObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

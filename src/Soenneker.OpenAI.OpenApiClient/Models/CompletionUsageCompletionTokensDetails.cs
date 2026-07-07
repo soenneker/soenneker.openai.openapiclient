@@ -29,6 +29,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public CompletionUsageCompletionTokensDetails()
         {
             AdditionalData = new Dictionary<string, object>();
+            AcceptedPredictionTokens = 0;
+            AudioTokens = 0;
+            ReasoningTokens = 0;
+            RejectedPredictionTokens = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

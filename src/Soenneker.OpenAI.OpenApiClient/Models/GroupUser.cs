@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The email address of the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupUser_email? Email { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserEmail? Email { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupUser_email Email { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserEmail Email { get; set; }
 #endif
         /// <summary>The identifier, which can be referenced in API endpoints</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "email", n => { Email = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUser_email>(global::Soenneker.OpenAI.OpenApiClient.Models.GroupUser_email.CreateFromDiscriminatorValue); } },
+                { "email", n => { Email = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserEmail>(global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserEmail.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
@@ -76,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUser_email>("email", Email);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserEmail>("email", Email);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);

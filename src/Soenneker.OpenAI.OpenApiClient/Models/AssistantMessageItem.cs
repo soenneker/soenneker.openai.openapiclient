@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>Type discriminator that is always `chatkit.thread_item`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantMessageItem_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantMessageItemObject? Object { get; set; }
         /// <summary>Identifier of the parent thread.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,14 +44,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string ThreadId { get; set; }
 #endif
         /// <summary>Type discriminator that is always `chatkit.assistant_message`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantMessageItem_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantMessageItemType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantMessageItem"/> and sets the default values.
         /// </summary>
         public AssistantMessageItem()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.AssistantMessageItem_object.ChatkitThread_item;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -74,9 +73,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantMessageItem_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantMessageItemObject>(); } },
                 { "thread_id", n => { ThreadId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantMessageItem_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantMessageItemType>(); } },
             };
         }
         /// <summary>
@@ -89,9 +88,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText>("content", Content);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantMessageItem_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantMessageItemObject>("object", Object);
             writer.WriteStringValue("thread_id", ThreadId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantMessageItem_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantMessageItemType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

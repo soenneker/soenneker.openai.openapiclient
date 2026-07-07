@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The content of the message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.Message.Message_content>? Content { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentItem>? Content { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.Message.Message_content> Content { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentItem> Content { get; set; }
 #endif
         /// <summary>The unique ID of the message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,17 +34,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The phase property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Message_phase? Phase { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseComposed? Phase { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Message_phase Phase { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseComposed Phase { get; set; }
 #endif
         /// <summary>The role property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageRole? Role { get; set; }
         /// <summary>The status property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageStatus? Status { get; set; }
         /// <summary>The type of the message. Always set to `message`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Message_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Message"/> and sets the default values.
         /// </summary>
@@ -70,12 +70,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Message.Message_content>(global::Soenneker.OpenAI.OpenApiClient.Models.Message.Message_content.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "phase", n => { Phase = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Message_phase>(global::Soenneker.OpenAI.OpenApiClient.Models.Message_phase.CreateFromDiscriminatorValue); } },
+                { "phase", n => { Phase = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseComposed>(global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseComposed.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageRole>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Message_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageType>(); } },
             };
         }
         /// <summary>
@@ -85,228 +85,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Message.Message_content>("content", Content);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentItem>("content", Content);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Message_phase>("phase", Phase);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseComposed>("phase", Phase);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageRole>("role", Role);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Message_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextContent"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningTextContent"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContent"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.TextContent"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Message_content : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent? ComputerScreenshotContent { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent ComputerScreenshotContent { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent? InputFileContent { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent InputFileContent { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent? InputImageContent { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent InputImageContent { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent? InputTextContent { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent InputTextContent { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextContent"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextContent? OutputTextContent { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextContent OutputTextContent { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningTextContent"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningTextContent? ReasoningTextContent { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningTextContent ReasoningTextContent { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContent"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContent? RefusalContent { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContent RefusalContent { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent? SummaryTextContent { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent SummaryTextContent { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.TextContent"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.TextContent? TextContent { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.TextContent TextContent { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Message.Message_content"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.Message.Message_content CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Message.Message_content();
-                if("ComputerScreenshotContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ComputerScreenshotContent = new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent();
-                }
-                else if("InputFileContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.InputFileContent = new global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent();
-                }
-                else if("InputImageContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.InputImageContent = new global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent();
-                }
-                else if("InputTextContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.InputTextContent = new global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent();
-                }
-                else if("OutputTextContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.OutputTextContent = new global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextContent();
-                }
-                else if("ReasoningTextContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ReasoningTextContent = new global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningTextContent();
-                }
-                else if("RefusalContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.RefusalContent = new global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContent();
-                }
-                else if("SummaryTextContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.SummaryTextContent = new global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent();
-                }
-                else if("TextContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.TextContent = new global::Soenneker.OpenAI.OpenApiClient.Models.TextContent();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ComputerScreenshotContent != null)
-                {
-                    return ComputerScreenshotContent.GetFieldDeserializers();
-                }
-                else if(InputFileContent != null)
-                {
-                    return InputFileContent.GetFieldDeserializers();
-                }
-                else if(InputImageContent != null)
-                {
-                    return InputImageContent.GetFieldDeserializers();
-                }
-                else if(InputTextContent != null)
-                {
-                    return InputTextContent.GetFieldDeserializers();
-                }
-                else if(OutputTextContent != null)
-                {
-                    return OutputTextContent.GetFieldDeserializers();
-                }
-                else if(ReasoningTextContent != null)
-                {
-                    return ReasoningTextContent.GetFieldDeserializers();
-                }
-                else if(RefusalContent != null)
-                {
-                    return RefusalContent.GetFieldDeserializers();
-                }
-                else if(SummaryTextContent != null)
-                {
-                    return SummaryTextContent.GetFieldDeserializers();
-                }
-                else if(TextContent != null)
-                {
-                    return TextContent.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(ComputerScreenshotContent != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent>(null, ComputerScreenshotContent);
-                }
-                else if(InputFileContent != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent>(null, InputFileContent);
-                }
-                else if(InputImageContent != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent>(null, InputImageContent);
-                }
-                else if(InputTextContent != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent>(null, InputTextContent);
-                }
-                else if(OutputTextContent != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextContent>(null, OutputTextContent);
-                }
-                else if(ReasoningTextContent != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningTextContent>(null, ReasoningTextContent);
-                }
-                else if(RefusalContent != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContent>(null, RefusalContent);
-                }
-                else if(SummaryTextContent != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent>(null, SummaryTextContent);
-                }
-                else if(TextContent != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextContent>(null, TextContent);
-                }
-            }
         }
     }
 }

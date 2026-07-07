@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.Resume
 {
     /// <summary>
-    /// Builds and executes requests for operations under \fine_tuning\jobs\{fine_tuning_job_id}\resume
+    /// Builds and executes requests for operations under \fine_tuning\jobs\{fineTuningJobId}\resume
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ResumeRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.Resume
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ResumeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/jobs/{fine_tuning_job_id}/resume", pathParameters)
+        public ResumeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/jobs/{fineTuningJobId}/resume", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Jobs.Item.Resume
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ResumeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/jobs/{fine_tuning_job_id}/resume", rawUrl)
+        public ResumeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/fine_tuning/jobs/{fineTuningJobId}/resume", rawUrl)
         {
         }
         /// <summary>

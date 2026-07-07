@@ -20,10 +20,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration of data sources used in runs of the evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_data_source_config? DataSourceConfig { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalDataSourceConfig? DataSourceConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_data_source_config DataSourceConfig { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalDataSourceConfig DataSourceConfig { get; set; }
 #endif
         /// <summary>Unique identifier for the evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,14 +50,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object type.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Eval_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalObject? Object { get; set; }
         /// <summary>A list of testing criteria.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_testing_criteria>? TestingCriteria { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalTestingCriteriaItem>? TestingCriteria { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_testing_criteria> TestingCriteria { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalTestingCriteriaItem> TestingCriteria { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Eval"/> and sets the default values.
@@ -65,7 +65,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public Eval()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.Eval_object.Eval;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -86,12 +85,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "data_source_config", n => { DataSourceConfig = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_data_source_config>(global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_data_source_config.CreateFromDiscriminatorValue); } },
+                { "data_source_config", n => { DataSourceConfig = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalDataSourceConfig>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalDataSourceConfig.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Eval_object>(); } },
-                { "testing_criteria", n => { TestingCriteria = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_testing_criteria>(global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_testing_criteria.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalObject>(); } },
+                { "testing_criteria", n => { TestingCriteria = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalTestingCriteriaItem>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalTestingCriteriaItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -102,239 +101,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_data_source_config>("data_source_config", DataSourceConfig);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalDataSourceConfig>("data_source_config", DataSourceConfig);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Eval_object>("object", Object);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_testing_criteria>("testing_criteria", TestingCriteria);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalObject>("object", Object);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalTestingCriteriaItem>("testing_criteria", TestingCriteria);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalCustomDataSourceConfig"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfig"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Eval_data_source_config : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalCustomDataSourceConfig"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalCustomDataSourceConfig? EvalCustomDataSourceConfig { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalCustomDataSourceConfig EvalCustomDataSourceConfig { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfig"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfig? EvalLogsDataSourceConfig { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfig EvalLogsDataSourceConfig { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_data_source_config"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_data_source_config CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_data_source_config();
-                if("EvalCustomDataSourceConfig".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvalCustomDataSourceConfig = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalCustomDataSourceConfig();
-                }
-                else if("EvalLogsDataSourceConfig".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvalLogsDataSourceConfig = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfig();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EvalCustomDataSourceConfig != null)
-                {
-                    return EvalCustomDataSourceConfig.GetFieldDeserializers();
-                }
-                else if(EvalLogsDataSourceConfig != null)
-                {
-                    return EvalLogsDataSourceConfig.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(EvalCustomDataSourceConfig != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalCustomDataSourceConfig>(null, EvalCustomDataSourceConfig);
-                }
-                else if(EvalLogsDataSourceConfig != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfig>(null, EvalLogsDataSourceConfig);
-                }
-                else if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModel"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPython"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModel"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheck"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Eval_testing_criteria : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModel"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModel? EvalGraderLabelModel { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModel EvalGraderLabelModel { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPython"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPython? EvalGraderPython { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPython EvalGraderPython { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModel"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModel? EvalGraderScoreModel { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModel EvalGraderScoreModel { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheck"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheck? EvalGraderStringCheck { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheck EvalGraderStringCheck { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity? EvalGraderTextSimilarity { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity EvalGraderTextSimilarity { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_testing_criteria"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_testing_criteria CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.Eval.Eval_testing_criteria();
-                if("EvalGraderLabelModel".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvalGraderLabelModel = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModel();
-                }
-                else if("EvalGraderPython".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvalGraderPython = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPython();
-                }
-                else if("EvalGraderScoreModel".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvalGraderScoreModel = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModel();
-                }
-                else if("EvalGraderStringCheck".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvalGraderStringCheck = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheck();
-                }
-                else if("EvalGraderTextSimilarity".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvalGraderTextSimilarity = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EvalGraderLabelModel != null)
-                {
-                    return EvalGraderLabelModel.GetFieldDeserializers();
-                }
-                else if(EvalGraderPython != null)
-                {
-                    return EvalGraderPython.GetFieldDeserializers();
-                }
-                else if(EvalGraderScoreModel != null)
-                {
-                    return EvalGraderScoreModel.GetFieldDeserializers();
-                }
-                else if(EvalGraderStringCheck != null)
-                {
-                    return EvalGraderStringCheck.GetFieldDeserializers();
-                }
-                else if(EvalGraderTextSimilarity != null)
-                {
-                    return EvalGraderTextSimilarity.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(EvalGraderLabelModel != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModel>(null, EvalGraderLabelModel);
-                }
-                else if(EvalGraderPython != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPython>(null, EvalGraderPython);
-                }
-                else if(EvalGraderScoreModel != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModel>(null, EvalGraderScoreModel);
-                }
-                else if(EvalGraderStringCheck != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheck>(null, EvalGraderStringCheck);
-                }
-                else if(EvalGraderTextSimilarity != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity>(null, EvalGraderTextSimilarity);
-                }
-            }
         }
     }
 }

@@ -24,16 +24,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Data { get; set; }
 #endif
         /// <summary>The media type of the inline skill payload. Must be `application/zip`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam_media_type? MediaType { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParamMediaType? MediaType { get; set; }
         /// <summary>The type of the inline skill source. Must be `base64`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParamType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam"/> and sets the default values.
         /// </summary>
         public InlineSkillSourceParam()
         {
             AdditionalData = new Dictionary<string, object>();
-            MediaType = global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam_media_type.ApplicationZip;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -54,8 +53,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetStringValue(); } },
-                { "media_type", n => { MediaType = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam_media_type>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam_type>(); } },
+                { "media_type", n => { MediaType = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParamMediaType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParamType>(); } },
             };
         }
         /// <summary>
@@ -66,8 +65,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("data", Data);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam_media_type>("media_type", MediaType);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParamMediaType>("media_type", MediaType);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParamType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

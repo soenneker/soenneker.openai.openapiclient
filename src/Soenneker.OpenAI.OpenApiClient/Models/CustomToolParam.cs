@@ -28,10 +28,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The input format for the custom tool. Default is unconstrained text.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam.CustomToolParam_format? Format { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamFormat? Format { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam.CustomToolParam_format Format { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamFormat Format { get; set; }
 #endif
         /// <summary>The name of the custom tool, used to identify it in tool calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The type of the custom tool. Always `custom`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam"/> and sets the default values.
         /// </summary>
@@ -70,9 +70,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "defer_loading", n => { DeferLoading = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam.CustomToolParam_format>(global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam.CustomToolParam_format.CreateFromDiscriminatorValue); } },
+                { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamFormat>(global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamFormat.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamType>(); } },
             };
         }
         /// <summary>
@@ -84,85 +84,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("defer_loading", DeferLoading);
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam.CustomToolParam_format>("format", Format);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamFormat>("format", Format);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomTextFormatParam"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CustomToolParam_format : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParam"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParam? CustomGrammarFormatParam { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParam CustomGrammarFormatParam { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomTextFormatParam"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CustomTextFormatParam? CustomTextFormatParam { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CustomTextFormatParam CustomTextFormatParam { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam.CustomToolParam_format"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam.CustomToolParam_format CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam.CustomToolParam_format();
-                if("CustomGrammarFormatParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.CustomGrammarFormatParam = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParam();
-                }
-                else if("CustomTextFormatParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.CustomTextFormatParam = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomTextFormatParam();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(CustomGrammarFormatParam != null)
-                {
-                    return CustomGrammarFormatParam.GetFieldDeserializers();
-                }
-                else if(CustomTextFormatParam != null)
-                {
-                    return CustomTextFormatParam.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(CustomGrammarFormatParam != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomGrammarFormatParam>(null, CustomGrammarFormatParam);
-                }
-                else if(CustomTextFormatParam != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomTextFormatParam>(null, CustomTextFormatParam);
-                }
-            }
         }
     }
 }

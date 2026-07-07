@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Audio.Voice_consents
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.audio.voice_consents.item collection</summary>
         /// <param name="position">The ID of the consent recording to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Audio.Voice_consents.Item.WithConsent_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Audio.Voice_consents.Item.WithConsent_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Audio.Voice_consents.Item.WithConsentItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Audio.Voice_consents.Item.WithConsentItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("consent_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Audio.Voice_consents.Item.WithConsent_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("consentId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Audio.Voice_consents.Item.WithConsentItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

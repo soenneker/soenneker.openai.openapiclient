@@ -25,23 +25,23 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The first_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponse_first_id? FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponseFirstId? FirstId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponse_first_id FirstId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponseFirstId FirstId { get; set; }
 #endif
         /// <summary>The has_more property</summary>
         public bool? HasMore { get; set; }
         /// <summary>The last_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponse_last_id? LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponseLastId? LastId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponse_last_id LastId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponseLastId LastId { get; set; }
 #endif
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponse_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponseObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponse"/> and sets the default values.
         /// </summary>
@@ -68,10 +68,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponse_first_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponse_first_id.CreateFromDiscriminatorValue); } },
+                { "first_id", n => { FirstId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponseFirstId>(global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponseFirstId.CreateFromDiscriminatorValue); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponse_last_id>(global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponse_last_id.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponse_object>(); } },
+                { "last_id", n => { LastId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponseLastId>(global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponseLastId.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponseObject>(); } },
             };
         }
         /// <summary>
@@ -82,10 +82,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponse_first_id>("first_id", FirstId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponseFirstId>("first_id", FirstId);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponse_last_id>("last_id", LastId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponse_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponseLastId>("last_id", LastId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListAuditLogsResponseObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

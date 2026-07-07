@@ -16,14 +16,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResult_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResultObject? Object { get; set; }
         /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResult_project_id? ProjectId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResultProjectId? ProjectId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResult_project_id ProjectId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResultProjectId ProjectId { get; set; }
 #endif
         /// <summary>The vector stores usage in bytes.</summary>
         public int? UsageBytes { get; set; }
@@ -52,8 +52,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResult_object>(); } },
-                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResult_project_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResult_project_id.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResultObject>(); } },
+                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResultProjectId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResultProjectId.CreateFromDiscriminatorValue); } },
                 { "usage_bytes", n => { UsageBytes = n.GetIntValue(); } },
             };
         }
@@ -64,8 +64,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResult_object>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResult_project_id>("project_id", ProjectId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResultObject>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResultProjectId>("project_id", ProjectId);
             writer.WriteIntValue("usage_bytes", UsageBytes);
             writer.WriteAdditionalData(AdditionalData);
         }

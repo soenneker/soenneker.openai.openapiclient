@@ -9,75 +9,75 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         [EnumMember(Value = "server_error")]
         #pragma warning disable CS1591
-        Server_error,
+        ServerError,
         #pragma warning restore CS1591
         [EnumMember(Value = "rate_limit_exceeded")]
         #pragma warning disable CS1591
-        Rate_limit_exceeded,
+        RateLimitExceeded,
         #pragma warning restore CS1591
         [EnumMember(Value = "invalid_prompt")]
         #pragma warning disable CS1591
-        Invalid_prompt,
+        InvalidPrompt,
         #pragma warning restore CS1591
         [EnumMember(Value = "vector_store_timeout")]
         #pragma warning disable CS1591
-        Vector_store_timeout,
+        VectorStoreTimeout,
         #pragma warning restore CS1591
         [EnumMember(Value = "invalid_image")]
         #pragma warning disable CS1591
-        Invalid_image,
+        InvalidImage,
         #pragma warning restore CS1591
         [EnumMember(Value = "invalid_image_format")]
         #pragma warning disable CS1591
-        Invalid_image_format,
+        InvalidImageFormat,
         #pragma warning restore CS1591
         [EnumMember(Value = "invalid_base64_image")]
         #pragma warning disable CS1591
-        Invalid_base64_image,
+        InvalidBase64Image,
         #pragma warning restore CS1591
         [EnumMember(Value = "invalid_image_url")]
         #pragma warning disable CS1591
-        Invalid_image_url,
+        InvalidImageUrl,
         #pragma warning restore CS1591
         [EnumMember(Value = "image_too_large")]
         #pragma warning disable CS1591
-        Image_too_large,
+        ImageTooLarge,
         #pragma warning restore CS1591
         [EnumMember(Value = "image_too_small")]
         #pragma warning disable CS1591
-        Image_too_small,
+        ImageTooSmall,
         #pragma warning restore CS1591
         [EnumMember(Value = "image_parse_error")]
         #pragma warning disable CS1591
-        Image_parse_error,
+        ImageParseError,
         #pragma warning restore CS1591
         [EnumMember(Value = "image_content_policy_violation")]
         #pragma warning disable CS1591
-        Image_content_policy_violation,
+        ImageContentPolicyViolation,
         #pragma warning restore CS1591
         [EnumMember(Value = "invalid_image_mode")]
         #pragma warning disable CS1591
-        Invalid_image_mode,
+        InvalidImageMode,
         #pragma warning restore CS1591
         [EnumMember(Value = "image_file_too_large")]
         #pragma warning disable CS1591
-        Image_file_too_large,
+        ImageFileTooLarge,
         #pragma warning restore CS1591
         [EnumMember(Value = "unsupported_image_media_type")]
         #pragma warning disable CS1591
-        Unsupported_image_media_type,
+        UnsupportedImageMediaType,
         #pragma warning restore CS1591
         [EnumMember(Value = "empty_image_file")]
         #pragma warning disable CS1591
-        Empty_image_file,
+        EmptyImageFile,
         #pragma warning restore CS1591
         [EnumMember(Value = "failed_to_download_image")]
         #pragma warning disable CS1591
-        Failed_to_download_image,
+        FailedToDownloadImage,
         #pragma warning restore CS1591
         [EnumMember(Value = "image_file_not_found")]
         #pragma warning disable CS1591
-        Image_file_not_found,
+        ImageFileNotFound,
         #pragma warning restore CS1591
     }
 }

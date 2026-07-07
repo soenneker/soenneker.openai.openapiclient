@@ -14,23 +14,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>Specifies the processing type used for serving the request.  - If set to &apos;auto&apos;, then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use &apos;default&apos;.  - If set to &apos;default&apos;, then the request will be processed with the standard pricing and performance for the selected model.  - If set to &apos;[flex](/docs/guides/flex-processing)&apos; or &apos;[priority](https://openai.com/api-priority-processing/)&apos;, then the request will be processed with the corresponding service tier.  - When not set, the default behavior is &apos;auto&apos;.  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier_value? Value { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierWrapperValue? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier"/> and sets the default values.
         /// </summary>
         public ServiceTier()
         {
             AdditionalData = new Dictionary<string, object>();
-            Value = global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier_value.Auto;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,8 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier_value>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierWrapperValue>(); } },
             };
         }
         /// <summary>
@@ -61,8 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("type", Type);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier_value>("value", Value);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierWrapperValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

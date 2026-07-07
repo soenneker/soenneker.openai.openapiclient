@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Source { get; set; }
 #endif
         /// <summary>The object type, which is always `python`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderPython_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPythonType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.GraderPython"/> and sets the default values.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "image_tag", n => { ImageTag = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderPython_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPythonType>(); } },
             };
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("image_tag", ImageTag);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("source", Source);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderPython_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPythonType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

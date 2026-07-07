@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing_Wrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingTracingConfiguration"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingWrapper"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RealtimeSessionCreateResponseTracing : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingTracingConfiguration"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingMember1? RealtimeSessionCreateResponseTracingMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingTracingConfiguration? RealtimeSessionCreateResponseTracingTracingConfiguration { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingMember1 RealtimeSessionCreateResponseTracingMember1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingTracingConfiguration RealtimeSessionCreateResponseTracingTracingConfiguration { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing_Wrapper"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingWrapper"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing_Wrapper? RealtimeSessionCreateResponseTracingWrapper { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingWrapper? RealtimeSessionCreateResponseTracingWrapper { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing_Wrapper RealtimeSessionCreateResponseTracingWrapper { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingWrapper RealtimeSessionCreateResponseTracingWrapper { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +39,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("RealtimeSessionCreateResponseTracingTracingConfiguration".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.RealtimeSessionCreateResponseTracingMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingMember1();
-            }
-            else if("RealtimeSessionCreateResponseTracing_Wrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.RealtimeSessionCreateResponseTracingWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing_Wrapper();
+                result.RealtimeSessionCreateResponseTracingTracingConfiguration = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingTracingConfiguration();
             }
             return result;
         }
@@ -55,9 +51,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(RealtimeSessionCreateResponseTracingMember1 != null)
+            if(RealtimeSessionCreateResponseTracingTracingConfiguration != null)
             {
-                return RealtimeSessionCreateResponseTracingMember1.GetFieldDeserializers();
+                return RealtimeSessionCreateResponseTracingTracingConfiguration.GetFieldDeserializers();
             }
             else if(RealtimeSessionCreateResponseTracingWrapper != null)
             {
@@ -72,13 +68,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(RealtimeSessionCreateResponseTracingMember1 != null)
+            if(RealtimeSessionCreateResponseTracingTracingConfiguration != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingMember1>(null, RealtimeSessionCreateResponseTracingMember1);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingTracingConfiguration>(null, RealtimeSessionCreateResponseTracingTracingConfiguration);
             }
             else if(RealtimeSessionCreateResponseTracingWrapper != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing_Wrapper>(null, RealtimeSessionCreateResponseTracingWrapper);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingWrapper>(null, RealtimeSessionCreateResponseTracingWrapper);
             }
         }
     }

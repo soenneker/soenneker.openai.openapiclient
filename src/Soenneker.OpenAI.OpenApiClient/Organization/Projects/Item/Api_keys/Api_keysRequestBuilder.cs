@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organization\projects\{project_id}\api_keys
+    /// Builds and executes requests for operations under \organization\projects\{projectId}\api_keys
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Api_keysRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.organization.projects.item.api_keys.item collection</summary>
         /// <param name="position">The ID of the API key.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithApi_key_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithApi_key_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithApiKeyItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithApiKeyItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("api_key_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithApi_key_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("apiKeyId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Item.WithApiKeyItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Api_keysRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/api_keys{?after*,limit*}", pathParameters)
+        public Api_keysRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{projectId}/api_keys{?after*,limit*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Api_keysRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/api_keys{?after*,limit*}", rawUrl)
+        public Api_keysRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{projectId}/api_keys{?after*,limit*}", rawUrl)
         {
         }
         /// <summary>

@@ -26,10 +26,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The encrypted_content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem_encrypted_content? EncryptedContent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItemEncryptedContent? EncryptedContent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem_encrypted_content EncryptedContent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItemEncryptedContent EncryptedContent { get; set; }
 #endif
         /// <summary>The unique identifier of the reasoning content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The status of the item. One of `in_progress`, `completed`, or`incomplete`. Populated when items are returned via API.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem_status? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItemStatus? Status { get; set; }
         /// <summary>Reasoning summary content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent> Summary { get; set; }
 #endif
         /// <summary>The type of the object. Always `reasoning`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItemType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem"/> and sets the default values.
         /// </summary>
@@ -77,11 +77,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningTextContent>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningTextContent.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "encrypted_content", n => { EncryptedContent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem_encrypted_content>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem_encrypted_content.CreateFromDiscriminatorValue); } },
+                { "encrypted_content", n => { EncryptedContent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItemEncryptedContent>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItemEncryptedContent.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItemStatus>(); } },
                 { "summary", n => { Summary = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent>(global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItemType>(); } },
             };
         }
         /// <summary>
@@ -92,11 +92,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningTextContent>("content", Content);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem_encrypted_content>("encrypted_content", EncryptedContent);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItemEncryptedContent>("encrypted_content", EncryptedContent);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItemStatus>("status", Status);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent>("summary", Summary);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItem_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItemType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

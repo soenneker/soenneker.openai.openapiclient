@@ -14,14 +14,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>The number of partial images to generate. This parameter is used forstreaming responses that return partial images. Value must be between 0 and 3.When set to 0, the response will be a single image sent in one streaming event.Note that the final image may be sent before the full number of partial imagesare generated if the full image is generated more quickly.</summary>
         public int? Value { get; set; }
         /// <summary>
@@ -30,6 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public PartialImages()
         {
             AdditionalData = new Dictionary<string, object>();
+            Value = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -49,7 +42,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetIntValue(); } },
             };
         }
@@ -60,7 +52,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("type", Type);
             writer.WriteIntValue("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

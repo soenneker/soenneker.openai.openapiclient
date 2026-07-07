@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Evals
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.evals.item collection</summary>
         /// <param name="position">The ID of the evaluation to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Evals.Item.WithEval_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Evals.Item.WithEval_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Evals.Item.WithEvalItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Evals.Item.WithEvalItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("eval_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Evals.Item.WithEval_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("evalId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Evals.Item.WithEvalItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -155,10 +155,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Evals
             public int? Limit { get; set; }
             /// <summary>Sort order for evals by timestamp. Use `asc` for ascending order or `desc` for descending order.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Evals.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListEvalsOrderParameter? Order { get; set; }
             /// <summary>Evals can be ordered by creation time or last updated time. Use`created_at` for creation time or `updated_at` for last updated time.</summary>
             [QueryParameter("order_by")]
-            public global::Soenneker.OpenAI.OpenApiClient.Evals.GetOrder_byQueryParameterType? OrderBy { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ListEvalsOrderByParameter? OrderBy { get; set; }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The evaluation metric to use. One of `cosine`, `fuzzy_match`, `bleu`, `gleu`, `meteor`, `rouge_1`, `rouge_2`, `rouge_3`, `rouge_4`, `rouge_5`, or `rouge_l`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity_evaluation_metric? EvaluationMetric { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarityEvaluationMetric? EvaluationMetric { get; set; }
         /// <summary>The text being graded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Reference { get; set; }
 #endif
         /// <summary>The type of grader.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarityType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity"/> and sets the default values.
         /// </summary>
@@ -69,12 +69,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "evaluation_metric", n => { EvaluationMetric = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity_evaluation_metric>(); } },
+                { "evaluation_metric", n => { EvaluationMetric = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarityEvaluationMetric>(); } },
                 { "input", n => { Input = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "pass_threshold", n => { PassThreshold = n.GetDoubleValue(); } },
                 { "reference", n => { Reference = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarityType>(); } },
             };
         }
         /// <summary>
@@ -84,12 +84,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity_evaluation_metric>("evaluation_metric", EvaluationMetric);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarityEvaluationMetric>("evaluation_metric", EvaluationMetric);
             writer.WriteStringValue("input", Input);
             writer.WriteStringValue("name", Name);
             writer.WriteDoubleValue("pass_threshold", PassThreshold);
             writer.WriteStringValue("reference", Reference);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarityType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

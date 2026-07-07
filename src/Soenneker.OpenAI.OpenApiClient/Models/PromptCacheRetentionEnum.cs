@@ -10,11 +10,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         [EnumMember(Value = "in_memory")]
         #pragma warning disable CS1591
-        In_memory,
+        InMemory,
         #pragma warning restore CS1591
         [EnumMember(Value = "24h")]
         #pragma warning disable CS1591
-        TwoFourh,
+        Value24H,
         #pragma warning restore CS1591
     }
 }

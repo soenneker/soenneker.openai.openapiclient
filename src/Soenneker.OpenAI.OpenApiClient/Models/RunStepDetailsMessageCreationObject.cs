@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObjectMessageCreation MessageCreation { get; set; }
 #endif
         /// <summary>Always `message_creation`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObject_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObjectType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObject"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "message_creation", n => { MessageCreation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObjectMessageCreation>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObjectMessageCreation.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObject_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObjectType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObjectMessageCreation>("message_creation", MessageCreation);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObject_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObjectType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

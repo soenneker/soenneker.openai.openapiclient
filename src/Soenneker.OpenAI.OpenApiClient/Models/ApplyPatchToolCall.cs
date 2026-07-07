@@ -42,15 +42,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>One of the create_file, delete_file, or update_file operations applied via apply_patch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall.ApplyPatchToolCall_operation? Operation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOperation? Operation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall.ApplyPatchToolCall_operation Operation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOperation Operation { get; set; }
 #endif
         /// <summary>The status property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallStatus? Status { get; set; }
         /// <summary>The type of the item. Always `apply_patch_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall"/> and sets the default values.
         /// </summary>
@@ -79,9 +79,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "operation", n => { Operation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall.ApplyPatchToolCall_operation>(global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall.ApplyPatchToolCall_operation.CreateFromDiscriminatorValue); } },
+                { "operation", n => { Operation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOperation>(global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOperation.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallType>(); } },
             };
         }
         /// <summary>
@@ -94,105 +94,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall.ApplyPatchToolCall_operation>("operation", Operation);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOperation>("operation", Operation);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCreateFileOperation"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchDeleteFileOperation"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchUpdateFileOperation"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ApplyPatchToolCall_operation : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCreateFileOperation"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCreateFileOperation? ApplyPatchCreateFileOperation { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCreateFileOperation ApplyPatchCreateFileOperation { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchDeleteFileOperation"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchDeleteFileOperation? ApplyPatchDeleteFileOperation { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchDeleteFileOperation ApplyPatchDeleteFileOperation { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchUpdateFileOperation"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchUpdateFileOperation? ApplyPatchUpdateFileOperation { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchUpdateFileOperation ApplyPatchUpdateFileOperation { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall.ApplyPatchToolCall_operation"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall.ApplyPatchToolCall_operation CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall.ApplyPatchToolCall_operation();
-                if("ApplyPatchCreateFileOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ApplyPatchCreateFileOperation = new global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCreateFileOperation();
-                }
-                else if("ApplyPatchDeleteFileOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ApplyPatchDeleteFileOperation = new global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchDeleteFileOperation();
-                }
-                else if("ApplyPatchUpdateFileOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ApplyPatchUpdateFileOperation = new global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchUpdateFileOperation();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ApplyPatchCreateFileOperation != null)
-                {
-                    return ApplyPatchCreateFileOperation.GetFieldDeserializers();
-                }
-                else if(ApplyPatchDeleteFileOperation != null)
-                {
-                    return ApplyPatchDeleteFileOperation.GetFieldDeserializers();
-                }
-                else if(ApplyPatchUpdateFileOperation != null)
-                {
-                    return ApplyPatchUpdateFileOperation.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(ApplyPatchCreateFileOperation != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCreateFileOperation>(null, ApplyPatchCreateFileOperation);
-                }
-                else if(ApplyPatchDeleteFileOperation != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchDeleteFileOperation>(null, ApplyPatchDeleteFileOperation);
-                }
-                else if(ApplyPatchUpdateFileOperation != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchUpdateFileOperation>(null, ApplyPatchUpdateFileOperation);
-                }
-            }
         }
     }
 }

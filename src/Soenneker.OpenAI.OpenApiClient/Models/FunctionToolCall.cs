@@ -56,9 +56,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Namespace { get; set; }
 #endif
         /// <summary>The status of the item. One of `in_progress`, `completed`, or`incomplete`. Populated when items are returned via API.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCall_status? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallStatus? Status { get; set; }
         /// <summary>The type of the function tool call. Always `function_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCall_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCall"/> and sets the default values.
         /// </summary>
@@ -89,8 +89,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "namespace", n => { Namespace = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCall_status>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCall_type>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallStatus>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallType>(); } },
             };
         }
         /// <summary>
@@ -105,8 +105,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("namespace", Namespace);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCall_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCall_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

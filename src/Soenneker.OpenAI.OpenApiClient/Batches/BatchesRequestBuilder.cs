@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Batches
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.batches.item collection</summary>
         /// <param name="position">The ID of the batch to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Batches.Item.WithBatch_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Batches.Item.WithBatch_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Batches.Item.WithBatchItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Batches.Item.WithBatchItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("batch_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Batches.Item.WithBatch_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("batchId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Batches.Item.WithBatchItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -73,11 +73,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Batches
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.Batch?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatch body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.Batch?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.Batch> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatch body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.Batch> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -111,11 +111,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Batches
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatch body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatch body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

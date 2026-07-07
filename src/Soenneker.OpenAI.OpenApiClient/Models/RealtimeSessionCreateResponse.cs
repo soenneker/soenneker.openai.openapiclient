@@ -36,10 +36,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>&quot;Additional fields to include in server outputs.- `item.input_audio_transcription.logprobs`: Include logprobs for input audio transcription.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_include?>? Include { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseIncludeItem?>? Include { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_include?> Include { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseIncludeItem?> Include { get; set; }
 #endif
         /// <summary>The default system instructions (i.e. system message) prepended to modelcalls. This field allows the client to guide the model on desiredresponses. The model can be instructed on response content and format,(e.g. &quot;be extremely succinct&quot;, &quot;act friendly&quot;, &quot;here are examples of goodresponses&quot;) and on audio behavior (e.g. &quot;talk quickly&quot;, &quot;inject emotioninto your voice&quot;, &quot;laugh frequently&quot;). The instructions are not guaranteedto be followed by the model, but they provide guidance to the model on thedesired behavior.Note that the server sets default instructions which will be used if thisfield is not set and are visible in the `session.created` event at thestart of the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,10 +52,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Maximum number of output tokens for a single assistant response,inclusive of tool calls. Provide an integer between 1 and 4096 tolimit output tokens, or `inf` for the maximum available tokens for agiven model. Defaults to `inf`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse.RealtimeSessionCreateResponse_max_output_tokens? MaxOutputTokens { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseMaxOutputTokens? MaxOutputTokens { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse.RealtimeSessionCreateResponse_max_output_tokens MaxOutputTokens { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseMaxOutputTokens MaxOutputTokens { get; set; }
 #endif
         /// <summary>The Realtime model used for this session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -76,10 +76,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The set of modalities the model can respond with. To disable audio,set this to [&quot;text&quot;].</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_output_modalities? OutputModalities { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseOutputModalities? OutputModalities { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_output_modalities OutputModalities { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseOutputModalities OutputModalities { get; set; }
 #endif
         /// <summary>How the model chooses tools. Options are `auto`, `none`, `required`, orspecify a function.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -141,12 +141,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "audio", n => { Audio = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudio>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudio.CreateFromDiscriminatorValue); } },
                 { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "include", n => { Include = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_include>()?.AsList(); } },
+                { "include", n => { Include = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseIncludeItem>()?.AsList(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
-                { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse.RealtimeSessionCreateResponse_max_output_tokens>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse.RealtimeSessionCreateResponse_max_output_tokens.CreateFromDiscriminatorValue); } },
+                { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseMaxOutputTokens>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseMaxOutputTokens.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetStringValue(); } },
-                { "output_modalities", n => { OutputModalities = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_output_modalities>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_output_modalities.CreateFromDiscriminatorValue); } },
+                { "output_modalities", n => { OutputModalities = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseOutputModalities>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseOutputModalities.CreateFromDiscriminatorValue); } },
                 { "tool_choice", n => { ToolChoice = n.GetStringValue(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tracing", n => { Tracing = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing.CreateFromDiscriminatorValue); } },
@@ -163,78 +163,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudio>("audio", Audio);
             writer.WriteIntValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_include>("include", Include);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseIncludeItem>("include", Include);
             writer.WriteStringValue("instructions", Instructions);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse.RealtimeSessionCreateResponse_max_output_tokens>("max_output_tokens", MaxOutputTokens);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseMaxOutputTokens>("max_output_tokens", MaxOutputTokens);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse_output_modalities>("output_modalities", OutputModalities);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseOutputModalities>("output_modalities", OutputModalities);
             writer.WriteStringValue("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool>("tools", Tools);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing>("tracing", Tracing);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTurnDetection>("turn_detection", TurnDetection);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="int"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RealtimeSessionCreateResponse_max_output_tokens : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse.RealtimeSessionCreateResponse_max_output_tokens"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse.RealtimeSessionCreateResponse_max_output_tokens CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse.RealtimeSessionCreateResponse_max_output_tokens();
-                if(parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
-                }
-                else if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-            }
         }
     }
 }

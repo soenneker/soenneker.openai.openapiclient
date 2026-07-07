@@ -28,26 +28,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The estimated_finish property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_estimated_finish? EstimatedFinish { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEstimatedFinish? EstimatedFinish { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_estimated_finish EstimatedFinish { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEstimatedFinish EstimatedFinish { get; set; }
 #endif
         /// <summary>The fine_tuned_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_fine_tuned_model? FineTunedModel { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobFineTunedModel? FineTunedModel { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_fine_tuned_model FineTunedModel { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobFineTunedModel FineTunedModel { get; set; }
 #endif
         /// <summary>The finished_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_finished_at? FinishedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobFinishedAt? FinishedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_finished_at FinishedAt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobFinishedAt FinishedAt { get; set; }
 #endif
         /// <summary>The hyperparameters used for the fine-tuning job. This value will only be returned when running `supervised` jobs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,10 +68,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The integrations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_integrations? Integrations { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrations? Integrations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_integrations Integrations { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrations Integrations { get; set; }
 #endif
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,7 +98,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Model { get; set; }
 #endif
         /// <summary>The object type, which is always &quot;fine_tuning.job&quot;.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobObject? Object { get; set; }
         /// <summary>The organization that owns the fine-tuning job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -118,14 +118,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The seed used for the fine-tuning job.</summary>
         public int? Seed { get; set; }
         /// <summary>The current status of the fine-tuning job, which can be either `validating_files`, `queued`, `running`, `succeeded`, `failed`, or `cancelled`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_status? Status { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobStatus? Status { get; set; }
         /// <summary>The trained_tokens property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_trained_tokens? TrainedTokens { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobTrainedTokens? TrainedTokens { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_trained_tokens TrainedTokens { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobTrainedTokens TrainedTokens { get; set; }
 #endif
         /// <summary>The file ID used for training. You can retrieve the training data with the [Files API](/docs/api-reference/files/retrieve-contents).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -138,10 +138,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The validation_file property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_validation_file? ValidationFile { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobValidationFile? ValidationFile { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_validation_file ValidationFile { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobValidationFile ValidationFile { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob"/> and sets the default values.
@@ -170,23 +170,23 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError.CreateFromDiscriminatorValue); } },
-                { "estimated_finish", n => { EstimatedFinish = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_estimated_finish>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_estimated_finish.CreateFromDiscriminatorValue); } },
-                { "fine_tuned_model", n => { FineTunedModel = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_fine_tuned_model>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_fine_tuned_model.CreateFromDiscriminatorValue); } },
-                { "finished_at", n => { FinishedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_finished_at>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_finished_at.CreateFromDiscriminatorValue); } },
+                { "estimated_finish", n => { EstimatedFinish = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEstimatedFinish>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEstimatedFinish.CreateFromDiscriminatorValue); } },
+                { "fine_tuned_model", n => { FineTunedModel = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobFineTunedModel>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobFineTunedModel.CreateFromDiscriminatorValue); } },
+                { "finished_at", n => { FinishedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobFinishedAt>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobFinishedAt.CreateFromDiscriminatorValue); } },
                 { "hyperparameters", n => { Hyperparameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparameters>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparameters.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "integrations", n => { Integrations = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_integrations>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_integrations.CreateFromDiscriminatorValue); } },
+                { "integrations", n => { Integrations = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrations>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrations.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
                 { "method", n => { Method = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobObject>(); } },
                 { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "result_files", n => { ResultFiles = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "seed", n => { Seed = n.GetIntValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_status>(); } },
-                { "trained_tokens", n => { TrainedTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_trained_tokens>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_trained_tokens.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobStatus>(); } },
+                { "trained_tokens", n => { TrainedTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobTrainedTokens>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobTrainedTokens.CreateFromDiscriminatorValue); } },
                 { "training_file", n => { TrainingFile = n.GetStringValue(); } },
-                { "validation_file", n => { ValidationFile = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_validation_file>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_validation_file.CreateFromDiscriminatorValue); } },
+                { "validation_file", n => { ValidationFile = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobValidationFile>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobValidationFile.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -198,23 +198,23 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError>("error", Error);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_estimated_finish>("estimated_finish", EstimatedFinish);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_fine_tuned_model>("fine_tuned_model", FineTunedModel);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_finished_at>("finished_at", FinishedAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEstimatedFinish>("estimated_finish", EstimatedFinish);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobFineTunedModel>("fine_tuned_model", FineTunedModel);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobFinishedAt>("finished_at", FinishedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparameters>("hyperparameters", Hyperparameters);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_integrations>("integrations", Integrations);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrations>("integrations", Integrations);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod>("method", Method);
             writer.WriteStringValue("model", Model);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobObject>("object", Object);
             writer.WriteStringValue("organization_id", OrganizationId);
             writer.WriteCollectionOfPrimitiveValues<string>("result_files", ResultFiles);
             writer.WriteIntValue("seed", Seed);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_status>("status", Status);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_trained_tokens>("trained_tokens", TrainedTokens);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobTrainedTokens>("trained_tokens", TrainedTokens);
             writer.WriteStringValue("training_file", TrainingFile);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJob_validation_file>("validation_file", ValidationFile);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobValidationFile>("validation_file", ValidationFile);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

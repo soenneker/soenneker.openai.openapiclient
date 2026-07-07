@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The currency for the threshold amount.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlert_currency? Currency { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertCurrency? Currency { get; set; }
         /// <summary>The identifier, which can be referenced in API endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -26,7 +26,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The time interval for evaluating spend against the threshold.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlert_interval? Interval { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertInterval? Interval { get; set; }
         /// <summary>Email notification settings for a spend alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,7 +36,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannel NotificationChannel { get; set; }
 #endif
         /// <summary>The object type, which is always `project.spend_alert`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlert_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertObject? Object { get; set; }
         /// <summary>The alert threshold amount, in cents.</summary>
         public int? ThresholdAmount { get; set; }
         /// <summary>
@@ -64,11 +64,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "currency", n => { Currency = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlert_currency>(); } },
+                { "currency", n => { Currency = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertCurrency>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "interval", n => { Interval = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlert_interval>(); } },
+                { "interval", n => { Interval = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertInterval>(); } },
                 { "notification_channel", n => { NotificationChannel = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannel>(global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannel.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlert_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertObject>(); } },
                 { "threshold_amount", n => { ThresholdAmount = n.GetIntValue(); } },
             };
         }
@@ -79,11 +79,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlert_currency>("currency", Currency);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertCurrency>("currency", Currency);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlert_interval>("interval", Interval);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertInterval>("interval", Interval);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannel>("notification_channel", NotificationChannel);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlert_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertObject>("object", Object);
             writer.WriteIntValue("threshold_amount", ThresholdAmount);
             writer.WriteAdditionalData(AdditionalData);
         }

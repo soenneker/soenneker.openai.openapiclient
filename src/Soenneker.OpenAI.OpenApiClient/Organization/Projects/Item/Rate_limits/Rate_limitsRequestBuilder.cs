@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organization\projects\{project_id}\rate_limits
+    /// Builds and executes requests for operations under \organization\projects\{projectId}\rate_limits
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Rate_limitsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.organization.projects.item.rate_limits.item collection</summary>
         /// <param name="position">The ID of the rate limit.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits.Item.WithRate_limit_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits.Item.WithRate_limit_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits.Item.WithRateLimitItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits.Item.WithRateLimitItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("rate_limit_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits.Item.WithRate_limit_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("rateLimitId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits.Item.WithRateLimitItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Rate_limitsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/rate_limits{?after*,before*,limit*}", pathParameters)
+        public Rate_limitsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{projectId}/rate_limits{?after*,before*,limit*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Rate_limitsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{project_id}/rate_limits{?after*,before*,limit*}", rawUrl)
+        public Rate_limitsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/projects/{projectId}/rate_limits{?after*,before*,limit*}", rawUrl)
         {
         }
         /// <summary>

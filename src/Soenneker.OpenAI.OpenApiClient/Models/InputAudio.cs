@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio InputAudioProp { get; set; }
 #endif
         /// <summary>The type of the input item. Always `input_audio`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudio_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputAudio"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "input_audio", n => { InputAudioProp = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio>(global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudio_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio>("input_audio", InputAudioProp);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudio_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

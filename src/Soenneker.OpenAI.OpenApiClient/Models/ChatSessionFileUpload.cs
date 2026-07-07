@@ -20,18 +20,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The max_files property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_files? MaxFiles { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUploadMaxFiles? MaxFiles { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_files MaxFiles { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUploadMaxFiles MaxFiles { get; set; }
 #endif
         /// <summary>The max_file_size property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_size? MaxFileSize { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUploadMaxFileSize? MaxFileSize { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_size MaxFileSize { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUploadMaxFileSize MaxFileSize { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload"/> and sets the default values.
@@ -59,8 +59,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
-                { "max_file_size", n => { MaxFileSize = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_size>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_size.CreateFromDiscriminatorValue); } },
-                { "max_files", n => { MaxFiles = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_files>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_files.CreateFromDiscriminatorValue); } },
+                { "max_file_size", n => { MaxFileSize = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUploadMaxFileSize>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUploadMaxFileSize.CreateFromDiscriminatorValue); } },
+                { "max_files", n => { MaxFiles = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUploadMaxFiles>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUploadMaxFiles.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -71,8 +71,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_files>("max_files", MaxFiles);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload_max_file_size>("max_file_size", MaxFileSize);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUploadMaxFiles>("max_files", MaxFiles);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUploadMaxFileSize>("max_file_size", MaxFileSize);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

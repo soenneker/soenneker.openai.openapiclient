@@ -17,13 +17,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.Model>? Data { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ModelValue>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.Model> Data { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ModelValue> Data { get; set; }
 #endif
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ListModelsResponse_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListModelsResponseObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListModelsResponse"/> and sets the default values.
         /// </summary>
@@ -49,8 +49,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Model>(global::Soenneker.OpenAI.OpenApiClient.Models.Model.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListModelsResponse_object>(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ModelValue>(global::Soenneker.OpenAI.OpenApiClient.Models.ModelValue.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListModelsResponseObject>(); } },
             };
         }
         /// <summary>
@@ -60,8 +60,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Model>("data", Data);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListModelsResponse_object>("object", Object);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ModelValue>("data", Data);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListModelsResponseObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Audit_logs
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Audit_logsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/audit_logs{?actor_emails%5B%5D*,actor_ids%5B%5D*,after*,before*,effective_at*,event_types%5B%5D*,limit*,project_ids%5B%5D*,resource_ids%5B%5D*}", pathParameters)
+        public Audit_logsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/audit_logs{?actor_emails%5B%5D*,actor_ids%5B%5D*,after*,before*,effective_at*,event_types%5B%5D*,limit*,project_ids%5B%5D*,resource_ids%5B%5D*,tenant_only*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Audit_logs
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Audit_logsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/audit_logs{?actor_emails%5B%5D*,actor_ids%5B%5D*,after*,before*,effective_at*,event_types%5B%5D*,limit*,project_ids%5B%5D*,resource_ids%5B%5D*}", rawUrl)
+        public Audit_logsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/audit_logs{?actor_emails%5B%5D*,actor_ids%5B%5D*,after*,before*,effective_at*,event_types%5B%5D*,limit*,project_ids%5B%5D*,resource_ids%5B%5D*,tenant_only*}", rawUrl)
         {
         }
         /// <summary>
@@ -158,7 +158,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Audit_logs
             [QueryParameter("project_ids%5B%5D")]
             public string[] ProjectIds { get; set; }
 #endif
-            /// <summary>Return only events performed on these targets. For example, a project ID updated.</summary>
+            /// <summary>Return only events performed on these targets. For example, a project ID updated. For ChatGPT connector role events, use the workspace connector resource ID shown in `details.id`, such as `&lt;workspace_id&gt;__&lt;connector_id&gt;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("resource_ids%5B%5D")]
@@ -168,6 +168,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Audit_logs
             [QueryParameter("resource_ids%5B%5D")]
             public string[] ResourceIds { get; set; }
 #endif
+            /// <summary>Return only tenant-scoped events associated with this organization. Required for tenant-scoped events such as `role.bound_to_resource` and `role.unbound_from_resource`. When `true`, all supplied event types must be tenant-scoped.</summary>
+            [QueryParameter("tenant_only")]
+            public bool? TenantOnly { get; set; }
         }
     }
 }

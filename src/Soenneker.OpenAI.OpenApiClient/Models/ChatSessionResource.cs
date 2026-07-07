@@ -44,7 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Convenience copy of the per-minute request limit.</summary>
         public int? MaxRequestsPer1Minute { get; set; }
         /// <summary>Type discriminator that is always `chatkit.session`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionResource_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionResourceObject? Object { get; set; }
         /// <summary>Active per-minute request limit for the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,7 +77,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public ChatSessionResource()
         {
             AdditionalData = new Dictionary<string, object>();
-            Object = global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionResource_object.ChatkitSession;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -102,7 +101,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "max_requests_per_1_minute", n => { MaxRequestsPer1Minute = n.GetIntValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionResource_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionResourceObject>(); } },
                 { "rate_limits", n => { RateLimits = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionRateLimits>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionRateLimits.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionStatus>(); } },
                 { "user", n => { User = n.GetStringValue(); } },
@@ -121,7 +120,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteIntValue("max_requests_per_1_minute", MaxRequestsPer1Minute);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionResource_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionResourceObject>("object", Object);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionRateLimits>("rate_limits", RateLimits);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionStatus>("status", Status);
             writer.WriteStringValue("user", User);

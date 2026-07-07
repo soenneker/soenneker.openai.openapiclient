@@ -52,6 +52,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public CreateEvalResponsesRunDataSourceSamplingParams()
         {
             AdditionalData = new Dictionary<string, object>();
+            Seed = 42;
+            Temperature = 1;
+            TopP = 1;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

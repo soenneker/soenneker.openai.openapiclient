@@ -16,10 +16,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The actor property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_actor? Actor { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed? Actor { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_actor Actor { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed Actor { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -228,10 +228,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>This event has no additional fields beyond the standard audit log attributes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_loginSucceeded? LoginSucceeded { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginSucceededProperty? LoginSucceeded { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_loginSucceeded LoginSucceeded { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginSucceededProperty LoginSucceeded { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -244,10 +244,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>This event has no additional fields beyond the standard audit log attributes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_logoutSucceeded? LogoutSucceeded { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutSucceededProperty? LogoutSucceeded { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_logoutSucceeded LogoutSucceeded { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutSucceededProperty LogoutSucceeded { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -332,6 +332,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleBoundToResource? RoleBoundToResource { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleBoundToResource RoleBoundToResource { get; set; }
+#endif
+        /// <summary>The details for events with this `type`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated? RoleCreated { get; set; }
 #nullable restore
 #else
@@ -344,6 +352,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted RoleDeleted { get; set; }
+#endif
+        /// <summary>The details for events with this `type`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUnboundFromResource? RoleUnboundFromResource { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUnboundFromResource RoleUnboundFromResource { get; set; }
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -419,6 +435,54 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated UserUpdated { get; set; }
 #endif
+        /// <summary>The details for events with this `type`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderCreated? WorkloadIdentityProviderCreated { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderCreated WorkloadIdentityProviderCreated { get; set; }
+#endif
+        /// <summary>The details for events with this `type`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderDeleted? WorkloadIdentityProviderDeleted { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderDeleted WorkloadIdentityProviderDeleted { get; set; }
+#endif
+        /// <summary>The details for events with this `type`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingCreated? WorkloadIdentityProviderMappingCreated { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingCreated WorkloadIdentityProviderMappingCreated { get; set; }
+#endif
+        /// <summary>The details for events with this `type`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingDeleted? WorkloadIdentityProviderMappingDeleted { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingDeleted WorkloadIdentityProviderMappingDeleted { get; set; }
+#endif
+        /// <summary>The details for events with this `type`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdated? WorkloadIdentityProviderMappingUpdated { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdated WorkloadIdentityProviderMappingUpdated { get; set; }
+#endif
+        /// <summary>The details for events with this `type`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderUpdated? WorkloadIdentityProviderUpdated { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderUpdated WorkloadIdentityProviderUpdated { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog"/> and sets the default values.
         /// </summary>
@@ -444,7 +508,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_actor>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_actor.CreateFromDiscriminatorValue); } },
+                { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed.CreateFromDiscriminatorValue); } },
                 { "api_key.created", n => { ApiKeyCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated.CreateFromDiscriminatorValue); } },
                 { "api_key.deleted", n => { ApiKeyDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted.CreateFromDiscriminatorValue); } },
                 { "api_key.updated", n => { ApiKeyUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated.CreateFromDiscriminatorValue); } },
@@ -471,9 +535,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "ip_allowlist.deleted", n => { IpAllowlistDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistDeleted.CreateFromDiscriminatorValue); } },
                 { "ip_allowlist.updated", n => { IpAllowlistUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistUpdated.CreateFromDiscriminatorValue); } },
                 { "login.failed", n => { LoginFailed = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginFailed>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginFailed.CreateFromDiscriminatorValue); } },
-                { "login.succeeded", n => { LoginSucceeded = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_loginSucceeded>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_loginSucceeded.CreateFromDiscriminatorValue); } },
+                { "login.succeeded", n => { LoginSucceeded = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginSucceededProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginSucceededProperty.CreateFromDiscriminatorValue); } },
                 { "logout.failed", n => { LogoutFailed = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutFailed>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutFailed.CreateFromDiscriminatorValue); } },
-                { "logout.succeeded", n => { LogoutSucceeded = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_logoutSucceeded>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_logoutSucceeded.CreateFromDiscriminatorValue); } },
+                { "logout.succeeded", n => { LogoutSucceeded = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutSucceededProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutSucceededProperty.CreateFromDiscriminatorValue); } },
                 { "organization.updated", n => { OrganizationUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdated.CreateFromDiscriminatorValue); } },
                 { "project", n => { Project = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProject>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProject.CreateFromDiscriminatorValue); } },
                 { "project.archived", n => { ProjectArchived = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectArchived>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectArchived.CreateFromDiscriminatorValue); } },
@@ -484,8 +548,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "rate_limit.updated", n => { RateLimitUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitUpdated.CreateFromDiscriminatorValue); } },
                 { "role.assignment.created", n => { RoleAssignmentCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentCreated.CreateFromDiscriminatorValue); } },
                 { "role.assignment.deleted", n => { RoleAssignmentDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentDeleted.CreateFromDiscriminatorValue); } },
+                { "role.bound_to_resource", n => { RoleBoundToResource = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleBoundToResource>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleBoundToResource.CreateFromDiscriminatorValue); } },
                 { "role.created", n => { RoleCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated.CreateFromDiscriminatorValue); } },
                 { "role.deleted", n => { RoleDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted.CreateFromDiscriminatorValue); } },
+                { "role.unbound_from_resource", n => { RoleUnboundFromResource = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUnboundFromResource>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUnboundFromResource.CreateFromDiscriminatorValue); } },
                 { "role.updated", n => { RoleUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdated.CreateFromDiscriminatorValue); } },
                 { "scim.disabled", n => { ScimDisabled = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimDisabled>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimDisabled.CreateFromDiscriminatorValue); } },
                 { "scim.enabled", n => { ScimEnabled = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimEnabled>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimEnabled.CreateFromDiscriminatorValue); } },
@@ -496,6 +562,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "user.added", n => { UserAdded = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserAdded>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserAdded.CreateFromDiscriminatorValue); } },
                 { "user.deleted", n => { UserDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserDeleted.CreateFromDiscriminatorValue); } },
                 { "user.updated", n => { UserUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated.CreateFromDiscriminatorValue); } },
+                { "workload_identity_provider.created", n => { WorkloadIdentityProviderCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderCreated.CreateFromDiscriminatorValue); } },
+                { "workload_identity_provider.deleted", n => { WorkloadIdentityProviderDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderDeleted.CreateFromDiscriminatorValue); } },
+                { "workload_identity_provider_mapping.created", n => { WorkloadIdentityProviderMappingCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingCreated.CreateFromDiscriminatorValue); } },
+                { "workload_identity_provider_mapping.deleted", n => { WorkloadIdentityProviderMappingDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingDeleted.CreateFromDiscriminatorValue); } },
+                { "workload_identity_provider_mapping.updated", n => { WorkloadIdentityProviderMappingUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdated.CreateFromDiscriminatorValue); } },
+                { "workload_identity_provider.updated", n => { WorkloadIdentityProviderUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderUpdated.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -505,7 +577,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_actor>("actor", Actor);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed>("actor", Actor);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated>("api_key.created", ApiKeyCreated);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted>("api_key.deleted", ApiKeyDeleted);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated>("api_key.updated", ApiKeyUpdated);
@@ -532,9 +604,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistDeleted>("ip_allowlist.deleted", IpAllowlistDeleted);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistUpdated>("ip_allowlist.updated", IpAllowlistUpdated);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginFailed>("login.failed", LoginFailed);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_loginSucceeded>("login.succeeded", LoginSucceeded);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginSucceededProperty>("login.succeeded", LoginSucceeded);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutFailed>("logout.failed", LogoutFailed);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog_logoutSucceeded>("logout.succeeded", LogoutSucceeded);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutSucceededProperty>("logout.succeeded", LogoutSucceeded);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdated>("organization.updated", OrganizationUpdated);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProject>("project", Project);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectArchived>("project.archived", ProjectArchived);
@@ -545,8 +617,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitUpdated>("rate_limit.updated", RateLimitUpdated);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentCreated>("role.assignment.created", RoleAssignmentCreated);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentDeleted>("role.assignment.deleted", RoleAssignmentDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleBoundToResource>("role.bound_to_resource", RoleBoundToResource);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated>("role.created", RoleCreated);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted>("role.deleted", RoleDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUnboundFromResource>("role.unbound_from_resource", RoleUnboundFromResource);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdated>("role.updated", RoleUpdated);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimDisabled>("scim.disabled", ScimDisabled);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimEnabled>("scim.enabled", ScimEnabled);
@@ -557,6 +631,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserAdded>("user.added", UserAdded);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserDeleted>("user.deleted", UserDeleted);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated>("user.updated", UserUpdated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderCreated>("workload_identity_provider.created", WorkloadIdentityProviderCreated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderDeleted>("workload_identity_provider.deleted", WorkloadIdentityProviderDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingCreated>("workload_identity_provider_mapping.created", WorkloadIdentityProviderMappingCreated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingDeleted>("workload_identity_provider_mapping.deleted", WorkloadIdentityProviderMappingDeleted);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdated>("workload_identity_provider_mapping.updated", WorkloadIdentityProviderMappingUpdated);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderUpdated>("workload_identity_provider.updated", WorkloadIdentityProviderUpdated);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

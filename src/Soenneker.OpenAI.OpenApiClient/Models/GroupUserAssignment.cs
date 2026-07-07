@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string GroupId { get; set; }
 #endif
         /// <summary>Always `group.user`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserAssignment_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserAssignmentObject? Object { get; set; }
         /// <summary>Identifier of the user that was added.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "group_id", n => { GroupId = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserAssignment_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserAssignmentObject>(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("group_id", GroupId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserAssignment_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserAssignmentObject>("object", Object);
             writer.WriteStringValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }

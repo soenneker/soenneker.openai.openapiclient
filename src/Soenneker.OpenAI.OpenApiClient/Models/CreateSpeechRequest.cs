@@ -31,17 +31,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>&quot;One of the available [TTS models](/docs/models#tts): `tts-1`, `tts-1-hd`, `gpt-4o-mini-tts`, or `gpt-4o-mini-tts-2025-12-15`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest.CreateSpeechRequest_model? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestModel? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest.CreateSpeechRequest_model Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestModel Model { get; set; }
 #endif
         /// <summary>The format to audio in. Supported formats are `mp3`, `opus`, `aac`, `flac`, `wav`, and `pcm`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest_response_format? ResponseFormat { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestResponseFormat? ResponseFormat { get; set; }
         /// <summary>The speed of the generated audio. Select a value from `0.25` to `4.0`. `1.0` is the default.</summary>
         public double? Speed { get; set; }
         /// <summary>The format to stream the audio in. Supported formats are `sse` and `audio`. `sse` is not supported for `tts-1` or `tts-1-hd`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest_stream_format? StreamFormat { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestStreamFormat? StreamFormat { get; set; }
         /// <summary>A built-in voice name or a custom voice reference.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,8 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// </summary>
         public CreateSpeechRequest()
         {
-            ResponseFormat = global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest_response_format.Mp3;
-            StreamFormat = global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest_stream_format.Audio;
+            Speed = 1;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -78,10 +77,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "input", n => { Input = n.GetStringValue(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest.CreateSpeechRequest_model>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest.CreateSpeechRequest_model.CreateFromDiscriminatorValue); } },
-                { "response_format", n => { ResponseFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest_response_format>(); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestModel>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestModel.CreateFromDiscriminatorValue); } },
+                { "response_format", n => { ResponseFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestResponseFormat>(); } },
                 { "speed", n => { Speed = n.GetDoubleValue(); } },
-                { "stream_format", n => { StreamFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest_stream_format>(); } },
+                { "stream_format", n => { StreamFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestStreamFormat>(); } },
                 { "voice", n => { Voice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice>(global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice.CreateFromDiscriminatorValue); } },
             };
         }
@@ -94,61 +93,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("input", Input);
             writer.WriteStringValue("instructions", Instructions);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest.CreateSpeechRequest_model>("model", Model);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest_response_format>("response_format", ResponseFormat);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestModel>("model", Model);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestResponseFormat>("response_format", ResponseFormat);
             writer.WriteDoubleValue("speed", Speed);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest_stream_format>("stream_format", StreamFormat);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestStreamFormat>("stream_format", StreamFormat);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice>("voice", Voice);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CreateSpeechRequest_model : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest.CreateSpeechRequest_model"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest.CreateSpeechRequest_model CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest.CreateSpeechRequest_model();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-            }
         }
     }
 }

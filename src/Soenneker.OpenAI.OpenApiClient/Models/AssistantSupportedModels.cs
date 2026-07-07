@@ -74,27 +74,27 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-4o")]
         #pragma warning disable CS1591
-        Gpt4o,
+        Gpt4O,
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-4o-2024-11-20")]
         #pragma warning disable CS1591
-        Gpt4o20241120,
+        Gpt4O20241120,
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-4o-2024-08-06")]
         #pragma warning disable CS1591
-        Gpt4o20240806,
+        Gpt4O20240806,
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-4o-2024-05-13")]
         #pragma warning disable CS1591
-        Gpt4o20240513,
+        Gpt4O20240513,
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-4o-mini")]
         #pragma warning disable CS1591
-        Gpt4oMini,
+        Gpt4OMini,
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-4o-mini-2024-07-18")]
         #pragma warning disable CS1591
-        Gpt4oMini20240718,
+        Gpt4OMini20240718,
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-4.5-preview")]
         #pragma warning disable CS1591
@@ -142,15 +142,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-4-32k")]
         #pragma warning disable CS1591
-        Gpt432k,
+        Gpt432K,
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-4-32k-0314")]
         #pragma warning disable CS1591
-        Gpt432k0314,
+        Gpt432K0314,
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-4-32k-0613")]
         #pragma warning disable CS1591
-        Gpt432k0613,
+        Gpt432K0613,
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-3.5-turbo")]
         #pragma warning disable CS1591
@@ -158,7 +158,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-3.5-turbo-16k")]
         #pragma warning disable CS1591
-        Gpt35Turbo16k,
+        Gpt35Turbo16K,
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-3.5-turbo-0613")]
         #pragma warning disable CS1591
@@ -174,7 +174,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-3.5-turbo-16k-0613")]
         #pragma warning disable CS1591
-        Gpt35Turbo16k0613,
+        Gpt35Turbo16K0613,
         #pragma warning restore CS1591
     }
 }

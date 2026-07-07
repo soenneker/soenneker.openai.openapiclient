@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Skills.Item.Versions.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \skills\{skill_id}\versions\{version}
+    /// Builds and executes requests for operations under \skills\{skillId}\versions\{version}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithVersionItemRequestBuilder : BaseRequestBuilder
@@ -28,7 +28,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Skills.Item.Versions.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithVersionItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/skills/{skill_id}/versions/{version}", pathParameters)
+        public WithVersionItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/skills/{skillId}/versions/{version}", pathParameters)
         {
         }
         /// <summary>
@@ -36,7 +36,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Skills.Item.Versions.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithVersionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/skills/{skill_id}/versions/{version}", rawUrl)
+        public WithVersionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/skills/{skillId}/versions/{version}", rawUrl)
         {
         }
         /// <summary>

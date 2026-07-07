@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Chat.Completions.Item.Messages
 {
     /// <summary>
-    /// Builds and executes requests for operations under \chat\completions\{completion_id}\messages
+    /// Builds and executes requests for operations under \chat\completions\{completionId}\messages
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagesRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Chat.Completions.Item.Messages
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/chat/completions/{completion_id}/messages{?after*,limit*,order*}", pathParameters)
+        public MessagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/chat/completions/{completionId}/messages{?after*,limit*,order*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Chat.Completions.Item.Messages
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/chat/completions/{completion_id}/messages{?after*,limit*,order*}", rawUrl)
+        public MessagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/chat/completions/{completionId}/messages{?after*,limit*,order*}", rawUrl)
         {
         }
         /// <summary>
@@ -100,7 +100,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Chat.Completions.Item.Messages
             public int? Limit { get; set; }
             /// <summary>Sort order for messages by timestamp. Use `asc` for ascending order or `desc` for descending order. Defaults to `asc`.</summary>
             [QueryParameter("order")]
-            public global::Soenneker.OpenAI.OpenApiClient.Chat.Completions.Item.Messages.GetOrderQueryParameterType? Order { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.GetChatCompletionMessagesOrderParameter? Order { get; set; }
         }
     }
 }

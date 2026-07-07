@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches
 {
     /// <summary>
-    /// Builds and executes requests for operations under \vector_stores\{vector_store_id}\file_batches
+    /// Builds and executes requests for operations under \vector_stores\{vectorStoreId}\file_batches
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class File_batchesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.vector_stores.item.file_batches.item collection</summary>
         /// <param name="position">The ID of the file batch being retrieved.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches.Item.WithBatch_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches.Item.WithBatch_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches.Item.WithBatchItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches.Item.WithBatchItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("batch_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches.Item.WithBatch_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("batchId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches.Item.WithBatchItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public File_batchesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/vector_stores/{vector_store_id}/file_batches", pathParameters)
+        public File_batchesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/vector_stores/{vectorStoreId}/file_batches", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Vector_stores.Item.File_batches
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public File_batchesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/vector_stores/{vector_store_id}/file_batches", rawUrl)
+        public File_batchesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/vector_stores/{vectorStoreId}/file_batches", rawUrl)
         {
         }
         /// <summary>

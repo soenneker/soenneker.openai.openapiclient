@@ -10,21 +10,21 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Projects.Item.Groups
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{project_id}\groups
+    /// Builds and executes requests for operations under \projects\{projectId}\groups
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GroupsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.projects.item.groups.item collection</summary>
         /// <param name="position">The ID of the group to inspect.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Groups.Item.WithGroupItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Groups.Item.WithGroupItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("group_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Groups.Item.WithGroup_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("groupId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Projects.Item.Groups.Item.WithGroupItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Projects.Item.Groups
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GroupsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/groups", pathParameters)
+        public GroupsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/groups", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Projects.Item.Groups
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GroupsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/groups", rawUrl)
+        public GroupsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/groups", rawUrl)
         {
         }
     }

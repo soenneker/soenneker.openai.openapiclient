@@ -14,23 +14,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>Constrains effort on reasoning for[reasoning models](https://platform.openai.com/docs/guides/reasoning).Currently supported values are `none`, `minimal`, `low`, `medium`, `high`, and `xhigh`. Reducingreasoning effort can result in faster responses and fewer tokens usedon reasoning in a response.- `gpt-5.1` defaults to `none`, which does not perform reasoning. The supported reasoning values for `gpt-5.1` are `none`, `low`, `medium`, and `high`. Tool calls are supported for all reasoning values in gpt-5.1.- All models before `gpt-5.1` default to `medium` reasoning effort, and do not support `none`.- The `gpt-5-pro` model defaults to (and only supports) `high` reasoning effort.- `xhigh` is supported for all models after `gpt-5.1-codex-max`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort_value? Value { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortWrapperValue? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort"/> and sets the default values.
         /// </summary>
         public ReasoningEffort()
         {
             AdditionalData = new Dictionary<string, object>();
-            Value = global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort_value.Medium;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,8 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort_value>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortWrapperValue>(); } },
             };
         }
         /// <summary>
@@ -61,8 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("type", Type);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort_value>("value", Value);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortWrapperValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

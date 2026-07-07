@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The max_completions_tokens property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_max_completions_tokens? MaxCompletionsTokens { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsMaxCompletionsTokens? MaxCompletionsTokens { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_max_completions_tokens MaxCompletionsTokens { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsMaxCompletionsTokens MaxCompletionsTokens { get; set; }
 #endif
         /// <summary>The reasoning_effort property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,26 +34,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The seed property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_seed? Seed { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsSeed? Seed { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_seed Seed { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsSeed Seed { get; set; }
 #endif
         /// <summary>The temperature property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_temperature? Temperature { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsTemperature? Temperature { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_temperature Temperature { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsTemperature Temperature { get; set; }
 #endif
         /// <summary>The top_p property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_top_p? TopP { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsTopP? TopP { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_top_p TopP { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsTopP TopP { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams"/> and sets the default values.
@@ -80,11 +80,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "max_completions_tokens", n => { MaxCompletionsTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_max_completions_tokens>(global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_max_completions_tokens.CreateFromDiscriminatorValue); } },
+                { "max_completions_tokens", n => { MaxCompletionsTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsMaxCompletionsTokens>(global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsMaxCompletionsTokens.CreateFromDiscriminatorValue); } },
                 { "reasoning_effort", n => { ReasoningEffort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort.CreateFromDiscriminatorValue); } },
-                { "seed", n => { Seed = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_seed>(global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_seed.CreateFromDiscriminatorValue); } },
-                { "temperature", n => { Temperature = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_temperature>(global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_temperature.CreateFromDiscriminatorValue); } },
-                { "top_p", n => { TopP = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_top_p>(global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_top_p.CreateFromDiscriminatorValue); } },
+                { "seed", n => { Seed = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsSeed>(global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsSeed.CreateFromDiscriminatorValue); } },
+                { "temperature", n => { Temperature = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsTemperature>(global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsTemperature.CreateFromDiscriminatorValue); } },
+                { "top_p", n => { TopP = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsTopP>(global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsTopP.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -94,11 +94,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_max_completions_tokens>("max_completions_tokens", MaxCompletionsTokens);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsMaxCompletionsTokens>("max_completions_tokens", MaxCompletionsTokens);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("reasoning_effort", ReasoningEffort);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_seed>("seed", Seed);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_temperature>("temperature", Temperature);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams_top_p>("top_p", TopP);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsSeed>("seed", Seed);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsTemperature>("temperature", Temperature);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParamsTopP>("top_p", TopP);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

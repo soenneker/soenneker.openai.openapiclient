@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Always `group`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Group_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupObject? Object { get; set; }
         /// <summary>Whether the group is managed through SCIM.</summary>
         public bool? ScimManaged { get; set; }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Group_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupObject>(); } },
                 { "scim_managed", n => { ScimManaged = n.GetBoolValue(); } },
             };
         }
@@ -79,7 +79,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Group_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupObject>("object", Object);
             writer.WriteBoolValue("scim_managed", ScimManaged);
             writer.WriteAdditionalData(AdditionalData);
         }

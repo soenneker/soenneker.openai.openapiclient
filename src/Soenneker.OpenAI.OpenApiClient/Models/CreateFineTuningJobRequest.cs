@@ -26,10 +26,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>A list of integrations to enable for your fine-tuning job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest_integrations>? Integrations { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestIntegrationsItem>? Integrations { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest_integrations> Integrations { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestIntegrationsItem> Integrations { get; set; }
 #endif
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,10 +50,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The name of the model to fine-tune. You can select one of the[supported models](/docs/guides/fine-tuning#which-models-can-be-fine-tuned).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest.CreateFineTuningJobRequest_model? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestModel? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest.CreateFineTuningJobRequest_model Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestModel Model { get; set; }
 #endif
         /// <summary>The seed controls the reproducibility of the job. Passing in the same seed and job parameters should produce the same results, but may differ in rare cases.If a seed is not specified, one will be generated for you.</summary>
         public int? Seed { get; set; }
@@ -107,10 +107,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "hyperparameters", n => { Hyperparameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparameters>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparameters.CreateFromDiscriminatorValue); } },
-                { "integrations", n => { Integrations = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest_integrations>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest_integrations.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "integrations", n => { Integrations = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestIntegrationsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestIntegrationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
                 { "method", n => { Method = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod.CreateFromDiscriminatorValue); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest.CreateFineTuningJobRequest_model>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest.CreateFineTuningJobRequest_model.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestModel>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestModel.CreateFromDiscriminatorValue); } },
                 { "seed", n => { Seed = n.GetIntValue(); } },
                 { "suffix", n => { Suffix = n.GetStringValue(); } },
                 { "training_file", n => { TrainingFile = n.GetStringValue(); } },
@@ -125,65 +125,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparameters>("hyperparameters", Hyperparameters);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest_integrations>("integrations", Integrations);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestIntegrationsItem>("integrations", Integrations);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod>("method", Method);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest.CreateFineTuningJobRequest_model>("model", Model);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestModel>("model", Model);
             writer.WriteIntValue("seed", Seed);
             writer.WriteStringValue("suffix", Suffix);
             writer.WriteStringValue("training_file", TrainingFile);
             writer.WriteStringValue("validation_file", ValidationFile);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CreateFineTuningJobRequest_model : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest.CreateFineTuningJobRequest_model"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest.CreateFineTuningJobRequest_model CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequest.CreateFineTuningJobRequest_model();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-            }
         }
     }
 }

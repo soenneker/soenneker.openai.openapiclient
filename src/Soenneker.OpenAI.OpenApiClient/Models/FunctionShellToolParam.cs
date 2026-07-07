@@ -18,13 +18,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParam_environment? Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironment? Environment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParam_environment Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironment Environment { get; set; }
 #endif
         /// <summary>The type of the shell tool. Always `shell`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParam_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParam"/> and sets the default values.
         /// </summary>
@@ -50,8 +50,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParam_environment>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParam_environment.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParam_type>(); } },
+                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironment>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironment.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamType>(); } },
             };
         }
         /// <summary>
@@ -61,8 +61,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParam_environment>("environment", Environment);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParam_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironment>("environment", Environment);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -26,14 +26,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads
         }
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.threads.item collection</summary>
         /// <param name="position">The ID of the thread to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Threads.Item.WithThread_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Threads.Item.WithThread_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Threads.Item.WithThreadItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Threads.Item.WithThreadItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("thread_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Threads.Item.WithThread_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("threadId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Threads.Item.WithThreadItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

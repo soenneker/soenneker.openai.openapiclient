@@ -18,13 +18,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects_data>? Data { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsAnyOf1DataItem>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects_data> Data { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsAnyOf1DataItem> Data { get; set; }
 #endif
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsAnyOf1Object? Object { get; set; }
         /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,8 +58,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects_data>(global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects_data.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects_object>(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsAnyOf1DataItem>(global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsAnyOf1DataItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsAnyOf1Object>(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -70,8 +70,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects_data>("data", Data);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects_object>("object", Object);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsAnyOf1DataItem>("data", Data);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsAnyOf1Object>("object", Object);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

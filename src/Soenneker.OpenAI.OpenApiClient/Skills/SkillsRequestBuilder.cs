@@ -20,14 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Skills
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.skills.item collection</summary>
         /// <param name="position">The identifier of the skill to delete.</param>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Skills.Item.WithSkill_ItemRequestBuilder"/></returns>
-        public global::Soenneker.OpenAI.OpenApiClient.Skills.Item.WithSkill_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Skills.Item.WithSkillItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Skills.Item.WithSkillItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("skill_id", position);
-                return new global::Soenneker.OpenAI.OpenApiClient.Skills.Item.WithSkill_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("skillId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Skills.Item.WithSkillItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -18,7 +18,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Duration of the input audio in seconds.</summary>
         public double? Seconds { get; set; }
         /// <summary>The type of the usage object. Always `duration` for this variant.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageDuration_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageDurationType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageDuration"/> and sets the default values.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "seconds", n => { Seconds = n.GetDoubleValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageDuration_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageDurationType>(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("seconds", Seconds);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageDuration_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptTextUsageDurationType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

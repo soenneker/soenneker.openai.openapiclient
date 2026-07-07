@@ -26,7 +26,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The index of the embedding in the list of embeddings.</summary>
         public int? Index { get; set; }
         /// <summary>The object type, which is always &quot;embedding&quot;.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Embedding_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EmbeddingObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Embedding"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "embedding", n => { EmbeddingProp = n.GetCollectionOfPrimitiveValues<float?>()?.AsList(); } },
                 { "index", n => { Index = n.GetIntValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Embedding_object>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EmbeddingObject>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<float?>("embedding", EmbeddingProp);
             writer.WriteIntValue("index", Index);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Embedding_object>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EmbeddingObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

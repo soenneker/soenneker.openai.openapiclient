@@ -18,14 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The number of code interpreter sessions.</summary>
         public int? NumSessions { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResult_object? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultObject? Object { get; set; }
         /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResult_project_id? ProjectId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultProjectId? ProjectId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResult_project_id ProjectId { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultProjectId ProjectId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResult"/> and sets the default values.
@@ -53,8 +53,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "num_sessions", n => { NumSessions = n.GetIntValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResult_object>(); } },
-                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResult_project_id>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResult_project_id.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultObject>(); } },
+                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultProjectId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultProjectId.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -65,8 +65,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("num_sessions", NumSessions);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResult_object>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResult_project_id>("project_id", ProjectId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultObject>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultProjectId>("project_id", ProjectId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

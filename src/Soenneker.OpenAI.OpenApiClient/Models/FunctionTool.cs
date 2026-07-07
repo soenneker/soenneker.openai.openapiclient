@@ -20,10 +20,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool_description? Description { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolDescription? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool_description Description { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolDescription Description { get; set; }
 #endif
         /// <summary>The name of the function to call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,13 +44,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The strict property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool_strict? Strict { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolStrict? Strict { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool_strict Strict { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolStrict Strict { get; set; }
 #endif
         /// <summary>The type of the function tool. Always `function`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool_type? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool"/> and sets the default values.
         /// </summary>
@@ -77,11 +77,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "defer_loading", n => { DeferLoading = n.GetBoolValue(); } },
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool_description>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool_description.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolDescription>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolDescription.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParameters>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParameters.CreateFromDiscriminatorValue); } },
-                { "strict", n => { Strict = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool_strict>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool_strict.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool_type>(); } },
+                { "strict", n => { Strict = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolStrict>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolStrict.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolType>(); } },
             };
         }
         /// <summary>
@@ -92,11 +92,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("defer_loading", DeferLoading);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool_description>("description", Description);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolDescription>("description", Description);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParameters>("parameters", Parameters);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool_strict>("strict", Strict);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolStrict>("strict", Strict);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
