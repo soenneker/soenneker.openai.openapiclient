@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProgrammaticToolCallingParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchTool"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Tool : IComposedTypeWrapper, IParsable
@@ -109,6 +109,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam NamespaceToolParam { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProgrammaticToolCallingParam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProgrammaticToolCallingParam? ProgrammaticToolCallingParam { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProgrammaticToolCallingParam ProgrammaticToolCallingParam { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -191,6 +199,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.NamespaceToolParam = new global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam();
             }
+            else if("ProgrammaticToolCallingParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ProgrammaticToolCallingParam = new global::Soenneker.OpenAI.OpenApiClient.Models.ProgrammaticToolCallingParam();
+            }
             else if("ToolSearchToolParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ToolSearchToolParam = new global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParam();
@@ -258,6 +270,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(NamespaceToolParam != null)
             {
                 return NamespaceToolParam.GetFieldDeserializers();
+            }
+            else if(ProgrammaticToolCallingParam != null)
+            {
+                return ProgrammaticToolCallingParam.GetFieldDeserializers();
             }
             else if(ToolSearchToolParam != null)
             {
@@ -327,6 +343,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(NamespaceToolParam != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam>(null, NamespaceToolParam);
+            }
+            else if(ProgrammaticToolCallingParam != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgrammaticToolCallingParam>(null, ProgrammaticToolCallingParam);
             }
             else if(ToolSearchToolParam != null)
             {

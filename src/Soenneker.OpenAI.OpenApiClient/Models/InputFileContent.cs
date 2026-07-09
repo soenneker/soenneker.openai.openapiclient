@@ -49,6 +49,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string FileUrl { get; set; }
 #endif
+        /// <summary>Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request&apos;s `prompt_cache_options.ttl`; the boundary is not rounded to a token block.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig? PromptCacheBreakpoint { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig PromptCacheBreakpoint { get; set; }
+#endif
         /// <summary>The type of the input item. Always `input_file`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentType? Type { get; set; }
         /// <summary>
@@ -81,6 +89,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "file_id", n => { FileId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentFileId>(global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentFileId.CreateFromDiscriminatorValue); } },
                 { "file_url", n => { FileUrl = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
+                { "prompt_cache_breakpoint", n => { PromptCacheBreakpoint = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>(global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentType>(); } },
             };
         }
@@ -96,6 +105,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentFileId>("file_id", FileId);
             writer.WriteStringValue("filename", Filename);
             writer.WriteStringValue("file_url", FileUrl);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>("prompt_cache_breakpoint", PromptCacheBreakpoint);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

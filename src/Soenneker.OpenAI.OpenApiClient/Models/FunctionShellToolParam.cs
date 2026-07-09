@@ -15,6 +15,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The allowed_callers property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamAllowedCallers? AllowedCallers { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamAllowedCallers AllowedCallers { get; set; }
+#endif
         /// <summary>The environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,6 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "allowed_callers", n => { AllowedCallers = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamAllowedCallers>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamAllowedCallers.CreateFromDiscriminatorValue); } },
                 { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironment>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironment.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamType>(); } },
             };
@@ -61,6 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamAllowedCallers>("allowed_callers", AllowedCallers);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironment>("environment", Environment);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

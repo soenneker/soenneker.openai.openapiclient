@@ -47,6 +47,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue ItemValue { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProgramItemParam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProgramItemParam? ProgramItemParam { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProgramItemParam ProgramItemParam { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputItemParam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputItemParam? ProgramOutputItemParam { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputItemParam ProgramOutputItemParam { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputItem"/> and sets the default values.
         /// </summary>
@@ -76,6 +92,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.ItemReferenceParam = new global::Soenneker.OpenAI.OpenApiClient.Models.ItemReferenceParam();
             }
+            else if("ProgramItemParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ProgramItemParam = new global::Soenneker.OpenAI.OpenApiClient.Models.ProgramItemParam();
+            }
+            else if("ProgramOutputItemParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ProgramOutputItemParam = new global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputItemParam();
+            }
             return result;
         }
         /// <summary>
@@ -99,6 +123,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(ItemValue != null)
             {
                 return ItemValue.GetFieldDeserializers();
+            }
+            else if(ProgramItemParam != null)
+            {
+                return ProgramItemParam.GetFieldDeserializers();
+            }
+            else if(ProgramOutputItemParam != null)
+            {
+                return ProgramOutputItemParam.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -124,6 +156,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(ItemValue != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue>(null, ItemValue);
+            }
+            else if(ProgramItemParam != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgramItemParam>(null, ProgramItemParam);
+            }
+            else if(ProgramOutputItemParam != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputItemParam>(null, ProgramOutputItemParam);
             }
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -23,6 +23,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestMessageContentPartImageImageUrl ImageUrl { get; set; }
 #endif
+        /// <summary>Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request&apos;s `prompt_cache_options.ttl`; the boundary is not rounded to a token block.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointParam? PromptCacheBreakpoint { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointParam PromptCacheBreakpoint { get; set; }
+#endif
         /// <summary>The type of the content part.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestMessageContentPartImageType? Type { get; set; }
         /// <summary>
@@ -51,6 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "image_url", n => { ImageUrl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestMessageContentPartImageImageUrl>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestMessageContentPartImageImageUrl.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_breakpoint", n => { PromptCacheBreakpoint = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointParam>(global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointParam.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestMessageContentPartImageType>(); } },
             };
         }
@@ -62,6 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestMessageContentPartImageImageUrl>("image_url", ImageUrl);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointParam>("prompt_cache_breakpoint", PromptCacheBreakpoint);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestMessageContentPartImageType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

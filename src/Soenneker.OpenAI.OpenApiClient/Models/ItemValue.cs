@@ -57,6 +57,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Arguments { get; set; }
 #endif
+        /// <summary>The caller property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallCaller? Caller { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallCaller Caller { get; set; }
+#endif
         /// <summary>An identifier used when responding to the tool call with output.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -295,6 +303,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "approve", n => { Approve = n.GetBoolValue(); } },
                 { "arguments", n => { Arguments = n.GetStringValue(); } },
                 { "call_id", n => { CallId = n.GetStringValue(); } },
+                { "caller", n => { Caller = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallCaller.CreateFromDiscriminatorValue); } },
                 { "code", n => { Code = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallCode>(global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallCode.CreateFromDiscriminatorValue); } },
                 { "container_id", n => { ContainerId = n.GetStringValue(); } },
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InputContent>(global::Soenneker.OpenAI.OpenApiClient.Models.InputContent.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -337,6 +346,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("approval_request_id", ApprovalRequestId);
             writer.WriteBoolValue("approve", Approve);
             writer.WriteStringValue("arguments", Arguments);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallCaller>("caller", Caller);
             writer.WriteStringValue("call_id", CallId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallCode>("code", Code);
             writer.WriteStringValue("container_id", ContainerId);

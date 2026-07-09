@@ -54,6 +54,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheKey PromptCacheKey { get; set; }
 #endif
+        /// <summary>The prompt_cache_options property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheOptions? PromptCacheOptions { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheOptions PromptCacheOptions { get; set; }
+#endif
         /// <summary>The prompt_cache_retention property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,6 +108,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsCompaction>(global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsCompaction.CreateFromDiscriminatorValue); } },
                 { "previous_response_id", n => { PreviousResponseId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPreviousResponseId>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPreviousResponseId.CreateFromDiscriminatorValue); } },
                 { "prompt_cache_key", n => { PromptCacheKey = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheKey>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheKey.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_options", n => { PromptCacheOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheOptions.CreateFromDiscriminatorValue); } },
                 { "prompt_cache_retention", n => { PromptCacheRetention = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheRetention>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheRetention.CreateFromDiscriminatorValue); } },
                 { "service_tier", n => { ServiceTier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyServiceTier>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyServiceTier.CreateFromDiscriminatorValue); } },
             };
@@ -116,6 +125,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsCompaction>("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPreviousResponseId>("previous_response_id", PreviousResponseId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheKey>("prompt_cache_key", PromptCacheKey);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheOptions>("prompt_cache_options", PromptCacheOptions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheRetention>("prompt_cache_retention", PromptCacheRetention);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyServiceTier>("service_tier", ServiceTier);
             writer.WriteAdditionalData(AdditionalData);

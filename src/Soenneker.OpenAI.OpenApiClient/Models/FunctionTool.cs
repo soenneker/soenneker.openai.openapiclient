@@ -15,6 +15,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The allowed_callers property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolAllowedCallers? AllowedCallers { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolAllowedCallers AllowedCallers { get; set; }
+#endif
         /// <summary>Whether this function is deferred and loaded via tool search.</summary>
         public bool? DeferLoading { get; set; }
         /// <summary>The description property</summary>
@@ -32,6 +40,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public string Name { get; set; }
+#endif
+        /// <summary>The output_schema property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolOutputSchema? OutputSchema { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolOutputSchema OutputSchema { get; set; }
 #endif
         /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -76,9 +92,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "allowed_callers", n => { AllowedCallers = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolAllowedCallers>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolAllowedCallers.CreateFromDiscriminatorValue); } },
                 { "defer_loading", n => { DeferLoading = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolDescription>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolDescription.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "output_schema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolOutputSchema>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolOutputSchema.CreateFromDiscriminatorValue); } },
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParameters>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParameters.CreateFromDiscriminatorValue); } },
                 { "strict", n => { Strict = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolStrict>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolStrict.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolType>(); } },
@@ -91,9 +109,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolAllowedCallers>("allowed_callers", AllowedCallers);
             writer.WriteBoolValue("defer_loading", DeferLoading);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolDescription>("description", Description);
             writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolOutputSchema>("output_schema", OutputSchema);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParameters>("parameters", Parameters);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolStrict>("strict", Strict);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolType>("type", Type);

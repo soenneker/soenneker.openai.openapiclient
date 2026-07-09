@@ -19,6 +19,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? AudioTokens { get; set; }
         /// <summary>Cached tokens present in the prompt.</summary>
         public int? CachedTokens { get; set; }
+        /// <summary>The unadjusted number of prompt tokens written to cache.</summary>
+        public int? CacheWriteTokens { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails"/> and sets the default values.
         /// </summary>
@@ -27,6 +29,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             AudioTokens = 0;
             CachedTokens = 0;
+            CacheWriteTokens = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,6 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "audio_tokens", n => { AudioTokens = n.GetIntValue(); } },
+                { "cache_write_tokens", n => { CacheWriteTokens = n.GetIntValue(); } },
                 { "cached_tokens", n => { CachedTokens = n.GetIntValue(); } },
             };
         }
@@ -59,6 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("audio_tokens", AudioTokens);
             writer.WriteIntValue("cached_tokens", CachedTokens);
+            writer.WriteIntValue("cache_write_tokens", CacheWriteTokens);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

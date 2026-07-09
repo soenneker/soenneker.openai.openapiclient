@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SpecificApplyPatchParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SpecificFunctionShellParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceAllowed"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceCustom"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceFunction"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMcp"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptionsWrapper"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceTypes"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SpecificApplyPatchParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SpecificFunctionShellParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SpecificProgrammaticToolCallingParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceAllowed"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceCustom"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceFunction"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMcp"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptionsWrapper"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceTypes"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ToolChoiceParam : IComposedTypeWrapper, IParsable
@@ -28,6 +28,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.SpecificFunctionShellParam SpecificFunctionShellParam { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SpecificProgrammaticToolCallingParam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SpecificProgrammaticToolCallingParam? SpecificProgrammaticToolCallingParam { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SpecificProgrammaticToolCallingParam SpecificProgrammaticToolCallingParam { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceAllowed"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,6 +103,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.SpecificFunctionShellParam = new global::Soenneker.OpenAI.OpenApiClient.Models.SpecificFunctionShellParam();
             }
+            else if("SpecificProgrammaticToolCallingParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SpecificProgrammaticToolCallingParam = new global::Soenneker.OpenAI.OpenApiClient.Models.SpecificProgrammaticToolCallingParam();
+            }
             else if("ToolChoiceAllowed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ToolChoiceAllowed = new global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceAllowed();
@@ -134,6 +146,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(SpecificFunctionShellParam != null)
             {
                 return SpecificFunctionShellParam.GetFieldDeserializers();
+            }
+            else if(SpecificProgrammaticToolCallingParam != null)
+            {
+                return SpecificProgrammaticToolCallingParam.GetFieldDeserializers();
             }
             else if(ToolChoiceAllowed != null)
             {
@@ -175,6 +191,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(SpecificFunctionShellParam != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpecificFunctionShellParam>(null, SpecificFunctionShellParam);
+            }
+            else if(SpecificProgrammaticToolCallingParam != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpecificProgrammaticToolCallingParam>(null, SpecificProgrammaticToolCallingParam);
             }
             else if(ToolChoiceAllowed != null)
             {

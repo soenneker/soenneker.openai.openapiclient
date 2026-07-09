@@ -8,6 +8,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public enum FileInputDetail
     #pragma warning restore CS1591
     {
+        [EnumMember(Value = "auto")]
+        #pragma warning disable CS1591
+        Auto,
+        #pragma warning restore CS1591
         [EnumMember(Value = "low")]
         #pragma warning disable CS1591
         Low,

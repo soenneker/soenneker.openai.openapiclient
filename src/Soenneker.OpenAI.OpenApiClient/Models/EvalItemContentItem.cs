@@ -79,6 +79,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent InputTextContent { get; set; }
 #endif
+        /// <summary>Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request&apos;s `prompt_cache_options.ttl`; the boundary is not rounded to a token block.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig? PromptCacheBreakpoint { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig PromptCacheBreakpoint { get; set; }
+#endif
         /// <summary>The text input to the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -192,6 +200,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 return InputTextContent.GetFieldDeserializers();
             }
+            else if(PromptCacheBreakpoint != null)
+            {
+                return PromptCacheBreakpoint.GetFieldDeserializers();
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -224,6 +236,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(InputTextContent != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent>(null, InputTextContent);
+            }
+            else if(PromptCacheBreakpoint != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>(null, PromptCacheBreakpoint);
             }
             else if(Detail != null)
             {

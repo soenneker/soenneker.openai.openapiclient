@@ -8,6 +8,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public enum ModelIdsSharedWrapperValue
     #pragma warning restore CS1591
     {
+        [EnumMember(Value = "gpt-5.6-sol")]
+        #pragma warning disable CS1591
+        Gpt56Sol,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-5.6-terra")]
+        #pragma warning disable CS1591
+        Gpt56Terra,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-5.6-luna")]
+        #pragma warning disable CS1591
+        Gpt56Luna,
+        #pragma warning restore CS1591
         [EnumMember(Value = "gpt-5.4")]
         #pragma warning disable CS1591
         Gpt54,

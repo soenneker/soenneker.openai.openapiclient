@@ -5,8 +5,11 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenAI.OpenApiClient.Models;
 using Soenneker.OpenAI.OpenApiClient.Responses.Compact;
+using Soenneker.OpenAI.OpenApiClient.Responses.CompactBetaTrue;
 using Soenneker.OpenAI.OpenApiClient.Responses.Input_tokens;
+using Soenneker.OpenAI.OpenApiClient.Responses.Input_tokensBetaTrue;
 using Soenneker.OpenAI.OpenApiClient.Responses.Item;
+using Soenneker.OpenAI.OpenApiClient.Responses.WithResponseIdBetaTrue;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -25,10 +28,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Responses.Compact.CompactRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The compactBetaTrue property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Responses.CompactBetaTrue.CompactBetaTrueRequestBuilder CompactBetaTrue
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Responses.CompactBetaTrue.CompactBetaTrueRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The input_tokens property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Responses.Input_tokens.Input_tokensRequestBuilder Input_tokens
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Responses.Input_tokens.Input_tokensRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The input_tokensBetaTrue property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Responses.Input_tokensBetaTrue.Input_tokensBetaTrueRequestBuilder Input_tokensBetaTrue
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Responses.Input_tokensBetaTrue.Input_tokensBetaTrueRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.responses.item collection</summary>
         /// <param name="position">The ID of the response to retrieve.</param>
@@ -99,6 +112,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \responses\{responseId}?beta=true
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Responses.WithResponseIdBetaTrue.WithResponseIdBetaTrueRequestBuilder"/></returns>
+        /// <param name="responseId">The ID of the response to retrieve.</param>
+        public global::Soenneker.OpenAI.OpenApiClient.Responses.WithResponseIdBetaTrue.WithResponseIdBetaTrueRequestBuilder WithResponseIdBetaTrue(string responseId)
+        {
+            if(string.IsNullOrEmpty(responseId)) throw new ArgumentNullException(nameof(responseId));
+            return new global::Soenneker.OpenAI.OpenApiClient.Responses.WithResponseIdBetaTrue.WithResponseIdBetaTrueRequestBuilder(PathParameters, RequestAdapter, responseId);
         }
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

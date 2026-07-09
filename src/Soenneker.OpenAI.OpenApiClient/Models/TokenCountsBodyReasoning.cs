@@ -38,6 +38,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary GenerateSummary { get; set; }
 #endif
+        /// <summary>The mode property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum? Mode { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum Mode { get; set; }
+#endif
         /// <summary>The summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,6 +90,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "context", n => { Context = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContext>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContext.CreateFromDiscriminatorValue); } },
                 { "effort", n => { Effort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort.CreateFromDiscriminatorValue); } },
                 { "generate_summary", n => { GenerateSummary = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary.CreateFromDiscriminatorValue); } },
+                { "mode", n => { Mode = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum.CreateFromDiscriminatorValue); } },
                 { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummary>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummary.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -96,6 +105,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContext>("context", Context);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("effort", Effort);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary>("generate_summary", GenerateSummary);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum>("mode", Mode);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummary>("summary", Summary);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);

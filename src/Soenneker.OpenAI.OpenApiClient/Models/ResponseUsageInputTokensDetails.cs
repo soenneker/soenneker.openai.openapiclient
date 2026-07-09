@@ -17,6 +17,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of tokens that were retrieved from the cache. [More on prompt caching](/docs/guides/prompt-caching).</summary>
         public int? CachedTokens { get; set; }
+        /// <summary>The number of input tokens that were written to the cache.</summary>
+        public int? CacheWriteTokens { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageInputTokensDetails"/> and sets the default values.
         /// </summary>
@@ -42,6 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "cache_write_tokens", n => { CacheWriteTokens = n.GetIntValue(); } },
                 { "cached_tokens", n => { CachedTokens = n.GetIntValue(); } },
             };
         }
@@ -53,6 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("cached_tokens", CachedTokens);
+            writer.WriteIntValue("cache_write_tokens", CacheWriteTokens);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

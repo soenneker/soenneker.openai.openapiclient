@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>Constrains effort on reasoning for[reasoning models](https://platform.openai.com/docs/guides/reasoning).Currently supported values are `none`, `minimal`, `low`, `medium`, `high`, and `xhigh`. Reducingreasoning effort can result in faster responses and fewer tokens usedon reasoning in a response.- `gpt-5.1` defaults to `none`, which does not perform reasoning. The supported reasoning values for `gpt-5.1` are `none`, `low`, `medium`, and `high`. Tool calls are supported for all reasoning values in gpt-5.1.- All models before `gpt-5.1` default to `medium` reasoning effort, and do not support `none`.- The `gpt-5-pro` model defaults to (and only supports) `high` reasoning effort.- `xhigh` is supported for all models after `gpt-5.1-codex-max`.</summary>
+    /// <summary>Constrains effort on reasoning for reasoning models. Currently supportedvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.Reducing reasoning effort can result in faster responses and fewer tokensused on reasoning in a response. Not all reasoning models support everyvalue. See the[reasoning guide](https://platform.openai.com/docs/guides/reasoning)for model-specific support.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ReasoningEffortWrapperValue
     {
@@ -30,6 +30,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "xhigh")]
         #pragma warning disable CS1591
         Xhigh,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "max")]
+        #pragma warning disable CS1591
+        Max,
         #pragma warning restore CS1591
     }
 }

@@ -24,6 +24,7 @@ using Soenneker.OpenAI.OpenApiClient.Organization;
 using Soenneker.OpenAI.OpenApiClient.Projects;
 using Soenneker.OpenAI.OpenApiClient.Realtime;
 using Soenneker.OpenAI.OpenApiClient.Responses;
+using Soenneker.OpenAI.OpenApiClient.ResponsesBetaTrue;
 using Soenneker.OpenAI.OpenApiClient.Skills;
 using Soenneker.OpenAI.OpenApiClient.Threads;
 using Soenneker.OpenAI.OpenApiClient.Uploads;
@@ -130,6 +131,11 @@ namespace Soenneker.OpenAI.OpenApiClient
         public global::Soenneker.OpenAI.OpenApiClient.Responses.ResponsesRequestBuilder Responses
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Responses.ResponsesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The responsesBetaTrue property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.ResponsesBetaTrue.ResponsesBetaTrueRequestBuilder ResponsesBetaTrue
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.ResponsesBetaTrue.ResponsesBetaTrueRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The skills property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Skills.SkillsRequestBuilder Skills

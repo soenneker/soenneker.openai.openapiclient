@@ -33,6 +33,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentImageUrl ImageUrl { get; set; }
 #endif
+        /// <summary>Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request&apos;s `prompt_cache_options.ttl`; the boundary is not rounded to a token block.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig? PromptCacheBreakpoint { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig PromptCacheBreakpoint { get; set; }
+#endif
         /// <summary>The type of the input item. Always `input_image`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentType? Type { get; set; }
         /// <summary>
@@ -63,6 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "detail", n => { Detail = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageDetail>(); } },
                 { "file_id", n => { FileId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentFileId>(global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentFileId.CreateFromDiscriminatorValue); } },
                 { "image_url", n => { ImageUrl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentImageUrl>(global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentImageUrl.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_breakpoint", n => { PromptCacheBreakpoint = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>(global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentType>(); } },
             };
         }
@@ -76,6 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageDetail>("detail", Detail);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentFileId>("file_id", FileId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentImageUrl>("image_url", ImageUrl);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>("prompt_cache_breakpoint", PromptCacheBreakpoint);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

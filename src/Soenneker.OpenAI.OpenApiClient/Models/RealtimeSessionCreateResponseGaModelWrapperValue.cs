@@ -20,6 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         GptRealtime2,
         #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-realtime-2.1")]
+        #pragma warning disable CS1591
+        GptRealtime21,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-realtime-2.1-mini")]
+        #pragma warning disable CS1591
+        GptRealtime21Mini,
+        #pragma warning restore CS1591
         [EnumMember(Value = "gpt-realtime-2025-08-28")]
         #pragma warning disable CS1591
         GptRealtime20250828,

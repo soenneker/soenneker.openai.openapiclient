@@ -5,7 +5,9 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenAI.OpenApiClient.Models;
 using Soenneker.OpenAI.OpenApiClient.Responses.Item.Cancel;
+using Soenneker.OpenAI.OpenApiClient.Responses.Item.CancelBetaTrue;
 using Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_items;
+using Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_itemsBetaTrue;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -24,10 +26,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses.Item
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Responses.Item.Cancel.CancelRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The cancelBetaTrue property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Responses.Item.CancelBetaTrue.CancelBetaTrueRequestBuilder CancelBetaTrue
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Responses.Item.CancelBetaTrue.CancelBetaTrueRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The input_items property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_items.Input_itemsRequestBuilder Input_items
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_items.Input_itemsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The input_itemsBetaTrue property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_itemsBetaTrue.Input_itemsBetaTrueRequestBuilder Input_itemsBetaTrue
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_itemsBetaTrue.Input_itemsBetaTrueRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Responses.Item.WithResponseItemRequestBuilder"/> and sets the default values.
