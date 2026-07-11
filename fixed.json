@@ -62763,7 +62763,6 @@
             ],
             "type": "string",
             "description": "Type of turn detection, \u0060server_vad\u0060 to turn on simple Server VAD.\n",
-            "default": "server_vad",
             "x-ms-enum": {
               "name": "Type",
               "modelAsString": false,
