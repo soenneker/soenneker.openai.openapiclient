@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Text, image, or file output of the function call.
+    /// Text, image, or file output of the custom tool call.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FunctionAndCustomToolCallOutput : IAdditionalDataHolder, IParsable
