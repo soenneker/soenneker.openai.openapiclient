@@ -51,6 +51,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwner Owner { get; set; }
 #endif
+        /// <summary>Whether the API key&apos;s owner currently has effective access to the project.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerProjectAccess? OwnerProjectAccess { get; set; }
         /// <summary>The redacted value of the API key</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,6 +92,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyObject>(); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwner>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwner.CreateFromDiscriminatorValue); } },
+                { "owner_project_access", n => { OwnerProjectAccess = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerProjectAccess>(); } },
                 { "redacted_value", n => { RedactedValue = n.GetStringValue(); } },
             };
         }
@@ -106,6 +109,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyObject>("object", Object);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwner>("owner", Owner);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerProjectAccess>("owner_project_access", OwnerProjectAccess);
             writer.WriteStringValue("redacted_value", RedactedValue);
             writer.WriteAdditionalData(AdditionalData);
         }

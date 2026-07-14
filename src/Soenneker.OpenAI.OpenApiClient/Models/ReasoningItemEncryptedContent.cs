@@ -14,7 +14,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The encrypted content of the reasoning item - populated when a response isgenerated with `reasoning.encrypted_content` in the `include` parameter.</summary>
+        /// <summary>The encrypted content of the reasoning item. This is populated by defaultfor reasoning items returned by `POST /v1/responses` and WebSocket`response.create` requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Value { get; set; }

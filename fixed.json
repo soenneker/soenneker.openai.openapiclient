@@ -4568,6 +4568,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "owner_project_access",
+            "in": "query",
+            "description": "Filter API keys by whether the owner currently has effective access to the project. Use \u0060active\u0060 for owners with access, \u0060inactive\u0060 for owners without access, or \u0060any\u0060 for all enabled project API keys. If omitted, the endpoint applies its existing membership-based visibility rules, which may exclude some enabled keys.\n",
+            "schema": {
+              "$ref": "#/components/schemas/ListProjectApiKeysOwnerProjectAccessParameter"
+            }
           }
         ],
         "responses": {
@@ -24512,6 +24520,7 @@
           "created_at",
           "last_used_at",
           "id",
+          "owner_project_access",
           "owner"
         ],
         "type": "object",
@@ -24539,6 +24548,9 @@
             "type": "string",
             "description": "The identifier, which can be referenced in API endpoints"
           },
+          "owner_project_access": {
+            "$ref": "#/components/schemas/ProjectApiKeyOwnerProjectAccess"
+          },
           "owner": {
             "$ref": "#/components/schemas/ProjectApiKeyOwner"
           }
@@ -24546,7 +24558,7 @@
         "description": "Represents an individual API key in a project.",
         "x-oaiMeta": {
           "name": "The project API key object",
-          "example": "{\n    \u0022object\u0022: \u0022organization.project.api_key\u0022,\n    \u0022redacted_value\u0022: \u0022sk-abc...def\u0022,\n    \u0022name\u0022: \u0022My API Key\u0022,\n    \u0022created_at\u0022: 1711471533,\n    \u0022last_used_at\u0022: 1711471534,\n    \u0022id\u0022: \u0022key_abc\u0022,\n    \u0022owner\u0022: {\n        \u0022type\u0022: \u0022user\u0022,\n        \u0022user\u0022: {\n            \u0022id\u0022: \u0022user_abc\u0022,\n            \u0022name\u0022: \u0022First Last\u0022,\n            \u0022email\u0022: \u0022user@example.com\u0022,\n            \u0022role\u0022: \u0022owner\u0022,\n            \u0022created_at\u0022: 1711471533\n        }\n    }\n}\n"
+          "example": "{\n    \u0022object\u0022: \u0022organization.project.api_key\u0022,\n    \u0022redacted_value\u0022: \u0022sk-abc...def\u0022,\n    \u0022name\u0022: \u0022My API Key\u0022,\n    \u0022created_at\u0022: 1711471533,\n    \u0022last_used_at\u0022: 1711471534,\n    \u0022id\u0022: \u0022key_abc\u0022,\n    \u0022owner_project_access\u0022: \u0022active\u0022,\n    \u0022owner\u0022: {\n        \u0022type\u0022: \u0022user\u0022,\n        \u0022user\u0022: {\n            \u0022id\u0022: \u0022user_abc\u0022,\n            \u0022name\u0022: \u0022First Last\u0022,\n            \u0022email\u0022: \u0022user@example.com\u0022,\n            \u0022role\u0022: \u0022owner\u0022,\n            \u0022created_at\u0022: 1711471533\n        }\n    }\n}\n"
         }
       },
       "ProjectApiKeyDeleteResponse": {
@@ -38343,42 +38355,6 @@
           "name": "response.incomplete",
           "group": "webhook-events",
           "example": "{\n  \u0022id\u0022: \u0022evt_abc123\u0022,\n  \u0022type\u0022: \u0022response.incomplete\u0022,\n  \u0022created_at\u0022: 1719168000,\n  \u0022data\u0022: {\n    \u0022id\u0022: \u0022resp_abc123\u0022\n  }\n}\n"
-        }
-      },
-      "WebhookSafetyIdentifierBlocked": {
-        "title": "safety_identifier.blocked",
-        "required": [
-          "created_at",
-          "id",
-          "data",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "created_at": {
-            "type": "integer",
-            "description": "The Unix timestamp (in seconds) of when the request was blocked.\n",
-            "format": "unixtime"
-          },
-          "id": {
-            "type": "string",
-            "description": "The unique ID of the event.\n"
-          },
-          "data": {
-            "$ref": "#/components/schemas/WebhookSafetyIdentifierBlockedData"
-          },
-          "object": {
-            "$ref": "#/components/schemas/WebhookSafetyIdentifierBlockedObject"
-          },
-          "type": {
-            "$ref": "#/components/schemas/WebhookSafetyIdentifierBlockedType"
-          }
-        },
-        "description": "Sent when a request associated with a safety identifier has been blocked.\n",
-        "x-oaiMeta": {
-          "name": "safety_identifier.blocked",
-          "group": "webhook-events",
-          "example": "{\n  \u0022id\u0022: \u0022evt_abc123\u0022,\n  \u0022type\u0022: \u0022safety_identifier.blocked\u0022,\n  \u0022created_at\u0022: 1719168000,\n  \u0022data\u0022: {\n    \u0022safety_identifier\u0022: \u0022safety-identifier-1234\u0022,\n    \u0022safety_category\u0022: \u0022cyber\u0022,\n    \u0022request_id\u0022: \u0022req_abc123\u0022,\n    \u0022project_id\u0022: \u0022proj_abc123\u0022,\n    \u0022model\u0022: \u0022gpt-4.1\u0022\n  }\n}\n"
         }
       },
       "ModerationInputType": {
@@ -79814,37 +79790,6 @@
         },
         "description": "Event data payload.\n"
       },
-      "WebhookSafetyIdentifierBlockedData": {
-        "required": [
-          "safety_identifier",
-          "safety_category"
-        ],
-        "type": "object",
-        "properties": {
-          "safety_identifier": {
-            "maxLength": 64,
-            "type": "string",
-            "description": "The stable safety identifier associated with the blocked request.\n"
-          },
-          "safety_category": {
-            "type": "string",
-            "description": "The safety category that triggered the block, such as \u0060bio\u0060 or \u0060cyber\u0060.\n"
-          },
-          "request_id": {
-            "type": "string",
-            "description": "The OpenAI request ID for the blocked request, if available.\n"
-          },
-          "project_id": {
-            "type": "string",
-            "description": "The project associated with the blocked request, if available.\n"
-          },
-          "model": {
-            "type": "string",
-            "description": "The model used for the blocked request, if available.\n"
-          }
-        },
-        "description": "Event data payload.\n"
-      },
       "ModerationResultBodyCategories": {
         "type": "object",
         "additionalProperties": {
@@ -86698,7 +86643,7 @@
         "properties": {
           "value": {
             "type": "string",
-            "description": "The encrypted content of the reasoning item - populated when a response is\ngenerated with \u0060reasoning.encrypted_content\u0060 in the \u0060include\u0060 parameter.\n"
+            "description": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by \u0060POST /v1/responses\u0060 and WebSocket\n\u0060response.create\u0060 requests.\n"
           }
         }
       },
@@ -89698,7 +89643,7 @@
         "properties": {
           "value": {
             "type": "string",
-            "description": "The encrypted content of the reasoning item - populated when a response is\ngenerated with \u0060reasoning.encrypted_content\u0060 in the \u0060include\u0060 parameter.\n"
+            "description": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by \u0060POST /v1/responses\u0060 and WebSocket\n\u0060response.create\u0060 requests.\n"
           }
         }
       },
@@ -97509,6 +97454,29 @@
             {
               "value": "organization.project.api_key",
               "name": "OrganizationProjectApiKey"
+            }
+          ]
+        }
+      },
+      "ProjectApiKeyOwnerProjectAccess": {
+        "enum": [
+          "active",
+          "inactive"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Whether the API key\u0027s owner currently has effective access to the project.",
+        "x-ms-enum": {
+          "name": "ProjectApiKeyOwnerProjectAccess",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "inactive",
+              "name": "Inactive"
             }
           ]
         }
@@ -105400,44 +105368,6 @@
             {
               "value": "response.incomplete",
               "name": "ResponseIncomplete"
-            }
-          ]
-        }
-      },
-      "WebhookSafetyIdentifierBlockedObject": {
-        "enum": [
-          "event"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The object of the event. Always \u0060event\u0060.\n",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "WebhookSafetyIdentifierBlockedObject",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "event",
-              "name": "EventValue"
-            }
-          ]
-        }
-      },
-      "WebhookSafetyIdentifierBlockedType": {
-        "enum": [
-          "safety_identifier.blocked"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The type of the event. Always \u0060safety_identifier.blocked\u0060.\n",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "WebhookSafetyIdentifierBlockedType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "safety_identifier.blocked",
-              "name": "SafetyIdentifierBlocked"
             }
           ]
         }
@@ -120364,6 +120294,33 @@
             {
               "value": "desc",
               "name": "Desc"
+            }
+          ]
+        }
+      },
+      "ListProjectApiKeysOwnerProjectAccessParameter": {
+        "enum": [
+          "active",
+          "inactive",
+          "any"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ListProjectApiKeysOwnerProjectAccessParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "inactive",
+              "name": "Inactive"
+            },
+            {
+              "value": "any",
+              "name": "Any"
             }
           ]
         }
