@@ -5,7 +5,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum CreateImageRequestModelAnyOf2
+    public enum CreateImageEditRequestModelWrapperValue
     #pragma warning restore CS1591
     {
         [EnumMember(Value = "gpt-image-1.5")]
@@ -16,10 +16,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         DallE2,
         #pragma warning restore CS1591
-        [EnumMember(Value = "dall-e-3")]
-        #pragma warning disable CS1591
-        DallE3,
-        #pragma warning restore CS1591
         [EnumMember(Value = "gpt-image-1")]
         #pragma warning disable CS1591
         GptImage1,
@@ -27,6 +23,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "gpt-image-1-mini")]
         #pragma warning disable CS1591
         GptImage1Mini,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "chatgpt-image-latest")]
+        #pragma warning disable CS1591
+        ChatgptImageLatest,
         #pragma warning restore CS1591
     }
 }

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>`owner` or `member`</summary>
+    /// <summary>`owner`, `member`, or `none`</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ProjectServiceAccountRole
     {
@@ -14,6 +14,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "member")]
         #pragma warning disable CS1591
         Member,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "none")]
+        #pragma warning disable CS1591
+        None,
         #pragma warning restore CS1591
     }
 }

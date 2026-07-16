@@ -243,5 +243,341 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         UserDeleted,
         #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.metadata.updated")]
+        #pragma warning disable CS1591
+        TenantMetadataUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.microsoft_entra_mapping.upserted")]
+        #pragma warning disable CS1591
+        TenantMicrosoftEntraMappingUpserted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.microsoft_entra_mapping.deleted")]
+        #pragma warning disable CS1591
+        TenantMicrosoftEntraMappingDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.workload_identity.provider.created")]
+        #pragma warning disable CS1591
+        TenantWorkloadIdentityProviderCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.workload_identity.provider.updated")]
+        #pragma warning disable CS1591
+        TenantWorkloadIdentityProviderUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.workload_identity.provider.archived")]
+        #pragma warning disable CS1591
+        TenantWorkloadIdentityProviderArchived,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.workload_identity.mapping.created")]
+        #pragma warning disable CS1591
+        TenantWorkloadIdentityMappingCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.workload_identity.mapping.updated")]
+        #pragma warning disable CS1591
+        TenantWorkloadIdentityMappingUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.workload_identity.mapping.archived")]
+        #pragma warning disable CS1591
+        TenantWorkloadIdentityMappingArchived,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.workload_identity.binding.created")]
+        #pragma warning disable CS1591
+        TenantWorkloadIdentityBindingCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.workload_identity.principal.provisioned")]
+        #pragma warning disable CS1591
+        TenantWorkloadIdentityPrincipalProvisioned,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.admin_api_key.created")]
+        #pragma warning disable CS1591
+        TenantAdminApiKeyCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.admin_api_key.updated")]
+        #pragma warning disable CS1591
+        TenantAdminApiKeyUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.admin_api_key.deleted")]
+        #pragma warning disable CS1591
+        TenantAdminApiKeyDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.project_api_key.created")]
+        #pragma warning disable CS1591
+        TenantProjectApiKeyCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.chatgpt_access_token.revoked")]
+        #pragma warning disable CS1591
+        TenantChatgptAccessTokenRevoked,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.migration.completed")]
+        #pragma warning disable CS1591
+        TenantMigrationCompleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.sso.migrated")]
+        #pragma warning disable CS1591
+        TenantSsoMigrated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.domains.migrated")]
+        #pragma warning disable CS1591
+        TenantDomainsMigrated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.sso_connection.created")]
+        #pragma warning disable CS1591
+        TenantSsoConnectionCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.sso_connection.updated")]
+        #pragma warning disable CS1591
+        TenantSsoConnectionUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.sso_connection.deleted")]
+        #pragma warning disable CS1591
+        TenantSsoConnectionDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.sso_connection.setup.started")]
+        #pragma warning disable CS1591
+        TenantSsoConnectionSetupStarted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.policy.created")]
+        #pragma warning disable CS1591
+        TenantPolicyCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.policy.updated")]
+        #pragma warning disable CS1591
+        TenantPolicyUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.policy.deleted")]
+        #pragma warning disable CS1591
+        TenantPolicyDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.policy.attached")]
+        #pragma warning disable CS1591
+        TenantPolicyAttached,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.policy.detached")]
+        #pragma warning disable CS1591
+        TenantPolicyDetached,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.principal_authentication_policy.resolved")]
+        #pragma warning disable CS1591
+        TenantPrincipalAuthenticationPolicyResolved,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.scim.setup.started")]
+        #pragma warning disable CS1591
+        TenantScimSetupStarted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.scim.deletion.requested")]
+        #pragma warning disable CS1591
+        TenantScimDeletionRequested,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.scim.directory.created")]
+        #pragma warning disable CS1591
+        TenantScimDirectoryCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.product_access_policy.updated")]
+        #pragma warning disable CS1591
+        TenantProductAccessPolicyUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.resource_share_grant.created")]
+        #pragma warning disable CS1591
+        TenantResourceShareGrantCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.resource_share_grant.updated")]
+        #pragma warning disable CS1591
+        TenantResourceShareGrantUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.resource_share_grant.accepted")]
+        #pragma warning disable CS1591
+        TenantResourceShareGrantAccepted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.resource_share_grant.declined")]
+        #pragma warning disable CS1591
+        TenantResourceShareGrantDeclined,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.resource_share_grant.revoked")]
+        #pragma warning disable CS1591
+        TenantResourceShareGrantRevoked,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.resource_share_grant.deleted")]
+        #pragma warning disable CS1591
+        TenantResourceShareGrantDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.service_account.updated")]
+        #pragma warning disable CS1591
+        TenantServiceAccountUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.service_account.deleted")]
+        #pragma warning disable CS1591
+        TenantServiceAccountDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.service_account.token.revoked")]
+        #pragma warning disable CS1591
+        TenantServiceAccountTokenRevoked,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.billing.overage_limit.updated")]
+        #pragma warning disable CS1591
+        TenantBillingOverageLimitUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.billing.alerts.updated")]
+        #pragma warning disable CS1591
+        TenantBillingAlertsUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.billing.info.updated")]
+        #pragma warning disable CS1591
+        TenantBillingInfoUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.usage_limit.workspace.updated")]
+        #pragma warning disable CS1591
+        TenantUsageLimitWorkspaceUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.usage_limit.group.updated")]
+        #pragma warning disable CS1591
+        TenantUsageLimitGroupUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.usage_limit.user.updated")]
+        #pragma warning disable CS1591
+        TenantUsageLimitUserUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.usage_limit.increase_request.updated")]
+        #pragma warning disable CS1591
+        TenantUsageLimitIncreaseRequestUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.usage_limit.increase_request.resolved")]
+        #pragma warning disable CS1591
+        TenantUsageLimitIncreaseRequestResolved,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.group.created")]
+        #pragma warning disable CS1591
+        TenantGroupCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.group.updated")]
+        #pragma warning disable CS1591
+        TenantGroupUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.group.deleted")]
+        #pragma warning disable CS1591
+        TenantGroupDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.group.member.added")]
+        #pragma warning disable CS1591
+        TenantGroupMemberAdded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.group.member.removed")]
+        #pragma warning disable CS1591
+        TenantGroupMemberRemoved,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.migration_rollout.status.updated")]
+        #pragma warning disable CS1591
+        TenantMigrationRolloutStatusUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.migration_rollout.tier.updated")]
+        #pragma warning disable CS1591
+        TenantMigrationRolloutTierUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.role.metadata.updated")]
+        #pragma warning disable CS1591
+        TenantRoleMetadataUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.custom_role.created")]
+        #pragma warning disable CS1591
+        TenantCustomRoleCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.custom_role.updated")]
+        #pragma warning disable CS1591
+        TenantCustomRoleUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.custom_role.deleted")]
+        #pragma warning disable CS1591
+        TenantCustomRoleDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.role_assignment.created")]
+        #pragma warning disable CS1591
+        TenantRoleAssignmentCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.role_assignment.deleted")]
+        #pragma warning disable CS1591
+        TenantRoleAssignmentDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.resource_role_assignment.created")]
+        #pragma warning disable CS1591
+        TenantResourceRoleAssignmentCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.resource_role_assignment.deleted")]
+        #pragma warning disable CS1591
+        TenantResourceRoleAssignmentDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.resource_access.updated")]
+        #pragma warning disable CS1591
+        TenantResourceAccessUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.resource_access.deleted")]
+        #pragma warning disable CS1591
+        TenantResourceAccessDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.session_policy.created")]
+        #pragma warning disable CS1591
+        TenantSessionPolicyCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.session_policy.updated")]
+        #pragma warning disable CS1591
+        TenantSessionPolicyUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.session_policy.deleted")]
+        #pragma warning disable CS1591
+        TenantSessionPolicyDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.session_revocation.started")]
+        #pragma warning disable CS1591
+        TenantSessionRevocationStarted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.third_party_app_policy.updated")]
+        #pragma warning disable CS1591
+        TenantThirdPartyAppPolicyUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.user.added")]
+        #pragma warning disable CS1591
+        TenantUserAdded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.user.updated")]
+        #pragma warning disable CS1591
+        TenantUserUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.user.removed")]
+        #pragma warning disable CS1591
+        TenantUserRemoved,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.user.looked_up")]
+        #pragma warning disable CS1591
+        TenantUserLookedUp,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.user.invited")]
+        #pragma warning disable CS1591
+        TenantUserInvited,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.membership.revoked")]
+        #pragma warning disable CS1591
+        TenantMembershipRevoked,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.api_organization_invite.upserted")]
+        #pragma warning disable CS1591
+        TenantApiOrganizationInviteUpserted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.api_organization_invite.deleted")]
+        #pragma warning disable CS1591
+        TenantApiOrganizationInviteDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.chatgpt_workspace_invite.upserted")]
+        #pragma warning disable CS1591
+        TenantChatgptWorkspaceInviteUpserted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.membership.accepted")]
+        #pragma warning disable CS1591
+        TenantMembershipAccepted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.membership.declined")]
+        #pragma warning disable CS1591
+        TenantMembershipDeclined,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.workspace_invite_email_settings.updated")]
+        #pragma warning disable CS1591
+        TenantWorkspaceInviteEmailSettingsUpdated,
+        #pragma warning restore CS1591
     }
 }

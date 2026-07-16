@@ -9,8 +9,7 @@
       "url": "https://help.openai.com/"
     },
     "license": {
-      "name": "MIT",
-      "url": "https://github.com/openai/openai-openapi/blob/master/LICENSE"
+      "name": "MIT"
     },
     "version": "2.3.0"
   },
@@ -2342,7 +2341,9 @@
               "additionalProperties": {
                 "type": "string"
               },
-              "nullable": true
+              "unrecognizedKeywords": {
+                "nullable": true
+              }
             }
           }
         ],
@@ -2870,7 +2871,9 @@
             "schema": {
               "type": "string",
               "description": "Return keys with IDs that come after this ID in the pagination order.",
-              "nullable": true
+              "unrecognizedKeywords": {
+                "nullable": true
+              }
             }
           },
           {
@@ -5573,7 +5576,7 @@
         "tags": [
           "Projects"
         ],
-        "summary": "Creates a new service account in the project. This also returns an unredacted API key for the service account.",
+        "summary": "Creates a new service account in the project. By default, this also returns an unredacted API key for the service account.",
         "operationId": "CreateProjectServiceAccount",
         "parameters": [
           {
@@ -5757,6 +5760,62 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProjectServiceAccountDeleteResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/organization/projects/{projectId}/service_accounts/{serviceAccountId}/api_keys": {
+      "post": {
+        "tags": [
+          "Projects"
+        ],
+        "summary": "Creates an API key for a service account in the project.",
+        "operationId": "CreateProjectServiceAccountApiKey",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "description": "The ID of the project.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "serviceAccountId",
+            "in": "path",
+            "description": "The ID of the service account.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The service account API key create request payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectServiceAccountApiKeyCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Service account API key created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectServiceAccountApiKey"
                 }
               }
             }
@@ -14077,7 +14136,91 @@
           "service_account.deleted",
           "user.added",
           "user.updated",
-          "user.deleted"
+          "user.deleted",
+          "tenant.metadata.updated",
+          "tenant.microsoft_entra_mapping.upserted",
+          "tenant.microsoft_entra_mapping.deleted",
+          "tenant.workload_identity.provider.created",
+          "tenant.workload_identity.provider.updated",
+          "tenant.workload_identity.provider.archived",
+          "tenant.workload_identity.mapping.created",
+          "tenant.workload_identity.mapping.updated",
+          "tenant.workload_identity.mapping.archived",
+          "tenant.workload_identity.binding.created",
+          "tenant.workload_identity.principal.provisioned",
+          "tenant.admin_api_key.created",
+          "tenant.admin_api_key.updated",
+          "tenant.admin_api_key.deleted",
+          "tenant.project_api_key.created",
+          "tenant.chatgpt_access_token.revoked",
+          "tenant.migration.completed",
+          "tenant.sso.migrated",
+          "tenant.domains.migrated",
+          "tenant.sso_connection.created",
+          "tenant.sso_connection.updated",
+          "tenant.sso_connection.deleted",
+          "tenant.sso_connection.setup.started",
+          "tenant.policy.created",
+          "tenant.policy.updated",
+          "tenant.policy.deleted",
+          "tenant.policy.attached",
+          "tenant.policy.detached",
+          "tenant.principal_authentication_policy.resolved",
+          "tenant.scim.setup.started",
+          "tenant.scim.deletion.requested",
+          "tenant.scim.directory.created",
+          "tenant.product_access_policy.updated",
+          "tenant.resource_share_grant.created",
+          "tenant.resource_share_grant.updated",
+          "tenant.resource_share_grant.accepted",
+          "tenant.resource_share_grant.declined",
+          "tenant.resource_share_grant.revoked",
+          "tenant.resource_share_grant.deleted",
+          "tenant.service_account.updated",
+          "tenant.service_account.deleted",
+          "tenant.service_account.token.revoked",
+          "tenant.billing.overage_limit.updated",
+          "tenant.billing.alerts.updated",
+          "tenant.billing.info.updated",
+          "tenant.usage_limit.workspace.updated",
+          "tenant.usage_limit.group.updated",
+          "tenant.usage_limit.user.updated",
+          "tenant.usage_limit.increase_request.updated",
+          "tenant.usage_limit.increase_request.resolved",
+          "tenant.group.created",
+          "tenant.group.updated",
+          "tenant.group.deleted",
+          "tenant.group.member.added",
+          "tenant.group.member.removed",
+          "tenant.migration_rollout.status.updated",
+          "tenant.migration_rollout.tier.updated",
+          "tenant.role.metadata.updated",
+          "tenant.custom_role.created",
+          "tenant.custom_role.updated",
+          "tenant.custom_role.deleted",
+          "tenant.role_assignment.created",
+          "tenant.role_assignment.deleted",
+          "tenant.resource_role_assignment.created",
+          "tenant.resource_role_assignment.deleted",
+          "tenant.resource_access.updated",
+          "tenant.resource_access.deleted",
+          "tenant.session_policy.created",
+          "tenant.session_policy.updated",
+          "tenant.session_policy.deleted",
+          "tenant.session_revocation.started",
+          "tenant.third_party_app_policy.updated",
+          "tenant.user.added",
+          "tenant.user.updated",
+          "tenant.user.removed",
+          "tenant.user.looked_up",
+          "tenant.user.invited",
+          "tenant.membership.revoked",
+          "tenant.api_organization_invite.upserted",
+          "tenant.api_organization_invite.deleted",
+          "tenant.chatgpt_workspace_invite.upserted",
+          "tenant.membership.accepted",
+          "tenant.membership.declined",
+          "tenant.workspace_invite_email_settings.updated"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -14321,6 +14464,342 @@
             {
               "value": "user.deleted",
               "name": "UserDeleted"
+            },
+            {
+              "value": "tenant.metadata.updated",
+              "name": "TenantMetadataUpdated"
+            },
+            {
+              "value": "tenant.microsoft_entra_mapping.upserted",
+              "name": "TenantMicrosoftEntraMappingUpserted"
+            },
+            {
+              "value": "tenant.microsoft_entra_mapping.deleted",
+              "name": "TenantMicrosoftEntraMappingDeleted"
+            },
+            {
+              "value": "tenant.workload_identity.provider.created",
+              "name": "TenantWorkloadIdentityProviderCreated"
+            },
+            {
+              "value": "tenant.workload_identity.provider.updated",
+              "name": "TenantWorkloadIdentityProviderUpdated"
+            },
+            {
+              "value": "tenant.workload_identity.provider.archived",
+              "name": "TenantWorkloadIdentityProviderArchived"
+            },
+            {
+              "value": "tenant.workload_identity.mapping.created",
+              "name": "TenantWorkloadIdentityMappingCreated"
+            },
+            {
+              "value": "tenant.workload_identity.mapping.updated",
+              "name": "TenantWorkloadIdentityMappingUpdated"
+            },
+            {
+              "value": "tenant.workload_identity.mapping.archived",
+              "name": "TenantWorkloadIdentityMappingArchived"
+            },
+            {
+              "value": "tenant.workload_identity.binding.created",
+              "name": "TenantWorkloadIdentityBindingCreated"
+            },
+            {
+              "value": "tenant.workload_identity.principal.provisioned",
+              "name": "TenantWorkloadIdentityPrincipalProvisioned"
+            },
+            {
+              "value": "tenant.admin_api_key.created",
+              "name": "TenantAdminApiKeyCreated"
+            },
+            {
+              "value": "tenant.admin_api_key.updated",
+              "name": "TenantAdminApiKeyUpdated"
+            },
+            {
+              "value": "tenant.admin_api_key.deleted",
+              "name": "TenantAdminApiKeyDeleted"
+            },
+            {
+              "value": "tenant.project_api_key.created",
+              "name": "TenantProjectApiKeyCreated"
+            },
+            {
+              "value": "tenant.chatgpt_access_token.revoked",
+              "name": "TenantChatgptAccessTokenRevoked"
+            },
+            {
+              "value": "tenant.migration.completed",
+              "name": "TenantMigrationCompleted"
+            },
+            {
+              "value": "tenant.sso.migrated",
+              "name": "TenantSsoMigrated"
+            },
+            {
+              "value": "tenant.domains.migrated",
+              "name": "TenantDomainsMigrated"
+            },
+            {
+              "value": "tenant.sso_connection.created",
+              "name": "TenantSsoConnectionCreated"
+            },
+            {
+              "value": "tenant.sso_connection.updated",
+              "name": "TenantSsoConnectionUpdated"
+            },
+            {
+              "value": "tenant.sso_connection.deleted",
+              "name": "TenantSsoConnectionDeleted"
+            },
+            {
+              "value": "tenant.sso_connection.setup.started",
+              "name": "TenantSsoConnectionSetupStarted"
+            },
+            {
+              "value": "tenant.policy.created",
+              "name": "TenantPolicyCreated"
+            },
+            {
+              "value": "tenant.policy.updated",
+              "name": "TenantPolicyUpdated"
+            },
+            {
+              "value": "tenant.policy.deleted",
+              "name": "TenantPolicyDeleted"
+            },
+            {
+              "value": "tenant.policy.attached",
+              "name": "TenantPolicyAttached"
+            },
+            {
+              "value": "tenant.policy.detached",
+              "name": "TenantPolicyDetached"
+            },
+            {
+              "value": "tenant.principal_authentication_policy.resolved",
+              "name": "TenantPrincipalAuthenticationPolicyResolved"
+            },
+            {
+              "value": "tenant.scim.setup.started",
+              "name": "TenantScimSetupStarted"
+            },
+            {
+              "value": "tenant.scim.deletion.requested",
+              "name": "TenantScimDeletionRequested"
+            },
+            {
+              "value": "tenant.scim.directory.created",
+              "name": "TenantScimDirectoryCreated"
+            },
+            {
+              "value": "tenant.product_access_policy.updated",
+              "name": "TenantProductAccessPolicyUpdated"
+            },
+            {
+              "value": "tenant.resource_share_grant.created",
+              "name": "TenantResourceShareGrantCreated"
+            },
+            {
+              "value": "tenant.resource_share_grant.updated",
+              "name": "TenantResourceShareGrantUpdated"
+            },
+            {
+              "value": "tenant.resource_share_grant.accepted",
+              "name": "TenantResourceShareGrantAccepted"
+            },
+            {
+              "value": "tenant.resource_share_grant.declined",
+              "name": "TenantResourceShareGrantDeclined"
+            },
+            {
+              "value": "tenant.resource_share_grant.revoked",
+              "name": "TenantResourceShareGrantRevoked"
+            },
+            {
+              "value": "tenant.resource_share_grant.deleted",
+              "name": "TenantResourceShareGrantDeleted"
+            },
+            {
+              "value": "tenant.service_account.updated",
+              "name": "TenantServiceAccountUpdated"
+            },
+            {
+              "value": "tenant.service_account.deleted",
+              "name": "TenantServiceAccountDeleted"
+            },
+            {
+              "value": "tenant.service_account.token.revoked",
+              "name": "TenantServiceAccountTokenRevoked"
+            },
+            {
+              "value": "tenant.billing.overage_limit.updated",
+              "name": "TenantBillingOverageLimitUpdated"
+            },
+            {
+              "value": "tenant.billing.alerts.updated",
+              "name": "TenantBillingAlertsUpdated"
+            },
+            {
+              "value": "tenant.billing.info.updated",
+              "name": "TenantBillingInfoUpdated"
+            },
+            {
+              "value": "tenant.usage_limit.workspace.updated",
+              "name": "TenantUsageLimitWorkspaceUpdated"
+            },
+            {
+              "value": "tenant.usage_limit.group.updated",
+              "name": "TenantUsageLimitGroupUpdated"
+            },
+            {
+              "value": "tenant.usage_limit.user.updated",
+              "name": "TenantUsageLimitUserUpdated"
+            },
+            {
+              "value": "tenant.usage_limit.increase_request.updated",
+              "name": "TenantUsageLimitIncreaseRequestUpdated"
+            },
+            {
+              "value": "tenant.usage_limit.increase_request.resolved",
+              "name": "TenantUsageLimitIncreaseRequestResolved"
+            },
+            {
+              "value": "tenant.group.created",
+              "name": "TenantGroupCreated"
+            },
+            {
+              "value": "tenant.group.updated",
+              "name": "TenantGroupUpdated"
+            },
+            {
+              "value": "tenant.group.deleted",
+              "name": "TenantGroupDeleted"
+            },
+            {
+              "value": "tenant.group.member.added",
+              "name": "TenantGroupMemberAdded"
+            },
+            {
+              "value": "tenant.group.member.removed",
+              "name": "TenantGroupMemberRemoved"
+            },
+            {
+              "value": "tenant.migration_rollout.status.updated",
+              "name": "TenantMigrationRolloutStatusUpdated"
+            },
+            {
+              "value": "tenant.migration_rollout.tier.updated",
+              "name": "TenantMigrationRolloutTierUpdated"
+            },
+            {
+              "value": "tenant.role.metadata.updated",
+              "name": "TenantRoleMetadataUpdated"
+            },
+            {
+              "value": "tenant.custom_role.created",
+              "name": "TenantCustomRoleCreated"
+            },
+            {
+              "value": "tenant.custom_role.updated",
+              "name": "TenantCustomRoleUpdated"
+            },
+            {
+              "value": "tenant.custom_role.deleted",
+              "name": "TenantCustomRoleDeleted"
+            },
+            {
+              "value": "tenant.role_assignment.created",
+              "name": "TenantRoleAssignmentCreated"
+            },
+            {
+              "value": "tenant.role_assignment.deleted",
+              "name": "TenantRoleAssignmentDeleted"
+            },
+            {
+              "value": "tenant.resource_role_assignment.created",
+              "name": "TenantResourceRoleAssignmentCreated"
+            },
+            {
+              "value": "tenant.resource_role_assignment.deleted",
+              "name": "TenantResourceRoleAssignmentDeleted"
+            },
+            {
+              "value": "tenant.resource_access.updated",
+              "name": "TenantResourceAccessUpdated"
+            },
+            {
+              "value": "tenant.resource_access.deleted",
+              "name": "TenantResourceAccessDeleted"
+            },
+            {
+              "value": "tenant.session_policy.created",
+              "name": "TenantSessionPolicyCreated"
+            },
+            {
+              "value": "tenant.session_policy.updated",
+              "name": "TenantSessionPolicyUpdated"
+            },
+            {
+              "value": "tenant.session_policy.deleted",
+              "name": "TenantSessionPolicyDeleted"
+            },
+            {
+              "value": "tenant.session_revocation.started",
+              "name": "TenantSessionRevocationStarted"
+            },
+            {
+              "value": "tenant.third_party_app_policy.updated",
+              "name": "TenantThirdPartyAppPolicyUpdated"
+            },
+            {
+              "value": "tenant.user.added",
+              "name": "TenantUserAdded"
+            },
+            {
+              "value": "tenant.user.updated",
+              "name": "TenantUserUpdated"
+            },
+            {
+              "value": "tenant.user.removed",
+              "name": "TenantUserRemoved"
+            },
+            {
+              "value": "tenant.user.looked_up",
+              "name": "TenantUserLookedUp"
+            },
+            {
+              "value": "tenant.user.invited",
+              "name": "TenantUserInvited"
+            },
+            {
+              "value": "tenant.membership.revoked",
+              "name": "TenantMembershipRevoked"
+            },
+            {
+              "value": "tenant.api_organization_invite.upserted",
+              "name": "TenantApiOrganizationInviteUpserted"
+            },
+            {
+              "value": "tenant.api_organization_invite.deleted",
+              "name": "TenantApiOrganizationInviteDeleted"
+            },
+            {
+              "value": "tenant.chatgpt_workspace_invite.upserted",
+              "name": "TenantChatgptWorkspaceInviteUpserted"
+            },
+            {
+              "value": "tenant.membership.accepted",
+              "name": "TenantMembershipAccepted"
+            },
+            {
+              "value": "tenant.membership.declined",
+              "name": "TenantMembershipDeclined"
+            },
+            {
+              "value": "tenant.workspace_invite_email_settings.updated",
+              "name": "TenantWorkspaceInviteEmailSettingsUpdated"
             }
           ]
         }
@@ -16400,7 +16879,9 @@
           "max_completion_tokens": {
             "type": "integer",
             "description": "An upper bound for the number of tokens that can be generated for a completion, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).\n",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "frequency_penalty": {
             "maximum": 2,
@@ -16408,7 +16889,9 @@
             "type": "number",
             "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on\ntheir existing frequency in the text so far, decreasing the model\u0027s\nlikelihood to repeat the same line verbatim.\n",
             "default": 0,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "presence_penalty": {
             "maximum": 2,
@@ -16416,7 +16899,9 @@
             "type": "number",
             "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on\nwhether they appear in the text so far, increasing the model\u0027s likelihood\nto talk about new topics.\n",
             "default": 0,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "web_search_options": {
             "$ref": "#/components/schemas/CreateChatCompletionRequestAllOf2WebSearchOptions"
@@ -16426,7 +16911,9 @@
             "minimum": 0,
             "type": "integer",
             "description": "An integer between 0 and 20 specifying the maximum number of most likely\ntokens to return at each token position, each with an associated log\nprobability. In some cases, the number of returned tokens may be fewer than\nrequested.\n\u0060logprobs\u0060 must be set to \u0060true\u0060 if this parameter is used.\n",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "response_format": {
             "$ref": "#/components/schemas/CreateChatCompletionRequestAllOf2ResponseFormat"
@@ -16438,7 +16925,9 @@
             "type": "boolean",
             "description": "\u0022Whether or not to store the output of this chat completion request for\nuse in our [model distillation](/docs/guides/distillation) or\n[evals](/docs/guides/evals) products.\n\nSupports text and image inputs. Note: image inputs over 8MB will be dropped.\n\u0022",
             "default": false,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "moderation": {
             "$ref": "#/components/schemas/CreateChatCompletionRequestAllOf2Moderation"
@@ -16447,25 +16936,31 @@
             "type": "boolean",
             "description": "If set to true, the model response data will be streamed to the client\nas it is generated using [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format).\nSee the [Streaming section below](/docs/api-reference/chat/streaming)\nfor more information, along with the [streaming responses](/docs/guides/streaming-responses)\nguide for more information on how to handle the streaming events.\n",
             "default": false,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "stop": {
             "$ref": "#/components/schemas/StopConfiguration"
           },
           "logit_bias": {
-            "$ref": "#/components/schemas/CreateChatCompletionRequestAllOf2LogitBias"
+            "$ref": "#/components/schemas/CreateChatCompletionRequestLogitBias"
           },
           "logprobs": {
             "type": "boolean",
             "description": "Whether to return log probabilities of the output tokens or not. If true,\nreturns the log probabilities of each output token returned in the\n\u0060content\u0060 of \u0060message\u0060.\n",
             "default": false,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "max_tokens": {
             "type": "integer",
             "description": "The maximum number of [tokens](/tokenizer) that can be generated in the\nchat completion. This value can be used to control\n[costs](https://openai.com/api/pricing/) for text generated via API.\n\nThis value is now deprecated in favor of \u0060max_completion_tokens\u0060, and is\nnot compatible with [o-series models](/docs/guides/reasoning).\n",
-            "nullable": true,
-            "deprecated": true
+            "deprecated": true,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "n": {
             "maximum": 128,
@@ -16473,8 +16968,10 @@
             "type": "integer",
             "description": "How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. Keep \u0060n\u0060 as \u00601\u0060 to minimize costs.",
             "default": 1,
-            "nullable": true,
-            "example": 1
+            "example": 1,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "prediction": {
             "$ref": "#/components/schemas/CreateChatCompletionRequestAllOf2Prediction"
@@ -16484,10 +16981,12 @@
             "minimum": -9.223372E+18,
             "type": "integer",
             "description": "This feature is in Beta.\nIf specified, our system will make a best effort to sample deterministically, such that repeated requests with the same \u0060seed\u0060 and parameters should return the same result.\nDeterminism is not guaranteed, and you should refer to the \u0060system_fingerprint\u0060 response parameter to monitor changes in the backend.\n",
-            "nullable": true,
             "deprecated": true,
             "x-oaiMeta": {
               "beta": true
+            },
+            "unrecognizedKeywords": {
+              "nullable": true
             }
           },
           "stream_options": {
@@ -16651,13 +17150,17 @@
             "type": "integer",
             "description": "Generates \u0060best_of\u0060 completions server-side and returns the \u0022best\u0022 (the one with the highest log probability per token). Results cannot be streamed.\n\nWhen used with \u0060n\u0060, \u0060best_of\u0060 controls the number of candidate completions and \u0060n\u0060 specifies how many to return \u2013 \u0060best_of\u0060 must be greater than \u0060n\u0060.\n\n**Note:** Because this parameter generates many completions, it can quickly consume your token quota. Use carefully and ensure that you have reasonable settings for \u0060max_tokens\u0060 and \u0060stop\u0060.\n",
             "default": 1,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "echo": {
             "type": "boolean",
             "description": "Echo back the prompt in addition to the completion\n",
             "default": false,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "frequency_penalty": {
             "maximum": 2,
@@ -16665,26 +17168,31 @@
             "type": "number",
             "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model\u0027s likelihood to repeat the same line verbatim.\n\n[See more information about frequency and presence penalties.](/docs/guides/text-generation)\n",
             "default": 0,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "logit_bias": {
-            "$ref": "#/components/schemas/CreateCompletionRequestLogitBias"
+            "$ref": "#/components/schemas/CreateCompletionRequestLogitBiasProperty"
           },
           "logprobs": {
             "maximum": 5,
             "minimum": 0,
             "type": "integer",
             "description": "Include the log probabilities on the \u0060logprobs\u0060 most likely output tokens, as well the chosen tokens. For example, if \u0060logprobs\u0060 is 5, the API will return a list of the 5 most likely tokens. The API will always return the \u0060logprob\u0060 of the sampled token, so there may be up to \u0060logprobs\u002B1\u0060 elements in the response.\n\nThe maximum value for \u0060logprobs\u0060 is 5.\n",
-            "default": null,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "max_tokens": {
             "minimum": 0,
             "type": "integer",
             "description": "The maximum number of [tokens](/tokenizer) that can be generated in the completion.\n\nThe token count of your prompt plus \u0060max_tokens\u0060 cannot exceed the model\u0027s context length. [Example Python code](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken) for counting tokens.\n",
             "default": 16,
-            "nullable": true,
-            "example": 16
+            "example": 16,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "n": {
             "maximum": 128,
@@ -16692,8 +17200,10 @@
             "type": "integer",
             "description": "How many completions to generate for each prompt.\n\n**Note:** Because this parameter generates many completions, it can quickly consume your token quota. Use carefully and ensure that you have reasonable settings for \u0060max_tokens\u0060 and \u0060stop\u0060.\n",
             "default": 1,
-            "nullable": true,
-            "example": 1
+            "example": 1,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "presence_penalty": {
             "maximum": 2,
@@ -16701,13 +17211,17 @@
             "type": "number",
             "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model\u0027s likelihood to talk about new topics.\n\n[See more information about frequency and presence penalties.](/docs/guides/text-generation)\n",
             "default": 0,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "seed": {
             "type": "integer",
             "description": "If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same \u0060seed\u0060 and parameters should return the same result.\n\nDeterminism is not guaranteed, and you should refer to the \u0060system_fingerprint\u0060 response parameter to monitor changes in the backend.\n",
             "format": "int64",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "stop": {
             "$ref": "#/components/schemas/StopConfiguration"
@@ -16716,7 +17230,9 @@
             "type": "boolean",
             "description": "\u0022Whether to stream back partial progress. If set, tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available, with the stream terminated by a \u0060data: [DONE]\u0060 message. [Example Python code](https://cookbook.openai.com/examples/how_to_stream_completions).\n\u0022",
             "default": false,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "stream_options": {
             "$ref": "#/components/schemas/ChatCompletionStreamOptions"
@@ -16725,8 +17241,10 @@
             "type": "string",
             "description": "The suffix that comes after a completion of inserted text.\n\nThis parameter is only supported for \u0060gpt-3.5-turbo-instruct\u0060.\n",
             "default": null,
-            "nullable": true,
-            "example": "test."
+            "example": "test.",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "temperature": {
             "maximum": 2,
@@ -16734,8 +17252,10 @@
             "type": "number",
             "description": "What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.\n\nWe generally recommend altering this or \u0060top_p\u0060 but not both.\n",
             "default": 1,
-            "nullable": true,
-            "example": 1
+            "example": 1,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "top_p": {
             "maximum": 1,
@@ -16743,8 +17263,10 @@
             "type": "number",
             "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.\n\nWe generally recommend altering this or \u0060temperature\u0060 but not both.\n",
             "default": 1,
-            "nullable": true,
-            "example": 1
+            "example": 1,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "user": {
             "type": "string",
@@ -17254,13 +17776,17 @@
             "type": "string",
             "description": "A string of up to 64 characters that will be added to your fine-tuned model name.\n\nFor example, a \u0060suffix\u0060 of \u0022custom-model-name\u0022 would produce a model name like \u0060ft:gpt-4o-mini:openai:custom-model-name:7p4lURel\u0060.\n",
             "default": null,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "validation_file": {
             "type": "string",
             "description": "The ID of an uploaded file that contains validation data.\n\nIf you provide this file, the data is used to generate validation\nmetrics periodically during fine-tuning. These metrics can be viewed in\nthe fine-tuning results file.\nThe same data should not be present in both train and validation files.\n\nYour dataset must be formatted as a JSONL file. You must upload your file with the purpose \u0060fine-tune\u0060.\n\nSee the [fine-tuning guide](/docs/guides/model-optimization) for more details.\n",
-            "nullable": true,
-            "example": "file-abc123"
+            "example": "file-abc123",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "integrations": {
             "type": "array",
@@ -17268,15 +17794,19 @@
               "$ref": "#/components/schemas/CreateFineTuningJobRequestIntegrationsItem"
             },
             "description": "A list of integrations to enable for your fine-tuning job.",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "seed": {
             "maximum": 2147483647,
             "minimum": 0,
             "type": "integer",
             "description": "The seed controls the reproducibility of the job. Passing in the same seed and job parameters should produce the same results, but may differ in rare cases.\nIf a seed is not specified, one will be generated for you.\n",
-            "nullable": true,
-            "example": 42
+            "example": 42,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "method": {
             "$ref": "#/components/schemas/FineTuneMethod"
@@ -17352,8 +17882,10 @@
             "type": "integer",
             "description": "The number of images to generate. Must be between 1 and 10.",
             "default": 1,
-            "nullable": true,
-            "example": 1
+            "example": 1,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "size": {
             "$ref": "#/components/schemas/CreateImageEditRequestSize"
@@ -17368,8 +17900,10 @@
             "type": "integer",
             "description": "The compression level (0-100%) for the generated images. This parameter\nis only supported for the GPT image models with the \u0060webp\u0060 or \u0060jpeg\u0060 output\nformats, and defaults to 100.\n",
             "default": 100,
-            "nullable": true,
-            "example": 100
+            "example": 100,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "user": {
             "type": "string",
@@ -17383,8 +17917,10 @@
             "type": "boolean",
             "description": "Edit the image in streaming mode. Defaults to \u0060false\u0060. See the\n[Image generation guide](/docs/guides/image-generation) for more information.\n",
             "default": false,
-            "nullable": true,
-            "example": false
+            "example": false,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "partial_images": {
             "$ref": "#/components/schemas/PartialImages"
@@ -17414,8 +17950,10 @@
             "type": "integer",
             "description": "The number of images to generate. Must be between 1 and 10. For \u0060dall-e-3\u0060, only \u0060n=1\u0060 is supported.",
             "default": 1,
-            "nullable": true,
-            "example": 1
+            "example": 1,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "quality": {
             "$ref": "#/components/schemas/CreateImageRequestQuality"
@@ -17430,15 +17968,19 @@
             "type": "integer",
             "description": "The compression level (0-100%) for the generated images. This parameter is only supported for the GPT image models with the \u0060webp\u0060 or \u0060jpeg\u0060 output formats, and defaults to 100.",
             "default": 100,
-            "nullable": true,
-            "example": 100
+            "example": 100,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "stream": {
             "type": "boolean",
             "description": "Generate the image in streaming mode. Defaults to \u0060false\u0060. See the\n[Image generation guide](/docs/guides/image-generation) for more information.\nThis parameter is only supported for the GPT image models.\n",
             "default": false,
-            "nullable": true,
-            "example": false
+            "example": false,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "partial_images": {
             "$ref": "#/components/schemas/PartialImages"
@@ -17482,8 +18024,10 @@
             "type": "integer",
             "description": "The number of images to generate. Must be between 1 and 10.",
             "default": 1,
-            "nullable": true,
-            "example": 1
+            "example": 1,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "response_format": {
             "$ref": "#/components/schemas/CreateImageVariationRequestResponseFormat"
@@ -17736,12 +18280,16 @@
           "instructions": {
             "type": "string",
             "description": "Overrides the [instructions](/docs/api-reference/assistants/createAssistant) of the assistant. This is useful for modifying the behavior on a per-run basis.",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "additional_instructions": {
             "type": "string",
             "description": "Appends additional instructions at the end of the instructions for the run. This is useful for modifying the behavior on a per-run basis without overriding other instructions.",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "additional_messages": {
             "type": "array",
@@ -17749,7 +18297,9 @@
               "$ref": "#/components/schemas/CreateMessageRequest"
             },
             "description": "Adds additional messages to the thread before creating the run.",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "tools": {
             "maxItems": 20,
@@ -17758,7 +18308,9 @@
               "$ref": "#/components/schemas/CreateRunRequestToolsItem"
             },
             "description": "Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis.",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "metadata": {
             "$ref": "#/components/schemas/Metadata"
@@ -17769,8 +18321,10 @@
             "type": "number",
             "description": "What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.\n",
             "default": 1,
-            "nullable": true,
-            "example": 1
+            "example": 1,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "top_p": {
             "maximum": 1,
@@ -17778,25 +18332,33 @@
             "type": "number",
             "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.\n\nWe generally recommend altering this or temperature but not both.\n",
             "default": 1,
-            "nullable": true,
-            "example": 1
+            "example": 1,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "stream": {
             "type": "boolean",
             "description": "\u0022If \u0060true\u0060, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a \u0060data: [DONE]\u0060 message.\n\u0022",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "max_prompt_tokens": {
             "minimum": 256,
             "type": "integer",
             "description": "The maximum number of prompt tokens that may be used over the course of the run. The run will make a best effort to use only the number of prompt tokens specified, across multiple turns of the run. If the run exceeds the number of prompt tokens specified, the run will end with status \u0060incomplete\u0060. See \u0060incomplete_details\u0060 for more info.\n",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "max_completion_tokens": {
             "minimum": 256,
             "type": "integer",
             "description": "The maximum number of completion tokens that may be used over the course of the run. The run will make a best effort to use only the number of completion tokens specified, across multiple turns of the run. If the run exceeds the number of completion tokens specified, the run will end with status \u0060incomplete\u0060. See \u0060incomplete_details\u0060 for more info.\n",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "truncation_strategy": {
             "$ref": "#/components/schemas/CreateRunRequestTruncationStrategy"
@@ -17927,7 +18489,9 @@
           "instructions": {
             "type": "string",
             "description": "Override the default system message of the assistant. This is useful for modifying the behavior on a per-run basis.",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "tools": {
             "maxItems": 20,
@@ -17936,7 +18500,9 @@
               "$ref": "#/components/schemas/CreateThreadAndRunRequestToolsItem"
             },
             "description": "Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis.",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "tool_resources": {
             "$ref": "#/components/schemas/CreateThreadAndRunRequestToolResources"
@@ -17950,8 +18516,10 @@
             "type": "number",
             "description": "What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.\n",
             "default": 1,
-            "nullable": true,
-            "example": 1
+            "example": 1,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "top_p": {
             "maximum": 1,
@@ -17959,25 +18527,33 @@
             "type": "number",
             "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.\n\nWe generally recommend altering this or temperature but not both.\n",
             "default": 1,
-            "nullable": true,
-            "example": 1
+            "example": 1,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "stream": {
             "type": "boolean",
             "description": "\u0022If \u0060true\u0060, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a \u0060data: [DONE]\u0060 message.\n\u0022",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "max_prompt_tokens": {
             "minimum": 256,
             "type": "integer",
             "description": "The maximum number of prompt tokens that may be used over the course of the run. The run will make a best effort to use only the number of prompt tokens specified, across multiple turns of the run. If the run exceeds the number of prompt tokens specified, the run will end with status \u0060incomplete\u0060. See \u0060incomplete_details\u0060 for more info.\n",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "max_completion_tokens": {
             "minimum": 256,
             "type": "integer",
             "description": "The maximum number of completion tokens that may be used over the course of the run. The run will make a best effort to use only the number of completion tokens specified, across multiple turns of the run. If the run exceeds the number of completion tokens specified, the run will end with status \u0060incomplete\u0060. See \u0060incomplete_details\u0060 for more info.\n",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "truncation_strategy": {
             "$ref": "#/components/schemas/CreateThreadAndRunRequestTruncationStrategy"
@@ -25125,6 +25701,23 @@
           }
         }
       },
+      "ProjectServiceAccountApiKeyCreateRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "API key name."
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "API key scope."
+            },
+            "description": "API key scopes."
+          }
+        }
+      },
       "ProjectServiceAccountCreateRequest": {
         "required": [
           "name"
@@ -25134,6 +25727,9 @@
           "name": {
             "type": "string",
             "description": "The name of the service account being created."
+          },
+          "create_service_account_only": {
+            "$ref": "#/components/schemas/ProjectServiceAccountCreateRequestCreateServiceAccountOnly"
           }
         }
       },
@@ -34553,31 +35149,41 @@
             "type": "integer",
             "description": "The Unix timestamp (in seconds) for when the run will expire.",
             "format": "unixtime",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "started_at": {
             "type": "integer",
             "description": "The Unix timestamp (in seconds) for when the run was started.",
             "format": "unixtime",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "cancelled_at": {
             "type": "integer",
             "description": "The Unix timestamp (in seconds) for when the run was cancelled.",
             "format": "unixtime",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "failed_at": {
             "type": "integer",
             "description": "The Unix timestamp (in seconds) for when the run failed.",
             "format": "unixtime",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "completed_at": {
             "type": "integer",
             "description": "The Unix timestamp (in seconds) for when the run was completed.",
             "format": "unixtime",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "incomplete_details": {
             "$ref": "#/components/schemas/RunObjectIncompleteDetails"
@@ -34608,24 +35214,32 @@
           "temperature": {
             "type": "number",
             "description": "The sampling temperature used for this run. If not set, defaults to 1.",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "top_p": {
             "type": "number",
             "description": "The nucleus sampling value used for this run. If not set, defaults to 1.",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "max_prompt_tokens": {
             "minimum": 256,
             "type": "integer",
             "description": "The maximum number of prompt tokens specified to have been used over the course of the run.\n",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "max_completion_tokens": {
             "minimum": 256,
             "type": "integer",
             "description": "The maximum number of completion tokens specified to have been used over the course of the run.\n",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "truncation_strategy": {
             "$ref": "#/components/schemas/RunObjectTruncationStrategy"
@@ -35387,12 +36001,15 @@
         "additionalProperties": false
       },
       "StopConfiguration": {
+        "type": "object",
         "oneOf": [
           {
             "type": "string",
             "default": "\u003C|endoftext|\u003E",
-            "nullable": true,
-            "example": ""
+            "example": "",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           {
             "maxItems": 4,
@@ -35405,7 +36022,9 @@
           }
         ],
         "description": "Not supported with latest reasoning models \u0060o3\u0060 and \u0060o4-mini\u0060.\n\nUp to 4 sequences where the API will stop generating further tokens. The\nreturned text will not contain the stop sequence.\n",
-        "nullable": true
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "SubmitToolOutputsRunRequest": {
         "required": [
@@ -36261,7 +36880,9 @@
           "name": {
             "type": "string",
             "description": "The name of the vector store.",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "expires_after": {
             "$ref": "#/components/schemas/UpdateVectorStoreRequestExpiresAfter"
@@ -36504,23 +37125,59 @@
           },
           "input_tokens": {
             "type": "integer",
-            "description": "The aggregated number of text input tokens used, including cached tokens. For customers subscribe to scale tier, this includes scale tier tokens."
+            "description": "The aggregated number of input tokens used, including cached and cache-write tokens. This includes text, audio, and image tokens. For customers subscribed to Scale Tier, this includes Scale Tier tokens."
           },
           "input_cached_tokens": {
             "type": "integer",
-            "description": "The aggregated number of text input tokens that has been cached from previous requests. For customers subscribe to scale tier, this includes scale tier tokens."
+            "description": "The aggregated number of cached input tokens used across text, audio, and image inputs. For customers subscribed to Scale Tier, this includes Scale Tier tokens."
+          },
+          "input_cache_write_tokens": {
+            "type": "integer",
+            "description": "The aggregated number of input tokens written to the cache."
+          },
+          "input_uncached_tokens": {
+            "type": "integer",
+            "description": "The aggregated number of uncached input tokens used across text, audio, and image inputs, excluding cache-write tokens."
           },
           "output_tokens": {
             "type": "integer",
-            "description": "The aggregated number of text output tokens used. For customers subscribe to scale tier, this includes scale tier tokens."
+            "description": "The aggregated number of output tokens used across text, audio, and image outputs. For customers subscribed to Scale Tier, this includes Scale Tier tokens."
+          },
+          "input_text_tokens": {
+            "type": "integer",
+            "description": "The aggregated number of uncached text input tokens used, excluding cache-write tokens."
+          },
+          "output_text_tokens": {
+            "type": "integer",
+            "description": "The aggregated number of text output tokens used."
+          },
+          "input_cached_text_tokens": {
+            "type": "integer",
+            "description": "The aggregated number of cached text input tokens used."
           },
           "input_audio_tokens": {
             "type": "integer",
-            "description": "The aggregated number of audio input tokens used, including cached tokens."
+            "description": "The aggregated number of uncached audio input tokens used."
+          },
+          "input_cached_audio_tokens": {
+            "type": "integer",
+            "description": "The aggregated number of cached audio input tokens used."
           },
           "output_audio_tokens": {
             "type": "integer",
             "description": "The aggregated number of audio output tokens used."
+          },
+          "input_image_tokens": {
+            "type": "integer",
+            "description": "The aggregated number of uncached image input tokens used."
+          },
+          "input_cached_image_tokens": {
+            "type": "integer",
+            "description": "The aggregated number of cached image input tokens used."
+          },
+          "output_image_tokens": {
+            "type": "integer",
+            "description": "The aggregated number of image output tokens used."
           },
           "num_model_requests": {
             "type": "integer",
@@ -36548,7 +37205,7 @@
         "description": "The aggregated completions usage details of the specific time bucket.",
         "x-oaiMeta": {
           "name": "Completions usage object",
-          "example": "{\n    \u0022object\u0022: \u0022organization.usage.completions.result\u0022,\n    \u0022input_tokens\u0022: 5000,\n    \u0022output_tokens\u0022: 1000,\n    \u0022input_cached_tokens\u0022: 4000,\n    \u0022input_audio_tokens\u0022: 300,\n    \u0022output_audio_tokens\u0022: 200,\n    \u0022num_model_requests\u0022: 5,\n    \u0022project_id\u0022: \u0022proj_abc\u0022,\n    \u0022user_id\u0022: \u0022user-abc\u0022,\n    \u0022api_key_id\u0022: \u0022key_abc\u0022,\n    \u0022model\u0022: \u0022gpt-4o-mini-2024-07-18\u0022,\n    \u0022batch\u0022: false,\n    \u0022service_tier\u0022: \u0022default\u0022\n}\n"
+          "example": "{\n    \u0022object\u0022: \u0022organization.usage.completions.result\u0022,\n    \u0022input_tokens\u0022: 5000,\n    \u0022input_cached_tokens\u0022: 1800,\n    \u0022input_cache_write_tokens\u0022: 200,\n    \u0022input_uncached_tokens\u0022: 3000,\n    \u0022output_tokens\u0022: 1000,\n    \u0022input_text_tokens\u0022: 2500,\n    \u0022output_text_tokens\u0022: 800,\n    \u0022input_cached_text_tokens\u0022: 1500,\n    \u0022input_audio_tokens\u0022: 300,\n    \u0022input_cached_audio_tokens\u0022: 100,\n    \u0022output_audio_tokens\u0022: 100,\n    \u0022input_image_tokens\u0022: 200,\n    \u0022input_cached_image_tokens\u0022: 200,\n    \u0022output_image_tokens\u0022: 100,\n    \u0022num_model_requests\u0022: 5,\n    \u0022project_id\u0022: \u0022proj_abc\u0022,\n    \u0022user_id\u0022: \u0022user-abc\u0022,\n    \u0022api_key_id\u0022: \u0022key_abc\u0022,\n    \u0022model\u0022: \u0022gpt-4o-mini-2024-07-18\u0022,\n    \u0022batch\u0022: false,\n    \u0022service_tier\u0022: \u0022default\u0022\n}\n"
         }
       },
       "UsageEmbeddingsResult": {
@@ -48665,7 +49322,11 @@
             "description": "The text content."
           },
           "annotations": {
-            "$ref": "#/components/schemas/BetaOutputTextContentParamAnnotations"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BetaOutputTextContentParamAnnotationsItem"
+            },
+            "description": "Citations associated with the text content."
           }
         }
       },
@@ -57163,7 +57824,9 @@
           "max_completion_tokens": {
             "type": "integer",
             "description": "An upper bound for the number of tokens that can be generated for a completion, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).\n",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "frequency_penalty": {
             "maximum": 2,
@@ -57171,7 +57834,9 @@
             "type": "number",
             "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on\ntheir existing frequency in the text so far, decreasing the model\u0027s\nlikelihood to repeat the same line verbatim.\n",
             "default": 0,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "presence_penalty": {
             "maximum": 2,
@@ -57179,7 +57844,9 @@
             "type": "number",
             "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on\nwhether they appear in the text so far, increasing the model\u0027s likelihood\nto talk about new topics.\n",
             "default": 0,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "web_search_options": {
             "$ref": "#/components/schemas/CreateChatCompletionRequestAllOf2WebSearchOptions"
@@ -57189,7 +57856,9 @@
             "minimum": 0,
             "type": "integer",
             "description": "An integer between 0 and 20 specifying the maximum number of most likely\ntokens to return at each token position, each with an associated log\nprobability. In some cases, the number of returned tokens may be fewer than\nrequested.\n\u0060logprobs\u0060 must be set to \u0060true\u0060 if this parameter is used.\n",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "response_format": {
             "$ref": "#/components/schemas/CreateChatCompletionRequestAllOf2ResponseFormat"
@@ -57201,7 +57870,9 @@
             "type": "boolean",
             "description": "\u0022Whether or not to store the output of this chat completion request for\nuse in our [model distillation](/docs/guides/distillation) or\n[evals](/docs/guides/evals) products.\n\nSupports text and image inputs. Note: image inputs over 8MB will be dropped.\n\u0022",
             "default": false,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "moderation": {
             "$ref": "#/components/schemas/CreateChatCompletionRequestAllOf2Moderation"
@@ -57210,25 +57881,31 @@
             "type": "boolean",
             "description": "If set to true, the model response data will be streamed to the client\nas it is generated using [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format).\nSee the [Streaming section below](/docs/api-reference/chat/streaming)\nfor more information, along with the [streaming responses](/docs/guides/streaming-responses)\nguide for more information on how to handle the streaming events.\n",
             "default": false,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "stop": {
             "$ref": "#/components/schemas/StopConfiguration"
           },
           "logit_bias": {
-            "$ref": "#/components/schemas/CreateChatCompletionRequestAllOf2LogitBias"
+            "$ref": "#/components/schemas/CreateChatCompletionRequestAllOf2LogitBiasProperty"
           },
           "logprobs": {
             "type": "boolean",
             "description": "Whether to return log probabilities of the output tokens or not. If true,\nreturns the log probabilities of each output token returned in the\n\u0060content\u0060 of \u0060message\u0060.\n",
             "default": false,
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "max_tokens": {
             "type": "integer",
             "description": "The maximum number of [tokens](/tokenizer) that can be generated in the\nchat completion. This value can be used to control\n[costs](https://openai.com/api/pricing/) for text generated via API.\n\nThis value is now deprecated in favor of \u0060max_completion_tokens\u0060, and is\nnot compatible with [o-series models](/docs/guides/reasoning).\n",
-            "nullable": true,
-            "deprecated": true
+            "deprecated": true,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "n": {
             "maximum": 128,
@@ -57236,8 +57913,10 @@
             "type": "integer",
             "description": "How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. Keep \u0060n\u0060 as \u00601\u0060 to minimize costs.",
             "default": 1,
-            "nullable": true,
-            "example": 1
+            "example": 1,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "prediction": {
             "$ref": "#/components/schemas/CreateChatCompletionRequestAllOf2Prediction"
@@ -57247,10 +57926,12 @@
             "minimum": -9.223372E+18,
             "type": "integer",
             "description": "This feature is in Beta.\nIf specified, our system will make a best effort to sample deterministically, such that repeated requests with the same \u0060seed\u0060 and parameters should return the same result.\nDeterminism is not guaranteed, and you should refer to the \u0060system_fingerprint\u0060 response parameter to monitor changes in the backend.\n",
-            "nullable": true,
             "deprecated": true,
             "x-oaiMeta": {
               "beta": true
+            },
+            "unrecognizedKeywords": {
+              "nullable": true
             }
           },
           "stream_options": {
@@ -57377,6 +58058,7 @@
         "x-oaiTypeLabel": "string"
       },
       "CreateCompletionRequestPrompt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "string",
@@ -57413,7 +58095,9 @@
           }
         ],
         "description": "The prompt(s) to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays.\n\nNote that \u003C|endoftext|\u003E is the document separator that the model sees during training, so if a prompt is not specified the model will generate as if from the beginning of a new document.\n",
-        "nullable": true
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CreateCompletionResponseChoicesItemLogprobs": {
         "required": [
@@ -57943,31 +58627,37 @@
         "description": "The image(s) to edit. Must be a supported image file or an array of images.\n\nFor the GPT image models (\u0060gpt-image-1\u0060, \u0060gpt-image-1-mini\u0060, and \u0060gpt-image-1.5\u0060), each image should be a \u0060png\u0060, \u0060webp\u0060, or \u0060jpg\u0060\nfile less than 50MB. You can provide up to 16 images.\n\u0060chatgpt-image-latest\u0060 follows the same input constraints as GPT image models.\n\nFor \u0060dall-e-2\u0060, you can only provide one image, and it should be a square\n\u0060png\u0060 file less than 4MB.\n"
       },
       "CreateImageEditRequestModel": {
+        "type": "object",
         "anyOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/CreateImageEditRequestModelBranch1"
           },
           {
-            "$ref": "#/components/schemas/CreateImageEditRequestModelAnyOf2"
+            "$ref": "#/components/schemas/CreateImageEditRequestModelWrapper"
           }
         ],
         "description": "The model to use for image generation. Defaults to \u0060gpt-image-1.5\u0060.",
-        "nullable": true,
         "example": "gpt-image-1.5",
-        "x-oaiTypeLabel": "string"
+        "x-oaiTypeLabel": "string",
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CreateImageEditRequestSize": {
+        "type": "object",
         "anyOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/CreateImageEditRequestSizeBranch1"
           },
           {
-            "$ref": "#/components/schemas/CreateImageEditRequestSizeAnyOf2"
+            "$ref": "#/components/schemas/CreateImageEditRequestSizeWrapper"
           }
         ],
         "description": "The size of the generated images. For \u0060gpt-image-2\u0060 and \u0060gpt-image-2-2026-04-21\u0060, arbitrary resolutions are supported as \u0060WIDTHxHEIGHT\u0060 strings, for example \u00601536x864\u0060. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above \u00602560x1440\u0060 are experimental, and the maximum supported resolution is \u00603840x2160\u0060. The requested size must also satisfy the model\u0027s current pixel and edge limits. The standard sizes \u00601024x1024\u0060, \u00601536x1024\u0060, and \u00601024x1536\u0060 are supported by the GPT image models; \u0060auto\u0060 is supported for models that allow automatic sizing. For \u0060dall-e-2\u0060, use one of \u0060256x256\u0060, \u0060512x512\u0060, or \u00601024x1024\u0060. For \u0060dall-e-3\u0060, use one of \u00601024x1024\u0060, \u00601792x1024\u0060, or \u00601024x1792\u0060.",
-        "nullable": true,
-        "example": "1024x1024"
+        "example": "1024x1024",
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CreateImageEditRequestInputFidelity": {
         "type": "object",
@@ -57981,45 +58671,54 @@
         ]
       },
       "CreateImageRequestModel": {
+        "type": "object",
         "anyOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/CreateImageRequestModelBranch1"
           },
           {
-            "$ref": "#/components/schemas/CreateImageRequestModelAnyOf2"
+            "$ref": "#/components/schemas/CreateImageRequestModelWrapper"
           }
         ],
         "description": "The model to use for image generation. One of \u0060dall-e-2\u0060, \u0060dall-e-3\u0060, or a GPT image model (\u0060gpt-image-1\u0060, \u0060gpt-image-1-mini\u0060, \u0060gpt-image-1.5\u0060). Defaults to \u0060dall-e-2\u0060 unless a parameter specific to the GPT image models is used.",
-        "nullable": true,
         "example": "gpt-image-1.5",
-        "x-oaiTypeLabel": "string"
+        "x-oaiTypeLabel": "string",
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CreateImageRequestSize": {
+        "type": "object",
         "anyOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/CreateImageRequestSizeBranch1"
           },
           {
-            "$ref": "#/components/schemas/CreateImageRequestSizeAnyOf2"
+            "$ref": "#/components/schemas/CreateImageRequestSizeWrapper"
           }
         ],
         "description": "The size of the generated images. For \u0060gpt-image-2\u0060 and \u0060gpt-image-2-2026-04-21\u0060, arbitrary resolutions are supported as \u0060WIDTHxHEIGHT\u0060 strings, for example \u00601536x864\u0060. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above \u00602560x1440\u0060 are experimental, and the maximum supported resolution is \u00603840x2160\u0060. The requested size must also satisfy the model\u0027s current pixel and edge limits. The standard sizes \u00601024x1024\u0060, \u00601536x1024\u0060, and \u00601024x1536\u0060 are supported by the GPT image models; \u0060auto\u0060 is supported for models that allow automatic sizing. For \u0060dall-e-2\u0060, use one of \u0060256x256\u0060, \u0060512x512\u0060, or \u00601024x1024\u0060. For \u0060dall-e-3\u0060, use one of \u00601024x1024\u0060, \u00601792x1024\u0060, or \u00601024x1792\u0060.",
-        "nullable": true,
-        "example": "1024x1024"
+        "example": "1024x1024",
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CreateImageVariationRequestModel": {
+        "type": "object",
         "anyOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/CreateImageVariationRequestModelBranch1"
           },
           {
-            "$ref": "#/components/schemas/CreateImageVariationRequestModelAnyOf2"
+            "$ref": "#/components/schemas/CreateImageVariationRequestModelWrapper"
           }
         ],
         "description": "The model to use for image generation. Only \u0060dall-e-2\u0060 is supported at this time.",
-        "nullable": true,
         "example": "dall-e-2",
-        "x-oaiTypeLabel": "string"
+        "x-oaiTypeLabel": "string",
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CreateMessageRequestContent": {
         "type": "object",
@@ -58105,7 +58804,10 @@
         ],
         "description": "The content moderation model you would like to use. Learn more in\n[the moderation guide](/docs/guides/moderation), and learn about\navailable models [here](/docs/models#moderation).\n",
         "example": "omni-moderation-2024-09-26",
-        "x-oaiTypeLabel": "string"
+        "x-oaiTypeLabel": "string",
+        "unrecognizedKeywords": {
+          "nullable": false
+        }
       },
       "CreateModerationResponseResultsItemCategoriesIllicit": {
         "type": "object",
@@ -58174,18 +58876,21 @@
         }
       },
       "CreateRunRequestModel": {
+        "type": "object",
         "anyOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/CreateRunRequestModelBranch1"
           },
           {
-            "$ref": "#/components/schemas/AssistantSupportedModels"
+            "$ref": "#/components/schemas/AssistantSupportedModelsWrapper2"
           }
         ],
         "description": "The ID of the [Model](/docs/api-reference/models) to be used to execute this run. If a value is provided here, it will override the model associated with the assistant. If not, the model associated with the assistant will be used.",
-        "nullable": true,
         "example": "gpt-4o",
-        "x-oaiTypeLabel": "string"
+        "x-oaiTypeLabel": "string",
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CreateRunRequestToolsItem": {
         "required": [
@@ -58254,18 +58959,21 @@
         "x-oaiTypeLabel": "string"
       },
       "CreateThreadAndRunRequestModel": {
+        "type": "object",
         "anyOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/CreateThreadAndRunRequestModelBranch1"
           },
           {
-            "$ref": "#/components/schemas/CreateThreadAndRunRequestModelAnyOf2"
+            "$ref": "#/components/schemas/CreateThreadAndRunRequestModelWrapper"
           }
         ],
         "description": "The ID of the [Model](/docs/api-reference/models) to be used to execute this run. If a value is provided here, it will override the model associated with the assistant. If not, the model associated with the assistant will be used.",
-        "nullable": true,
         "example": "gpt-4o",
-        "x-oaiTypeLabel": "string"
+        "x-oaiTypeLabel": "string",
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CreateThreadAndRunRequestToolsItem": {
         "required": [
@@ -60568,7 +61276,7 @@
             "$ref": "#/components/schemas/ModifyAssistantRequestModelBranch1"
           },
           {
-            "$ref": "#/components/schemas/AssistantSupportedModelsWrapper2"
+            "$ref": "#/components/schemas/AssistantSupportedModelsWrapper3"
           }
         ],
         "description": "ID of the model to use. You can use the [List models](/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](/docs/models) for descriptions of them.\n"
@@ -61106,6 +61814,17 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ProjectRateLimitListResponseLastIdBranch1"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "ProjectServiceAccountCreateRequestCreateServiceAccountOnly": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ProjectServiceAccountCreateRequestCreateServiceAccountOnlyBranch1"
           },
           {
             "type": "object"
@@ -62249,6 +62968,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/RealtimeSessionCreateRequestGaTracingWrapper"
@@ -62264,12 +62984,14 @@
           }
         },
         "description": "Realtime API can write session traces to the [Traces Dashboard](https://platform.openai.com/logs?api=traces). Set to null to disable tracing. Once\ntracing is enabled for a session, the configuration cannot be modified.\n\n\u0060auto\u0060 will create a trace for the session with default values for the\nworkflow name, group id, and metadata.\n",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
             "RealtimeSessionCreateRequestGaTracingTracingConfiguration": "#/components/schemas/RealtimeSessionCreateRequestGaTracingTracingConfiguration"
           }
+        },
+        "unrecognizedKeywords": {
+          "nullable": true
         }
       },
       "RealtimeSessionCreateRequestGaToolsItem": {
@@ -70199,29 +70921,37 @@
           }
         ]
       },
-      "BetaOutputTextContentParamAnnotations": {
+      "BetaOutputTextContentParamAnnotationsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BetaFileCitationParam"
-            }
+            "$ref": "#/components/schemas/BetaFileCitationParam"
           },
           {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BetaUrlCitationParam"
-            }
+            "$ref": "#/components/schemas/BetaUrlCitationParam"
           },
           {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BetaContainerFileCitationParam"
-            }
+            "$ref": "#/components/schemas/BetaContainerFileCitationParam"
           }
         ],
-        "description": "Citations associated with the text content."
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "BetaFileCitationParam": "#/components/schemas/BetaFileCitationParam",
+            "BetaUrlCitationParam": "#/components/schemas/BetaUrlCitationParam",
+            "BetaContainerFileCitationParam": "#/components/schemas/BetaContainerFileCitationParam"
+          }
+        }
       },
       "BetaMultiAgentCallItemParamAgent": {
         "required": [
@@ -73923,6 +74653,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/PredictionContent"
@@ -73936,12 +74667,14 @@
           }
         },
         "description": "Configuration for a [Predicted Output](/docs/guides/predicted-outputs),\nwhich can greatly improve response times when large parts of the model\nresponse are known ahead of time. This is most common when you are\nregenerating a file with only minor changes to most of the content.\n",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
             "PredictionContent": "#/components/schemas/PredictionContent"
           }
+        },
+        "unrecognizedKeywords": {
+          "nullable": true
         }
       },
       "CreateChatCompletionRequestAllOf2ToolsItem": {
@@ -77412,9 +78145,10 @@
           "type": "integer"
         },
         "description": "\u0022Modify the likelihood of specified tokens appearing in the completion.\n\nAccepts a JSON object that maps tokens (specified by their token ID in the GPT tokenizer) to an associated bias value from -100 to 100. You can use this [tokenizer tool](/tokenizer?view=bpe) to convert text to token IDs. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.\n\nAs an example, you can pass \u0060{\\\u002250256\\\u0022: -100}\u0060 to prevent the \u003C|endoftext|\u003E token from being generated.\n\u0022",
-        "default": null,
-        "nullable": true,
-        "x-oaiTypeLabel": "map"
+        "x-oaiTypeLabel": "map",
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CreateCompletionResponseChoicesItem": {
         "required": [
@@ -77628,7 +78362,9 @@
           }
         },
         "description": "A set of resources that are used by the assistant\u0027s tools. The resources are specific to the type of tool. For example, the \u0060code_interpreter\u0060 tool requires a list of file IDs, while the \u0060file_search\u0060 tool requires a list of vector store IDs.\n",
-        "nullable": true
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CreateTranscriptionResponseJsonLogprobsItem": {
         "type": "object",
@@ -79136,7 +79872,9 @@
           }
         },
         "description": "Details on the action required to continue the run. Will be \u0060null\u0060 if no action is required.",
-        "nullable": true
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "RunObjectLastError": {
         "required": [
@@ -79154,7 +79892,9 @@
           }
         },
         "description": "The last error associated with this run. Will be \u0060null\u0060 if there are no errors.",
-        "nullable": true
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "RunObjectIncompleteDetails": {
         "type": "object",
@@ -79164,7 +79904,9 @@
           }
         },
         "description": "Details on why the run is incomplete. Will be \u0060null\u0060 if the run is not incomplete.",
-        "nullable": true
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "RunStepDeltaObjectDelta": {
         "type": "object",
@@ -80055,7 +80797,9 @@
           }
         },
         "description": "\u0022Parameters for audio output. Required when audio output is requested with\n\u0060modalities: [\\\u0022audio\\\u0022]\u0060. [Learn more](/docs/guides/audio).\n\u0022",
-        "nullable": true
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CreateChatCompletionRequestAllOf2LogitBias": {
         "type": "object",
@@ -80063,9 +80807,10 @@
           "type": "integer"
         },
         "description": "Modify the likelihood of specified tokens appearing in the completion.\n\nAccepts a JSON object that maps tokens (specified by their token ID in the\ntokenizer) to an associated bias value from -100 to 100. Mathematically,\nthe bias is added to the logits generated by the model prior to sampling.\nThe exact effect will vary per model, but values between -1 and 1 should\ndecrease or increase likelihood of selection; values like -100 or 100\nshould result in a ban or exclusive selection of the relevant token.\n",
-        "default": null,
-        "nullable": true,
-        "x-oaiTypeLabel": "map"
+        "x-oaiTypeLabel": "map",
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "RealtimeTruncationRetentionRatioTruncationTokenLimits": {
         "type": "object",
@@ -80862,7 +81607,9 @@
               "$ref": "#/components/schemas/ChatCompletionTokenLogprob"
             },
             "description": "A list of message content tokens with log probability information.",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "refusal": {
             "type": "array",
@@ -80870,11 +81617,15 @@
               "$ref": "#/components/schemas/ChatCompletionTokenLogprob"
             },
             "description": "A list of message refusal tokens with log probability information.",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           }
         },
         "description": "Log probability information for the choice.",
-        "nullable": true
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CreateEvalResponsesRunDataSourceSamplingParamsText": {
         "type": "object",
@@ -80899,12 +81650,16 @@
           "name": {
             "type": "string",
             "description": "A display name to set for the run. If not set, we will use the Job ID as the name.\n",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "entity": {
             "type": "string",
             "description": "The entity to use for the run. This allows you to set the team or username of the WandB user that you would\nlike associated with the run. If not set, the default entity for the registered WandB API key is used.\n",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "tags": {
             "type": "array",
@@ -81714,7 +82469,9 @@
           }
         },
         "description": "Approximate location parameters for the search.\n",
-        "nullable": true
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "AuditLogRoleUpdatedChangesRequestedMetadata": {
         "type": "object",
@@ -82554,6 +83311,28 @@
           }
         }
       },
+      "CreateImageEditRequestModelWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/CreateImageEditRequestModelWrapperValue"
+          }
+        }
+      },
+      "CreateImageEditRequestSizeWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/CreateImageEditRequestSizeWrapperValue"
+          }
+        }
+      },
       "InputFidelityWrapper": {
         "required": [
           "value"
@@ -82562,6 +83341,39 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/InputFidelity"
+          }
+        }
+      },
+      "CreateImageRequestModelWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/CreateImageRequestModelWrapperValue"
+          }
+        }
+      },
+      "CreateImageRequestSizeWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/CreateImageRequestSizeWrapperValue"
+          }
+        }
+      },
+      "CreateImageVariationRequestModelWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/CreateImageVariationRequestModelWrapperValue"
           }
         }
       },
@@ -82576,6 +83388,17 @@
           }
         }
       },
+      "AssistantSupportedModelsWrapper2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AssistantSupportedModels"
+          }
+        }
+      },
       "CreateSpeechRequestModelWrapper": {
         "required": [
           "value"
@@ -82584,6 +83407,17 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/CreateSpeechRequestModelWrapperValue"
+          }
+        }
+      },
+      "CreateThreadAndRunRequestModelWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/CreateThreadAndRunRequestModelWrapperValue"
           }
         }
       },
@@ -82917,7 +83751,7 @@
           }
         }
       },
-      "AssistantSupportedModelsWrapper2": {
+      "AssistantSupportedModelsWrapper3": {
         "required": [
           "value"
         ],
@@ -84460,6 +85294,61 @@
           }
         }
       },
+      "CreateImageEditRequestModelBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateImageEditRequestSizeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateImageRequestModelBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateImageRequestSizeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateImageVariationRequestModelBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
       "CreateMessageRequestAttachmentsAnyOf1Wrapper": {
         "required": [
           "value"
@@ -84510,7 +85399,29 @@
           }
         }
       },
+      "CreateRunRequestModelBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
       "CreateSpeechRequestModelBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateThreadAndRunRequestModelBranch1": {
         "required": [
           "value"
         ],
@@ -85940,6 +86851,18 @@
         "properties": {
           "value": {
             "type": "string"
+          }
+        }
+      },
+      "ProjectServiceAccountCreateRequestCreateServiceAccountOnlyBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "boolean",
+            "description": "Create the service account without default roles or an API key."
           }
         }
       },
@@ -91091,6 +92014,20 @@
         "type": "object",
         "description": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting \u0060parameters\u0060 defines a function with an empty parameter list."
       },
+      "CreateChatCompletionRequestLogitBias": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "integer"
+        },
+        "description": "Modify the likelihood of specified tokens appearing in the completion.\n\nAccepts a JSON object that maps tokens (specified by their token ID in the\ntokenizer) to an associated bias value from -100 to 100. Mathematically,\nthe bias is added to the logits generated by the model prior to sampling.\nThe exact effect will vary per model, but values between -1 and 1 should\ndecrease or increase likelihood of selection; values like -100 or 100\nshould result in a ban or exclusive selection of the relevant token.\n"
+      },
+      "CreateCompletionRequestLogitBiasProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "integer"
+        },
+        "description": "\u0022Modify the likelihood of specified tokens appearing in the completion.\n\nAccepts a JSON object that maps tokens (specified by their token ID in the GPT tokenizer) to an associated bias value from -100 to 100. You can use this [tokenizer tool](/tokenizer?view=bpe) to convert text to token IDs. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.\n\nAs an example, you can pass \u0060{\\\u002250256\\\u0022: -100}\u0060 to prevent the \u003C|endoftext|\u003E token from being generated.\n\u0022"
+      },
       "CreateEvalCustomDataSourceConfigItemSchemaProperty": {
         "type": "object",
         "description": "The json schema for each row in the data source."
@@ -91297,6 +92234,13 @@
       "BetaResponseOutputTextAnnotationAddedEventAnnotationProperty": {
         "type": "object",
         "description": "The annotation object being added. (See annotation schema for details.)"
+      },
+      "CreateChatCompletionRequestAllOf2LogitBiasProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "integer"
+        },
+        "description": "Modify the likelihood of specified tokens appearing in the completion.\n\nAccepts a JSON object that maps tokens (specified by their token ID in the\ntokenizer) to an associated bias value from -100 to 100. Mathematically,\nthe bias is added to the logits generated by the model prior to sampling.\nThe exact effect will vary per model, but values between -1 and 1 should\ndecrease or increase likelihood of selection; values like -100 or 100\nshould result in a ban or exclusive selection of the relevant token.\n"
       },
       "CreateCompletionResponseChoicesItemLogprobsAnyOf1TopLogprobsItemProperty": {
         "type": "object",
@@ -93015,8 +93959,10 @@
         "type": "string",
         "additionalProperties": false,
         "description": "Allows to set transparency for the background of the generated image(s).\nThis parameter is only supported for the GPT image models. Must be one of\n\u0060transparent\u0060, \u0060opaque\u0060 or \u0060auto\u0060 (default value). When \u0060auto\u0060 is used, the\nmodel will automatically determine the best background for the image.\n\nIf \u0060transparent\u0060, the output format needs to support transparency, so it\nshould be set to either \u0060png\u0060 (default value) or \u0060webp\u0060.\n",
-        "nullable": true,
         "example": "transparent",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
         "x-ms-enum": {
           "name": "CreateImageEditRequestBackground",
           "modelAsString": false,
@@ -93044,8 +93990,10 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The format in which the generated images are returned. Must be one of \u0060url\u0060 or \u0060b64_json\u0060. URLs are only valid for 60 minutes after the image has been generated. This parameter is only supported for \u0060dall-e-2\u0060 (default is \u0060url\u0060 for \u0060dall-e-2\u0060), as GPT image models always return base64-encoded images.",
-        "nullable": true,
         "example": "url",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
         "x-ms-enum": {
           "name": "CreateImageEditRequestResponseFormat",
           "modelAsString": false,
@@ -93070,8 +94018,10 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The format in which the generated images are returned. This parameter is\nonly supported for the GPT image models. Must be one of \u0060png\u0060, \u0060jpeg\u0060, or \u0060webp\u0060.\nThe default value is \u0060png\u0060.\n",
-        "nullable": true,
         "example": "png",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
         "x-ms-enum": {
           "name": "CreateImageEditRequestOutputFormat",
           "modelAsString": false,
@@ -93102,8 +94052,10 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The quality of the image that will be generated for GPT image models. Defaults to \u0060auto\u0060.\n",
-        "nullable": true,
         "example": "high",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
         "x-ms-enum": {
           "name": "CreateImageEditRequestQuality",
           "modelAsString": false,
@@ -93143,8 +94095,10 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The quality of the image that will be generated.\n\n- \u0060auto\u0060 (default value) will automatically select the best quality for the given model.\n- \u0060high\u0060, \u0060medium\u0060 and \u0060low\u0060 are supported for the GPT image models.\n- \u0060hd\u0060 and \u0060standard\u0060 are supported for \u0060dall-e-3\u0060.\n- \u0060standard\u0060 is the only option for \u0060dall-e-2\u0060.\n",
-        "nullable": true,
         "example": "medium",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
         "x-ms-enum": {
           "name": "CreateImageRequestQuality",
           "modelAsString": false,
@@ -93184,8 +94138,10 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The format in which generated images with \u0060dall-e-2\u0060 and \u0060dall-e-3\u0060 are returned. Must be one of \u0060url\u0060 or \u0060b64_json\u0060. URLs are only valid for 60 minutes after the image has been generated. This parameter isn\u0027t supported for the GPT image models, which always return base64-encoded images.",
-        "nullable": true,
         "example": "url",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
         "x-ms-enum": {
           "name": "CreateImageRequestResponseFormat",
           "modelAsString": false,
@@ -93210,8 +94166,10 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The format in which the generated images are returned. This parameter is only supported for the GPT image models. Must be one of \u0060png\u0060, \u0060jpeg\u0060, or \u0060webp\u0060.",
-        "nullable": true,
         "example": "png",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
         "x-ms-enum": {
           "name": "CreateImageRequestOutputFormat",
           "modelAsString": false,
@@ -93239,8 +94197,10 @@
         "type": "string",
         "additionalProperties": false,
         "description": "Control the content-moderation level for images generated by the GPT image models. Must be either \u0060low\u0060 for less restrictive filtering or \u0060auto\u0060 (default value).",
-        "nullable": true,
         "example": "low",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
         "x-ms-enum": {
           "name": "CreateImageRequestModeration",
           "modelAsString": false,
@@ -93265,8 +94225,10 @@
         "type": "string",
         "additionalProperties": false,
         "description": "Allows to set transparency for the background of the generated image(s).\nThis parameter is only supported for the GPT image models. Must be one of\n\u0060transparent\u0060, \u0060opaque\u0060 or \u0060auto\u0060 (default value). When \u0060auto\u0060 is used, the\nmodel will automatically determine the best background for the image.\n\nIf \u0060transparent\u0060, the output format needs to support transparency, so it\nshould be set to either \u0060png\u0060 (default value) or \u0060webp\u0060.\n",
-        "nullable": true,
         "example": "transparent",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
         "x-ms-enum": {
           "name": "CreateImageRequestBackground",
           "modelAsString": false,
@@ -93294,8 +94256,10 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The style of the generated images. This parameter is only supported for \u0060dall-e-3\u0060. Must be one of \u0060vivid\u0060 or \u0060natural\u0060. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images.",
-        "nullable": true,
         "example": "vivid",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
         "x-ms-enum": {
           "name": "CreateImageRequestStyle",
           "modelAsString": false,
@@ -93319,8 +94283,10 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The format in which the generated images are returned. Must be one of \u0060url\u0060 or \u0060b64_json\u0060. URLs are only valid for 60 minutes after the image has been generated.",
-        "nullable": true,
         "example": "url",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
         "x-ms-enum": {
           "name": "CreateImageVariationRequestResponseFormat",
           "modelAsString": false,
@@ -93345,8 +94311,10 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The size of the generated images. Must be one of \u0060256x256\u0060, \u0060512x512\u0060, or \u00601024x1024\u0060.",
-        "nullable": true,
         "example": "1024x1024",
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
         "x-ms-enum": {
           "name": "CreateImageVariationRequestSize",
           "modelAsString": false,
@@ -97820,11 +98788,12 @@
       "ProjectServiceAccountRole": {
         "enum": [
           "owner",
-          "member"
+          "member",
+          "none"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0060owner\u0060 or \u0060member\u0060",
+        "description": "\u0060owner\u0060, \u0060member\u0060, or \u0060none\u0060",
         "x-ms-enum": {
           "name": "ProjectServiceAccountRole",
           "modelAsString": false,
@@ -97836,6 +98805,10 @@
             {
               "value": "member",
               "name": "Member"
+            },
+            {
+              "value": "none",
+              "name": "None"
             }
           ]
         }
@@ -97879,12 +98852,12 @@
       },
       "ProjectServiceAccountCreateResponseRole": {
         "enum": [
-          "member"
+          "member",
+          "none"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Service accounts can only have one role of type \u0060member\u0060",
-        "x-stainless-const": true,
+        "description": "Service accounts created with default project membership have role \u0060member\u0060. Accounts created with \u0060create_service_account_only\u0060 have role \u0060none\u0060.\n",
         "x-ms-enum": {
           "name": "ProjectServiceAccountCreateResponseRole",
           "modelAsString": false,
@@ -97892,6 +98865,10 @@
             {
               "value": "member",
               "name": "Member"
+            },
+            {
+              "value": "none",
+              "name": "None"
             }
           ]
         }
@@ -113006,395 +113983,6 @@
           ]
         }
       },
-      "CreateImageEditRequestModelAnyOf2": {
-        "enum": [
-          "gpt-image-1.5",
-          "dall-e-2",
-          "gpt-image-1",
-          "gpt-image-1-mini",
-          "chatgpt-image-latest"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "CreateImageEditRequestModelAnyOf2",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "gpt-image-1.5",
-              "name": "GptImage15"
-            },
-            {
-              "value": "dall-e-2",
-              "name": "DallE2"
-            },
-            {
-              "value": "gpt-image-1",
-              "name": "GptImage1"
-            },
-            {
-              "value": "gpt-image-1-mini",
-              "name": "GptImage1Mini"
-            },
-            {
-              "value": "chatgpt-image-latest",
-              "name": "ChatgptImageLatest"
-            }
-          ]
-        }
-      },
-      "CreateImageEditRequestSizeAnyOf2": {
-        "enum": [
-          "256x256",
-          "512x512",
-          "1024x1024",
-          "1536x1024",
-          "1024x1536",
-          "auto"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "CreateImageEditRequestSizeAnyOf2",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "256x256",
-              "name": "Value256X256"
-            },
-            {
-              "value": "512x512",
-              "name": "Value512X512"
-            },
-            {
-              "value": "1024x1024",
-              "name": "Value1024X1024"
-            },
-            {
-              "value": "1536x1024",
-              "name": "Value1536X1024"
-            },
-            {
-              "value": "1024x1536",
-              "name": "Value1024X1536"
-            },
-            {
-              "value": "auto",
-              "name": "Auto"
-            }
-          ]
-        }
-      },
-      "CreateImageRequestModelAnyOf2": {
-        "enum": [
-          "gpt-image-1.5",
-          "dall-e-2",
-          "dall-e-3",
-          "gpt-image-1",
-          "gpt-image-1-mini"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "CreateImageRequestModelAnyOf2",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "gpt-image-1.5",
-              "name": "GptImage15"
-            },
-            {
-              "value": "dall-e-2",
-              "name": "DallE2"
-            },
-            {
-              "value": "dall-e-3",
-              "name": "DallE3"
-            },
-            {
-              "value": "gpt-image-1",
-              "name": "GptImage1"
-            },
-            {
-              "value": "gpt-image-1-mini",
-              "name": "GptImage1Mini"
-            }
-          ]
-        }
-      },
-      "CreateImageRequestSizeAnyOf2": {
-        "enum": [
-          "auto",
-          "1024x1024",
-          "1536x1024",
-          "1024x1536",
-          "256x256",
-          "512x512",
-          "1792x1024",
-          "1024x1792"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "CreateImageRequestSizeAnyOf2",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "auto",
-              "name": "Auto"
-            },
-            {
-              "value": "1024x1024",
-              "name": "Value1024X1024"
-            },
-            {
-              "value": "1536x1024",
-              "name": "Value1536X1024"
-            },
-            {
-              "value": "1024x1536",
-              "name": "Value1024X1536"
-            },
-            {
-              "value": "256x256",
-              "name": "Value256X256"
-            },
-            {
-              "value": "512x512",
-              "name": "Value512X512"
-            },
-            {
-              "value": "1792x1024",
-              "name": "Value1792X1024"
-            },
-            {
-              "value": "1024x1792",
-              "name": "Value1024X1792"
-            }
-          ]
-        }
-      },
-      "CreateImageVariationRequestModelAnyOf2": {
-        "enum": [
-          "dall-e-2"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "CreateImageVariationRequestModelAnyOf2",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "dall-e-2",
-              "name": "DallE2"
-            }
-          ]
-        }
-      },
-      "CreateThreadAndRunRequestModelAnyOf2": {
-        "enum": [
-          "gpt-5",
-          "gpt-5-mini",
-          "gpt-5-nano",
-          "gpt-5-2025-08-07",
-          "gpt-5-mini-2025-08-07",
-          "gpt-5-nano-2025-08-07",
-          "gpt-4.1",
-          "gpt-4.1-mini",
-          "gpt-4.1-nano",
-          "gpt-4.1-2025-04-14",
-          "gpt-4.1-mini-2025-04-14",
-          "gpt-4.1-nano-2025-04-14",
-          "gpt-4o",
-          "gpt-4o-2024-11-20",
-          "gpt-4o-2024-08-06",
-          "gpt-4o-2024-05-13",
-          "gpt-4o-mini",
-          "gpt-4o-mini-2024-07-18",
-          "gpt-4.5-preview",
-          "gpt-4.5-preview-2025-02-27",
-          "gpt-4-turbo",
-          "gpt-4-turbo-2024-04-09",
-          "gpt-4-0125-preview",
-          "gpt-4-turbo-preview",
-          "gpt-4-1106-preview",
-          "gpt-4-vision-preview",
-          "gpt-4",
-          "gpt-4-0314",
-          "gpt-4-0613",
-          "gpt-4-32k",
-          "gpt-4-32k-0314",
-          "gpt-4-32k-0613",
-          "gpt-3.5-turbo",
-          "gpt-3.5-turbo-16k",
-          "gpt-3.5-turbo-0613",
-          "gpt-3.5-turbo-1106",
-          "gpt-3.5-turbo-0125",
-          "gpt-3.5-turbo-16k-0613"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "CreateThreadAndRunRequestModelAnyOf2",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "gpt-5",
-              "name": "Gpt5"
-            },
-            {
-              "value": "gpt-5-mini",
-              "name": "Gpt5Mini"
-            },
-            {
-              "value": "gpt-5-nano",
-              "name": "Gpt5Nano"
-            },
-            {
-              "value": "gpt-5-2025-08-07",
-              "name": "Gpt520250807"
-            },
-            {
-              "value": "gpt-5-mini-2025-08-07",
-              "name": "Gpt5Mini20250807"
-            },
-            {
-              "value": "gpt-5-nano-2025-08-07",
-              "name": "Gpt5Nano20250807"
-            },
-            {
-              "value": "gpt-4.1",
-              "name": "Gpt41"
-            },
-            {
-              "value": "gpt-4.1-mini",
-              "name": "Gpt41Mini"
-            },
-            {
-              "value": "gpt-4.1-nano",
-              "name": "Gpt41Nano"
-            },
-            {
-              "value": "gpt-4.1-2025-04-14",
-              "name": "Gpt4120250414"
-            },
-            {
-              "value": "gpt-4.1-mini-2025-04-14",
-              "name": "Gpt41Mini20250414"
-            },
-            {
-              "value": "gpt-4.1-nano-2025-04-14",
-              "name": "Gpt41Nano20250414"
-            },
-            {
-              "value": "gpt-4o",
-              "name": "Gpt4O"
-            },
-            {
-              "value": "gpt-4o-2024-11-20",
-              "name": "Gpt4O20241120"
-            },
-            {
-              "value": "gpt-4o-2024-08-06",
-              "name": "Gpt4O20240806"
-            },
-            {
-              "value": "gpt-4o-2024-05-13",
-              "name": "Gpt4O20240513"
-            },
-            {
-              "value": "gpt-4o-mini",
-              "name": "Gpt4OMini"
-            },
-            {
-              "value": "gpt-4o-mini-2024-07-18",
-              "name": "Gpt4OMini20240718"
-            },
-            {
-              "value": "gpt-4.5-preview",
-              "name": "Gpt45Preview"
-            },
-            {
-              "value": "gpt-4.5-preview-2025-02-27",
-              "name": "Gpt45Preview20250227"
-            },
-            {
-              "value": "gpt-4-turbo",
-              "name": "Gpt4Turbo"
-            },
-            {
-              "value": "gpt-4-turbo-2024-04-09",
-              "name": "Gpt4Turbo20240409"
-            },
-            {
-              "value": "gpt-4-0125-preview",
-              "name": "Gpt40125Preview"
-            },
-            {
-              "value": "gpt-4-turbo-preview",
-              "name": "Gpt4TurboPreview"
-            },
-            {
-              "value": "gpt-4-1106-preview",
-              "name": "Gpt41106Preview"
-            },
-            {
-              "value": "gpt-4-vision-preview",
-              "name": "Gpt4VisionPreview"
-            },
-            {
-              "value": "gpt-4",
-              "name": "Gpt4"
-            },
-            {
-              "value": "gpt-4-0314",
-              "name": "Gpt40314"
-            },
-            {
-              "value": "gpt-4-0613",
-              "name": "Gpt40613"
-            },
-            {
-              "value": "gpt-4-32k",
-              "name": "Gpt432K"
-            },
-            {
-              "value": "gpt-4-32k-0314",
-              "name": "Gpt432K0314"
-            },
-            {
-              "value": "gpt-4-32k-0613",
-              "name": "Gpt432K0613"
-            },
-            {
-              "value": "gpt-3.5-turbo",
-              "name": "Gpt35Turbo"
-            },
-            {
-              "value": "gpt-3.5-turbo-16k",
-              "name": "Gpt35Turbo16K"
-            },
-            {
-              "value": "gpt-3.5-turbo-0613",
-              "name": "Gpt35Turbo0613"
-            },
-            {
-              "value": "gpt-3.5-turbo-1106",
-              "name": "Gpt35Turbo1106"
-            },
-            {
-              "value": "gpt-3.5-turbo-0125",
-              "name": "Gpt35Turbo0125"
-            },
-            {
-              "value": "gpt-3.5-turbo-16k-0613",
-              "name": "Gpt35Turbo16K0613"
-            }
-          ]
-        }
-      },
       "FineTuningJobHyperparametersBatchSizeAnyOf1OneOf1": {
         "enum": [
           "auto"
@@ -114592,7 +115180,9 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The reason the model stopped generating tokens. This will be \u0060stop\u0060 if the model hit a natural stop point or a provided stop sequence,\n\u0060length\u0060 if the maximum number of tokens specified in the request was reached,\n\u0060content_filter\u0060 if content was omitted due to a flag from our content filters,\n\u0060tool_calls\u0060 if the model called a tool, or \u0060function_call\u0060 (deprecated) if the model called a function.\n",
-        "nullable": true,
+        "unrecognizedKeywords": {
+          "nullable": true
+        },
         "x-ms-enum": {
           "name": "CreateChatCompletionStreamResponseChoicesItemFinishReason",
           "modelAsString": false,
@@ -117972,6 +118562,193 @@
           ]
         }
       },
+      "CreateImageEditRequestModelWrapperValue": {
+        "enum": [
+          "gpt-image-1.5",
+          "dall-e-2",
+          "gpt-image-1",
+          "gpt-image-1-mini",
+          "chatgpt-image-latest"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "CreateImageEditRequestModelWrapperValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "gpt-image-1.5",
+              "name": "GptImage15"
+            },
+            {
+              "value": "dall-e-2",
+              "name": "DallE2"
+            },
+            {
+              "value": "gpt-image-1",
+              "name": "GptImage1"
+            },
+            {
+              "value": "gpt-image-1-mini",
+              "name": "GptImage1Mini"
+            },
+            {
+              "value": "chatgpt-image-latest",
+              "name": "ChatgptImageLatest"
+            }
+          ]
+        }
+      },
+      "CreateImageEditRequestSizeWrapperValue": {
+        "enum": [
+          "256x256",
+          "512x512",
+          "1024x1024",
+          "1536x1024",
+          "1024x1536",
+          "auto"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "CreateImageEditRequestSizeWrapperValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "256x256",
+              "name": "Value256X256"
+            },
+            {
+              "value": "512x512",
+              "name": "Value512X512"
+            },
+            {
+              "value": "1024x1024",
+              "name": "Value1024X1024"
+            },
+            {
+              "value": "1536x1024",
+              "name": "Value1536X1024"
+            },
+            {
+              "value": "1024x1536",
+              "name": "Value1024X1536"
+            },
+            {
+              "value": "auto",
+              "name": "Auto"
+            }
+          ]
+        }
+      },
+      "CreateImageRequestModelWrapperValue": {
+        "enum": [
+          "gpt-image-1.5",
+          "dall-e-2",
+          "dall-e-3",
+          "gpt-image-1",
+          "gpt-image-1-mini"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "CreateImageRequestModelWrapperValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "gpt-image-1.5",
+              "name": "GptImage15"
+            },
+            {
+              "value": "dall-e-2",
+              "name": "DallE2"
+            },
+            {
+              "value": "dall-e-3",
+              "name": "DallE3"
+            },
+            {
+              "value": "gpt-image-1",
+              "name": "GptImage1"
+            },
+            {
+              "value": "gpt-image-1-mini",
+              "name": "GptImage1Mini"
+            }
+          ]
+        }
+      },
+      "CreateImageRequestSizeWrapperValue": {
+        "enum": [
+          "auto",
+          "1024x1024",
+          "1536x1024",
+          "1024x1536",
+          "256x256",
+          "512x512",
+          "1792x1024",
+          "1024x1792"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "CreateImageRequestSizeWrapperValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "auto",
+              "name": "Auto"
+            },
+            {
+              "value": "1024x1024",
+              "name": "Value1024X1024"
+            },
+            {
+              "value": "1536x1024",
+              "name": "Value1536X1024"
+            },
+            {
+              "value": "1024x1536",
+              "name": "Value1024X1536"
+            },
+            {
+              "value": "256x256",
+              "name": "Value256X256"
+            },
+            {
+              "value": "512x512",
+              "name": "Value512X512"
+            },
+            {
+              "value": "1792x1024",
+              "name": "Value1792X1024"
+            },
+            {
+              "value": "1024x1792",
+              "name": "Value1024X1792"
+            }
+          ]
+        }
+      },
+      "CreateImageVariationRequestModelWrapperValue": {
+        "enum": [
+          "dall-e-2"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "CreateImageVariationRequestModelWrapperValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "dall-e-2",
+              "name": "DallE2"
+            }
+          ]
+        }
+      },
       "CreateModerationRequestModelWrapperValue": {
         "enum": [
           "omni-moderation-latest",
@@ -118032,6 +118809,208 @@
             {
               "value": "gpt-4o-mini-tts-2025-12-15",
               "name": "Gpt4OMiniTts20251215"
+            }
+          ]
+        }
+      },
+      "CreateThreadAndRunRequestModelWrapperValue": {
+        "enum": [
+          "gpt-5",
+          "gpt-5-mini",
+          "gpt-5-nano",
+          "gpt-5-2025-08-07",
+          "gpt-5-mini-2025-08-07",
+          "gpt-5-nano-2025-08-07",
+          "gpt-4.1",
+          "gpt-4.1-mini",
+          "gpt-4.1-nano",
+          "gpt-4.1-2025-04-14",
+          "gpt-4.1-mini-2025-04-14",
+          "gpt-4.1-nano-2025-04-14",
+          "gpt-4o",
+          "gpt-4o-2024-11-20",
+          "gpt-4o-2024-08-06",
+          "gpt-4o-2024-05-13",
+          "gpt-4o-mini",
+          "gpt-4o-mini-2024-07-18",
+          "gpt-4.5-preview",
+          "gpt-4.5-preview-2025-02-27",
+          "gpt-4-turbo",
+          "gpt-4-turbo-2024-04-09",
+          "gpt-4-0125-preview",
+          "gpt-4-turbo-preview",
+          "gpt-4-1106-preview",
+          "gpt-4-vision-preview",
+          "gpt-4",
+          "gpt-4-0314",
+          "gpt-4-0613",
+          "gpt-4-32k",
+          "gpt-4-32k-0314",
+          "gpt-4-32k-0613",
+          "gpt-3.5-turbo",
+          "gpt-3.5-turbo-16k",
+          "gpt-3.5-turbo-0613",
+          "gpt-3.5-turbo-1106",
+          "gpt-3.5-turbo-0125",
+          "gpt-3.5-turbo-16k-0613"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "CreateThreadAndRunRequestModelWrapperValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "gpt-5",
+              "name": "Gpt5"
+            },
+            {
+              "value": "gpt-5-mini",
+              "name": "Gpt5Mini"
+            },
+            {
+              "value": "gpt-5-nano",
+              "name": "Gpt5Nano"
+            },
+            {
+              "value": "gpt-5-2025-08-07",
+              "name": "Gpt520250807"
+            },
+            {
+              "value": "gpt-5-mini-2025-08-07",
+              "name": "Gpt5Mini20250807"
+            },
+            {
+              "value": "gpt-5-nano-2025-08-07",
+              "name": "Gpt5Nano20250807"
+            },
+            {
+              "value": "gpt-4.1",
+              "name": "Gpt41"
+            },
+            {
+              "value": "gpt-4.1-mini",
+              "name": "Gpt41Mini"
+            },
+            {
+              "value": "gpt-4.1-nano",
+              "name": "Gpt41Nano"
+            },
+            {
+              "value": "gpt-4.1-2025-04-14",
+              "name": "Gpt4120250414"
+            },
+            {
+              "value": "gpt-4.1-mini-2025-04-14",
+              "name": "Gpt41Mini20250414"
+            },
+            {
+              "value": "gpt-4.1-nano-2025-04-14",
+              "name": "Gpt41Nano20250414"
+            },
+            {
+              "value": "gpt-4o",
+              "name": "Gpt4O"
+            },
+            {
+              "value": "gpt-4o-2024-11-20",
+              "name": "Gpt4O20241120"
+            },
+            {
+              "value": "gpt-4o-2024-08-06",
+              "name": "Gpt4O20240806"
+            },
+            {
+              "value": "gpt-4o-2024-05-13",
+              "name": "Gpt4O20240513"
+            },
+            {
+              "value": "gpt-4o-mini",
+              "name": "Gpt4OMini"
+            },
+            {
+              "value": "gpt-4o-mini-2024-07-18",
+              "name": "Gpt4OMini20240718"
+            },
+            {
+              "value": "gpt-4.5-preview",
+              "name": "Gpt45Preview"
+            },
+            {
+              "value": "gpt-4.5-preview-2025-02-27",
+              "name": "Gpt45Preview20250227"
+            },
+            {
+              "value": "gpt-4-turbo",
+              "name": "Gpt4Turbo"
+            },
+            {
+              "value": "gpt-4-turbo-2024-04-09",
+              "name": "Gpt4Turbo20240409"
+            },
+            {
+              "value": "gpt-4-0125-preview",
+              "name": "Gpt40125Preview"
+            },
+            {
+              "value": "gpt-4-turbo-preview",
+              "name": "Gpt4TurboPreview"
+            },
+            {
+              "value": "gpt-4-1106-preview",
+              "name": "Gpt41106Preview"
+            },
+            {
+              "value": "gpt-4-vision-preview",
+              "name": "Gpt4VisionPreview"
+            },
+            {
+              "value": "gpt-4",
+              "name": "Gpt4"
+            },
+            {
+              "value": "gpt-4-0314",
+              "name": "Gpt40314"
+            },
+            {
+              "value": "gpt-4-0613",
+              "name": "Gpt40613"
+            },
+            {
+              "value": "gpt-4-32k",
+              "name": "Gpt432K"
+            },
+            {
+              "value": "gpt-4-32k-0314",
+              "name": "Gpt432K0314"
+            },
+            {
+              "value": "gpt-4-32k-0613",
+              "name": "Gpt432K0613"
+            },
+            {
+              "value": "gpt-3.5-turbo",
+              "name": "Gpt35Turbo"
+            },
+            {
+              "value": "gpt-3.5-turbo-16k",
+              "name": "Gpt35Turbo16K"
+            },
+            {
+              "value": "gpt-3.5-turbo-0613",
+              "name": "Gpt35Turbo0613"
+            },
+            {
+              "value": "gpt-3.5-turbo-1106",
+              "name": "Gpt35Turbo1106"
+            },
+            {
+              "value": "gpt-3.5-turbo-0125",
+              "name": "Gpt35Turbo0125"
+            },
+            {
+              "value": "gpt-3.5-turbo-16k-0613",
+              "name": "Gpt35Turbo16K0613"
             }
           ]
         }

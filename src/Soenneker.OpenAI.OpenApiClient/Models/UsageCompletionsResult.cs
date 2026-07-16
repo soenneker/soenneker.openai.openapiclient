@@ -31,12 +31,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultBatch Batch { get; set; }
 #endif
-        /// <summary>The aggregated number of audio input tokens used, including cached tokens.</summary>
+        /// <summary>The aggregated number of uncached audio input tokens used.</summary>
         public int? InputAudioTokens { get; set; }
-        /// <summary>The aggregated number of text input tokens that has been cached from previous requests. For customers subscribe to scale tier, this includes scale tier tokens.</summary>
+        /// <summary>The aggregated number of cached audio input tokens used.</summary>
+        public int? InputCachedAudioTokens { get; set; }
+        /// <summary>The aggregated number of cached image input tokens used.</summary>
+        public int? InputCachedImageTokens { get; set; }
+        /// <summary>The aggregated number of cached text input tokens used.</summary>
+        public int? InputCachedTextTokens { get; set; }
+        /// <summary>The aggregated number of cached input tokens used across text, audio, and image inputs. For customers subscribed to Scale Tier, this includes Scale Tier tokens.</summary>
         public int? InputCachedTokens { get; set; }
-        /// <summary>The aggregated number of text input tokens used, including cached tokens. For customers subscribe to scale tier, this includes scale tier tokens.</summary>
+        /// <summary>The aggregated number of input tokens written to the cache.</summary>
+        public int? InputCacheWriteTokens { get; set; }
+        /// <summary>The aggregated number of uncached image input tokens used.</summary>
+        public int? InputImageTokens { get; set; }
+        /// <summary>The aggregated number of uncached text input tokens used, excluding cache-write tokens.</summary>
+        public int? InputTextTokens { get; set; }
+        /// <summary>The aggregated number of input tokens used, including cached and cache-write tokens. This includes text, audio, and image tokens. For customers subscribed to Scale Tier, this includes Scale Tier tokens.</summary>
         public int? InputTokens { get; set; }
+        /// <summary>The aggregated number of uncached input tokens used across text, audio, and image inputs, excluding cache-write tokens.</summary>
+        public int? InputUncachedTokens { get; set; }
         /// <summary>The model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,7 +65,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultObject? Object { get; set; }
         /// <summary>The aggregated number of audio output tokens used.</summary>
         public int? OutputAudioTokens { get; set; }
-        /// <summary>The aggregated number of text output tokens used. For customers subscribe to scale tier, this includes scale tier tokens.</summary>
+        /// <summary>The aggregated number of image output tokens used.</summary>
+        public int? OutputImageTokens { get; set; }
+        /// <summary>The aggregated number of text output tokens used.</summary>
+        public int? OutputTextTokens { get; set; }
+        /// <summary>The aggregated number of output tokens used across text, audio, and image outputs. For customers subscribed to Scale Tier, this includes Scale Tier tokens.</summary>
         public int? OutputTokens { get; set; }
         /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -105,12 +123,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "api_key_id", n => { ApiKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultApiKeyId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultApiKeyId.CreateFromDiscriminatorValue); } },
                 { "batch", n => { Batch = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultBatch>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultBatch.CreateFromDiscriminatorValue); } },
                 { "input_audio_tokens", n => { InputAudioTokens = n.GetIntValue(); } },
+                { "input_cache_write_tokens", n => { InputCacheWriteTokens = n.GetIntValue(); } },
+                { "input_cached_audio_tokens", n => { InputCachedAudioTokens = n.GetIntValue(); } },
+                { "input_cached_image_tokens", n => { InputCachedImageTokens = n.GetIntValue(); } },
+                { "input_cached_text_tokens", n => { InputCachedTextTokens = n.GetIntValue(); } },
                 { "input_cached_tokens", n => { InputCachedTokens = n.GetIntValue(); } },
+                { "input_image_tokens", n => { InputImageTokens = n.GetIntValue(); } },
+                { "input_text_tokens", n => { InputTextTokens = n.GetIntValue(); } },
                 { "input_tokens", n => { InputTokens = n.GetIntValue(); } },
+                { "input_uncached_tokens", n => { InputUncachedTokens = n.GetIntValue(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultModel>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultModel.CreateFromDiscriminatorValue); } },
                 { "num_model_requests", n => { NumModelRequests = n.GetIntValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultObject>(); } },
                 { "output_audio_tokens", n => { OutputAudioTokens = n.GetIntValue(); } },
+                { "output_image_tokens", n => { OutputImageTokens = n.GetIntValue(); } },
+                { "output_text_tokens", n => { OutputTextTokens = n.GetIntValue(); } },
                 { "output_tokens", n => { OutputTokens = n.GetIntValue(); } },
                 { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultProjectId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultProjectId.CreateFromDiscriminatorValue); } },
                 { "service_tier", n => { ServiceTier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultServiceTier>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultServiceTier.CreateFromDiscriminatorValue); } },
@@ -127,12 +154,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultApiKeyId>("api_key_id", ApiKeyId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultBatch>("batch", Batch);
             writer.WriteIntValue("input_audio_tokens", InputAudioTokens);
+            writer.WriteIntValue("input_cached_audio_tokens", InputCachedAudioTokens);
+            writer.WriteIntValue("input_cached_image_tokens", InputCachedImageTokens);
+            writer.WriteIntValue("input_cached_text_tokens", InputCachedTextTokens);
             writer.WriteIntValue("input_cached_tokens", InputCachedTokens);
+            writer.WriteIntValue("input_cache_write_tokens", InputCacheWriteTokens);
+            writer.WriteIntValue("input_image_tokens", InputImageTokens);
+            writer.WriteIntValue("input_text_tokens", InputTextTokens);
             writer.WriteIntValue("input_tokens", InputTokens);
+            writer.WriteIntValue("input_uncached_tokens", InputUncachedTokens);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultModel>("model", Model);
             writer.WriteIntValue("num_model_requests", NumModelRequests);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultObject>("object", Object);
             writer.WriteIntValue("output_audio_tokens", OutputAudioTokens);
+            writer.WriteIntValue("output_image_tokens", OutputImageTokens);
+            writer.WriteIntValue("output_text_tokens", OutputTextTokens);
             writer.WriteIntValue("output_tokens", OutputTokens);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultProjectId>("project_id", ProjectId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultServiceTier>("service_tier", ServiceTier);

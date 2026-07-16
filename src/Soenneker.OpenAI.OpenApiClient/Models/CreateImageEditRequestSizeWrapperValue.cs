@@ -5,28 +5,32 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum CreateImageEditRequestModelAnyOf2
+    public enum CreateImageEditRequestSizeWrapperValue
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "gpt-image-1.5")]
+        [EnumMember(Value = "256x256")]
         #pragma warning disable CS1591
-        GptImage15,
+        Value256X256,
         #pragma warning restore CS1591
-        [EnumMember(Value = "dall-e-2")]
+        [EnumMember(Value = "512x512")]
         #pragma warning disable CS1591
-        DallE2,
+        Value512X512,
         #pragma warning restore CS1591
-        [EnumMember(Value = "gpt-image-1")]
+        [EnumMember(Value = "1024x1024")]
         #pragma warning disable CS1591
-        GptImage1,
+        Value1024X1024,
         #pragma warning restore CS1591
-        [EnumMember(Value = "gpt-image-1-mini")]
+        [EnumMember(Value = "1536x1024")]
         #pragma warning disable CS1591
-        GptImage1Mini,
+        Value1536X1024,
         #pragma warning restore CS1591
-        [EnumMember(Value = "chatgpt-image-latest")]
+        [EnumMember(Value = "1024x1536")]
         #pragma warning disable CS1591
-        ChatgptImageLatest,
+        Value1024X1536,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "auto")]
+        #pragma warning disable CS1591
+        Auto,
         #pragma warning restore CS1591
     }
 }

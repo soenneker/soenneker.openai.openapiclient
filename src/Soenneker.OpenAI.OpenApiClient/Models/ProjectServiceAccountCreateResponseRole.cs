@@ -3,13 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>Service accounts can only have one role of type `member`</summary>
+    /// <summary>Service accounts created with default project membership have role `member`. Accounts created with `create_service_account_only` have role `none`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ProjectServiceAccountCreateResponseRole
     {
         [EnumMember(Value = "member")]
         #pragma warning disable CS1591
         Member,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "none")]
+        #pragma warning disable CS1591
+        None,
         #pragma warning restore CS1591
     }
 }

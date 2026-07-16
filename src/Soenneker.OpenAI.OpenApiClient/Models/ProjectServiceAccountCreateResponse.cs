@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The object property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseObject? Object { get; set; }
-        /// <summary>Service accounts can only have one role of type `member`</summary>
+        /// <summary>Service accounts created with default project membership have role `member`. Accounts created with `create_service_account_only` have role `none`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse"/> and sets the default values.

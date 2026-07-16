@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.OpenAI.OpenApiClient.Models;
+using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts.Item.Api_keys;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_acco
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithServiceAccountItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The api_keys property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts.Item.Api_keys.Api_keysRequestBuilder Api_keys
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts.Item.Api_keys.Api_keysRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts.Item.WithServiceAccountItemRequestBuilder"/> and sets the default values.
         /// </summary>

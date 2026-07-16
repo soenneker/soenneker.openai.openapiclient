@@ -70,7 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_acco
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountListResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new service account in the project. This also returns an unredacted API key for the service account.
+        /// Creates a new service account in the project. By default, this also returns an unredacted API key for the service account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -114,7 +114,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_acco
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new service account in the project. This also returns an unredacted API key for the service account.
+        /// Creates a new service account in the project. By default, this also returns an unredacted API key for the service account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
