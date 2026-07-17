@@ -5772,62 +5772,6 @@
         ]
       }
     },
-    "/organization/projects/{projectId}/service_accounts/{serviceAccountId}/api_keys": {
-      "post": {
-        "tags": [
-          "Projects"
-        ],
-        "summary": "Creates an API key for a service account in the project.",
-        "operationId": "CreateProjectServiceAccountApiKey",
-        "parameters": [
-          {
-            "name": "projectId",
-            "in": "path",
-            "description": "The ID of the project.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "serviceAccountId",
-            "in": "path",
-            "description": "The ID of the service account.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The service account API key create request payload.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProjectServiceAccountApiKeyCreateRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Service account API key created successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProjectServiceAccountApiKey"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "AdminApiKeyAuth": []
-          }
-        ]
-      }
-    },
     "/organization/projects/{projectId}/spend_alerts": {
       "get": {
         "tags": [
@@ -11515,6 +11459,61 @@
         }
       }
     },
+    "/organization/projects/{projectId}/service_accounts/{serviceAccountId}/api_keys": {
+      "post": {
+        "summary": "Creates an API key for a service account in the project.",
+        "operationId": "CreateanApIkeyforaserviceaccount",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "description": "The ID of the project.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the project."
+            }
+          },
+          {
+            "name": "serviceAccountId",
+            "in": "path",
+            "description": "The ID of the service account.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the service account."
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The service account API key create request payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProjectServiceAccountApiKeyBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Service account API key created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceAccountApiKeyBody"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/videos": {
       "post": {
         "tags": [
@@ -14926,6 +14925,25 @@
           "example": "{\n  \u0022id\u0022: \u0022batch_abc123\u0022,\n  \u0022object\u0022: \u0022batch\u0022,\n  \u0022endpoint\u0022: \u0022/v1/completions\u0022,\n  \u0022model\u0022: \u0022gpt-5-2025-08-07\u0022,\n  \u0022errors\u0022: null,\n  \u0022input_file_id\u0022: \u0022file-abc123\u0022,\n  \u0022completion_window\u0022: \u002224h\u0022,\n  \u0022status\u0022: \u0022completed\u0022,\n  \u0022output_file_id\u0022: \u0022file-cvaTdG\u0022,\n  \u0022error_file_id\u0022: \u0022file-HOWS94\u0022,\n  \u0022created_at\u0022: 1711471533,\n  \u0022in_progress_at\u0022: 1711471538,\n  \u0022expires_at\u0022: 1711557933,\n  \u0022finalizing_at\u0022: 1711493133,\n  \u0022completed_at\u0022: 1711493163,\n  \u0022failed_at\u0022: null,\n  \u0022expired_at\u0022: null,\n  \u0022cancelling_at\u0022: null,\n  \u0022cancelled_at\u0022: null,\n  \u0022request_counts\u0022: {\n    \u0022total\u0022: 100,\n    \u0022completed\u0022: 95,\n    \u0022failed\u0022: 5\n  },\n  \u0022usage\u0022: {\n    \u0022input_tokens\u0022: 1500,\n    \u0022input_tokens_details\u0022: {\n      \u0022cached_tokens\u0022: 1024\n    },\n    \u0022output_tokens\u0022: 500,\n    \u0022output_tokens_details\u0022: {\n      \u0022reasoning_tokens\u0022: 300\n    },\n    \u0022total_tokens\u0022: 2000\n  },\n  \u0022metadata\u0022: {\n    \u0022customer_id\u0022: \u0022user_123456789\u0022,\n    \u0022batch_description\u0022: \u0022Nightly eval job\u0022,\n  }\n}\n"
         }
       },
+      "BatchError": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "An error code identifying the error type."
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable message providing more details about the error."
+          },
+          "param": {
+            "$ref": "#/components/schemas/BatchErrorParam"
+          },
+          "line": {
+            "$ref": "#/components/schemas/BatchErrorLine"
+          }
+        }
+      },
       "BatchFileExpirationAfter": {
         "title": "File expiration policy",
         "required": [
@@ -14946,6 +14964,29 @@
           }
         },
         "description": "The expiration policy for the output and/or error file that are generated for a batch."
+      },
+      "BatchRequestCounts": {
+        "required": [
+          "total",
+          "completed",
+          "failed"
+        ],
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "Total number of requests in the batch."
+          },
+          "completed": {
+            "type": "integer",
+            "description": "Number of requests that have been completed successfully."
+          },
+          "failed": {
+            "type": "integer",
+            "description": "Number of requests that have failed."
+          }
+        },
+        "description": "The request counts for different statuses within the batch."
       },
       "Certificate": {
         "required": [
@@ -16843,6 +16884,32 @@
           }
         },
         "additionalProperties": false
+      },
+      "CreateBatchRequest": {
+        "required": [
+          "input_file_id",
+          "endpoint",
+          "completion_window"
+        ],
+        "type": "object",
+        "properties": {
+          "input_file_id": {
+            "type": "string",
+            "description": "The ID of an uploaded file that contains requests for the new batch.\n\nSee [upload file](/docs/api-reference/files/create) for how to upload a file.\n\nYour input file must be formatted as a [JSONL file](/docs/api-reference/batch/request-input), and must be uploaded with the purpose \u0060batch\u0060. The file can contain up to 50,000 requests, and can be up to 200 MB in size.\n"
+          },
+          "endpoint": {
+            "$ref": "#/components/schemas/CreateBatchRequestEndpoint"
+          },
+          "completion_window": {
+            "$ref": "#/components/schemas/CreateBatchRequestCompletionWindow"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "output_expires_after": {
+            "$ref": "#/components/schemas/BatchFileExpirationAfter"
+          }
+        }
       },
       "CreateChatCompletionRequest": {
         "required": [
@@ -19669,8 +19736,7 @@
             "items": {
               "$ref": "#/components/schemas/EvalTestingCriteriaItem"
             },
-            "description": "A list of testing criteria.",
-            "default": []
+            "description": "A list of testing criteria."
           },
           "created_at": {
             "type": "integer",
@@ -25698,23 +25764,6 @@
           },
           "id": {
             "type": "string"
-          }
-        }
-      },
-      "ProjectServiceAccountApiKeyCreateRequest": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "API key name."
-          },
-          "scopes": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "API key scope."
-            },
-            "description": "API key scopes."
           }
         }
       },
@@ -43333,6 +43382,56 @@
           }
         }
       },
+      "CreateProjectServiceAccountApiKeyBody": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "API key name."
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "API key scope."
+            },
+            "description": "API key scopes."
+          }
+        },
+        "description": "The service account API key create request payload."
+      },
+      "ServiceAccountApiKeyBody": {
+        "required": [
+          "object",
+          "value",
+          "name",
+          "created_at",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/ServiceAccountApiKeyBodyObject"
+          },
+          "value": {
+            "type": "string",
+            "description": "The unredacted API key value."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the API key."
+          },
+          "created_at": {
+            "type": "integer",
+            "description": "The Unix timestamp (in seconds) when the API key was created.",
+            "format": "unixtime"
+          },
+          "id": {
+            "type": "string",
+            "description": "The identifier of the API key."
+          }
+        }
+      },
       "OrderEnum": {
         "enum": [
           "asc",
@@ -57011,22 +57110,22 @@
           }
         }
       },
-      "BatchErrorsDataItemParam": {
+      "BatchErrorParam": {
         "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/BatchErrorsDataItemParamBranch1"
+            "$ref": "#/components/schemas/BatchErrorParamBranch1"
           },
           {
             "type": "object"
           }
         ]
       },
-      "BatchErrorsDataItemLine": {
+      "BatchErrorLine": {
         "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/BatchErrorsDataItemLineBranch1"
+            "$ref": "#/components/schemas/BatchErrorLineBranch1"
           },
           {
             "type": "object"
@@ -77706,33 +77805,10 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BatchErrorsDataItem"
+              "$ref": "#/components/schemas/BatchError"
             }
           }
         }
-      },
-      "BatchRequestCounts": {
-        "required": [
-          "total",
-          "completed",
-          "failed"
-        ],
-        "type": "object",
-        "properties": {
-          "total": {
-            "type": "integer",
-            "description": "Total number of requests in the batch."
-          },
-          "completed": {
-            "type": "integer",
-            "description": "Number of requests that have been completed successfully."
-          },
-          "failed": {
-            "type": "integer",
-            "description": "Number of requests that have failed."
-          }
-        },
-        "description": "The request counts for different statuses within the batch."
       },
       "BatchUsage": {
         "required": [
@@ -81520,25 +81596,6 @@
           }
         }
       },
-      "BatchErrorsDataItem": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "An error code identifying the error type."
-          },
-          "message": {
-            "type": "string",
-            "description": "A human-readable message providing more details about the error."
-          },
-          "param": {
-            "$ref": "#/components/schemas/BatchErrorsDataItemParam"
-          },
-          "line": {
-            "$ref": "#/components/schemas/BatchErrorsDataItemLine"
-          }
-        }
-      },
       "BatchUsageInputTokensDetails": {
         "required": [
           "cached_tokens"
@@ -82636,32 +82693,6 @@
           "mapping": {
             "CreateTranslationResponseJson": "#/components/schemas/CreateTranslationResponseJson",
             "CreateTranslationResponseVerboseJson": "#/components/schemas/CreateTranslationResponseVerboseJson"
-          }
-        }
-      },
-      "CreateBatchRequest": {
-        "required": [
-          "input_file_id",
-          "endpoint",
-          "completion_window"
-        ],
-        "type": "object",
-        "properties": {
-          "input_file_id": {
-            "type": "string",
-            "description": "The ID of an uploaded file that contains requests for the new batch.\n\nSee [upload file](/docs/api-reference/files/create) for how to upload a file.\n\nYour input file must be formatted as a [JSONL file](/docs/api-reference/batch/request-input), and must be uploaded with the purpose \u0060batch\u0060. The file can contain up to 50,000 requests, and can be up to 200 MB in size.\n"
-          },
-          "endpoint": {
-            "$ref": "#/components/schemas/CreateBatchRequestEndpoint"
-          },
-          "completion_window": {
-            "$ref": "#/components/schemas/CreateBatchRequestCompletionWindow"
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/Metadata"
-          },
-          "output_expires_after": {
-            "$ref": "#/components/schemas/BatchFileExpirationAfter"
           }
         }
       },
@@ -84912,7 +84943,7 @@
           }
         }
       },
-      "BatchErrorsDataItemParamBranch1": {
+      "BatchErrorParamBranch1": {
         "required": [
           "value"
         ],
@@ -84924,7 +84955,7 @@
           }
         }
       },
-      "BatchErrorsDataItemLineBranch1": {
+      "BatchErrorLineBranch1": {
         "required": [
           "value"
         ],
@@ -93639,6 +93670,77 @@
             {
               "value": "organization.costs.result",
               "name": "OrganizationCostsResult"
+            }
+          ]
+        }
+      },
+      "CreateBatchRequestEndpoint": {
+        "enum": [
+          "/v1/responses",
+          "/v1/chat/completions",
+          "/v1/embeddings",
+          "/v1/completions",
+          "/v1/moderations",
+          "/v1/images/generations",
+          "/v1/images/edits",
+          "/v1/videos"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The endpoint to be used for all requests in the batch. Currently \u0060/v1/responses\u0060, \u0060/v1/chat/completions\u0060, \u0060/v1/embeddings\u0060, \u0060/v1/completions\u0060, \u0060/v1/moderations\u0060, \u0060/v1/images/generations\u0060, \u0060/v1/images/edits\u0060, and \u0060/v1/videos\u0060 are supported. Note that \u0060/v1/embeddings\u0060 batches are also restricted to a maximum of 50,000 embedding inputs across all requests in the batch.",
+        "x-ms-enum": {
+          "name": "CreateBatchRequestEndpoint",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "/v1/responses",
+              "name": "V1Responses"
+            },
+            {
+              "value": "/v1/chat/completions",
+              "name": "V1ChatCompletions"
+            },
+            {
+              "value": "/v1/embeddings",
+              "name": "V1Embeddings"
+            },
+            {
+              "value": "/v1/completions",
+              "name": "V1Completions"
+            },
+            {
+              "value": "/v1/moderations",
+              "name": "V1Moderations"
+            },
+            {
+              "value": "/v1/images/generations",
+              "name": "V1ImagesGenerations"
+            },
+            {
+              "value": "/v1/images/edits",
+              "name": "V1ImagesEdits"
+            },
+            {
+              "value": "/v1/videos",
+              "name": "V1Videos"
+            }
+          ]
+        }
+      },
+      "CreateBatchRequestCompletionWindow": {
+        "enum": [
+          "24h"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The time frame within which the batch should be processed. Currently only \u006024h\u0060 is supported.",
+        "x-ms-enum": {
+          "name": "CreateBatchRequestCompletionWindow",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "24h",
+              "name": "Value24H"
             }
           ]
         }
@@ -108345,6 +108447,25 @@
           ]
         }
       },
+      "ServiceAccountApiKeyBodyObject": {
+        "enum": [
+          "organization.project.service_account.api_key"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The object type, which is always \u0060organization.project.service_account.api_key\u0060",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "ServiceAccountApiKeyBodyObject",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "organization.project.service_account.api_key",
+              "name": "OrganizationProjectServiceAccountApiKey"
+            }
+          ]
+        }
+      },
       "VideoResourceObject": {
         "enum": [
           "video"
@@ -116612,77 +116733,6 @@
             {
               "value": "approximate",
               "name": "Approximate"
-            }
-          ]
-        }
-      },
-      "CreateBatchRequestEndpoint": {
-        "enum": [
-          "/v1/responses",
-          "/v1/chat/completions",
-          "/v1/embeddings",
-          "/v1/completions",
-          "/v1/moderations",
-          "/v1/images/generations",
-          "/v1/images/edits",
-          "/v1/videos"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The endpoint to be used for all requests in the batch. Currently \u0060/v1/responses\u0060, \u0060/v1/chat/completions\u0060, \u0060/v1/embeddings\u0060, \u0060/v1/completions\u0060, \u0060/v1/moderations\u0060, \u0060/v1/images/generations\u0060, \u0060/v1/images/edits\u0060, and \u0060/v1/videos\u0060 are supported. Note that \u0060/v1/embeddings\u0060 batches are also restricted to a maximum of 50,000 embedding inputs across all requests in the batch.",
-        "x-ms-enum": {
-          "name": "CreateBatchRequestEndpoint",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "/v1/responses",
-              "name": "V1Responses"
-            },
-            {
-              "value": "/v1/chat/completions",
-              "name": "V1ChatCompletions"
-            },
-            {
-              "value": "/v1/embeddings",
-              "name": "V1Embeddings"
-            },
-            {
-              "value": "/v1/completions",
-              "name": "V1Completions"
-            },
-            {
-              "value": "/v1/moderations",
-              "name": "V1Moderations"
-            },
-            {
-              "value": "/v1/images/generations",
-              "name": "V1ImagesGenerations"
-            },
-            {
-              "value": "/v1/images/edits",
-              "name": "V1ImagesEdits"
-            },
-            {
-              "value": "/v1/videos",
-              "name": "V1Videos"
-            }
-          ]
-        }
-      },
-      "CreateBatchRequestCompletionWindow": {
-        "enum": [
-          "24h"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The time frame within which the batch should be processed. Currently only \u006024h\u0060 is supported.",
-        "x-ms-enum": {
-          "name": "CreateBatchRequestCompletionWindow",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "24h",
-              "name": "Value24H"
             }
           ]
         }

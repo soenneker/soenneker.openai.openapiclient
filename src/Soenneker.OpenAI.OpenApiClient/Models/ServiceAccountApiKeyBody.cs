@@ -9,12 +9,32 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class BatchErrorsDataItemParam : IAdditionalDataHolder, IParsable
+    public partial class ServiceAccountApiKeyBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The name of the parameter that caused the error, if applicable.</summary>
+        /// <summary>The Unix timestamp (in seconds) when the API key was created.</summary>
+        public int? CreatedAt { get; set; }
+        /// <summary>The identifier of the API key.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; set; }
+#nullable restore
+#else
+        public string Id { get; set; }
+#endif
+        /// <summary>The name of the API key.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
+        /// <summary>The object type, which is always `organization.project.service_account.api_key`</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ServiceAccountApiKeyBodyObject? Object { get; set; }
+        /// <summary>The unredacted API key value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Value { get; set; }
@@ -23,21 +43,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItemParam"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ServiceAccountApiKeyBody"/> and sets the default values.
         /// </summary>
-        public BatchErrorsDataItemParam()
+        public ServiceAccountApiKeyBody()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItemParam"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ServiceAccountApiKeyBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItemParam CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.ServiceAccountApiKeyBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItemParam();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.ServiceAccountApiKeyBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,6 +67,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceAccountApiKeyBodyObject>(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
         }
@@ -57,6 +81,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteStringValue("id", Id);
+            writer.WriteStringValue("name", Name);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceAccountApiKeyBodyObject>("object", Object);
             writer.WriteStringValue("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

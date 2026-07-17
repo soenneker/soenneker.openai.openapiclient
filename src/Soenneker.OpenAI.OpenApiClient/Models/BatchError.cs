@@ -9,7 +9,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class BatchErrorsDataItem : IAdditionalDataHolder, IParsable
+    public partial class BatchError : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,10 +25,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The line property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItemLine? Line { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorLine? Line { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItemLine Line { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorLine Line { get; set; }
 #endif
         /// <summary>A human-readable message providing more details about the error.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,27 +41,27 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The param property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItemParam? Param { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorParam? Param { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItemParam Param { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorParam Param { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItem"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BatchError"/> and sets the default values.
         /// </summary>
-        public BatchErrorsDataItem()
+        public BatchError()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItem"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BatchError"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.BatchError CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItem();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.BatchError();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,9 +72,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "code", n => { Code = n.GetStringValue(); } },
-                { "line", n => { Line = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItemLine>(global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItemLine.CreateFromDiscriminatorValue); } },
+                { "line", n => { Line = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorLine>(global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorLine.CreateFromDiscriminatorValue); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "param", n => { Param = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItemParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItemParam.CreateFromDiscriminatorValue); } },
+                { "param", n => { Param = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorParam.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -85,9 +85,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItemLine>("line", Line);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorLine>("line", Line);
             writer.WriteStringValue("message", Message);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorsDataItemParam>("param", Param);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrorParam>("param", Param);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
