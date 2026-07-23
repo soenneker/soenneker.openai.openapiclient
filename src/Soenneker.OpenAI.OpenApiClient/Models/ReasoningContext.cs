@@ -14,7 +14,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Controls which reasoning items are rendered back to the model on later turns.When returned on a response, this is the effective reasoning context modeused for the response.</summary>
+        /// <summary>Controls which reasoning items are rendered back to the model on later turns.If omitted or set to `auto`, the model determines the context mode. The`gpt-5.6` model family defaults to `all_turns`; earlier models default to`current_turn`.When returned on a response, this is the effective reasoning context modeused for the response.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContextWrapperValue? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContext"/> and sets the default values.

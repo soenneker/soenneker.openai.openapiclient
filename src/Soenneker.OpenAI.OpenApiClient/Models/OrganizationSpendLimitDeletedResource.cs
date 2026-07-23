@@ -7,31 +7,34 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// Confirmation payload returned after deleting an organization hard spend limit.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class BetaReasoningContext : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class OrganizationSpendLimitDeletedResource : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Controls which reasoning items are rendered back to the model on later turns.If omitted or set to `auto`, the model determines the context mode. The`gpt-5.6` model family defaults to `all_turns`; earlier models default to`current_turn`.When returned on a response, this is the effective reasoning context modeused for the response.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContextWrapperValue? Value { get; set; }
+        /// <summary>Whether the hard spend limit was deleted.</summary>
+        public bool? Deleted { get; set; }
+        /// <summary>The object type, which is always `organization.spend_limit.deleted`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendLimitDeletedResourceObject? Object { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContext"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendLimitDeletedResource"/> and sets the default values.
         /// </summary>
-        public BetaReasoningContext()
+        public OrganizationSpendLimitDeletedResource()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContext"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendLimitDeletedResource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContext CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendLimitDeletedResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContext();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendLimitDeletedResource();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -41,7 +44,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContextWrapperValue>(); } },
+                { "deleted", n => { Deleted = n.GetBoolValue(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendLimitDeletedResourceObject>(); } },
             };
         }
         /// <summary>
@@ -51,7 +55,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContextWrapperValue>("value", Value);
+            writer.WriteBoolValue("deleted", Deleted);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendLimitDeletedResourceObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

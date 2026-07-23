@@ -11459,6 +11459,192 @@
         }
       }
     },
+    "/organization/spend_limit": {
+      "get": {
+        "summary": "Get the organization\u0027s hard spend limit.",
+        "operationId": "Getorganizationspendlimit",
+        "responses": {
+          "200": {
+            "description": "Hard spend limit retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationSpendLimitResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create or replace the organization\u0027s hard spend limit.",
+        "operationId": "Updateorganizationspendlimit",
+        "requestBody": {
+          "description": "Parameters for the hard spend limit you want to create or replace.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOrganizationSpendLimitBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Hard spend limit created or replaced successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationSpendLimitResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Delete the organization\u0027s hard spend limit.",
+        "operationId": "Deleteorganizationspendlimit",
+        "responses": {
+          "200": {
+            "description": "Hard spend limit deleted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationSpendLimitDeletedResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/organization/projects/{projectId}/spend_limit": {
+      "get": {
+        "summary": "Get a project\u0027s hard spend limit.",
+        "operationId": "Getprojectspendlimit",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "description": "The ID of the project whose hard spend limit is being managed.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "proj_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Hard spend limit retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectSpendLimitResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Delete a project\u0027s hard spend limit.",
+        "operationId": "Deleteprojectspendlimit",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "description": "The ID of the project whose hard spend limit is being managed.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "proj_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Hard spend limit deleted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectSpendLimitDeletedResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create or replace a project\u0027s hard spend limit.",
+        "operationId": "Updateprojectspendlimit",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "description": "The ID of the project whose hard spend limit is being managed.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "proj_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Parameters for the hard spend limit you want to create or replace.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProjectSpendLimitBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Hard spend limit created or replaced successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectSpendLimitResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/organization/projects/{projectId}/service_accounts/{serviceAccountId}/api_keys": {
       "post": {
         "summary": "Creates an API key for a service account in the project.",
@@ -18153,15 +18339,10 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
-            "type": "string",
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
-            "example": "safety-identifier-1234"
+            "$ref": "#/components/schemas/ModelResponsePropertiesSafetyIdentifier"
           },
           "prompt_cache_key": {
-            "type": "string",
-            "description": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the \u0060user\u0060 field. [Learn more](/docs/guides/prompt-caching).\n",
-            "example": "prompt-cache-key-1234"
+            "$ref": "#/components/schemas/ModelResponsePropertiesPromptCacheKey"
           },
           "service_tier": {
             "$ref": "#/components/schemas/ServiceTier"
@@ -18240,15 +18421,10 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
-            "type": "string",
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
-            "example": "safety-identifier-1234"
+            "$ref": "#/components/schemas/ModelResponsePropertiesSafetyIdentifier"
           },
           "prompt_cache_key": {
-            "type": "string",
-            "description": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the \u0060user\u0060 field. [Learn more](/docs/guides/prompt-caching).\n",
-            "example": "prompt-cache-key-1234"
+            "$ref": "#/components/schemas/ModelResponsePropertiesPromptCacheKey"
           },
           "service_tier": {
             "$ref": "#/components/schemas/ServiceTier"
@@ -24379,15 +24555,10 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
-            "type": "string",
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
-            "example": "safety-identifier-1234"
+            "$ref": "#/components/schemas/ModelResponsePropertiesSafetyIdentifier"
           },
           "prompt_cache_key": {
-            "type": "string",
-            "description": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the \u0060user\u0060 field. [Learn more](/docs/guides/prompt-caching).\n",
-            "example": "prompt-cache-key-1234"
+            "$ref": "#/components/schemas/ModelResponsePropertiesPromptCacheKey"
           },
           "service_tier": {
             "$ref": "#/components/schemas/ServiceTier"
@@ -32114,15 +32285,10 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
-            "type": "string",
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
-            "example": "safety-identifier-1234"
+            "$ref": "#/components/schemas/ModelResponsePropertiesSafetyIdentifier"
           },
           "prompt_cache_key": {
-            "type": "string",
-            "description": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the \u0060user\u0060 field. [Learn more](/docs/guides/prompt-caching).\n",
-            "example": "prompt-cache-key-1234"
+            "$ref": "#/components/schemas/ModelResponsePropertiesPromptCacheKey"
           },
           "service_tier": {
             "$ref": "#/components/schemas/ServiceTier"
@@ -32269,7 +32435,8 @@
           "usage": {
             "input_tokens": 328,
             "input_tokens_details": {
-              "cached_tokens": 0
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
             },
             "output_tokens": 52,
             "output_tokens_details": {
@@ -32793,6 +32960,7 @@
           "server_error",
           "rate_limit_exceeded",
           "invalid_prompt",
+          "data_residency_mismatch",
           "bio_policy",
           "vector_store_timeout",
           "invalid_image",
@@ -32828,6 +32996,10 @@
             {
               "value": "invalid_prompt",
               "name": "InvalidPrompt"
+            },
+            {
+              "value": "data_residency_mismatch",
+              "name": "DataResidencyMismatch"
             },
             {
               "value": "bio_policy",
@@ -34841,15 +35013,10 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
-            "type": "string",
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
-            "example": "safety-identifier-1234"
+            "$ref": "#/components/schemas/ModelResponsePropertiesSafetyIdentifier"
           },
           "prompt_cache_key": {
-            "type": "string",
-            "description": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the \u0060user\u0060 field. [Learn more](/docs/guides/prompt-caching).\n",
-            "example": "prompt-cache-key-1234"
+            "$ref": "#/components/schemas/ModelResponsePropertiesPromptCacheKey"
           },
           "service_tier": {
             "$ref": "#/components/schemas/ServiceTier"
@@ -43381,6 +43548,187 @@
             "type": "string"
           }
         }
+      },
+      "SpendLimitCurrency": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/SpendLimitCurrencyBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/SpendLimitCurrencyWrapper"
+          }
+        ]
+      },
+      "SpendLimitInterval": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/SpendLimitIntervalBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/SpendLimitIntervalWrapper"
+          }
+        ]
+      },
+      "SpendLimitEnforcementStatus": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/SpendLimitEnforcementStatusBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/SpendLimitEnforcementStatusWrapper"
+          }
+        ]
+      },
+      "SpendLimitEnforcement": {
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/SpendLimitEnforcementStatus"
+          }
+        },
+        "description": "The current enforcement state of a hard spend limit."
+      },
+      "OrganizationSpendLimitResource": {
+        "required": [
+          "object",
+          "threshold_amount",
+          "currency",
+          "interval",
+          "enforcement"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/OrganizationSpendLimitResourceObject"
+          },
+          "threshold_amount": {
+            "type": "integer",
+            "description": "The hard spend limit amount, in cents."
+          },
+          "currency": {
+            "$ref": "#/components/schemas/SpendLimitCurrency"
+          },
+          "interval": {
+            "$ref": "#/components/schemas/SpendLimitInterval"
+          },
+          "enforcement": {
+            "$ref": "#/components/schemas/SpendLimitEnforcement"
+          }
+        },
+        "description": "Represents a hard spend limit configured at the organization level."
+      },
+      "UpdateOrganizationSpendLimitBody": {
+        "required": [
+          "threshold_amount",
+          "currency",
+          "interval"
+        ],
+        "type": "object",
+        "properties": {
+          "threshold_amount": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The hard spend limit amount, in cents."
+          },
+          "currency": {
+            "$ref": "#/components/schemas/UpdateOrganizationSpendLimitBodyCurrency"
+          },
+          "interval": {
+            "$ref": "#/components/schemas/UpdateOrganizationSpendLimitBodyInterval"
+          }
+        },
+        "description": "Parameters for the hard spend limit you want to create or replace."
+      },
+      "OrganizationSpendLimitDeletedResource": {
+        "required": [
+          "object",
+          "deleted"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/OrganizationSpendLimitDeletedResourceObject"
+          },
+          "deleted": {
+            "type": "boolean",
+            "description": "Whether the hard spend limit was deleted."
+          }
+        },
+        "description": "Confirmation payload returned after deleting an organization hard spend limit."
+      },
+      "ProjectSpendLimitResource": {
+        "required": [
+          "object",
+          "threshold_amount",
+          "currency",
+          "interval",
+          "enforcement"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/ProjectSpendLimitResourceObject"
+          },
+          "threshold_amount": {
+            "type": "integer",
+            "description": "The hard spend limit amount, in cents."
+          },
+          "currency": {
+            "$ref": "#/components/schemas/SpendLimitCurrency"
+          },
+          "interval": {
+            "$ref": "#/components/schemas/SpendLimitInterval"
+          },
+          "enforcement": {
+            "$ref": "#/components/schemas/SpendLimitEnforcement"
+          }
+        },
+        "description": "Represents a hard spend limit configured at the project level."
+      },
+      "UpdateProjectSpendLimitBody": {
+        "required": [
+          "threshold_amount",
+          "currency",
+          "interval"
+        ],
+        "type": "object",
+        "properties": {
+          "threshold_amount": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The hard spend limit amount, in cents."
+          },
+          "currency": {
+            "$ref": "#/components/schemas/UpdateProjectSpendLimitBodyCurrency"
+          },
+          "interval": {
+            "$ref": "#/components/schemas/UpdateProjectSpendLimitBodyInterval"
+          }
+        },
+        "description": "Parameters for the hard spend limit you want to create or replace."
+      },
+      "ProjectSpendLimitDeletedResource": {
+        "required": [
+          "object",
+          "deleted"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/ProjectSpendLimitDeletedResourceObject"
+          },
+          "deleted": {
+            "type": "boolean",
+            "description": "Whether the hard spend limit was deleted."
+          }
+        },
+        "description": "Confirmation payload returned after deleting a project hard spend limit."
       },
       "CreateProjectServiceAccountApiKeyBody": {
         "type": "object",
@@ -53243,15 +53591,10 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
-            "type": "string",
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
-            "example": "safety-identifier-1234"
+            "$ref": "#/components/schemas/BetaModelResponsePropertiesSafetyIdentifier"
           },
           "prompt_cache_key": {
-            "type": "string",
-            "description": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the \u0060user\u0060 field. [Learn more](/docs/guides/prompt-caching).\n",
-            "example": "prompt-cache-key-1234"
+            "$ref": "#/components/schemas/BetaModelResponsePropertiesPromptCacheKey"
           },
           "service_tier": {
             "$ref": "#/components/schemas/BetaServiceTier"
@@ -53398,7 +53741,8 @@
           "usage": {
             "input_tokens": 328,
             "input_tokens_details": {
-              "cached_tokens": 0
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
             },
             "output_tokens": 52,
             "output_tokens_details": {
@@ -53713,6 +54057,7 @@
           "server_error",
           "rate_limit_exceeded",
           "invalid_prompt",
+          "data_residency_mismatch",
           "bio_policy",
           "vector_store_timeout",
           "invalid_image",
@@ -53748,6 +54093,10 @@
             {
               "value": "invalid_prompt",
               "name": "InvalidPrompt"
+            },
+            {
+              "value": "data_residency_mismatch",
+              "name": "DataResidencyMismatch"
             },
             {
               "value": "bio_policy",
@@ -53934,15 +54283,10 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
-            "type": "string",
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
-            "example": "safety-identifier-1234"
+            "$ref": "#/components/schemas/BetaModelResponsePropertiesSafetyIdentifier"
           },
           "prompt_cache_key": {
-            "type": "string",
-            "description": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the \u0060user\u0060 field. [Learn more](/docs/guides/prompt-caching).\n",
-            "example": "prompt-cache-key-1234"
+            "$ref": "#/components/schemas/BetaModelResponsePropertiesPromptCacheKey"
           },
           "service_tier": {
             "$ref": "#/components/schemas/BetaServiceTier"
@@ -56733,15 +57077,10 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
-            "type": "string",
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
-            "example": "safety-identifier-1234"
+            "$ref": "#/components/schemas/BetaModelResponsePropertiesSafetyIdentifier"
           },
           "prompt_cache_key": {
-            "type": "string",
-            "description": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the \u0060user\u0060 field. [Learn more](/docs/guides/prompt-caching).\n",
-            "example": "prompt-cache-key-1234"
+            "$ref": "#/components/schemas/BetaModelResponsePropertiesPromptCacheKey"
           },
           "service_tier": {
             "$ref": "#/components/schemas/BetaServiceTier"
@@ -61350,6 +61689,28 @@
         "anyOf": [
           {
             "$ref": "#/components/schemas/ModelResponsePropertiesTopPBranch1"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "ModelResponsePropertiesSafetyIdentifier": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ModelResponsePropertiesSafetyIdentifierBranch1"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "ModelResponsePropertiesPromptCacheKey": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ModelResponsePropertiesPromptCacheKeyBranch1"
           },
           {
             "type": "object"
@@ -72989,6 +73350,28 @@
           }
         ]
       },
+      "BetaModelResponsePropertiesSafetyIdentifier": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/BetaModelResponsePropertiesSafetyIdentifierBranch1"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "BetaModelResponsePropertiesPromptCacheKey": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/BetaModelResponsePropertiesPromptCacheKeyBranch1"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
       "BetaModelResponsePropertiesPromptCacheRetention": {
         "type": "object",
         "anyOf": [
@@ -83133,6 +83516,39 @@
           }
         }
       },
+      "SpendLimitCurrencyWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/SpendLimitCurrencyWrapperValue"
+          }
+        }
+      },
+      "SpendLimitIntervalWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/SpendLimitIntervalWrapperValue"
+          }
+        }
+      },
+      "SpendLimitEnforcementStatusWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/SpendLimitEnforcementStatusWrapperValue"
+          }
+        }
+      },
       "VideoModelWrapper": {
         "required": [
           "value"
@@ -84664,6 +85080,39 @@
         }
       },
       "ReasoningModeEnumBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "SpendLimitCurrencyBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "SpendLimitIntervalBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "SpendLimitEnforcementStatusBranch1": {
         "required": [
           "value"
         ],
@@ -86599,6 +87048,33 @@
             "description": "An alternative to sampling with temperature, called nucleus sampling,\nwhere the model considers the results of the tokens with top_p probability\nmass. So 0.1 means only the tokens comprising the top 10% probability mass\nare considered.\n\nWe generally recommend altering this or \u0060temperature\u0060 but not both.\n",
             "default": 1,
             "example": 1
+          }
+        }
+      },
+      "ModelResponsePropertiesSafetyIdentifierBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "maxLength": 64,
+            "type": "string",
+            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+            "example": "safety-identifier-1234"
+          }
+        }
+      },
+      "ModelResponsePropertiesPromptCacheKeyBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the \u0060user\u0060 field. [Learn more](/docs/guides/prompt-caching).\n",
+            "example": "prompt-cache-key-1234"
           }
         }
       },
@@ -91201,6 +91677,33 @@
             "description": "An alternative to sampling with temperature, called nucleus sampling,\nwhere the model considers the results of the tokens with top_p probability\nmass. So 0.1 means only the tokens comprising the top 10% probability mass\nare considered.\n\nWe generally recommend altering this or \u0060temperature\u0060 but not both.\n",
             "default": 1,
             "example": 1
+          }
+        }
+      },
+      "BetaModelResponsePropertiesSafetyIdentifierBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "maxLength": 64,
+            "type": "string",
+            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+            "example": "safety-identifier-1234"
+          }
+        }
+      },
+      "BetaModelResponsePropertiesPromptCacheKeyBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the \u0060user\u0060 field. [Learn more](/docs/guides/prompt-caching).\n",
+            "example": "prompt-cache-key-1234"
           }
         }
       },
@@ -108447,6 +108950,154 @@
           ]
         }
       },
+      "OrganizationSpendLimitResourceObject": {
+        "enum": [
+          "organization.spend_limit"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The object type, which is always \u0060organization.spend_limit\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "OrganizationSpendLimitResourceObject",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "organization.spend_limit",
+              "name": "OrganizationSpendLimit"
+            }
+          ]
+        }
+      },
+      "UpdateOrganizationSpendLimitBodyCurrency": {
+        "enum": [
+          "USD"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The currency for the threshold amount. Currently, only \u0060USD\u0060 is supported.",
+        "x-ms-enum": {
+          "name": "UpdateOrganizationSpendLimitBodyCurrency",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "USD",
+              "name": "Usd"
+            }
+          ]
+        }
+      },
+      "UpdateOrganizationSpendLimitBodyInterval": {
+        "enum": [
+          "month"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The time interval for evaluating spend against the threshold. Currently, only \u0060month\u0060 is supported.",
+        "x-ms-enum": {
+          "name": "UpdateOrganizationSpendLimitBodyInterval",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "month",
+              "name": "Month"
+            }
+          ]
+        }
+      },
+      "OrganizationSpendLimitDeletedResourceObject": {
+        "enum": [
+          "organization.spend_limit.deleted"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The object type, which is always \u0060organization.spend_limit.deleted\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "OrganizationSpendLimitDeletedResourceObject",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "organization.spend_limit.deleted",
+              "name": "OrganizationSpendLimitDeleted"
+            }
+          ]
+        }
+      },
+      "ProjectSpendLimitResourceObject": {
+        "enum": [
+          "project.spend_limit"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The object type, which is always \u0060project.spend_limit\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "ProjectSpendLimitResourceObject",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "project.spend_limit",
+              "name": "ProjectSpendLimit"
+            }
+          ]
+        }
+      },
+      "UpdateProjectSpendLimitBodyCurrency": {
+        "enum": [
+          "USD"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The currency for the threshold amount. Currently, only \u0060USD\u0060 is supported.",
+        "x-ms-enum": {
+          "name": "UpdateProjectSpendLimitBodyCurrency",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "USD",
+              "name": "Usd"
+            }
+          ]
+        }
+      },
+      "UpdateProjectSpendLimitBodyInterval": {
+        "enum": [
+          "month"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The time interval for evaluating spend against the threshold. Currently, only \u0060month\u0060 is supported.",
+        "x-ms-enum": {
+          "name": "UpdateProjectSpendLimitBodyInterval",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "month",
+              "name": "Month"
+            }
+          ]
+        }
+      },
+      "ProjectSpendLimitDeletedResourceObject": {
+        "enum": [
+          "project.spend_limit.deleted"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The object type, which is always \u0060project.spend_limit.deleted\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "ProjectSpendLimitDeletedResourceObject",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "project.spend_limit.deleted",
+              "name": "ProjectSpendLimitDeleted"
+            }
+          ]
+        }
+      },
       "ServiceAccountApiKeyBodyObject": {
         "enum": [
           "organization.project.service_account.api_key"
@@ -117549,7 +118200,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Constrains the verbosity of the model\u0027s response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are \u0060low\u0060, \u0060medium\u0060, and \u0060high\u0060.\n",
+        "description": "Constrains the verbosity of the model\u0027s response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are \u0060low\u0060, \u0060medium\u0060, and \u0060high\u0060. The default is\n\u0060medium\u0060.\n",
         "x-ms-enum": {
           "name": "VerbosityWrapperValue",
           "modelAsString": false,
@@ -117649,6 +118300,62 @@
             {
               "value": "pro",
               "name": "Pro"
+            }
+          ]
+        }
+      },
+      "SpendLimitCurrencyWrapperValue": {
+        "enum": [
+          "USD"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "SpendLimitCurrencyWrapperValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "USD",
+              "name": "Usd"
+            }
+          ]
+        }
+      },
+      "SpendLimitIntervalWrapperValue": {
+        "enum": [
+          "month"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "SpendLimitIntervalWrapperValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "month",
+              "name": "Month"
+            }
+          ]
+        }
+      },
+      "SpendLimitEnforcementStatusWrapperValue": {
+        "enum": [
+          "inactive",
+          "enforcing"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "SpendLimitEnforcementStatusWrapperValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "inactive",
+              "name": "Inactive"
+            },
+            {
+              "value": "enforcing",
+              "name": "Enforcing"
             }
           ]
         }
@@ -117812,7 +118519,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Constrains the verbosity of the model\u0027s response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are \u0060low\u0060, \u0060medium\u0060, and \u0060high\u0060.\n",
+        "description": "Constrains the verbosity of the model\u0027s response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are \u0060low\u0060, \u0060medium\u0060, and \u0060high\u0060. The default is\n\u0060medium\u0060.\n",
         "x-ms-enum": {
           "name": "BetaVerbosityWrapperValue",
           "modelAsString": false,
@@ -120244,7 +120951,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Controls which reasoning items are rendered back to the model on later turns.\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
+        "description": "Controls which reasoning items are rendered back to the model on later turns.\nIf omitted or set to \u0060auto\u0060, the model determines the context mode. The\n\u0060gpt-5.6\u0060 model family defaults to \u0060all_turns\u0060; earlier models default to\n\u0060current_turn\u0060.\n\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
         "x-ms-enum": {
           "name": "ReasoningContextWrapperValue",
           "modelAsString": false,
@@ -120348,7 +121055,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Controls which reasoning items are rendered back to the model on later turns.\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
+        "description": "Controls which reasoning items are rendered back to the model on later turns.\nIf omitted or set to \u0060auto\u0060, the model determines the context mode. The\n\u0060gpt-5.6\u0060 model family defaults to \u0060all_turns\u0060; earlier models default to\n\u0060current_turn\u0060.\n\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
         "x-ms-enum": {
           "name": "BetaReasoningContextWrapperValue",
           "modelAsString": false,

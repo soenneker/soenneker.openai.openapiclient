@@ -9,29 +9,29 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class BetaReasoningContext : IAdditionalDataHolder, IParsable
+    public partial class SpendLimitEnforcementStatusWrapper : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Controls which reasoning items are rendered back to the model on later turns.If omitted or set to `auto`, the model determines the context mode. The`gpt-5.6` model family defaults to `all_turns`; earlier models default to`current_turn`.When returned on a response, this is the effective reasoning context modeused for the response.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContextWrapperValue? Value { get; set; }
+        /// <summary>The value property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcementStatusWrapperValue? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContext"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcementStatusWrapper"/> and sets the default values.
         /// </summary>
-        public BetaReasoningContext()
+        public SpendLimitEnforcementStatusWrapper()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContext"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcementStatusWrapper"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContext CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcementStatusWrapper CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContext();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcementStatusWrapper();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -41,7 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContextWrapperValue>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcementStatusWrapperValue>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContextWrapperValue>("value", Value);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcementStatusWrapperValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

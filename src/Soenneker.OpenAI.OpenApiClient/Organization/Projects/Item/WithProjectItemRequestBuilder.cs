@@ -14,6 +14,7 @@ using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Model_permission
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts;
+using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_limit;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Users;
 using System.Collections.Generic;
 using System.IO;
@@ -77,6 +78,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts.Spend_alertsRequestBuilder Spend_alerts
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts.Spend_alertsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The spend_limit property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_limit.Spend_limitRequestBuilder Spend_limit
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_limit.Spend_limitRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The users property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Users.UsersRequestBuilder Users

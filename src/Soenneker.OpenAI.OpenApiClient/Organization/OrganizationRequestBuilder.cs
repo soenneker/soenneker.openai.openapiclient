@@ -12,6 +12,7 @@ using Soenneker.OpenAI.OpenApiClient.Organization.Invites;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects;
 using Soenneker.OpenAI.OpenApiClient.Organization.Roles;
 using Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts;
+using Soenneker.OpenAI.OpenApiClient.Organization.Spend_limit;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage;
 using Soenneker.OpenAI.OpenApiClient.Organization.Users;
 using System.Collections.Generic;
@@ -75,6 +76,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts.Spend_alertsRequestBuilder Spend_alerts
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts.Spend_alertsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The spend_limit property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Spend_limit.Spend_limitRequestBuilder Spend_limit
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Spend_limit.Spend_limitRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The usage property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.UsageRequestBuilder Usage
