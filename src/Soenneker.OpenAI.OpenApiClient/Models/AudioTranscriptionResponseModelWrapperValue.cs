@@ -12,6 +12,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         Whisper1,
         #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-transcribe")]
+        #pragma warning disable CS1591
+        GptTranscribe,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-live-transcribe")]
+        #pragma warning disable CS1591
+        GptLiveTranscribe,
+        #pragma warning restore CS1591
         [EnumMember(Value = "gpt-4o-mini-transcribe")]
         #pragma warning disable CS1591
         Gpt4OMiniTranscribe,

@@ -13967,6 +13967,21 @@
             "type": "string",
             "description": "The language of the input audio. Supplying the input language in\n[ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (e.g. \u0060en\u0060) format\nwill improve accuracy and latency.\n"
           },
+          "languages": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Possible languages of the input audio, in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format. Supported by \u0060gpt-transcribe\u0060 and \u0060gpt-live-transcribe\u0060.\n"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Words or phrases to guide transcription of the input audio. Supported by \u0060gpt-transcribe\u0060 and \u0060gpt-live-transcribe\u0060.\n"
+          },
           "prompt": {
             "type": "string",
             "description": "An optional text to guide the model\u0027s style or continue a previous audio\nsegment.\nFor \u0060whisper-1\u0060, the [prompt is a list of keywords](/docs/guides/speech-to-text#prompting).\nFor \u0060gpt-4o-transcribe\u0060 models (excluding \u0060gpt-4o-transcribe-diarize\u0060), the prompt is a free text string, for example \u0022expect words related to technology\u0022.\nPrompt is not supported with \u0060gpt-realtime-whisper\u0060 in GA Realtime sessions.\n"
@@ -13985,6 +14000,14 @@
           "language": {
             "type": "string",
             "description": "The language of the input audio.\n"
+          },
+          "languages": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The possible input audio languages configured for transcription, in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format.\n"
           },
           "prompt": {
             "type": "string",
@@ -18854,6 +18877,21 @@
             "type": "string",
             "description": "The language of the input audio. Supplying the input language in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (e.g. \u0060en\u0060) format will improve accuracy and latency.\n"
           },
+          "languages": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Possible languages of the input audio, in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format. Supported by \u0060gpt-transcribe\u0060.\n"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Words or phrases to guide transcription of the input audio. Supported by \u0060gpt-transcribe\u0060.\n"
+          },
           "prompt": {
             "type": "string",
             "description": "An optional text to guide the model\u0027s style or continue a previous audio segment. The [prompt](/docs/guides/speech-to-text#prompting) should match the audio language. This field is not supported when using \u0060gpt-4o-transcribe-diarize\u0060.\n"
@@ -18956,6 +18994,13 @@
           "text": {
             "type": "string",
             "description": "The transcribed text."
+          },
+          "languages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TranscriptionLanguage"
+            },
+            "description": "The languages detected in the audio. Returned by \u0060gpt-transcribe\u0060. An empty array indicates that no language could be reliably detected.\n"
           },
           "logprobs": {
             "type": "array",
@@ -26905,6 +26950,13 @@
             "type": "string",
             "description": "The transcribed text."
           },
+          "languages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TranscriptionLanguage"
+            },
+            "description": "The languages detected in the audio. Returned by \u0060gpt-transcribe\u0060. An empty array indicates that no language could be reliably detected.\n"
+          },
           "logprobs": {
             "$ref": "#/components/schemas/RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedLogprobs"
           },
@@ -29732,6 +29784,13 @@
           "transcript": {
             "type": "string",
             "description": "The transcribed text."
+          },
+          "languages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TranscriptionLanguage"
+            },
+            "description": "The languages detected in the audio. Returned by \u0060gpt-transcribe\u0060. An empty array indicates that no language could be reliably detected.\n"
           },
           "logprobs": {
             "$ref": "#/components/schemas/RealtimeServerEventConversationItemInputAudioTranscriptionCompletedLogprobs"
@@ -36719,6 +36778,13 @@
             "type": "string",
             "description": "The text that was transcribed.\n"
           },
+          "languages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TranscriptionLanguage"
+            },
+            "description": "The languages detected in the audio. Returned by \u0060gpt-transcribe\u0060. An empty array indicates that no language could be reliably detected.\n"
+          },
           "logprobs": {
             "type": "array",
             "items": {
@@ -36913,6 +36979,19 @@
             }
           ]
         }
+      },
+      "TranscriptionLanguage": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "The code of a language detected in the audio."
+          }
+        },
+        "description": "A language detected in transcribed audio."
       },
       "TranscriptionSegment": {
         "required": [
@@ -39050,6 +39129,42 @@
           "example": "{\n  \u0022id\u0022: \u0022evt_abc123\u0022,\n  \u0022type\u0022: \u0022fine_tuning.job.succeeded\u0022,\n  \u0022created_at\u0022: 1719168000,\n  \u0022data\u0022: {\n    \u0022id\u0022: \u0022ftjob_abc123\u0022\n  }\n} \n"
         }
       },
+      "WebhookLiveCallIncoming": {
+        "title": "live.call.incoming",
+        "required": [
+          "created_at",
+          "id",
+          "data",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "created_at": {
+            "type": "integer",
+            "description": "The Unix timestamp (in seconds) of when the event was created.\n",
+            "format": "unixtime"
+          },
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the event.\n"
+          },
+          "data": {
+            "$ref": "#/components/schemas/WebhookLiveCallIncomingData"
+          },
+          "object": {
+            "$ref": "#/components/schemas/WebhookLiveCallIncomingObject"
+          },
+          "type": {
+            "$ref": "#/components/schemas/WebhookLiveCallIncomingType"
+          }
+        },
+        "description": "Sent when an incoming API SIP session is available for Live acceptance. The\nsame pending session can also emit \u0060realtime.call.incoming\u0060; the first\nsuccessful Realtime or Live accept endpoint selects the runtime surface.\n",
+        "x-oaiMeta": {
+          "name": "live.call.incoming",
+          "group": "webhook-events",
+          "example": "{\n  \u0022id\u0022: \u0022evt_abc123\u0022,\n  \u0022type\u0022: \u0022live.call.incoming\u0022,\n  \u0022created_at\u0022: 1719168000,\n  \u0022data\u0022: {\n    \u0022session_id\u0022: \u0022rtc_479a275623b54bdb9b6fbae2f7cbd408\u0022,\n    \u0022sip_headers\u0022: [\n      {\u0022name\u0022: \u0022Max-Forwards\u0022, \u0022value\u0022: \u002263\u0022},\n      {\u0022name\u0022: \u0022CSeq\u0022, \u0022value\u0022: \u0022851287 INVITE\u0022},\n      {\u0022name\u0022: \u0022Content-Type\u0022, \u0022value\u0022: \u0022application/sdp\u0022},\n    ]\n  }\n}\n"
+        }
+      },
       "WebhookRealtimeCallIncoming": {
         "title": "realtime.call.incoming",
         "required": [
@@ -39079,7 +39194,7 @@
             "$ref": "#/components/schemas/WebhookRealtimeCallIncomingType"
           }
         },
-        "description": "Sent when Realtime API Receives a incoming SIP call.\n",
+        "description": "Sent when an incoming API SIP session is available for Realtime acceptance.\nThe same pending session can also emit \u0060live.call.incoming\u0060; the first\nsuccessful Realtime or Live accept endpoint selects the runtime surface.\n",
         "x-oaiMeta": {
           "name": "realtime.call.incoming",
           "group": "webhook-events",
@@ -57409,7 +57524,7 @@
             "$ref": "#/components/schemas/AudioTranscriptionModelWrapper"
           }
         ],
-        "description": "The model to use for transcription. Current options are \u0060whisper-1\u0060, \u0060gpt-4o-mini-transcribe\u0060, \u0060gpt-4o-mini-transcribe-2025-12-15\u0060, \u0060gpt-4o-transcribe\u0060, \u0060gpt-4o-transcribe-diarize\u0060, and \u0060gpt-realtime-whisper\u0060. Use \u0060gpt-4o-transcribe-diarize\u0060 when you need diarization with speaker labels.\n"
+        "description": "The model to use for transcription. Current options are \u0060whisper-1\u0060, \u0060gpt-transcribe\u0060, \u0060gpt-live-transcribe\u0060, \u0060gpt-4o-mini-transcribe\u0060, \u0060gpt-4o-mini-transcribe-2025-12-15\u0060, \u0060gpt-4o-transcribe\u0060, \u0060gpt-4o-transcribe-diarize\u0060, and \u0060gpt-realtime-whisper\u0060. Use \u0060gpt-4o-transcribe-diarize\u0060 when you need diarization with speaker labels.\n"
       },
       "AudioTranscriptionResponseModel": {
         "type": "object",
@@ -57421,7 +57536,7 @@
             "$ref": "#/components/schemas/AudioTranscriptionResponseModelWrapper"
           }
         ],
-        "description": "The model used for transcription. Current options are \u0060whisper-1\u0060, \u0060gpt-4o-mini-transcribe\u0060, \u0060gpt-4o-mini-transcribe-2025-12-15\u0060, \u0060gpt-4o-transcribe\u0060, \u0060gpt-4o-transcribe-diarize\u0060, and \u0060gpt-realtime-whisper\u0060.\n"
+        "description": "The model used for transcription. Current options are \u0060whisper-1\u0060, \u0060gpt-transcribe\u0060, \u0060gpt-live-transcribe\u0060, \u0060gpt-4o-mini-transcribe\u0060, \u0060gpt-4o-mini-transcribe-2025-12-15\u0060, \u0060gpt-4o-transcribe\u0060, \u0060gpt-4o-transcribe-diarize\u0060, and \u0060gpt-realtime-whisper\u0060.\n"
       },
       "AuditLogActorComposed": {
         "required": [
@@ -59502,7 +59617,7 @@
             "$ref": "#/components/schemas/CreateTranscriptionRequestModelWrapper"
           }
         ],
-        "description": "ID of the model to use. The options are \u0060gpt-4o-transcribe\u0060, \u0060gpt-4o-mini-transcribe\u0060, \u0060gpt-4o-mini-transcribe-2025-12-15\u0060, \u0060whisper-1\u0060 (which is powered by our open source Whisper V2 model), and \u0060gpt-4o-transcribe-diarize\u0060.\n",
+        "description": "ID of the model to use. The options are \u0060gpt-transcribe\u0060, \u0060gpt-4o-transcribe\u0060, \u0060gpt-4o-mini-transcribe\u0060, \u0060gpt-4o-mini-transcribe-2025-12-15\u0060, \u0060whisper-1\u0060 (which is powered by our open source Whisper V2 model), and \u0060gpt-4o-transcribe-diarize\u0060.\n",
         "example": "gpt-4o-transcribe",
         "x-oaiTypeLabel": "string"
       },
@@ -80918,6 +81033,27 @@
         },
         "description": "Event data payload.\n"
       },
+      "WebhookLiveCallIncomingData": {
+        "required": [
+          "session_id",
+          "sip_headers"
+        ],
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "description": "The Transceiver \u0060rtc_...\u0060 ID of the pending SIP session. The same\nvalue appears as \u0060call_id\u0060 in \u0060realtime.call.incoming\u0060.\n"
+          },
+          "sip_headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookLiveCallIncomingDataSipHeadersItem"
+            },
+            "description": "Headers from the SIP Invite.\n"
+          }
+        },
+        "description": "Event data payload.\n"
+      },
       "WebhookRealtimeCallIncomingData": {
         "required": [
           "call_id",
@@ -80927,7 +81063,7 @@
         "properties": {
           "call_id": {
             "type": "string",
-            "description": "The unique ID of this call.\n"
+            "description": "The Transceiver \u0060rtc_...\u0060 ID of the pending SIP session. The same\nvalue appears as \u0060session_id\u0060 in \u0060live.call.incoming\u0060.\n"
           },
           "sip_headers": {
             "type": "array",
@@ -82875,6 +83011,24 @@
           }
         },
         "description": "Details on the tool outputs needed for this run to continue."
+      },
+      "WebhookLiveCallIncomingDataSipHeadersItem": {
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the SIP Header.\n"
+          },
+          "value": {
+            "type": "string",
+            "description": "Value of the SIP Header.\n"
+          }
+        },
+        "description": "A header from the SIP Invite.\n"
       },
       "WebhookRealtimeCallIncomingDataSipHeadersItem": {
         "required": [
@@ -92384,6 +92538,14 @@
           "language": {
             "type": "string",
             "description": "The language of the input audio.\n"
+          },
+          "languages": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The possible input audio languages configured for transcription, in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format.\n"
           },
           "prompt": {
             "type": "string",
@@ -106764,6 +106926,44 @@
           ]
         }
       },
+      "WebhookLiveCallIncomingObject": {
+        "enum": [
+          "event"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The object of the event. Always \u0060event\u0060.\n",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "WebhookLiveCallIncomingObject",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "event",
+              "name": "EventValue"
+            }
+          ]
+        }
+      },
+      "WebhookLiveCallIncomingType": {
+        "enum": [
+          "live.call.incoming"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the event. Always \u0060live.call.incoming\u0060.\n",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "WebhookLiveCallIncomingType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "live.call.incoming",
+              "name": "LiveCallIncoming"
+            }
+          ]
+        }
+      },
       "WebhookRealtimeCallIncomingObject": {
         "enum": [
           "event"
@@ -119080,6 +119280,8 @@
       "AudioTranscriptionModelWrapperValue": {
         "enum": [
           "whisper-1",
+          "gpt-transcribe",
+          "gpt-live-transcribe",
           "gpt-4o-mini-transcribe",
           "gpt-4o-mini-transcribe-2025-12-15",
           "gpt-4o-transcribe",
@@ -119095,6 +119297,14 @@
             {
               "value": "whisper-1",
               "name": "Whisper1"
+            },
+            {
+              "value": "gpt-transcribe",
+              "name": "GptTranscribe"
+            },
+            {
+              "value": "gpt-live-transcribe",
+              "name": "GptLiveTranscribe"
             },
             {
               "value": "gpt-4o-mini-transcribe",
@@ -119122,6 +119332,8 @@
       "AudioTranscriptionResponseModelWrapperValue": {
         "enum": [
           "whisper-1",
+          "gpt-transcribe",
+          "gpt-live-transcribe",
           "gpt-4o-mini-transcribe",
           "gpt-4o-mini-transcribe-2025-12-15",
           "gpt-4o-transcribe",
@@ -119137,6 +119349,14 @@
             {
               "value": "whisper-1",
               "name": "Whisper1"
+            },
+            {
+              "value": "gpt-transcribe",
+              "name": "GptTranscribe"
+            },
+            {
+              "value": "gpt-live-transcribe",
+              "name": "GptLiveTranscribe"
             },
             {
               "value": "gpt-4o-mini-transcribe",
@@ -119775,6 +119995,7 @@
       "CreateTranscriptionRequestModelWrapperValue": {
         "enum": [
           "whisper-1",
+          "gpt-transcribe",
           "gpt-4o-transcribe",
           "gpt-4o-mini-transcribe",
           "gpt-4o-mini-transcribe-2025-12-15",
@@ -119790,6 +120011,10 @@
             {
               "value": "whisper-1",
               "name": "Whisper1"
+            },
+            {
+              "value": "gpt-transcribe",
+              "name": "GptTranscribe"
             },
             {
               "value": "gpt-4o-transcribe",

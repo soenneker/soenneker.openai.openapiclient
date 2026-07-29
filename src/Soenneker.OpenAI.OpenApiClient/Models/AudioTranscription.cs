@@ -16,6 +16,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Controls how long the model waits before emitting transcription text.Higher values can improve transcription accuracy at the cost of latency.Only supported with `gpt-realtime-whisper` in GA Realtime sessions.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionDelay? Delay { get; set; }
+        /// <summary>Words or phrases to guide transcription of the input audio. Supported by `gpt-transcribe` and `gpt-live-transcribe`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Keywords { get; set; }
+#nullable restore
+#else
+        public List<string> Keywords { get; set; }
+#endif
         /// <summary>The language of the input audio. Supplying the input language in[ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (e.g. `en`) formatwill improve accuracy and latency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,7 +32,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Language { get; set; }
 #endif
-        /// <summary>The model to use for transcription. Current options are `whisper-1`, `gpt-4o-mini-transcribe`, `gpt-4o-mini-transcribe-2025-12-15`, `gpt-4o-transcribe`, `gpt-4o-transcribe-diarize`, and `gpt-realtime-whisper`. Use `gpt-4o-transcribe-diarize` when you need diarization with speaker labels.</summary>
+        /// <summary>Possible languages of the input audio, in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format. Supported by `gpt-transcribe` and `gpt-live-transcribe`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Languages { get; set; }
+#nullable restore
+#else
+        public List<string> Languages { get; set; }
+#endif
+        /// <summary>The model to use for transcription. Current options are `whisper-1`, `gpt-transcribe`, `gpt-live-transcribe`, `gpt-4o-mini-transcribe`, `gpt-4o-mini-transcribe-2025-12-15`, `gpt-4o-transcribe`, `gpt-4o-transcribe-diarize`, and `gpt-realtime-whisper`. Use `gpt-4o-transcribe-diarize` when you need diarization with speaker labels.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionModel? Model { get; set; }
@@ -66,7 +82,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "delay", n => { Delay = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionDelay>(); } },
+                { "keywords", n => { Keywords = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
+                { "languages", n => { Languages = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionModel>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionModel.CreateFromDiscriminatorValue); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
             };
@@ -79,7 +97,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionDelay>("delay", Delay);
+            writer.WriteCollectionOfPrimitiveValues<string>("keywords", Keywords);
             writer.WriteStringValue("language", Language);
+            writer.WriteCollectionOfPrimitiveValues<string>("languages", Languages);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionModel>("model", Model);
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteAdditionalData(AdditionalData);

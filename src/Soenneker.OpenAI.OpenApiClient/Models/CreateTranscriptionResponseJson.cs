@@ -15,6 +15,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The languages detected in the audio. Returned by `gpt-transcribe`. An empty array indicates that no language could be reliably detected.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionLanguage>? Languages { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionLanguage> Languages { get; set; }
+#endif
         /// <summary>The log probabilities of the tokens in the transcription. Only returned with the models `gpt-4o-transcribe` and `gpt-4o-mini-transcribe` if `logprobs` is added to the `include` array.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "languages", n => { Languages = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionLanguage>(global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionLanguage.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "logprobs", n => { Logprobs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJsonLogprobsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJsonLogprobsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJsonUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJsonUsage.CreateFromDiscriminatorValue); } },
@@ -76,6 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionLanguage>("languages", Languages);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJsonLogprobsItem>("logprobs", Logprobs);
             writer.WriteStringValue("text", Text);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJsonUsage>("usage", Usage);

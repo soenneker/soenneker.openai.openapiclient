@@ -22,7 +22,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Language { get; set; }
 #endif
-        /// <summary>The model used for transcription. Current options are `whisper-1`, `gpt-4o-mini-transcribe`, `gpt-4o-mini-transcribe-2025-12-15`, `gpt-4o-transcribe`, `gpt-4o-transcribe-diarize`, and `gpt-realtime-whisper`.</summary>
+        /// <summary>The possible input audio languages configured for transcription, in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Languages { get; set; }
+#nullable restore
+#else
+        public List<string> Languages { get; set; }
+#endif
+        /// <summary>The model used for transcription. Current options are `whisper-1`, `gpt-transcribe`, `gpt-live-transcribe`, `gpt-4o-mini-transcribe`, `gpt-4o-mini-transcribe-2025-12-15`, `gpt-4o-transcribe`, `gpt-4o-transcribe-diarize`, and `gpt-realtime-whisper`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponseModel? Model { get; set; }
@@ -64,6 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "language", n => { Language = n.GetStringValue(); } },
+                { "languages", n => { Languages = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponseModel>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponseModel.CreateFromDiscriminatorValue); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
             };
@@ -76,6 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("language", Language);
+            writer.WriteCollectionOfPrimitiveValues<string>("languages", Languages);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponseModel>("model", Model);
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteAdditionalData(AdditionalData);
