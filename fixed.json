@@ -118360,11 +118360,12 @@
           "default",
           "flex",
           "scale",
-          "priority"
+          "priority",
+          "fast"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Specifies the processing type used for serving the request.\n  - If set to \u0027auto\u0027, then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use \u0027default\u0027.\n  - If set to \u0027default\u0027, then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to \u0027[flex](/docs/guides/flex-processing)\u0027 or \u0027[priority](https://openai.com/api-priority-processing/)\u0027, then the request will be processed with the corresponding service tier.\n  - When not set, the default behavior is \u0027auto\u0027.\n\n  When the \u0060service_tier\u0060 parameter is set, the response body will include the \u0060service_tier\u0060 value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+        "description": "Specifies the processing type used for serving the request.\n  - If set to \u0027auto\u0027, then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use \u0027default\u0027.\n  - If set to \u0027default\u0027, then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to \u0027[flex](/docs/guides/flex-processing)\u0027, then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the \u0060service_tier=fast\u0060 or \u0060service_tier=priority\u0060 parameter for Responses or Chat Completions. The response will show \u0060service_tier=priority\u0060 regardless of if you specify \u0060service_tier=fast\u0060 or \u0060priority\u0060 in your request.\n  - When not set, the default behavior is \u0027auto\u0027.\n\n  When the \u0060service_tier\u0060 parameter is set, the response body will include the \u0060service_tier\u0060 value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
         "x-ms-enum": {
           "name": "ServiceTierWrapperValue",
           "modelAsString": false,
@@ -118388,6 +118389,10 @@
             {
               "value": "priority",
               "name": "Priority"
+            },
+            {
+              "value": "fast",
+              "name": "Fast"
             }
           ]
         }
@@ -119245,11 +119250,12 @@
           "default",
           "flex",
           "scale",
-          "priority"
+          "priority",
+          "fast"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Specifies the processing type used for serving the request.\n  - If set to \u0027auto\u0027, then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use \u0027default\u0027.\n  - If set to \u0027default\u0027, then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to \u0027[flex](/docs/guides/flex-processing)\u0027 or \u0027[priority](https://openai.com/api-priority-processing/)\u0027, then the request will be processed with the corresponding service tier.\n  - When not set, the default behavior is \u0027auto\u0027.\n\n  When the \u0060service_tier\u0060 parameter is set, the response body will include the \u0060service_tier\u0060 value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+        "description": "Specifies the processing type used for serving the request.\n  - If set to \u0027auto\u0027, then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use \u0027default\u0027.\n  - If set to \u0027default\u0027, then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to \u0027[flex](/docs/guides/flex-processing)\u0027, then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the \u0060service_tier=fast\u0060 or \u0060service_tier=priority\u0060 parameter for Responses or Chat Completions. The response will show \u0060service_tier=priority\u0060 regardless of if you specify \u0060service_tier=fast\u0060 or \u0060priority\u0060 in your request.\n  - When not set, the default behavior is \u0027auto\u0027.\n\n  When the \u0060service_tier\u0060 parameter is set, the response body will include the \u0060service_tier\u0060 value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
         "x-ms-enum": {
           "name": "BetaServiceTierWrapperValue",
           "modelAsString": false,
@@ -119273,6 +119279,10 @@
             {
               "value": "priority",
               "name": "Priority"
+            },
+            {
+              "value": "fast",
+              "name": "Fast"
             }
           ]
         }
