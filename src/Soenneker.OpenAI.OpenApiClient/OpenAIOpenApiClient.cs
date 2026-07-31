@@ -12,6 +12,7 @@ using Soenneker.OpenAI.OpenApiClient.Chat;
 using Soenneker.OpenAI.OpenApiClient.Chatkit;
 using Soenneker.OpenAI.OpenApiClient.Completions;
 using Soenneker.OpenAI.OpenApiClient.Containers;
+using Soenneker.OpenAI.OpenApiClient.Content_provenance_checks;
 using Soenneker.OpenAI.OpenApiClient.Conversations;
 using Soenneker.OpenAI.OpenApiClient.Embeddings;
 using Soenneker.OpenAI.OpenApiClient.Evals;
@@ -71,6 +72,11 @@ namespace Soenneker.OpenAI.OpenApiClient
         public global::Soenneker.OpenAI.OpenApiClient.Containers.ContainersRequestBuilder Containers
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Containers.ContainersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The content_provenance_checks property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Content_provenance_checks.Content_provenance_checksRequestBuilder Content_provenance_checks
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Content_provenance_checks.Content_provenance_checksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The conversations property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Conversations.ConversationsRequestBuilder Conversations

@@ -16,6 +16,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         DefaultValue,
         #pragma warning restore CS1591
+        [EnumMember(Value = "fast")]
+        #pragma warning disable CS1591
+        Fast,
+        #pragma warning restore CS1591
         [EnumMember(Value = "flex")]
         #pragma warning disable CS1591
         Flex,

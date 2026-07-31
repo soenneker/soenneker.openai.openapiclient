@@ -5,28 +5,24 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum ServiceTierEnum
+    public enum C2PaValidationStateApi
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "auto")]
+        [EnumMember(Value = "trusted")]
         #pragma warning disable CS1591
-        Auto,
+        Trusted,
         #pragma warning restore CS1591
-        [EnumMember(Value = "default")]
+        [EnumMember(Value = "valid")]
         #pragma warning disable CS1591
-        DefaultValue,
+        Valid,
         #pragma warning restore CS1591
-        [EnumMember(Value = "fast")]
+        [EnumMember(Value = "invalid")]
         #pragma warning disable CS1591
-        Fast,
+        Invalid,
         #pragma warning restore CS1591
-        [EnumMember(Value = "flex")]
+        [EnumMember(Value = "not_present")]
         #pragma warning disable CS1591
-        Flex,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "priority")]
-        #pragma warning disable CS1591
-        Priority,
+        NotPresent,
         #pragma warning restore CS1591
     }
 }
