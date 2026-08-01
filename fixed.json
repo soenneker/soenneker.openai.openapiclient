@@ -41,7 +41,7 @@
             "content": {
               "application/octet-stream": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateSpeech200ResponseResponseOctetStream"
+                  "$ref": "#/components/schemas/CreateSpeech200OctetStreamResponseSchema"
                 }
               },
               "text/event-stream": {
@@ -870,7 +870,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DefaultResponse"
+                  "$ref": "#/components/schemas/DeleteContainer204Response"
                 }
               }
             }
@@ -1037,7 +1037,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DefaultResponseResponseJson"
+                  "$ref": "#/components/schemas/DeleteContainerFile204Response"
                 }
               }
             }
@@ -1074,7 +1074,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DefaultResponseResponseJson2"
+                  "$ref": "#/components/schemas/RetrieveContainerFileContent200Response"
                 }
               }
             }
@@ -2060,7 +2060,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DownloadFile200ResponseResponseJson"
+                  "$ref": "#/components/schemas/DownloadFile200ResponseSchema"
                 }
               }
             }
@@ -9076,7 +9076,7 @@
             "content": {
               "application/sdp": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRealtimeCall201ResponseResponseSdp"
+                  "$ref": "#/components/schemas/CreateRealtimeCall201SdpResponseSchema"
                 }
               }
             }
@@ -9118,7 +9118,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DefaultResponseResponseJson3"
+                  "$ref": "#/components/schemas/AcceptRealtimeCall201Response"
                 }
               }
             }
@@ -9150,7 +9150,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DefaultResponseResponseJson4"
+                  "$ref": "#/components/schemas/HangupRealtimeCall201Response"
                 }
               }
             }
@@ -9192,7 +9192,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DefaultResponseResponseJson5"
+                  "$ref": "#/components/schemas/ReferRealtimeCall201Response"
                 }
               }
             }
@@ -9234,7 +9234,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DefaultResponseResponseJson6"
+                  "$ref": "#/components/schemas/RejectRealtimeCall201Response"
                 }
               }
             }
@@ -12040,17 +12040,17 @@
             "content": {
               "video/mp4": {
                 "schema": {
-                  "$ref": "#/components/schemas/RetrieveVideoContent200ResponseResponseMp4"
+                  "$ref": "#/components/schemas/RetrieveVideoContent200Mp4ResponseSchema"
                 }
               },
               "image/webp": {
                 "schema": {
-                  "$ref": "#/components/schemas/RetrieveVideoContent200ResponseResponseWebp2"
+                  "$ref": "#/components/schemas/RetrieveVideoContent200WebpResponseSchema"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RetrieveVideoContent200ResponseResponseJson2"
+                  "$ref": "#/components/schemas/RetrieveVideoContent200ResponseSchema"
                 }
               }
             }
@@ -12371,12 +12371,12 @@
             "content": {
               "application/zip": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetSkillContent200ResponseResponseZip"
+                  "$ref": "#/components/schemas/GetSkillContent200ZipResponseSchema"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetSkillContent200ResponseResponseJson2"
+                  "$ref": "#/components/schemas/GetSkillContent200ResponseSchema"
                 }
               }
             }
@@ -12608,12 +12608,12 @@
             "content": {
               "application/zip": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetSkillVersionContent200ResponseResponseZip"
+                  "$ref": "#/components/schemas/GetSkillVersionContent200ZipResponseSchema"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetSkillVersionContent200ResponseResponseJson2"
+                  "$ref": "#/components/schemas/GetSkillVersionContent200ResponseSchema"
                 }
               }
             }
@@ -83454,7 +83454,7 @@
         },
         "description": "Configuration for input audio noise reduction.\n"
       },
-      "CreateSpeech200Response": {
+      "CreateSpeech200OctetStreamResponse": {
         "type": "string",
         "format": "binary"
       },
@@ -83637,33 +83637,33 @@
           }
         }
       },
-      "CreateRealtimeCall201Response": {
+      "CreateRealtimeCall201SdpResponse": {
         "type": "string",
         "description": "SDP answer produced by OpenAI for the peer connection."
       },
+      "RetrieveVideoContent200Mp4Response": {
+        "type": "string",
+        "format": "binary"
+      },
+      "RetrieveVideoContent200WebpResponse": {
+        "type": "string",
+        "format": "binary"
+      },
       "RetrieveVideoContent200Response": {
-        "type": "string",
-        "format": "binary"
-      },
-      "RetrieveVideoContent200ResponseResponseWebp": {
-        "type": "string",
-        "format": "binary"
-      },
-      "RetrieveVideoContent200ResponseResponseJson": {
         "type": "string"
+      },
+      "GetSkillContent200ZipResponse": {
+        "type": "string",
+        "format": "binary"
       },
       "GetSkillContent200Response": {
-        "type": "string",
-        "format": "binary"
-      },
-      "GetSkillContent200ResponseResponseJson": {
         "type": "string"
       },
-      "GetSkillVersionContent200Response": {
+      "GetSkillVersionContent200ZipResponse": {
         "type": "string",
         "format": "binary"
       },
-      "GetSkillVersionContent200ResponseResponseJson": {
+      "GetSkillVersionContent200Response": {
         "type": "string"
       },
       "AssistantsApiResponseFormatOptionWrapper": {
@@ -92773,79 +92773,79 @@
           }
         }
       },
-      "CreateSpeech200ResponseResponseOctetStream": {
+      "CreateSpeech200OctetStreamResponseSchema": {
         "type": "string",
         "format": "binary"
       },
-      "DefaultResponse": {
+      "DeleteContainer204Response": {
         "title": "DefaultResponse",
         "type": "object",
         "description": "Default response schema"
       },
-      "DefaultResponseResponseJson": {
+      "DeleteContainerFile204Response": {
         "title": "DefaultResponse",
         "type": "object",
         "description": "Default response schema"
       },
-      "DefaultResponseResponseJson2": {
+      "RetrieveContainerFileContent200Response": {
         "title": "DefaultResponse",
         "type": "object",
         "description": "Default response schema"
       },
-      "DownloadFile200ResponseResponseJson": {
+      "DownloadFile200ResponseSchema": {
         "type": "string"
       },
       "CreateRealtimeCallSdpRequestRequestBody": {
         "type": "string",
         "description": "WebRTC SDP offer. Use this variant when you have previously created an\nephemeral **session token** and are authenticating the request with it.\nRealtime session parameters will be retrieved from the session token."
       },
-      "CreateRealtimeCall201ResponseResponseSdp": {
+      "CreateRealtimeCall201SdpResponseSchema": {
         "type": "string",
         "description": "SDP answer produced by OpenAI for the peer connection."
       },
-      "DefaultResponseResponseJson3": {
+      "AcceptRealtimeCall201Response": {
         "title": "DefaultResponse",
         "type": "object",
         "description": "Default response schema"
       },
-      "DefaultResponseResponseJson4": {
+      "HangupRealtimeCall201Response": {
         "title": "DefaultResponse",
         "type": "object",
         "description": "Default response schema"
       },
-      "DefaultResponseResponseJson5": {
+      "ReferRealtimeCall201Response": {
         "title": "DefaultResponse",
         "type": "object",
         "description": "Default response schema"
       },
-      "DefaultResponseResponseJson6": {
+      "RejectRealtimeCall201Response": {
         "title": "DefaultResponse",
         "type": "object",
         "description": "Default response schema"
       },
-      "RetrieveVideoContent200ResponseResponseMp4": {
+      "RetrieveVideoContent200Mp4ResponseSchema": {
         "type": "string",
         "format": "binary"
       },
-      "RetrieveVideoContent200ResponseResponseWebp2": {
+      "RetrieveVideoContent200WebpResponseSchema": {
         "type": "string",
         "format": "binary"
       },
-      "RetrieveVideoContent200ResponseResponseJson2": {
+      "RetrieveVideoContent200ResponseSchema": {
         "type": "string"
       },
-      "GetSkillContent200ResponseResponseZip": {
+      "GetSkillContent200ZipResponseSchema": {
         "type": "string",
         "format": "binary"
       },
-      "GetSkillContent200ResponseResponseJson2": {
+      "GetSkillContent200ResponseSchema": {
         "type": "string"
       },
-      "GetSkillVersionContent200ResponseResponseZip": {
+      "GetSkillVersionContent200ZipResponseSchema": {
         "type": "string",
         "format": "binary"
       },
-      "GetSkillVersionContent200ResponseResponseJson2": {
+      "GetSkillVersionContent200ResponseSchema": {
         "type": "string"
       },
       "RealtimeTurnDetectionRealtimeTurnDetection": {

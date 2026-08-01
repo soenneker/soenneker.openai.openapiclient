@@ -36,20 +36,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.Hangup
         /// <summary>
         /// End an active Realtime API call, whether it was initiated over SIP orWebRTC.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.DefaultResponseResponseJson4"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.HangupRealtimeCall201Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.DefaultResponseResponseJson4?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.HangupRealtimeCall201Response?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.DefaultResponseResponseJson4> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.HangupRealtimeCall201Response> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.DefaultResponseResponseJson4>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.DefaultResponseResponseJson4.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.HangupRealtimeCall201Response>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.HangupRealtimeCall201Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// End an active Realtime API call, whether it was initiated over SIP orWebRTC.
