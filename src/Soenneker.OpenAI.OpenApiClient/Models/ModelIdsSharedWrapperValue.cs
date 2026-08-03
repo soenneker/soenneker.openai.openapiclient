@@ -20,6 +20,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         Gpt56Luna,
         #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-5.5")]
+        #pragma warning disable CS1591
+        Gpt55,
+        #pragma warning restore CS1591
         [EnumMember(Value = "gpt-5.4")]
         #pragma warning disable CS1591
         Gpt54,
