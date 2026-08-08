@@ -17,21 +17,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The detail property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageDetail? Detail { get; set; }
-        /// <summary>The file_id property</summary>
+        /// <summary>The ID of the file to be sent to the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentFileId? FileId { get; set; }
+        public string? FileId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentFileId FileId { get; set; }
+        public string FileId { get; set; }
 #endif
-        /// <summary>The image_url property</summary>
+        /// <summary>The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentImageUrl? ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentImageUrl ImageUrl { get; set; }
+        public string ImageUrl { get; set; }
 #endif
         /// <summary>Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request&apos;s `prompt_cache_options.ttl`; the boundary is not rounded to a token block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,8 +69,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "detail", n => { Detail = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageDetail>(); } },
-                { "file_id", n => { FileId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentFileId>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentFileId.CreateFromDiscriminatorValue); } },
-                { "image_url", n => { ImageUrl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentImageUrl>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentImageUrl.CreateFromDiscriminatorValue); } },
+                { "file_id", n => { FileId = n.GetStringValue(); } },
+                { "image_url", n => { ImageUrl = n.GetStringValue(); } },
                 { "prompt_cache_breakpoint", n => { PromptCacheBreakpoint = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentType>(); } },
             };
@@ -83,8 +83,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageDetail>("detail", Detail);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentFileId>("file_id", FileId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentImageUrl>("image_url", ImageUrl);
+            writer.WriteStringValue("file_id", FileId);
+            writer.WriteStringValue("image_url", ImageUrl);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig>("prompt_cache_breakpoint", PromptCacheBreakpoint);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

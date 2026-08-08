@@ -12,14 +12,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class SubmitToolOutputsRunRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The stream property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestStream? Stream { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestStream Stream { get; set; }
-#endif
+        /// <summary>&quot;If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.&quot;</summary>
+        public bool? Stream { get; set; }
         /// <summary>A list of tools for which the outputs are being submitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -46,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "stream", n => { Stream = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestStream>(global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestStream.CreateFromDiscriminatorValue); } },
+                { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "tool_outputs", n => { ToolOutputs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -57,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestStream>("stream", Stream);
+            writer.WriteBoolValue("stream", Stream);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem>("tool_outputs", ToolOutputs);
         }
     }

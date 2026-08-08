@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// Usage statistics related to the run. This value will be `null` if the run is not in a terminal state (i.e. `in_progress`, `queued`, etc.).
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class RunCompletionUsage : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -20,14 +21,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? PromptTokens { get; set; }
         /// <summary>Total number of tokens used (prompt + completion).</summary>
         public int? TotalTokens { get; set; }
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunCompletionUsage"/> and sets the default values.
         /// </summary>
@@ -56,7 +49,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "completion_tokens", n => { CompletionTokens = n.GetIntValue(); } },
                 { "prompt_tokens", n => { PromptTokens = n.GetIntValue(); } },
                 { "total_tokens", n => { TotalTokens = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -69,7 +61,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("completion_tokens", CompletionTokens);
             writer.WriteIntValue("prompt_tokens", PromptTokens);
             writer.WriteIntValue("total_tokens", TotalTokens);
-            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

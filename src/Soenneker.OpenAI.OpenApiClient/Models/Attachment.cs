@@ -39,13 +39,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The preview_url property</summary>
+        /// <summary>Preview URL for rendering the attachment inline.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentPreviewUrl? PreviewUrl { get; set; }
+        public string? PreviewUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentPreviewUrl PreviewUrl { get; set; }
+        public string PreviewUrl { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentType? Type { get; set; }
@@ -77,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "mime_type", n => { MimeType = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "preview_url", n => { PreviewUrl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentPreviewUrl>(global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentPreviewUrl.CreateFromDiscriminatorValue); } },
+                { "preview_url", n => { PreviewUrl = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentType>(); } },
             };
         }
@@ -91,7 +91,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("mime_type", MimeType);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentPreviewUrl>("preview_url", PreviewUrl);
+            writer.WriteStringValue("preview_url", PreviewUrl);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

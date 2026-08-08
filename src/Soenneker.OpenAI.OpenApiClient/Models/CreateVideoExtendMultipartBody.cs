@@ -24,13 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Prompt { get; set; }
 #endif
         /// <summary>The seconds property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Seconds { get; set; }
-#nullable restore
-#else
-        public string Seconds { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds? Seconds { get; set; }
         /// <summary>The video property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
-                { "seconds", n => { Seconds = n.GetStringValue(); } },
+                { "seconds", n => { Seconds = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds>(); } },
                 { "video", n => { Video = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideo>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideo.CreateFromDiscriminatorValue); } },
             };
         }
@@ -77,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("prompt", Prompt);
-            writer.WriteStringValue("seconds", Seconds);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds>("seconds", Seconds);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideo>("video", Video);
             writer.WriteAdditionalData(AdditionalData);
         }

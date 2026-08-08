@@ -69,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? MaxCompletionTokens { get; set; }
         /// <summary>The maximum number of prompt tokens specified to have been used over the course of the run.</summary>
         public int? MaxPromptTokens { get; set; }
-        /// <summary>The metadata property</summary>
+        /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
@@ -145,7 +145,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy TruncationStrategy { get; set; }
 #endif
-        /// <summary>The usage property</summary>
+        /// <summary>Usage statistics related to the run. This value will be `null` if the run is not in a terminal state (i.e. `in_progress`, `queued`, etc.).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunCompletionUsage? Usage { get; set; }

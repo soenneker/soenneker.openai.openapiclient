@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// A dictionary of moderation categories to booleans, true if the input is flagged under this category.
+    /// A dictionary of moderation categories to booleans, True if the input is flagged under this category.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaModerationResultBodyCategoriesProperty : IAdditionalDataHolder, IParsable

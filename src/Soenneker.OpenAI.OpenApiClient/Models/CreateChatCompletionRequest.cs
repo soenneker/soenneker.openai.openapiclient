@@ -101,14 +101,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Number between -2.0 and 2.0. Positive values penalize new tokens based onwhether they appear in the text so far, increasing the model&apos;s likelihoodto talk about new topics.</summary>
         public double? PresencePenalty { get; set; }
-        /// <summary>The reasoning_effort property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Constrains effort on reasoning for reasoning models. Currently supportedvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.Reducing reasoning effort can result in faster responses and fewer tokensused on reasoning in a response. Not all reasoning models support everyvalue. See the[reasoning guide](https://platform.openai.com/docs/guides/reasoning)for model-specific support.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? ReasoningEffort { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort ReasoningEffort { get; set; }
-#endif
         /// <summary>&quot;An object specifying the format that the model must output.Setting to `{ \&quot;type\&quot;: \&quot;json_schema\&quot;, \&quot;json_schema\&quot;: {...} }` enablesStructured Outputs which ensures the model will match your supplied JSONschema. Learn more in the [Structured Outputsguide](/docs/guides/structured-outputs).Setting to `{ \&quot;type\&quot;: \&quot;json_object\&quot; }` enables the older JSON mode, whichensures the message the model generates is valid JSON. Using `json_schema`is preferred for models that support it.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -132,7 +126,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public bool? Store { get; set; }
         /// <summary>If set to true, the model response data will be streamed to the clientas it is generated using [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format).See the [Streaming section below](/docs/api-reference/chat/streaming)for more information, along with the [streaming responses](/docs/guides/streaming-responses)guide for more information on how to handle the streaming events.</summary>
         public bool? Stream { get; set; }
-        /// <summary>The stream_options property</summary>
+        /// <summary>&quot;Options for streaming response. Only set this when you set `stream: true`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions? StreamOptions { get; set; }
@@ -156,14 +150,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ToolsItem> Tools { get; set; }
 #endif
-        /// <summary>The verbosity property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Constrains the verbosity of the model&apos;s response. Lower values will result inmore concise responses, while higher values will result in more verbose responses.Currently supported values are `low`, `medium`, and `high`. The default is`medium`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity? Verbosity { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity Verbosity { get; set; }
-#endif
         /// <summary>This tool searches the web for relevant results to use in a response.Learn more about the [web search tool](/docs/guides/tools-web-search?api-mode=chat).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -218,7 +206,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
                 { "prediction", n => { Prediction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Prediction>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Prediction.CreateFromDiscriminatorValue); } },
                 { "presence_penalty", n => { PresencePenalty = n.GetDoubleValue(); } },
-                { "reasoning_effort", n => { ReasoningEffort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort.CreateFromDiscriminatorValue); } },
+                { "reasoning_effort", n => { ReasoningEffort = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(); } },
                 { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ResponseFormat>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ResponseFormat.CreateFromDiscriminatorValue); } },
                 { "seed", n => { Seed = n.GetIntValue(); } },
                 { "stop", n => { Stop = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration>(global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration.CreateFromDiscriminatorValue); } },
@@ -227,7 +215,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "stream_options", n => { StreamOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions.CreateFromDiscriminatorValue); } },
                 { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOption>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOption.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ToolsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "verbosity", n => { Verbosity = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity>(global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity.CreateFromDiscriminatorValue); } },
+                { "verbosity", n => { Verbosity = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity>(); } },
                 { "web_search_options", n => { WebSearchOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptions.CreateFromDiscriminatorValue); } },
             };
         }
@@ -255,7 +243,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Prediction>("prediction", Prediction);
             writer.WriteDoubleValue("presence_penalty", PresencePenalty);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("reasoning_effort", ReasoningEffort);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("reasoning_effort", ReasoningEffort);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ResponseFormat>("response_format", ResponseFormat);
             writer.WriteIntValue("seed", Seed);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration>("stop", Stop);
@@ -264,7 +252,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions>("stream_options", StreamOptions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOption>("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ToolsItem>("tools", Tools);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity>("verbosity", Verbosity);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity>("verbosity", Verbosity);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptions>("web_search_options", WebSearchOptions);
         }
     }

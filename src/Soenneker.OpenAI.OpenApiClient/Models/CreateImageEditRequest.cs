@@ -54,14 +54,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? OutputCompression { get; set; }
         /// <summary>The format in which the generated images are returned. This parameter isonly supported for the GPT image models. Must be one of `png`, `jpeg`, or `webp`.The default value is `png`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat? OutputFormat { get; set; }
-        /// <summary>The partial_images property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PartialImages? PartialImages { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PartialImages PartialImages { get; set; }
-#endif
+        /// <summary>The number of partial images to generate. This parameter is used forstreaming responses that return partial images. Value must be between 0 and 3.When set to 0, the response will be a single image sent in one streaming event.Note that the final image may be sent before the full number of partial imagesare generated if the full image is generated more quickly.</summary>
+        public int? PartialImages { get; set; }
         /// <summary>A text description of the desired image(s). The maximum length is 1000 characters for `dall-e-2`, and 32000 characters for the GPT image models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,6 +94,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             N = 1;
             OutputCompression = 100;
+            PartialImages = 0;
             Stream = false;
         }
         /// <summary>
@@ -128,7 +123,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "n", n => { N = n.GetIntValue(); } },
                 { "output_compression", n => { OutputCompression = n.GetIntValue(); } },
                 { "output_format", n => { OutputFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat>(); } },
-                { "partial_images", n => { PartialImages = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PartialImages>(global::Soenneker.OpenAI.OpenApiClient.Models.PartialImages.CreateFromDiscriminatorValue); } },
+                { "partial_images", n => { PartialImages = n.GetIntValue(); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
                 { "quality", n => { Quality = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality>(); } },
                 { "response_format", n => { ResponseFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat>(); } },
@@ -152,7 +147,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("n", N);
             writer.WriteIntValue("output_compression", OutputCompression);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat>("output_format", OutputFormat);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PartialImages>("partial_images", PartialImages);
+            writer.WriteIntValue("partial_images", PartialImages);
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality>("quality", Quality);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat>("response_format", ResponseFormat);

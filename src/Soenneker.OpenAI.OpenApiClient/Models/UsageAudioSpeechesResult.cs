@@ -15,43 +15,43 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The api_key_id property</summary>
+        /// <summary>When `group_by=api_key_id`, this field provides the API key ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultApiKeyId? ApiKeyId { get; set; }
+        public string? ApiKeyId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultApiKeyId ApiKeyId { get; set; }
+        public string ApiKeyId { get; set; }
 #endif
         /// <summary>The number of characters processed.</summary>
         public int? Characters { get; set; }
-        /// <summary>The model property</summary>
+        /// <summary>When `group_by=model`, this field provides the model name of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultModel? Model { get; set; }
+        public string? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultModel Model { get; set; }
+        public string Model { get; set; }
 #endif
         /// <summary>The count of requests made to the model.</summary>
         public int? NumModelRequests { get; set; }
         /// <summary>The object property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultObject? Object { get; set; }
-        /// <summary>The project_id property</summary>
+        /// <summary>When `group_by=project_id`, this field provides the project ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultProjectId? ProjectId { get; set; }
+        public string? ProjectId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultProjectId ProjectId { get; set; }
+        public string ProjectId { get; set; }
 #endif
-        /// <summary>The user_id property</summary>
+        /// <summary>When `group_by=user_id`, this field provides the user ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultUserId? UserId { get; set; }
+        public string? UserId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultUserId UserId { get; set; }
+        public string UserId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResult"/> and sets the default values.
@@ -78,13 +78,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key_id", n => { ApiKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultApiKeyId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultApiKeyId.CreateFromDiscriminatorValue); } },
+                { "api_key_id", n => { ApiKeyId = n.GetStringValue(); } },
                 { "characters", n => { Characters = n.GetIntValue(); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultModel>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultModel.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetStringValue(); } },
                 { "num_model_requests", n => { NumModelRequests = n.GetIntValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultObject>(); } },
-                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultProjectId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultProjectId.CreateFromDiscriminatorValue); } },
-                { "user_id", n => { UserId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultUserId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultUserId.CreateFromDiscriminatorValue); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -94,13 +94,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultApiKeyId>("api_key_id", ApiKeyId);
+            writer.WriteStringValue("api_key_id", ApiKeyId);
             writer.WriteIntValue("characters", Characters);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultModel>("model", Model);
+            writer.WriteStringValue("model", Model);
             writer.WriteIntValue("num_model_requests", NumModelRequests);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultObject>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultProjectId>("project_id", ProjectId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioSpeechesResultUserId>("user_id", UserId);
+            writer.WriteStringValue("project_id", ProjectId);
+            writer.WriteStringValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

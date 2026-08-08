@@ -23,13 +23,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The result property</summary>
+        /// <summary>The generated image encoded in base64.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallResult? Result { get; set; }
+        public string? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallResult Result { get; set; }
+        public string Result { get; set; }
 #endif
         /// <summary>The status of the image generation call.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallStatus? Status { get; set; }
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallResult>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallResult.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallType>(); } },
             };
@@ -74,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallResult>("result", Result);
+            writer.WriteStringValue("result", Result);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

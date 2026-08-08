@@ -23,40 +23,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string AssistantId { get; set; }
 #endif
-        /// <summary>The cancelled_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectCancelledAt? CancelledAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectCancelledAt CancelledAt { get; set; }
-#endif
-        /// <summary>The completed_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectCompletedAt? CompletedAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectCompletedAt CompletedAt { get; set; }
-#endif
+        /// <summary>The Unix timestamp (in seconds) for when the run step was cancelled.</summary>
+        public int? CancelledAt { get; set; }
+        /// <summary>The Unix timestamp (in seconds) for when the run step completed.</summary>
+        public int? CompletedAt { get; set; }
         /// <summary>The Unix timestamp (in seconds) for when the run step was created.</summary>
         public int? CreatedAt { get; set; }
-        /// <summary>The expired_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectExpiredAt? ExpiredAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectExpiredAt ExpiredAt { get; set; }
-#endif
-        /// <summary>The failed_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectFailedAt? FailedAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectFailedAt FailedAt { get; set; }
-#endif
+        /// <summary>The Unix timestamp (in seconds) for when the run step expired. A step is considered expired if the parent run is expired.</summary>
+        public int? ExpiredAt { get; set; }
+        /// <summary>The Unix timestamp (in seconds) for when the run step failed.</summary>
+        public int? FailedAt { get; set; }
         /// <summary>The identifier of the run step, which can be referenced in API endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The last_error property</summary>
+        /// <summary>The last error associated with this run step. Will be `null` if there are no errors.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError? LastError { get; set; }
@@ -73,7 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError LastError { get; set; }
 #endif
-        /// <summary>The metadata property</summary>
+        /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
@@ -111,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The type of run step, which can be either `message_creation` or `tool_calls`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectType? Type { get; set; }
-        /// <summary>The usage property</summary>
+        /// <summary>Usage statistics related to the run step. This value will be `null` while the run step&apos;s status is `in_progress`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepCompletionUsage? Usage { get; set; }
@@ -145,11 +121,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assistant_id", n => { AssistantId = n.GetStringValue(); } },
-                { "cancelled_at", n => { CancelledAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectCancelledAt>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectCancelledAt.CreateFromDiscriminatorValue); } },
-                { "completed_at", n => { CompletedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectCompletedAt>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectCompletedAt.CreateFromDiscriminatorValue); } },
+                { "cancelled_at", n => { CancelledAt = n.GetIntValue(); } },
+                { "completed_at", n => { CompletedAt = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "expired_at", n => { ExpiredAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectExpiredAt>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectExpiredAt.CreateFromDiscriminatorValue); } },
-                { "failed_at", n => { FailedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectFailedAt>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectFailedAt.CreateFromDiscriminatorValue); } },
+                { "expired_at", n => { ExpiredAt = n.GetIntValue(); } },
+                { "failed_at", n => { FailedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_error", n => { LastError = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
@@ -170,11 +146,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("assistant_id", AssistantId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectCancelledAt>("cancelled_at", CancelledAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectCompletedAt>("completed_at", CompletedAt);
+            writer.WriteIntValue("cancelled_at", CancelledAt);
+            writer.WriteIntValue("completed_at", CompletedAt);
             writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectExpiredAt>("expired_at", ExpiredAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectFailedAt>("failed_at", FailedAt);
+            writer.WriteIntValue("expired_at", ExpiredAt);
+            writer.WriteIntValue("failed_at", FailedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError>("last_error", LastError);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);

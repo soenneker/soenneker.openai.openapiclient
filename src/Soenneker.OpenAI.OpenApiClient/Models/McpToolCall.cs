@@ -15,13 +15,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The approval_request_id property</summary>
+        /// <summary>Unique identifier for the MCP tool call approval request.Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallApprovalRequestId? ApprovalRequestId { get; set; }
+        public string? ApprovalRequestId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallApprovalRequestId ApprovalRequestId { get; set; }
+        public string ApprovalRequestId { get; set; }
 #endif
         /// <summary>A JSON string of the arguments passed to the tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,13 +31,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Arguments { get; set; }
 #endif
-        /// <summary>The error property</summary>
+        /// <summary>The error from the tool call, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallError? Error { get; set; }
+        public string? Error { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallError Error { get; set; }
+        public string Error { get; set; }
 #endif
         /// <summary>The unique ID of the tool call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,13 +55,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The output property</summary>
+        /// <summary>The output from the tool call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallOutput? Output { get; set; }
+        public string? Output { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallOutput Output { get; set; }
+        public string Output { get; set; }
 #endif
         /// <summary>The label of the MCP server running the tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -100,12 +100,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "approval_request_id", n => { ApprovalRequestId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallApprovalRequestId>(global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallApprovalRequestId.CreateFromDiscriminatorValue); } },
+                { "approval_request_id", n => { ApprovalRequestId = n.GetStringValue(); } },
                 { "arguments", n => { Arguments = n.GetStringValue(); } },
-                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallError>(global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallError.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallOutput>(global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallOutput.CreateFromDiscriminatorValue); } },
+                { "output", n => { Output = n.GetStringValue(); } },
                 { "server_label", n => { ServerLabel = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallType>(); } },
@@ -118,12 +118,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallApprovalRequestId>("approval_request_id", ApprovalRequestId);
+            writer.WriteStringValue("approval_request_id", ApprovalRequestId);
             writer.WriteStringValue("arguments", Arguments);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallError>("error", Error);
+            writer.WriteStringValue("error", Error);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallOutput>("output", Output);
+            writer.WriteStringValue("output", Output);
             writer.WriteStringValue("server_label", ServerLabel);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallType>("type", Type);

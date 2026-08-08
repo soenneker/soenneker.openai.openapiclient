@@ -22,13 +22,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInput Input { get; set; }
 #endif
-        /// <summary>The instructions property</summary>
+        /// <summary>A system (or developer) message inserted into the model&apos;s context.When used along with `previous_response_id`, the instructions from a previous response will not be carried over to the next response. This makes it simple to swap out system (or developer) messages in new responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInstructions? Instructions { get; set; }
+        public string? Instructions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInstructions Instructions { get; set; }
+        public string Instructions { get; set; }
 #endif
         /// <summary>Model ID used to generate the response, like `gpt-5` or `o3`. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](/docs/models) to browse and compare available models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,21 +38,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsCompaction Model { get; set; }
 #endif
-        /// <summary>The previous_response_id property</summary>
+        /// <summary>The unique ID of the previous response to the model. Use this to create multi-turn conversations. Learn more about [conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPreviousResponseId? PreviousResponseId { get; set; }
+        public string? PreviousResponseId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPreviousResponseId PreviousResponseId { get; set; }
+        public string PreviousResponseId { get; set; }
 #endif
-        /// <summary>The prompt_cache_key property</summary>
+        /// <summary>A key to use when reading from or writing to the prompt cache.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheKey? PromptCacheKey { get; set; }
+        public string? PromptCacheKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheKey PromptCacheKey { get; set; }
+        public string PromptCacheKey { get; set; }
 #endif
         /// <summary>The prompt_cache_options property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -104,10 +104,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "input", n => { Input = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInput>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInput.CreateFromDiscriminatorValue); } },
-                { "instructions", n => { Instructions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInstructions>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInstructions.CreateFromDiscriminatorValue); } },
+                { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsCompaction>(global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsCompaction.CreateFromDiscriminatorValue); } },
-                { "previous_response_id", n => { PreviousResponseId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPreviousResponseId>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPreviousResponseId.CreateFromDiscriminatorValue); } },
-                { "prompt_cache_key", n => { PromptCacheKey = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheKey>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheKey.CreateFromDiscriminatorValue); } },
+                { "previous_response_id", n => { PreviousResponseId = n.GetStringValue(); } },
+                { "prompt_cache_key", n => { PromptCacheKey = n.GetStringValue(); } },
                 { "prompt_cache_options", n => { PromptCacheOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheOptions.CreateFromDiscriminatorValue); } },
                 { "prompt_cache_retention", n => { PromptCacheRetention = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheRetention>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheRetention.CreateFromDiscriminatorValue); } },
                 { "service_tier", n => { ServiceTier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyServiceTier>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyServiceTier.CreateFromDiscriminatorValue); } },
@@ -121,10 +121,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInput>("input", Input);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInstructions>("instructions", Instructions);
+            writer.WriteStringValue("instructions", Instructions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsCompaction>("model", Model);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPreviousResponseId>("previous_response_id", PreviousResponseId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheKey>("prompt_cache_key", PromptCacheKey);
+            writer.WriteStringValue("previous_response_id", PreviousResponseId);
+            writer.WriteStringValue("prompt_cache_key", PromptCacheKey);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheOptions>("prompt_cache_options", PromptCacheOptions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyPromptCacheRetention>("prompt_cache_retention", PromptCacheRetention);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyServiceTier>("service_tier", ServiceTier);

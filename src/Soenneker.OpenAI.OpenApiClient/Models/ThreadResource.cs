@@ -35,13 +35,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadResourceStatus Status { get; set; }
 #endif
-        /// <summary>The title property</summary>
+        /// <summary>Optional human-readable title for the thread. Defaults to null when no title has been generated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadResourceTitle? Title { get; set; }
+        public string? Title { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadResourceTitle Title { get; set; }
+        public string Title { get; set; }
 #endif
         /// <summary>Free-form string that identifies your end user who owns the thread.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -80,7 +80,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadResourceObject>(); } },
                 { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadResourceStatus>(global::Soenneker.OpenAI.OpenApiClient.Models.ThreadResourceStatus.CreateFromDiscriminatorValue); } },
-                { "title", n => { Title = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadResourceTitle>(global::Soenneker.OpenAI.OpenApiClient.Models.ThreadResourceTitle.CreateFromDiscriminatorValue); } },
+                { "title", n => { Title = n.GetStringValue(); } },
                 { "user", n => { User = n.GetStringValue(); } },
             };
         }
@@ -95,7 +95,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadResourceObject>("object", Object);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadResourceStatus>("status", Status);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadResourceTitle>("title", Title);
+            writer.WriteStringValue("title", Title);
             writer.WriteStringValue("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -15,13 +15,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The reason property</summary>
+        /// <summary>Reason that the thread was locked. Defaults to null when no reason is recorded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LockedStatusReason? Reason { get; set; }
+        public string? Reason { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LockedStatusReason Reason { get; set; }
+        public string Reason { get; set; }
 #endif
         /// <summary>Status discriminator that is always `locked`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.LockedStatusType? Type { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "reason", n => { Reason = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LockedStatusReason>(global::Soenneker.OpenAI.OpenApiClient.Models.LockedStatusReason.CreateFromDiscriminatorValue); } },
+                { "reason", n => { Reason = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LockedStatusType>(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LockedStatusReason>("reason", Reason);
+            writer.WriteStringValue("reason", Reason);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LockedStatusType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -38,20 +38,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectParameters Parameters { get; set; }
 #endif
-        /// <summary>The strict property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectStrict? Strict { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectStrict Strict { get; set; }
-#endif
+        /// <summary>Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](/docs/guides/function-calling).</summary>
+        public bool? Strict { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject"/> and sets the default values.
         /// </summary>
         public FunctionObject()
         {
             AdditionalData = new Dictionary<string, object>();
+            Strict = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -74,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectParameters>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectParameters.CreateFromDiscriminatorValue); } },
-                { "strict", n => { Strict = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectStrict>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectStrict.CreateFromDiscriminatorValue); } },
+                { "strict", n => { Strict = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -87,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectParameters>("parameters", Parameters);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObjectStrict>("strict", Strict);
+            writer.WriteBoolValue("strict", Strict);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

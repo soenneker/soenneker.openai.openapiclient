@@ -15,31 +15,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The created_after property</summary>
+        /// <summary>Only include items created after this timestamp (inclusive). This is a query parameter used to select responses.</summary>
+        public int? CreatedAfter { get; set; }
+        /// <summary>Only include items created before this timestamp (inclusive). This is a query parameter used to select responses.</summary>
+        public int? CreatedBefore { get; set; }
+        /// <summary>Optional string to search the &apos;instructions&apos; field. This is a query parameter used to select responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedAfter? CreatedAfter { get; set; }
+        public string? InstructionsSearch { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedAfter CreatedAfter { get; set; }
+        public string InstructionsSearch { get; set; }
 #endif
-        /// <summary>The created_before property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedBefore? CreatedBefore { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedBefore CreatedBefore { get; set; }
-#endif
-        /// <summary>The instructions_search property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceInstructionsSearch? InstructionsSearch { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceInstructionsSearch InstructionsSearch { get; set; }
-#endif
-        /// <summary>The metadata property</summary>
+        /// <summary>Metadata filter for the responses. This is a query parameter used to select responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata? Metadata { get; set; }
@@ -47,13 +35,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata Metadata { get; set; }
 #endif
-        /// <summary>The model property</summary>
+        /// <summary>The name of the model to find responses for. This is a query parameter used to select responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceModel? Model { get; set; }
+        public string? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceModel Model { get; set; }
+        public string Model { get; set; }
 #endif
         /// <summary>The reasoning_effort property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,14 +51,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceReasoningEffort ReasoningEffort { get; set; }
 #endif
-        /// <summary>The temperature property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTemperature? Temperature { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTemperature Temperature { get; set; }
-#endif
+        /// <summary>Sampling temperature. This is a query parameter used to select responses.</summary>
+        public double? Temperature { get; set; }
         /// <summary>The tools property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,14 +61,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools Tools { get; set; }
 #endif
-        /// <summary>The top_p property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTopP? TopP { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTopP TopP { get; set; }
-#endif
+        /// <summary>Nucleus sampling parameter. This is a query parameter used to select responses.</summary>
+        public double? TopP { get; set; }
         /// <summary>The type of run data source. Always `responses`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceType? Type { get; set; }
         /// <summary>The users property</summary>
@@ -122,15 +98,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "created_after", n => { CreatedAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedAfter>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedAfter.CreateFromDiscriminatorValue); } },
-                { "created_before", n => { CreatedBefore = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedBefore>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedBefore.CreateFromDiscriminatorValue); } },
-                { "instructions_search", n => { InstructionsSearch = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceInstructionsSearch>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceInstructionsSearch.CreateFromDiscriminatorValue); } },
+                { "created_after", n => { CreatedAfter = n.GetIntValue(); } },
+                { "created_before", n => { CreatedBefore = n.GetIntValue(); } },
+                { "instructions_search", n => { InstructionsSearch = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata.CreateFromDiscriminatorValue); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceModel>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceModel.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetStringValue(); } },
                 { "reasoning_effort", n => { ReasoningEffort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceReasoningEffort>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceReasoningEffort.CreateFromDiscriminatorValue); } },
-                { "temperature", n => { Temperature = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTemperature>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTemperature.CreateFromDiscriminatorValue); } },
+                { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools.CreateFromDiscriminatorValue); } },
-                { "top_p", n => { TopP = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTopP>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTopP.CreateFromDiscriminatorValue); } },
+                { "top_p", n => { TopP = n.GetDoubleValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceType>(); } },
                 { "users", n => { Users = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers.CreateFromDiscriminatorValue); } },
             };
@@ -142,15 +118,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedAfter>("created_after", CreatedAfter);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceCreatedBefore>("created_before", CreatedBefore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceInstructionsSearch>("instructions_search", InstructionsSearch);
+            writer.WriteIntValue("created_after", CreatedAfter);
+            writer.WriteIntValue("created_before", CreatedBefore);
+            writer.WriteStringValue("instructions_search", InstructionsSearch);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata>("metadata", Metadata);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceModel>("model", Model);
+            writer.WriteStringValue("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceReasoningEffort>("reasoning_effort", ReasoningEffort);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTemperature>("temperature", Temperature);
+            writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools>("tools", Tools);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTopP>("top_p", TopP);
+            writer.WriteDoubleValue("top_p", TopP);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers>("users", Users);
             writer.WriteAdditionalData(AdditionalData);

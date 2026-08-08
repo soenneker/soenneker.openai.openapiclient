@@ -14,14 +14,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The last_messages property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObjectLastMessages? LastMessages { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObjectLastMessages LastMessages { get; set; }
-#endif
+        /// <summary>The number of most recent messages from the thread when constructing the context for the run.</summary>
+        public int? LastMessages { get; set; }
         /// <summary>The truncation strategy to use for the thread. The default is `auto`. If set to `last_messages`, the thread will be truncated to the n most recent messages in the thread. When set to `auto`, messages in the middle of the thread will be dropped to fit the context length of the model, `max_prompt_tokens`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObjectType? Type { get; set; }
         /// <summary>
@@ -49,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "last_messages", n => { LastMessages = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObjectLastMessages>(global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObjectLastMessages.CreateFromDiscriminatorValue); } },
+                { "last_messages", n => { LastMessages = n.GetIntValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObjectType>(); } },
             };
         }
@@ -60,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObjectLastMessages>("last_messages", LastMessages);
+            writer.WriteIntValue("last_messages", LastMessages);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObjectType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

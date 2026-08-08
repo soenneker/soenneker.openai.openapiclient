@@ -14,14 +14,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Specify additional output data to include in the model response. Currently supported values are:- `web_search_call.action.sources`: Include the sources of the web search tool call.- `code_interpreter_call.outputs`: Includes the outputs of python code execution in code interpreter tool call items.- `computer_call_output.output.image_url`: Include image urls from the computer call output.- `file_search_call.results`: Include the search results of the file search tool call.- `message.input_image.image_url`: Include image urls from the input message.- `message.output_text.logprobs`: Include logprobs with assistant messages.- `reasoning.encrypted_content`: Includes an encrypted version of reasoning tokens in reasoning item outputs. This enables reasoning items to be used in multi-turn conversations when using the Responses API statelessly (like when the `store` parameter is set to `false`, or when an organization is enrolled in the zero data retention program).&quot;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.IncludeEnum?>? Value { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.IncludeEnum?> Value { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBodyAllOf3Include"/> and sets the default values.
         /// </summary>
@@ -47,7 +39,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.IncludeEnum>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +48,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.IncludeEnum>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The filters property</summary>
+        /// <summary>Filters for the search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFilters? Filters { get; set; }
@@ -27,7 +27,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolSearchContextSize? SearchContextSize { get; set; }
         /// <summary>The type of the web search tool. One of `web_search` or `web_search_2025_08_26`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolType? Type { get; set; }
-        /// <summary>The user_location property</summary>
+        /// <summary>The approximate location of the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchApproximateLocation? UserLocation { get; set; }

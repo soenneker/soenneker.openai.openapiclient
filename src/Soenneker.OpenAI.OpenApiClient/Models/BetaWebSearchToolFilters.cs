@@ -7,28 +7,21 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// Filters for the search.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class BetaWebSearchToolFilters : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The allowed_domains property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolFiltersAnyOf1AllowedDomains? AllowedDomains { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolFiltersAllowedDomains? AllowedDomains { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolFiltersAnyOf1AllowedDomains AllowedDomains { get; set; }
-#endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolFiltersAllowedDomains AllowedDomains { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolFilters"/> and sets the default values.
@@ -55,8 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowed_domains", n => { AllowedDomains = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolFiltersAnyOf1AllowedDomains>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolFiltersAnyOf1AllowedDomains.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "allowed_domains", n => { AllowedDomains = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolFiltersAllowedDomains>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolFiltersAllowedDomains.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolFiltersAnyOf1AllowedDomains>("allowed_domains", AllowedDomains);
-            writer.WriteStringValue("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolFiltersAllowedDomains>("allowed_domains", AllowedDomains);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>New description for the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyDescription? Description { get; set; }
+        public string? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyDescription Description { get; set; }
+        public string Description { get; set; }
 #endif
         /// <summary>Updated set of permissions for the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,10 +34,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>New name for the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyRoleName? RoleName { get; set; }
+        public string? RoleName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyRoleName RoleName { get; set; }
+        public string RoleName { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBody"/> and sets the default values.
@@ -64,9 +64,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyDescription>(global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyDescription.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyPermissions>(global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyPermissions.CreateFromDiscriminatorValue); } },
-                { "role_name", n => { RoleName = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyRoleName>(global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyRoleName.CreateFromDiscriminatorValue); } },
+                { "role_name", n => { RoleName = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -76,9 +76,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyDescription>("description", Description);
+            writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyPermissions>("permissions", Permissions);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyRoleName>("role_name", RoleName);
+            writer.WriteStringValue("role_name", RoleName);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

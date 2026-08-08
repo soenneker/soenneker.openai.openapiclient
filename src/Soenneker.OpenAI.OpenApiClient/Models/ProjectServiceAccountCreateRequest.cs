@@ -14,14 +14,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The create_service_account_only property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateRequestCreateServiceAccountOnly? CreateServiceAccountOnly { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateRequestCreateServiceAccountOnly CreateServiceAccountOnly { get; set; }
-#endif
+        /// <summary>Create the service account without default roles or an API key.</summary>
+        public bool? CreateServiceAccountOnly { get; set; }
         /// <summary>The name of the service account being created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,7 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "create_service_account_only", n => { CreateServiceAccountOnly = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateRequestCreateServiceAccountOnly>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateRequestCreateServiceAccountOnly.CreateFromDiscriminatorValue); } },
+                { "create_service_account_only", n => { CreateServiceAccountOnly = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -66,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateRequestCreateServiceAccountOnly>("create_service_account_only", CreateServiceAccountOnly);
+            writer.WriteBoolValue("create_service_account_only", CreateServiceAccountOnly);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

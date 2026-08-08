@@ -18,7 +18,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItemFinishReason? FinishReason { get; set; }
         /// <summary>The index of the choice in the list of choices.</summary>
         public int? Index { get; set; }
-        /// <summary>The logprobs property</summary>
+        /// <summary>Log probability information for the choice.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItemLogprobs? Logprobs { get; set; }

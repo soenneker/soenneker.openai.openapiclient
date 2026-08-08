@@ -14,7 +14,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The noise_reduction property</summary>
+        /// <summary>Optional input noise reduction. Set to `null` to disable it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction? NoiseReduction { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionCreateRequestAudioInputNoiseReduction NoiseReduction { get; set; }
 #endif
-        /// <summary>The transcription property</summary>
+        /// <summary>Optional source-language transcription. When configured, the server emits`session.input_transcript.delta` events. Translation itself still runs fromthe input audio stream.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionCreateRequestAudioInputTranscription? Transcription { get; set; }

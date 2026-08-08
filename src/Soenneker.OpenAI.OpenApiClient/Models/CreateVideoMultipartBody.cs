@@ -40,13 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Prompt { get; set; }
 #endif
         /// <summary>The seconds property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Seconds { get; set; }
-#nullable restore
-#else
-        public string Seconds { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds? Seconds { get; set; }
         /// <summary>The size property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoSize? Size { get; set; }
         /// <summary>
@@ -77,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "input_reference", n => { InputReference = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoMultipartBodyInputReference>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoMultipartBodyInputReference.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel.CreateFromDiscriminatorValue); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
-                { "seconds", n => { Seconds = n.GetStringValue(); } },
+                { "seconds", n => { Seconds = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds>(); } },
                 { "size", n => { Size = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSize>(); } },
             };
         }
@@ -91,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoMultipartBodyInputReference>("input_reference", InputReference);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel>("model", Model);
             writer.WriteStringValue("prompt", Prompt);
-            writer.WriteStringValue("seconds", Seconds);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds>("seconds", Seconds);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSize>("size", Size);
             writer.WriteAdditionalData(AdditionalData);
         }

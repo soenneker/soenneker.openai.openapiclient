@@ -14,22 +14,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The background property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesBackground? Background { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesBackground Background { get; set; }
-#endif
-        /// <summary>The completed_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3CompletedAt? CompletedAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3CompletedAt CompletedAt { get; set; }
-#endif
+        /// <summary>Whether to run the model response in the background.[Learn more](/docs/guides/background).</summary>
+        public bool? Background { get; set; }
+        /// <summary>Unix timestamp (in seconds) of when this Response was completed.Only present when the status is `completed`.</summary>
+        public double? CompletedAt { get; set; }
         /// <summary>The conversation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,7 +28,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Unix timestamp (in seconds) of when this Response was created.</summary>
         public double? CreatedAt { get; set; }
-        /// <summary>The error property</summary>
+        /// <summary>An error object returned when the model fails to generate a Response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseError? Error { get; set; }
@@ -56,7 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The incomplete_details property</summary>
+        /// <summary>Details about why the response is incomplete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetails? IncompleteDetails { get; set; }
@@ -72,23 +60,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Instructions Instructions { get; set; }
 #endif
-        /// <summary>The max_output_tokens property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3MaxOutputTokens? MaxOutputTokens { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3MaxOutputTokens MaxOutputTokens { get; set; }
-#endif
-        /// <summary>The max_tool_calls property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesMaxToolCalls? MaxToolCalls { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesMaxToolCalls MaxToolCalls { get; set; }
-#endif
-        /// <summary>The metadata property</summary>
+        /// <summary>An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).</summary>
+        public int? MaxOutputTokens { get; set; }
+        /// <summary>The maximum number of total calls to built-in tools that can be processed in a response. This maximum number applies across all built-in tool calls, not per individual tool. Any further attempts to call a tool by the model will be ignored.</summary>
+        public int? MaxToolCalls { get; set; }
+        /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMetadata? Metadata { get; set; }
@@ -122,25 +98,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaOutputItem> Output { get; set; }
 #endif
-        /// <summary>The output_text property</summary>
+        /// <summary>SDK-only convenience property that contains the aggregated text outputfrom all `output_text` items in the `output` array, if any are present.Supported in the Python and JavaScript SDKs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3OutputText? OutputText { get; set; }
+        public string? OutputText { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3OutputText OutputText { get; set; }
+        public string OutputText { get; set; }
 #endif
         /// <summary>Whether to allow the model to run tool calls in parallel.</summary>
         public bool? ParallelToolCalls { get; set; }
-        /// <summary>The previous_response_id property</summary>
+        /// <summary>The unique ID of the previous response to the model. Use this tocreate multi-turn conversations. Learn more about[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesPreviousResponseId? PreviousResponseId { get; set; }
+        public string? PreviousResponseId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesPreviousResponseId PreviousResponseId { get; set; }
+        public string PreviousResponseId { get; set; }
 #endif
-        /// <summary>The prompt property</summary>
+        /// <summary>Reference to a prompt template and its variables.[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt? Prompt { get; set; }
@@ -148,13 +124,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt Prompt { get; set; }
 #endif
-        /// <summary>The prompt_cache_key property</summary>
+        /// <summary>Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesPromptCacheKey? PromptCacheKey { get; set; }
+        public string? PromptCacheKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesPromptCacheKey PromptCacheKey { get; set; }
+        public string PromptCacheKey { get; set; }
 #endif
         /// <summary>The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -164,15 +140,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptions PromptCacheOptions { get; set; }
 #endif
-        /// <summary>The prompt_cache_retention property</summary>
+        /// <summary>Deprecated. Use `prompt_cache_options.ttl` instead.The retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/docs/guides/prompt-caching#prompt-cache-retention).This field expresses a maximum retention policy, while`prompt_cache_options.ttl` expresses a minimum cache lifetime. The twofields are independent and do not interact.For `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.For older models that support both `in_memory` and `24h`, the default depends on your organization&apos;s data retention policy:  - Organizations without ZDR enabled default to `24h`.  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.</summary>
         [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesPromptCacheRetention? PromptCacheRetention { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesPromptCacheRetention PromptCacheRetention { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheRetention? PromptCacheRetention { get; set; }
         /// <summary>The reasoning property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -181,32 +151,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Reasoning Reasoning { get; set; }
 #endif
-        /// <summary>The safety_identifier property</summary>
+        /// <summary>A stable identifier used to help detect users of your application that may be violating OpenAI&apos;s usage policies.The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesSafetyIdentifier? SafetyIdentifier { get; set; }
+        public string? SafetyIdentifier { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesSafetyIdentifier SafetyIdentifier { get; set; }
+        public string SafetyIdentifier { get; set; }
 #endif
-        /// <summary>The service_tier property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Specifies the processing type used for serving the request.  - If set to &apos;auto&apos;, then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use &apos;default&apos;.  - If set to &apos;default&apos;, then the request will be processed with the standard pricing and performance for the selected model.  - If set to &apos;[flex](/docs/guides/flex-processing)&apos;, then the request will be processed with the Flex Processing service tier.  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.  - When not set, the default behavior is &apos;auto&apos;.  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTier? ServiceTier { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTier ServiceTier { get; set; }
-#endif
         /// <summary>The status of the response generation. One of `completed`, `failed`,`in_progress`, `cancelled`, `queued`, or `incomplete`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStatus? Status { get; set; }
-        /// <summary>The temperature property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTemperature? Temperature { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTemperature Temperature { get; set; }
-#endif
+        /// <summary>What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.We generally recommend altering this or `top_p` but not both.</summary>
+        public double? Temperature { get; set; }
         /// <summary>Configuration options for a text response from the model. Can be plaintext or structured JSON data. Learn more:- [Text inputs and outputs](/docs/guides/text)- [Structured Outputs](/docs/guides/structured-outputs)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -231,30 +189,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool> Tools { get; set; }
 #endif
-        /// <summary>The top_logprobs property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTopLogprobs? TopLogprobs { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTopLogprobs TopLogprobs { get; set; }
-#endif
-        /// <summary>The top_p property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTopP? TopP { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTopP TopP { get; set; }
-#endif
-        /// <summary>The truncation property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Truncation? Truncation { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Truncation Truncation { get; set; }
-#endif
+        /// <summary>An integer between 0 and 20 specifying the maximum number of most likelytokens to return at each token position, each with an associated logprobability. In some cases, the number of returned tokens may be fewer thanrequested.</summary>
+        public int? TopLogprobs { get; set; }
+        /// <summary>An alternative to sampling with temperature, called nucleus sampling,where the model considers the results of the tokens with top_p probabilitymass. So 0.1 means only the tokens comprising the top 10% probability massare considered.We generally recommend altering this or `temperature` but not both.</summary>
+        public double? TopP { get; set; }
+        /// <summary>&quot;The truncation strategy to use for the model response.- `auto`: If the input to this Response exceeds  the model&apos;s context window size, the model will truncate the  response to fit the context window by dropping items from the beginning of the conversation.- `disabled` (default): If the input size will exceed the context window  size for a model, the request will fail with a 400 error.&quot;</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTruncation? Truncation { get; set; }
         /// <summary>Represents token usage details including input tokens, output tokens,a breakdown of output tokens, and the total tokens used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -278,7 +218,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public BetaResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            Background = false;
             ParallelToolCalls = true;
+            Temperature = 1;
+            TopP = 1;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -298,39 +241,39 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "background", n => { Background = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesBackground>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesBackground.CreateFromDiscriminatorValue); } },
-                { "completed_at", n => { CompletedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3CompletedAt>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3CompletedAt.CreateFromDiscriminatorValue); } },
+                { "background", n => { Background = n.GetBoolValue(); } },
+                { "completed_at", n => { CompletedAt = n.GetDoubleValue(); } },
                 { "conversation", n => { Conversation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Conversation>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Conversation.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDoubleValue(); } },
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseError>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseError.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "incomplete_details", n => { IncompleteDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetails.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Instructions>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Instructions.CreateFromDiscriminatorValue); } },
-                { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3MaxOutputTokens>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3MaxOutputTokens.CreateFromDiscriminatorValue); } },
-                { "max_tool_calls", n => { MaxToolCalls = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesMaxToolCalls>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesMaxToolCalls.CreateFromDiscriminatorValue); } },
+                { "max_output_tokens", n => { MaxOutputTokens = n.GetIntValue(); } },
+                { "max_tool_calls", n => { MaxToolCalls = n.GetIntValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMetadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses.CreateFromDiscriminatorValue); } },
                 { "moderation", n => { Moderation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Moderation>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Moderation.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseObject>(); } },
                 { "output", n => { Output = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaOutputItem>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaOutputItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "output_text", n => { OutputText = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3OutputText>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3OutputText.CreateFromDiscriminatorValue); } },
+                { "output_text", n => { OutputText = n.GetStringValue(); } },
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
-                { "previous_response_id", n => { PreviousResponseId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesPreviousResponseId>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesPreviousResponseId.CreateFromDiscriminatorValue); } },
+                { "previous_response_id", n => { PreviousResponseId = n.GetStringValue(); } },
                 { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt.CreateFromDiscriminatorValue); } },
-                { "prompt_cache_key", n => { PromptCacheKey = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesPromptCacheKey>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesPromptCacheKey.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_key", n => { PromptCacheKey = n.GetStringValue(); } },
                 { "prompt_cache_options", n => { PromptCacheOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptions.CreateFromDiscriminatorValue); } },
-                { "prompt_cache_retention", n => { PromptCacheRetention = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesPromptCacheRetention>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesPromptCacheRetention.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_retention", n => { PromptCacheRetention = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheRetention>(); } },
                 { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Reasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Reasoning.CreateFromDiscriminatorValue); } },
-                { "safety_identifier", n => { SafetyIdentifier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesSafetyIdentifier>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesSafetyIdentifier.CreateFromDiscriminatorValue); } },
-                { "service_tier", n => { ServiceTier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTier>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTier.CreateFromDiscriminatorValue); } },
+                { "safety_identifier", n => { SafetyIdentifier = n.GetStringValue(); } },
+                { "service_tier", n => { ServiceTier = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTier>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStatus>(); } },
-                { "temperature", n => { Temperature = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTemperature>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTemperature.CreateFromDiscriminatorValue); } },
+                { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTextParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTextParam.CreateFromDiscriminatorValue); } },
                 { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "top_logprobs", n => { TopLogprobs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTopLogprobs>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTopLogprobs.CreateFromDiscriminatorValue); } },
-                { "top_p", n => { TopP = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTopP>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTopP.CreateFromDiscriminatorValue); } },
-                { "truncation", n => { Truncation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Truncation>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Truncation.CreateFromDiscriminatorValue); } },
+                { "top_logprobs", n => { TopLogprobs = n.GetIntValue(); } },
+                { "top_p", n => { TopP = n.GetDoubleValue(); } },
+                { "truncation", n => { Truncation = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTruncation>(); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseUsage.CreateFromDiscriminatorValue); } },
                 { "user", n => { User = n.GetStringValue(); } },
             };
@@ -342,39 +285,39 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesBackground>("background", Background);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3CompletedAt>("completed_at", CompletedAt);
+            writer.WriteBoolValue("background", Background);
+            writer.WriteDoubleValue("completed_at", CompletedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Conversation>("conversation", Conversation);
             writer.WriteDoubleValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseError>("error", Error);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetails>("incomplete_details", IncompleteDetails);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Instructions>("instructions", Instructions);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3MaxOutputTokens>("max_output_tokens", MaxOutputTokens);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesMaxToolCalls>("max_tool_calls", MaxToolCalls);
+            writer.WriteIntValue("max_output_tokens", MaxOutputTokens);
+            writer.WriteIntValue("max_tool_calls", MaxToolCalls);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses>("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Moderation>("moderation", Moderation);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseObject>("object", Object);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaOutputItem>("output", Output);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3OutputText>("output_text", OutputText);
+            writer.WriteStringValue("output_text", OutputText);
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesPreviousResponseId>("previous_response_id", PreviousResponseId);
+            writer.WriteStringValue("previous_response_id", PreviousResponseId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt>("prompt", Prompt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesPromptCacheKey>("prompt_cache_key", PromptCacheKey);
+            writer.WriteStringValue("prompt_cache_key", PromptCacheKey);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptions>("prompt_cache_options", PromptCacheOptions);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesPromptCacheRetention>("prompt_cache_retention", PromptCacheRetention);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheRetention>("prompt_cache_retention", PromptCacheRetention);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Reasoning>("reasoning", Reasoning);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesSafetyIdentifier>("safety_identifier", SafetyIdentifier);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTier>("service_tier", ServiceTier);
+            writer.WriteStringValue("safety_identifier", SafetyIdentifier);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTier>("service_tier", ServiceTier);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStatus>("status", Status);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTemperature>("temperature", Temperature);
+            writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTextParam>("text", Text);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam>("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool>("tools", Tools);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTopLogprobs>("top_logprobs", TopLogprobs);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelResponsePropertiesTopP>("top_p", TopP);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3Truncation>("truncation", Truncation);
+            writer.WriteIntValue("top_logprobs", TopLogprobs);
+            writer.WriteDoubleValue("top_p", TopP);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTruncation>("truncation", Truncation);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseUsage>("usage", Usage);
             writer.WriteStringValue("user", User);
             writer.WriteAdditionalData(AdditionalData);

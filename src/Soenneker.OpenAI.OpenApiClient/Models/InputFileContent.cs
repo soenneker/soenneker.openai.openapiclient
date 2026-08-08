@@ -25,13 +25,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string FileData { get; set; }
 #endif
-        /// <summary>The file_id property</summary>
+        /// <summary>The ID of the file to be sent to the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentFileId? FileId { get; set; }
+        public string? FileId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentFileId FileId { get; set; }
+        public string FileId { get; set; }
 #endif
         /// <summary>The name of the file to be sent to the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "detail", n => { Detail = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileInputDetail>(); } },
                 { "file_data", n => { FileData = n.GetStringValue(); } },
-                { "file_id", n => { FileId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentFileId>(global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentFileId.CreateFromDiscriminatorValue); } },
+                { "file_id", n => { FileId = n.GetStringValue(); } },
                 { "file_url", n => { FileUrl = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "prompt_cache_breakpoint", n => { PromptCacheBreakpoint = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>(global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig.CreateFromDiscriminatorValue); } },
@@ -102,7 +102,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileInputDetail>("detail", Detail);
             writer.WriteStringValue("file_data", FileData);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContentFileId>("file_id", FileId);
+            writer.WriteStringValue("file_id", FileId);
             writer.WriteStringValue("filename", Filename);
             writer.WriteStringValue("file_url", FileUrl);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>("prompt_cache_breakpoint", PromptCacheBreakpoint);

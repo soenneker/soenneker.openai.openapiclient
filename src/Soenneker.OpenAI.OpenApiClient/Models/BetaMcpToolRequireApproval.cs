@@ -7,20 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalMcpToolApprovalFilter"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalWrapper"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class BetaMcpToolRequireApproval : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class BetaMcpToolRequireApproval : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApproval"/> and sets the default values.
-        /// </summary>
-        public BetaMcpToolRequireApproval()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalMcpToolApprovalFilter"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalMcpToolApprovalFilter? BetaMcpToolRequireApprovalMcpToolApprovalFilter { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalMcpToolApprovalFilter BetaMcpToolRequireApprovalMcpToolApprovalFilter { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalWrapper"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalWrapper? BetaMcpToolRequireApprovalWrapper { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalWrapper BetaMcpToolRequireApprovalWrapper { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -29,7 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApproval CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApproval();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApproval();
+            if("BetaMcpToolRequireApprovalMcpToolApprovalFilter".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.BetaMcpToolRequireApprovalMcpToolApprovalFilter = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalMcpToolApprovalFilter();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,9 +51,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(BetaMcpToolRequireApprovalMcpToolApprovalFilter != null)
             {
-            };
+                return BetaMcpToolRequireApprovalMcpToolApprovalFilter.GetFieldDeserializers();
+            }
+            else if(BetaMcpToolRequireApprovalWrapper != null)
+            {
+                return BetaMcpToolRequireApprovalWrapper.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -48,7 +68,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            if(BetaMcpToolRequireApprovalMcpToolApprovalFilter != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalMcpToolApprovalFilter>(null, BetaMcpToolRequireApprovalMcpToolApprovalFilter);
+            }
+            else if(BetaMcpToolRequireApprovalWrapper != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalWrapper>(null, BetaMcpToolRequireApprovalWrapper);
+            }
         }
     }
 }

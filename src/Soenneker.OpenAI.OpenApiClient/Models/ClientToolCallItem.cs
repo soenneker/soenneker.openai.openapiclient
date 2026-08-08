@@ -51,13 +51,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Type discriminator that is always `chatkit.thread_item`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemObject? Object { get; set; }
-        /// <summary>The output property</summary>
+        /// <summary>JSON-encoded output captured from the tool. Defaults to null while execution is in progress.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemOutput? Output { get; set; }
+        public string? Output { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemOutput Output { get; set; }
+        public string Output { get; set; }
 #endif
         /// <summary>The status property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallStatus? Status { get; set; }
@@ -102,7 +102,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemObject>(); } },
-                { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemOutput>(global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemOutput.CreateFromDiscriminatorValue); } },
+                { "output", n => { Output = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallStatus>(); } },
                 { "thread_id", n => { ThreadId = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemType>(); } },
@@ -121,7 +121,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemObject>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemOutput>("output", Output);
+            writer.WriteStringValue("output", Output);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallStatus>("status", Status);
             writer.WriteStringValue("thread_id", ThreadId);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemType>("type", Type);

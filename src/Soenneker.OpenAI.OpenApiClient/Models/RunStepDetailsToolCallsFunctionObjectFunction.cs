@@ -31,13 +31,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The output property</summary>
+        /// <summary>The output of the function. This will be `null` if the outputs have not been [submitted](/docs/api-reference/runs/submitToolOutputs) yet.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunctionOutput? Output { get; set; }
+        public string? Output { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunctionOutput Output { get; set; }
+        public string Output { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunction"/> and sets the default values.
@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "arguments", n => { Arguments = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunctionOutput>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunctionOutput.CreateFromDiscriminatorValue); } },
+                { "output", n => { Output = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -78,7 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("arguments", Arguments);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObjectFunctionOutput>("output", Output);
+            writer.WriteStringValue("output", Output);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

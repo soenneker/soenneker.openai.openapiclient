@@ -47,13 +47,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The output property</summary>
+        /// <summary>Optional textual output returned by the apply patch tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutputOutput? Output { get; set; }
+        public string? Output { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutputOutput Output { get; set; }
+        public string Output { get; set; }
 #endif
         /// <summary>The status property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallOutputStatus? Status { get; set; }
@@ -88,7 +88,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "caller", n => { Caller = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutputCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutputCaller.CreateFromDiscriminatorValue); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutputOutput>(global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutputOutput.CreateFromDiscriminatorValue); } },
+                { "output", n => { Output = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallOutputStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutputType>(); } },
             };
@@ -104,7 +104,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutputOutput>("output", Output);
+            writer.WriteStringValue("output", Output);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallOutputStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

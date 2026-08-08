@@ -41,18 +41,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The top_logprobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsAnyOf1TopLogprobsItemProperty>? TopLogprobs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty>? TopLogprobs { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsAnyOf1TopLogprobsItemProperty> TopLogprobs { get; set; }
-#endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty> TopLogprobs { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs"/> and sets the default values.
@@ -82,8 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "text_offset", n => { TextOffset = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "token_logprobs", n => { TokenLogprobs = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "tokens", n => { Tokens = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "top_logprobs", n => { TopLogprobs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsAnyOf1TopLogprobsItemProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsAnyOf1TopLogprobsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "top_logprobs", n => { TopLogprobs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -96,8 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<int?>("text_offset", TextOffset);
             writer.WriteCollectionOfPrimitiveValues<double?>("token_logprobs", TokenLogprobs);
             writer.WriteCollectionOfPrimitiveValues<string>("tokens", Tokens);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsAnyOf1TopLogprobsItemProperty>("top_logprobs", TopLogprobs);
-            writer.WriteStringValue("type", Type);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty>("top_logprobs", TopLogprobs);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

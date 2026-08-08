@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolConnectorId? ConnectorId { get; set; }
         /// <summary>Whether this MCP tool is deferred and discovered via tool search.</summary>
         public bool? DeferLoading { get; set; }
-        /// <summary>The headers property</summary>
+        /// <summary>Optional HTTP headers to send to the MCP server. Use for authenticationor other purposes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolHeaders? Headers { get; set; }
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolHeaders Headers { get; set; }
 #endif
-        /// <summary>The require_approval property</summary>
+        /// <summary>Specify which of the MCP server&apos;s tools require approval.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApproval? RequireApproval { get; set; }

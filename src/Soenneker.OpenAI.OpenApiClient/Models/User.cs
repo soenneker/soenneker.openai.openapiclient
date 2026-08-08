@@ -18,30 +18,24 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Unix timestamp (in seconds) of the user&apos;s last API key usage.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserApiKeyLastUsedAt? ApiKeyLastUsedAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserApiKeyLastUsedAt ApiKeyLastUsedAt { get; set; }
-#endif
+        public int? ApiKeyLastUsedAt { get; set; }
         /// <summary>The Unix timestamp (in seconds) of when the user was created.</summary>
         public int? Created { get; set; }
         /// <summary>The developer persona metadata for the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserDeveloperPersona? DeveloperPersona { get; set; }
+        public string? DeveloperPersona { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserDeveloperPersona DeveloperPersona { get; set; }
+        public string DeveloperPersona { get; set; }
 #endif
         /// <summary>The email address of the user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserEmail? Email { get; set; }
+        public string? Email { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserEmail Email { get; set; }
+        public string Email { get; set; }
 #endif
         /// <summary>The identifier, which can be referenced in API endpoints</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,13 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Whether this is the organization&apos;s default user.</summary>
         public bool? IsDefault { get; set; }
         /// <summary>Whether the user is an authorized purchaser for Scale Tier.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserIsScaleTierAuthorizedPurchaser? IsScaleTierAuthorizedPurchaser { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserIsScaleTierAuthorizedPurchaser IsScaleTierAuthorizedPurchaser { get; set; }
-#endif
+        public bool? IsScaleTierAuthorizedPurchaser { get; set; }
         /// <summary>Whether the user is managed through SCIM.</summary>
         public bool? IsScimManaged { get; set; }
         /// <summary>Whether the user is a service account.</summary>
@@ -68,10 +56,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The name of the user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserName? Name { get; set; }
+        public string? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserName Name { get; set; }
+        public string Name { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.user`</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.UserObject? Object { get; set; }
@@ -86,18 +74,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>`owner` or `reader`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRole? Role { get; set; }
+        public string? Role { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRole Role { get; set; }
+        public string Role { get; set; }
 #endif
         /// <summary>The technical level metadata for the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserTechnicalLevel? TechnicalLevel { get; set; }
+        public string? TechnicalLevel { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserTechnicalLevel TechnicalLevel { get; set; }
+        public string TechnicalLevel { get; set; }
 #endif
         /// <summary>Nested user details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -133,20 +121,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "added_at", n => { AddedAt = n.GetIntValue(); } },
-                { "api_key_last_used_at", n => { ApiKeyLastUsedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserApiKeyLastUsedAt>(global::Soenneker.OpenAI.OpenApiClient.Models.UserApiKeyLastUsedAt.CreateFromDiscriminatorValue); } },
+                { "api_key_last_used_at", n => { ApiKeyLastUsedAt = n.GetIntValue(); } },
                 { "created", n => { Created = n.GetIntValue(); } },
-                { "developer_persona", n => { DeveloperPersona = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserDeveloperPersona>(global::Soenneker.OpenAI.OpenApiClient.Models.UserDeveloperPersona.CreateFromDiscriminatorValue); } },
-                { "email", n => { Email = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserEmail>(global::Soenneker.OpenAI.OpenApiClient.Models.UserEmail.CreateFromDiscriminatorValue); } },
+                { "developer_persona", n => { DeveloperPersona = n.GetStringValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_default", n => { IsDefault = n.GetBoolValue(); } },
-                { "is_scale_tier_authorized_purchaser", n => { IsScaleTierAuthorizedPurchaser = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserIsScaleTierAuthorizedPurchaser>(global::Soenneker.OpenAI.OpenApiClient.Models.UserIsScaleTierAuthorizedPurchaser.CreateFromDiscriminatorValue); } },
+                { "is_scale_tier_authorized_purchaser", n => { IsScaleTierAuthorizedPurchaser = n.GetBoolValue(); } },
                 { "is_scim_managed", n => { IsScimManaged = n.GetBoolValue(); } },
                 { "is_service_account", n => { IsServiceAccount = n.GetBoolValue(); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserName>(global::Soenneker.OpenAI.OpenApiClient.Models.UserName.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserObject>(); } },
                 { "projects", n => { Projects = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects>(global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects.CreateFromDiscriminatorValue); } },
-                { "role", n => { Role = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRole>(global::Soenneker.OpenAI.OpenApiClient.Models.UserRole.CreateFromDiscriminatorValue); } },
-                { "technical_level", n => { TechnicalLevel = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserTechnicalLevel>(global::Soenneker.OpenAI.OpenApiClient.Models.UserTechnicalLevel.CreateFromDiscriminatorValue); } },
+                { "role", n => { Role = n.GetStringValue(); } },
+                { "technical_level", n => { TechnicalLevel = n.GetStringValue(); } },
                 { "user", n => { UserProp = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUser>(global::Soenneker.OpenAI.OpenApiClient.Models.UserUser.CreateFromDiscriminatorValue); } },
             };
         }
@@ -158,20 +146,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("added_at", AddedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserApiKeyLastUsedAt>("api_key_last_used_at", ApiKeyLastUsedAt);
+            writer.WriteIntValue("api_key_last_used_at", ApiKeyLastUsedAt);
             writer.WriteIntValue("created", Created);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserDeveloperPersona>("developer_persona", DeveloperPersona);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserEmail>("email", Email);
+            writer.WriteStringValue("developer_persona", DeveloperPersona);
+            writer.WriteStringValue("email", Email);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_default", IsDefault);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserIsScaleTierAuthorizedPurchaser>("is_scale_tier_authorized_purchaser", IsScaleTierAuthorizedPurchaser);
+            writer.WriteBoolValue("is_scale_tier_authorized_purchaser", IsScaleTierAuthorizedPurchaser);
             writer.WriteBoolValue("is_scim_managed", IsScimManaged);
             writer.WriteBoolValue("is_service_account", IsServiceAccount);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserName>("name", Name);
+            writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserObject>("object", Object);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects>("projects", Projects);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRole>("role", Role);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserTechnicalLevel>("technical_level", TechnicalLevel);
+            writer.WriteStringValue("role", Role);
+            writer.WriteStringValue("technical_level", TechnicalLevel);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUser>("user", UserProp);
             writer.WriteAdditionalData(AdditionalData);
         }

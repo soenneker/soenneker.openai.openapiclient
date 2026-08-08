@@ -30,14 +30,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Type { get; set; }
 #endif
-        /// <summary>The verbosity property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Constrains the verbosity of the model&apos;s response. Lower values will result inmore concise responses, while higher values will result in more verbose responses.Currently supported values are `low`, `medium`, and `high`. The default is`medium`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity? Verbosity { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity Verbosity { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaTokenCountsBodyText"/> and sets the default values.
         /// </summary>
@@ -65,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatConfiguration>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatConfiguration.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
-                { "verbosity", n => { Verbosity = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity.CreateFromDiscriminatorValue); } },
+                { "verbosity", n => { Verbosity = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity>(); } },
             };
         }
         /// <summary>
@@ -77,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatConfiguration>("format", Format);
             writer.WriteStringValue("type", Type);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity>("verbosity", Verbosity);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity>("verbosity", Verbosity);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

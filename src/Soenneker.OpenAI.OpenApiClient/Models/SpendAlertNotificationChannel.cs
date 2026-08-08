@@ -26,10 +26,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Optional subject prefix for alert emails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannelSubjectPrefix? SubjectPrefix { get; set; }
+        public string? SubjectPrefix { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannelSubjectPrefix SubjectPrefix { get; set; }
+        public string SubjectPrefix { get; set; }
 #endif
         /// <summary>The notification channel type. Currently only `email` is supported.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannelType? Type { get; set; }
@@ -59,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "recipients", n => { Recipients = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "subject_prefix", n => { SubjectPrefix = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannelSubjectPrefix>(global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannelSubjectPrefix.CreateFromDiscriminatorValue); } },
+                { "subject_prefix", n => { SubjectPrefix = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannelType>(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("recipients", Recipients);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannelSubjectPrefix>("subject_prefix", SubjectPrefix);
+            writer.WriteStringValue("subject_prefix", SubjectPrefix);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannelType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

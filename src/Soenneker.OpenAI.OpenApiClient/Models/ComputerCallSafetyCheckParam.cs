@@ -15,13 +15,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The code property</summary>
+        /// <summary>The type of the pending safety check.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParamCode? Code { get; set; }
+        public string? Code { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParamCode Code { get; set; }
+        public string Code { get; set; }
 #endif
         /// <summary>The ID of the pending safety check.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,13 +31,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The message property</summary>
+        /// <summary>Details about the pending safety check.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParamMessage? Message { get; set; }
+        public string? Message { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParamMessage Message { get; set; }
+        public string Message { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam"/> and sets the default values.
@@ -64,9 +64,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParamCode>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParamCode.CreateFromDiscriminatorValue); } },
+                { "code", n => { Code = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "message", n => { Message = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParamMessage>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParamMessage.CreateFromDiscriminatorValue); } },
+                { "message", n => { Message = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -76,9 +76,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParamCode>("code", Code);
+            writer.WriteStringValue("code", Code);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParamMessage>("message", Message);
+            writer.WriteStringValue("message", Message);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

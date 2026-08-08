@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ErrorCode? Code { get; set; }
+        public string? Code { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ErrorCode Code { get; set; }
+        public string Code { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => MessageEscaped ?? string.Empty; }
@@ -36,10 +36,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The param property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ErrorParam? Param { get; set; }
+        public string? Param { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ErrorParam Param { get; set; }
+        public string Param { get; set; }
 #endif
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,9 +74,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ErrorCode>(global::Soenneker.OpenAI.OpenApiClient.Models.ErrorCode.CreateFromDiscriminatorValue); } },
+                { "code", n => { Code = n.GetStringValue(); } },
                 { "message", n => { MessageEscaped = n.GetStringValue(); } },
-                { "param", n => { Param = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ErrorParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ErrorParam.CreateFromDiscriminatorValue); } },
+                { "param", n => { Param = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -87,9 +87,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ErrorCode>("code", Code);
+            writer.WriteStringValue("code", Code);
             writer.WriteStringValue("message", MessageEscaped);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ErrorParam>("param", Param);
+            writer.WriteStringValue("param", Param);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -38,10 +38,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The name of the certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateName? Name { get; set; }
+        public string? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateName Name { get; set; }
+        public string Name { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.certificate`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateObject? Object { get; set; }
@@ -74,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "certificate_details", n => { CertificateDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateCertificateDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateCertificateDetails.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateName>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateName.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateObject>(); } },
             };
         }
@@ -89,7 +89,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateCertificateDetails>("certificate_details", CertificateDetails);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateName>("name", Name);
+            writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }

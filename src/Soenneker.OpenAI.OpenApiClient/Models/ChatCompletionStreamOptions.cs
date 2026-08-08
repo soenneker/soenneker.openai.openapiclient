@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// &quot;Options for streaming response. Only set this when you set `stream: true`.&quot;
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class ChatCompletionStreamOptions : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -18,14 +19,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public bool? IncludeObfuscation { get; set; }
         /// <summary>&quot;If set, an additional chunk will be streamed before the `data: [DONE]`message. The `usage` field on this chunk shows the token usage statisticsfor the entire request, and the `choices` field will always be an emptyarray.All other chunks will also include a `usage` field, but with a nullvalue. **NOTE:** If the stream is interrupted, you may not receive thefinal usage chunk which contains the total token usage for the request.&quot;</summary>
         public bool? IncludeUsage { get; set; }
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions"/> and sets the default values.
         /// </summary>
@@ -53,7 +46,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "include_obfuscation", n => { IncludeObfuscation = n.GetBoolValue(); } },
                 { "include_usage", n => { IncludeUsage = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -65,7 +57,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("include_obfuscation", IncludeObfuscation);
             writer.WriteBoolValue("include_usage", IncludeUsage);
-            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

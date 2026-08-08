@@ -25,14 +25,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfter ExpiresAfter { get; set; }
 #endif
-        /// <summary>The expires_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectExpiresAt? ExpiresAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectExpiresAt ExpiresAt { get; set; }
-#endif
+        /// <summary>The Unix timestamp (in seconds) for when the vector store will expire.</summary>
+        public int? ExpiresAt { get; set; }
         /// <summary>The file_counts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,15 +43,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The last_active_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectLastActiveAt? LastActiveAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectLastActiveAt LastActiveAt { get; set; }
-#endif
-        /// <summary>The metadata property</summary>
+        /// <summary>The Unix timestamp (in seconds) for when the vector store was last active.</summary>
+        public int? LastActiveAt { get; set; }
+        /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
@@ -106,10 +94,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "expires_after", n => { ExpiresAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfter>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfter.CreateFromDiscriminatorValue); } },
-                { "expires_at", n => { ExpiresAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectExpiresAt>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectExpiresAt.CreateFromDiscriminatorValue); } },
+                { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
                 { "file_counts", n => { FileCounts = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectFileCounts>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectFileCounts.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "last_active_at", n => { LastActiveAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectLastActiveAt>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectLastActiveAt.CreateFromDiscriminatorValue); } },
+                { "last_active_at", n => { LastActiveAt = n.GetIntValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectObject>(); } },
@@ -126,10 +114,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfter>("expires_after", ExpiresAfter);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectExpiresAt>("expires_at", ExpiresAt);
+            writer.WriteIntValue("expires_at", ExpiresAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectFileCounts>("file_counts", FileCounts);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectLastActiveAt>("last_active_at", LastActiveAt);
+            writer.WriteIntValue("last_active_at", LastActiveAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectObject>("object", Object);

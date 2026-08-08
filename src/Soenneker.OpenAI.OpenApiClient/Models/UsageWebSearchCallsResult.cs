@@ -15,29 +15,29 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The api_key_id property</summary>
+        /// <summary>When `group_by=api_key_id`, this field provides the API key ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultApiKeyId? ApiKeyId { get; set; }
+        public string? ApiKeyId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultApiKeyId ApiKeyId { get; set; }
+        public string ApiKeyId { get; set; }
 #endif
-        /// <summary>The context_level property</summary>
+        /// <summary>When `group_by=context_level`, this field provides the search context size of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultContextLevel? ContextLevel { get; set; }
+        public string? ContextLevel { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultContextLevel ContextLevel { get; set; }
+        public string ContextLevel { get; set; }
 #endif
-        /// <summary>The model property</summary>
+        /// <summary>When `group_by=model`, this field provides the model name of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultModel? Model { get; set; }
+        public string? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultModel Model { get; set; }
+        public string Model { get; set; }
 #endif
         /// <summary>The count of model requests.</summary>
         public int? NumModelRequests { get; set; }
@@ -45,21 +45,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? NumRequests { get; set; }
         /// <summary>The object property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultObject? Object { get; set; }
-        /// <summary>The project_id property</summary>
+        /// <summary>When `group_by=project_id`, this field provides the project ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultProjectId? ProjectId { get; set; }
+        public string? ProjectId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultProjectId ProjectId { get; set; }
+        public string ProjectId { get; set; }
 #endif
-        /// <summary>The user_id property</summary>
+        /// <summary>When `group_by=user_id`, this field provides the user ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultUserId? UserId { get; set; }
+        public string? UserId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultUserId UserId { get; set; }
+        public string UserId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResult"/> and sets the default values.
@@ -86,14 +86,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key_id", n => { ApiKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultApiKeyId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultApiKeyId.CreateFromDiscriminatorValue); } },
-                { "context_level", n => { ContextLevel = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultContextLevel>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultContextLevel.CreateFromDiscriminatorValue); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultModel>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultModel.CreateFromDiscriminatorValue); } },
+                { "api_key_id", n => { ApiKeyId = n.GetStringValue(); } },
+                { "context_level", n => { ContextLevel = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
                 { "num_model_requests", n => { NumModelRequests = n.GetIntValue(); } },
                 { "num_requests", n => { NumRequests = n.GetIntValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultObject>(); } },
-                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultProjectId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultProjectId.CreateFromDiscriminatorValue); } },
-                { "user_id", n => { UserId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultUserId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultUserId.CreateFromDiscriminatorValue); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -103,14 +103,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultApiKeyId>("api_key_id", ApiKeyId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultContextLevel>("context_level", ContextLevel);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultModel>("model", Model);
+            writer.WriteStringValue("api_key_id", ApiKeyId);
+            writer.WriteStringValue("context_level", ContextLevel);
+            writer.WriteStringValue("model", Model);
             writer.WriteIntValue("num_model_requests", NumModelRequests);
             writer.WriteIntValue("num_requests", NumRequests);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultObject>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultProjectId>("project_id", ProjectId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultUserId>("user_id", UserId);
+            writer.WriteStringValue("project_id", ProjectId);
+            writer.WriteStringValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

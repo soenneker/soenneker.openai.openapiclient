@@ -27,10 +27,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The next_page property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseNextPage? NextPage { get; set; }
+        public string? NextPage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseNextPage NextPage { get; set; }
+        public string NextPage { get; set; }
 #endif
         /// <summary>The object property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseObject? Object { get; set; }
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "next_page", n => { NextPage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseNextPage>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseNextPage.CreateFromDiscriminatorValue); } },
+                { "next_page", n => { NextPage = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseObject>(); } },
             };
         }
@@ -74,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket>("data", Data);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseNextPage>("next_page", NextPage);
+            writer.WriteStringValue("next_page", NextPage);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }

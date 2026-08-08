@@ -7,23 +7,16 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// &quot;Options for streaming responses. Only set this when you set `stream: true`.&quot;
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class ResponseStreamOptions : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When true, stream obfuscation will be enabled. Stream obfuscation addsrandom characters to an `obfuscation` field on streaming delta events tonormalize payload sizes as a mitigation to certain side-channel attacks.These obfuscation fields are included by default, but add a small amountof overhead to the data stream. You can set `include_obfuscation` tofalse to optimize for bandwidth if you trust the network links betweenyour application and the OpenAI API.</summary>
         public bool? IncludeObfuscation { get; set; }
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseStreamOptions"/> and sets the default values.
         /// </summary>
@@ -50,7 +43,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "include_obfuscation", n => { IncludeObfuscation = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -61,7 +53,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("include_obfuscation", IncludeObfuscation);
-            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

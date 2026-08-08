@@ -28,10 +28,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Cursor to fetch the next page of results, or `null` when there are no additional roles.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceNext? Next { get; set; }
+        public string? Next { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceNext Next { get; set; }
+        public string Next { get; set; }
 #endif
         /// <summary>Always `list`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceObject? Object { get; set; }
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Role>(global::Soenneker.OpenAI.OpenApiClient.Models.Role.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "next", n => { Next = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceNext>(global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceNext.CreateFromDiscriminatorValue); } },
+                { "next", n => { Next = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceObject>(); } },
             };
         }
@@ -75,7 +75,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Role>("data", Data);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceNext>("next", Next);
+            writer.WriteStringValue("next", Next);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicRoleListResourceObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }

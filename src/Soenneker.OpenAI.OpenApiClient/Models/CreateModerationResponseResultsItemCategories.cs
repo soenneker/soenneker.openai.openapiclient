@@ -23,22 +23,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public bool? Hate { get; set; }
         /// <summary>Hateful content that also includes violence or serious harm towards the targeted group based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste.</summary>
         public bool? HateThreatening { get; set; }
-        /// <summary>The illicit property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoriesIllicit? Illicit { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoriesIllicit Illicit { get; set; }
-#endif
-        /// <summary>The illicitViolent property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoriesIllicitViolent? IllicitViolent { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoriesIllicitViolent IllicitViolent { get; set; }
-#endif
+        /// <summary>Content that includes instructions or advice that facilitate the planning or execution of wrongdoing, or that gives advice or instruction on how to commit illicit acts. For example, &quot;how to shoplift&quot; would fit this category.</summary>
+        public bool? Illicit { get; set; }
+        /// <summary>Content that includes instructions or advice that facilitate the planning or execution of wrongdoing that also includes violence, or that gives advice or instruction on the procurement of any weapon.</summary>
+        public bool? IllicitViolent { get; set; }
         /// <summary>Content that promotes, encourages, or depicts acts of self-harm, such as suicide, cutting, and eating disorders.</summary>
         public bool? SelfHarm { get; set; }
         /// <summary>Content that encourages performing acts of self-harm, such as suicide, cutting, and eating disorders, or that gives instructions or advice on how to commit such acts.</summary>
@@ -82,8 +70,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "harassment/threatening", n => { HarassmentThreatening = n.GetBoolValue(); } },
                 { "hate", n => { Hate = n.GetBoolValue(); } },
                 { "hate/threatening", n => { HateThreatening = n.GetBoolValue(); } },
-                { "illicit", n => { Illicit = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoriesIllicit>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoriesIllicit.CreateFromDiscriminatorValue); } },
-                { "illicit/violent", n => { IllicitViolent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoriesIllicitViolent>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoriesIllicitViolent.CreateFromDiscriminatorValue); } },
+                { "illicit", n => { Illicit = n.GetBoolValue(); } },
+                { "illicit/violent", n => { IllicitViolent = n.GetBoolValue(); } },
                 { "self-harm", n => { SelfHarm = n.GetBoolValue(); } },
                 { "self-harm/instructions", n => { SelfHarmInstructions = n.GetBoolValue(); } },
                 { "self-harm/intent", n => { SelfHarmIntent = n.GetBoolValue(); } },
@@ -104,8 +92,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteBoolValue("harassment/threatening", HarassmentThreatening);
             writer.WriteBoolValue("hate", Hate);
             writer.WriteBoolValue("hate/threatening", HateThreatening);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoriesIllicit>("illicit", Illicit);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoriesIllicitViolent>("illicit/violent", IllicitViolent);
+            writer.WriteBoolValue("illicit", Illicit);
+            writer.WriteBoolValue("illicit/violent", IllicitViolent);
             writer.WriteBoolValue("self-harm", SelfHarm);
             writer.WriteBoolValue("self-harm/instructions", SelfHarmInstructions);
             writer.WriteBoolValue("self-harm/intent", SelfHarmIntent);

@@ -14,21 +14,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The generated_at property</summary>
+        /// <summary>The UTC RFC 3339 timestamp recorded by the provenance signal for when the asset was generated, when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SynthIdProvenanceResultGeneratedAt? GeneratedAt { get; set; }
+        public string? GeneratedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SynthIdProvenanceResultGeneratedAt GeneratedAt { get; set; }
+        public string GeneratedAt { get; set; }
 #endif
-        /// <summary>The model property</summary>
+        /// <summary>The OpenAI model recorded by the provenance signal, when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SynthIdProvenanceResultModel? Model { get; set; }
+        public string? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SynthIdProvenanceResultModel Model { get; set; }
+        public string Model { get; set; }
 #endif
         /// <summary>The outcome property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ProvenanceDetectionResultApi? Outcome { get; set; }
@@ -59,8 +59,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "generated_at", n => { GeneratedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SynthIdProvenanceResultGeneratedAt>(global::Soenneker.OpenAI.OpenApiClient.Models.SynthIdProvenanceResultGeneratedAt.CreateFromDiscriminatorValue); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SynthIdProvenanceResultModel>(global::Soenneker.OpenAI.OpenApiClient.Models.SynthIdProvenanceResultModel.CreateFromDiscriminatorValue); } },
+                { "generated_at", n => { GeneratedAt = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
                 { "outcome", n => { Outcome = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProvenanceDetectionResultApi>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SynthIdProvenanceResultType>(); } },
             };
@@ -72,8 +72,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SynthIdProvenanceResultGeneratedAt>("generated_at", GeneratedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SynthIdProvenanceResultModel>("model", Model);
+            writer.WriteStringValue("generated_at", GeneratedAt);
+            writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProvenanceDetectionResultApi>("outcome", Outcome);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SynthIdProvenanceResultType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

@@ -15,59 +15,59 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The api_key_id property</summary>
+        /// <summary>When `group_by=api_key_id`, this field provides the API key ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultApiKeyId? ApiKeyId { get; set; }
+        public string? ApiKeyId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultApiKeyId ApiKeyId { get; set; }
+        public string ApiKeyId { get; set; }
 #endif
         /// <summary>The number of images processed.</summary>
         public int? Images { get; set; }
-        /// <summary>The model property</summary>
+        /// <summary>When `group_by=model`, this field provides the model name of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultModel? Model { get; set; }
+        public string? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultModel Model { get; set; }
+        public string Model { get; set; }
 #endif
         /// <summary>The count of requests made to the model.</summary>
         public int? NumModelRequests { get; set; }
         /// <summary>The object property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultObject? Object { get; set; }
-        /// <summary>The project_id property</summary>
+        /// <summary>When `group_by=project_id`, this field provides the project ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultProjectId? ProjectId { get; set; }
+        public string? ProjectId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultProjectId ProjectId { get; set; }
+        public string ProjectId { get; set; }
 #endif
-        /// <summary>The size property</summary>
+        /// <summary>When `group_by=size`, this field provides the image size of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultSize? Size { get; set; }
+        public string? Size { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultSize Size { get; set; }
+        public string Size { get; set; }
 #endif
-        /// <summary>The source property</summary>
+        /// <summary>When `group_by=source`, this field provides the source of the grouped usage result, possible values are `image.generation`, `image.edit`, `image.variation`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultSource? Source { get; set; }
+        public string? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultSource Source { get; set; }
+        public string Source { get; set; }
 #endif
-        /// <summary>The user_id property</summary>
+        /// <summary>When `group_by=user_id`, this field provides the user ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultUserId? UserId { get; set; }
+        public string? UserId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultUserId UserId { get; set; }
+        public string UserId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResult"/> and sets the default values.
@@ -94,15 +94,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key_id", n => { ApiKeyId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultApiKeyId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultApiKeyId.CreateFromDiscriminatorValue); } },
+                { "api_key_id", n => { ApiKeyId = n.GetStringValue(); } },
                 { "images", n => { Images = n.GetIntValue(); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultModel>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultModel.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetStringValue(); } },
                 { "num_model_requests", n => { NumModelRequests = n.GetIntValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultObject>(); } },
-                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultProjectId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultProjectId.CreateFromDiscriminatorValue); } },
-                { "size", n => { Size = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultSize>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultSize.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultSource>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultSource.CreateFromDiscriminatorValue); } },
-                { "user_id", n => { UserId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultUserId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultUserId.CreateFromDiscriminatorValue); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
+                { "size", n => { Size = n.GetStringValue(); } },
+                { "source", n => { Source = n.GetStringValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -112,15 +112,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultApiKeyId>("api_key_id", ApiKeyId);
+            writer.WriteStringValue("api_key_id", ApiKeyId);
             writer.WriteIntValue("images", Images);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultModel>("model", Model);
+            writer.WriteStringValue("model", Model);
             writer.WriteIntValue("num_model_requests", NumModelRequests);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultObject>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultProjectId>("project_id", ProjectId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultSize>("size", Size);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultSource>("source", Source);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultUserId>("user_id", UserId);
+            writer.WriteStringValue("project_id", ProjectId);
+            writer.WriteStringValue("size", Size);
+            writer.WriteStringValue("source", Source);
+            writer.WriteStringValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

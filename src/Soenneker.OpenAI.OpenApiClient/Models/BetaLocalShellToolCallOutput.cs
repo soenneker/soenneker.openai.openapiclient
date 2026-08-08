@@ -39,14 +39,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Output { get; set; }
 #endif
-        /// <summary>The status property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The status of the item. One of `in_progress`, `completed`, or `incomplete`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputStatus? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputStatus Status { get; set; }
-#endif
         /// <summary>The type of the local shell tool call output. Always `local_shell_call_output`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputType? Type { get; set; }
         /// <summary>
@@ -77,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputAgent>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputAgent.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputStatus>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputType>(); } },
             };
         }
@@ -91,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputAgent>("agent", Agent);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("output", Output);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

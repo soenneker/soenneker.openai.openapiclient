@@ -14,13 +14,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class Invite : IAdditionalDataHolder, IParsable
     {
         /// <summary>The Unix timestamp (in seconds) of when the invite was accepted.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InviteAcceptedAt? AcceptedAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InviteAcceptedAt AcceptedAt { get; set; }
-#endif
+        public int? AcceptedAt { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Unix timestamp (in seconds) of when the invite was sent.</summary>
@@ -34,13 +28,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Email { get; set; }
 #endif
         /// <summary>The Unix timestamp (in seconds) of when the invite expires.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InviteExpiresAt? ExpiresAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InviteExpiresAt ExpiresAt { get; set; }
-#endif
+        public int? ExpiresAt { get; set; }
         /// <summary>The identifier, which can be referenced in API endpoints</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,10 +76,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accepted_at", n => { AcceptedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteAcceptedAt>(global::Soenneker.OpenAI.OpenApiClient.Models.InviteAcceptedAt.CreateFromDiscriminatorValue); } },
+                { "accepted_at", n => { AcceptedAt = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "expires_at", n => { ExpiresAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteExpiresAt>(global::Soenneker.OpenAI.OpenApiClient.Models.InviteExpiresAt.CreateFromDiscriminatorValue); } },
+                { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteObject>(); } },
                 { "projects", n => { Projects = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InviteProjectsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.InviteProjectsItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -106,10 +94,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteAcceptedAt>("accepted_at", AcceptedAt);
+            writer.WriteIntValue("accepted_at", AcceptedAt);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("email", Email);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteExpiresAt>("expires_at", ExpiresAt);
+            writer.WriteIntValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteObject>("object", Object);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InviteProjectsItem>("projects", Projects);

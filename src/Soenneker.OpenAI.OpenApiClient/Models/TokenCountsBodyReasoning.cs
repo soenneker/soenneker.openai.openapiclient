@@ -14,30 +14,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The context property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Controls which reasoning items are rendered back to the model on later turns.If omitted or set to `auto`, the model determines the context mode. The`gpt-5.6` model family defaults to `all_turns`; earlier models default to`current_turn`.When returned on a response, this is the effective reasoning context modeused for the response.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContext? Context { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContext Context { get; set; }
-#endif
-        /// <summary>The effort property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Constrains effort on reasoning for reasoning models. Currently supportedvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.Reducing reasoning effort can result in faster responses and fewer tokensused on reasoning in a response. Not all reasoning models support everyvalue. See the[reasoning guide](https://platform.openai.com/docs/guides/reasoning)for model-specific support.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? Effort { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort Effort { get; set; }
-#endif
-        /// <summary>The generate_summary property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>**Deprecated:** use `summary` instead.A summary of the reasoning performed by the model. This can beuseful for debugging and understanding the model&apos;s reasoning process.One of `auto`, `concise`, or `detailed`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary? GenerateSummary { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary GenerateSummary { get; set; }
-#endif
         /// <summary>The mode property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -46,14 +28,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum Mode { get; set; }
 #endif
-        /// <summary>The summary property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>A summary of the reasoning performed by the model. This can beuseful for debugging and understanding the model&apos;s reasoning process.One of `auto`, `concise`, or `detailed`.`concise` is supported for `computer-use-preview` models and all reasoning models after `gpt-5`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummary? Summary { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummary Summary { get; set; }
-#endif
         /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -87,11 +63,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "context", n => { Context = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContext>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContext.CreateFromDiscriminatorValue); } },
-                { "effort", n => { Effort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort.CreateFromDiscriminatorValue); } },
-                { "generate_summary", n => { GenerateSummary = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary.CreateFromDiscriminatorValue); } },
+                { "context", n => { Context = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContext>(); } },
+                { "effort", n => { Effort = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(); } },
+                { "generate_summary", n => { GenerateSummary = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary>(); } },
                 { "mode", n => { Mode = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum.CreateFromDiscriminatorValue); } },
-                { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummary>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummary.CreateFromDiscriminatorValue); } },
+                { "summary", n => { Summary = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummary>(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -102,11 +78,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContext>("context", Context);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("effort", Effort);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary>("generate_summary", GenerateSummary);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContext>("context", Context);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("effort", Effort);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary>("generate_summary", GenerateSummary);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum>("mode", Mode);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummary>("summary", Summary);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummary>("summary", Summary);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

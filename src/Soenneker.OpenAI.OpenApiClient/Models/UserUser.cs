@@ -16,37 +16,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The banned property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserUserBanned? Banned { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserUserBanned Banned { get; set; }
-#endif
+        public bool? Banned { get; set; }
         /// <summary>The banned_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserUserBannedAt? BannedAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserUserBannedAt BannedAt { get; set; }
-#endif
+        public int? BannedAt { get; set; }
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserUserEmail? Email { get; set; }
+        public string? Email { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserUserEmail Email { get; set; }
+        public string Email { get; set; }
 #endif
         /// <summary>The enabled property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserUserEnabled? Enabled { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserUserEnabled Enabled { get; set; }
-#endif
+        public bool? Enabled { get; set; }
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,20 +40,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserUserName? Name { get; set; }
+        public string? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserUserName Name { get; set; }
+        public string Name { get; set; }
 #endif
         /// <summary>The object property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.UserUserObject? Object { get; set; }
         /// <summary>The picture property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserUserPicture? Picture { get; set; }
+        public string? Picture { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserUserPicture Picture { get; set; }
+        public string Picture { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UserUser"/> and sets the default values.
@@ -98,14 +80,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "banned", n => { Banned = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUserBanned>(global::Soenneker.OpenAI.OpenApiClient.Models.UserUserBanned.CreateFromDiscriminatorValue); } },
-                { "banned_at", n => { BannedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUserBannedAt>(global::Soenneker.OpenAI.OpenApiClient.Models.UserUserBannedAt.CreateFromDiscriminatorValue); } },
-                { "email", n => { Email = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUserEmail>(global::Soenneker.OpenAI.OpenApiClient.Models.UserUserEmail.CreateFromDiscriminatorValue); } },
-                { "enabled", n => { Enabled = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUserEnabled>(global::Soenneker.OpenAI.OpenApiClient.Models.UserUserEnabled.CreateFromDiscriminatorValue); } },
+                { "banned", n => { Banned = n.GetBoolValue(); } },
+                { "banned_at", n => { BannedAt = n.GetIntValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUserName>(global::Soenneker.OpenAI.OpenApiClient.Models.UserUserName.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUserObject>(); } },
-                { "picture", n => { Picture = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUserPicture>(global::Soenneker.OpenAI.OpenApiClient.Models.UserUserPicture.CreateFromDiscriminatorValue); } },
+                { "picture", n => { Picture = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -115,14 +97,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUserBanned>("banned", Banned);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUserBannedAt>("banned_at", BannedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUserEmail>("email", Email);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUserEnabled>("enabled", Enabled);
+            writer.WriteBoolValue("banned", Banned);
+            writer.WriteIntValue("banned_at", BannedAt);
+            writer.WriteStringValue("email", Email);
+            writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUserName>("name", Name);
+            writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUserObject>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserUserPicture>("picture", Picture);
+            writer.WriteStringValue("picture", Picture);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

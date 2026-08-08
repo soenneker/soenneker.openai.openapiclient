@@ -31,31 +31,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionEnvProperty Env { get; set; }
 #endif
-        /// <summary>The timeout_ms property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionTimeoutMs? TimeoutMs { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionTimeoutMs TimeoutMs { get; set; }
-#endif
+        /// <summary>Optional timeout in milliseconds for the command.</summary>
+        public int? TimeoutMs { get; set; }
         /// <summary>The type of the local shell action. Always `exec`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionType? Type { get; set; }
-        /// <summary>The user property</summary>
+        /// <summary>Optional user to run the command as.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionUser? User { get; set; }
+        public string? User { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionUser User { get; set; }
+        public string User { get; set; }
 #endif
-        /// <summary>The working_directory property</summary>
+        /// <summary>Optional working directory to run the command in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionWorkingDirectory? WorkingDirectory { get; set; }
+        public string? WorkingDirectory { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionWorkingDirectory WorkingDirectory { get; set; }
+        public string WorkingDirectory { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecAction"/> and sets the default values.
@@ -84,10 +78,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "command", n => { Command = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "env", n => { Env = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionEnvProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionEnvProperty.CreateFromDiscriminatorValue); } },
-                { "timeout_ms", n => { TimeoutMs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionTimeoutMs>(global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionTimeoutMs.CreateFromDiscriminatorValue); } },
+                { "timeout_ms", n => { TimeoutMs = n.GetIntValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionType>(); } },
-                { "user", n => { User = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionUser>(global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionUser.CreateFromDiscriminatorValue); } },
-                { "working_directory", n => { WorkingDirectory = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionWorkingDirectory>(global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionWorkingDirectory.CreateFromDiscriminatorValue); } },
+                { "user", n => { User = n.GetStringValue(); } },
+                { "working_directory", n => { WorkingDirectory = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -99,10 +93,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("command", Command);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionEnvProperty>("env", Env);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionTimeoutMs>("timeout_ms", TimeoutMs);
+            writer.WriteIntValue("timeout_ms", TimeoutMs);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionType>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionUser>("user", User);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellExecActionWorkingDirectory>("working_directory", WorkingDirectory);
+            writer.WriteStringValue("user", User);
+            writer.WriteStringValue("working_directory", WorkingDirectory);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

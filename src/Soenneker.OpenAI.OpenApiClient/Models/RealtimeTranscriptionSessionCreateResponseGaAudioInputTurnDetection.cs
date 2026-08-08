@@ -21,7 +21,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? SilenceDurationMs { get; set; }
         /// <summary>Activation threshold for VAD (0.0 to 1.0), this defaults to 0.5. Ahigher threshold will require louder audio to activate the model, andthus might perform better in noisy environments.</summary>
         public double? Threshold { get; set; }
-        /// <summary>Union discriminator</summary>
+        /// <summary>Type of turn detection, only `server_vad` is currently supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Type { get; set; }

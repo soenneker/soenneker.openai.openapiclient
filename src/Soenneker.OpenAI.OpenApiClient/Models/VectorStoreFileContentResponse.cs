@@ -25,13 +25,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Indicates if there are more content pages to fetch.</summary>
         public bool? HasMore { get; set; }
-        /// <summary>The next_page property</summary>
+        /// <summary>The token for the next page, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseNextPage? NextPage { get; set; }
+        public string? NextPage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseNextPage NextPage { get; set; }
+        public string NextPage { get; set; }
 #endif
         /// <summary>The object type, which is always `vector_store.file_content.page`</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseObject? Object { get; set; }
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseDataItem>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseDataItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "next_page", n => { NextPage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseNextPage>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseNextPage.CreateFromDiscriminatorValue); } },
+                { "next_page", n => { NextPage = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseObject>(); } },
             };
         }
@@ -75,7 +75,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseDataItem>("data", Data);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseNextPage>("next_page", NextPage);
+            writer.WriteStringValue("next_page", NextPage);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }

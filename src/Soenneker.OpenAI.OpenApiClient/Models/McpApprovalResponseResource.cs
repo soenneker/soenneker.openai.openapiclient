@@ -33,13 +33,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The reason property</summary>
+        /// <summary>Optional reason for the decision.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResourceReason? Reason { get; set; }
+        public string? Reason { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResourceReason Reason { get; set; }
+        public string Reason { get; set; }
 #endif
         /// <summary>The type of the item. Always `mcp_approval_response`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResourceType? Type { get; set; }
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "approval_request_id", n => { ApprovalRequestId = n.GetStringValue(); } },
                 { "approve", n => { Approve = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "reason", n => { Reason = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResourceReason>(global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResourceReason.CreateFromDiscriminatorValue); } },
+                { "reason", n => { Reason = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResourceType>(); } },
             };
         }
@@ -85,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("approval_request_id", ApprovalRequestId);
             writer.WriteBoolValue("approve", Approve);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResourceReason>("reason", Reason);
+            writer.WriteStringValue("reason", Reason);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResourceType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

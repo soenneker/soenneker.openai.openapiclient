@@ -7,23 +7,16 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// Details about why the response is incomplete.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class BetaResponseAllOf3IncompleteDetails : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The reason why the response is incomplete.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetailsAnyOf1Reason? Reason { get; set; }
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetailsReason? Reason { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetails"/> and sets the default values.
         /// </summary>
@@ -49,8 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "reason", n => { Reason = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetailsAnyOf1Reason>(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "reason", n => { Reason = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetailsReason>(); } },
             };
         }
         /// <summary>
@@ -60,8 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetailsAnyOf1Reason>("reason", Reason);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetailsReason>("reason", Reason);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

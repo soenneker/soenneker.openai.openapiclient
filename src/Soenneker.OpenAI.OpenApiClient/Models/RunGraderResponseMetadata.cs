@@ -35,10 +35,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The sampled_model_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataSampledModelName? SampledModelName { get; set; }
+        public string? SampledModelName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataSampledModelName SampledModelName { get; set; }
+        public string SampledModelName { get; set; }
 #endif
         /// <summary>The scores property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,13 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataScoresProperty Scores { get; set; }
 #endif
         /// <summary>The token_usage property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage? TokenUsage { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage TokenUsage { get; set; }
-#endif
+        public int? TokenUsage { get; set; }
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,9 +86,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "errors", n => { Errors = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors.CreateFromDiscriminatorValue); } },
                 { "execution_time", n => { ExecutionTime = n.GetDoubleValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "sampled_model_name", n => { SampledModelName = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataSampledModelName>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataSampledModelName.CreateFromDiscriminatorValue); } },
+                { "sampled_model_name", n => { SampledModelName = n.GetStringValue(); } },
                 { "scores", n => { Scores = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataScoresProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataScoresProperty.CreateFromDiscriminatorValue); } },
-                { "token_usage", n => { TokenUsage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage.CreateFromDiscriminatorValue); } },
+                { "token_usage", n => { TokenUsage = n.GetIntValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -108,9 +102,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors>("errors", Errors);
             writer.WriteDoubleValue("execution_time", ExecutionTime);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataSampledModelName>("sampled_model_name", SampledModelName);
+            writer.WriteStringValue("sampled_model_name", SampledModelName);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataScoresProperty>("scores", Scores);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage>("token_usage", TokenUsage);
+            writer.WriteIntValue("token_usage", TokenUsage);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

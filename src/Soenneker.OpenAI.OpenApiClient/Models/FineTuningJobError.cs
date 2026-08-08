@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// For fine-tuning jobs that have `failed`, this will contain more information on the cause of the failure.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class FineTuningJobError : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -30,21 +31,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>The param property</summary>
+        /// <summary>The parameter that was invalid, usually `training_file` or `validation_file`. This field will be null if the failure was not parameter-specific.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1Param? Param { get; set; }
+        public string? Param { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1Param Param { get; set; }
-#endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
+        public string Param { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError"/> and sets the default values.
@@ -73,8 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "param", n => { Param = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1Param>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1Param.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "param", n => { Param = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -86,8 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("message", Message);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1Param>("param", Param);
-            writer.WriteStringValue("type", Type);
+            writer.WriteStringValue("param", Param);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

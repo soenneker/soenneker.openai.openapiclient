@@ -15,14 +15,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The completed_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceCompletedAt? CompletedAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceCompletedAt CompletedAt { get; set; }
-#endif
+        /// <summary>Unix timestamp (seconds) for when the job completed, if finished.</summary>
+        public int? CompletedAt { get; set; }
         /// <summary>Unix timestamp (seconds) for when the job was created.</summary>
         public int? CreatedAt { get; set; }
         /// <summary>The error property</summary>
@@ -33,14 +27,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError Error { get; set; }
 #endif
-        /// <summary>The expires_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceExpiresAt? ExpiresAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceExpiresAt ExpiresAt { get; set; }
-#endif
+        /// <summary>Unix timestamp (seconds) for when the downloadable assets expire, if set.</summary>
+        public int? ExpiresAt { get; set; }
         /// <summary>Unique identifier for the video job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,21 +49,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceObject? Object { get; set; }
         /// <summary>Approximate completion percentage for the generation task.</summary>
         public int? Progress { get; set; }
-        /// <summary>The prompt property</summary>
+        /// <summary>The prompt that was used to generate the video.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourcePrompt? Prompt { get; set; }
+        public string? Prompt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourcePrompt Prompt { get; set; }
+        public string Prompt { get; set; }
 #endif
-        /// <summary>The remixed_from_video_id property</summary>
+        /// <summary>Identifier of the source video if this video is a remix.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceRemixedFromVideoId? RemixedFromVideoId { get; set; }
+        public string? RemixedFromVideoId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceRemixedFromVideoId RemixedFromVideoId { get; set; }
+        public string RemixedFromVideoId { get; set; }
 #endif
         /// <summary>Duration of the generated clip in seconds. For extensions, this is the stitched total duration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -114,16 +102,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "completed_at", n => { CompletedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceCompletedAt>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceCompletedAt.CreateFromDiscriminatorValue); } },
+                { "completed_at", n => { CompletedAt = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError.CreateFromDiscriminatorValue); } },
-                { "expires_at", n => { ExpiresAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceExpiresAt>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceExpiresAt.CreateFromDiscriminatorValue); } },
+                { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceObject>(); } },
                 { "progress", n => { Progress = n.GetIntValue(); } },
-                { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourcePrompt>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourcePrompt.CreateFromDiscriminatorValue); } },
-                { "remixed_from_video_id", n => { RemixedFromVideoId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceRemixedFromVideoId>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceRemixedFromVideoId.CreateFromDiscriminatorValue); } },
+                { "prompt", n => { Prompt = n.GetStringValue(); } },
+                { "remixed_from_video_id", n => { RemixedFromVideoId = n.GetStringValue(); } },
                 { "seconds", n => { Seconds = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSize>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoStatus>(); } },
@@ -136,16 +124,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceCompletedAt>("completed_at", CompletedAt);
+            writer.WriteIntValue("completed_at", CompletedAt);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError>("error", Error);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceExpiresAt>("expires_at", ExpiresAt);
+            writer.WriteIntValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel>("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceObject>("object", Object);
             writer.WriteIntValue("progress", Progress);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourcePrompt>("prompt", Prompt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceRemixedFromVideoId>("remixed_from_video_id", RemixedFromVideoId);
+            writer.WriteStringValue("prompt", Prompt);
+            writer.WriteStringValue("remixed_from_video_id", RemixedFromVideoId);
             writer.WriteStringValue("seconds", Seconds);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSize>("size", Size);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoStatus>("status", Status);

@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The annotations property</summary>
+        /// <summary>Additional annotations about the tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsToolAnnotations? Annotations { get; set; }
@@ -23,13 +23,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsToolAnnotations Annotations { get; set; }
 #endif
-        /// <summary>The description property</summary>
+        /// <summary>The description of the tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsToolDescription? Description { get; set; }
+        public string? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsToolDescription Description { get; set; }
+        public string Description { get; set; }
 #endif
         /// <summary>The JSON schema describing the tool&apos;s input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsToolAnnotations>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsToolAnnotations.CreateFromDiscriminatorValue); } },
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsToolDescription>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsToolDescription.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "input_schema", n => { InputSchema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsToolInputSchemaProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsToolInputSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsToolAnnotations>("annotations", Annotations);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsToolDescription>("description", Description);
+            writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsToolInputSchemaProperty>("input_schema", InputSchema);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);

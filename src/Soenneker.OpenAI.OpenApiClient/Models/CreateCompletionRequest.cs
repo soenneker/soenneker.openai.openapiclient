@@ -64,7 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>&quot;Whether to stream back partial progress. If set, tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available, with the stream terminated by a `data: [DONE]` message. [Example Python code](https://cookbook.openai.com/examples/how_to_stream_completions).&quot;</summary>
         public bool? Stream { get; set; }
-        /// <summary>The stream_options property</summary>
+        /// <summary>&quot;Options for streaming response. Only set this when you set `stream: true`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions? StreamOptions { get; set; }

@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string OutputAudioFormat { get; set; }
 #endif
-        /// <summary>The prompt property</summary>
+        /// <summary>Reference to a prompt template and its variables.[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.Prompt? Prompt { get; set; }

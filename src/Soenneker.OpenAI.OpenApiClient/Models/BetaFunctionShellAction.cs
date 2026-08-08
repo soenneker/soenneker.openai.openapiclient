@@ -23,22 +23,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<string> Commands { get; set; }
 #endif
-        /// <summary>The max_output_length property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellActionMaxOutputLength? MaxOutputLength { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellActionMaxOutputLength MaxOutputLength { get; set; }
-#endif
-        /// <summary>The timeout_ms property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellActionTimeoutMs? TimeoutMs { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellActionTimeoutMs TimeoutMs { get; set; }
-#endif
+        /// <summary>Optional maximum number of characters to return from each command.</summary>
+        public int? MaxOutputLength { get; set; }
+        /// <summary>Optional timeout in milliseconds for the commands.</summary>
+        public int? TimeoutMs { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellAction"/> and sets the default values.
         /// </summary>
@@ -65,8 +53,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "commands", n => { Commands = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "max_output_length", n => { MaxOutputLength = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellActionMaxOutputLength>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellActionMaxOutputLength.CreateFromDiscriminatorValue); } },
-                { "timeout_ms", n => { TimeoutMs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellActionTimeoutMs>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellActionTimeoutMs.CreateFromDiscriminatorValue); } },
+                { "max_output_length", n => { MaxOutputLength = n.GetIntValue(); } },
+                { "timeout_ms", n => { TimeoutMs = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -77,8 +65,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("commands", Commands);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellActionMaxOutputLength>("max_output_length", MaxOutputLength);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellActionTimeoutMs>("timeout_ms", TimeoutMs);
+            writer.WriteIntValue("max_output_length", MaxOutputLength);
+            writer.WriteIntValue("timeout_ms", TimeoutMs);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -7,20 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracingTracingConfiguration"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracingWrapper"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class RealtimeSessionCreateResponseGaTracing : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class RealtimeSessionCreateResponseGaTracing : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracing"/> and sets the default values.
-        /// </summary>
-        public RealtimeSessionCreateResponseGaTracing()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracingTracingConfiguration"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracingTracingConfiguration? RealtimeSessionCreateResponseGaTracingTracingConfiguration { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracingTracingConfiguration RealtimeSessionCreateResponseGaTracingTracingConfiguration { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracingWrapper"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracingWrapper? RealtimeSessionCreateResponseGaTracingWrapper { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracingWrapper RealtimeSessionCreateResponseGaTracingWrapper { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -29,7 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracing CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracing();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracing();
+            if("RealtimeSessionCreateResponseGaTracingTracingConfiguration".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RealtimeSessionCreateResponseGaTracingTracingConfiguration = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracingTracingConfiguration();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,9 +51,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(RealtimeSessionCreateResponseGaTracingTracingConfiguration != null)
             {
-            };
+                return RealtimeSessionCreateResponseGaTracingTracingConfiguration.GetFieldDeserializers();
+            }
+            else if(RealtimeSessionCreateResponseGaTracingWrapper != null)
+            {
+                return RealtimeSessionCreateResponseGaTracingWrapper.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -48,7 +68,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            if(RealtimeSessionCreateResponseGaTracingTracingConfiguration != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracingTracingConfiguration>(null, RealtimeSessionCreateResponseGaTracingTracingConfiguration);
+            }
+            else if(RealtimeSessionCreateResponseGaTracingWrapper != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracingWrapper>(null, RealtimeSessionCreateResponseGaTracingWrapper);
+            }
         }
     }
 }

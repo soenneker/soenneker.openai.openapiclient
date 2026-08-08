@@ -12,14 +12,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class BetaCreateResponseBody : global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponseProperties, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The background property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesBackground? Background { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesBackground Background { get; set; }
-#endif
+        /// <summary>Whether to run the model response in the background.[Learn more](/docs/guides/background).</summary>
+        public bool? Background { get; set; }
         /// <summary>The context_management property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -52,30 +46,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputParam Input { get; set; }
 #endif
-        /// <summary>The instructions property</summary>
+        /// <summary>A system (or developer) message inserted into the model&apos;s context.When using along with `previous_response_id`, the instructions from a previousresponse will not be carried over to the next response. This makes it simpleto swap out system (or developer) messages in new responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Instructions? Instructions { get; set; }
+        public string? Instructions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Instructions Instructions { get; set; }
+        public string Instructions { get; set; }
 #endif
-        /// <summary>The max_output_tokens property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3MaxOutputTokens? MaxOutputTokens { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3MaxOutputTokens MaxOutputTokens { get; set; }
-#endif
-        /// <summary>The max_tool_calls property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesMaxToolCalls? MaxToolCalls { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesMaxToolCalls MaxToolCalls { get; set; }
-#endif
+        /// <summary>An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).</summary>
+        public int? MaxOutputTokens { get; set; }
+        /// <summary>The maximum number of total calls to built-in tools that can be processed in a response. This maximum number applies across all built-in tool calls, not per individual tool. Any further attempts to call a tool by the model will be ignored.</summary>
+        public int? MaxToolCalls { get; set; }
         /// <summary>The model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,23 +82,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3MultiAgent MultiAgent { get; set; }
 #endif
-        /// <summary>The parallel_tool_calls property</summary>
+        /// <summary>Whether to allow the model to run tool calls in parallel.</summary>
+        public bool? ParallelToolCalls { get; set; }
+        /// <summary>The unique ID of the previous response to the model. Use this tocreate multi-turn conversations. Learn more about[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3ParallelToolCalls? ParallelToolCalls { get; set; }
+        public string? PreviousResponseId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3ParallelToolCalls ParallelToolCalls { get; set; }
+        public string PreviousResponseId { get; set; }
 #endif
-        /// <summary>The previous_response_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesPreviousResponseId? PreviousResponseId { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesPreviousResponseId PreviousResponseId { get; set; }
-#endif
-        /// <summary>The prompt property</summary>
+        /// <summary>Reference to a prompt template and its variables.[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt? Prompt { get; set; }
@@ -132,23 +108,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Reasoning Reasoning { get; set; }
 #endif
-        /// <summary>The store property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Store? Store { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Store Store { get; set; }
-#endif
-        /// <summary>The stream property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Stream? Stream { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Stream Stream { get; set; }
-#endif
-        /// <summary>The stream_options property</summary>
+        /// <summary>Whether to store the generated model response for later retrieval viaAPI.</summary>
+        public bool? Store { get; set; }
+        /// <summary>If set to true, the model response data will be streamed to the clientas it is generated using [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format).See the [Streaming section below](/docs/api-reference/responses-streaming)for more information.</summary>
+        public bool? Stream { get; set; }
+        /// <summary>&quot;Options for streaming responses. Only set this when you set `stream: true`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions? StreamOptions { get; set; }
@@ -180,15 +144,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool> Tools { get; set; }
 #endif
-        /// <summary>The truncation property</summary>
+        /// <summary>&quot;The truncation strategy to use for the model response.- `auto`: If the input to this Response exceeds  the model&apos;s context window size, the model will truncate the  response to fit the context window by dropping items from the beginning of the conversation.- `disabled` (default): If the input size will exceed the context window  size for a model, the request will fail with a 400 error.&quot;</summary>
         [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Truncation? Truncation { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Truncation Truncation { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyTruncation? Truncation { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody"/> and sets the default values.
+        /// </summary>
+        public BetaCreateResponseBody() : base()
+        {
+            Background = false;
+            ParallelToolCalls = true;
+            Store = true;
+            Stream = false;
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -207,28 +175,28 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "background", n => { Background = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesBackground>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesBackground.CreateFromDiscriminatorValue); } },
+                { "background", n => { Background = n.GetBoolValue(); } },
                 { "context_management", n => { ContextManagement = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3ContextManagement>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3ContextManagement.CreateFromDiscriminatorValue); } },
                 { "conversation", n => { Conversation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Conversation>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Conversation.CreateFromDiscriminatorValue); } },
                 { "include", n => { Include = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Include>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Include.CreateFromDiscriminatorValue); } },
                 { "input", n => { Input = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputParam.CreateFromDiscriminatorValue); } },
-                { "instructions", n => { Instructions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Instructions>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Instructions.CreateFromDiscriminatorValue); } },
-                { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3MaxOutputTokens>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3MaxOutputTokens.CreateFromDiscriminatorValue); } },
-                { "max_tool_calls", n => { MaxToolCalls = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesMaxToolCalls>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesMaxToolCalls.CreateFromDiscriminatorValue); } },
+                { "instructions", n => { Instructions = n.GetStringValue(); } },
+                { "max_output_tokens", n => { MaxOutputTokens = n.GetIntValue(); } },
+                { "max_tool_calls", n => { MaxToolCalls = n.GetIntValue(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses.CreateFromDiscriminatorValue); } },
                 { "moderation", n => { Moderation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Moderation>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Moderation.CreateFromDiscriminatorValue); } },
                 { "multi_agent", n => { MultiAgent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3MultiAgent>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3MultiAgent.CreateFromDiscriminatorValue); } },
-                { "parallel_tool_calls", n => { ParallelToolCalls = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3ParallelToolCalls>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3ParallelToolCalls.CreateFromDiscriminatorValue); } },
-                { "previous_response_id", n => { PreviousResponseId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesPreviousResponseId>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesPreviousResponseId.CreateFromDiscriminatorValue); } },
+                { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
+                { "previous_response_id", n => { PreviousResponseId = n.GetStringValue(); } },
                 { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt.CreateFromDiscriminatorValue); } },
                 { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Reasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Reasoning.CreateFromDiscriminatorValue); } },
-                { "store", n => { Store = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Store>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Store.CreateFromDiscriminatorValue); } },
-                { "stream", n => { Stream = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Stream>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Stream.CreateFromDiscriminatorValue); } },
+                { "store", n => { Store = n.GetBoolValue(); } },
+                { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "stream_options", n => { StreamOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions.CreateFromDiscriminatorValue); } },
                 { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTextParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTextParam.CreateFromDiscriminatorValue); } },
                 { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "truncation", n => { Truncation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Truncation>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Truncation.CreateFromDiscriminatorValue); } },
+                { "truncation", n => { Truncation = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyTruncation>(); } },
             };
         }
         /// <summary>
@@ -239,28 +207,28 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesBackground>("background", Background);
+            writer.WriteBoolValue("background", Background);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3ContextManagement>("context_management", ContextManagement);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Conversation>("conversation", Conversation);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Include>("include", Include);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputParam>("input", Input);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Instructions>("instructions", Instructions);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3MaxOutputTokens>("max_output_tokens", MaxOutputTokens);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesMaxToolCalls>("max_tool_calls", MaxToolCalls);
+            writer.WriteStringValue("instructions", Instructions);
+            writer.WriteIntValue("max_output_tokens", MaxOutputTokens);
+            writer.WriteIntValue("max_tool_calls", MaxToolCalls);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses>("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Moderation>("moderation", Moderation);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3MultiAgent>("multi_agent", MultiAgent);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3ParallelToolCalls>("parallel_tool_calls", ParallelToolCalls);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePropertiesPreviousResponseId>("previous_response_id", PreviousResponseId);
+            writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
+            writer.WriteStringValue("previous_response_id", PreviousResponseId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt>("prompt", Prompt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Reasoning>("reasoning", Reasoning);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Store>("store", Store);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Stream>("stream", Stream);
+            writer.WriteBoolValue("store", Store);
+            writer.WriteBoolValue("stream", Stream);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions>("stream_options", StreamOptions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTextParam>("text", Text);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam>("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool>("tools", Tools);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Truncation>("truncation", Truncation);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyTruncation>("truncation", Truncation);
         }
     }
 }

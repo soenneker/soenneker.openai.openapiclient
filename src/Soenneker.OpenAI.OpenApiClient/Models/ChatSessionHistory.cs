@@ -17,14 +17,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates if chat history is persisted for the session.</summary>
         public bool? Enabled { get; set; }
-        /// <summary>The recent_threads property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistoryRecentThreads? RecentThreads { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistoryRecentThreads RecentThreads { get; set; }
-#endif
+        /// <summary>Number of prior threads surfaced in history views. Defaults to null when all history is retained.</summary>
+        public int? RecentThreads { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistory"/> and sets the default values.
         /// </summary>
@@ -51,7 +45,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
-                { "recent_threads", n => { RecentThreads = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistoryRecentThreads>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistoryRecentThreads.CreateFromDiscriminatorValue); } },
+                { "recent_threads", n => { RecentThreads = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistoryRecentThreads>("recent_threads", RecentThreads);
+            writer.WriteIntValue("recent_threads", RecentThreads);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

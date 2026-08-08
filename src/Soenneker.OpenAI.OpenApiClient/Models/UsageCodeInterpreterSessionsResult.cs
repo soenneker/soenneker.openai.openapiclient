@@ -19,13 +19,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? NumSessions { get; set; }
         /// <summary>The object property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultObject? Object { get; set; }
-        /// <summary>The project_id property</summary>
+        /// <summary>When `group_by=project_id`, this field provides the project ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultProjectId? ProjectId { get; set; }
+        public string? ProjectId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultProjectId ProjectId { get; set; }
+        public string ProjectId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResult"/> and sets the default values.
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "num_sessions", n => { NumSessions = n.GetIntValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultObject>(); } },
-                { "project_id", n => { ProjectId = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultProjectId>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultProjectId.CreateFromDiscriminatorValue); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("num_sessions", NumSessions);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultObject>("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultProjectId>("project_id", ProjectId);
+            writer.WriteStringValue("project_id", ProjectId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

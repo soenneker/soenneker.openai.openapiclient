@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Whether the model may call multiple tools in parallel. Only supported byreasoning Realtime models such as `gpt-realtime-2`.</summary>
         public bool? ParallelToolCalls { get; set; }
-        /// <summary>The prompt property</summary>
+        /// <summary>Reference to a prompt template and its variables.[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.Prompt? Prompt { get; set; }

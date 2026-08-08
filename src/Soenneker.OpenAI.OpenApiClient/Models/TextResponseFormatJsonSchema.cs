@@ -39,14 +39,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaSchema Schema { get; set; }
 #endif
-        /// <summary>The strict property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaStrict? Strict { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaStrict Strict { get; set; }
-#endif
+        /// <summary>Whether to enable strict schema adherence when generating the output.If set to true, the model will always follow the exact schema definedin the `schema` field. Only a subset of JSON Schema is supported when`strict` is `true`. To learn more, read the [Structured Outputsguide](/docs/guides/structured-outputs).</summary>
+        public bool? Strict { get; set; }
         /// <summary>The type of response format being defined. Always `json_schema`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaType? Type { get; set; }
         /// <summary>
@@ -55,6 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public TextResponseFormatJsonSchema()
         {
             AdditionalData = new Dictionary<string, object>();
+            Strict = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -77,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaSchema>(global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaSchema.CreateFromDiscriminatorValue); } },
-                { "strict", n => { Strict = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaStrict>(global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaStrict.CreateFromDiscriminatorValue); } },
+                { "strict", n => { Strict = n.GetBoolValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaType>(); } },
             };
         }
@@ -91,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaSchema>("schema", Schema);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaStrict>("strict", Strict);
+            writer.WriteBoolValue("strict", Strict);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

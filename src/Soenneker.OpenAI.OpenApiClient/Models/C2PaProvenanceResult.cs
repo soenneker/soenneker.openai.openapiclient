@@ -14,29 +14,29 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The generated_at property</summary>
+        /// <summary>The UTC RFC 3339 timestamp recorded by the provenance signal for when the asset was generated, when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultGeneratedAt? GeneratedAt { get; set; }
+        public string? GeneratedAt { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultGeneratedAt GeneratedAt { get; set; }
+        public string GeneratedAt { get; set; }
 #endif
-        /// <summary>The issuer property</summary>
+        /// <summary>The C2PA manifest issuer, when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultIssuer? Issuer { get; set; }
+        public string? Issuer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultIssuer Issuer { get; set; }
+        public string Issuer { get; set; }
 #endif
-        /// <summary>The model property</summary>
+        /// <summary>The OpenAI model recorded by the provenance signal, when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultModel? Model { get; set; }
+        public string? Model { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultModel Model { get; set; }
+        public string Model { get; set; }
 #endif
         /// <summary>The outcome property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ProvenanceDetectionResultApi? Outcome { get; set; }
@@ -69,9 +69,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "generated_at", n => { GeneratedAt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultGeneratedAt>(global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultGeneratedAt.CreateFromDiscriminatorValue); } },
-                { "issuer", n => { Issuer = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultIssuer>(global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultIssuer.CreateFromDiscriminatorValue); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultModel>(global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultModel.CreateFromDiscriminatorValue); } },
+                { "generated_at", n => { GeneratedAt = n.GetStringValue(); } },
+                { "issuer", n => { Issuer = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
                 { "outcome", n => { Outcome = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProvenanceDetectionResultApi>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultType>(); } },
                 { "validation_state", n => { ValidationState = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.C2PaValidationStateApi>(); } },
@@ -84,9 +84,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultGeneratedAt>("generated_at", GeneratedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultIssuer>("issuer", Issuer);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultModel>("model", Model);
+            writer.WriteStringValue("generated_at", GeneratedAt);
+            writer.WriteStringValue("issuer", Issuer);
+            writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProvenanceDetectionResultApi>("outcome", Outcome);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.C2PaProvenanceResultType>("type", Type);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.C2PaValidationStateApi>("validation_state", ValidationState);
