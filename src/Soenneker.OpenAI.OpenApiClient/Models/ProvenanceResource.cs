@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Unix timestamp, in seconds, when the provenance check was created.</summary>
         public int? CreatedAt { get; set; }
-        /// <summary>The object property</summary>
+        /// <summary>The object type. Always `content_provenance_check` for this endpoint.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ProvenanceCheckObject? Object { get; set; }
         /// <summary>The provenance results that apply to the uploaded file. Image results include C2PA and SynthID; audio results include SynthID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

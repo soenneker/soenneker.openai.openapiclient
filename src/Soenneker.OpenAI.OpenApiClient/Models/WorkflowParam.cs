@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Workflow reference and overrides applied to the chat session.
+    /// Workflow that powers the session.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowParam : IAdditionalDataHolder, IParsable
@@ -31,7 +31,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParamStateVariablesProperty StateVariables { get; set; }
 #endif
-        /// <summary>Controls diagnostic tracing during the session.</summary>
+        /// <summary>Optional tracing overrides for the workflow invocation. When omitted, tracing is enabled by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowTracingParam? Tracing { get; set; }

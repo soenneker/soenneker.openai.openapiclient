@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The role property</summary>
+        /// <summary>The role that provided the additional tools.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageRole? Role { get; set; }
         /// <summary>The additional tool definitions made available at this item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

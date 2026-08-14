@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The allowed_callers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolAllowedCallers? AllowedCallers { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>? AllowedCallers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolAllowedCallers AllowedCallers { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller> AllowedCallers { get; set; }
 #endif
         /// <summary>The code interpreter container. Can be a container ID or an object thatspecifies uploaded file IDs to make available to your code, along with anoptional `memory_limit` setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowed_callers", n => { AllowedCallers = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolAllowedCallers>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolAllowedCallers.CreateFromDiscriminatorValue); } },
+                { "allowed_callers", n => { AllowedCallers = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "container", n => { Container = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolContainer>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolContainer.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolType>(); } },
             };
@@ -70,7 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolAllowedCallers>("allowed_callers", AllowedCallers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>("allowed_callers", AllowedCallers);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolContainer>("container", Container);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

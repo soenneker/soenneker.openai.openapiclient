@@ -17,10 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The caller property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputCaller? Caller { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCallerParam? Caller { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputCaller Caller { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCallerParam Caller { get; set; }
 #endif
         /// <summary>The call ID, used to map this custom tool call output to a custom tool call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputOutput Output { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>The status of the item. One of `in_progress`, `completed`, or`incomplete`. Populated when items are returned via API.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallOutputStatusEnum? Status { get; set; }
         /// <summary>The type of the custom tool call output. Always `custom_tool_call_output`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputType? Type { get; set; }
@@ -84,7 +84,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "call_id", n => { CallId = n.GetStringValue(); } },
-                { "caller", n => { Caller = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputCaller.CreateFromDiscriminatorValue); } },
+                { "caller", n => { Caller = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCallerParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCallerParam.CreateFromDiscriminatorValue); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputOutput>(global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputOutput.CreateFromDiscriminatorValue); } },
@@ -99,7 +99,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputCaller>("caller", Caller);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCallerParam>("caller", Caller);
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("id", Id);

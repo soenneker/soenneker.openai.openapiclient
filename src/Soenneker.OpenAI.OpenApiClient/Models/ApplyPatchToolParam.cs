@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The allowed_callers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolParamAllowedCallers? AllowedCallers { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller>? AllowedCallers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolParamAllowedCallers AllowedCallers { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller> AllowedCallers { get; set; }
 #endif
         /// <summary>The type of the tool. Always `apply_patch`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolParamType? Type { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowed_callers", n => { AllowedCallers = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolParamAllowedCallers>(global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolParamAllowedCallers.CreateFromDiscriminatorValue); } },
+                { "allowed_callers", n => { AllowedCallers = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolParamType>(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolParamAllowedCallers>("allowed_callers", AllowedCallers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller>("allowed_callers", AllowedCallers);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolParamType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

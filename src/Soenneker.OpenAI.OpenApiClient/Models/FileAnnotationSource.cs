@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Attachment source referenced by an annotation.
+    /// File attachment referenced by the annotation.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FileAnnotationSource : IAdditionalDataHolder, IParsable

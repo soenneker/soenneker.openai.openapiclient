@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>The multi-agent action to execute.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum BetaMultiAgentAction
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "spawn_agent")]
         #pragma warning disable CS1591

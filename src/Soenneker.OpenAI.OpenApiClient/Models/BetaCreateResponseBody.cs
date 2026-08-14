@@ -17,26 +17,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The context_management property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3ContextManagement? ContextManagement { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContextManagementParam>? ContextManagement { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3ContextManagement ContextManagement { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContextManagementParam> ContextManagement { get; set; }
 #endif
         /// <summary>The conversation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Conversation? Conversation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam? Conversation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Conversation Conversation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam Conversation { get; set; }
 #endif
         /// <summary>The include property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Include? Include { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaIncludeEnum?>? Include { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Include Include { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaIncludeEnum?> Include { get; set; }
 #endif
         /// <summary>Text, image, or file inputs to the model, used to generate a response.Learn more:- [Text inputs and outputs](/docs/guides/text)- [Image inputs](/docs/guides/images)- [File inputs](/docs/guides/pdf-files)- [Conversation state](/docs/guides/conversation-state)- [Function calling](/docs/guides/function-calling)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? MaxOutputTokens { get; set; }
         /// <summary>The maximum number of total calls to built-in tools that can be processed in a response. This maximum number applies across all built-in tool calls, not per individual tool. Any further attempts to call a tool by the model will be ignored.</summary>
         public int? MaxToolCalls { get; set; }
-        /// <summary>The model property</summary>
+        /// <summary>Model ID used to generate the response, like `gpt-4o` or `o3`. OpenAIoffers a wide range of models with different capabilities, performancecharacteristics, and price points. Refer to the [model guide](/docs/models)to browse and compare available models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses? Model { get; set; }
@@ -69,18 +69,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The moderation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Moderation? Moderation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationParam? Moderation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Moderation Moderation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationParam Moderation { get; set; }
 #endif
         /// <summary>The multi_agent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3MultiAgent? MultiAgent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentParam? MultiAgent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3MultiAgent MultiAgent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentParam MultiAgent { get; set; }
 #endif
         /// <summary>Whether to allow the model to run tool calls in parallel.</summary>
         public bool? ParallelToolCalls { get; set; }
@@ -103,10 +103,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The reasoning property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Reasoning? Reasoning { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoning? Reasoning { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Reasoning Reasoning { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoning Reasoning { get; set; }
 #endif
         /// <summary>Whether to store the generated model response for later retrieval viaAPI.</summary>
         public bool? Store { get; set; }
@@ -176,20 +176,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "background", n => { Background = n.GetBoolValue(); } },
-                { "context_management", n => { ContextManagement = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3ContextManagement>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3ContextManagement.CreateFromDiscriminatorValue); } },
-                { "conversation", n => { Conversation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Conversation>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Conversation.CreateFromDiscriminatorValue); } },
-                { "include", n => { Include = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Include>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Include.CreateFromDiscriminatorValue); } },
+                { "context_management", n => { ContextManagement = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContextManagementParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaContextManagementParam.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "conversation", n => { Conversation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam.CreateFromDiscriminatorValue); } },
+                { "include", n => { Include = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaIncludeEnum>()?.AsList(); } },
                 { "input", n => { Input = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputParam.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "max_output_tokens", n => { MaxOutputTokens = n.GetIntValue(); } },
                 { "max_tool_calls", n => { MaxToolCalls = n.GetIntValue(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses.CreateFromDiscriminatorValue); } },
-                { "moderation", n => { Moderation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Moderation>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Moderation.CreateFromDiscriminatorValue); } },
-                { "multi_agent", n => { MultiAgent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3MultiAgent>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3MultiAgent.CreateFromDiscriminatorValue); } },
+                { "moderation", n => { Moderation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationParam.CreateFromDiscriminatorValue); } },
+                { "multi_agent", n => { MultiAgent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentParam.CreateFromDiscriminatorValue); } },
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
                 { "previous_response_id", n => { PreviousResponseId = n.GetStringValue(); } },
                 { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt.CreateFromDiscriminatorValue); } },
-                { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Reasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Reasoning.CreateFromDiscriminatorValue); } },
+                { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoning.CreateFromDiscriminatorValue); } },
                 { "store", n => { Store = n.GetBoolValue(); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "stream_options", n => { StreamOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions.CreateFromDiscriminatorValue); } },
@@ -208,20 +208,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("background", Background);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3ContextManagement>("context_management", ContextManagement);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Conversation>("conversation", Conversation);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Include>("include", Include);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContextManagementParam>("context_management", ContextManagement);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam>("conversation", Conversation);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaIncludeEnum>("include", Include);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputParam>("input", Input);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteIntValue("max_output_tokens", MaxOutputTokens);
             writer.WriteIntValue("max_tool_calls", MaxToolCalls);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses>("model", Model);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Moderation>("moderation", Moderation);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3MultiAgent>("multi_agent", MultiAgent);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationParam>("moderation", Moderation);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentParam>("multi_agent", MultiAgent);
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
             writer.WriteStringValue("previous_response_id", PreviousResponseId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt>("prompt", Prompt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Reasoning>("reasoning", Reasoning);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoning>("reasoning", Reasoning);
             writer.WriteBoolValue("store", Store);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions>("stream_options", StreamOptions);

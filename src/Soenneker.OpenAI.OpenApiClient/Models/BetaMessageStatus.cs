@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>The status of item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum BetaMessageStatus
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "in_progress")]
         #pragma warning disable CS1591

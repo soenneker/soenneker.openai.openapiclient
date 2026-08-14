@@ -47,7 +47,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string PreviewUrl { get; set; }
 #endif
-        /// <summary>The type property</summary>
+        /// <summary>Attachment discriminator.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AttachmentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Attachment"/> and sets the default values.

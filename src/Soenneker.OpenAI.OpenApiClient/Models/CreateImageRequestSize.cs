@@ -7,28 +7,20 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeBranch1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeWrapper"/>
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateImageRequestSize : IComposedTypeWrapper, IParsable
+    #pragma warning disable CS1591
+    public partial class CreateImageRequestSize : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeBranch1? CreateImageRequestSizeBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeBranch1 CreateImageRequestSizeBranch1 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeWrapper? CreateImageRequestSizeWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeWrapper CreateImageRequestSizeWrapper { get; set; }
-#endif
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSize"/> and sets the default values.
+        /// </summary>
+        public CreateImageRequestSize()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,10 +29,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSize CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSize();
-            result.CreateImageRequestSizeBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeBranch1();
-            result.CreateImageRequestSizeWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeWrapper();
-            return result;
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSize();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,11 +37,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateImageRequestSizeBranch1 != null || CreateImageRequestSizeWrapper != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CreateImageRequestSizeBranch1, CreateImageRequestSizeWrapper);
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -61,7 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeBranch1>(null, CreateImageRequestSizeBranch1, CreateImageRequestSizeWrapper);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

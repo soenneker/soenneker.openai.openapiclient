@@ -56,10 +56,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The integrations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrations? Integrations { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrationsAnyOf1Item>? Integrations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrations Integrations { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrationsAnyOf1Item> Integrations { get; set; }
 #endif
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -157,7 +157,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "finished_at", n => { FinishedAt = n.GetIntValue(); } },
                 { "hyperparameters", n => { Hyperparameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparameters>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparameters.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "integrations", n => { Integrations = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrations>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrations.CreateFromDiscriminatorValue); } },
+                { "integrations", n => { Integrations = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrationsAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrationsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
                 { "method", n => { Method = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
@@ -185,7 +185,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("finished_at", FinishedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparameters>("hyperparameters", Hyperparameters);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrations>("integrations", Integrations);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrationsAnyOf1Item>("integrations", Integrations);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod>("method", Method);
             writer.WriteStringValue("model", Model);

@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaItemField> Output { get; set; }
 #endif
-        /// <summary>Represents token usage details including input tokens, output tokens,a breakdown of output tokens, and the total tokens used.</summary>
+        /// <summary>Token accounting for the compaction pass, including cached, reasoning, and total tokens.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseUsage? Usage { get; set; }

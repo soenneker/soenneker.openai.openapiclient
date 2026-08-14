@@ -17,10 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The conversation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyConversation? Conversation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ConversationParam? Conversation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyConversation Conversation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ConversationParam Conversation { get; set; }
 #endif
         /// <summary>The input property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,7 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Whether to allow the model to run tool calls in parallel.</summary>
         public bool? ParallelToolCalls { get; set; }
-        /// <summary>The personality property</summary>
+        /// <summary>A model-owned style preset to apply to this request. Omit this parameter to use the model&apos;s default style. Supported values may expand over time. Values must be at most 64 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.PersonalityEnum? Personality { get; set; }
@@ -67,36 +67,37 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The reasoning property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning? Reasoning { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning? Reasoning { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning Reasoning { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning Reasoning { get; set; }
 #endif
         /// <summary>The text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText? Text { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam? Text { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText Text { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam Text { get; set; }
 #endif
         /// <summary>The tool_choice property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyToolChoice? ToolChoice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceParam? ToolChoice { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyToolChoice ToolChoice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceParam ToolChoice { get; set; }
 #endif
         /// <summary>The tools property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyTools? Tools { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.Tool>? Tools { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyTools Tools { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.Tool> Tools { get; set; }
 #endif
-        /// <summary>The truncation property</summary>
+        /// <summary>&quot;The truncation strategy to use for the model response. - `auto`: If the input to this Response exceeds the model&apos;s context window size, the model will truncate the response to fit the context window by dropping items from the beginning of the conversation. - `disabled` (default): If the input size will exceed the context window size for a model, the request will fail with a 400 error.&quot;</summary>
+        [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Models.TruncationEnum? Truncation { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBody"/> and sets the default values.
@@ -123,17 +124,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "conversation", n => { Conversation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyConversation>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyConversation.CreateFromDiscriminatorValue); } },
+                { "conversation", n => { Conversation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ConversationParam.CreateFromDiscriminatorValue); } },
                 { "input", n => { Input = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyInput>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyInput.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
                 { "personality", n => { Personality = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersonalityEnum>(global::Soenneker.OpenAI.OpenApiClient.Models.PersonalityEnum.CreateFromDiscriminatorValue); } },
                 { "previous_response_id", n => { PreviousResponseId = n.GetStringValue(); } },
-                { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning.CreateFromDiscriminatorValue); } },
-                { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText.CreateFromDiscriminatorValue); } },
-                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyToolChoice>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyToolChoice.CreateFromDiscriminatorValue); } },
-                { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyTools>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyTools.CreateFromDiscriminatorValue); } },
+                { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning.CreateFromDiscriminatorValue); } },
+                { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam.CreateFromDiscriminatorValue); } },
+                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceParam.CreateFromDiscriminatorValue); } },
+                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Tool>(global::Soenneker.OpenAI.OpenApiClient.Models.Tool.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "truncation", n => { Truncation = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationEnum>(); } },
             };
         }
@@ -144,17 +145,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyConversation>("conversation", Conversation);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ConversationParam>("conversation", Conversation);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyInput>("input", Input);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteStringValue("model", Model);
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersonalityEnum>("personality", Personality);
             writer.WriteStringValue("previous_response_id", PreviousResponseId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning>("reasoning", Reasoning);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText>("text", Text);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyToolChoice>("tool_choice", ToolChoice);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyTools>("tools", Tools);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning>("reasoning", Reasoning);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam>("text", Text);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceParam>("tool_choice", ToolChoice);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Tool>("tools", Tools);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationEnum>("truncation", Truncation);
             writer.WriteAdditionalData(AdditionalData);
         }

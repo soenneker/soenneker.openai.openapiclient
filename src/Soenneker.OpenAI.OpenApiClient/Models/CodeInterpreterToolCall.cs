@@ -42,10 +42,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The outputs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs? Outputs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputsAnyOf1Item>? Outputs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs Outputs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputsAnyOf1Item> Outputs { get; set; }
 #endif
         /// <summary>The status of the code interpreter tool call. Valid values are `in_progress`, `completed`, `incomplete`, `interpreting`, and `failed`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallStatus? Status { get; set; }
@@ -79,7 +79,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "container_id", n => { ContainerId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "outputs", n => { Outputs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs>(global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs.CreateFromDiscriminatorValue); } },
+                { "outputs", n => { Outputs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputsAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallType>(); } },
             };
@@ -94,7 +94,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("container_id", ContainerId);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs>("outputs", Outputs);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputsAnyOf1Item>("outputs", Outputs);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

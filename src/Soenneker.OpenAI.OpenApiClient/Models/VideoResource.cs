@@ -22,10 +22,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError? Error { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Error2? Error { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError Error { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Error2 Error { get; set; }
 #endif
         /// <summary>Unix timestamp (seconds) for when the downloadable assets expire, if set.</summary>
         public int? ExpiresAt { get; set; }
@@ -37,7 +37,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The model property</summary>
+        /// <summary>The video generation model that produced the job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel? Model { get; set; }
@@ -73,9 +73,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Seconds { get; set; }
 #endif
-        /// <summary>The size property</summary>
+        /// <summary>The resolution of the generated video.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoSize? Size { get; set; }
-        /// <summary>The status property</summary>
+        /// <summary>Current lifecycle status of the video job.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource"/> and sets the default values.
@@ -104,7 +104,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "completed_at", n => { CompletedAt = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Error2>(global::Soenneker.OpenAI.OpenApiClient.Models.Error2.CreateFromDiscriminatorValue); } },
                 { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel.CreateFromDiscriminatorValue); } },
@@ -126,7 +126,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("completed_at", CompletedAt);
             writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError>("error", Error);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Error2>("error", Error);
             writer.WriteIntValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel>("model", Model);

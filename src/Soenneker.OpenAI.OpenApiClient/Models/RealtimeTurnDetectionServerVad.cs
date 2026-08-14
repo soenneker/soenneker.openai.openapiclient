@@ -28,7 +28,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Used only for `server_vad` mode. Activation threshold for VAD (0.0 to 1.0), this defaults to 0.5. Ahigher threshold will require louder audio to activate the model, andthus might perform better in noisy environments.</summary>
         public double? Threshold { get; set; }
         /// <summary>Type of turn detection, `server_vad` to turn on simple Server VAD.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionServerVad_type? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionServerVad"/> and sets the default values.
         /// </summary>
@@ -62,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "prefix_padding_ms", n => { PrefixPaddingMs = n.GetIntValue(); } },
                 { "silence_duration_ms", n => { SilenceDurationMs = n.GetIntValue(); } },
                 { "threshold", n => { Threshold = n.GetDoubleValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionServerVad_type>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -78,7 +84,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("prefix_padding_ms", PrefixPaddingMs);
             writer.WriteIntValue("silence_duration_ms", SilenceDurationMs);
             writer.WriteDoubleValue("threshold", Threshold);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionServerVad_type>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

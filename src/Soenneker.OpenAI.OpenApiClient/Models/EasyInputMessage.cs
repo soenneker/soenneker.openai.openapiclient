@@ -26,10 +26,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The phase property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessagePhase? Phase { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseWrapper? Phase { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessagePhase Phase { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseWrapper Phase { get; set; }
 #endif
         /// <summary>The role of the message input. One of `user`, `assistant`, `system`, or`developer`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessageRole? Role { get; set; }
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessageContent>(global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessageContent.CreateFromDiscriminatorValue); } },
-                { "phase", n => { Phase = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessagePhase>(global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessagePhase.CreateFromDiscriminatorValue); } },
+                { "phase", n => { Phase = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseWrapper.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessageRole>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessageType>(); } },
             };
@@ -74,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessageContent>("content", Content);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessagePhase>("phase", Phase);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseWrapper>("phase", Phase);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessageRole>("role", Role);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessageType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

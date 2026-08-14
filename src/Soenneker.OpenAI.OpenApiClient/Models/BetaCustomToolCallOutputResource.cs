@@ -17,18 +17,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The agent that produced this item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputAgent? Agent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag? Agent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputAgent Agent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag Agent { get; set; }
 #endif
         /// <summary>The caller property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputCaller? Caller { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolCallCallerParam? Caller { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputCaller Caller { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolCallCallerParam Caller { get; set; }
 #endif
         /// <summary>The call ID, used to map this custom tool call output to a custom tool call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputOutput Output { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>The status of the item. One of `in_progress`, `completed`, or`incomplete`. Populated when items are returned via API.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionCallOutputStatusEnum? Status { get; set; }
         /// <summary>The type of the custom tool call output. Always `custom_tool_call_output`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputType? Type { get; set; }
@@ -91,9 +91,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputAgent>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputAgent.CreateFromDiscriminatorValue); } },
+                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag.CreateFromDiscriminatorValue); } },
                 { "call_id", n => { CallId = n.GetStringValue(); } },
-                { "caller", n => { Caller = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputCaller.CreateFromDiscriminatorValue); } },
+                { "caller", n => { Caller = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolCallCallerParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolCallCallerParam.CreateFromDiscriminatorValue); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputOutput>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputOutput.CreateFromDiscriminatorValue); } },
@@ -108,8 +108,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputAgent>("agent", Agent);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputCaller>("caller", Caller);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>("agent", Agent);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolCallCallerParam>("caller", Caller);
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("id", Id);

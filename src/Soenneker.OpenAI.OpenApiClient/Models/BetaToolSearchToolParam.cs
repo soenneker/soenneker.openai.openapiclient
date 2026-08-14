@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The execution property</summary>
+        /// <summary>Whether tool search is executed by the server or by the client.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchExecutionType? Execution { get; set; }
         /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

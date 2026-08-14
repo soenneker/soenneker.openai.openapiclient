@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The agent property</summary>
+        /// <summary>The agent that produced this item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag? Agent { get; set; }
@@ -42,14 +42,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The phase property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessagePhaseComposed? Phase { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessagePhase2Wrapper? Phase { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessagePhaseComposed Phase { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessagePhase2Wrapper Phase { get; set; }
 #endif
-        /// <summary>The role property</summary>
+        /// <summary>The role of the message. One of `unknown`, `user`, `assistant`, `system`, `critic`, `discriminator`, `developer`, or `tool`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageRole? Role { get; set; }
-        /// <summary>The status property</summary>
+        /// <summary>The status of item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageStatus? Status { get; set; }
         /// <summary>The type of the message. Always set to `message`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageType? Type { get; set; }
@@ -81,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag.CreateFromDiscriminatorValue); } },
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "phase", n => { Phase = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessagePhaseComposed>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessagePhaseComposed.CreateFromDiscriminatorValue); } },
+                { "phase", n => { Phase = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessagePhase2Wrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessagePhase2Wrapper.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageRole>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageType>(); } },
@@ -97,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>("agent", Agent);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageContentItem>("content", Content);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessagePhaseComposed>("phase", Phase);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessagePhase2Wrapper>("phase", Phase);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageRole>("role", Role);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageType>("type", Type);

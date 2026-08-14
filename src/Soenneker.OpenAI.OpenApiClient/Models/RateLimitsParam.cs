@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Controls request rate limits for the session.
+    /// Optional override for per-minute request limits. When omitted, defaults to 10.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RateLimitsParam : IAdditionalDataHolder, IParsable

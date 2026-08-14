@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudioInputNoiseReduction NoiseReduction { get; set; }
 #endif
-        /// <summary>The transcription property</summary>
+        /// <summary>Configuration for input audio transcription.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse? Transcription { get; set; }

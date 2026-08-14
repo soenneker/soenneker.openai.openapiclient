@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>The terminal status of the program output item.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum ProgramOutputStatus
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "completed")]
         #pragma warning disable CS1591

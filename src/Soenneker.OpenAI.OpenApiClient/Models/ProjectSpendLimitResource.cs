@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The currency property</summary>
+        /// <summary>The currency for the threshold amount. Currently, only `USD` is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitCurrency? Currency { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitCurrency Currency { get; set; }
 #endif
-        /// <summary>The current enforcement state of a hard spend limit.</summary>
+        /// <summary>The current enforcement state of the hard spend limit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcement? Enforcement { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcement Enforcement { get; set; }
 #endif
-        /// <summary>The interval property</summary>
+        /// <summary>The time interval for evaluating spend against the threshold. Currently, only `month` is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitInterval? Interval { get; set; }

@@ -16,10 +16,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The actor property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed? Actor { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor? Actor { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed Actor { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor Actor { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -508,7 +508,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed.CreateFromDiscriminatorValue); } },
+                { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor.CreateFromDiscriminatorValue); } },
                 { "api_key.created", n => { ApiKeyCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated.CreateFromDiscriminatorValue); } },
                 { "api_key.deleted", n => { ApiKeyDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted.CreateFromDiscriminatorValue); } },
                 { "api_key.updated", n => { ApiKeyUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated.CreateFromDiscriminatorValue); } },
@@ -577,7 +577,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed>("actor", Actor);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor>("actor", Actor);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated>("api_key.created", ApiKeyCreated);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted>("api_key.deleted", ApiKeyDeleted);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated>("api_key.updated", ApiKeyUpdated);

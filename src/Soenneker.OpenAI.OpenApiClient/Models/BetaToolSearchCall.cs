@@ -14,7 +14,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The agent property</summary>
+        /// <summary>The agent that produced this item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag? Agent { get; set; }
@@ -46,7 +46,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string CreatedBy { get; set; }
 #endif
-        /// <summary>The execution property</summary>
+        /// <summary>Whether tool search was executed by the server or by the client.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchExecutionType? Execution { get; set; }
         /// <summary>The unique ID of the tool search call item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>The status of the tool search call item that was recorded.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionCallStatus? Status { get; set; }
         /// <summary>The type of the item. Always `tool_search_call`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchCallType? Type { get; set; }

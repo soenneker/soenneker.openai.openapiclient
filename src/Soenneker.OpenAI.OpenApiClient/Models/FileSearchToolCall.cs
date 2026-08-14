@@ -34,10 +34,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The results property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults? Results { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResultsAnyOf1Item>? Results { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults Results { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResultsAnyOf1Item> Results { get; set; }
 #endif
         /// <summary>The status of the file search tool call. One of `in_progress`,`searching`, `incomplete` or `failed`,</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallStatus? Status { get; set; }
@@ -70,7 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "queries", n => { Queries = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "results", n => { Results = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults>(global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults.CreateFromDiscriminatorValue); } },
+                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResultsAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResultsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallType>(); } },
             };
@@ -84,7 +84,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("queries", Queries);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults>("results", Results);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResultsAnyOf1Item>("results", Results);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

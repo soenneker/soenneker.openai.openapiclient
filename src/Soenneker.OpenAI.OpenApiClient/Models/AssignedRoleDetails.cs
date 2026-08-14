@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Principals from which the role assignment is inherited, when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSources? AssignmentSources { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSourcesAnyOf1Item>? AssignmentSources { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSources AssignmentSources { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSourcesAnyOf1Item> AssignmentSources { get; set; }
 #endif
         /// <summary>When the role was created.</summary>
         public int? CreatedAt { get; set; }
@@ -118,7 +118,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assignment_sources", n => { AssignmentSources = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSources>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSources.CreateFromDiscriminatorValue); } },
+                { "assignment_sources", n => { AssignmentSources = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSourcesAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSourcesAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "created_by_user_obj", n => { CreatedByUserObj = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObj>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObj.CreateFromDiscriminatorValue); } },
@@ -139,7 +139,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSources>("assignment_sources", AssignmentSources);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSourcesAnyOf1Item>("assignment_sources", AssignmentSources);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObj>("created_by_user_obj", CreatedByUserObj);

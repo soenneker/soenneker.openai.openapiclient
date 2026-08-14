@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>ChatKit configuration for the session.</summary>
+        /// <summary>Resolved ChatKit feature configuration for the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionChatkitConfiguration? ChatkitConfiguration { get; set; }
@@ -45,7 +45,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? MaxRequestsPer1Minute { get; set; }
         /// <summary>Type discriminator that is always `chatkit.session`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionResourceObject? Object { get; set; }
-        /// <summary>Active per-minute request limit for the session.</summary>
+        /// <summary>Resolved rate limit values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionRateLimits? RateLimits { get; set; }
@@ -53,7 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionRateLimits RateLimits { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>Current lifecycle state of the session.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionStatus? Status { get; set; }
         /// <summary>User identifier associated with the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,7 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string User { get; set; }
 #endif
-        /// <summary>Workflow metadata and state returned for the session.</summary>
+        /// <summary>Workflow metadata for the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflow? Workflow { get; set; }

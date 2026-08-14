@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The mode property</summary>
+        /// <summary>Whether implicit prompt-cache breakpoints were enabled.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheModeEnum? Mode { get; set; }
         /// <summary>The ttl property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheTtlEnum? Ttl { get; set; }

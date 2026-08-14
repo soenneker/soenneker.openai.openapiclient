@@ -23,17 +23,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContentType?> SearchContentTypes { get; set; }
 #endif
-        /// <summary>The search_context_size property</summary>
+        /// <summary>High level guidance for the amount of context window space to use for the search. One of `low`, `medium`, or `high`. `medium` is the default.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContextSize? SearchContextSize { get; set; }
         /// <summary>The type of the web search tool. One of `web_search_preview` or `web_search_preview_2025_03_11`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewToolType? Type { get; set; }
         /// <summary>The user_location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewToolUserLocation? UserLocation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocation? UserLocation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewToolUserLocation UserLocation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocation UserLocation { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewTool"/> and sets the default values.
@@ -63,7 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "search_content_types", n => { SearchContentTypes = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContentType>()?.AsList(); } },
                 { "search_context_size", n => { SearchContextSize = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContextSize>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewToolType>(); } },
-                { "user_location", n => { UserLocation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewToolUserLocation>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewToolUserLocation.CreateFromDiscriminatorValue); } },
+                { "user_location", n => { UserLocation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocation>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContentType>("search_content_types", SearchContentTypes);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContextSize>("search_context_size", SearchContextSize);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewToolType>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewToolUserLocation>("user_location", UserLocation);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocation>("user_location", UserLocation);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

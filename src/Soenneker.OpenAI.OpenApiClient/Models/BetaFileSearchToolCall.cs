@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The agent that produced this item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallAgent? Agent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag? Agent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallAgent Agent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag Agent { get; set; }
 #endif
         /// <summary>The unique ID of the file search tool call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,10 +42,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The results property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResults? Results { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsAnyOf1Item>? Results { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResults Results { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsAnyOf1Item> Results { get; set; }
 #endif
         /// <summary>The status of the file search tool call. One of `in_progress`,`searching`, `incomplete` or `failed`,</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallStatus? Status { get; set; }
@@ -76,10 +76,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallAgent>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallAgent.CreateFromDiscriminatorValue); } },
+                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "queries", n => { Queries = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "results", n => { Results = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResults>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResults.CreateFromDiscriminatorValue); } },
+                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallType>(); } },
             };
@@ -91,10 +91,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallAgent>("agent", Agent);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>("agent", Agent);
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("queries", Queries);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResults>("results", Results);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsAnyOf1Item>("results", Results);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

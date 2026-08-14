@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The allowed_callers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamAllowedCallers? AllowedCallers { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller>? AllowedCallers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamAllowedCallers AllowedCallers { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller> AllowedCallers { get; set; }
 #endif
         /// <summary>Whether this tool should be deferred and discovered via tool search.</summary>
         public bool? DeferLoading { get; set; }
@@ -76,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowed_callers", n => { AllowedCallers = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamAllowedCallers>(global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamAllowedCallers.CreateFromDiscriminatorValue); } },
+                { "allowed_callers", n => { AllowedCallers = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "defer_loading", n => { DeferLoading = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamFormat>(global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamFormat.CreateFromDiscriminatorValue); } },
@@ -91,7 +91,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamAllowedCallers>("allowed_callers", AllowedCallers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller>("allowed_callers", AllowedCallers);
             writer.WriteBoolValue("defer_loading", DeferLoading);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolParamFormat>("format", Format);

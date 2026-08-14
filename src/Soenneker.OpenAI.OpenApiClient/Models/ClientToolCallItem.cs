@@ -59,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Output { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>Execution status for the tool call.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallStatus? Status { get; set; }
         /// <summary>Identifier of the parent thread.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Workflow metadata and state returned for the session.
+    /// Workflow metadata for the session.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatkitWorkflow : IAdditionalDataHolder, IParsable
@@ -31,7 +31,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariables StateVariables { get; set; }
 #endif
-        /// <summary>Controls diagnostic tracing during the session.</summary>
+        /// <summary>Tracing settings applied to the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowTracing? Tracing { get; set; }

@@ -38,7 +38,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Result { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>The terminal status of the program output item.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputStatus? Status { get; set; }
         /// <summary>The type of the item. Always `program_output`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputType? Type { get; set; }

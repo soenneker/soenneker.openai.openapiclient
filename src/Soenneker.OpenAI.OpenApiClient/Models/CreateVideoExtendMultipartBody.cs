@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Prompt { get; set; }
 #endif
-        /// <summary>The seconds property</summary>
+        /// <summary>&quot;Length of the newly generated extension segment in seconds (allowed values: 4, 8, 12, 16, 20).&quot;</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds? Seconds { get; set; }
         /// <summary>The video property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

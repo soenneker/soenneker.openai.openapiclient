@@ -18,18 +18,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItemLogprobsContent? Content { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprob>? Content { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItemLogprobsContent Content { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprob> Content { get; set; }
 #endif
         /// <summary>The refusal property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItemLogprobsRefusal? Refusal { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprob>? Refusal { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItemLogprobsRefusal Refusal { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprob> Refusal { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItemLogprobs"/> and sets the default values.
@@ -56,8 +56,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItemLogprobsContent>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItemLogprobsContent.CreateFromDiscriminatorValue); } },
-                { "refusal", n => { Refusal = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItemLogprobsRefusal>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItemLogprobsRefusal.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprob>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprob.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "refusal", n => { Refusal = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprob>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprob.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItemLogprobsContent>("content", Content);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItemLogprobsRefusal>("refusal", Refusal);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprob>("content", Content);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprob>("refusal", Refusal);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

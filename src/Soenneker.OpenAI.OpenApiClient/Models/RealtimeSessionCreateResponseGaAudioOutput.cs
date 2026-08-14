@@ -14,7 +14,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The format property</summary>
+        /// <summary>The format of the output audio.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats? Format { get; set; }
@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The speed of the model&apos;s spoken response as a multiple of the original speed.1.0 is the default speed. 0.25 is the minimum speed. 1.5 is the maximum speed. This value can only be changed in between model turns, not while a response is in progress.This parameter is a post-processing adjustment to the audio after it is generated, it&apos;salso possible to prompt the model to speak faster or slower.</summary>
         public double? Speed { get; set; }
-        /// <summary>The voice property</summary>
+        /// <summary>The voice the model uses to respond. Voice cannot be changed during thesession once the model has responded with audio at least once. Currentvoice options are `alloy`, `ash`, `ballad`, `coral`, `echo`, `sage`,`shimmer`, `verse`, `marin`, and `cedar`. We recommend `marin` and `cedar` forbest quality.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsShared? Voice { get; set; }

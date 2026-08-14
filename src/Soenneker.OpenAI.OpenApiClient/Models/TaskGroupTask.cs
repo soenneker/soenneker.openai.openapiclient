@@ -31,7 +31,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Summary { get; set; }
 #endif
-        /// <summary>The type property</summary>
+        /// <summary>Subtype for the grouped task.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.TaskType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.TaskGroupTask"/> and sets the default values.

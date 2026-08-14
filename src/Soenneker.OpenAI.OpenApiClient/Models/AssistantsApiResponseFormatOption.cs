@@ -8,43 +8,38 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOptionWrapper"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText"/>
+    /// &quot;Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.Setting to `{ \&quot;type\&quot;: \&quot;json_schema\&quot;, \&quot;json_schema\&quot;: {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).Setting to `{ \&quot;type\&quot;: \&quot;json_object\&quot; }` enables JSON mode, which ensures the message the model generates is valid JSON.**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \&quot;stuck\&quot; request. Also note that the message content may be partially cut off if `finish_reason=\&quot;length\&quot;`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AssistantsApiResponseFormatOption : IComposedTypeWrapper, IParsable
+    public partial class AssistantsApiResponseFormatOption : IAdditionalDataHolder, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOptionWrapper"/></summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Structured Outputs configuration options, including a JSON Schema.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOptionWrapper? AssistantsApiResponseFormatOptionWrapper { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaJsonSchema? JsonSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOptionWrapper AssistantsApiResponseFormatOptionWrapper { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaJsonSchema JsonSchema { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject"/></summary>
+        /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject? ResponseFormatJsonObject { get; set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject ResponseFormatJsonObject { get; set; }
+        public string Type { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema? ResponseFormatJsonSchema { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema ResponseFormatJsonSchema { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText? ResponseFormatText { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText ResponseFormatText { get; set; }
-#endif
+        /// <summary>`auto` is the default value</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOptionWrapperValue? Value { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption"/> and sets the default values.
+        /// </summary>
+        public AssistantsApiResponseFormatOption()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -53,21 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption();
-            if("ResponseFormatJsonObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ResponseFormatJsonObject = new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject();
-            }
-            else if("ResponseFormatJsonSchema".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ResponseFormatJsonSchema = new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema();
-            }
-            else if("ResponseFormatText".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ResponseFormatText = new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText();
-            }
-            return result;
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,23 +56,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(AssistantsApiResponseFormatOptionWrapper != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return AssistantsApiResponseFormatOptionWrapper.GetFieldDeserializers();
-            }
-            else if(ResponseFormatJsonObject != null)
-            {
-                return ResponseFormatJsonObject.GetFieldDeserializers();
-            }
-            else if(ResponseFormatJsonSchema != null)
-            {
-                return ResponseFormatJsonSchema.GetFieldDeserializers();
-            }
-            else if(ResponseFormatText != null)
-            {
-                return ResponseFormatText.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "json_schema", n => { JsonSchema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaJsonSchema>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaJsonSchema.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOptionWrapperValue>(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -100,22 +70,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(AssistantsApiResponseFormatOptionWrapper != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOptionWrapper>(null, AssistantsApiResponseFormatOptionWrapper);
-            }
-            else if(ResponseFormatJsonObject != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject>(null, ResponseFormatJsonObject);
-            }
-            else if(ResponseFormatJsonSchema != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchema>(null, ResponseFormatJsonSchema);
-            }
-            else if(ResponseFormatText != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText>(null, ResponseFormatText);
-            }
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaJsonSchema>("json_schema", JsonSchema);
+            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOptionWrapperValue>("value", Value);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

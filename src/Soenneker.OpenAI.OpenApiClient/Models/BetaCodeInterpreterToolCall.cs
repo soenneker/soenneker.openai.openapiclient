@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The agent that produced this item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent? Agent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag? Agent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent Agent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag Agent { get; set; }
 #endif
         /// <summary>The code to run, or null if not available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,10 +50,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The outputs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallOutputs? Outputs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallOutputsAnyOf1Item>? Outputs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallOutputs Outputs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallOutputsAnyOf1Item> Outputs { get; set; }
 #endif
         /// <summary>The status of the code interpreter tool call. Valid values are `in_progress`, `completed`, `incomplete`, `interpreting`, and `failed`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallStatus? Status { get; set; }
@@ -84,11 +84,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent.CreateFromDiscriminatorValue); } },
+                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag.CreateFromDiscriminatorValue); } },
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "container_id", n => { ContainerId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "outputs", n => { Outputs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallOutputs>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallOutputs.CreateFromDiscriminatorValue); } },
+                { "outputs", n => { Outputs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallOutputsAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallOutputsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallType>(); } },
             };
@@ -100,11 +100,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent>("agent", Agent);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>("agent", Agent);
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("container_id", ContainerId);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallOutputs>("outputs", Outputs);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallOutputsAnyOf1Item>("outputs", Outputs);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

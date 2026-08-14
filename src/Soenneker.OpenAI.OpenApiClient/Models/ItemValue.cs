@@ -16,10 +16,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The acknowledged_safety_checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputItemParamAcknowledgedSafetyChecks? AcknowledgedSafetyChecks { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam>? AcknowledgedSafetyChecks { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputItemParamAcknowledgedSafetyChecks AcknowledgedSafetyChecks { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam> AcknowledgedSafetyChecks { get; set; }
 #endif
         /// <summary>The action property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,10 +60,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The caller property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallCaller? Caller { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCaller? Caller { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallCaller Caller { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCaller Caller { get; set; }
 #endif
         /// <summary>An identifier used when responding to the tool call with output.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,10 +108,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironment? Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironmentAnyOf1? Environment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironment Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironmentAnyOf1 Environment { get; set; }
 #endif
         /// <summary>Error message if the server could not list tools.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -121,7 +121,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Error { get; set; }
 #endif
-        /// <summary>The execution property</summary>
+        /// <summary>Whether tool search was executed by the server or by the client.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType? Execution { get; set; }
         /// <summary>The unique ID of the output message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -157,7 +157,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Namespace { get; set; }
 #endif
-        /// <summary>One of the create_file, delete_file, or update_file operations supplied to the apply_patch tool.</summary>
+        /// <summary>The specific create, delete, or update instruction for the apply_patch tool call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchOperationParam? Operation { get; set; }
@@ -176,10 +176,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The outputs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs? Outputs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputsAnyOf1Item>? Outputs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs Outputs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputsAnyOf1Item> Outputs { get; set; }
 #endif
         /// <summary>The pending safety checks for the computer call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -192,10 +192,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The phase property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OutputMessagePhase? Phase { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseWrapper2? Phase { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OutputMessagePhase Phase { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseWrapper2 Phase { get; set; }
 #endif
         /// <summary>The queries used to search for files.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -224,10 +224,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The results property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults? Results { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResultsAnyOf1Item>? Results { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults Results { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResultsAnyOf1Item> Results { get; set; }
 #endif
         /// <summary>The role of the message input. One of `user`, `system`, or `developer`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageRole? Role { get; set; }
@@ -290,19 +290,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "acknowledged_safety_checks", n => { AcknowledgedSafetyChecks = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputItemParamAcknowledgedSafetyChecks>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputItemParamAcknowledgedSafetyChecks.CreateFromDiscriminatorValue); } },
+                { "acknowledged_safety_checks", n => { AcknowledgedSafetyChecks = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "action", n => { Action = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerAction>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerAction.CreateFromDiscriminatorValue); } },
                 { "actions", n => { Actions = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerAction>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerAction.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "approval_request_id", n => { ApprovalRequestId = n.GetStringValue(); } },
                 { "approve", n => { Approve = n.GetBoolValue(); } },
                 { "arguments", n => { Arguments = n.GetStringValue(); } },
                 { "call_id", n => { CallId = n.GetStringValue(); } },
-                { "caller", n => { Caller = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallCaller.CreateFromDiscriminatorValue); } },
+                { "caller", n => { Caller = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCaller.CreateFromDiscriminatorValue); } },
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "container_id", n => { ContainerId = n.GetStringValue(); } },
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InputContent>(global::Soenneker.OpenAI.OpenApiClient.Models.InputContent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "encrypted_content", n => { EncryptedContent = n.GetStringValue(); } },
-                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironment>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironment.CreateFromDiscriminatorValue); } },
+                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironmentAnyOf1>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironmentAnyOf1.CreateFromDiscriminatorValue); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "execution", n => { Execution = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -312,13 +312,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "namespace", n => { Namespace = n.GetStringValue(); } },
                 { "operation", n => { Operation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchOperationParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchOperationParam.CreateFromDiscriminatorValue); } },
                 { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage.CreateFromDiscriminatorValue); } },
-                { "outputs", n => { Outputs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs>(global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs.CreateFromDiscriminatorValue); } },
+                { "outputs", n => { Outputs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputsAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "pending_safety_checks", n => { PendingSafetyChecks = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "phase", n => { Phase = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputMessagePhase>(global::Soenneker.OpenAI.OpenApiClient.Models.OutputMessagePhase.CreateFromDiscriminatorValue); } },
+                { "phase", n => { Phase = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseWrapper2>(global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseWrapper2.CreateFromDiscriminatorValue); } },
                 { "queries", n => { Queries = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
                 { "result", n => { Result = n.GetStringValue(); } },
-                { "results", n => { Results = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults>(global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults.CreateFromDiscriminatorValue); } },
+                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResultsAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResultsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageRole>(); } },
                 { "server_label", n => { ServerLabel = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageStatus>(); } },
@@ -334,19 +334,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputItemParamAcknowledgedSafetyChecks>("acknowledged_safety_checks", AcknowledgedSafetyChecks);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam>("acknowledged_safety_checks", AcknowledgedSafetyChecks);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerAction>("action", Action);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerAction>("actions", Actions);
             writer.WriteStringValue("approval_request_id", ApprovalRequestId);
             writer.WriteBoolValue("approve", Approve);
             writer.WriteStringValue("arguments", Arguments);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallCaller>("caller", Caller);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCaller>("caller", Caller);
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("container_id", ContainerId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InputContent>("content", Content);
             writer.WriteStringValue("encrypted_content", EncryptedContent);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironment>("environment", Environment);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironmentAnyOf1>("environment", Environment);
             writer.WriteStringValue("error", Error);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>("execution", Execution);
             writer.WriteStringValue("id", Id);
@@ -356,13 +356,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("namespace", Namespace);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchOperationParam>("operation", Operation);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage>("output", Output);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputs>("outputs", Outputs);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputsAnyOf1Item>("outputs", Outputs);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallSafetyCheckParam>("pending_safety_checks", PendingSafetyChecks);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputMessagePhase>("phase", Phase);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseWrapper2>("phase", Phase);
             writer.WriteCollectionOfPrimitiveValues<string>("queries", Queries);
             writer.WriteStringValue("reason", Reason);
             writer.WriteStringValue("result", Result);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResults>("results", Results);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResultsAnyOf1Item>("results", Results);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageRole>("role", Role);
             writer.WriteStringValue("server_label", ServerLabel);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageStatus>("status", Status);

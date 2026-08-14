@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Automatic thread title preferences for the session.
+    /// Automatic thread titling preferences.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatSessionAutomaticThreadTitling : IAdditionalDataHolder, IParsable

@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Summary { get; set; }
 #endif
-        /// <summary>The task_type property</summary>
+        /// <summary>Subtype for the task.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.TaskType? TaskType { get; set; }
         /// <summary>Identifier of the parent thread.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

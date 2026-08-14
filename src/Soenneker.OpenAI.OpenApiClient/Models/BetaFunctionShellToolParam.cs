@@ -18,18 +18,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The allowed_callers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamAllowedCallers? AllowedCallers { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>? AllowedCallers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamAllowedCallers AllowedCallers { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller> AllowedCallers { get; set; }
 #endif
         /// <summary>The environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironment? Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironmentAnyOf1? Environment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironment Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironmentAnyOf1 Environment { get; set; }
 #endif
         /// <summary>The type of the shell tool. Always `shell`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamType? Type { get; set; }
@@ -58,8 +58,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowed_callers", n => { AllowedCallers = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamAllowedCallers>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamAllowedCallers.CreateFromDiscriminatorValue); } },
-                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironment>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironment.CreateFromDiscriminatorValue); } },
+                { "allowed_callers", n => { AllowedCallers = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironmentAnyOf1>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironmentAnyOf1.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamType>(); } },
             };
         }
@@ -70,8 +70,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamAllowedCallers>("allowed_callers", AllowedCallers);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironment>("environment", Environment);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>("allowed_callers", AllowedCallers);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironmentAnyOf1>("environment", Environment);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

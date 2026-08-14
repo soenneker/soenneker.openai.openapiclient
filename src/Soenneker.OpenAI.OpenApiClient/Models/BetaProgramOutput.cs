@@ -14,7 +14,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The agent property</summary>
+        /// <summary>The agent that produced this item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag? Agent { get; set; }
@@ -46,7 +46,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Result { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>The terminal status of the program output item.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaProgramOutputStatus? Status { get; set; }
         /// <summary>The type of the item. Always `program_output`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaProgramOutputType? Type { get; set; }

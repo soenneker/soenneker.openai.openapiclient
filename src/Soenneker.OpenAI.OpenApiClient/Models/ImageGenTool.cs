@@ -13,7 +13,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ImageGenTool : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The action property</summary>
+        /// <summary>&quot;Whether to generate a new image or edit an existing image. Default: `auto`.&quot;</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenActionEnum? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -22,10 +22,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The input_fidelity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolInputFidelity? InputFidelity { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper2? InputFidelity { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolInputFidelity InputFidelity { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper2 InputFidelity { get; set; }
 #endif
         /// <summary>Optional mask for inpainting. Contains `image_url`(string, optional) and `file_id` (string, optional).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,7 +92,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "action", n => { Action = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenActionEnum>(); } },
                 { "background", n => { Background = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolBackground>(); } },
-                { "input_fidelity", n => { InputFidelity = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolInputFidelity>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolInputFidelity.CreateFromDiscriminatorValue); } },
+                { "input_fidelity", n => { InputFidelity = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper2>(global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper2.CreateFromDiscriminatorValue); } },
                 { "input_image_mask", n => { InputImageMask = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolInputImageMask>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolInputImageMask.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolModel>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolModel.CreateFromDiscriminatorValue); } },
                 { "moderation", n => { Moderation = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolModeration>(); } },
@@ -113,7 +113,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenActionEnum>("action", Action);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolBackground>("background", Background);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolInputFidelity>("input_fidelity", InputFidelity);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper2>("input_fidelity", InputFidelity);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolInputImageMask>("input_image_mask", InputImageMask);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolModel>("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolModeration>("moderation", Moderation);

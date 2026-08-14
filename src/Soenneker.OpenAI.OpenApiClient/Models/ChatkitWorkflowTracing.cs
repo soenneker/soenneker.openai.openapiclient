@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Controls diagnostic tracing during the session.
+    /// Tracing settings applied to the workflow.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatkitWorkflowTracing : IAdditionalDataHolder, IParsable

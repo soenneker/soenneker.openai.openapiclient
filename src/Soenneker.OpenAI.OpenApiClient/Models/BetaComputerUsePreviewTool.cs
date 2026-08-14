@@ -19,7 +19,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? DisplayHeight { get; set; }
         /// <summary>The width of the computer display.</summary>
         public int? DisplayWidth { get; set; }
-        /// <summary>The environment property</summary>
+        /// <summary>The type of computer environment to control.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerEnvironment? Environment { get; set; }
         /// <summary>The type of the computer use tool. Always `computer_use_preview`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerUsePreviewToolType? Type { get; set; }

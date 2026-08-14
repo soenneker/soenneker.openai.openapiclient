@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The allowed_callers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolAllowedCallers? AllowedCallers { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>? AllowedCallers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolAllowedCallers AllowedCallers { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller> AllowedCallers { get; set; }
 #endif
         /// <summary>The allowed_tools property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -118,7 +118,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowed_callers", n => { AllowedCallers = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolAllowedCallers>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolAllowedCallers.CreateFromDiscriminatorValue); } },
+                { "allowed_callers", n => { AllowedCallers = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "allowed_tools", n => { AllowedTools = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolAllowedTools>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolAllowedTools.CreateFromDiscriminatorValue); } },
                 { "authorization", n => { Authorization = n.GetStringValue(); } },
                 { "connector_id", n => { ConnectorId = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolConnectorId>(); } },
@@ -139,7 +139,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolAllowedCallers>("allowed_callers", AllowedCallers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>("allowed_callers", AllowedCallers);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolAllowedTools>("allowed_tools", AllowedTools);
             writer.WriteStringValue("authorization", Authorization);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolConnectorId>("connector_id", ConnectorId);

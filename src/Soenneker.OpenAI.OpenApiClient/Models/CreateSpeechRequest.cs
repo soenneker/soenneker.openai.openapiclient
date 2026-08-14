@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public double? Speed { get; set; }
         /// <summary>The format to stream the audio in. Supported formats are `sse` and `audio`. `sse` is not supported for `tts-1` or `tts-1-hd`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestStreamFormat? StreamFormat { get; set; }
-        /// <summary>A built-in voice name or a custom voice reference.</summary>
+        /// <summary>&quot;The voice to use when generating the audio. Supported built-in voices are `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`, `verse`, `marin`, and `cedar`. You may also provide a custom voice object with an `id`, for example `{ \&quot;id\&quot;: \&quot;voice_1234\&quot; }`. Previews of the voices are available in the [Text to speech guide](/docs/guides/text-to-speech#voice-options).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice? Voice { get; set; }

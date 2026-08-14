@@ -7,28 +7,20 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequestModelBranch1"/>
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateRunRequestModel : IComposedTypeWrapper, IParsable
+    #pragma warning disable CS1591
+    public partial class CreateRunRequestModel : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper2? AssistantSupportedModelsWrapper2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper2 AssistantSupportedModelsWrapper2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequestModelBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequestModelBranch1? CreateRunRequestModelBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequestModelBranch1 CreateRunRequestModelBranch1 { get; set; }
-#endif
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequestModel"/> and sets the default values.
+        /// </summary>
+        public CreateRunRequestModel()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,10 +29,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequestModel CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequestModel();
-            result.AssistantSupportedModelsWrapper2 = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper2();
-            result.CreateRunRequestModelBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequestModelBranch1();
-            return result;
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequestModel();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,11 +37,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(AssistantSupportedModelsWrapper2 != null || CreateRunRequestModelBranch1 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AssistantSupportedModelsWrapper2, CreateRunRequestModelBranch1);
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -61,7 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper2>(null, AssistantSupportedModelsWrapper2, CreateRunRequestModelBranch1);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

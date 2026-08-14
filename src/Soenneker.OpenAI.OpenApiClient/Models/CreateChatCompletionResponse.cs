@@ -44,10 +44,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The moderation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration? Moderation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration? Moderation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration Moderation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration Moderation { get; set; }
 #endif
         /// <summary>The object type, which is always `chat.completion`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseObject? Object { get; set; }
@@ -99,7 +99,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created", n => { Created = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "moderation", n => { Moderation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration.CreateFromDiscriminatorValue); } },
+                { "moderation", n => { Moderation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseObject>(); } },
                 { "service_tier", n => { ServiceTier = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier>(); } },
                 { "system_fingerprint", n => { SystemFingerprint = n.GetStringValue(); } },
@@ -117,7 +117,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("created", Created);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("model", Model);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration>("moderation", Moderation);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration>("moderation", Moderation);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseObject>("object", Object);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier>("service_tier", ServiceTier);
             writer.WriteStringValue("system_fingerprint", SystemFingerprint);

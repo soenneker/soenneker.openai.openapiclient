@@ -7,28 +7,20 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModelBranch1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModelWrapper"/>
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateImageEditRequestModel : IComposedTypeWrapper, IParsable
+    #pragma warning disable CS1591
+    public partial class CreateImageEditRequestModel : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModelBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModelBranch1? CreateImageEditRequestModelBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModelBranch1 CreateImageEditRequestModelBranch1 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModelWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModelWrapper? CreateImageEditRequestModelWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModelWrapper CreateImageEditRequestModelWrapper { get; set; }
-#endif
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel"/> and sets the default values.
+        /// </summary>
+        public CreateImageEditRequestModel()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,10 +29,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel();
-            result.CreateImageEditRequestModelBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModelBranch1();
-            result.CreateImageEditRequestModelWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModelWrapper();
-            return result;
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,11 +37,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateImageEditRequestModelBranch1 != null || CreateImageEditRequestModelWrapper != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CreateImageEditRequestModelBranch1, CreateImageEditRequestModelWrapper);
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -61,7 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModelBranch1>(null, CreateImageEditRequestModelBranch1, CreateImageEditRequestModelWrapper);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

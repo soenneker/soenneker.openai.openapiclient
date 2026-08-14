@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Definition { get; set; }
 #endif
-        /// <summary>The syntax property</summary>
+        /// <summary>The syntax of the grammar definition. One of `lark` or `regex`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaGrammarSyntax1? Syntax { get; set; }
         /// <summary>Grammar format. Always `grammar`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomGrammarFormatParamType? Type { get; set; }

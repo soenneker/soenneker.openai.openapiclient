@@ -21,7 +21,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? CreatedAt { get; set; }
         /// <summary>The Unix timestamp (in seconds) for when the Upload will expire.</summary>
         public int? ExpiresAt { get; set; }
-        /// <summary>The ready File object after the Upload is completed.</summary>
+        /// <summary>The file property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.UploadFile? File { get; set; }

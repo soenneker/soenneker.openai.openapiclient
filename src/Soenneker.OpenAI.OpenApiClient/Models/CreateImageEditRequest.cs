@@ -27,10 +27,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The input_fidelity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestInputFidelity? InputFidelity { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper? InputFidelity { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestInputFidelity InputFidelity { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper InputFidelity { get; set; }
 #endif
         /// <summary>An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where `image` should be edited. If there are multiple images provided, the mask will be applied on the first image. Must be a valid PNG file, less than 4MB, and have the same dimensions as `image`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public byte[] Mask { get; set; }
 #endif
-        /// <summary>The model to use for image generation. Defaults to `gpt-image-1.5`.</summary>
+        /// <summary>The model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel? Model { get; set; }
@@ -68,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality? Quality { get; set; }
         /// <summary>The format in which the generated images are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated. This parameter is only supported for `dall-e-2` (default is `url` for `dall-e-2`), as GPT image models always return base64-encoded images.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat? ResponseFormat { get; set; }
-        /// <summary>The size of the generated images. For `gpt-image-2` and `gpt-image-2-2026-04-21`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model&apos;s current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing. For `dall-e-2`, use one of `256x256`, `512x512`, or `1024x1024`. For `dall-e-3`, use one of `1024x1024`, `1792x1024`, or `1024x1792`.</summary>
+        /// <summary>The size property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestSize? Size { get; set; }
@@ -117,7 +117,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "background", n => { Background = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground>(); } },
                 { "image", n => { Image = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage.CreateFromDiscriminatorValue); } },
-                { "input_fidelity", n => { InputFidelity = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestInputFidelity>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestInputFidelity.CreateFromDiscriminatorValue); } },
+                { "input_fidelity", n => { InputFidelity = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper.CreateFromDiscriminatorValue); } },
                 { "mask", n => { Mask = n.GetByteArrayValue(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel.CreateFromDiscriminatorValue); } },
                 { "n", n => { N = n.GetIntValue(); } },
@@ -141,7 +141,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground>("background", Background);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage>("image", Image);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestInputFidelity>("input_fidelity", InputFidelity);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper>("input_fidelity", InputFidelity);
             writer.WriteByteArrayValue("mask", Mask);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel>("model", Model);
             writer.WriteIntValue("n", N);

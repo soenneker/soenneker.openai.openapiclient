@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>The status of the tool search call item that was recorded.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum FunctionCallStatus
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "in_progress")]
         #pragma warning disable CS1591

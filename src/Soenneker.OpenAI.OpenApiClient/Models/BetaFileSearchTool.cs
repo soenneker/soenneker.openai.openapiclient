@@ -18,14 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The filters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolFilters? Filters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFilters? Filters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolFilters Filters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFilters Filters { get; set; }
 #endif
         /// <summary>The maximum number of results to return. This number should be between 1 and 50 inclusive.</summary>
         public int? MaxNumResults { get; set; }
-        /// <summary>The ranking_options property</summary>
+        /// <summary>Ranking options for search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankingOptions? RankingOptions { get; set; }
@@ -68,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolFilters>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolFilters.CreateFromDiscriminatorValue); } },
+                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFilters>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFilters.CreateFromDiscriminatorValue); } },
                 { "max_num_results", n => { MaxNumResults = n.GetIntValue(); } },
                 { "ranking_options", n => { RankingOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankingOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankingOptions.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolType>(); } },
@@ -82,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolFilters>("filters", Filters);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFilters>("filters", Filters);
             writer.WriteIntValue("max_num_results", MaxNumResults);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankingOptions>("ranking_options", RankingOptions);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolType>("type", Type);

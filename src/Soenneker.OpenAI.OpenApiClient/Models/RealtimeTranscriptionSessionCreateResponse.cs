@@ -31,7 +31,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string InputAudioFormat { get; set; }
 #endif
-        /// <summary>The input_audio_transcription property</summary>
+        /// <summary>Configuration of the transcription model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse? InputAudioTranscription { get; set; }

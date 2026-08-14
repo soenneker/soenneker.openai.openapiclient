@@ -44,10 +44,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The inference_options property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemInferenceOptions? InferenceOptions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InferenceOptions? InferenceOptions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemInferenceOptions InferenceOptions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InferenceOptions InferenceOptions { get; set; }
 #endif
         /// <summary>Type discriminator that is always `chatkit.thread_item`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemObject? Object { get; set; }
@@ -90,7 +90,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "inference_options", n => { InferenceOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemInferenceOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemInferenceOptions.CreateFromDiscriminatorValue); } },
+                { "inference_options", n => { InferenceOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InferenceOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.InferenceOptions.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemObject>(); } },
                 { "thread_id", n => { ThreadId = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemType>(); } },
@@ -107,7 +107,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemContentItem>("content", Content);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemInferenceOptions>("inference_options", InferenceOptions);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InferenceOptions>("inference_options", InferenceOptions);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemObject>("object", Object);
             writer.WriteStringValue("thread_id", ThreadId);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemType>("type", Type);

@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string CreatedBy { get; set; }
 #endif
-        /// <summary>The execution property</summary>
+        /// <summary>Whether tool search was executed by the server or by the client.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType? Execution { get; set; }
         /// <summary>The unique ID of the tool search output item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>The status of the tool search output item that was recorded.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallOutputStatusEnum? Status { get; set; }
         /// <summary>The loaded tool definitions returned by tool search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
