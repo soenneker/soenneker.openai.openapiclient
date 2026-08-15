@@ -83,10 +83,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchMetadata Metadata { get; set; }
 #endif
         /// <summary>Model ID used to process the batch, like `gpt-5-2025-08-07`. OpenAIoffers a wide range of models with different capabilities, performancecharacteristics, and price points. Refer to the [modelguide](/docs/models) to browse and compare available models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -164,7 +164,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "in_progress_at", n => { InProgressAt = n.GetIntValue(); } },
                 { "input_file_id", n => { InputFileId = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.BatchMetadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchObject>(); } },
                 { "output_file_id", n => { OutputFileId = n.GetStringValue(); } },
@@ -195,7 +195,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteIntValue("in_progress_at", InProgressAt);
             writer.WriteStringValue("input_file_id", InputFileId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchMetadata>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchObject>("object", Object);
             writer.WriteStringValue("output_file_id", OutputFileId);

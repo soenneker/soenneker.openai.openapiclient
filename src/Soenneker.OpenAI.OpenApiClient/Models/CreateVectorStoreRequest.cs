@@ -47,10 +47,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequestMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequestMetadata Metadata { get; set; }
 #endif
         /// <summary>The name of the vector store.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "expires_after", n => { ExpiresAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfter>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfter.CreateFromDiscriminatorValue); } },
                 { "file_ids", n => { FileIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequestMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -97,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfter>("expires_after", ExpiresAfter);
             writer.WriteCollectionOfPrimitiveValues<string>("file_ids", FileIds);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequestMetadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
         }
     }

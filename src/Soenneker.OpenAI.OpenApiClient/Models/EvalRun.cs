@@ -52,10 +52,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunMetadata Metadata { get; set; }
 #endif
         /// <summary>The model that is evaluated, if applicable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -145,7 +145,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError.CreateFromDiscriminatorValue); } },
                 { "eval_id", n => { EvalId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunMetadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunObject>(); } },
@@ -168,7 +168,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError>("error", Error);
             writer.WriteStringValue("eval_id", EvalId);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunMetadata>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunObject>("object", Object);

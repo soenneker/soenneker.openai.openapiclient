@@ -26,10 +26,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Optional map of values to substitute in for variables in yourprompt. The substitution values can either be strings, or otherResponse input types like images or files.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptVariables? Variables { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptVariables? Variables { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptVariables Variables { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptVariables Variables { get; set; }
 #endif
         /// <summary>Optional version of the prompt template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "variables", n => { Variables = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptVariables>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptVariables.CreateFromDiscriminatorValue); } },
+                { "variables", n => { Variables = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptVariables>(global::Soenneker.OpenAI.OpenApiClient.Models.PromptVariables.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -77,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptVariables>("variables", Variables);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptVariables>("variables", Variables);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }

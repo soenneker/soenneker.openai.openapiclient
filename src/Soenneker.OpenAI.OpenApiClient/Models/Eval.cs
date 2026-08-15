@@ -36,10 +36,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalMetadata Metadata { get; set; }
 #endif
         /// <summary>The name of the evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "data_source_config", n => { DataSourceConfig = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalDataSourceConfig>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalDataSourceConfig.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalMetadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalObject>(); } },
                 { "testing_criteria", n => { TestingCriteria = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalTestingCriteriaItem>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalTestingCriteriaItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -103,7 +103,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalDataSourceConfig>("data_source_config", DataSourceConfig);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalMetadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalObject>("object", Object);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalTestingCriteriaItem>("testing_criteria", TestingCriteria);

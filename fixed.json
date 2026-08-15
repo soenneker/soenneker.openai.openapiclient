@@ -478,7 +478,11 @@
             "in": "query",
             "description": "A list of metadata keys to filter the Chat Completions by. Example:\n\n\u0060metadata[key1]=value1\u0026metadata[key2]=value2\u0060\n",
             "schema": {
-              "$ref": "#/components/schemas/Metadata"
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
             }
           },
           {
@@ -13517,10 +13521,10 @@
             "description": "Identifier of the actor who created the role."
           },
           "created_by_user_obj": {
-            "$ref": "#/components/schemas/AssignedRoleDetailsCreatedByUserObj"
+            "$ref": "#/components/schemas/AssignedRoleDetailsCreatedByUserObjProperty"
           },
           "metadata": {
-            "$ref": "#/components/schemas/AssignedRoleDetailsMetadata"
+            "$ref": "#/components/schemas/AssignedRoleDetailsMetadataProperty"
           },
           "assignment_sources": {
             "$ref": "#/components/schemas/AssignedRoleDetailsAssignmentSources"
@@ -13596,7 +13600,7 @@
             "$ref": "#/components/schemas/AssistantObjectToolResources"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/AssistantObjectMetadata"
           },
           "temperature": {
             "maximum": 2,
@@ -15252,7 +15256,7 @@
             "$ref": "#/components/schemas/BatchUsage"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/BatchMetadata"
           }
         },
         "x-oaiMeta": {
@@ -17282,7 +17286,7 @@
             "$ref": "#/components/schemas/CreateAssistantRequestToolResources"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/CreateAssistantRequestMetadata"
           },
           "temperature": {
             "maximum": 2,
@@ -17331,7 +17335,7 @@
             "$ref": "#/components/schemas/CreateBatchRequestCompletionWindow"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/CreateBatchRequestMetadata"
           },
           "output_expires_after": {
             "description": "The expiration policy for the output and/or error file that are generated for a batch.",
@@ -17440,7 +17444,7 @@
             "$ref": "#/components/schemas/StopConfiguration"
           },
           "logit_bias": {
-            "$ref": "#/components/schemas/CreateChatCompletionRequestAllOf2LogitBias"
+            "$ref": "#/components/schemas/CreateChatCompletionRequestLogitBias"
           },
           "logprobs": {
             "type": [
@@ -17671,7 +17675,7 @@
             "default": 0
           },
           "logit_bias": {
-            "$ref": "#/components/schemas/CreateCompletionRequestLogitBias"
+            "$ref": "#/components/schemas/CreateCompletionRequestLogitBiasProperty"
           },
           "logprobs": {
             "maximum": 5,
@@ -18128,7 +18132,7 @@
             "description": "The name of the evaluation."
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/CreateEvalRequestMetadata"
           },
           "data_source_config": {
             "$ref": "#/components/schemas/CreateEvalRequestDataSourceConfig"
@@ -18186,7 +18190,7 @@
             "description": "The name of the run."
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/CreateEvalRunRequestMetadata"
           },
           "data_source": {
             "$ref": "#/components/schemas/CreateEvalRunRequestDataSource"
@@ -18314,7 +18318,7 @@
             "$ref": "#/components/schemas/FineTuneMethod"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/CreateFineTuningJobRequestMetadata"
           }
         }
       },
@@ -18561,7 +18565,7 @@
             "$ref": "#/components/schemas/CreateMessageRequestAttachments"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/CreateMessageRequestMetadata"
           }
         },
         "additionalProperties": false
@@ -18570,7 +18574,7 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/CreateModelResponsePropertiesMetadata"
           },
           "top_logprobs": {
             "maximum": 20,
@@ -18686,7 +18690,7 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/CreateResponseBodyMetadata"
           },
           "top_logprobs": {
             "maximum": 20,
@@ -18914,7 +18918,7 @@
             "description": "Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis."
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/CreateRunRequestMetadata"
           },
           "temperature": {
             "maximum": 2,
@@ -19112,7 +19116,7 @@
             "$ref": "#/components/schemas/CreateThreadAndRunRequestToolResources"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/CreateThreadAndRunRequestMetadata"
           },
           "temperature": {
             "maximum": 2,
@@ -19189,7 +19193,7 @@
             "$ref": "#/components/schemas/CreateThreadRequestToolResources"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/CreateThreadRequestMetadata"
           }
         },
         "additionalProperties": false,
@@ -19589,7 +19593,7 @@
             "$ref": "#/components/schemas/ChunkingStrategyRequestParam"
           },
           "attributes": {
-            "$ref": "#/components/schemas/VectorStoreFileAttributes"
+            "$ref": "#/components/schemas/CreateVectorStoreFileBatchRequestAttributes"
           }
         },
         "additionalProperties": false
@@ -19609,7 +19613,7 @@
             "$ref": "#/components/schemas/ChunkingStrategyRequestParam"
           },
           "attributes": {
-            "$ref": "#/components/schemas/VectorStoreFileAttributes"
+            "$ref": "#/components/schemas/CreateVectorStoreFileRequestAttributes"
           }
         },
         "additionalProperties": false
@@ -19641,7 +19645,7 @@
             "$ref": "#/components/schemas/CreateVectorStoreRequestChunkingStrategy"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/CreateVectorStoreRequestMetadata"
           }
         },
         "additionalProperties": false
@@ -20344,7 +20348,7 @@
             "format": "unixtime"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/EvalMetadata"
           }
         },
         "description": "An Eval object with a data source config and testing criteria.\nAn Eval represents a task to be done for your LLM integration.\nLike:\n - Improve the quality of my chatbot\n - See how well my chatbot handles customer support\n - Check if o4-mini is better at my usecase than gpt-4o\n",
@@ -20835,7 +20839,7 @@
             "$ref": "#/components/schemas/EvalLogsDataSourceConfigType"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/EvalLogsDataSourceConfigMetadata"
           },
           "schema": {
             "$ref": "#/components/schemas/EvalLogsDataSourceConfigSchemaProperty"
@@ -20859,7 +20863,7 @@
             "$ref": "#/components/schemas/EvalResponsesSourceType"
           },
           "metadata": {
-            "$ref": "#/components/schemas/EvalResponsesSourceMetadata"
+            "$ref": "#/components/schemas/EvalResponsesSourceMetadataProperty"
           },
           "model": {
             "type": [
@@ -20996,7 +21000,7 @@
             "$ref": "#/components/schemas/EvalRunDataSource"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/EvalRunMetadata"
           },
           "error": {
             "description": "An object representing an error response from the Eval API.\n",
@@ -21183,7 +21187,7 @@
             "description": "Whether the grader considered the output a pass."
           },
           "sample": {
-            "$ref": "#/components/schemas/EvalRunOutputItemResultSample"
+            "$ref": "#/components/schemas/EvalRunOutputItemResultSampleProperty"
           }
         },
         "description": "A single grader result for an evaluation run output item.\n"
@@ -21200,7 +21204,7 @@
             "$ref": "#/components/schemas/EvalStoredCompletionsDataSourceConfigType"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/EvalStoredCompletionsDataSourceConfigMetadata"
           },
           "schema": {
             "$ref": "#/components/schemas/EvalStoredCompletionsDataSourceConfigSchemaProperty"
@@ -21225,7 +21229,7 @@
             "$ref": "#/components/schemas/EvalStoredCompletionsSourceType"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/EvalStoredCompletionsSourceMetadata"
           },
           "model": {
             "type": [
@@ -21702,7 +21706,7 @@
             "$ref": "#/components/schemas/FineTuneMethod"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/FineTuningJobMetadata"
           }
         },
         "description": "The \u0060fine_tuning.job\u0060 object represents a fine-tuning job that has been created through the API.\n",
@@ -24457,7 +24461,7 @@
             "$ref": "#/components/schemas/McpListToolsToolInputSchemaProperty"
           },
           "annotations": {
-            "$ref": "#/components/schemas/McpListToolsToolAnnotations"
+            "$ref": "#/components/schemas/McpListToolsToolAnnotationsProperty"
           }
         },
         "description": "A tool available on an MCP server.\n"
@@ -24499,7 +24503,7 @@
             "description": "Optional description of the MCP server, used to provide more context.\n"
           },
           "headers": {
-            "$ref": "#/components/schemas/McpToolHeaders"
+            "$ref": "#/components/schemas/McpToolHeadersProperty"
           },
           "allowed_tools": {
             "$ref": "#/components/schemas/McpToolAllowedTools"
@@ -24989,7 +24993,7 @@
             "$ref": "#/components/schemas/MessageObjectAttachments"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/MessageObjectMetadata"
           }
         },
         "description": "Represents a message within a [thread](/docs/api-reference/threads).",
@@ -25176,7 +25180,7 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/ModelResponsePropertiesMetadata"
           },
           "top_logprobs": {
             "maximum": 20,
@@ -25286,7 +25290,7 @@
             "$ref": "#/components/schemas/ModifyAssistantRequestToolResources"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/ModifyAssistantRequestMetadata"
           },
           "temperature": {
             "maximum": 2,
@@ -25329,7 +25333,7 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/ModifyMessageRequestMetadata"
           }
         },
         "additionalProperties": false
@@ -25338,7 +25342,7 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/ModifyRunRequestMetadata"
           }
         },
         "additionalProperties": false
@@ -25350,7 +25354,7 @@
             "$ref": "#/components/schemas/ModifyThreadRequestToolResources"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/ModifyThreadRequestMetadata"
           }
         },
         "additionalProperties": false
@@ -27105,7 +27109,7 @@
             "description": "Optional version of the prompt template."
           },
           "variables": {
-            "$ref": "#/components/schemas/ResponsePromptVariables"
+            "$ref": "#/components/schemas/PromptVariables"
           }
         },
         "description": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n"
@@ -27585,7 +27589,7 @@
             "description": "The list of output items generated by the response."
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/RealtimeBetaResponseMetadata"
           },
           "usage": {
             "$ref": "#/components/schemas/RealtimeBetaResponseUsage"
@@ -27660,7 +27664,7 @@
             "$ref": "#/components/schemas/RealtimeBetaResponseCreateParamsConversation"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/RealtimeBetaResponseCreateParamsMetadata"
           },
           "prompt": {
             "$ref": "#/components/schemas/Prompt"
@@ -30178,7 +30182,7 @@
             "description": "The list of output items generated by the response."
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/RealtimeResponseMetadata"
           },
           "audio": {
             "$ref": "#/components/schemas/RealtimeResponseAudio"
@@ -30245,7 +30249,7 @@
             "$ref": "#/components/schemas/RealtimeResponseCreateParamsConversation"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/RealtimeResponseCreateParamsMetadata"
           },
           "prompt": {
             "$ref": "#/components/schemas/Prompt"
@@ -33296,7 +33300,7 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/ResponseValueMetadata"
           },
           "top_logprobs": {
             "maximum": 20,
@@ -36084,7 +36088,7 @@
             "$ref": "#/components/schemas/ResponsesClientEventResponseCreateType"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/ResponsesClientEventResponseCreateMetadata"
           },
           "top_logprobs": {
             "maximum": 20,
@@ -36594,7 +36598,7 @@
             "default": []
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/RunObjectMetadata"
           },
           "usage": {
             "$ref": "#/components/schemas/RunCompletionUsage"
@@ -37137,7 +37141,7 @@
             "format": "unixtime"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/RunStepObjectMetadata"
           },
           "usage": {
             "$ref": "#/components/schemas/RunStepCompletionUsage"
@@ -37595,7 +37599,7 @@
             "$ref": "#/components/schemas/ThreadObjectToolResources"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/ThreadObjectMetadata"
           }
         },
         "description": "Represents a thread that contains [messages](/docs/api-reference/messages).",
@@ -38358,7 +38362,7 @@
         "type": "object",
         "properties": {
           "attributes": {
-            "$ref": "#/components/schemas/VectorStoreFileAttributes"
+            "$ref": "#/components/schemas/UpdateVectorStoreFileAttributesRequestAttributes"
           }
         },
         "additionalProperties": false,
@@ -38380,7 +38384,7 @@
             "$ref": "#/components/schemas/UpdateVectorStoreRequestExpiresAfter"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/UpdateVectorStoreRequestMetadata"
           }
         },
         "additionalProperties": false
@@ -39574,7 +39578,7 @@
             "$ref": "#/components/schemas/VectorStoreFileObjectChunkingStrategy"
           },
           "attributes": {
-            "$ref": "#/components/schemas/VectorStoreFileAttributes"
+            "$ref": "#/components/schemas/VectorStoreFileObjectAttributes"
           }
         },
         "description": "A list of files attached to a vector store.",
@@ -39646,7 +39650,7 @@
             "format": "unixtime"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/VectorStoreObjectMetadata"
           }
         },
         "description": "A vector store is a collection of processed files can be used by the \u0060file_search\u0060 tool.",
@@ -39733,7 +39737,7 @@
             "description": "The similarity score for the result."
           },
           "attributes": {
-            "$ref": "#/components/schemas/VectorStoreFileAttributes"
+            "$ref": "#/components/schemas/VectorStoreSearchResultItemAttributes"
           },
           "content": {
             "type": "array",
@@ -42419,10 +42423,10 @@
             "description": "A description of the function. Used by the model to determine whether or not to call the function."
           },
           "parameters": {
-            "$ref": "#/components/schemas/FunctionToolParameters"
+            "$ref": "#/components/schemas/FunctionToolParametersProperty"
           },
           "output_schema": {
-            "$ref": "#/components/schemas/FunctionToolOutputSchema"
+            "$ref": "#/components/schemas/FunctionToolOutputSchemaProperty"
           },
           "strict": {
             "type": [
@@ -43005,7 +43009,7 @@
             "$ref": "#/components/schemas/FunctionToolParamType"
           },
           "output_schema": {
-            "$ref": "#/components/schemas/FunctionToolParamOutputSchema"
+            "$ref": "#/components/schemas/FunctionToolParamOutputSchemaProperty"
           },
           "defer_loading": {
             "type": "boolean",
@@ -45372,8 +45376,7 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "description": "Set of 16 key-value pairs that can be attached to an object. This can be         useful for storing additional information about the object in a structured         format, and querying for objects via API or the dashboard.\n        Keys are strings with a maximum length of 64 characters. Values are strings         with a maximum length of 512 characters.",
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/UpdateConversationBodyMetadata"
           }
         }
       },
@@ -47105,7 +47108,7 @@
             "description": "Specific workflow version used for the session. Defaults to null when using the latest deployment."
           },
           "state_variables": {
-            "$ref": "#/components/schemas/ChatkitWorkflowStateVariables"
+            "$ref": "#/components/schemas/ChatkitWorkflowStateVariablesProperty"
           },
           "tracing": {
             "description": "Tracing settings applied to the workflow.",
@@ -49422,7 +49425,7 @@
             "$ref": "#/components/schemas/BetaFunctionToolParamType"
           },
           "output_schema": {
-            "$ref": "#/components/schemas/BetaFunctionToolParamOutputSchema"
+            "$ref": "#/components/schemas/BetaFunctionToolParamOutputSchemaProperty"
           },
           "defer_loading": {
             "type": "boolean",
@@ -49926,7 +49929,7 @@
             "description": "Optional description of the MCP server, used to provide more context.\n"
           },
           "headers": {
-            "$ref": "#/components/schemas/BetaMcpToolHeaders"
+            "$ref": "#/components/schemas/BetaMcpToolHeadersProperty"
           },
           "allowed_tools": {
             "$ref": "#/components/schemas/BetaMcpToolAllowedTools"
@@ -50298,10 +50301,10 @@
             "description": "A description of the function. Used by the model to determine whether or not to call the function."
           },
           "parameters": {
-            "$ref": "#/components/schemas/BetaFunctionToolParameters"
+            "$ref": "#/components/schemas/BetaFunctionToolParametersProperty"
           },
           "output_schema": {
-            "$ref": "#/components/schemas/BetaFunctionToolOutputSchema"
+            "$ref": "#/components/schemas/BetaFunctionToolOutputSchemaProperty"
           },
           "strict": {
             "type": [
@@ -51300,7 +51303,7 @@
             "$ref": "#/components/schemas/BetaMcpListToolsToolInputSchemaProperty"
           },
           "annotations": {
-            "$ref": "#/components/schemas/BetaMcpListToolsToolAnnotations"
+            "$ref": "#/components/schemas/BetaMcpListToolsToolAnnotationsProperty"
           }
         },
         "description": "A tool available on an MCP server.\n"
@@ -56320,7 +56323,7 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "$ref": "#/components/schemas/BetaMetadata"
+            "$ref": "#/components/schemas/BetaResponseMetadata"
           },
           "top_logprobs": {
             "maximum": 20,
@@ -57042,7 +57045,7 @@
             "description": "Optional version of the prompt template."
           },
           "variables": {
-            "$ref": "#/components/schemas/BetaResponsePromptVariables"
+            "$ref": "#/components/schemas/BetaPromptVariables"
           }
         },
         "description": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n"
@@ -57068,7 +57071,7 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "$ref": "#/components/schemas/BetaMetadata"
+            "$ref": "#/components/schemas/BetaModelResponsePropertiesMetadata"
           },
           "top_logprobs": {
             "maximum": 20,
@@ -59965,7 +59968,7 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "$ref": "#/components/schemas/BetaMetadata"
+            "$ref": "#/components/schemas/BetaCreateModelResponsePropertiesMetadata"
           },
           "top_logprobs": {
             "maximum": 20,
@@ -60767,7 +60770,7 @@
             "$ref": "#/components/schemas/StopConfiguration"
           },
           "logit_bias": {
-            "$ref": "#/components/schemas/CreateChatCompletionRequestAllOf2LogitBias"
+            "$ref": "#/components/schemas/CreateChatCompletionRequestAllOf2LogitBiasProperty"
           },
           "logprobs": {
             "type": [
@@ -67142,8 +67145,11 @@
         "type": "object",
         "anyOf": [
           {
-            "description": "Set of 16 key-value pairs that can be attached to an object. This can be         useful for storing additional information about the object in a structured         format, and querying for objects via API or the dashboard.\n        Keys are strings with a maximum length of 64 characters. Values are strings         with a maximum length of 512 characters.",
-            "$ref": "#/components/schemas/Metadata"
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
           },
           {
             "type": "null"
@@ -78426,7 +78432,7 @@
             "$ref": "#/components/schemas/CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/CreateAssistantRequestToolResourcesFileSearchVectorStoresItemMetadata"
           }
         }
       },
@@ -78491,7 +78497,7 @@
             "$ref": "#/components/schemas/CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy"
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/CreateThreadRequestToolResourcesFileSearchVectorStoresItemMetadata"
           }
         }
       },
@@ -78595,7 +78601,7 @@
             "description": "The name of the file.\n"
           },
           "attributes": {
-            "$ref": "#/components/schemas/VectorStoreFileAttributes"
+            "$ref": "#/components/schemas/FileSearchToolCallResultsAnyOf1ItemAttributes"
           },
           "score": {
             "type": "number",
@@ -78656,7 +78662,7 @@
             "description": "The name of the file.\n"
           },
           "attributes": {
-            "$ref": "#/components/schemas/BetaVectorStoreFileAttributes"
+            "$ref": "#/components/schemas/BetaFileSearchToolCallResultsAnyOf1ItemAttributes"
           },
           "score": {
             "type": "number",
@@ -80538,7 +80544,7 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/UpdateChatCompletionRequestMetadata"
           }
         }
       },
@@ -80566,7 +80572,7 @@
             "description": "Rename the evaluation."
           },
           "metadata": {
-            "$ref": "#/components/schemas/Metadata"
+            "$ref": "#/components/schemas/UpdateEvalRequestMetadata"
           }
         }
       },
@@ -83186,6 +83192,21 @@
           "propertyName": "type"
         }
       },
+      "AssignedRoleDetailsCreatedByUserObjProperty": {
+        "type": "object",
+        "description": "User details for the actor that created the role, when available."
+      },
+      "AssignedRoleDetailsMetadataProperty": {
+        "type": "object",
+        "description": "Arbitrary metadata stored on the role."
+      },
+      "AssistantObjectMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
       "AuditLogLoginSucceededProperty": {
         "type": "object",
         "description": "This event has no additional fields beyond the standard audit log attributes."
@@ -83193,6 +83214,13 @@
       "AuditLogLogoutSucceededProperty": {
         "type": "object",
         "description": "This event has no additional fields beyond the standard audit log attributes."
+      },
+      "BatchMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
       },
       "ChatCompletionAllowedToolsToolsItemProperty": {
         "type": "object",
@@ -83202,6 +83230,34 @@
         "type": "object",
         "description": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting \u0060parameters\u0060 defines a function with an empty parameter list."
       },
+      "CreateAssistantRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "CreateBatchRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "CreateChatCompletionRequestLogitBias": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "integer"
+        },
+        "description": "Modify the likelihood of specified tokens appearing in the completion.\n\nAccepts a JSON object that maps tokens (specified by their token ID in the\ntokenizer) to an associated bias value from -100 to 100. Mathematically,\nthe bias is added to the logits generated by the model prior to sampling.\nThe exact effect will vary per model, but values between -1 and 1 should\ndecrease or increase likelihood of selection; values like -100 or 100\nshould result in a ban or exclusive selection of the relevant token.\n"
+      },
+      "CreateCompletionRequestLogitBiasProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "integer"
+        },
+        "description": "\u0022Modify the likelihood of specified tokens appearing in the completion.\n\nAccepts a JSON object that maps tokens (specified by their token ID in the GPT tokenizer) to an associated bias value from -100 to 100. You can use this [tokenizer tool](/tokenizer?view=bpe) to convert text to token IDs. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.\n\nAs an example, you can pass \u0060{\\\u002250256\\\u0022: -100}\u0060 to prevent the \u003C|endoftext|\u003E token from being generated.\n\u0022"
+      },
       "CreateEvalCustomDataSourceConfigItemSchemaProperty": {
         "type": "object",
         "description": "The json schema for each row in the data source."
@@ -83210,25 +83266,159 @@
         "type": "object",
         "description": "Metadata filters for the logs data source."
       },
+      "CreateEvalRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "CreateEvalRunRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
       "CreateEvalStoredCompletionsDataSourceConfigMetadataProperty": {
         "type": "object",
         "description": "Metadata filters for the stored completions data source."
+      },
+      "CreateFineTuningJobRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "CreateMessageRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "CreateModelResponsePropertiesMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "CreateResponseBodyMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "CreateRunRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "CreateThreadAndRunRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "CreateThreadRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "CreateVectorStoreFileBatchRequestAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VectorStoreFileAttributesAdditionalProperties"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard. Keys are strings\nwith a maximum length of 64 characters. Values are strings with a maximum\nlength of 512 characters, booleans, or numbers.\n"
+      },
+      "CreateVectorStoreFileRequestAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VectorStoreFileAttributesAdditionalProperties"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard. Keys are strings\nwith a maximum length of 64 characters. Values are strings with a maximum\nlength of 512 characters, booleans, or numbers.\n"
+      },
+      "CreateVectorStoreRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "EvalMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
       },
       "EvalCustomDataSourceConfigSchemaProperty": {
         "type": "object",
         "description": "The json schema for the run data source items.\nLearn how to build JSON schemas [here](https://json-schema.org/).\n"
       },
+      "EvalLogsDataSourceConfigMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
       "EvalLogsDataSourceConfigSchemaProperty": {
         "type": "object",
         "description": "The json schema for the run data source items.\nLearn how to build JSON schemas [here](https://json-schema.org/).\n"
+      },
+      "EvalResponsesSourceMetadataProperty": {
+        "type": "object",
+        "description": "Metadata filter for the responses. This is a query parameter used to select responses."
+      },
+      "EvalRunMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
       },
       "EvalRunOutputItemDatasourceItemProperty": {
         "type": "object",
         "description": "Details of the input data source item."
       },
+      "EvalRunOutputItemResultSampleProperty": {
+        "type": "object",
+        "description": "Optional sample or intermediate data produced by the grader."
+      },
+      "EvalStoredCompletionsDataSourceConfigMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
       "EvalStoredCompletionsDataSourceConfigSchemaProperty": {
         "type": "object",
         "description": "The json schema for the run data source items.\nLearn how to build JSON schemas [here](https://json-schema.org/).\n"
+      },
+      "EvalStoredCompletionsSourceMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "FineTuningJobMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
       },
       "FineTuningJobEventDataProperty": {
         "type": "object",
@@ -83242,9 +83432,97 @@
         "type": "object",
         "description": "The JSON schema describing the tool\u0027s input.\n"
       },
+      "McpListToolsToolAnnotationsProperty": {
+        "type": "object",
+        "description": "Additional annotations about the tool.\n"
+      },
+      "McpToolHeadersProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Optional HTTP headers to send to the MCP server. Use for authentication\nor other purposes.\n"
+      },
+      "MessageObjectMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "ModelResponsePropertiesMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "ModifyAssistantRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "ModifyMessageRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "ModifyRunRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "ModifyThreadRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "PromptVariables": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ResponsePromptVariablesAdditionalProperties"
+        },
+        "description": "Optional map of values to substitute in for variables in your\nprompt. The substitution values can either be strings, or other\nResponse input types like images or files.\n"
+      },
+      "RealtimeBetaResponseMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "RealtimeBetaResponseCreateParamsMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
       "RealtimeFunctionToolParametersProperty": {
         "type": "object",
         "description": "Parameters of the function in JSON Schema."
+      },
+      "RealtimeResponseMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "RealtimeResponseCreateParamsMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
       },
       "RealtimeSessionModalities": {
         "type": "object",
@@ -83274,9 +83552,23 @@
         },
         "description": "The set of modalities the model can respond with. To disable audio,\nset this to [\u0022text\u0022].\n"
       },
+      "ResponseValueMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
       "ResponseOutputTextAnnotationAddedEventAnnotationProperty": {
         "type": "object",
         "description": "The annotation object being added. (See annotation schema for details.)"
+      },
+      "ResponsesClientEventResponseCreateMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
       },
       "RunGraderRequestItemProperty": {
         "type": "object",
@@ -83294,17 +83586,73 @@
           "$ref": "#/components/schemas/RunGraderResponseModelGraderTokenUsagePerModelPropertyAdditionalProperties"
         }
       },
+      "RunObjectMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
       "RunStepDeltaStepDetailsToolCallsFileSearchObjectFileSearchProperty": {
         "type": "object",
         "description": "For now, this is always going to be an empty object."
+      },
+      "RunStepObjectMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
       },
       "TextResponseFormatJsonSchemaSchema": {
         "type": "object",
         "description": "The schema for the response format, described as a JSON Schema object.\nLearn how to build JSON schemas [here](https://json-schema.org/).\n"
       },
+      "ThreadObjectMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
       "ToolChoiceAllowedToolsItemProperty": {
         "type": "object",
         "description": "A tool definition that the model should be allowed to call.\n"
+      },
+      "UpdateVectorStoreFileAttributesRequestAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VectorStoreFileAttributesAdditionalProperties"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard. Keys are strings\nwith a maximum length of 64 characters. Values are strings with a maximum\nlength of 512 characters, booleans, or numbers.\n"
+      },
+      "UpdateVectorStoreRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "VectorStoreFileObjectAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VectorStoreFileAttributesAdditionalProperties"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard. Keys are strings\nwith a maximum length of 64 characters. Values are strings with a maximum\nlength of 512 characters, booleans, or numbers.\n"
+      },
+      "VectorStoreObjectMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "VectorStoreSearchResultItemAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VectorStoreFileAttributesAdditionalProperties"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard. Keys are strings\nwith a maximum length of 64 characters. Values are strings with a maximum\nlength of 512 characters, booleans, or numbers.\n"
       },
       "ModerationResultBodyCategoriesProperty": {
         "type": "object",
@@ -83334,6 +83682,27 @@
         "type": "object",
         "description": "Arguments used for the tool search call."
       },
+      "FunctionToolParametersProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/FunctionToolParametersPropertyAdditionalProperties"
+        },
+        "description": "A JSON schema object describing the parameters of the function."
+      },
+      "FunctionToolOutputSchemaProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/FunctionToolOutputSchemaPropertyAdditionalProperties"
+        },
+        "description": "A JSON schema object describing the JSON value encoded in string outputs for this function."
+      },
+      "FunctionToolParamOutputSchemaProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/FunctionToolParamOutputSchemaPropertyAdditionalProperties"
+        },
+        "description": "A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs."
+      },
       "LocalShellExecActionEnvProperty": {
         "type": "object",
         "additionalProperties": {
@@ -83347,6 +83716,20 @@
       "ConversationResourceMetadata": {
         "type": "object",
         "description": "Set of 16 key-value pairs that can be attached to an object. This can be         useful for storing additional information about the object in a structured         format, and querying for objects via API or the dashboard.\n        Keys are strings with a maximum length of 64 characters. Values are strings         with a maximum length of 512 characters."
+      },
+      "UpdateConversationBodyMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "ChatkitWorkflowStateVariablesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ChatkitWorkflowStateVariablesAdditionalProperties"
+        },
+        "description": "State variable key-value pairs applied when invoking the workflow. Defaults to null when no overrides were provided."
       },
       "WorkflowParamStateVariablesProperty": {
         "type": "object",
@@ -83363,9 +83746,41 @@
         "type": "object",
         "description": "The schema for the response format, described as a JSON Schema object.\nLearn how to build JSON schemas [here](https://json-schema.org/).\n"
       },
+      "BetaFunctionToolParamOutputSchemaProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/BetaFunctionToolParamOutputSchemaPropertyAdditionalProperties"
+        },
+        "description": "A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs."
+      },
+      "BetaMcpToolHeadersProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Optional HTTP headers to send to the MCP server. Use for authentication\nor other purposes.\n"
+      },
+      "BetaFunctionToolParametersProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/BetaFunctionToolParametersPropertyAdditionalProperties"
+        },
+        "description": "A JSON schema object describing the parameters of the function."
+      },
+      "BetaFunctionToolOutputSchemaProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/BetaFunctionToolOutputSchemaPropertyAdditionalProperties"
+        },
+        "description": "A JSON schema object describing the JSON value encoded in string outputs for this function."
+      },
       "BetaMcpListToolsToolInputSchemaProperty": {
         "type": "object",
         "description": "The JSON schema describing the tool\u0027s input.\n"
+      },
+      "BetaMcpListToolsToolAnnotationsProperty": {
+        "type": "object",
+        "description": "Additional annotations about the tool.\n"
       },
       "BetaLocalShellExecActionEnvProperty": {
         "type": "object",
@@ -83380,6 +83795,13 @@
       "BetaToolSearchCallArguments": {
         "type": "object",
         "description": "Arguments used for the tool search call."
+      },
+      "BetaResponseMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
       },
       "BetaModerationResultBodyCategoriesProperty": {
         "type": "object",
@@ -83405,9 +83827,37 @@
         },
         "description": "Which modalities of input are reflected by the score for each category."
       },
+      "BetaPromptVariables": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/BetaResponsePromptVariablesAdditionalProperties"
+        },
+        "description": "Optional map of values to substitute in for variables in your\nprompt. The substitution values can either be strings, or other\nResponse input types like images or files.\n"
+      },
+      "BetaModelResponsePropertiesMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
       "BetaResponseOutputTextAnnotationAddedEventAnnotationProperty": {
         "type": "object",
         "description": "The annotation object being added. (See annotation schema for details.)"
+      },
+      "BetaCreateModelResponsePropertiesMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "CreateChatCompletionRequestAllOf2LogitBiasProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "integer"
+        },
+        "description": "Modify the likelihood of specified tokens appearing in the completion.\n\nAccepts a JSON object that maps tokens (specified by their token ID in the\ntokenizer) to an associated bias value from -100 to 100. Mathematically,\nthe bias is added to the logits generated by the model prior to sampling.\nThe exact effect will vary per model, but values between -1 and 1 should\ndecrease or increase likelihood of selection; values like -100 or 100\nshould result in a ban or exclusive selection of the relevant token.\n"
       },
       "RealtimeSessionTracingTracingConfigurationMetadataProperty": {
         "type": "object",
@@ -83497,6 +83947,34 @@
       "BetaFunctionToolOutputSchemaAdditionalProperties": {
         "type": "object"
       },
+      "CreateAssistantRequestToolResourcesFileSearchVectorStoresItemMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "CreateThreadRequestToolResourcesFileSearchVectorStoresItemMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "FileSearchToolCallResultsAnyOf1ItemAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VectorStoreFileAttributesAdditionalProperties"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard. Keys are strings\nwith a maximum length of 64 characters. Values are strings with a maximum\nlength of 512 characters, booleans, or numbers.\n"
+      },
+      "BetaFileSearchToolCallResultsAnyOf1ItemAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/BetaVectorStoreFileAttributesAdditionalProperties"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard. Keys are strings\nwith a maximum length of 64 characters. Values are strings with a maximum\nlength of 512 characters, booleans, or numbers.\n"
+      },
       "AuditLogRoleUpdatedChangesRequestedMetadataProperty": {
         "type": "object",
         "description": "Additional metadata stored on the role."
@@ -83510,10 +83988,42 @@
       "RunGraderResponseMetadataScoresAdditionalProperties": {
         "type": "object"
       },
+      "UpdateChatCompletionRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "UpdateEvalRequestMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
       "RunGraderResponseSubRewardsPropertyAdditionalProperties": {
         "type": "object"
       },
       "RunGraderResponseModelGraderTokenUsagePerModelPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "FunctionToolParametersPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "FunctionToolOutputSchemaPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "FunctionToolParamOutputSchemaPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "BetaFunctionToolParamOutputSchemaPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "BetaFunctionToolParametersPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "BetaFunctionToolOutputSchemaPropertyAdditionalProperties": {
         "type": "object"
       },
       "RunGraderResponseMetadataScoresPropertyAdditionalProperties": {

@@ -48,10 +48,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectMetadata Metadata { get; set; }
 #endif
         /// <summary>The name of the vector store.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,7 +98,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "file_counts", n => { FileCounts = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectFileCounts>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectFileCounts.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_active_at", n => { LastActiveAt = n.GetIntValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectMetadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectObject>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectStatus>(); } },
@@ -118,7 +118,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectFileCounts>("file_counts", FileCounts);
             writer.WriteStringValue("id", Id);
             writer.WriteIntValue("last_active_at", LastActiveAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectMetadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectObject>("object", Object);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreObjectStatus>("status", Status);

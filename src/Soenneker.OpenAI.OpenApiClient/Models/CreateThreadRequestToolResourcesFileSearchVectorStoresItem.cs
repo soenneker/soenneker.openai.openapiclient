@@ -33,10 +33,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemMetadata Metadata { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItem"/> and sets the default values.
@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "chunking_strategy", n => { ChunkingStrategy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy.CreateFromDiscriminatorValue); } },
                 { "file_ids", n => { FileIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemMetadata.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -77,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy>("chunking_strategy", ChunkingStrategy);
             writer.WriteCollectionOfPrimitiveValues<string>("file_ids", FileIds);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemMetadata>("metadata", Metadata);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

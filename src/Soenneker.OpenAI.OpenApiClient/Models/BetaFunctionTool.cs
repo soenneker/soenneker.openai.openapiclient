@@ -44,18 +44,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>A JSON schema object describing the JSON value encoded in string outputs for this function.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolOutputSchema? OutputSchema { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolOutputSchemaProperty? OutputSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolOutputSchema OutputSchema { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolOutputSchemaProperty OutputSchema { get; set; }
 #endif
         /// <summary>A JSON schema object describing the parameters of the function.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolParameters? Parameters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolParametersProperty? Parameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolParameters Parameters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolParametersProperty Parameters { get; set; }
 #endif
         /// <summary>Whether strict parameter validation is enforced for this function tool.</summary>
         public bool? Strict { get; set; }
@@ -90,8 +90,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "defer_loading", n => { DeferLoading = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "output_schema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolOutputSchema>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolOutputSchema.CreateFromDiscriminatorValue); } },
-                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolParameters>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolParameters.CreateFromDiscriminatorValue); } },
+                { "output_schema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolOutputSchemaProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolOutputSchemaProperty.CreateFromDiscriminatorValue); } },
+                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolParametersProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolParametersProperty.CreateFromDiscriminatorValue); } },
                 { "strict", n => { Strict = n.GetBoolValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolType>(); } },
             };
@@ -107,8 +107,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteBoolValue("defer_loading", DeferLoading);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolOutputSchema>("output_schema", OutputSchema);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolParameters>("parameters", Parameters);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolOutputSchemaProperty>("output_schema", OutputSchema);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolParametersProperty>("parameters", Parameters);
             writer.WriteBoolValue("strict", Strict);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

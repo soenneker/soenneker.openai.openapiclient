@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard. Keys are stringswith a maximum length of 64 characters. Values are strings with a maximumlength of 512 characters, booleans, or numbers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes? Attributes { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObjectAttributes? Attributes { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes Attributes { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObjectAttributes Attributes { get; set; }
 #endif
         /// <summary>The strategy used to chunk the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,7 +88,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes.CreateFromDiscriminatorValue); } },
+                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObjectAttributes>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObjectAttributes.CreateFromDiscriminatorValue); } },
                 { "chunking_strategy", n => { ChunkingStrategy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObjectChunkingStrategy>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObjectChunkingStrategy.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -106,7 +106,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes>("attributes", Attributes);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObjectAttributes>("attributes", Attributes);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObjectChunkingStrategy>("chunking_strategy", ChunkingStrategy);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);

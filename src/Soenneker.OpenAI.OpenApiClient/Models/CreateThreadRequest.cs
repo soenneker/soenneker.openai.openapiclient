@@ -24,10 +24,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestMetadata Metadata { get; set; }
 #endif
         /// <summary>A set of resources that are made available to the assistant&apos;s tools in this thread. The resources are specific to the type of tool. For example, the `code_interpreter` tool requires a list of file IDs, while the `file_search` tool requires a list of vector store IDs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequest>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequest.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "tool_resources", n => { ToolResources = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResources>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResources.CreateFromDiscriminatorValue); } },
             };
         }
@@ -68,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequest>("messages", Messages);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResources>("tool_resources", ToolResources);
         }
     }

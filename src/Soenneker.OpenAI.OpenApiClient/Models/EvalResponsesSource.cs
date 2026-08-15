@@ -30,10 +30,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Metadata filter for the responses. This is a query parameter used to select responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>The name of the model to find responses for. This is a query parameter used to select responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -101,7 +101,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_after", n => { CreatedAfter = n.GetIntValue(); } },
                 { "created_before", n => { CreatedBefore = n.GetIntValue(); } },
                 { "instructions_search", n => { InstructionsSearch = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "reasoning_effort", n => { ReasoningEffort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortWrapper.CreateFromDiscriminatorValue); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
@@ -121,7 +121,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("created_after", CreatedAfter);
             writer.WriteIntValue("created_before", CreatedBefore);
             writer.WriteStringValue("instructions_search", InstructionsSearch);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortWrapper>("reasoning_effort", ReasoningEffort);
             writer.WriteDoubleValue("temperature", Temperature);

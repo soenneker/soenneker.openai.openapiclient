@@ -15,10 +15,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard. Keys are stringswith a maximum length of 64 characters. Values are strings with a maximumlength of 512 characters, booleans, or numbers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes? Attributes { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateVectorStoreFileAttributesRequestAttributes? Attributes { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes Attributes { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateVectorStoreFileAttributesRequestAttributes Attributes { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,7 +38,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes.CreateFromDiscriminatorValue); } },
+                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateVectorStoreFileAttributesRequestAttributes>(global::Soenneker.OpenAI.OpenApiClient.Models.UpdateVectorStoreFileAttributesRequestAttributes.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes>("attributes", Attributes);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateVectorStoreFileAttributesRequestAttributes>("attributes", Attributes);
         }
     }
 }

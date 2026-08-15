@@ -36,10 +36,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>User details for the actor that created the role, when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObj? CreatedByUserObj { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObjProperty? CreatedByUserObj { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObj CreatedByUserObj { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObjProperty CreatedByUserObj { get; set; }
 #endif
         /// <summary>Description of the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,10 +60,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Arbitrary metadata stored on the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsMetadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsMetadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>Name of the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -121,10 +121,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "assignment_sources", n => { AssignmentSources = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSourcesAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSourcesAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
-                { "created_by_user_obj", n => { CreatedByUserObj = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObj>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObj.CreateFromDiscriminatorValue); } },
+                { "created_by_user_obj", n => { CreatedByUserObj = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObjProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObjProperty.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsMetadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "predefined_role", n => { PredefinedRole = n.GetBoolValue(); } },
@@ -142,10 +142,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSourcesAnyOf1Item>("assignment_sources", AssignmentSources);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by", CreatedBy);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObj>("created_by_user_obj", CreatedByUserObj);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObjProperty>("created_by_user_obj", CreatedByUserObj);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
             writer.WriteBoolValue("predefined_role", PredefinedRole);

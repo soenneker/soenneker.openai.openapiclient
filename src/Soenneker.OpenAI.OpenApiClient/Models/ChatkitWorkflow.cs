@@ -26,10 +26,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>State variable key-value pairs applied when invoking the workflow. Defaults to null when no overrides were provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariables? StateVariables { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariablesProperty? StateVariables { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariables StateVariables { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariablesProperty StateVariables { get; set; }
 #endif
         /// <summary>Tracing settings applied to the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "state_variables", n => { StateVariables = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariables>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariables.CreateFromDiscriminatorValue); } },
+                { "state_variables", n => { StateVariables = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariablesProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "tracing", n => { Tracing = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowTracing>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowTracing.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariables>("state_variables", StateVariables);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowStateVariablesProperty>("state_variables", StateVariables);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitWorkflowTracing>("tracing", Tracing);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);

@@ -17,10 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMetadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMetadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesMetadata Metadata { get; set; }
 #endif
         /// <summary>Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,7 +93,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMetadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesMetadata.CreateFromDiscriminatorValue); } },
                 { "prompt_cache_key", n => { PromptCacheKey = n.GetStringValue(); } },
                 { "prompt_cache_options", n => { PromptCacheOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam.CreateFromDiscriminatorValue); } },
                 { "prompt_cache_retention", n => { PromptCacheRetention = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheRetention>(); } },
@@ -112,7 +112,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesMetadata>("metadata", Metadata);
             writer.WriteStringValue("prompt_cache_key", PromptCacheKey);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam>("prompt_cache_options", PromptCacheOptions);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheRetention>("prompt_cache_retention", PromptCacheRetention);

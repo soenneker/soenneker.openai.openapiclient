@@ -46,10 +46,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Optional HTTP headers to send to the MCP server. Use for authenticationor other purposes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolHeaders? Headers { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolHeadersProperty? Headers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolHeaders Headers { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolHeadersProperty Headers { get; set; }
 #endif
         /// <summary>Specify which of the MCP server&apos;s tools require approval.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -123,7 +123,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "authorization", n => { Authorization = n.GetStringValue(); } },
                 { "connector_id", n => { ConnectorId = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolConnectorId>(); } },
                 { "defer_loading", n => { DeferLoading = n.GetBoolValue(); } },
-                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolHeaders>(global::Soenneker.OpenAI.OpenApiClient.Models.McpToolHeaders.CreateFromDiscriminatorValue); } },
+                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolHeadersProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.McpToolHeadersProperty.CreateFromDiscriminatorValue); } },
                 { "require_approval", n => { RequireApproval = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApproval>(global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApproval.CreateFromDiscriminatorValue); } },
                 { "server_description", n => { ServerDescription = n.GetStringValue(); } },
                 { "server_label", n => { ServerLabel = n.GetStringValue(); } },
@@ -144,7 +144,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("authorization", Authorization);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolConnectorId>("connector_id", ConnectorId);
             writer.WriteBoolValue("defer_loading", DeferLoading);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolHeaders>("headers", Headers);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolHeadersProperty>("headers", Headers);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApproval>("require_approval", RequireApproval);
             writer.WriteStringValue("server_description", ServerDescription);
             writer.WriteStringValue("server_label", ServerLabel);

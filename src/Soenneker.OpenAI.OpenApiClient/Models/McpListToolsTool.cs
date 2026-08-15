@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Additional annotations about the tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsToolAnnotations? Annotations { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsToolAnnotationsProperty? Annotations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsToolAnnotations Annotations { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsToolAnnotationsProperty Annotations { get; set; }
 #endif
         /// <summary>The description of the tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsToolAnnotations>(global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsToolAnnotations.CreateFromDiscriminatorValue); } },
+                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsToolAnnotationsProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsToolAnnotationsProperty.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "input_schema", n => { InputSchema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsToolInputSchemaProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsToolInputSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -85,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsToolAnnotations>("annotations", Annotations);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsToolAnnotationsProperty>("annotations", Annotations);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsToolInputSchemaProperty>("input_schema", InputSchema);
             writer.WriteStringValue("name", Name);

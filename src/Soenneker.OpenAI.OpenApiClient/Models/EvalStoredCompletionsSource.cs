@@ -24,10 +24,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSourceMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSourceMetadata Metadata { get; set; }
 #endif
         /// <summary>An optional model to filter by (e.g., &apos;gpt-4o&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,7 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_after", n => { CreatedAfter = n.GetIntValue(); } },
                 { "created_before", n => { CreatedBefore = n.GetIntValue(); } },
                 { "limit", n => { Limit = n.GetIntValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSourceMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSourceMetadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSourceType>(); } },
             };
@@ -82,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("created_after", CreatedAfter);
             writer.WriteIntValue("created_before", CreatedBefore);
             writer.WriteIntValue("limit", Limit);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSourceMetadata>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSourceType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

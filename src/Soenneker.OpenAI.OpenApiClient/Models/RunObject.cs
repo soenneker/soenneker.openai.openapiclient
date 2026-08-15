@@ -72,10 +72,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Metadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectMetadata Metadata { get; set; }
 #endif
         /// <summary>The model that the [assistant](/docs/api-reference/assistants) used for this run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -190,7 +190,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "last_error", n => { LastError = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectLastError>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectLastError.CreateFromDiscriminatorValue); } },
                 { "max_completion_tokens", n => { MaxCompletionTokens = n.GetIntValue(); } },
                 { "max_prompt_tokens", n => { MaxPromptTokens = n.GetIntValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>(global::Soenneker.OpenAI.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectMetadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectObject>(); } },
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
@@ -226,7 +226,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectLastError>("last_error", LastError);
             writer.WriteIntValue("max_completion_tokens", MaxCompletionTokens);
             writer.WriteIntValue("max_prompt_tokens", MaxPromptTokens);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectMetadata>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectObject>("object", Object);
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
