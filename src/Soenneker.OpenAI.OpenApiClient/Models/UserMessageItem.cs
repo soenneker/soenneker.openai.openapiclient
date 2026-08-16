@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.InferenceOptions InferenceOptions { get; set; }
 #endif
         /// <summary>Type discriminator that is always `chatkit.thread_item`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitThreadItemObject? Object { get; set; }
         /// <summary>Identifier of the parent thread.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string ThreadId { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitUserMessageType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItem"/> and sets the default values.
         /// </summary>
@@ -91,9 +91,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "inference_options", n => { InferenceOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InferenceOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.InferenceOptions.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitThreadItemObject>(); } },
                 { "thread_id", n => { ThreadId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitUserMessageType>(); } },
             };
         }
         /// <summary>
@@ -108,9 +108,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InferenceOptions>("inference_options", InferenceOptions);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitThreadItemObject>("object", Object);
             writer.WriteStringValue("thread_id", ThreadId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageItemType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitUserMessageType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

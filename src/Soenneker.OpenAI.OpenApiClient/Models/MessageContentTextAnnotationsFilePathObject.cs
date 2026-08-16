@@ -35,8 +35,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Text { get; set; }
 #endif
-        /// <summary>Always `file_path`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFilePathObjectType? Type { get; set; }
+        /// <summary>The type of the file path. Always `file_path`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FilePathType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFilePathObject"/> and sets the default values.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "file_path", n => { FilePath = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFilePathObjectFilePath>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFilePathObjectFilePath.CreateFromDiscriminatorValue); } },
                 { "start_index", n => { StartIndex = n.GetIntValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFilePathObjectType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FilePathType>(); } },
             };
         }
         /// <summary>
@@ -80,7 +80,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFilePathObjectFilePath>("file_path", FilePath);
             writer.WriteIntValue("start_index", StartIndex);
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFilePathObjectType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FilePathType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

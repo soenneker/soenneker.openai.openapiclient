@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies the detail level of the image. `low` uses fewer tokens, you can opt in to high resolution using `high`. Default value is `auto`</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObjectImageUrlDetail? Detail { get; set; }
-        /// <summary>&quot;The external URL of the image, must be a supported image types: jpeg, jpg, png, gif, webp.&quot;</summary>
+        /// <summary>The external URL of the image, must be a supported image types: jpeg, jpg, png, gif, webp.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Url { get; set; }

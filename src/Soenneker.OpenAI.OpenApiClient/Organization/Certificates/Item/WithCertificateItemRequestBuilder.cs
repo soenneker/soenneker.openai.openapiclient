@@ -168,11 +168,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Certificates.Item
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("include")]
-            public global::Soenneker.OpenAI.OpenApiClient.Models.GetCertificateIncludeParameterItem[]? Include { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ContentItem[]? Include { get; set; }
 #nullable restore
 #else
             [QueryParameter("include")]
-            public global::Soenneker.OpenAI.OpenApiClient.Models.GetCertificateIncludeParameterItem[] Include { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ContentItem[] Include { get; set; }
 #endif
         }
     }

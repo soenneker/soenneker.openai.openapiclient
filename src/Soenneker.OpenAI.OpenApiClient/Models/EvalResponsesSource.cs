@@ -64,7 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Nucleus sampling parameter. This is a query parameter used to select responses.</summary>
         public double? TopP { get; set; }
         /// <summary>The type of run data source. Always `responses`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponsesType? Type { get; set; }
         /// <summary>The users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -107,7 +107,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools.CreateFromDiscriminatorValue); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponsesType>(); } },
                 { "users", n => { Users = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers.CreateFromDiscriminatorValue); } },
             };
         }
@@ -127,7 +127,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools>("tools", Tools);
             writer.WriteDoubleValue("top_p", TopP);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponsesType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers>("users", Users);
             writer.WriteAdditionalData(AdditionalData);
         }

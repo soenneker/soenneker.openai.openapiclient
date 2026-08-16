@@ -21,7 +21,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategyStatic Static { get; set; }
 #endif
         /// <summary>Always `static`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategyType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.StaticValueType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "static", n => { Static = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategyStatic>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategyStatic.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategyType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.StaticValueType>(); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategyStatic>("static", Static);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategyType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.StaticValueType>("type", Type);
         }
     }
 }

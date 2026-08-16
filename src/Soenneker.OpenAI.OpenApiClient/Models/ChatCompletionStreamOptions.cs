@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Options for streaming response. Only set this when you set `stream: true`.&quot;
+    /// Options for streaming response. Only set this when you set `stream: true`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatCompletionStreamOptions : IAdditionalDataHolder, IParsable
@@ -17,7 +17,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When true, stream obfuscation will be enabled. Stream obfuscation addsrandom characters to an `obfuscation` field on streaming delta events tonormalize payload sizes as a mitigation to certain side-channel attacks.These obfuscation fields are included by default, but add a small amountof overhead to the data stream. You can set `include_obfuscation` tofalse to optimize for bandwidth if you trust the network links betweenyour application and the OpenAI API.</summary>
         public bool? IncludeObfuscation { get; set; }
-        /// <summary>&quot;If set, an additional chunk will be streamed before the `data: [DONE]`message. The `usage` field on this chunk shows the token usage statisticsfor the entire request, and the `choices` field will always be an emptyarray.All other chunks will also include a `usage` field, but with a nullvalue. **NOTE:** If the stream is interrupted, you may not receive thefinal usage chunk which contains the total token usage for the request.&quot;</summary>
+        /// <summary>If set, an additional chunk will be streamed before the `data: [DONE]`message. The `usage` field on this chunk shows the token usage statisticsfor the entire request, and the `choices` field will always be an emptyarray.All other chunks will also include a `usage` field, but with a nullvalue. **NOTE:** If the stream is interrupted, you may not receive thefinal usage chunk which contains the total token usage for the request.</summary>
         public bool? IncludeUsage { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions"/> and sets the default values.

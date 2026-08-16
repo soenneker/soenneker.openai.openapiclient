@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Model { get; set; }
 #endif
         /// <summary>The object type, which was always `moderation_result` for successful moderation results.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModerationResultType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBody"/> and sets the default values.
         /// </summary>
@@ -81,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "category_scores", n => { CategoryScores = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryScoresProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryScoresProperty.CreateFromDiscriminatorValue); } },
                 { "flagged", n => { Flagged = n.GetBoolValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModerationResultType>(); } },
             };
         }
         /// <summary>
@@ -96,7 +96,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryScoresProperty>("category_scores", CategoryScores);
             writer.WriteBoolValue("flagged", Flagged);
             writer.WriteStringValue("model", Model);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModerationResultType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

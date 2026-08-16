@@ -32,7 +32,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The role of the messages author, in this case `user`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestUserMessageRole? Role { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UserRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestUserMessage"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "content", n => { Content = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestUserMessageContent>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestUserMessageContent.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestUserMessageRole>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRole>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestUserMessageContent>("content", Content);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestUserMessageRole>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserRole>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -95,13 +95,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Usage.Code_interpreter_ses
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("group_by")]
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsGroupByParameterItem[]? GroupBy { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectIdItem[]? GroupBy { get; set; }
 #nullable restore
 #else
             [QueryParameter("group_by")]
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsGroupByParameterItem[] GroupBy { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectIdItem[] GroupBy { get; set; }
 #endif
-            /// <summary>&quot;Specifies the number of buckets to return.- `bucket_width=1d`: default: 7, max: 31- `bucket_width=1h`: default: 24, max: 168- `bucket_width=1m`: default: 60, max: 1440&quot;</summary>
+            /// <summary>Specifies the number of buckets to return.- `bucket_width=1d`: default: 7, max: 31- `bucket_width=1h`: default: 24, max: 168- `bucket_width=1m`: default: 60, max: 1440</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
             /// <summary>A cursor for use in pagination. Corresponding to the `next_page` field from the previous response.</summary>

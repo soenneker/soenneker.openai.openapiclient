@@ -25,7 +25,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyDeleteResponseObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectApiKeyDeletedObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyDeleteResponse"/> and sets the default values.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "deleted", n => { Deleted = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyDeleteResponseObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectApiKeyDeletedObject>(); } },
             };
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("deleted", Deleted);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyDeleteResponseObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectApiKeyDeletedObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

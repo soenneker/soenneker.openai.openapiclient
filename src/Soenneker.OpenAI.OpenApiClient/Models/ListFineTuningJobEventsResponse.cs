@@ -25,7 +25,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The has_more property</summary>
         public bool? HasMore { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningJobEventsResponseObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningJobEventsResponse"/> and sets the default values.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningJobEventsResponseObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListObject>(); } },
             };
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobEvent>("data", Data);
             writer.WriteBoolValue("has_more", HasMore);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListFineTuningJobEventsResponseObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

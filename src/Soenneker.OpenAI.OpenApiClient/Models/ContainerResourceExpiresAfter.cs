@@ -15,8 +15,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The reference point for the expiration.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfterAnchor? Anchor { get; set; }
+        /// <summary>Anchor timestamp after which the expiration policy applies. Supported anchors: `last_active_at`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LastActiveAtAnchor? Anchor { get; set; }
         /// <summary>The number of minutes after the anchor before the container expires.</summary>
         public int? Minutes { get; set; }
         /// <summary>
@@ -44,7 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "anchor", n => { Anchor = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfterAnchor>(); } },
+                { "anchor", n => { Anchor = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LastActiveAtAnchor>(); } },
                 { "minutes", n => { Minutes = n.GetIntValue(); } },
             };
         }
@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfterAnchor>("anchor", Anchor);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LastActiveAtAnchor>("anchor", Anchor);
             writer.WriteIntValue("minutes", Minutes);
             writer.WriteAdditionalData(AdditionalData);
         }

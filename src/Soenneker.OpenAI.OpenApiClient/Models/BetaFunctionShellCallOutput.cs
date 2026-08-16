@@ -68,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status of the shell call output. One of `in_progress`, `completed`, or `incomplete`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallOutputStatusEnum? Status { get; set; }
         /// <summary>The type of the shell call output. Always `shell_call_output`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallOutputType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ShellCallOutputType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallOutput"/> and sets the default values.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "max_output_length", n => { MaxOutputLength = n.GetIntValue(); } },
                 { "output", n => { Output = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallOutputContent>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallOutputContent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallOutputStatusEnum>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallOutputType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ShellCallOutputType>(); } },
             };
         }
         /// <summary>
@@ -120,7 +120,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("max_output_length", MaxOutputLength);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallOutputContent>("output", Output);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallOutputStatusEnum>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallOutputType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ShellCallOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

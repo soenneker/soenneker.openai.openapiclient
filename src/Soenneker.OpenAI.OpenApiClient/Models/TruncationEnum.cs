@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>&quot;The truncation strategy to use for the model response. - `auto`: If the input to this Response exceeds the model&apos;s context window size, the model will truncate the response to fit the context window by dropping items from the beginning of the conversation. - `disabled` (default): If the input size will exceed the context window size for a model, the request will fail with a 400 error.&quot;</summary>
+    /// <summary>The truncation strategy to use for the model response. - `auto`: If the input to this Response exceeds the model&apos;s context window size, the model will truncate the response to fit the context window by dropping items from the beginning of the conversation. - `disabled` (default): If the input size will exceed the context window size for a model, the request will fail with a 400 error.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     [Obsolete("")]
     public enum TruncationEnum

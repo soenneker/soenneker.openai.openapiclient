@@ -18,7 +18,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Whether the hard spend limit was deleted.</summary>
         public bool? Deleted { get; set; }
         /// <summary>The object type, which is always `project.spend_limit.deleted`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendLimitDeletedResourceObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendLimitDeletedObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendLimitDeletedResource"/> and sets the default values.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "deleted", n => { Deleted = n.GetBoolValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendLimitDeletedResourceObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendLimitDeletedObject>(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("deleted", Deleted);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendLimitDeletedResourceObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendLimitDeletedObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

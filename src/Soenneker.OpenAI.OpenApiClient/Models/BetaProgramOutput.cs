@@ -49,7 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The terminal status of the program output item.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaProgramOutputStatus? Status { get; set; }
         /// <summary>The type of the item. Always `program_output`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaProgramOutputType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaProgramOutput"/> and sets the default values.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "result", n => { Result = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaProgramOutputStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaProgramOutputType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputType>(); } },
             };
         }
         /// <summary>
@@ -95,7 +95,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("result", Result);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaProgramOutputStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaProgramOutputType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

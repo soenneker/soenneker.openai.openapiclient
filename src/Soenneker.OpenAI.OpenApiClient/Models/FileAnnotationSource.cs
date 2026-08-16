@@ -23,8 +23,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Filename { get; set; }
 #endif
-        /// <summary>Type discriminator that is always `file`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FileAnnotationSourceType? Type { get; set; }
+        /// <summary>The type of the content part. Always `file`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FileAnnotationSource"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "filename", n => { Filename = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileAnnotationSourceType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("filename", Filename);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileAnnotationSourceType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

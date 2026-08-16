@@ -74,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallStatus? Status { get; set; }
         /// <summary>The type of the item. Always `mcp_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCall"/> and sets the default values.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "output", n => { Output = n.GetStringValue(); } },
                 { "server_label", n => { ServerLabel = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpCallType>(); } },
             };
         }
         /// <summary>
@@ -126,7 +126,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("output", Output);
             writer.WriteStringValue("server_label", ServerLabel);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolCallType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

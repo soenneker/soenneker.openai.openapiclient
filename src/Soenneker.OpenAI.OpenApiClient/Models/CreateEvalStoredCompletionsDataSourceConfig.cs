@@ -25,7 +25,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfigMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>The type of data source. Always `stored_completions`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfigType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.StoredCompletionsType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfig"/> and sets the default values.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfigMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfigMetadataProperty.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfigType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.StoredCompletionsType>(); } },
             };
         }
         /// <summary>
@@ -63,7 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfigMetadataProperty>("metadata", Metadata);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfigType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.StoredCompletionsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -108,7 +108,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_itemsBetaTrue
             /// <summary>A limit on the number of objects to be returned. Limit can range between1 and 100, and the default is 20.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>&quot;The order to return the input items in. Default is `desc`.- `asc`: Return the input items in ascending order.- `desc`: Return the input items in descending order.&quot;</summary>
+            /// <summary>The order to return the input items in. Default is `desc`.- `asc`: Return the input items in ascending order.- `desc`: Return the input items in descending order.</summary>
             [QueryParameter("order")]
             public global::Soenneker.OpenAI.OpenApiClient.Models.BetaListInputItemsOrderParameter? Order { get; set; }
         }

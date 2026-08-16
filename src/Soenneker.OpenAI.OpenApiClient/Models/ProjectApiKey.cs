@@ -36,7 +36,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.project.api_key`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectApiKeyObject? Object { get; set; }
         /// <summary>The owner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,7 +84,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_used_at", n => { LastUsedAt = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectApiKeyObject>(); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwner>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwner.CreateFromDiscriminatorValue); } },
                 { "owner_project_access", n => { OwnerProjectAccess = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerProjectAccess>(); } },
                 { "redacted_value", n => { RedactedValue = n.GetStringValue(); } },
@@ -101,7 +101,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteIntValue("last_used_at", LastUsedAt);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectApiKeyObject>("object", Object);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwner>("owner", Owner);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerProjectAccess>("owner_project_access", OwnerProjectAccess);
             writer.WriteStringValue("redacted_value", RedactedValue);

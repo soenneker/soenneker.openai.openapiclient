@@ -32,7 +32,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string SubjectPrefix { get; set; }
 #endif
         /// <summary>The notification channel type. Currently only `email` is supported.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannelType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EmailType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannel"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "recipients", n => { Recipients = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "subject_prefix", n => { SubjectPrefix = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannelType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EmailType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("recipients", Recipients);
             writer.WriteStringValue("subject_prefix", SubjectPrefix);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannelType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EmailType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

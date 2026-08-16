@@ -70,7 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectMetadata Metadata { get; set; }
 #endif
         /// <summary>The object type, which is always `thread.message`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadMessageObject? Object { get; set; }
         /// <summary>The entity that produced the message. One of `user` or `assistant`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectRole? Role { get; set; }
         /// <summary>The ID of the [run](/docs/api-reference/runs) associated with the creation of this message. Value is `null` when messages are created manually using the create message or create thread endpoints.</summary>
@@ -125,7 +125,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "incomplete_at", n => { IncompleteAt = n.GetIntValue(); } },
                 { "incomplete_details", n => { IncompleteDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetails.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectMetadata.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadMessageObject>(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectRole>(); } },
                 { "run_id", n => { RunId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectStatus>(); } },
@@ -148,7 +148,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("incomplete_at", IncompleteAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetails>("incomplete_details", IncompleteDetails);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectMetadata>("metadata", Metadata);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadMessageObject>("object", Object);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectRole>("role", Role);
             writer.WriteStringValue("run_id", RunId);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectStatus>("status", Status);

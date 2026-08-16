@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status of the code interpreter tool call. Valid values are `in_progress`, `completed`, `incomplete`, `interpreting`, and `failed`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallStatus? Status { get; set; }
         /// <summary>The type of the code interpreter tool call. Always `code_interpreter_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCall"/> and sets the default values.
         /// </summary>
@@ -81,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "outputs", n => { Outputs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputsAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterCallType>(); } },
             };
         }
         /// <summary>
@@ -96,7 +96,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallOutputsAnyOf1Item>("outputs", Outputs);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolCallType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

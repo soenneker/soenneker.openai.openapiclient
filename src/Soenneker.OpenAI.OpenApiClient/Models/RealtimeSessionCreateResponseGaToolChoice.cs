@@ -45,7 +45,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolChoice CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolChoice();
             if("ToolChoiceFunction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.ToolChoiceMcp = new global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMcp();
             }
-            else if("ToolChoiceOptions".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ToolChoiceOptionsWrapper5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ToolChoiceOptionsWrapper5 = new global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptionsWrapper5();
             }

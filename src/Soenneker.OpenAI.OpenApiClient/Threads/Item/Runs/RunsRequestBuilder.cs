@@ -177,11 +177,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("include%5B%5D")]
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunIncludeParameterItem[]? Include { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.StepDetailsToolCallsLeftBracketAsteriskRightBracketDotFileSearchResultsLeftBracketAsteriskRightBracketDotContentItem[]? Include { get; set; }
 #nullable restore
 #else
             [QueryParameter("include%5B%5D")]
-            public global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunIncludeParameterItem[] Include { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.StepDetailsToolCallsLeftBracketAsteriskRightBracketDotFileSearchResultsLeftBracketAsteriskRightBracketDotContentItem[] Include { get; set; }
 #endif
         }
     }

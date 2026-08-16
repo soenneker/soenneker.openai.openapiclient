@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status of the item. One of `in_progress`, `completed`, or `incomplete`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputStatus? Status { get; set; }
         /// <summary>The type of the local shell tool call output. Always `local_shell_call_output`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallOutputType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutput"/> and sets the default values.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallOutputType>(); } },
             };
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("output", Output);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutputType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

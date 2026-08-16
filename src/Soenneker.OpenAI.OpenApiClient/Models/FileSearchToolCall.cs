@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status of the file search tool call. One of `in_progress`,`searching`, `incomplete` or `failed`,</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallStatus? Status { get; set; }
         /// <summary>The type of the file search tool call. Always `file_search_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCall"/> and sets the default values.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "queries", n => { Queries = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResultsAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResultsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchCallType>(); } },
             };
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("queries", Queries);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallResultsAnyOf1Item>("results", Results);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolCallType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

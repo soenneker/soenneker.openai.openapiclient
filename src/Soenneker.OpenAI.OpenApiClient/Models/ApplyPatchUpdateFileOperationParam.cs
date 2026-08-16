@@ -31,8 +31,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Path { get; set; }
 #endif
-        /// <summary>The operation type. Always `update_file`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchUpdateFileOperationParamType? Type { get; set; }
+        /// <summary>Update an existing file with the provided diff.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateFileType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchUpdateFileOperationParam"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "diff", n => { Diff = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchUpdateFileOperationParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateFileType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("diff", Diff);
             writer.WriteStringValue("path", Path);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchUpdateFileOperationParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateFileType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

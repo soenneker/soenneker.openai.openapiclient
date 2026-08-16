@@ -37,11 +37,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApproval CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApproval();
             if("BetaMcpToolRequireApprovalMcpToolApprovalFilter".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BetaMcpToolRequireApprovalMcpToolApprovalFilter = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalMcpToolApprovalFilter();
+            }
+            else if("BetaMcpToolRequireApprovalWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.BetaMcpToolRequireApprovalWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalWrapper();
             }
             return result;
         }

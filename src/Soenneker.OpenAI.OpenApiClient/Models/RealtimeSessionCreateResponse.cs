@@ -33,13 +33,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>&quot;Additional fields to include in server outputs.- `item.input_audio_transcription.logprobs`: Include logprobs for input audio transcription.&quot;</summary>
+        /// <summary>Additional fields to include in server outputs.- `item.input_audio_transcription.logprobs`: Include logprobs for input audio transcription.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseIncludeItem?>? Include { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?>? Include { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseIncludeItem?> Include { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?> Include { get; set; }
 #endif
         /// <summary>The default system instructions (i.e. system message) prepended to modelcalls. This field allows the client to guide the model on desiredresponses. The model can be instructed on response content and format,(e.g. &quot;be extremely succinct&quot;, &quot;act friendly&quot;, &quot;here are examples of goodresponses&quot;) and on audio behavior (e.g. &quot;talk quickly&quot;, &quot;inject emotioninto your voice&quot;, &quot;laugh frequently&quot;). The instructions are not guaranteedto be followed by the model, but they provide guidance to the model on thedesired behavior.Note that the server sets default instructions which will be used if thisfield is not set and are visible in the `session.created` event at thestart of the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -141,7 +141,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "audio", n => { Audio = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudio>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudio.CreateFromDiscriminatorValue); } },
                 { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "include", n => { Include = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseIncludeItem>()?.AsList(); } },
+                { "include", n => { Include = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem>()?.AsList(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseMaxOutputTokens>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseMaxOutputTokens.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
@@ -163,7 +163,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudio>("audio", Audio);
             writer.WriteIntValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseIncludeItem>("include", Include);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem>("include", Include);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseMaxOutputTokens>("max_output_tokens", MaxOutputTokens);
             writer.WriteStringValue("model", Model);

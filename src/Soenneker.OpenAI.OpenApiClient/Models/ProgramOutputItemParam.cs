@@ -40,8 +40,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The terminal status of the program output.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputItemStatus? Status { get; set; }
-        /// <summary>The item type. Always `program_output`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputItemParamType? Type { get; set; }
+        /// <summary>The type of the item. Always `program_output`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputItemParam"/> and sets the default values.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "result", n => { Result = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputItemStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputItemParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputType>(); } },
             };
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("result", Result);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputItemStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputItemParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

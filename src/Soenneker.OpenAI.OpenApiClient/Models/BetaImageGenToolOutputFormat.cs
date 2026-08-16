@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>&quot;The output format of the generated image. One of `png`, `webp`, or`jpeg`. Default: `png`.&quot;</summary>
+    /// <summary>The output format of the generated image. One of `png`, `webp`, or`jpeg`. Default: `png`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum BetaImageGenToolOutputFormat
     {

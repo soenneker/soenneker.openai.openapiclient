@@ -96,7 +96,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool> Tools { get; set; }
 #endif
-        /// <summary>&quot;The truncation strategy to use for the model response. - `auto`: If the input to this Response exceeds the model&apos;s context window size, the model will truncate the response to fit the context window by dropping items from the beginning of the conversation. - `disabled` (default): If the input size will exceed the context window size for a model, the request will fail with a 400 error.&quot;</summary>
+        /// <summary>The truncation strategy to use for the model response. - `auto`: If the input to this Response exceeds the model&apos;s context window size, the model will truncate the response to fit the context window by dropping items from the beginning of the conversation. - `disabled` (default): If the input size will exceed the context window size for a model, the request will fail with a 400 error.</summary>
         [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaTruncationEnum? Truncation { get; set; }
         /// <summary>

@@ -37,11 +37,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCall CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCall();
             if("ChatCompletionFunctionCallOption".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ChatCompletionFunctionCallOption = new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionFunctionCallOption();
+            }
+            else if("CreateChatCompletionRequestAllOf2FunctionCallWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CreateChatCompletionRequestAllOf2FunctionCallWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCallWrapper();
             }
             return result;
         }

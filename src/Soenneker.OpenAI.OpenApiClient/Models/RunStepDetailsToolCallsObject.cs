@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;An array of tool calls the run step was involved in. These can be associated with one of three types of tools: `code_interpreter`, `file_search`, or `function`.&quot;</summary>
+        /// <summary>An array of tool calls the run step was involved in. These can be associated with one of three types of tools: `code_interpreter`, `file_search`, or `function`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem>? ToolCalls { get; set; }
@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem> ToolCalls { get; set; }
 #endif
         /// <summary>Always `tool_calls`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallsType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallsType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem>("tool_calls", ToolCalls);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

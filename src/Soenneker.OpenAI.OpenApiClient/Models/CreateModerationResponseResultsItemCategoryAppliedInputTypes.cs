@@ -18,50 +18,50 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The applied input type(s) for the category &apos;harassment&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem?>? Harassment { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? Harassment { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem?> Harassment { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> Harassment { get; set; }
 #endif
         /// <summary>The applied input type(s) for the category &apos;harassment/threatening&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem?>? HarassmentThreatening { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? HarassmentThreatening { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem?> HarassmentThreatening { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> HarassmentThreatening { get; set; }
 #endif
         /// <summary>The applied input type(s) for the category &apos;hate&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem?>? Hate { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? Hate { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem?> Hate { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> Hate { get; set; }
 #endif
         /// <summary>The applied input type(s) for the category &apos;hate/threatening&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem?>? HateThreatening { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? HateThreatening { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem?> HateThreatening { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> HateThreatening { get; set; }
 #endif
         /// <summary>The applied input type(s) for the category &apos;illicit&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem?>? Illicit { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? Illicit { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem?> Illicit { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> Illicit { get; set; }
 #endif
         /// <summary>The applied input type(s) for the category &apos;illicit/violent&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem?>? IllicitViolent { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? IllicitViolent { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem?> IllicitViolent { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> IllicitViolent { get; set; }
 #endif
         /// <summary>The applied input type(s) for the category &apos;self-harm&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,10 +98,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The applied input type(s) for the category &apos;sexual/minors&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem?>? SexualMinors { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? SexualMinors { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem?> SexualMinors { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> SexualMinors { get; set; }
 #endif
         /// <summary>The applied input type(s) for the category &apos;violence&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -144,17 +144,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "harassment", n => { Harassment = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem>()?.AsList(); } },
-                { "harassment/threatening", n => { HarassmentThreatening = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem>()?.AsList(); } },
-                { "hate", n => { Hate = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem>()?.AsList(); } },
-                { "hate/threatening", n => { HateThreatening = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem>()?.AsList(); } },
-                { "illicit", n => { Illicit = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem>()?.AsList(); } },
-                { "illicit/violent", n => { IllicitViolent = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem>()?.AsList(); } },
+                { "harassment", n => { Harassment = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>()?.AsList(); } },
+                { "harassment/threatening", n => { HarassmentThreatening = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>()?.AsList(); } },
+                { "hate", n => { Hate = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>()?.AsList(); } },
+                { "hate/threatening", n => { HateThreatening = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>()?.AsList(); } },
+                { "illicit", n => { Illicit = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>()?.AsList(); } },
+                { "illicit/violent", n => { IllicitViolent = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>()?.AsList(); } },
                 { "self-harm", n => { SelfHarm = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem>()?.AsList(); } },
                 { "self-harm/instructions", n => { SelfHarmInstructions = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem>()?.AsList(); } },
                 { "self-harm/intent", n => { SelfHarmIntent = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem>()?.AsList(); } },
                 { "sexual", n => { Sexual = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem>()?.AsList(); } },
-                { "sexual/minors", n => { SexualMinors = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem>()?.AsList(); } },
+                { "sexual/minors", n => { SexualMinors = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>()?.AsList(); } },
                 { "violence", n => { Violence = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem>()?.AsList(); } },
                 { "violence/graphic", n => { ViolenceGraphic = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem>()?.AsList(); } },
             };
@@ -166,17 +166,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentItem>("harassment", Harassment);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHarassmentThreateningItem>("harassment/threatening", HarassmentThreatening);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHateItem>("hate", Hate);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesHateThreateningItem>("hate/threatening", HateThreatening);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitItem>("illicit", Illicit);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesIllicitViolentItem>("illicit/violent", IllicitViolent);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>("harassment", Harassment);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>("harassment/threatening", HarassmentThreatening);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>("hate", Hate);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>("hate/threatening", HateThreatening);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>("illicit", Illicit);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>("illicit/violent", IllicitViolent);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem>("self-harm", SelfHarm);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem>("self-harm/instructions", SelfHarmInstructions);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem>("self-harm/intent", SelfHarmIntent);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem>("sexual", Sexual);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualMinorsItem>("sexual/minors", SexualMinors);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>("sexual/minors", SexualMinors);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem>("violence", Violence);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem>("violence/graphic", ViolenceGraphic);
             writer.WriteAdditionalData(AdditionalData);

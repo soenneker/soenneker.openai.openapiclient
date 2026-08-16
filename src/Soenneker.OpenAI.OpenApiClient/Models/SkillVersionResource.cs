@@ -41,7 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object type, which is `skill.version`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionResourceObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionObject? Object { get; set; }
         /// <summary>Identifier of the skill for this version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -87,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionResourceObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionObject>(); } },
                 { "skill_id", n => { SkillId = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
@@ -103,7 +103,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionResourceObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillVersionObject>("object", Object);
             writer.WriteStringValue("skill_id", SkillId);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);

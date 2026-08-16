@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The count of requests made to the model.</summary>
         public int? NumModelRequests { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResultObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageAudioTranscriptionsResultObject? Object { get; set; }
         /// <summary>When `group_by=project_id`, this field provides the project ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "api_key_id", n => { ApiKeyId = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "num_model_requests", n => { NumModelRequests = n.GetIntValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResultObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageAudioTranscriptionsResultObject>(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "seconds", n => { Seconds = n.GetLongValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
@@ -97,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("api_key_id", ApiKeyId);
             writer.WriteStringValue("model", Model);
             writer.WriteIntValue("num_model_requests", NumModelRequests);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsResultObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageAudioTranscriptionsResultObject>("object", Object);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteLongValue("seconds", Seconds);
             writer.WriteStringValue("user_id", UserId);

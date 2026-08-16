@@ -13,8 +13,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaResponsesClientEventResponseCreate : global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody, IParsable
     {
-        /// <summary>The type of the client event. Always `response.create`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsesClientEventResponseCreateType? Type { get; set; }
+        /// <summary>The event type, must be `response.create`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseCreateType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -33,7 +33,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsesClientEventResponseCreateType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseCreateType>(); } },
             };
         }
         /// <summary>
@@ -44,7 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsesClientEventResponseCreateType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseCreateType>("type", Type);
         }
     }
 }

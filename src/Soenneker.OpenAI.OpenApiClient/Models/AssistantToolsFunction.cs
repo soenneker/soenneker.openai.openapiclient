@@ -22,8 +22,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject Function { get; set; }
 #endif
-        /// <summary>&quot;The type of tool being defined: `function`&quot;</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFunctionType? Type { get; set; }
+        /// <summary>The type of tool being defined: `function`</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFunction"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "function", n => { Function = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFunctionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionObject>("function", Function);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFunctionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

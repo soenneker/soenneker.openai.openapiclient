@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;A single content item: input text, output text, input image, or input audio.&quot;
+    /// A single content item: input text, output text, input image, or input audio.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EvalItemContentItem : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
@@ -23,13 +23,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Detail { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItemBranch1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalContentItem"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItemBranch1? EvalItemContentItemBranch1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalContentItem? EvalContentItem { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItemBranch1 EvalItemContentItemBranch1 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalContentItem EvalContentItem { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentOutputText"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,14 +95,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Text { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        /// <summary>The type of the input item. Always `input_text`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType? Type { get; set; }
         /// <summary>A text input to the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,11 +120,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem();
-            if("EvalItemContentItem_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("EvalContentItem".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EvalItemContentItemBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItemBranch1();
+                result.EvalContentItem = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalContentItem();
             }
             else if("EvalItemContentOutputText".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -148,6 +142,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.InputTextContent = new global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent();
             }
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType>() is global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType typeValue)
+            {
+                result.Type = typeValue;
+            }
             else if(parseNode.GetStringValue() is string detailValue)
             {
                 result.Detail = detailValue;
@@ -159,10 +157,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(parseNode.GetStringValue() is string textValue)
             {
                 result.Text = textValue;
-            }
-            else if(parseNode.GetStringValue() is string typeValue)
-            {
-                result.Type = typeValue;
             }
             else if(parseNode.GetStringValue() is string valueValue)
             {
@@ -176,9 +170,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(EvalItemContentItemBranch1 != null)
+            if(EvalContentItem != null)
             {
-                return EvalItemContentItemBranch1.GetFieldDeserializers();
+                return EvalContentItem.GetFieldDeserializers();
             }
             else if(EvalItemContentOutputText != null)
             {
@@ -213,9 +207,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(EvalItemContentItemBranch1 != null)
+            if(EvalContentItem != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItemBranch1>(null, EvalItemContentItemBranch1);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalContentItem>(null, EvalContentItem);
             }
             else if(EvalItemContentOutputText != null)
             {
@@ -241,6 +235,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>(null, PromptCacheBreakpoint);
             }
+            else if(Type != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType>(null, Type);
+            }
             else if(Detail != null)
             {
                 writer.WriteStringValue(null, Detail);
@@ -252,10 +250,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(Text != null)
             {
                 writer.WriteStringValue(null, Text);
-            }
-            else if(Type != null)
-            {
-                writer.WriteStringValue(null, Type);
             }
             else if(Value != null)
             {

@@ -41,7 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Reference { get; set; }
 #endif
         /// <summary>The object type, which is always `string_check`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheckType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.StringCheckType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheck"/> and sets the default values.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheckOperation>(); } },
                 { "reference", n => { Reference = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheckType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.StringCheckType>(); } },
             };
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheckOperation>("operation", Operation);
             writer.WriteStringValue("reference", Reference);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheckType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.StringCheckType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

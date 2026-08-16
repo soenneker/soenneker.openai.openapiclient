@@ -32,7 +32,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object type, which is always `audio.voice`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceResourceObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioVoiceObject? Object { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceResourceObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioVoiceObject>(); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceResourceObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioVoiceObject>("object", Object);
         }
     }
 }

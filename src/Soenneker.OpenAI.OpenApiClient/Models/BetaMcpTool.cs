@@ -39,7 +39,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Authorization { get; set; }
 #endif
-        /// <summary>&quot;Identifier for service connectors, like those available in ChatGPT. One of`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn moreabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).Currently supported `connector_id` values are:- Dropbox: `connector_dropbox`- Gmail: `connector_gmail`- Google Calendar: `connector_googlecalendar`- Google Drive: `connector_googledrive`- Microsoft Teams: `connector_microsoftteams`- Outlook Calendar: `connector_outlookcalendar`- Outlook Email: `connector_outlookemail`- SharePoint: `connector_sharepoint`&quot;</summary>
+        /// <summary>Identifier for service connectors, like those available in ChatGPT. One of`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn moreabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).Currently supported `connector_id` values are:- Dropbox: `connector_dropbox`- Gmail: `connector_gmail`- Google Calendar: `connector_googlecalendar`- Google Drive: `connector_googledrive`- Microsoft Teams: `connector_microsoftteams`- Outlook Calendar: `connector_outlookcalendar`- Outlook Email: `connector_outlookemail`- SharePoint: `connector_sharepoint`</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolConnectorId? ConnectorId { get; set; }
         /// <summary>Whether this MCP tool is deferred and discovered via tool search.</summary>
         public bool? DeferLoading { get; set; }
@@ -92,7 +92,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string TunnelId { get; set; }
 #endif
         /// <summary>The type of the MCP tool. Always `mcp`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpTool"/> and sets the default values.
         /// </summary>
@@ -129,7 +129,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "server_label", n => { ServerLabel = n.GetStringValue(); } },
                 { "server_url", n => { ServerUrl = n.GetStringValue(); } },
                 { "tunnel_id", n => { TunnelId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpType>(); } },
             };
         }
         /// <summary>
@@ -150,7 +150,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("server_label", ServerLabel);
             writer.WriteStringValue("server_url", ServerUrl);
             writer.WriteStringValue("tunnel_id", TunnelId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

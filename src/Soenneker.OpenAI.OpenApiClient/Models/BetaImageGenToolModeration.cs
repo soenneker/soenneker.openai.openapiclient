@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>&quot;Moderation level for the generated image. Default: `auto`.&quot;</summary>
+    /// <summary>Moderation level for the generated image. Default: `auto`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum BetaImageGenToolModeration
     {

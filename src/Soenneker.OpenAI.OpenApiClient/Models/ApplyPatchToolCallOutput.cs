@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status of the apply patch tool call output. One of `completed` or `failed`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallOutputStatus? Status { get; set; }
         /// <summary>The type of the item. Always `apply_patch_call_output`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutputType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallOutputType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutput"/> and sets the default values.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallOutputStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutputType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallOutputType>(); } },
             };
         }
         /// <summary>
@@ -106,7 +106,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("output", Output);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallOutputStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOutputType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>&quot;The image generation model to use. Default: `gpt-image-1`.&quot;</summary>
+    /// <summary>The image generation model to use. Default: `gpt-image-1`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ImageGenToolModelWrapperValue
     {

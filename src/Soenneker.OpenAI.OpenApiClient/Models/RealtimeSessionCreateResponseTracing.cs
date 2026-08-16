@@ -37,11 +37,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing();
             if("RealtimeSessionCreateResponseTracingTracingConfiguration".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RealtimeSessionCreateResponseTracingTracingConfiguration = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingTracingConfiguration();
+            }
+            else if("RealtimeSessionCreateResponseTracingWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RealtimeSessionCreateResponseTracingWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracingWrapper();
             }
             return result;
         }

@@ -51,8 +51,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageRole? Role { get; set; }
         /// <summary>The status of item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageStatus? Status { get; set; }
-        /// <summary>The type of the message. Always set to `message`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageType? Type { get; set; }
+        /// <summary>The type of the message input. Always `message`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessage"/> and sets the default values.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "phase", n => { Phase = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessagePhase2Wrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessagePhase2Wrapper.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageRole>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageType>(); } },
             };
         }
         /// <summary>
@@ -100,7 +100,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessagePhase2Wrapper>("phase", Phase);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageRole>("role", Role);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

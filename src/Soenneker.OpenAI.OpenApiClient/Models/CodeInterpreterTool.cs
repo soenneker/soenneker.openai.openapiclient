@@ -31,8 +31,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolContainer Container { get; set; }
 #endif
-        /// <summary>The type of the code interpreter tool. Always `code_interpreter`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolType? Type { get; set; }
+        /// <summary>The type of tool being defined: `code_interpreter`</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterTool"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "allowed_callers", n => { AllowedCallers = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "container", n => { Container = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolContainer>(global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolContainer.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller>("allowed_callers", AllowedCallers);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolContainer>("container", Container);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

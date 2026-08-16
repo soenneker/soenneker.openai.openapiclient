@@ -41,7 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool> Tools { get; set; }
 #endif
         /// <summary>The type of the item. Always `additional_tools`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAdditionalToolsType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AdditionalToolsType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaAdditionalTools"/> and sets the default values.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageRole>(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAdditionalToolsType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdditionalToolsType>(); } },
             };
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMessageRole>("role", Role);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool>("tools", Tools);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAdditionalToolsType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdditionalToolsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

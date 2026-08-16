@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredActionSubmitToolOutputs SubmitToolOutputs { get; set; }
 #endif
         /// <summary>For now, this is always `submit_tool_outputs`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredActionType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredAction"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "submit_tool_outputs", n => { SubmitToolOutputs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredActionSubmitToolOutputs>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredActionSubmitToolOutputs.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredActionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredActionSubmitToolOutputs>("submit_tool_outputs", SubmitToolOutputs);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredActionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

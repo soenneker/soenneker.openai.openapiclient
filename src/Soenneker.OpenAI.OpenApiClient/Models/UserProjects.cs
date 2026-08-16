@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsDataItem> Data { get; set; }
 #endif
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsDataItem>(global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsDataItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListObject>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsDataItem>("data", Data);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjectsObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

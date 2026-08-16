@@ -37,9 +37,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContent();
-            if("EvalItemContentArray".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("EvalItemContentArrayWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EvalItemContentArrayWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentArrayWrapper();
             }

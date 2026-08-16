@@ -37,11 +37,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation();
             if("RealtimeTruncationRetentionRatioTruncation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RealtimeTruncationRetentionRatioTruncation = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncation();
+            }
+            else if("RealtimeTruncationWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RealtimeTruncationWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationWrapper();
             }
             return result;
         }

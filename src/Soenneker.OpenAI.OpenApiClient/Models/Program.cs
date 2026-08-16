@@ -46,7 +46,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The type of the item. Always `program`.</summary>
+        /// <summary>The type property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ProgramType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Program"/> and sets the default values.

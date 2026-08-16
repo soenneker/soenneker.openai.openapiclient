@@ -36,8 +36,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The object type, which is always `file`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFileObject? Object { get; set; }
+        /// <summary>The object property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileObject? Object { get; set; }
         /// <summary>The intended purpose of the file. Supported values are `assistants`, `assistants_output`, `batch`, `batch_output`, `fine-tune`, `fine-tune-results`, `vision`, and `user_data`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFilePurpose? Purpose { get; set; }
         /// <summary>Deprecated. The current status of the file, which can be either `uploaded`, `processed`, or `error`.</summary>
@@ -82,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFileObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileObject>(); } },
                 { "purpose", n => { Purpose = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFilePurpose>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFileStatus>(); } },
                 { "status_details", n => { StatusDetails = n.GetStringValue(); } },
@@ -100,7 +100,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("expires_at", ExpiresAt);
             writer.WriteStringValue("filename", Filename);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFileObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileObject>("object", Object);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFilePurpose>("purpose", Purpose);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFileStatus>("status", Status);
             writer.WriteStringValue("status_details", StatusDetails);

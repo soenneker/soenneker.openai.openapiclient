@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string ServerLabel { get; set; }
 #endif
         /// <summary>The type of the item. Always `mcp_approval_request`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpApprovalRequestType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalRequestType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpApprovalRequest"/> and sets the default values.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "server_label", n => { ServerLabel = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpApprovalRequestType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalRequestType>(); } },
             };
         }
         /// <summary>
@@ -102,7 +102,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("server_label", ServerLabel);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpApprovalRequestType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalRequestType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

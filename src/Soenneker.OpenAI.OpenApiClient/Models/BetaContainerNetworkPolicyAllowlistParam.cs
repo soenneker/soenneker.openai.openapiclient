@@ -31,7 +31,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerNetworkPolicyDomainSecretParam> DomainSecrets { get; set; }
 #endif
         /// <summary>Allow outbound network access only to specified domains. Always `allowlist`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerNetworkPolicyAllowlistParamType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AllowlistType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerNetworkPolicyAllowlistParam"/> and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "allowed_domains", n => { AllowedDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "domain_secrets", n => { DomainSecrets = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerNetworkPolicyDomainSecretParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerNetworkPolicyDomainSecretParam.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerNetworkPolicyAllowlistParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AllowlistType>(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_domains", AllowedDomains);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerNetworkPolicyDomainSecretParam>("domain_secrets", DomainSecrets);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerNetworkPolicyAllowlistParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AllowlistType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

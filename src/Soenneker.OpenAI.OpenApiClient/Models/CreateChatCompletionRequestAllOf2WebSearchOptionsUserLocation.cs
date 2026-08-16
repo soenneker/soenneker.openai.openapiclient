@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchLocation Approximate { get; set; }
 #endif
         /// <summary>The type of location approximation. Always `approximate`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptionsUserLocationType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApproximateType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptionsUserLocation"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "approximate", n => { Approximate = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchLocation>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchLocation.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptionsUserLocationType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApproximateType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchLocation>("approximate", Approximate);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptionsUserLocationType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApproximateType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

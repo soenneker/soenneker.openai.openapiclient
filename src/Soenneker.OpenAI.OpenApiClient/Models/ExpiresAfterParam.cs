@@ -15,8 +15,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Base timestamp used to calculate expiration. Currently fixed to `created_at`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParamAnchor? Anchor { get; set; }
+        /// <summary>Anchor timestamp after which the expiration policy applies. Supported anchors: `created_at`. Note that the anchor is the file creation time, not the time the batch is created.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreatedAtAnchor? Anchor { get; set; }
         /// <summary>Number of seconds after the anchor when the session expires.</summary>
         public long? Seconds { get; set; }
         /// <summary>
@@ -44,7 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "anchor", n => { Anchor = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParamAnchor>(); } },
+                { "anchor", n => { Anchor = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreatedAtAnchor>(); } },
                 { "seconds", n => { Seconds = n.GetLongValue(); } },
             };
         }
@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParamAnchor>("anchor", Anchor);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreatedAtAnchor>("anchor", Anchor);
             writer.WriteLongValue("seconds", Seconds);
             writer.WriteAdditionalData(AdditionalData);
         }

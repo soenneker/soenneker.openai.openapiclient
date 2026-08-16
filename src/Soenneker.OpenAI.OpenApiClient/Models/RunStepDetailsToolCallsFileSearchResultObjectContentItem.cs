@@ -22,8 +22,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Text { get; set; }
 #endif
-        /// <summary>The type of the content.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObjectContentItemType? Type { get; set; }
+        /// <summary>The type of the content part.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TextType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObjectContentItem"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObjectContentItemType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObjectContentItemType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The breakpoint mode. Always `explicit`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfigMode? Mode { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExplicitValueMode? Mode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig"/> and sets the default values.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfigMode>(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExplicitValueMode>(); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfigMode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExplicitValueMode>("mode", Mode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

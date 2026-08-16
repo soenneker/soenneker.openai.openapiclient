@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration Moderation { get; set; }
 #endif
         /// <summary>The object type, which is always `chat.completion`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionObject? Object { get; set; }
         /// <summary>Specifies the processing type used for serving the request.  - If set to &apos;auto&apos;, then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use &apos;default&apos;.  - If set to &apos;default&apos;, then the request will be processed with the standard pricing and performance for the selected model.  - If set to &apos;[flex](/docs/guides/flex-processing)&apos;, then the request will be processed with the Flex Processing service tier.  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.  - When not set, the default behavior is &apos;auto&apos;.  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier? ServiceTier { get; set; }
         /// <summary>This fingerprint represents the backend configuration that the model runs with.Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism.</summary>
@@ -100,7 +100,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "moderation", n => { Moderation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionObject>(); } },
                 { "service_tier", n => { ServiceTier = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier>(); } },
                 { "system_fingerprint", n => { SystemFingerprint = n.GetStringValue(); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage.CreateFromDiscriminatorValue); } },
@@ -118,7 +118,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration>("moderation", Moderation);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionObject>("object", Object);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier>("service_tier", ServiceTier);
             writer.WriteStringValue("system_fingerprint", SystemFingerprint);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage>("usage", Usage);

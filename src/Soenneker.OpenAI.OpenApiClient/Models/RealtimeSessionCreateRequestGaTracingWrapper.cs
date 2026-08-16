@@ -14,16 +14,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
-        /// <summary>Enables tracing and sets default values for tracing configuration options. Always `auto`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingWrapperValue? Value { get; set; }
+        /// <summary>`auto` is the default value</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoValue? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingWrapper"/> and sets the default values.
         /// </summary>
@@ -49,8 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingWrapperValue>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoValue>(); } },
             };
         }
         /// <summary>
@@ -60,8 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("type", Type);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingWrapperValue>("value", Value);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

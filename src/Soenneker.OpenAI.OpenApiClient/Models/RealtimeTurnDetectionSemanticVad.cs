@@ -22,13 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Whether or not to automatically interrupt any ongoing response with output to the defaultconversation (i.e. `conversation` of `auto`) when a VAD start event occurs.</summary>
         public bool? InterruptResponse { get; set; }
         /// <summary>Type of turn detection, `semantic_vad` to turn on Semantic VAD.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SemanticVadType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionSemanticVad"/> and sets the default values.
         /// </summary>
@@ -59,7 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "create_response", n => { CreateResponse = n.GetBoolValue(); } },
                 { "eagerness", n => { Eagerness = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionSemanticVadEagerness>(); } },
                 { "interrupt_response", n => { InterruptResponse = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SemanticVadType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteBoolValue("create_response", CreateResponse);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionSemanticVadEagerness>("eagerness", Eagerness);
             writer.WriteBoolValue("interrupt_response", InterruptResponse);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SemanticVadType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

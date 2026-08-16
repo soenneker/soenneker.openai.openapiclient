@@ -31,8 +31,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Path { get; set; }
 #endif
-        /// <summary>The operation type. Always `create_file`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCreateFileOperationParamType? Type { get; set; }
+        /// <summary>Create a new file with the provided diff.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFileType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCreateFileOperationParam"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "diff", n => { Diff = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCreateFileOperationParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFileType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("diff", Diff);
             writer.WriteStringValue("path", Path);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCreateFileOperationParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFileType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

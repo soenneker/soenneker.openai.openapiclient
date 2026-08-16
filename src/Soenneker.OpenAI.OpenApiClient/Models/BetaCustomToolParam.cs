@@ -49,8 +49,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The type of the custom tool. Always `custom`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolParamType? Type { get; set; }
+        /// <summary>The type of the tool. Always `custom`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolParam"/> and sets the default values.
         /// </summary>
@@ -81,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolParamFormat>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolParamFormat.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomType>(); } },
             };
         }
         /// <summary>
@@ -96,7 +96,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolParamFormat>("format", Format);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

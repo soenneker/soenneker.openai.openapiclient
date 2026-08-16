@@ -33,7 +33,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string NextPage { get; set; }
 #endif
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PageObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse"/> and sets the default values.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
                 { "next_page", n => { NextPage = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PageObject>(); } },
             };
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucket>("data", Data);
             writer.WriteBoolValue("has_more", HasMore);
             writer.WriteStringValue("next_page", NextPage);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponseObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PageObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string LineItem { get; set; }
 #endif
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCostsResultObject? Object { get; set; }
         /// <summary>When `group_by=project_id`, this field provides the project ID of the grouped costs result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,7 +79,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "amount", n => { Amount = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultAmount>(global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultAmount.CreateFromDiscriminatorValue); } },
                 { "api_key_id", n => { ApiKeyId = n.GetStringValue(); } },
                 { "line_item", n => { LineItem = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCostsResultObject>(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "quantity", n => { Quantity = n.GetDoubleValue(); } },
             };
@@ -94,7 +94,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultAmount>("amount", Amount);
             writer.WriteStringValue("api_key_id", ApiKeyId);
             writer.WriteStringValue("line_item", LineItem);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCostsResultObject>("object", Object);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteDoubleValue("quantity", Quantity);
             writer.WriteAdditionalData(AdditionalData);

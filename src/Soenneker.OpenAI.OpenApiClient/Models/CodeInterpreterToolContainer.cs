@@ -37,13 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolContainer CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolContainer();
             if("AutoCodeInterpreterToolParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AutoCodeInterpreterToolParam = new global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam();
             }
-            else if("CodeInterpreterToolContainer_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("CodeInterpreterToolContainerBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CodeInterpreterToolContainerBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolContainerBranch1();
             }

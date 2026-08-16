@@ -41,7 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchSourcesItem> Sources { get; set; }
 #endif
         /// <summary>The action type.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SearchType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearch"/> and sets the default values.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "queries", n => { Queries = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "query", n => { Query = n.GetStringValue(); } },
                 { "sources", n => { Sources = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchSourcesItem>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchSourcesItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SearchType>(); } },
             };
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("queries", Queries);
             writer.WriteStringValue("query", Query);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchSourcesItem>("sources", Sources);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionSearchType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SearchType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

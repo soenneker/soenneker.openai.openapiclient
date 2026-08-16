@@ -38,7 +38,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.invite`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InviteObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationInviteObject? Object { get; set; }
         /// <summary>The projects that were granted membership upon acceptance of the invite.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationInviteObject>(); } },
                 { "projects", n => { Projects = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InviteProjectsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.InviteProjectsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRole>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteStatus>(); } },
@@ -99,7 +99,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("email", Email);
             writer.WriteIntValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationInviteObject>("object", Object);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InviteProjectsItem>("projects", Projects);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteRole>("role", Role);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InviteStatus>("status", Status);

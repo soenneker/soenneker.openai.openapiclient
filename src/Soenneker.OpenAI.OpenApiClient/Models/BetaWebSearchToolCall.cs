@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status of the web search tool call.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolCallStatus? Status { get; set; }
         /// <summary>The type of the web search tool call. Always `web_search_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolCallType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolCall"/> and sets the default values.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolCallStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolCallType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchCallType>(); } },
             };
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>("agent", Agent);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolCallStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolCallType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

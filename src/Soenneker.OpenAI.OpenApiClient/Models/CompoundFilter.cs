@@ -21,7 +21,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilterFiltersItem> Filters { get; set; }
 #endif
-        /// <summary>&quot;Type of operation: `and` or `or`.&quot;</summary>
+        /// <summary>Type of operation: `and` or `or`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilterType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Action type \&quot;find_in_page\&quot;: Searches for a pattern within a loaded page.&quot;
+    /// Action type &quot;find_in_page&quot;: Searches for a pattern within a loaded page.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebSearchActionFind : IAdditionalDataHolder, IParsable
@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Pattern { get; set; }
 #endif
         /// <summary>The action type.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionFindType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FindInPageType? Type { get; set; }
         /// <summary>The URL of the page searched for the pattern.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "pattern", n => { Pattern = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionFindType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FindInPageType>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("pattern", Pattern);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionFindType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FindInPageType>("type", Type);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

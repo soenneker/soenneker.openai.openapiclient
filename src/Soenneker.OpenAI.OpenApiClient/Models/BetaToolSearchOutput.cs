@@ -59,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool> Tools { get; set; }
 #endif
         /// <summary>The type of the item. Always `tool_search_output`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchOutputType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchOutputType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchOutput"/> and sets the default values.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionCallOutputStatusEnum>(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchOutputType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchOutputType>(); } },
             };
         }
         /// <summary>
@@ -109,7 +109,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionCallOutputStatusEnum>("status", Status);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool>("tools", Tools);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchOutputType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

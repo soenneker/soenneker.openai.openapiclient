@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Controls which (if any) tool is called by the model.`none` means the model will not call any tools and instead generates a message.`auto` is the default value and means the model can pick between generating a message or calling one or more tools.`required` means the model must call one or more tools before responding to the user.Specifying a particular tool like `{\&quot;type\&quot;: \&quot;file_search\&quot;}` or `{\&quot;type\&quot;: \&quot;function\&quot;, \&quot;function\&quot;: {\&quot;name\&quot;: \&quot;my_function\&quot;}}` forces the model to call that tool.&quot;
+    /// Controls which (if any) tool is called by the model.`none` means the model will not call any tools and instead generates a message.`auto` is the default value and means the model can pick between generating a message or calling one or more tools.`required` means the model must call one or more tools before responding to the user.Specifying a particular tool like `{&quot;type&quot;: &quot;file_search&quot;}` or `{&quot;type&quot;: &quot;function&quot;, &quot;function&quot;: {&quot;name&quot;: &quot;my_function&quot;}}` forces the model to call that tool.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AssistantsApiToolChoiceOption : IAdditionalDataHolder, IParsable
@@ -23,14 +23,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceFunction Function { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        /// <summary>The type of the tool. If type is `function`, the function name must be set</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceType? Type { get; set; }
         /// <summary>`none` means the model will not call any tools and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools before responding to the user.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOptionWrapperValue? Value { get; set; }
         /// <summary>
@@ -59,7 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "function", n => { Function = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceFunction>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceFunction.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceType>(); } },
                 { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOptionWrapperValue>(); } },
             };
         }
@@ -71,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceFunction>("function", Function);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceType>("type", Type);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOptionWrapperValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

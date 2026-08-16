@@ -22,8 +22,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearchFileSearch FileSearch { get; set; }
 #endif
-        /// <summary>&quot;The type of tool being defined: `file_search`&quot;</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearchType? Type { get; set; }
+        /// <summary>The type of tool being defined: `file_search`</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "file_search", n => { FileSearch = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearchFileSearch>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearchFileSearch.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearchType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearchFileSearch>("file_search", FileSearch);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearchType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

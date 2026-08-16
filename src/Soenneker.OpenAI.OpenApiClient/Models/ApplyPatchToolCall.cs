@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status of the apply patch tool call. One of `in_progress` or `completed`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallStatus? Status { get; set; }
         /// <summary>The type of the item. Always `apply_patch_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCall"/> and sets the default values.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "operation", n => { Operation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOperation>(global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOperation.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallType>(); } },
             };
         }
         /// <summary>
@@ -106,7 +106,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallOperation>("operation", Operation);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchToolCallType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

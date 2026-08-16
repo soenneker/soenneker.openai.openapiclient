@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The time frame within which the batch should be processed. Currently only `24h` is supported.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestCompletionWindow? CompletionWindow { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Value24HCompletionWindow? CompletionWindow { get; set; }
         /// <summary>The endpoint to be used for all requests in the batch. Currently `/v1/responses`, `/v1/chat/completions`, `/v1/embeddings`, `/v1/completions`, `/v1/moderations`, `/v1/images/generations`, `/v1/images/edits`, and `/v1/videos` are supported. Note that `/v1/embeddings` batches are also restricted to a maximum of 50,000 embedding inputs across all requests in the batch.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestEndpoint? Endpoint { get; set; }
         /// <summary>The ID of an uploaded file that contains requests for the new batch.See [upload file](/docs/api-reference/files/create) for how to upload a file.Your input file must be formatted as a [JSONL file](/docs/api-reference/batch/request-input), and must be uploaded with the purpose `batch`. The file can contain up to 50,000 requests, and can be up to 200 MB in size.</summary>
@@ -67,7 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "completion_window", n => { CompletionWindow = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestCompletionWindow>(); } },
+                { "completion_window", n => { CompletionWindow = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Value24HCompletionWindow>(); } },
                 { "endpoint", n => { Endpoint = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestEndpoint>(); } },
                 { "input_file_id", n => { InputFileId = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestMetadata.CreateFromDiscriminatorValue); } },
@@ -81,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestCompletionWindow>("completion_window", CompletionWindow);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Value24HCompletionWindow>("completion_window", CompletionWindow);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestEndpoint>("endpoint", Endpoint);
             writer.WriteStringValue("input_file_id", InputFileId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestMetadata>("metadata", Metadata);

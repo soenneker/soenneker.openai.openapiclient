@@ -28,7 +28,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The vertical scroll distance.</summary>
         public int? ScrollY { get; set; }
         /// <summary>Specifies the event type. For a scroll action, this property is always set to `scroll`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParamType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ScrollType? Type { get; set; }
         /// <summary>The x-coordinate where the scroll occurred.</summary>
         public int? X { get; set; }
         /// <summary>The y-coordinate where the scroll occurred.</summary>
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "keys", n => { Keys = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParamKeys>(global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParamKeys.CreateFromDiscriminatorValue); } },
                 { "scroll_x", n => { ScrollX = n.GetIntValue(); } },
                 { "scroll_y", n => { ScrollY = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollType>(); } },
                 { "x", n => { X = n.GetIntValue(); } },
                 { "y", n => { Y = n.GetIntValue(); } },
             };
@@ -76,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParamKeys>("keys", Keys);
             writer.WriteIntValue("scroll_x", ScrollX);
             writer.WriteIntValue("scroll_y", ScrollY);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollType>("type", Type);
             writer.WriteIntValue("x", X);
             writer.WriteIntValue("y", Y);
             writer.WriteAdditionalData(AdditionalData);

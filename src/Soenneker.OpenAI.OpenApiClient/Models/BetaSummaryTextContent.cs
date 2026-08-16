@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Text { get; set; }
 #endif
         /// <summary>The type of the object. Always `summary_text`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaSummaryTextContentType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaSummaryTextContent"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSummaryTextContentType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSummaryTextContentType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

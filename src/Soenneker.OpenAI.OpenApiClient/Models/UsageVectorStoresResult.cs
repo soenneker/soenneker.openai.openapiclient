@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResultObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageVectorStoresResultObject? Object { get; set; }
         /// <summary>When `group_by=project_id`, this field provides the project ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -52,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResultObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageVectorStoresResultObject>(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "usage_bytes", n => { UsageBytes = n.GetIntValue(); } },
             };
@@ -64,7 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageVectorStoresResultObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageVectorStoresResultObject>("object", Object);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteIntValue("usage_bytes", UsageBytes);
             writer.WriteAdditionalData(AdditionalData);

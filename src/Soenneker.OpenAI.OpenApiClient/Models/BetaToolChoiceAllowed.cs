@@ -17,7 +17,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Constrains the tools available to the model to a pre-defined set.`auto` allows the model to pick from among the allowed tools and generate amessage.`required` requires the model to call one or more of the allowed tools.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedMode? Mode { get; set; }
-        /// <summary>&quot;A list of tool definitions that the model should be allowed to call.For the Responses API, the list of tool definitions might look like:```json[  { \&quot;type\&quot;: \&quot;function\&quot;, \&quot;name\&quot;: \&quot;get_weather\&quot; },  { \&quot;type\&quot;: \&quot;mcp\&quot;, \&quot;server_label\&quot;: \&quot;deepwiki\&quot; },  { \&quot;type\&quot;: \&quot;image_generation\&quot; }]```&quot;</summary>
+        /// <summary>A list of tool definitions that the model should be allowed to call.For the Responses API, the list of tool definitions might look like:```json[  { &quot;type&quot;: &quot;function&quot;, &quot;name&quot;: &quot;get_weather&quot; },  { &quot;type&quot;: &quot;mcp&quot;, &quot;server_label&quot;: &quot;deepwiki&quot; },  { &quot;type&quot;: &quot;image_generation&quot; }]```</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedToolsItemProperty>? Tools { get; set; }
@@ -26,7 +26,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedToolsItemProperty> Tools { get; set; }
 #endif
         /// <summary>Allowed tool configuration type. Always `allowed_tools`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowed"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedMode>(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedToolsItemProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedToolsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedMode>("mode", Mode);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedToolsItemProperty>("tools", Tools);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

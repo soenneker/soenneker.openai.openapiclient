@@ -30,8 +30,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The type of tool call. This is always going to be `file_search` for this type of tool call.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchObjectType? Type { get; set; }
+        /// <summary>The type of tool being defined: `file_search`</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchObject"/> and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "file_search", n => { FileSearch = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchObjectFileSearch>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchObjectFileSearch.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchObjectType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchType>(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchObjectFileSearch>("file_search", FileSearch);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchObjectType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

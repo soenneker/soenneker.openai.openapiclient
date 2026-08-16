@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageRole? Role { get; set; }
         /// <summary>The status of item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageStatus? Status { get; set; }
-        /// <summary>The type of the message. Always set to `message`.</summary>
+        /// <summary>The type of the message input. Always `message`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Message"/> and sets the default values.

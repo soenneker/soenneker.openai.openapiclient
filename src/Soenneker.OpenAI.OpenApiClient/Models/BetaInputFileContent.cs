@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig PromptCacheBreakpoint { get; set; }
 #endif
         /// <summary>The type of the input item. Always `input_file`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputFileContentType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFileType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputFileContent"/> and sets the default values.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "file_url", n => { FileUrl = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "prompt_cache_breakpoint", n => { PromptCacheBreakpoint = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputFileContentType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileType>(); } },
             };
         }
         /// <summary>
@@ -106,7 +106,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("filename", Filename);
             writer.WriteStringValue("file_url", FileUrl);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig>("prompt_cache_breakpoint", PromptCacheBreakpoint);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputFileContentType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -21,8 +21,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar Grammar { get; set; }
 #endif
-        /// <summary>Grammar format. Always `grammar`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatType? Type { get; set; }
+        /// <summary>The type of response format being defined. Always `grammar`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GrammarType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "grammar", n => { Grammar = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar>(global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GrammarType>(); } },
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar>("grammar", Grammar);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GrammarType>("type", Type);
         }
     }
 }

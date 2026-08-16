@@ -18,7 +18,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Whether the group membership was removed.</summary>
         public bool? Deleted { get; set; }
         /// <summary>Always `group.user.deleted`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserDeletedResourceObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserDeletedObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserDeletedResource"/> and sets the default values.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "deleted", n => { Deleted = n.GetBoolValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserDeletedResourceObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserDeletedObject>(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("deleted", Deleted);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserDeletedResourceObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GroupUserDeletedObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -48,7 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The type of the item. Always `compaction`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactionBodyType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactionBody"/> and sets the default values.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "encrypted_content", n => { EncryptedContent = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactionBodyType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionType>(); } },
             };
         }
         /// <summary>
@@ -92,7 +92,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("encrypted_content", EncryptedContent);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactionBodyType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

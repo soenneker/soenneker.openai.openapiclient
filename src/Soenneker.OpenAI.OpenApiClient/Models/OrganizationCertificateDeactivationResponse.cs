@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate> Data { get; set; }
 #endif
         /// <summary>The organization certificate deactivation result type.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateDeactivationResponseObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateDeactivationObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateDeactivationResponse"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate>(global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateDeactivationResponseObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateDeactivationObject>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificate>("data", Data);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateDeactivationResponseObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateDeactivationObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

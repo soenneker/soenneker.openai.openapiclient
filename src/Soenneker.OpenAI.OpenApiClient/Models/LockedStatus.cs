@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Reason { get; set; }
 #endif
         /// <summary>Status discriminator that is always `locked`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LockedStatusType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LockedType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LockedStatus"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "reason", n => { Reason = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LockedStatusType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LockedType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("reason", Reason);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LockedStatusType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LockedType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

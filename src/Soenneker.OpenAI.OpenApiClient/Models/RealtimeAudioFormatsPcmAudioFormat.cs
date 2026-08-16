@@ -18,7 +18,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The sample rate of the audio. Always `24000`.</summary>
         public int? Rate { get; set; }
         /// <summary>The audio format. Always `audio/pcm`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmAudioFormatType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioPcmType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmAudioFormat"/> and sets the default values.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "rate", n => { Rate = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmAudioFormatType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioPcmType>(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("rate", Rate);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmAudioFormatType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioPcmType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

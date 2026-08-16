@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectMetadata Metadata { get; set; }
 #endif
         /// <summary>The object type, which is always `thread.run.step`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadRunStepObject? Object { get; set; }
         /// <summary>The ID of the [run](/docs/api-reference/runs) that this run step is a part of.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -129,7 +129,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_error", n => { LastError = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectMetadata.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadRunStepObject>(); } },
                 { "run_id", n => { RunId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectStatus>(); } },
                 { "step_details", n => { StepDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectStepDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectStepDetails.CreateFromDiscriminatorValue); } },
@@ -154,7 +154,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError>("last_error", LastError);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectMetadata>("metadata", Metadata);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadRunStepObject>("object", Object);
             writer.WriteStringValue("run_id", RunId);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectStatus>("status", Status);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectStepDetails>("step_details", StepDetails);

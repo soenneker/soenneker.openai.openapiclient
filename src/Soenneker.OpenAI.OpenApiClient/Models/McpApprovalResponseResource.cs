@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Reason { get; set; }
 #endif
         /// <summary>The type of the item. Always `mcp_approval_response`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResourceType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResource"/> and sets the default values.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "approve", n => { Approve = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResourceType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseType>(); } },
             };
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteBoolValue("approve", Approve);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("reason", Reason);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseResourceType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpApprovalResponseType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

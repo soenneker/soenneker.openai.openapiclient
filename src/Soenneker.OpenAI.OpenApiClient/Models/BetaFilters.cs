@@ -30,14 +30,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Key { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        /// <summary>Specifies the comparison operator: `eq`, `ne`, `gt`, `gte`, `lt`, `lte`, `in`, `nin`.- `eq`: equals- `ne`: not equal- `gt`: greater than- `gte`: greater than or equal- `lt`: less than- `lte`: less than or equal- `in`: in- `nin`: not in</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComparisonFilterType? Type { get; set; }
         /// <summary>The value to compare against the attribute key; supports string, number, or boolean types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,7 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompoundFilterFiltersItem>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompoundFilterFiltersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComparisonFilterType>(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComparisonFilterValue>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaComparisonFilterValue.CreateFromDiscriminatorValue); } },
             };
         }
@@ -86,7 +80,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompoundFilterFiltersItem>("filters", Filters);
             writer.WriteStringValue("key", Key);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComparisonFilterType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComparisonFilterValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

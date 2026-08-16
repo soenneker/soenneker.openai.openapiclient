@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string NextPage { get; set; }
 #endif
         /// <summary>The object type, which is always `vector_store.file_content.page`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentPageObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponse"/> and sets the default values.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseDataItem>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseDataItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
                 { "next_page", n => { NextPage = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentPageObject>(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseDataItem>("data", Data);
             writer.WriteBoolValue("has_more", HasMore);
             writer.WriteStringValue("next_page", NextPage);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentResponseObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileContentPageObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

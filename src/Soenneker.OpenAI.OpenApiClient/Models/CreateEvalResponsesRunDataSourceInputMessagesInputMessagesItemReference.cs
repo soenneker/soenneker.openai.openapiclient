@@ -22,8 +22,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string ItemReference { get; set; }
 #endif
-        /// <summary>The type of input messages. Always `item_reference`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessagesInputMessagesItemReferenceType? Type { get; set; }
+        /// <summary>The type of item to reference. Always `item_reference`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ItemReferenceType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessagesInputMessagesItemReference"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "item_reference", n => { ItemReference = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessagesInputMessagesItemReferenceType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ItemReferenceType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("item_reference", ItemReference);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessagesInputMessagesItemReferenceType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ItemReferenceType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

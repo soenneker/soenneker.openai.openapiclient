@@ -46,8 +46,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The item type. Always `program`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProgramItemParamType? Type { get; set; }
+        /// <summary>The type property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProgramType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProgramItemParam"/> and sets the default values.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "fingerprint", n => { Fingerprint = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgramItemParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgramType>(); } },
             };
         }
         /// <summary>
@@ -91,7 +91,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("fingerprint", Fingerprint);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgramItemParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProgramType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

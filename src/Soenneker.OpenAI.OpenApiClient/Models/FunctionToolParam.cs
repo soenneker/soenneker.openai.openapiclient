@@ -58,8 +58,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.</summary>
         public bool? Strict { get; set; }
-        /// <summary>The type property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParamType? Type { get; set; }
+        /// <summary>The type of tool being defined: `function`</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParam"/> and sets the default values.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "output_schema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParamOutputSchemaProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParamOutputSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParamParameters>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParamParameters.CreateFromDiscriminatorValue); } },
                 { "strict", n => { Strict = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType>(); } },
             };
         }
         /// <summary>
@@ -109,7 +109,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParamOutputSchemaProperty>("output_schema", OutputSchema);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParamParameters>("parameters", Parameters);
             writer.WriteBoolValue("strict", Strict);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

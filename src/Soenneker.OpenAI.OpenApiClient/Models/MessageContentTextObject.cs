@@ -23,8 +23,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObjectText Text { get; set; }
 #endif
-        /// <summary>Always `text`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObjectType? Type { get; set; }
+        /// <summary>The type of the content part.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TextType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObjectText>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObjectText.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObjectType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObjectText>("text", Text);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObjectType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

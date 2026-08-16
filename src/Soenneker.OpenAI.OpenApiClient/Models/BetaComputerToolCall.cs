@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status of the item. One of `in_progress`, `completed`, or`incomplete`. Populated when items are returned via API.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallStatus? Status { get; set; }
         /// <summary>The type of the computer call. Always `computer_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCall"/> and sets the default values.
         /// </summary>
@@ -99,7 +99,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "pending_safety_checks", n => { PendingSafetyChecks = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerCallSafetyCheckParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerCallSafetyCheckParam.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallType>(); } },
             };
         }
         /// <summary>
@@ -116,7 +116,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerCallSafetyCheckParam>("pending_safety_checks", PendingSafetyChecks);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

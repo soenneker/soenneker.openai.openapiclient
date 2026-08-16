@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller> AllowedCallers { get; set; }
 #endif
         /// <summary>The type of the tool. Always `apply_patch`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaApplyPatchToolParamType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaApplyPatchToolParam"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allowed_callers", n => { AllowedCallers = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaApplyPatchToolParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>("allowed_callers", AllowedCallers);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaApplyPatchToolParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplyPatchType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

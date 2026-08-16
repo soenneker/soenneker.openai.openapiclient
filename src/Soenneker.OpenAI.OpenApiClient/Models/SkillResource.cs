@@ -57,7 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object type, which is `skill`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillResourceObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SkillObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SkillResource"/> and sets the default values.
         /// </summary>
@@ -89,7 +89,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "latest_version", n => { LatestVersion = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillResourceObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillObject>(); } },
             };
         }
         /// <summary>
@@ -105,7 +105,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("latest_version", LatestVersion);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillResourceObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SkillObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

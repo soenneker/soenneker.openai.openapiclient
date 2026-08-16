@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Text { get; set; }
 #endif
         /// <summary>The type of the output text. Always `output_text`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaOutputTextContentType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaOutputTextContent"/> and sets the default values.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "annotations", n => { Annotations = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAnnotation>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAnnotation.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "logprobs", n => { Logprobs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLogProb>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaLogProb.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaOutputTextContentType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextType>(); } },
             };
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAnnotation>("annotations", Annotations);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLogProb>("logprobs", Logprobs);
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaOutputTextContentType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status of the item. One of `in_progress`, `completed`, or `incomplete`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus? Status { get; set; }
         /// <summary>The type of the local shell tool call output. Always `local_shell_call_output`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallOutputType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutput"/> and sets the default values.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallOutputType>(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("output", Output);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

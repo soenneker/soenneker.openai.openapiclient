@@ -26,7 +26,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncationTokenLimits TokenLimits { get; set; }
 #endif
         /// <summary>Use retention ratio truncation.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncationType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RetentionRatioType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncation"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "retention_ratio", n => { RetentionRatio = n.GetDoubleValue(); } },
                 { "token_limits", n => { TokenLimits = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncationTokenLimits>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncationTokenLimits.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncationType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RetentionRatioType>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("retention_ratio", RetentionRatio);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncationTokenLimits>("token_limits", TokenLimits);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncationType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RetentionRatioType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

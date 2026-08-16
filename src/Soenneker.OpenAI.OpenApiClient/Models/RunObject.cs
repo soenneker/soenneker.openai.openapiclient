@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Model { get; set; }
 #endif
         /// <summary>The object type, which is always `thread.run`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadRunObject? Object { get; set; }
         /// <summary>Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.</summary>
         public bool? ParallelToolCalls { get; set; }
         /// <summary>Details on the action required to continue the run. Will be `null` if no action is required.</summary>
@@ -192,7 +192,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "max_prompt_tokens", n => { MaxPromptTokens = n.GetIntValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectMetadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadRunObject>(); } },
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
                 { "required_action", n => { RequiredAction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredAction>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredAction.CreateFromDiscriminatorValue); } },
                 { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption.CreateFromDiscriminatorValue); } },
@@ -228,7 +228,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("max_prompt_tokens", MaxPromptTokens);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectMetadata>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadRunObject>("object", Object);
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredAction>("required_action", RequiredAction);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption>("response_format", ResponseFormat);

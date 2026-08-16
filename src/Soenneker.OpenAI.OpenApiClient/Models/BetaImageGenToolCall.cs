@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status of the image generation call.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallStatus? Status { get; set; }
         /// <summary>The type of the image generation call. Always `image_generation_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenerationCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCall"/> and sets the default values.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "result", n => { Result = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenerationCallType>(); } },
             };
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("result", Result);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenerationCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

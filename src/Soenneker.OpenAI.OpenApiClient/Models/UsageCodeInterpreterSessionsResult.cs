@@ -18,7 +18,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The number of code interpreter sessions.</summary>
         public int? NumSessions { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageCodeInterpreterSessionsResultObject? Object { get; set; }
         /// <summary>When `group_by=project_id`, this field provides the project ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,7 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "num_sessions", n => { NumSessions = n.GetIntValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageCodeInterpreterSessionsResultObject>(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
             };
         }
@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("num_sessions", NumSessions);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCodeInterpreterSessionsResultObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageCodeInterpreterSessionsResultObject>("object", Object);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -12,7 +12,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class CreateChatCompletionRequest : global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>&quot;Parameters for audio output. Required when audio output is requested with`modalities: [\&quot;audio\&quot;]`. [Learn more](/docs/guides/audio).&quot;</summary>
+        /// <summary>Parameters for audio output. Required when audio output is requested with`modalities: [&quot;audio&quot;]`. [Learn more](/docs/guides/audio).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Audio? Audio { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Number between -2.0 and 2.0. Positive values penalize new tokens based ontheir existing frequency in the text so far, decreasing the model&apos;slikelihood to repeat the same line verbatim.</summary>
         public double? FrequencyPenalty { get; set; }
-        /// <summary>&quot;Deprecated in favor of `tool_choice`.Controls which (if any) function is called by the model.`none` means the model will not call a function and instead generates amessage.`auto` means the model can pick between generating a message or calling afunction.Specifying a particular function via `{\&quot;name\&quot;: \&quot;my_function\&quot;}` forces themodel to call that function.`none` is the default when no functions are present. `auto` is the defaultif functions are present.&quot;</summary>
+        /// <summary>Deprecated in favor of `tool_choice`.Controls which (if any) function is called by the model.`none` means the model will not call a function and instead generates amessage.`auto` means the model can pick between generating a message or calling afunction.Specifying a particular function via `{&quot;name&quot;: &quot;my_function&quot;}` forces themodel to call that function.`none` is the default when no functions are present. `auto` is the defaultif functions are present.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -103,7 +103,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public double? PresencePenalty { get; set; }
         /// <summary>Constrains effort on reasoning for reasoning models. Currently supportedvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.Reducing reasoning effort can result in faster responses and fewer tokensused on reasoning in a response. Not all reasoning models support everyvalue. See the[reasoning guide](https://platform.openai.com/docs/guides/reasoning)for model-specific support.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? ReasoningEffort { get; set; }
-        /// <summary>&quot;An object specifying the format that the model must output.Setting to `{ \&quot;type\&quot;: \&quot;json_schema\&quot;, \&quot;json_schema\&quot;: {...} }` enablesStructured Outputs which ensures the model will match your supplied JSONschema. Learn more in the [Structured Outputsguide](/docs/guides/structured-outputs).Setting to `{ \&quot;type\&quot;: \&quot;json_object\&quot; }` enables the older JSON mode, whichensures the message the model generates is valid JSON. Using `json_schema`is preferred for models that support it.&quot;</summary>
+        /// <summary>An object specifying the format that the model must output.Setting to `{ &quot;type&quot;: &quot;json_schema&quot;, &quot;json_schema&quot;: {...} }` enablesStructured Outputs which ensures the model will match your supplied JSONschema. Learn more in the [Structured Outputsguide](/docs/guides/structured-outputs).Setting to `{ &quot;type&quot;: &quot;json_object&quot; }` enables the older JSON mode, whichensures the message the model generates is valid JSON. Using `json_schema`is preferred for models that support it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ResponseFormat? ResponseFormat { get; set; }
@@ -122,11 +122,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration Stop { get; set; }
 #endif
-        /// <summary>&quot;Whether or not to store the output of this chat completion request foruse in our [model distillation](/docs/guides/distillation) or[evals](/docs/guides/evals) products.Supports text and image inputs. Note: image inputs over 8MB will be dropped.&quot;</summary>
+        /// <summary>Whether or not to store the output of this chat completion request foruse in our [model distillation](/docs/guides/distillation) or[evals](/docs/guides/evals) products.Supports text and image inputs. Note: image inputs over 8MB will be dropped.</summary>
         public bool? Store { get; set; }
         /// <summary>If set to true, the model response data will be streamed to the clientas it is generated using [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format).See the [Streaming section below](/docs/api-reference/chat/streaming)for more information, along with the [streaming responses](/docs/guides/streaming-responses)guide for more information on how to handle the streaming events.</summary>
         public bool? Stream { get; set; }
-        /// <summary>&quot;Options for streaming response. Only set this when you set `stream: true`.&quot;</summary>
+        /// <summary>Options for streaming response. Only set this when you set `stream: true`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions? StreamOptions { get; set; }
@@ -134,7 +134,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions StreamOptions { get; set; }
 #endif
-        /// <summary>&quot;Controls which (if any) tool is called by the model.`none` means the model will not call any tool and instead generates a message.`auto` means the model can pick between generating a message or calling one or more tools.`required` means the model must call one or more tools.Specifying a particular tool via `{\&quot;type\&quot;: \&quot;function\&quot;, \&quot;function\&quot;: {\&quot;name\&quot;: \&quot;my_function\&quot;}}` forces the model to call that tool.`none` is the default when no tools are present. `auto` is the default if tools are present.&quot;</summary>
+        /// <summary>Controls which (if any) tool is called by the model.`none` means the model will not call any tool and instead generates a message.`auto` means the model can pick between generating a message or calling one or more tools.`required` means the model must call one or more tools.Specifying a particular tool via `{&quot;type&quot;: &quot;function&quot;, &quot;function&quot;: {&quot;name&quot;: &quot;my_function&quot;}}` forces the model to call that tool.`none` is the default when no tools are present. `auto` is the default if tools are present.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOption? ToolChoice { get; set; }

@@ -32,7 +32,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The role of the messages author, in this case `developer`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestDeveloperMessageRole? Role { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DeveloperRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestDeveloperMessage"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "content", n => { Content = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestDeveloperMessageContent>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestDeveloperMessageContent.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestDeveloperMessageRole>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DeveloperRole>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestDeveloperMessageContent>("content", Content);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestDeveloperMessageRole>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DeveloperRole>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

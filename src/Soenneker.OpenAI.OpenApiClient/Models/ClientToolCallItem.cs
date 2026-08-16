@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Type discriminator that is always `chatkit.thread_item`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitThreadItemObject? Object { get; set; }
         /// <summary>JSON-encoded output captured from the tool. Defaults to null while execution is in progress.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,7 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string ThreadId { get; set; }
 #endif
         /// <summary>Type discriminator that is always `chatkit.client_tool_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitClientToolCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItem"/> and sets the default values.
         /// </summary>
@@ -101,11 +101,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitThreadItemObject>(); } },
                 { "output", n => { Output = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallStatus>(); } },
                 { "thread_id", n => { ThreadId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitClientToolCallType>(); } },
             };
         }
         /// <summary>
@@ -120,11 +120,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitThreadItemObject>("object", Object);
             writer.WriteStringValue("output", Output);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallStatus>("status", Status);
             writer.WriteStringValue("thread_id", ThreadId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientToolCallItemType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitClientToolCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

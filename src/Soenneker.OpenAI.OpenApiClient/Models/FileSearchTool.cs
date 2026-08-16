@@ -33,8 +33,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RankingOptions RankingOptions { get; set; }
 #endif
-        /// <summary>The type of the file search tool. Always `file_search`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolType? Type { get; set; }
+        /// <summary>The type of tool being defined: `file_search`</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchType? Type { get; set; }
         /// <summary>The IDs of the vector stores to search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Filters>(global::Soenneker.OpenAI.OpenApiClient.Models.Filters.CreateFromDiscriminatorValue); } },
                 { "max_num_results", n => { MaxNumResults = n.GetIntValue(); } },
                 { "ranking_options", n => { RankingOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RankingOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.RankingOptions.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchType>(); } },
                 { "vector_store_ids", n => { VectorStoreIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -85,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Filters>("filters", Filters);
             writer.WriteIntValue("max_num_results", MaxNumResults);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RankingOptions>("ranking_options", RankingOptions);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchToolType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchType>("type", Type);
             writer.WriteCollectionOfPrimitiveValues<string>("vector_store_ids", VectorStoreIds);
             writer.WriteAdditionalData(AdditionalData);
         }

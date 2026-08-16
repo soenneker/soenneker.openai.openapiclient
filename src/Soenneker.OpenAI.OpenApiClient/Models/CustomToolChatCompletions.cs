@@ -23,8 +23,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustom Custom { get; set; }
 #endif
-        /// <summary>The type of the custom tool. Always `custom`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsType? Type { get; set; }
+        /// <summary>The type of the tool. Always `custom`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletions"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "custom", n => { Custom = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustom>(global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustom.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustom>("custom", Custom);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

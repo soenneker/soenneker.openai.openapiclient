@@ -13,11 +13,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaImageGenTool : IAdditionalDataHolder, IParsable
     {
-        /// <summary>&quot;Whether to generate a new image or edit an existing image. Default: `auto`.&quot;</summary>
+        /// <summary>Whether to generate a new image or edit an existing image. Default: `auto`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenActionEnum? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Background type for the generated image. One of `transparent`,`opaque`, or `auto`. Default: `auto`.&quot;</summary>
+        /// <summary>Background type for the generated image. One of `transparent`,`opaque`, or `auto`. Default: `auto`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolBackground? Background { get; set; }
         /// <summary>The input_fidelity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,15 +43,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolModel Model { get; set; }
 #endif
-        /// <summary>&quot;Moderation level for the generated image. Default: `auto`.&quot;</summary>
+        /// <summary>Moderation level for the generated image. Default: `auto`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolModeration? Moderation { get; set; }
-        /// <summary>&quot;Compression level for the output image. Default: 100.&quot;</summary>
+        /// <summary>Compression level for the output image. Default: 100.</summary>
         public int? OutputCompression { get; set; }
-        /// <summary>&quot;The output format of the generated image. One of `png`, `webp`, or`jpeg`. Default: `png`.&quot;</summary>
+        /// <summary>The output format of the generated image. One of `png`, `webp`, or`jpeg`. Default: `png`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolOutputFormat? OutputFormat { get; set; }
         /// <summary>Number of partial images to generate in streaming mode, from 0 (default value) to 3.</summary>
         public int? PartialImages { get; set; }
-        /// <summary>&quot;The quality of the generated image. One of `low`, `medium`, `high`,or `auto`. Default: `auto`.&quot;</summary>
+        /// <summary>The quality of the generated image. One of `low`, `medium`, `high`,or `auto`. Default: `auto`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolQuality? Quality { get; set; }
         /// <summary>The size of the generated images. For `gpt-image-2` and `gpt-image-2-2026-04-21`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model&apos;s current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing. For `dall-e-2`, use one of `256x256`, `512x512`, or `1024x1024`. For `dall-e-3`, use one of `1024x1024`, `1792x1024`, or `1024x1792`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolSize Size { get; set; }
 #endif
         /// <summary>The type of the image generation tool. Always `image_generation`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenerationType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenTool"/> and sets the default values.
         /// </summary>
@@ -101,7 +101,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "partial_images", n => { PartialImages = n.GetIntValue(); } },
                 { "quality", n => { Quality = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolQuality>(); } },
                 { "size", n => { Size = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolSize>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolSize.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenerationType>(); } },
             };
         }
         /// <summary>
@@ -122,7 +122,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("partial_images", PartialImages);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolQuality>("quality", Quality);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolSize>("size", Size);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenerationType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -48,7 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSource Source { get; set; }
 #endif
         /// <summary>The type of run data source. Always `completions`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionsType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource"/> and sets the default values.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "sampling_params", n => { SamplingParams = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParams>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParams.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSource>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSource.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionsType>(); } },
             };
         }
         /// <summary>
@@ -92,7 +92,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSamplingParams>("sampling_params", SamplingParams);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceSource>("source", Source);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

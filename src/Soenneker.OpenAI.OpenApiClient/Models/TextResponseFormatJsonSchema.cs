@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Whether to enable strict schema adherence when generating the output.If set to true, the model will always follow the exact schema definedin the `schema` field. Only a subset of JSON Schema is supported when`strict` is `true`. To learn more, read the [Structured Outputsguide](/docs/guides/structured-outputs).</summary>
         public bool? Strict { get; set; }
         /// <summary>The type of response format being defined. Always `json_schema`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.JsonSchemaType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema"/> and sets the default values.
         /// </summary>
@@ -73,7 +73,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaSchema>(global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaSchema.CreateFromDiscriminatorValue); } },
                 { "strict", n => { Strict = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.JsonSchemaType>(); } },
             };
         }
         /// <summary>
@@ -87,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaSchema>("schema", Schema);
             writer.WriteBoolValue("strict", Strict);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchemaType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.JsonSchemaType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

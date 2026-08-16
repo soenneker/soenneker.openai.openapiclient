@@ -31,8 +31,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string ServerLabel { get; set; }
 #endif
-        /// <summary>For MCP tools, the type is always `mcp`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceMcpType? Type { get; set; }
+        /// <summary>The type of the MCP tool. Always `mcp`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceMcp"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "server_label", n => { ServerLabel = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceMcpType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("server_label", ServerLabel);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceMcpType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

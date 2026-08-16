@@ -26,7 +26,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionDiarizedSegment> Segments { get; set; }
 #endif
         /// <summary>The type of task that was run. Always `transcribe`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJsonTask? Task { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TranscribeTask? Task { get; set; }
         /// <summary>The concatenated transcript text for the entire audio input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,7 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "duration", n => { Duration = n.GetDoubleValue(); } },
                 { "segments", n => { Segments = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionDiarizedSegment>(global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionDiarizedSegment.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "task", n => { Task = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJsonTask>(); } },
+                { "task", n => { Task = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscribeTask>(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJsonUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJsonUsage.CreateFromDiscriminatorValue); } },
             };
@@ -84,7 +84,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("duration", Duration);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionDiarizedSegment>("segments", Segments);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJsonTask>("task", Task);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscribeTask>("task", Task);
             writer.WriteStringValue("text", Text);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJsonUsage>("usage", Usage);
             writer.WriteAdditionalData(AdditionalData);

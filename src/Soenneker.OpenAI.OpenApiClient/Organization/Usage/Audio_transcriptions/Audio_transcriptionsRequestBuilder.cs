@@ -111,7 +111,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Usage.Audio_transcriptions
             [QueryParameter("group_by")]
             public global::Soenneker.OpenAI.OpenApiClient.Models.UsageAudioTranscriptionsGroupByParameterItem[] GroupBy { get; set; }
 #endif
-            /// <summary>&quot;Specifies the number of buckets to return.- `bucket_width=1d`: default: 7, max: 31- `bucket_width=1h`: default: 24, max: 168- `bucket_width=1m`: default: 60, max: 1440&quot;</summary>
+            /// <summary>Specifies the number of buckets to return.- `bucket_width=1d`: default: 7, max: 31- `bucket_width=1h`: default: 24, max: 168- `bucket_width=1m`: default: 60, max: 1440</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
             /// <summary>Return only usage for these models.</summary>

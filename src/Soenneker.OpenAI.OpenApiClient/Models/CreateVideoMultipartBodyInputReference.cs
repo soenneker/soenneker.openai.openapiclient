@@ -37,9 +37,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoMultipartBodyInputReference CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoMultipartBodyInputReference();
-            if("CreateVideoMultipartBodyInputReference_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("CreateVideoMultipartBodyInputReferenceBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateVideoMultipartBodyInputReferenceBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoMultipartBodyInputReferenceBranch1();
             }

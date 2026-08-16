@@ -17,7 +17,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The end_time property</summary>
         public int? EndTime { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucketObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BucketObject? Object { get; set; }
         /// <summary>The results property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "end_time", n => { EndTime = n.GetIntValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucketObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BucketObject>(); } },
                 { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucketResultsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucketResultsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "start_time", n => { StartTime = n.GetIntValue(); } },
             };
@@ -67,7 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("end_time", EndTime);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucketObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BucketObject>("object", Object);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.UsageTimeBucketResultsItem>("results", Results);
             writer.WriteIntValue("start_time", StartTime);
             writer.WriteAdditionalData(AdditionalData);

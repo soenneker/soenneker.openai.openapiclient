@@ -48,7 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Timezone { get; set; }
 #endif
         /// <summary>The type of location approximation. Always `approximate`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocationType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApproximateType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocation"/> and sets the default values.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "country", n => { Country = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "timezone", n => { Timezone = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocationType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApproximateType>(); } },
             };
         }
         /// <summary>
@@ -92,7 +92,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("country", Country);
             writer.WriteStringValue("region", Region);
             writer.WriteStringValue("timezone", Timezone);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocationType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApproximateType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

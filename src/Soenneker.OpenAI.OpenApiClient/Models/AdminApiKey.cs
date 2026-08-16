@@ -38,7 +38,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.admin_api_key`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationAdminApiKeyObject? Object { get; set; }
         /// <summary>The owner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_used_at", n => { LastUsedAt = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationAdminApiKeyObject>(); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyOwner>(global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyOwner.CreateFromDiscriminatorValue); } },
                 { "redacted_value", n => { RedactedValue = n.GetStringValue(); } },
             };
@@ -102,7 +102,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteIntValue("last_used_at", LastUsedAt);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationAdminApiKeyObject>("object", Object);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AdminApiKeyOwner>("owner", Owner);
             writer.WriteStringValue("redacted_value", RedactedValue);
             writer.WriteAdditionalData(AdditionalData);

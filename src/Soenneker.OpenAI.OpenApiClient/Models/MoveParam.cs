@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.MoveParamKeys Keys { get; set; }
 #endif
         /// <summary>Specifies the event type. For a move action, this property is always set to `move`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MoveParamType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MoveType? Type { get; set; }
         /// <summary>The x-coordinate to move to.</summary>
         public int? X { get; set; }
         /// <summary>The y-coordinate to move to.</summary>
@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "keys", n => { Keys = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MoveParamKeys>(global::Soenneker.OpenAI.OpenApiClient.Models.MoveParamKeys.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MoveParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MoveType>(); } },
                 { "x", n => { X = n.GetIntValue(); } },
                 { "y", n => { Y = n.GetIntValue(); } },
             };
@@ -68,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MoveParamKeys>("keys", Keys);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MoveParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MoveType>("type", Type);
             writer.WriteIntValue("x", X);
             writer.WriteIntValue("y", Y);
             writer.WriteAdditionalData(AdditionalData);

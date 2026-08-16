@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSummaryTextContent> Summary { get; set; }
 #endif
         /// <summary>The type of the object. Always `reasoning`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningItemType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningItem"/> and sets the default values.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningItemStatus>(); } },
                 { "summary", n => { Summary = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSummaryTextContent>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaSummaryTextContent.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningItemType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningType>(); } },
             };
         }
         /// <summary>
@@ -106,7 +106,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningItemStatus>("status", Status);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSummaryTextContent>("summary", Summary);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningItemType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

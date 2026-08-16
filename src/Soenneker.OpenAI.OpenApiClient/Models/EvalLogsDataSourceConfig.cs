@@ -31,8 +31,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfigSchemaProperty Schema { get; set; }
 #endif
-        /// <summary>The type of data source. Always `logs`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfigType? Type { get; set; }
+        /// <summary>The type of the code interpreter text output. Always `logs`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LogsType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfig"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfigMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfigMetadata.CreateFromDiscriminatorValue); } },
                 { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfigSchemaProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfigSchemaProperty.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfigType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LogsType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfigMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfigSchemaProperty>("schema", Schema);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalLogsDataSourceConfigType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LogsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

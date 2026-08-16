@@ -54,8 +54,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Recipient { get; set; }
 #endif
-        /// <summary>The type of the item. Always `agent_message`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentMessageType? Type { get; set; }
+        /// <summary>The item type. Always `agent_message`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AgentMessageType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentMessage"/> and sets the default values.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentMessageContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentMessageContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "recipient", n => { Recipient = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentMessageType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AgentMessageType>(); } },
             };
         }
         /// <summary>
@@ -101,7 +101,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentMessageContentItem>("content", Content);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("recipient", Recipient);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentMessageType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AgentMessageType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

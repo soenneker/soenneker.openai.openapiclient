@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsTool> Tools { get; set; }
 #endif
         /// <summary>The type of the item. Always `mcp_list_tools`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListTools"/> and sets the default values.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "server_label", n => { ServerLabel = n.GetStringValue(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsTool>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsTool.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsType>(); } },
             };
         }
         /// <summary>
@@ -102,7 +102,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("server_label", ServerLabel);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsTool>("tools", Tools);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListToolsType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpListToolsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

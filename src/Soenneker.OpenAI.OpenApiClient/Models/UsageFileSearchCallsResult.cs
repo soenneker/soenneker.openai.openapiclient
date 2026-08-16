@@ -26,7 +26,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The count of file search calls.</summary>
         public int? NumRequests { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResultObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageFileSearchesResultObject? Object { get; set; }
         /// <summary>When `group_by=project_id`, this field provides the project ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,7 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "api_key_id", n => { ApiKeyId = n.GetStringValue(); } },
                 { "num_requests", n => { NumRequests = n.GetIntValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResultObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageFileSearchesResultObject>(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
                 { "vector_store_id", n => { VectorStoreId = n.GetStringValue(); } },
@@ -93,7 +93,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_id", ApiKeyId);
             writer.WriteIntValue("num_requests", NumRequests);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageFileSearchCallsResultObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageFileSearchesResultObject>("object", Object);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteStringValue("user_id", UserId);
             writer.WriteStringValue("vector_store_id", VectorStoreId);

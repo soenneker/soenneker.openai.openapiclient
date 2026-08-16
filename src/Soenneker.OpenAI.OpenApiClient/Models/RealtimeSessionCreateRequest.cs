@@ -123,7 +123,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestTurnDetection TurnDetection { get; set; }
 #endif
-        /// <summary>&quot;The voice the model uses to respond. Supported built-in voices are`alloy`, `ash`, `ballad`, `coral`, `echo`, `sage`, `shimmer`, `verse`,`marin`, and `cedar`. You may also provide a custom voice object with an`id`, for example `{ \&quot;id\&quot;: \&quot;voice_1234\&quot; }`. Voice cannot be changed duringthe session once the model has responded with audio at least once.&quot;</summary>
+        /// <summary>The voice the model uses to respond. Supported built-in voices are`alloy`, `ash`, `ballad`, `coral`, `echo`, `sage`, `shimmer`, `verse`,`marin`, and `cedar`. You may also provide a custom voice object with an`id`, for example `{ &quot;id&quot;: &quot;voice_1234&quot; }`. Voice cannot be changed duringthe session once the model has responded with audio at least once.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice? Voice { get; set; }

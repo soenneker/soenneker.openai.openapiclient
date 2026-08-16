@@ -12,7 +12,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class SubmitToolOutputsRunRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>&quot;If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.&quot;</summary>
+        /// <summary>If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.</summary>
         public bool? Stream { get; set; }
         /// <summary>A list of tools for which the outputs are being submitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

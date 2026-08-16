@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The type of computer environment to control.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerEnvironment? Environment { get; set; }
         /// <summary>The type of the computer use tool. Always `computer_use_preview`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerUsePreviewToolType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerUsePreviewTool"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "display_height", n => { DisplayHeight = n.GetIntValue(); } },
                 { "display_width", n => { DisplayWidth = n.GetIntValue(); } },
                 { "environment", n => { Environment = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerEnvironment>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerUsePreviewToolType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewType>(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("display_height", DisplayHeight);
             writer.WriteIntValue("display_width", DisplayWidth);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerEnvironment>("environment", Environment);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerUsePreviewToolType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

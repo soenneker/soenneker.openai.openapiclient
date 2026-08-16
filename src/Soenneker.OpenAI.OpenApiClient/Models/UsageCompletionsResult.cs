@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The count of requests made to the model.</summary>
         public int? NumModelRequests { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageCompletionsResultObject? Object { get; set; }
         /// <summary>The aggregated number of audio output tokens used.</summary>
         public int? OutputAudioTokens { get; set; }
         /// <summary>The aggregated number of image output tokens used.</summary>
@@ -128,7 +128,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "input_uncached_tokens", n => { InputUncachedTokens = n.GetIntValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "num_model_requests", n => { NumModelRequests = n.GetIntValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageCompletionsResultObject>(); } },
                 { "output_audio_tokens", n => { OutputAudioTokens = n.GetIntValue(); } },
                 { "output_image_tokens", n => { OutputImageTokens = n.GetIntValue(); } },
                 { "output_text_tokens", n => { OutputTextTokens = n.GetIntValue(); } },
@@ -159,7 +159,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("input_uncached_tokens", InputUncachedTokens);
             writer.WriteStringValue("model", Model);
             writer.WriteIntValue("num_model_requests", NumModelRequests);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageCompletionsResultObject>("object", Object);
             writer.WriteIntValue("output_audio_tokens", OutputAudioTokens);
             writer.WriteIntValue("output_image_tokens", OutputImageTokens);
             writer.WriteIntValue("output_text_tokens", OutputTextTokens);

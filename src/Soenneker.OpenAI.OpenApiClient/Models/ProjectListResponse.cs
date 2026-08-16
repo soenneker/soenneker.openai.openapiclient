@@ -41,7 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string LastId { get; set; }
 #endif
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectListResponseObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectListResponse"/> and sets the default values.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "first_id", n => { FirstId = n.GetStringValue(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
                 { "last_id", n => { LastId = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectListResponseObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListObject>(); } },
             };
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("first_id", FirstId);
             writer.WriteBoolValue("has_more", HasMore);
             writer.WriteStringValue("last_id", LastId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectListResponseObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItem> Content { get; set; }
 #endif
         /// <summary>The type of jsonl source. Always `file_content`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileContentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSource"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileContentType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItem>("content", Content);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileContentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamToolsItem> Tools { get; set; }
 #endif
         /// <summary>The type of the tool. Always `namespace`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceValueType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParam"/> and sets the default values.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamToolsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceValueType>(); } },
             };
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamToolsItem>("tools", Tools);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceToolParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.NamespaceValueType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -48,8 +48,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaOutputTextContent> Output { get; set; }
 #endif
-        /// <summary>The type of the multi-agent result. Always `multi_agent_call_output`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentCallOutputType? Type { get; set; }
+        /// <summary>The item type. Always `multi_agent_call_output`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentCallOutputType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentCallOutput"/> and sets the default values.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaOutputTextContent>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaOutputTextContent.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentCallOutputType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentCallOutputType>(); } },
             };
         }
         /// <summary>
@@ -95,7 +95,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaOutputTextContent>("output", Output);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentCallOutputType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentCallOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

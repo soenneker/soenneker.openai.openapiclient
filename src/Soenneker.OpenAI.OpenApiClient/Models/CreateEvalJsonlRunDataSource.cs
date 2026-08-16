@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSourceSource Source { get; set; }
 #endif
         /// <summary>The type of data source. Always `jsonl`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSourceType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.JsonlType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSource"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSourceSource>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSourceSource.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSourceType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.JsonlType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSourceSource>("source", Source);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSourceType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.JsonlType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

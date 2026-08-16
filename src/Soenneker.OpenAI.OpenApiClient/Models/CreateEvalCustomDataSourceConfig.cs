@@ -25,8 +25,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty ItemSchema { get; set; }
 #endif
-        /// <summary>The type of data source. Always `custom`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigType? Type { get; set; }
+        /// <summary>The type of the tool. Always `custom`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig"/> and sets the default values.
         /// </summary>
@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "include_sample_schema", n => { IncludeSampleSchema = n.GetBoolValue(); } },
                 { "item_schema", n => { ItemSchema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomType>(); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("include_sample_schema", IncludeSampleSchema);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty>("item_schema", ItemSchema);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

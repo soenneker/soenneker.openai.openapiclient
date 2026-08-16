@@ -46,7 +46,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel Model { get; set; }
 #endif
         /// <summary>The object type, which is always `video`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoObject? Object { get; set; }
         /// <summary>Approximate completion percentage for the generation task.</summary>
         public int? Progress { get; set; }
         /// <summary>The prompt that was used to generate the video.</summary>
@@ -108,7 +108,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoObject>(); } },
                 { "progress", n => { Progress = n.GetIntValue(); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
                 { "remixed_from_video_id", n => { RemixedFromVideoId = n.GetStringValue(); } },
@@ -130,7 +130,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel>("model", Model);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoObject>("object", Object);
             writer.WriteIntValue("progress", Progress);
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteStringValue("remixed_from_video_id", RemixedFromVideoId);

@@ -14,8 +14,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Anchor timestamp after which the expiration policy applies. Supported anchors: `last_active_at`.&quot;</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfterAnchor? Anchor { get; set; }
+        /// <summary>Anchor timestamp after which the expiration policy applies. Supported anchors: `last_active_at`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LastActiveAtAnchor? Anchor { get; set; }
         /// <summary>The number of days after the anchor time that the vector store will expire.</summary>
         public int? Days { get; set; }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "anchor", n => { Anchor = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfterAnchor>(); } },
+                { "anchor", n => { Anchor = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LastActiveAtAnchor>(); } },
                 { "days", n => { Days = n.GetIntValue(); } },
             };
         }
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreExpirationAfterAnchor>("anchor", Anchor);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LastActiveAtAnchor>("anchor", Anchor);
             writer.WriteIntValue("days", Days);
             writer.WriteAdditionalData(AdditionalData);
         }

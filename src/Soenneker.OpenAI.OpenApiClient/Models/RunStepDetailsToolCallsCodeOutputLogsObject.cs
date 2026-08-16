@@ -23,8 +23,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Logs { get; set; }
 #endif
-        /// <summary>Always `logs`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputLogsObjectType? Type { get; set; }
+        /// <summary>The type of the code interpreter text output. Always `logs`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LogsType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputLogsObject"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "logs", n => { Logs = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputLogsObjectType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LogsType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("logs", Logs);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputLogsObjectType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LogsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

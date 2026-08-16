@@ -39,7 +39,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string LastId { get; set; }
 #endif
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceConsentListResourceObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListObject? Object { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "first_id", n => { FirstId = n.GetStringValue(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
                 { "last_id", n => { LastId = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceConsentListResourceObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListObject>(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("first_id", FirstId);
             writer.WriteBoolValue("has_more", HasMore);
             writer.WriteStringValue("last_id", LastId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceConsentListResourceObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListObject>("object", Object);
         }
     }
 }

@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSamplingParamsText Text { get; set; }
 #endif
-        /// <summary>&quot;An array of tools the model may call while generating a response. Youcan specify which tool to use by setting the `tool_choice` parameter.The two categories of tools you can provide the model are:- **Built-in tools**: Tools that are provided by OpenAI that extend the  model&apos;s capabilities, like [web search](/docs/guides/tools-web-search)  or [file search](/docs/guides/tools-file-search). Learn more about  [built-in tools](/docs/guides/tools).- **Function calls (custom tools)**: Functions that are defined by you,  enabling the model to call your own code. Learn more about  [function calling](/docs/guides/function-calling).&quot;</summary>
+        /// <summary>An array of tools the model may call while generating a response. Youcan specify which tool to use by setting the `tool_choice` parameter.The two categories of tools you can provide the model are:- **Built-in tools**: Tools that are provided by OpenAI that extend the  model&apos;s capabilities, like [web search](/docs/guides/tools-web-search)  or [file search](/docs/guides/tools-file-search). Learn more about  [built-in tools](/docs/guides/tools).- **Function calls (custom tools)**: Functions that are defined by you,  enabling the model to call your own code. Learn more about  [function calling](/docs/guides/function-calling).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.Tool>? Tools { get; set; }

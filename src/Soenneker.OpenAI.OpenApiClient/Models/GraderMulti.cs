@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object type, which is always `multi`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MultiType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.GraderMulti"/> and sets the default values.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "calculate_output", n => { CalculateOutput = n.GetStringValue(); } },
                 { "graders", n => { Graders = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiGraders>(global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiGraders.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiType>(); } },
             };
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("calculate_output", CalculateOutput);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiGraders>("graders", Graders);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

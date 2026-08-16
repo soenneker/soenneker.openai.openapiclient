@@ -38,8 +38,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolParametersProperty Parameters { get; set; }
 #endif
-        /// <summary>The type of the tool, i.e. `function`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolType? Type { get; set; }
+        /// <summary>The type of tool being defined: `function`</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool"/> and sets the default values.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolParametersProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolParametersProperty.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType>(); } },
             };
         }
         /// <summary>
@@ -81,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolParametersProperty>("parameters", Parameters);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionToolType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

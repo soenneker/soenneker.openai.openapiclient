@@ -36,7 +36,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The count of requests made to the model.</summary>
         public int? NumModelRequests { get; set; }
         /// <summary>The object property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageImagesResultObject? Object { get; set; }
         /// <summary>When `group_by=project_id`, this field provides the project ID of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,7 +98,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "images", n => { Images = n.GetIntValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "num_model_requests", n => { NumModelRequests = n.GetIntValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageImagesResultObject>(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetStringValue(); } },
@@ -116,7 +116,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("images", Images);
             writer.WriteStringValue("model", Model);
             writer.WriteIntValue("num_model_requests", NumModelRequests);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageImagesResultObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUsageImagesResultObject>("object", Object);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteStringValue("size", Size);
             writer.WriteStringValue("source", Source);

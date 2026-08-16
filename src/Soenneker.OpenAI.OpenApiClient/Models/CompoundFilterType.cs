@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>&quot;Type of operation: `and` or `or`.&quot;</summary>
+    /// <summary>Type of operation: `and` or `or`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CompoundFilterType
     {

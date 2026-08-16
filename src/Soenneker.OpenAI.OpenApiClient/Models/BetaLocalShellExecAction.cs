@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Optional timeout in milliseconds for the command.</summary>
         public int? TimeoutMs { get; set; }
         /// <summary>The type of the local shell action. Always `exec`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellExecActionType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExecType? Type { get; set; }
         /// <summary>Optional user to run the command as.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,7 +79,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "command", n => { Command = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "env", n => { Env = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellExecActionEnvProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellExecActionEnvProperty.CreateFromDiscriminatorValue); } },
                 { "timeout_ms", n => { TimeoutMs = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellExecActionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExecType>(); } },
                 { "user", n => { User = n.GetStringValue(); } },
                 { "working_directory", n => { WorkingDirectory = n.GetStringValue(); } },
             };
@@ -94,7 +94,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("command", Command);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellExecActionEnvProperty>("env", Env);
             writer.WriteIntValue("timeout_ms", TimeoutMs);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellExecActionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExecType>("type", Type);
             writer.WriteStringValue("user", User);
             writer.WriteStringValue("working_directory", WorkingDirectory);
             writer.WriteAdditionalData(AdditionalData);

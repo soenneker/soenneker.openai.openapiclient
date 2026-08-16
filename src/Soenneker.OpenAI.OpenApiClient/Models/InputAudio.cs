@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio InputAudioProp { get; set; }
 #endif
-        /// <summary>The type of the input item. Always `input_audio`.</summary>
+        /// <summary>The type of the content part. Always `input_audio`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputAudio"/> and sets the default values.

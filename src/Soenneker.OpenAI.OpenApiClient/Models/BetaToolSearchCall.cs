@@ -59,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status of the tool search call item that was recorded.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionCallStatus? Status { get; set; }
         /// <summary>The type of the item. Always `tool_search_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchCallType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchCall"/> and sets the default values.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "execution", n => { Execution = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchExecutionType>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionCallStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchCallType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallType>(); } },
             };
         }
         /// <summary>
@@ -109,7 +109,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchExecutionType>("execution", Execution);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionCallStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchCallType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

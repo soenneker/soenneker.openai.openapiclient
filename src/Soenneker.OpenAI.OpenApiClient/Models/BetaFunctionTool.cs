@@ -59,8 +59,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Whether strict parameter validation is enforced for this function tool.</summary>
         public bool? Strict { get; set; }
-        /// <summary>The type of the function tool. Always `function`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolType? Type { get; set; }
+        /// <summary>The type of tool being defined: `function`</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionTool"/> and sets the default values.
         /// </summary>
@@ -93,7 +93,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "output_schema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolOutputSchemaProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolOutputSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolParametersProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolParametersProperty.CreateFromDiscriminatorValue); } },
                 { "strict", n => { Strict = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType>(); } },
             };
         }
         /// <summary>
@@ -110,7 +110,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolOutputSchemaProperty>("output_schema", OutputSchema);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolParametersProperty>("parameters", Parameters);
             writer.WriteBoolValue("strict", Strict);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>&quot;Clip duration in seconds (allowed values: 4, 8, 12). Defaults to 4 seconds.&quot;</summary>
+    /// <summary>Clip duration in seconds (allowed values: 4, 8, 12). Defaults to 4 seconds.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum VideoSeconds
     {

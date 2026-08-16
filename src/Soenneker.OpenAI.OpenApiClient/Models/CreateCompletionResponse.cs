@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Represents a completion response from the API. Note: both the streamed and non-streamed response objects share the same shape (unlike the chat endpoint).&quot;
+    /// Represents a completion response from the API. Note: both the streamed and non-streamed response objects share the same shape (unlike the chat endpoint).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateCompletionResponse : IAdditionalDataHolder, IParsable
@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Model { get; set; }
 #endif
         /// <summary>The object type, which is always &quot;text_completion&quot;</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TextCompletionObject? Object { get; set; }
         /// <summary>This fingerprint represents the backend configuration that the model runs with.Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,7 +88,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created", n => { Created = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextCompletionObject>(); } },
                 { "system_fingerprint", n => { SystemFingerprint = n.GetStringValue(); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage.CreateFromDiscriminatorValue); } },
             };
@@ -104,7 +104,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("created", Created);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("model", Model);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextCompletionObject>("object", Object);
             writer.WriteStringValue("system_fingerprint", SystemFingerprint);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage>("usage", Usage);
             writer.WriteAdditionalData(AdditionalData);

@@ -24,9 +24,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Data { get; set; }
 #endif
         /// <summary>The media type of the inline skill payload. Must be `application/zip`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParamMediaType? MediaType { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ApplicationZipMediaType? MediaType { get; set; }
         /// <summary>The type of the inline skill source. Must be `base64`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParamType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Base64Type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParam"/> and sets the default values.
         /// </summary>
@@ -53,8 +53,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetStringValue(); } },
-                { "media_type", n => { MediaType = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParamMediaType>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParamType>(); } },
+                { "media_type", n => { MediaType = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplicationZipMediaType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Base64Type>(); } },
             };
         }
         /// <summary>
@@ -65,8 +65,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("data", Data);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParamMediaType>("media_type", MediaType);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineSkillSourceParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplicationZipMediaType>("media_type", MediaType);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Base64Type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

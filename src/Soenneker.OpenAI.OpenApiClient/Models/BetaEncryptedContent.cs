@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string EncryptedContent { get; set; }
 #endif
         /// <summary>The type of the input item. Always `encrypted_content`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaEncryptedContentType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EncryptedContentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaEncryptedContent"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "encrypted_content", n => { EncryptedContent = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaEncryptedContentType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EncryptedContentType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("encrypted_content", EncryptedContent);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaEncryptedContentType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EncryptedContentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>&quot;Identifier for service connectors, like those available in ChatGPT. One of`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn moreabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).Currently supported `connector_id` values are:- Dropbox: `connector_dropbox`- Gmail: `connector_gmail`- Google Calendar: `connector_googlecalendar`- Google Drive: `connector_googledrive`- Microsoft Teams: `connector_microsoftteams`- Outlook Calendar: `connector_outlookcalendar`- Outlook Email: `connector_outlookemail`- SharePoint: `connector_sharepoint`&quot;</summary>
+    /// <summary>Identifier for service connectors, like those available in ChatGPT. One of`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn moreabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).Currently supported `connector_id` values are:- Dropbox: `connector_dropbox`- Gmail: `connector_gmail`- Google Calendar: `connector_googlecalendar`- Google Drive: `connector_googledrive`- Microsoft Teams: `connector_microsoftteams`- Outlook Calendar: `connector_outlookcalendar`- Outlook Email: `connector_outlookemail`- SharePoint: `connector_sharepoint`</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum McpToolConnectorId
     {

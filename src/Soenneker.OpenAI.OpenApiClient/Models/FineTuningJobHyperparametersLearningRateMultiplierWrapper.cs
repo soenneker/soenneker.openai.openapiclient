@@ -14,8 +14,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The value property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplierWrapperValue? Value { get; set; }
+        /// <summary>`auto` is the default value</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoValue? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplierWrapper"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplierWrapperValue>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoValue>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplierWrapperValue>("value", Value);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

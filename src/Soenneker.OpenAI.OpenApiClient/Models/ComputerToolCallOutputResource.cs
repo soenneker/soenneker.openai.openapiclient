@@ -57,7 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status of the message input. One of `in_progress`, `completed`, or`incomplete`. Populated when input items are returned via API.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputStatus? Status { get; set; }
         /// <summary>The type of the computer tool call output. Always `computer_call_output`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResource"/> and sets the default values.
         /// </summary>
@@ -89,7 +89,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputType>(); } },
             };
         }
         /// <summary>
@@ -105,7 +105,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage>("output", Output);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

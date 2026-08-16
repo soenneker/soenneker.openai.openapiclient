@@ -50,10 +50,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironmentAnyOf1? Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironment? Environment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironmentAnyOf1 Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironment Environment { get; set; }
 #endif
         /// <summary>The unique ID of the shell tool call. Populated when this item is returned via API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The status of the shell call. One of `in_progress`, `completed`, or `incomplete`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallStatus? Status { get; set; }
         /// <summary>The type of the item. Always `shell_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ShellCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCall"/> and sets the default values.
         /// </summary>
@@ -96,10 +96,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "caller", n => { Caller = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCaller.CreateFromDiscriminatorValue); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
-                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironmentAnyOf1>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironmentAnyOf1.CreateFromDiscriminatorValue); } },
+                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironment>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironment.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ShellCallType>(); } },
             };
         }
         /// <summary>
@@ -113,10 +113,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCaller>("caller", Caller);
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("created_by", CreatedBy);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironmentAnyOf1>("environment", Environment);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironment>("environment", Environment);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ShellCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitInterval Interval { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.spend_limit`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendLimitResourceObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendLimitObject? Object { get; set; }
         /// <summary>The hard spend limit amount, in cents.</summary>
         public int? ThresholdAmount { get; set; }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "currency", n => { Currency = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitCurrency>(global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitCurrency.CreateFromDiscriminatorValue); } },
                 { "enforcement", n => { Enforcement = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcement>(global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcement.CreateFromDiscriminatorValue); } },
                 { "interval", n => { Interval = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitInterval>(global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitInterval.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendLimitResourceObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendLimitObject>(); } },
                 { "threshold_amount", n => { ThresholdAmount = n.GetIntValue(); } },
             };
         }
@@ -85,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitCurrency>("currency", Currency);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcement>("enforcement", Enforcement);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitInterval>("interval", Interval);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendLimitResourceObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationSpendLimitObject>("object", Object);
             writer.WriteIntValue("threshold_amount", ThresholdAmount);
             writer.WriteAdditionalData(AdditionalData);
         }

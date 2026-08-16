@@ -25,8 +25,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The syntax of the grammar definition. One of `lark` or `regex`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaGrammarSyntax1? Syntax { get; set; }
-        /// <summary>Grammar format. Always `grammar`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomGrammarFormatParamType? Type { get; set; }
+        /// <summary>The type of response format being defined. Always `grammar`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GrammarType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomGrammarFormatParam"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "definition", n => { Definition = n.GetStringValue(); } },
                 { "syntax", n => { Syntax = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaGrammarSyntax1>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomGrammarFormatParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GrammarType>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("definition", Definition);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaGrammarSyntax1>("syntax", Syntax);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomGrammarFormatParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GrammarType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

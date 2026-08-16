@@ -23,13 +23,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaAudio Audio { get; set; }
 #endif
-        /// <summary>&quot;Additional fields to include in server outputs.`item.input_audio_transcription.logprobs`: Include logprobs for input audio transcription.&quot;</summary>
+        /// <summary>Additional fields to include in server outputs.`item.input_audio_transcription.logprobs`: Include logprobs for input audio transcription.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaIncludeItem?>? Include { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?>? Include { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaIncludeItem?> Include { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?> Include { get; set; }
 #endif
         /// <summary>The default system instructions (i.e. system message) prepended to model calls. This field allows the client to guide the model on desired responses. The model can be instructed on response content and format, (e.g. &quot;be extremely succinct&quot;, &quot;act friendly&quot;, &quot;here are examples of good responses&quot;) and on audio behavior (e.g. &quot;talk quickly&quot;, &quot;inject emotion into your voice&quot;, &quot;laugh frequently&quot;). The instructions are not guaranteed to be followed by the model, but they provide guidance to the model on the desired behavior.Note that the server sets default instructions which will be used if this field is not set and are visible in the `session.created` event at the start of the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -114,7 +114,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation Truncation { get; set; }
 #endif
         /// <summary>The type of session to create. Always `realtime` for the Realtime API.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGa"/> and sets the default values.
         /// </summary>
@@ -141,7 +141,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "audio", n => { Audio = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaAudio>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaAudio.CreateFromDiscriminatorValue); } },
-                { "include", n => { Include = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaIncludeItem>()?.AsList(); } },
+                { "include", n => { Include = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem>()?.AsList(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaMaxOutputTokens>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaMaxOutputTokens.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaModel>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaModel.CreateFromDiscriminatorValue); } },
@@ -153,7 +153,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaToolsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tracing", n => { Tracing = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracing>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracing.CreateFromDiscriminatorValue); } },
                 { "truncation", n => { Truncation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeType>(); } },
             };
         }
         /// <summary>
@@ -164,7 +164,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaAudio>("audio", Audio);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaIncludeItem>("include", Include);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem>("include", Include);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaMaxOutputTokens>("max_output_tokens", MaxOutputTokens);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaModel>("model", Model);
@@ -176,7 +176,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaToolsItem>("tools", Tools);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracing>("tracing", Tracing);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation>("truncation", Truncation);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -31,8 +31,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>The object type, which was always `error` for moderation failures.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationErrorBodyType? Type { get; set; }
+        /// <summary>The object type, which is always `error`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ErrorType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationErrorBody"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationErrorBodyType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ErrorType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("message", Message);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationErrorBodyType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ErrorType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Reference { get; set; }
 #endif
         /// <summary>The type of grader.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarityType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TextSimilarityType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.GraderTextSimilarity"/> and sets the default values.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "input", n => { Input = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "reference", n => { Reference = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarityType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextSimilarityType>(); } },
             };
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("input", Input);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("reference", Reference);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarityType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextSimilarityType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

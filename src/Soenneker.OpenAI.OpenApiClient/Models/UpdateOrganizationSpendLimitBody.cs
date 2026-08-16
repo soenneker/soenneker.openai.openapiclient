@@ -15,10 +15,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The currency for the threshold amount. Currently, only `USD` is supported.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateOrganizationSpendLimitBodyCurrency? Currency { get; set; }
-        /// <summary>The time interval for evaluating spend against the threshold. Currently, only `month` is supported.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateOrganizationSpendLimitBodyInterval? Interval { get; set; }
+        /// <summary>The currency for the threshold amount.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsdCurrency? Currency { get; set; }
+        /// <summary>The time interval for evaluating spend against the threshold.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MonthInterval? Interval { get; set; }
         /// <summary>The hard spend limit amount, in cents.</summary>
         public int? ThresholdAmount { get; set; }
         /// <summary>
@@ -46,8 +46,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "currency", n => { Currency = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateOrganizationSpendLimitBodyCurrency>(); } },
-                { "interval", n => { Interval = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateOrganizationSpendLimitBodyInterval>(); } },
+                { "currency", n => { Currency = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsdCurrency>(); } },
+                { "interval", n => { Interval = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MonthInterval>(); } },
                 { "threshold_amount", n => { ThresholdAmount = n.GetIntValue(); } },
             };
         }
@@ -58,8 +58,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateOrganizationSpendLimitBodyCurrency>("currency", Currency);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateOrganizationSpendLimitBodyInterval>("interval", Interval);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsdCurrency>("currency", Currency);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MonthInterval>("interval", Interval);
             writer.WriteIntValue("threshold_amount", ThresholdAmount);
             writer.WriteAdditionalData(AdditionalData);
         }

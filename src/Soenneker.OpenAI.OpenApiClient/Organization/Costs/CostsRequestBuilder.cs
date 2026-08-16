@@ -97,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Costs
 #endif
             /// <summary>Width of each time bucket in response. Currently only `1d` is supported, default to `1d`.</summary>
             [QueryParameter("bucket_width")]
-            public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCostsBucketWidthParameter? BucketWidth { get; set; }
+            public global::Soenneker.OpenAI.OpenApiClient.Models.Value1DBucketWidth? BucketWidth { get; set; }
             /// <summary>End time (Unix seconds) of the query time range, exclusive.</summary>
             [QueryParameter("end_time")]
             public int? EndTime { get; set; }

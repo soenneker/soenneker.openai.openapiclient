@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamNetworkPolicy NetworkPolicy { get; set; }
 #endif
         /// <summary>Always `auto`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam"/> and sets the default values.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "file_ids", n => { FileIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "memory_limit", n => { MemoryLimit = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerMemoryLimitWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerMemoryLimitWrapper.CreateFromDiscriminatorValue); } },
                 { "network_policy", n => { NetworkPolicy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamNetworkPolicy>(global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamNetworkPolicy.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoType>(); } },
             };
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("file_ids", FileIds);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerMemoryLimitWrapper>("memory_limit", MemoryLimit);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamNetworkPolicy>("network_policy", NetworkPolicy);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

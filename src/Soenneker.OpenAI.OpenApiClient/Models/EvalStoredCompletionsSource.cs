@@ -37,8 +37,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Model { get; set; }
 #endif
-        /// <summary>The type of source. Always `stored_completions`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSourceType? Type { get; set; }
+        /// <summary>The type of data source. Always `stored_completions`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.StoredCompletionsType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSource"/> and sets the default values.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "limit", n => { Limit = n.GetIntValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSourceMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSourceMetadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSourceType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.StoredCompletionsType>(); } },
             };
         }
         /// <summary>
@@ -84,7 +84,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("limit", Limit);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSourceMetadata>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSourceType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.StoredCompletionsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

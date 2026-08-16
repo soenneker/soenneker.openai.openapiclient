@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoMultipartBodyInputReference InputReference { get; set; }
 #endif
-        /// <summary>&quot;The video generation model to use (allowed values: sora-2, sora-2-pro). Defaults to `sora-2`.&quot;</summary>
+        /// <summary>The video generation model to use (allowed values: sora-2, sora-2-pro). Defaults to `sora-2`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoModel? Model { get; set; }
@@ -39,9 +39,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Prompt { get; set; }
 #endif
-        /// <summary>&quot;Clip duration in seconds (allowed values: 4, 8, 12). Defaults to 4 seconds.&quot;</summary>
+        /// <summary>Clip duration in seconds (allowed values: 4, 8, 12). Defaults to 4 seconds.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds? Seconds { get; set; }
-        /// <summary>&quot;Output resolution formatted as width x height (allowed values: 720x1280, 1280x720, 1024x1792, 1792x1024). Defaults to 720x1280.&quot;</summary>
+        /// <summary>Output resolution formatted as width x height (allowed values: 720x1280, 1280x720, 1024x1792, 1792x1024). Defaults to 720x1280.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.VideoSize? Size { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoMultipartBody"/> and sets the default values.

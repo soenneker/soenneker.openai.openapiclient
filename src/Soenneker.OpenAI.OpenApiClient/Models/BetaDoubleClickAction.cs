@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaDoubleClickActionKeys Keys { get; set; }
 #endif
         /// <summary>Specifies the event type. For a double click action, this property is always set to `double_click`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaDoubleClickActionType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickType? Type { get; set; }
         /// <summary>The x-coordinate where the double click occurred.</summary>
         public int? X { get; set; }
         /// <summary>The y-coordinate where the double click occurred.</summary>
@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "keys", n => { Keys = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaDoubleClickActionKeys>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaDoubleClickActionKeys.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaDoubleClickActionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickType>(); } },
                 { "x", n => { X = n.GetIntValue(); } },
                 { "y", n => { Y = n.GetIntValue(); } },
             };
@@ -68,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaDoubleClickActionKeys>("keys", Keys);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaDoubleClickActionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickType>("type", Type);
             writer.WriteIntValue("x", X);
             writer.WriteIntValue("y", Y);
             writer.WriteAdditionalData(AdditionalData);

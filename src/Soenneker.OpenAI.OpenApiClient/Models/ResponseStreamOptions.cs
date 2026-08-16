@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Options for streaming responses. Only set this when you set `stream: true`.&quot;
+    /// Options for streaming responses. Only set this when you set `stream: true`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ResponseStreamOptions : IAdditionalDataHolder, IParsable

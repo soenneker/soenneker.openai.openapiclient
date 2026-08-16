@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaDragParamKeys Keys { get; set; }
 #endif
-        /// <summary>&quot;An array of coordinates representing the path of the drag action. Coordinates will appear as an array of objects, eg```[  { x: 100, y: 200 },  { x: 200, y: 300 }]```&quot;</summary>
+        /// <summary>An array of coordinates representing the path of the drag action. Coordinates will appear as an array of objects, eg```[  { x: 100, y: 200 },  { x: 200, y: 300 }]```</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCoordParam>? Path { get; set; }
@@ -32,7 +32,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCoordParam> Path { get; set; }
 #endif
         /// <summary>Specifies the event type. For a drag action, this property is always set to `drag`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaDragParamType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DragType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaDragParam"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "keys", n => { Keys = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaDragParamKeys>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaDragParamKeys.CreateFromDiscriminatorValue); } },
                 { "path", n => { Path = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCoordParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCoordParam.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaDragParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DragType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaDragParamKeys>("keys", Keys);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCoordParam>("path", Path);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaDragParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DragType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

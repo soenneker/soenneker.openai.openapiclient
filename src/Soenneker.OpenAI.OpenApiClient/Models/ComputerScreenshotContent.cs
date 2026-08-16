@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig PromptCacheBreakpoint { get; set; }
 #endif
         /// <summary>Specifies the event type. For a computer screenshot, this property is always set to `computer_screenshot`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent"/> and sets the default values.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "file_id", n => { FileId = n.GetStringValue(); } },
                 { "image_url", n => { ImageUrl = n.GetStringValue(); } },
                 { "prompt_cache_breakpoint", n => { PromptCacheBreakpoint = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>(global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotType>(); } },
             };
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("file_id", FileId);
             writer.WriteStringValue("image_url", ImageUrl);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>("prompt_cache_breakpoint", PromptCacheBreakpoint);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContentType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

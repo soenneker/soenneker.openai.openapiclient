@@ -26,7 +26,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The index of the file in the list of files.</summary>
         public int? Index { get; set; }
         /// <summary>The type of the file path. Always `file_path`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFilePathType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FilePathType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFilePath"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "file_id", n => { FileId = n.GetStringValue(); } },
                 { "index", n => { Index = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFilePathType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FilePathType>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("file_id", FileId);
             writer.WriteIntValue("index", Index);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFilePathType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FilePathType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchToolParamParameters Parameters { get; set; }
 #endif
         /// <summary>The type of the tool. Always `tool_search`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchToolParamType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchToolParam"/> and sets the default values.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "execution", n => { Execution = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchExecutionType>(); } },
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchToolParamParameters>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchToolParamParameters.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchToolParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchType>(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchExecutionType>("execution", Execution);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchToolParamParameters>("parameters", Parameters);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchToolParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

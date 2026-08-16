@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Reason { get; set; }
 #endif
         /// <summary>Status discriminator that is always `closed`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatusType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ClosedType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatus"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "reason", n => { Reason = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatusType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClosedType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("reason", Reason);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClosedStatusType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClosedType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

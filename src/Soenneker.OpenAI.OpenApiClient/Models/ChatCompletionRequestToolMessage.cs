@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestToolMessageContent Content { get; set; }
 #endif
         /// <summary>The role of the messages author, in this case `tool`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestToolMessageRole? Role { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolRole? Role { get; set; }
         /// <summary>Tool call that this message is responding to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestToolMessageContent>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestToolMessageContent.CreateFromDiscriminatorValue); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestToolMessageRole>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolRole>(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
             };
         }
@@ -70,7 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestToolMessageContent>("content", Content);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestToolMessageRole>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolRole>("role", Role);
             writer.WriteStringValue("tool_call_id", ToolCallId);
             writer.WriteAdditionalData(AdditionalData);
         }

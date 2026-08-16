@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessagesInputMessagesTemplateTemplateItem> Template { get; set; }
 #endif
         /// <summary>The type of input messages. Always `template`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessagesInputMessagesTemplateType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TemplateType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessagesInputMessagesTemplate"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "template", n => { Template = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessagesInputMessagesTemplateTemplateItem>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessagesInputMessagesTemplateTemplateItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessagesInputMessagesTemplateType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TemplateType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessagesInputMessagesTemplateTemplateItem>("template", Template);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessagesInputMessagesTemplateType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TemplateType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

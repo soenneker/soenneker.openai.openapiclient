@@ -25,7 +25,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The object type. Always `response.compaction`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResourceObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseCompactionObject? Object { get; set; }
         /// <summary>The compacted list of output items.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResourceObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseCompactionObject>(); } },
                 { "output", n => { Output = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaItemField>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaItemField.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseUsage.CreateFromDiscriminatorValue); } },
             };
@@ -83,7 +83,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResourceObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseCompactionObject>("object", Object);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaItemField>("output", Output);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseUsage>("usage", Usage);
             writer.WriteAdditionalData(AdditionalData);

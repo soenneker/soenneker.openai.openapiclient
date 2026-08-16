@@ -143,7 +143,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public bool? Store { get; set; }
         /// <summary>If set to true, the model response data will be streamed to the clientas it is generated using [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format).See the [Streaming section below](/docs/api-reference/responses-streaming)for more information.</summary>
         public bool? Stream { get; set; }
-        /// <summary>&quot;Options for streaming responses. Only set this when you set `stream: true`.&quot;</summary>
+        /// <summary>Options for streaming responses. Only set this when you set `stream: true`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseStreamOptions? StreamOptions { get; set; }
@@ -169,7 +169,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceParam ToolChoice { get; set; }
 #endif
-        /// <summary>&quot;An array of tools the model may call while generating a response. Youcan specify which tool to use by setting the `tool_choice` parameter.We support the following categories of tools:- **Built-in tools**: Tools that are provided by OpenAI that extend the  model&apos;s capabilities, like [web search](/docs/guides/tools-web-search)  or [file search](/docs/guides/tools-file-search). Learn more about  [built-in tools](/docs/guides/tools).- **MCP Tools**: Integrations with third-party systems via custom MCP servers  or predefined connectors such as Google Drive and SharePoint. Learn more about  [MCP Tools](/docs/guides/tools-connectors-mcp).- **Function calls (custom tools)**: Functions that are defined by you,  enabling the model to call your own code with strongly typed arguments  and outputs. Learn more about  [function calling](/docs/guides/function-calling). You can also use  custom tools to call your own code.&quot;</summary>
+        /// <summary>An array of tools the model may call while generating a response. Youcan specify which tool to use by setting the `tool_choice` parameter.We support the following categories of tools:- **Built-in tools**: Tools that are provided by OpenAI that extend the  model&apos;s capabilities, like [web search](/docs/guides/tools-web-search)  or [file search](/docs/guides/tools-file-search). Learn more about  [built-in tools](/docs/guides/tools).- **MCP Tools**: Integrations with third-party systems via custom MCP servers  or predefined connectors such as Google Drive and SharePoint. Learn more about  [MCP Tools](/docs/guides/tools-connectors-mcp).- **Function calls (custom tools)**: Functions that are defined by you,  enabling the model to call your own code with strongly typed arguments  and outputs. Learn more about  [function calling](/docs/guides/function-calling). You can also use  custom tools to call your own code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.Tool>? Tools { get; set; }
@@ -181,7 +181,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? TopLogprobs { get; set; }
         /// <summary>An alternative to sampling with temperature, called nucleus sampling,where the model considers the results of the tokens with top_p probabilitymass. So 0.1 means only the tokens comprising the top 10% probability massare considered.We generally recommend altering this or `temperature` but not both.</summary>
         public double? TopP { get; set; }
-        /// <summary>&quot;The truncation strategy to use for the model response.- `auto`: If the input to this Response exceeds  the model&apos;s context window size, the model will truncate the  response to fit the context window by dropping items from the beginning of the conversation.- `disabled` (default): If the input size will exceed the context window  size for a model, the request will fail with a 400 error.&quot;</summary>
+        /// <summary>The truncation strategy to use for the model response.- `auto`: If the input to this Response exceeds  the model&apos;s context window size, the model will truncate the  response to fit the context window by dropping items from the beginning of the conversation.- `disabled` (default): If the input size will exceed the context window  size for a model, the request will fail with a 400 error.</summary>
         [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBodyTruncation? Truncation { get; set; }
         /// <summary>This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.A stable identifier for your end-users.Used to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).</summary>

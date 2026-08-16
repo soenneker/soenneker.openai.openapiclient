@@ -33,8 +33,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Next { get; set; }
 #endif
-        /// <summary>Always `list`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RoleListResourceObject? Object { get; set; }
+        /// <summary>The object property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ListObject? Object { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RoleListResource"/> and sets the default values.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_more", n => { HasMore = n.GetBoolValue(); } },
                 { "next", n => { Next = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RoleListResourceObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListObject>(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails>("data", Data);
             writer.WriteBoolValue("has_more", HasMore);
             writer.WriteStringValue("next", Next);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RoleListResourceObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ListObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

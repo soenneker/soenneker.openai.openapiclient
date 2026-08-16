@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputOutput Output { get; set; }
 #endif
         /// <summary>The type of the custom tool call output. Always `custom_tool_call_output`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutput"/> and sets the default values.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "caller", n => { Caller = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolCallCallerParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolCallCallerParam.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputOutput>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputOutput.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputType>(); } },
             };
         }
         /// <summary>
@@ -102,7 +102,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputOutput>("output", Output);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolCallOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

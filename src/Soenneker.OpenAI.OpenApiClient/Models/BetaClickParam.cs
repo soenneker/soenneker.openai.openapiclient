@@ -26,7 +26,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaClickParamKeys Keys { get; set; }
 #endif
         /// <summary>Specifies the event type. For a click action, this property is always `click`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaClickParamType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ClickType? Type { get; set; }
         /// <summary>The x-coordinate where the click occurred.</summary>
         public int? X { get; set; }
         /// <summary>The y-coordinate where the click occurred.</summary>
@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "button", n => { Button = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaClickButtonType>(); } },
                 { "keys", n => { Keys = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaClickParamKeys>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaClickParamKeys.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaClickParamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClickType>(); } },
                 { "x", n => { X = n.GetIntValue(); } },
                 { "y", n => { Y = n.GetIntValue(); } },
             };
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaClickButtonType>("button", Button);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaClickParamKeys>("keys", Keys);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaClickParamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClickType>("type", Type);
             writer.WriteIntValue("x", X);
             writer.WriteIntValue("y", Y);
             writer.WriteAdditionalData(AdditionalData);

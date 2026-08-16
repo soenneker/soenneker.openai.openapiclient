@@ -21,7 +21,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Key { get; set; }
 #endif
-        /// <summary>&quot;Specifies the comparison operator: `eq`, `ne`, `gt`, `gte`, `lt`, `lte`, `in`, `nin`.- `eq`: equals- `ne`: not equal- `gt`: greater than- `gte`: greater than or equal- `lt`: less than- `lte`: less than or equal- `in`: in- `nin`: not in&quot;</summary>
+        /// <summary>Specifies the comparison operator: `eq`, `ne`, `gt`, `gte`, `lt`, `lte`, `in`, `nin`.- `eq`: equals- `ne`: not equal- `gt`: greater than- `gte`: greater than or equal- `lt`: less than- `lte`: less than or equal- `in`: in- `nin`: not in</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilterType? Type { get; set; }
         /// <summary>The value to compare against the attribute key; supports string, number, or boolean types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

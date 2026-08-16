@@ -41,7 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Source { get; set; }
 #endif
         /// <summary>The object type, which is always `python`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPythonType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PythonType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPython"/> and sets the default values.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "pass_threshold", n => { PassThreshold = n.GetDoubleValue(); } },
                 { "source", n => { Source = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPythonType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PythonType>(); } },
             };
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteDoubleValue("pass_threshold", PassThreshold);
             writer.WriteStringValue("source", Source);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPythonType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PythonType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

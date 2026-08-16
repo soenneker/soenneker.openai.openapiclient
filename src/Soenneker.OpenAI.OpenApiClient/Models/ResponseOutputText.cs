@@ -31,8 +31,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Text { get; set; }
 #endif
-        /// <summary>Type discriminator that is always `output_text`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputTextType? Type { get; set; }
+        /// <summary>The type of the output text. Always `output_text`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputText"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "annotations", n => { Annotations = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputTextAnnotationsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputTextAnnotationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputTextType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputTextAnnotationsItem>("annotations", Annotations);
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseOutputTextType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

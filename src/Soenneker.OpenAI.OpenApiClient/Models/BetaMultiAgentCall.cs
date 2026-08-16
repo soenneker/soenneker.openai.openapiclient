@@ -48,8 +48,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The type of the multi-agent call. Always `multi_agent_call`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentCallType? Type { get; set; }
+        /// <summary>The item type. Always `multi_agent_call`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentCallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentCall"/> and sets the default values.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "arguments", n => { Arguments = n.GetStringValue(); } },
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentCallType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentCallType>(); } },
             };
         }
         /// <summary>
@@ -95,7 +95,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("arguments", Arguments);
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentCallType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

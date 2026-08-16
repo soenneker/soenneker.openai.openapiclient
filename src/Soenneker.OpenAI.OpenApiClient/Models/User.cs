@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The object type, which is always `organization.user`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UserObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUserObject? Object { get; set; }
         /// <summary>Projects associated with the user, if included.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -131,7 +131,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "is_scim_managed", n => { IsScimManaged = n.GetBoolValue(); } },
                 { "is_service_account", n => { IsServiceAccount = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserObject>(); } },
+                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUserObject>(); } },
                 { "projects", n => { Projects = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects>(global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetStringValue(); } },
                 { "technical_level", n => { TechnicalLevel = n.GetStringValue(); } },
@@ -156,7 +156,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteBoolValue("is_scim_managed", IsScimManaged);
             writer.WriteBoolValue("is_service_account", IsServiceAccount);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationUserObject>("object", Object);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UserProjects>("projects", Projects);
             writer.WriteStringValue("role", Role);
             writer.WriteStringValue("technical_level", TechnicalLevel);

@@ -41,8 +41,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig PromptCacheBreakpoint { get; set; }
 #endif
-        /// <summary>The type of the input item. Always `input_image`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentType? Type { get; set; }
+        /// <summary>The type of the image input. Always `input_image`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputImageType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContent"/> and sets the default values.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "file_id", n => { FileId = n.GetStringValue(); } },
                 { "image_url", n => { ImageUrl = n.GetStringValue(); } },
                 { "prompt_cache_breakpoint", n => { PromptCacheBreakpoint = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageType>(); } },
             };
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("file_id", FileId);
             writer.WriteStringValue("image_url", ImageUrl);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig>("prompt_cache_breakpoint", PromptCacheBreakpoint);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContentType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

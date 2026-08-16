@@ -105,7 +105,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string ServerLabel { get; set; }
 #endif
-        /// <summary>&quot;A list of tool definitions that the model should be allowed to call.For the Responses API, the list of tool definitions might look like:```json[  { \&quot;type\&quot;: \&quot;function\&quot;, \&quot;name\&quot;: \&quot;get_weather\&quot; },  { \&quot;type\&quot;: \&quot;mcp\&quot;, \&quot;server_label\&quot;: \&quot;deepwiki\&quot; },  { \&quot;type\&quot;: \&quot;image_generation\&quot; }]```&quot;</summary>
+        /// <summary>A list of tool definitions that the model should be allowed to call.For the Responses API, the list of tool definitions might look like:```json[  { &quot;type&quot;: &quot;function&quot;, &quot;name&quot;: &quot;get_weather&quot; },  { &quot;type&quot;: &quot;mcp&quot;, &quot;server_label&quot;: &quot;deepwiki&quot; },  { &quot;type&quot;: &quot;image_generation&quot; }]```</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedToolsItemProperty>? Tools { get; set; }
@@ -113,14 +113,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedToolsItemProperty> Tools { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        /// <summary>Allowed tool configuration type. Always `allowed_tools`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType? Type { get; set; }
         /// <summary>Controls which (if any) tool is called by the model.`none` means the model will not call any tool and instead generates a message.`auto` means the model can pick between generating a message or calling one ormore tools.`required` means the model must call one or more tools.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptions? Value { get; set; }
         /// <summary>
@@ -138,7 +132,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam();
             if("BetaSpecificApplyPatchParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -168,7 +162,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.BetaToolChoiceMcp = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceMcp();
             }
-            else if("BetaToolChoiceOptions".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("BetaToolChoiceOptionsWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BetaToolChoiceOptionsWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptionsWrapper();
             }
@@ -179,6 +173,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedMode>() is global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedMode modeValue)
             {
                 result.Mode = modeValue;
+            }
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType>() is global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType typeValue)
+            {
+                result.Type = typeValue;
             }
             else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptions>() is global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptions valueValue)
             {
@@ -191,10 +189,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(parseNode.GetStringValue() is string serverLabelValue)
             {
                 result.ServerLabel = serverLabelValue;
-            }
-            else if(parseNode.GetStringValue() is string typeValue)
-            {
-                result.Type = typeValue;
             }
             else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedToolsItemProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedToolsItemProperty.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedToolsItemProperty> toolsValue)
             {
@@ -293,6 +287,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceAllowedMode>(null, Mode);
             }
+            else if(Type != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType>(null, Type);
+            }
             else if(Value != null)
             {
                 writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptions>(null, Value);
@@ -304,10 +302,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(ServerLabel != null)
             {
                 writer.WriteStringValue(null, ServerLabel);
-            }
-            else if(Type != null)
-            {
-                writer.WriteStringValue(null, Type);
             }
             else if(Tools != null)
             {
