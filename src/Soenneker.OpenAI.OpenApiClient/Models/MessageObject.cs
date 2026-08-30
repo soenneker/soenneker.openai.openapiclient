@@ -23,13 +23,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string AssistantId { get; set; }
 #endif
-        /// <summary>The attachments property</summary>
+        /// <summary>A list of files attached to the message, and the tools they were added to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsAnyOf1Item>? Attachments { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsItem>? Attachments { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsAnyOf1Item> Attachments { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsItem> Attachments { get; set; }
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the message was completed.</summary>
         public int? CompletedAt { get; set; }
@@ -117,7 +117,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assistant_id", n => { AssistantId = n.GetStringValue(); } },
-                { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed_at", n => { CompletedAt = n.GetIntValue(); } },
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
@@ -140,7 +140,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("assistant_id", AssistantId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsAnyOf1Item>("attachments", Attachments);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsItem>("attachments", Attachments);
             writer.WriteIntValue("completed_at", CompletedAt);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectContentItem>("content", Content);
             writer.WriteIntValue("created_at", CreatedAt);

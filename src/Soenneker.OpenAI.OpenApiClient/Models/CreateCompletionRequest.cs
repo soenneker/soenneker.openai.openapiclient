@@ -44,7 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? N { get; set; }
         /// <summary>Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model&apos;s likelihood to talk about new topics.[See more information about frequency and presence penalties.](/docs/guides/text-generation)</summary>
         public double? PresencePenalty { get; set; }
-        /// <summary>The prompt property</summary>
+        /// <summary>The prompt(s) to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays.Note that &lt;|endoftext|&gt; is the document separator that the model sees during training, so if a prompt is not specified the model will generate as if from the beginning of a new document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequestPrompt? Prompt { get; set; }
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend.</summary>
         public long? Seed { get; set; }
-        /// <summary>The stop property</summary>
+        /// <summary>Not supported with latest reasoning models `o3` and `o4-mini`.Up to 4 sequences where the API will stop generating further tokens. Thereturned text will not contain the stop sequence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration? Stop { get; set; }

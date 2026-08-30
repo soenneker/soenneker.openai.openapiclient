@@ -7,20 +7,36 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerAutoParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalEnvironmentParam"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class BetaFunctionShellToolParamEnvironment : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class BetaFunctionShellToolParamEnvironment : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironment"/> and sets the default values.
-        /// </summary>
-        public BetaFunctionShellToolParamEnvironment()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerAutoParam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerAutoParam? BetaContainerAutoParam { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerAutoParam BetaContainerAutoParam { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceParam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceParam? BetaContainerReferenceParam { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceParam BetaContainerReferenceParam { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalEnvironmentParam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalEnvironmentParam? BetaLocalEnvironmentParam { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalEnvironmentParam BetaLocalEnvironmentParam { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -29,7 +45,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironment();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironment();
+            if("BetaContainerAutoParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.BetaContainerAutoParam = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerAutoParam();
+            }
+            else if("BetaContainerReferenceParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.BetaContainerReferenceParam = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceParam();
+            }
+            else if("BetaLocalEnvironmentParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.BetaLocalEnvironmentParam = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalEnvironmentParam();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,9 +67,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(BetaContainerAutoParam != null)
             {
-            };
+                return BetaContainerAutoParam.GetFieldDeserializers();
+            }
+            else if(BetaContainerReferenceParam != null)
+            {
+                return BetaContainerReferenceParam.GetFieldDeserializers();
+            }
+            else if(BetaLocalEnvironmentParam != null)
+            {
+                return BetaLocalEnvironmentParam.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -48,7 +88,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            if(BetaContainerAutoParam != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerAutoParam>(null, BetaContainerAutoParam);
+            }
+            else if(BetaContainerReferenceParam != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceParam>(null, BetaContainerReferenceParam);
+            }
+            else if(BetaLocalEnvironmentParam != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalEnvironmentParam>(null, BetaLocalEnvironmentParam);
+            }
         }
     }
 }

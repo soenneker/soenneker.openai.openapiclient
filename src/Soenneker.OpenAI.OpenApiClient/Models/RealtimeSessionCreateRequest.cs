@@ -58,10 +58,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The set of modalities the model can respond with. To disable audio,set this to [&quot;text&quot;].</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestModalities? Modalities { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestModalitiesItem?>? Modalities { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestModalities Modalities { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestModalitiesItem?> Modalities { get; set; }
 #endif
         /// <summary>The format of output audio. Options are `pcm16`, `g711_ulaw`, or `g711_alaw`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -162,7 +162,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "input_audio_transcription", n => { InputAudioTranscription = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestInputAudioTranscription>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestInputAudioTranscription.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "max_response_output_tokens", n => { MaxResponseOutputTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokens>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokens.CreateFromDiscriminatorValue); } },
-                { "modalities", n => { Modalities = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestModalities>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestModalities.CreateFromDiscriminatorValue); } },
+                { "modalities", n => { Modalities = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestModalitiesItem>()?.AsList(); } },
                 { "output_audio_format", n => { OutputAudioFormat = n.GetStringValue(); } },
                 { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Prompt>(global::Soenneker.OpenAI.OpenApiClient.Models.Prompt.CreateFromDiscriminatorValue); } },
                 { "speed", n => { Speed = n.GetDoubleValue(); } },
@@ -187,7 +187,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestInputAudioTranscription>("input_audio_transcription", InputAudioTranscription);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokens>("max_response_output_tokens", MaxResponseOutputTokens);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestModalities>("modalities", Modalities);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestModalitiesItem>("modalities", Modalities);
             writer.WriteStringValue("output_audio_format", OutputAudioFormat);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Prompt>("prompt", Prompt);
             writer.WriteDoubleValue("speed", Speed);

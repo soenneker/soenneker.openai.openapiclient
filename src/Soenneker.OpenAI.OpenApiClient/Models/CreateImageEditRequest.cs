@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public byte[] Mask { get; set; }
 #endif
-        /// <summary>The model property</summary>
+        /// <summary>The model to use for image generation. Defaults to `gpt-image-1.5`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel? Model { get; set; }
@@ -68,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality? Quality { get; set; }
         /// <summary>The format in which the generated images are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated. This parameter is only supported for `dall-e-2` (default is `url` for `dall-e-2`), as GPT image models always return base64-encoded images.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat? ResponseFormat { get; set; }
-        /// <summary>The size property</summary>
+        /// <summary>The size of the generated images. For `gpt-image-2` and `gpt-image-2-2026-04-21`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model&apos;s current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing. For `dall-e-2`, use one of `256x256`, `512x512`, or `1024x1024`. For `dall-e-3`, use one of `1024x1024`, `1792x1024`, or `1024x1792`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestSize? Size { get; set; }

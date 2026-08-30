@@ -76,10 +76,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The set of modalities the model can respond with. To disable audio,set this to [&quot;text&quot;].</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseOutputModalities? OutputModalities { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseOutputModalitiesItem?>? OutputModalities { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseOutputModalities OutputModalities { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseOutputModalitiesItem?> OutputModalities { get; set; }
 #endif
         /// <summary>How the model chooses tools. Options are `auto`, `none`, `required`, orspecify a function.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -146,7 +146,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "max_output_tokens", n => { MaxOutputTokens = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseMaxOutputTokens>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseMaxOutputTokens.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetStringValue(); } },
-                { "output_modalities", n => { OutputModalities = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseOutputModalities>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseOutputModalities.CreateFromDiscriminatorValue); } },
+                { "output_modalities", n => { OutputModalities = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseOutputModalitiesItem>()?.AsList(); } },
                 { "tool_choice", n => { ToolChoice = n.GetStringValue(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tracing", n => { Tracing = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing.CreateFromDiscriminatorValue); } },
@@ -168,7 +168,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseMaxOutputTokens>("max_output_tokens", MaxOutputTokens);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("object", Object);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseOutputModalities>("output_modalities", OutputModalities);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseOutputModalitiesItem>("output_modalities", OutputModalities);
             writer.WriteStringValue("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool>("tools", Tools);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseTracing>("tracing", Tracing);

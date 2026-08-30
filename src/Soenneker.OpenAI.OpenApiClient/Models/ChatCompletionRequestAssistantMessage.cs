@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageAudio Audio { get; set; }
 #endif
-        /// <summary>The content property</summary>
+        /// <summary>The contents of the assistant message. Required unless `tool_calls` or `function_call` is specified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageContent? Content { get; set; }

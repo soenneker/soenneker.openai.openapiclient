@@ -39,13 +39,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<string> Queries { get; set; }
 #endif
-        /// <summary>The results property</summary>
+        /// <summary>The results of the file search tool call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsAnyOf1Item>? Results { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsItem>? Results { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsAnyOf1Item> Results { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsItem> Results { get; set; }
 #endif
         /// <summary>The status of the file search tool call. One of `in_progress`,`searching`, `incomplete` or `failed`,</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallStatus? Status { get; set; }
@@ -79,7 +79,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "queries", n => { Queries = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchCallType>(); } },
             };
@@ -94,7 +94,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>("agent", Agent);
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("queries", Queries);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsAnyOf1Item>("results", Results);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallResultsItem>("results", Results);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCallStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileSearchCallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

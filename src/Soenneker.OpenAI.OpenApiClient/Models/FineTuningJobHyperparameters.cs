@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The batch_size property</summary>
+        /// <summary>Number of examples in each batch. A larger batch size means that model parametersare updated less frequently, but with lower variance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersBatchSize? BatchSize { get; set; }

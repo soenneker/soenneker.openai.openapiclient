@@ -15,13 +15,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The keys property</summary>
+        /// <summary>The keys being held while moving the mouse.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMoveParamKeys? Keys { get; set; }
+        public List<string>? Keys { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMoveParamKeys Keys { get; set; }
+        public List<string> Keys { get; set; }
 #endif
         /// <summary>Specifies the event type. For a move action, this property is always set to `move`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MoveType? Type { get; set; }
@@ -54,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "keys", n => { Keys = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMoveParamKeys>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMoveParamKeys.CreateFromDiscriminatorValue); } },
+                { "keys", n => { Keys = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MoveType>(); } },
                 { "x", n => { X = n.GetIntValue(); } },
                 { "y", n => { Y = n.GetIntValue(); } },
@@ -67,7 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMoveParamKeys>("keys", Keys);
+            writer.WriteCollectionOfPrimitiveValues<string>("keys", Keys);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MoveType>("type", Type);
             writer.WriteIntValue("x", X);
             writer.WriteIntValue("y", Y);

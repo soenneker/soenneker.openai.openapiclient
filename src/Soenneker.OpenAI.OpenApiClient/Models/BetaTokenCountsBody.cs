@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam Conversation { get; set; }
 #endif
-        /// <summary>The input property</summary>
+        /// <summary>Text, image, or file inputs to the model, used to generate a response</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaTokenCountsBodyInput? Input { get; set; }
@@ -88,7 +88,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam ToolChoice { get; set; }
 #endif
-        /// <summary>The tools property</summary>
+        /// <summary>An array of tools the model may call while generating a response. You can specify which tool to use by setting the `tool_choice` parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool>? Tools { get; set; }

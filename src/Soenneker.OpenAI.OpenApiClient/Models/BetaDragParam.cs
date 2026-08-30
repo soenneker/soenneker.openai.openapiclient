@@ -15,13 +15,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The keys property</summary>
+        /// <summary>The keys being held while dragging the mouse.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaDragParamKeys? Keys { get; set; }
+        public List<string>? Keys { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaDragParamKeys Keys { get; set; }
+        public List<string> Keys { get; set; }
 #endif
         /// <summary>An array of coordinates representing the path of the drag action. Coordinates will appear as an array of objects, eg```[  { x: 100, y: 200 },  { x: 200, y: 300 }]```</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "keys", n => { Keys = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaDragParamKeys>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaDragParamKeys.CreateFromDiscriminatorValue); } },
+                { "keys", n => { Keys = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "path", n => { Path = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCoordParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCoordParam.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DragType>(); } },
             };
@@ -70,7 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaDragParamKeys>("keys", Keys);
+            writer.WriteCollectionOfPrimitiveValues<string>("keys", Keys);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCoordParam>("path", Path);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DragType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

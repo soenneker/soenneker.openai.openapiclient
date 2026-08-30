@@ -7,14 +7,39 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// A list of message content tokens with log probability information.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class ChatCompletionTokenLogprob : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>A list of integers representing the UTF-8 bytes representation of the token. Useful in instances where characters are represented by multiple tokens and their byte representations must be combined to generate the correct text representation. Can be `null` if there is no bytes representation for the token.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<int?>? Bytes { get; set; }
+#nullable restore
+#else
+        public List<int?> Bytes { get; set; }
+#endif
+        /// <summary>The log probability of this token, if it is within the top 20 most likely tokens. Otherwise, the value `-9999.0` is used to signify that the token is very unlikely.</summary>
+        public double? Logprob { get; set; }
+        /// <summary>The token.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Token { get; set; }
+#nullable restore
+#else
+        public string Token { get; set; }
+#endif
+        /// <summary>List of the most likely tokens and their log probability, at this token position. The number of entries may be fewer than the requested `top_logprobs`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprobTopLogprobsItem>? TopLogprobs { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprobTopLogprobsItem> TopLogprobs { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprob"/> and sets the default values.
         /// </summary>
@@ -40,6 +65,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "bytes", n => { Bytes = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
+                { "logprob", n => { Logprob = n.GetDoubleValue(); } },
+                { "token", n => { Token = n.GetStringValue(); } },
+                { "top_logprobs", n => { TopLogprobs = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprobTopLogprobsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprobTopLogprobsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -49,6 +78,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfPrimitiveValues<int?>("bytes", Bytes);
+            writer.WriteDoubleValue("logprob", Logprob);
+            writer.WriteStringValue("token", Token);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprobTopLogprobsItem>("top_logprobs", TopLogprobs);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The content property</summary>
+        /// <summary>A list of message content tokens with log probability information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprob>? Content { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprob> Content { get; set; }
 #endif
-        /// <summary>The refusal property</summary>
+        /// <summary>A list of message refusal tokens with log probability information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTokenLogprob>? Refusal { get; set; }

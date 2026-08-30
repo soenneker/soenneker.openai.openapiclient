@@ -63,13 +63,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestMessage> Messages { get; set; }
 #endif
-        /// <summary>The modalities property</summary>
+        /// <summary>Output types that you would like the model to generate.Most models are capable of generating text, which is the default:`[&quot;text&quot;]`The `gpt-4o-audio-preview` model can also be used to[generate audio](/docs/guides/audio). To request that this model generateboth text and audio responses, you can use:`[&quot;text&quot;, &quot;audio&quot;]`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesAnyOf1Item>? Modalities { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesItem?>? Modalities { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesAnyOf1Item> Modalities { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesItem?> Modalities { get; set; }
 #endif
         /// <summary>Model ID used to generate the response, like `gpt-4o` or `o3`. OpenAIoffers a wide range of models with different capabilities, performancecharacteristics, and price points. Refer to the [model guide](/docs/models)to browse and compare available models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -91,7 +91,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? N { get; set; }
         /// <summary>Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.</summary>
         public bool? ParallelToolCalls { get; set; }
-        /// <summary>The prediction property</summary>
+        /// <summary>Configuration for a [Predicted Output](/docs/guides/predicted-outputs),which can greatly improve response times when large parts of the modelresponse are known ahead of time. This is most common when you areregenerating a file with only minor changes to most of the content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Prediction? Prediction { get; set; }
@@ -114,7 +114,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>This feature is in Beta.If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend.</summary>
         [Obsolete("")]
         public int? Seed { get; set; }
-        /// <summary>The stop property</summary>
+        /// <summary>Not supported with latest reasoning models `o3` and `o4-mini`.Up to 4 sequences where the API will stop generating further tokens. Thereturned text will not contain the stop sequence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration? Stop { get; set; }
@@ -199,7 +199,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "max_completion_tokens", n => { MaxCompletionTokens = n.GetIntValue(); } },
                 { "max_tokens", n => { MaxTokens = n.GetIntValue(); } },
                 { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestMessage>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestMessage.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "modalities", n => { Modalities = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "modalities", n => { Modalities = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesItem>()?.AsList(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared>(global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared.CreateFromDiscriminatorValue); } },
                 { "moderation", n => { Moderation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModerationParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ModerationParam.CreateFromDiscriminatorValue); } },
                 { "n", n => { N = n.GetIntValue(); } },
@@ -236,7 +236,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("max_completion_tokens", MaxCompletionTokens);
             writer.WriteIntValue("max_tokens", MaxTokens);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestMessage>("messages", Messages);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesAnyOf1Item>("modalities", Modalities);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesItem>("modalities", Modalities);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared>("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModerationParam>("moderation", Moderation);
             writer.WriteIntValue("n", N);

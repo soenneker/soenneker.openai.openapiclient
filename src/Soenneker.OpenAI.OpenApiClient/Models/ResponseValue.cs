@@ -52,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3IncompleteDetails IncompleteDetails { get; set; }
 #endif
-        /// <summary>The instructions property</summary>
+        /// <summary>A system (or developer) message inserted into the model&apos;s context.When using along with `previous_response_id`, the instructions from a previousresponse will not be carried over to the next response. This makes it simpleto swap out system (or developer) messages in new responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3Instructions? Instructions { get; set; }

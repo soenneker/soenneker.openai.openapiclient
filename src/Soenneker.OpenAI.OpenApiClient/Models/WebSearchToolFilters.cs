@@ -15,13 +15,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The allowed_domains property</summary>
+        /// <summary>Allowed domains for the search. If not provided, all domains are allowed.Subdomains of the provided domains are allowed as well.Example: `[&quot;pubmed.ncbi.nlm.nih.gov&quot;]`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFiltersAllowedDomains? AllowedDomains { get; set; }
+        public List<string>? AllowedDomains { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFiltersAllowedDomains AllowedDomains { get; set; }
+        public List<string> AllowedDomains { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFilters"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowed_domains", n => { AllowedDomains = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFiltersAllowedDomains>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFiltersAllowedDomains.CreateFromDiscriminatorValue); } },
+                { "allowed_domains", n => { AllowedDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchToolFiltersAllowedDomains>("allowed_domains", AllowedDomains);
+            writer.WriteCollectionOfPrimitiveValues<string>("allowed_domains", AllowedDomains);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

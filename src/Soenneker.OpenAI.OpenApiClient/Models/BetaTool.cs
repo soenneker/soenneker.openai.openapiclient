@@ -8,13 +8,11 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// An array of tools the model may call while generating a response. You can specify which tool to use by setting the `tool_choice` parameter.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaApplyPatchToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerUsePreviewTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaNamespaceToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaProgrammaticToolCallingParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewTool"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchTool"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class BetaTool : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
+    public partial class BetaTool : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaApplyPatchToolParam"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -143,13 +141,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchTool BetaWebSearchTool { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool"/> and sets the default values.
-        /// </summary>
-        public BetaTool()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -369,7 +360,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchTool>(null, BetaWebSearchTool);
             }
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

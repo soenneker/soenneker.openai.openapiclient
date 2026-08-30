@@ -12,13 +12,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class CreateMessageRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The attachments property</summary>
+        /// <summary>A list of files attached to the message, and the tools they should be added to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestAttachmentsAnyOf1Item>? Attachments { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestAttachmentsItem>? Attachments { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestAttachmentsAnyOf1Item> Attachments { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestAttachmentsItem> Attachments { get; set; }
 #endif
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestAttachmentsAnyOf1Item>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestAttachmentsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestAttachmentsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestAttachmentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "content", n => { Content = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestContent>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestContent.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestRole>(); } },
@@ -69,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestAttachmentsAnyOf1Item>("attachments", Attachments);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestAttachmentsItem>("attachments", Attachments);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestContent>("content", Content);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestMetadata>("metadata", Metadata);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequestRole>("role", Role);

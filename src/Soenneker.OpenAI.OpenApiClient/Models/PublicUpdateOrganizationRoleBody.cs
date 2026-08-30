@@ -26,10 +26,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Updated set of permissions for the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyPermissions? Permissions { get; set; }
+        public List<string>? Permissions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyPermissions Permissions { get; set; }
+        public List<string> Permissions { get; set; }
 #endif
         /// <summary>New name for the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyPermissions>(global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyPermissions.CreateFromDiscriminatorValue); } },
+                { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "role_name", n => { RoleName = n.GetStringValue(); } },
             };
         }
@@ -77,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicUpdateOrganizationRoleBodyPermissions>("permissions", Permissions);
+            writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
             writer.WriteStringValue("role_name", RoleName);
             writer.WriteAdditionalData(AdditionalData);
         }

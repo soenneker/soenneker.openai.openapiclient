@@ -53,25 +53,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Sampling temperature. This is a query parameter used to select responses.</summary>
         public double? Temperature { get; set; }
-        /// <summary>The tools property</summary>
+        /// <summary>List of tool names. This is a query parameter used to select responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools? Tools { get; set; }
+        public List<string>? Tools { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools Tools { get; set; }
+        public List<string> Tools { get; set; }
 #endif
         /// <summary>Nucleus sampling parameter. This is a query parameter used to select responses.</summary>
         public double? TopP { get; set; }
         /// <summary>The type of run data source. Always `responses`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ResponsesType? Type { get; set; }
-        /// <summary>The users property</summary>
+        /// <summary>List of user identifiers. This is a query parameter used to select responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers? Users { get; set; }
+        public List<string>? Users { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers Users { get; set; }
+        public List<string> Users { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSource"/> and sets the default values.
@@ -105,10 +105,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "reasoning_effort", n => { ReasoningEffort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortWrapper.CreateFromDiscriminatorValue); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
-                { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools.CreateFromDiscriminatorValue); } },
+                { "tools", n => { Tools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponsesType>(); } },
-                { "users", n => { Users = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers.CreateFromDiscriminatorValue); } },
+                { "users", n => { Users = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -125,10 +125,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortWrapper>("reasoning_effort", ReasoningEffort);
             writer.WriteDoubleValue("temperature", Temperature);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceTools>("tools", Tools);
+            writer.WriteCollectionOfPrimitiveValues<string>("tools", Tools);
             writer.WriteDoubleValue("top_p", TopP);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponsesType>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceUsers>("users", Users);
+            writer.WriteCollectionOfPrimitiveValues<string>("users", Users);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
