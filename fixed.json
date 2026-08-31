@@ -13917,12 +13917,6 @@
             "$ref": "#/components/schemas/DoneEvent"
           }
         ],
-        "properties": {
-          "enabled": {
-            "type": "boolean",
-            "description": "Whether to enable input audio transcription."
-          }
-        },
         "description": "Represents an event emitted when streaming a Run.\n\nEach event in a server-sent events stream has an \u0060event\u0060 and \u0060data\u0060 property:\n\n\u0060\u0060\u0060\nevent: thread.created\ndata: {\u0022id\u0022: \u0022thread_123\u0022, \u0022object\u0022: \u0022thread\u0022, ...}\n\u0060\u0060\u0060\n\nWe emit events whenever a new object is created, transitions to a new state, or is being\nstreamed in parts (deltas). For example, we emit \u0060thread.run.created\u0060 when a new run\nis created, \u0060thread.run.completed\u0060 when a run completes, and so on. When an Assistant chooses\nto create a message during a run, we emit a \u0060thread.message.created event\u0060, a\n\u0060thread.message.in_progress\u0060 event, many \u0060thread.message.delta\u0060 events, and finally a\n\u0060thread.message.completed\u0060 event.\n\nWe may add additional events over time, so we recommend handling unknown events gracefully\nin your code. See the [Assistants API quickstart](/docs/assistants/overview) to learn how to\nintegrate the Assistants API with streaming.\n",
         "x-oaiMeta": {
           "name": "Assistant stream events",
@@ -17264,61 +17258,6 @@
             "$ref": "#/components/schemas/OutputContent"
           }
         ],
-        "properties": {
-          "text": {
-            "type": "string",
-            "description": "The text input to the model."
-          },
-          "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
-            "$ref": "#/components/schemas/PromptCacheBreakpointConfig"
-          },
-          "image_url": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.",
-            "format": "uri"
-          },
-          "file_id": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The ID of the file to be sent to the model."
-          },
-          "filename": {
-            "type": "string",
-            "description": "The name of the file to be sent to the model."
-          },
-          "file_data": {
-            "type": "string",
-            "description": "The content of the file to be sent to the model.\n"
-          },
-          "file_url": {
-            "type": "string",
-            "description": "The URL of the file to be sent to the model.",
-            "format": "uri"
-          },
-          "annotations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Annotation"
-            },
-            "description": "The annotations of the text output."
-          },
-          "logprobs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LogProb"
-            }
-          },
-          "refusal": {
-            "type": "string",
-            "description": "The refusal explanation from the model."
-          }
-        },
         "description": "Multi-modal input and output contents.\n"
       },
       "ConversationItem": {
@@ -21145,26 +21084,6 @@
               "$ref": "#/components/schemas/EvalItemContentItem"
             },
             "description": "A list of inputs, each of which may be either an input text, output text, input\nimage, or input audio object.\n"
-          },
-          "text": {
-            "type": "string",
-            "description": "The text input to the model."
-          },
-          "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
-            "$ref": "#/components/schemas/PromptCacheBreakpointConfig"
-          },
-          "image_url": {
-            "type": "string",
-            "description": "The URL of the image input.\n",
-            "format": "uri"
-          },
-          "detail": {
-            "type": "string",
-            "description": "The detail level of the image to be sent to the model. One of \u0060high\u0060, \u0060low\u0060, or \u0060auto\u0060. Defaults to \u0060auto\u0060.\n"
-          },
-          "input_audio": {
-            "$ref": "#/components/schemas/InputAudioInputAudio"
           }
         },
         "description": "Inputs to the model - can contain template strings. Supports text, output text, input images, and input audio, either as a single item or an array of items.\n"
@@ -23828,112 +23747,6 @@
           "status": {
             "description": "The terminal status of the program output.",
             "$ref": "#/components/schemas/ProgramOutputItemStatus"
-          },
-          "queries": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The queries used to search for files.\n"
-          },
-          "results": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/FileSearchToolCallResultsItem"
-            },
-            "description": "The results of the file search tool call.\n"
-          },
-          "actions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ComputerAction"
-            },
-            "description": "Flattened batched actions for \u0060computer_use\u0060. Each action includes an\n\u0060type\u0060 discriminator and action-specific fields.\n"
-          },
-          "pending_safety_checks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ComputerCallSafetyCheckParam"
-            },
-            "description": "The pending safety checks for the computer call.\n"
-          },
-          "acknowledged_safety_checks": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/ComputerCallSafetyCheckParam"
-            },
-            "description": "The safety checks reported by the API that have been acknowledged by the developer."
-          },
-          "execution": {
-            "description": "Whether tool search was executed by the server or by the client.",
-            "$ref": "#/components/schemas/ToolSearchExecutionType"
-          },
-          "tools": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tool"
-            },
-            "description": "The loaded tool definitions returned by the tool search output."
-          },
-          "summary": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SummaryTextContent"
-            },
-            "description": "Reasoning summary content.\n"
-          },
-          "container_id": {
-            "type": "string",
-            "description": "The ID of the container used to run the code.\n"
-          },
-          "outputs": {
-            "$ref": "#/components/schemas/CodeInterpreterToolCallOutputs"
-          },
-          "environment": {
-            "$ref": "#/components/schemas/FunctionShellCallItemParamEnvironment"
-          },
-          "max_output_length": {
-            "type": [
-              "null",
-              "integer"
-            ],
-            "description": "The maximum number of UTF-8 characters captured for this shell call\u0027s combined output."
-          },
-          "operation": {
-            "description": "The specific create, delete, or update instruction for the apply_patch tool call.",
-            "$ref": "#/components/schemas/ApplyPatchOperationParam"
-          },
-          "server_label": {
-            "type": "string",
-            "description": "The label of the MCP server.\n"
-          },
-          "error": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Error message if the server could not list tools.\n"
-          },
-          "approve": {
-            "type": "boolean",
-            "description": "Whether the request was approved.\n"
-          },
-          "reason": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Optional reason for the decision.\n"
-          },
-          "input": {
-            "type": "string",
-            "description": "The input for the custom tool call generated by the model.\n"
           }
         },
         "discriminator": {
@@ -26147,12 +25960,7 @@
           {
             "$ref": "#/components/schemas/ModelIdsResponses"
           }
-        ],
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/ModelIdsResponsesWrapperValue"
-          }
-        }
+        ]
       },
       "ModelIdsCompaction": {
         "type": "object",
@@ -52831,120 +52639,6 @@
           "status": {
             "description": "The terminal status of the program output.",
             "$ref": "#/components/schemas/BetaProgramOutputItemStatus"
-          },
-          "queries": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The queries used to search for files.\n"
-          },
-          "results": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/BetaFileSearchToolCallResultsItem"
-            },
-            "description": "The results of the file search tool call.\n"
-          },
-          "actions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BetaComputerAction"
-            },
-            "description": "Flattened batched actions for \u0060computer_use\u0060. Each action includes an\n\u0060type\u0060 discriminator and action-specific fields.\n"
-          },
-          "pending_safety_checks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BetaComputerCallSafetyCheckParam"
-            },
-            "description": "The pending safety checks for the computer call.\n"
-          },
-          "acknowledged_safety_checks": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/BetaComputerCallSafetyCheckParam"
-            },
-            "description": "The safety checks reported by the API that have been acknowledged by the developer."
-          },
-          "author": {
-            "type": "string",
-            "description": "The sending agent identity."
-          },
-          "recipient": {
-            "type": "string",
-            "description": "The destination agent identity."
-          },
-          "execution": {
-            "description": "Whether tool search was executed by the server or by the client.",
-            "$ref": "#/components/schemas/BetaToolSearchExecutionType"
-          },
-          "tools": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BetaTool"
-            },
-            "description": "The loaded tool definitions returned by the tool search output."
-          },
-          "summary": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BetaSummaryTextContent"
-            },
-            "description": "Reasoning summary content.\n"
-          },
-          "container_id": {
-            "type": "string",
-            "description": "The ID of the container used to run the code.\n"
-          },
-          "outputs": {
-            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallOutputs"
-          },
-          "environment": {
-            "$ref": "#/components/schemas/BetaFunctionShellCallItemParamEnvironment"
-          },
-          "max_output_length": {
-            "type": [
-              "null",
-              "integer"
-            ],
-            "description": "The maximum number of UTF-8 characters captured for this shell call\u0027s combined output."
-          },
-          "operation": {
-            "description": "The specific create, delete, or update instruction for the apply_patch tool call.",
-            "$ref": "#/components/schemas/BetaApplyPatchOperationParam"
-          },
-          "server_label": {
-            "type": "string",
-            "description": "The label of the MCP server.\n"
-          },
-          "error": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Error message if the server could not list tools.\n"
-          },
-          "approve": {
-            "type": "boolean",
-            "description": "Whether the request was approved.\n"
-          },
-          "reason": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Optional reason for the decision.\n"
-          },
-          "input": {
-            "type": "string",
-            "description": "The input for the custom tool call generated by the model.\n"
           }
         },
         "discriminator": {
@@ -62682,86 +62376,6 @@
           },
           "error": {
             "$ref": "#/components/schemas/BetaResponseInjectFailedEventError"
-          },
-          "delta": {
-            "type": "string",
-            "description": "A chunk of Base64 encoded response audio bytes.\n"
-          },
-          "output_index": {
-            "type": "integer",
-            "description": "The index of the output item in the response for which the code is being streamed."
-          },
-          "item_id": {
-            "type": "string",
-            "description": "The unique identifier of the code interpreter tool call item."
-          },
-          "response": {
-            "description": "Properties of the completed response.\n",
-            "$ref": "#/components/schemas/BetaResponse"
-          },
-          "content_index": {
-            "type": "integer",
-            "description": "The index of the content part that was added.\n"
-          },
-          "message": {
-            "type": "string",
-            "description": "The error message.\n"
-          },
-          "param": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The error parameter.\n"
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the function that was called."
-          },
-          "arguments": {
-            "type": "string",
-            "description": "The function-call arguments."
-          },
-          "item": {
-            "description": "The output item that was added.\n",
-            "$ref": "#/components/schemas/BetaOutputItem"
-          },
-          "summary_index": {
-            "type": "integer",
-            "description": "The index of the summary part within the reasoning summary.\n"
-          },
-          "status": {
-            "$ref": "#/components/schemas/IncompleteStatus"
-          },
-          "text": {
-            "type": "string",
-            "description": "The full text of the completed reasoning summary.\n"
-          },
-          "refusal": {
-            "type": "string",
-            "description": "The refusal text that is finalized.\n"
-          },
-          "logprobs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BetaResponseLogProb"
-            },
-            "description": "The log probabilities of the tokens in the delta.\n"
-          },
-          "partial_image_index": {
-            "type": "integer",
-            "description": "0-based index for the partial image (backend is 1-based, but this is 0-based for the user)."
-          },
-          "partial_image_b64": {
-            "type": "string",
-            "description": "Base64-encoded partial image data, suitable for rendering as an image."
-          },
-          "annotation_index": {
-            "type": "integer",
-            "description": "The index of the annotation within the content part."
-          },
-          "annotation": {
-            "$ref": "#/components/schemas/BetaResponseOutputTextAnnotationAddedEventAnnotationProperty"
           }
         },
         "description": "Server events emitted by the Responses WebSocket server.\n",
