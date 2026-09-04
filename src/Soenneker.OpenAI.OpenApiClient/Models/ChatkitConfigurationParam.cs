@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Optional overrides for ChatKit runtime configuration features
+    /// Optional per-session configuration settings for ChatKit behavior.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatkitConfigurationParam : IAdditionalDataHolder, IParsable

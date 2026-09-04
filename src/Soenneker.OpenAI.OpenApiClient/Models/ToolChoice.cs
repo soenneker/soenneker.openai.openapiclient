@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Preferred tool to invoke. Defaults to null when ChatKit should auto-select.
+    /// Tool selection that the assistant should honor when executing the item.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ToolChoice : IAdditionalDataHolder, IParsable

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Configuration for automatic thread titling. When omitted, automatic thread titling is enabled by default.
+    /// Controls whether ChatKit automatically generates thread titles.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AutomaticThreadTitlingParam : IAdditionalDataHolder, IParsable

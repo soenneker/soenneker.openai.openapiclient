@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// URL referenced by the annotation.
+    /// URL backing an annotation entry.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UrlAnnotationSource : IAdditionalDataHolder, IParsable

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Moderation results for the response input and output, if moderated completions were requested.
+    /// Moderation results or errors for the response input and output.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaModeration : IAdditionalDataHolder, IParsable

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Workflow metadata for the session.
+    /// Workflow metadata and state returned for the session.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatkitWorkflow : IAdditionalDataHolder, IParsable

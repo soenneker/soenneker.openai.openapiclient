@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Optional override for session expiration timing in seconds from creation. Defaults to 10 minutes.
+    /// Controls when the session expires relative to an anchor timestamp.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ExpiresAfterParam : IAdditionalDataHolder, IParsable

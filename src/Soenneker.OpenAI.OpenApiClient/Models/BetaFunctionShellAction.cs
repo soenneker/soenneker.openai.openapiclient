@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// The shell commands and limits that describe how to run the tool call.
+    /// Execute a shell command.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaFunctionShellAction : IAdditionalDataHolder, IParsable

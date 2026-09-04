@@ -25,7 +25,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public RealtimeTranslationClientSecretCreateRequestExpiresAfter()
         {
             AdditionalData = new Dictionary<string, object>();
-            Seconds = 600;
+            Seconds = 600L;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

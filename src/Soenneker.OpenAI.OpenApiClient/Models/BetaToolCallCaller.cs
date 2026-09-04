@@ -24,7 +24,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string CallerId { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DirectType? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolCallCaller"/> and sets the default values.
         /// </summary>
@@ -51,7 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "caller_id", n => { CallerId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DirectType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("caller_id", CallerId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DirectType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

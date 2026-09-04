@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Optional tracing overrides for the workflow invocation. When omitted, tracing is enabled by default.
+    /// Controls diagnostic tracing during the session.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowTracingParam : IAdditionalDataHolder, IParsable

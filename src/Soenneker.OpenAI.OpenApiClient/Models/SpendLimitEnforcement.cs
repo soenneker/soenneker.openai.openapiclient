@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// The current enforcement state of the hard spend limit.
+    /// The current enforcement state of a hard spend limit.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SpendLimitEnforcement : IAdditionalDataHolder, IParsable

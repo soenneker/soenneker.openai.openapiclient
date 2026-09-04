@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Configuration for running moderation on the request input and generated output.
+    /// Configuration for running moderation on the input and output of this response.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ModerationParam : IAdditionalDataHolder, IParsable

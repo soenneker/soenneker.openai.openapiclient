@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Moderation results for the request input and generated output, if moderatedcompletions were requested.
+    /// Moderation results or errors for the request input and generated output.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatCompletionModeration : IAdditionalDataHolder, IParsable

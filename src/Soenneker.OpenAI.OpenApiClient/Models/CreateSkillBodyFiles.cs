@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="byte[]"/>, List&lt;byte[]&gt;
+    /// Composed type wrapper for classes <see cref="byte"/> array, List&lt;byte[]&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateSkillBodyFiles : IComposedTypeWrapper, IParsable
@@ -21,7 +21,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<byte[]> Binary { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="byte[]"/></summary>
+        /// <summary>Composed type representation for type <see cref="byte"/> array</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public byte[]? CreateSkillBodyFilesBinary { get; set; }

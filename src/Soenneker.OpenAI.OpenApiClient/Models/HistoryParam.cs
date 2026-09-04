@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Configuration for chat history retention. When omitted, history is enabled by default with no limit on recent_threads (null).
+    /// Controls how much historical context is retained for the session.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class HistoryParam : IAdditionalDataHolder, IParsable

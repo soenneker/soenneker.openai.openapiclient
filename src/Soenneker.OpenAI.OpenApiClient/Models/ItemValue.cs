@@ -257,8 +257,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.Tool> Tools { get; set; }
 #endif
-        /// <summary>The type of the message input. Always `message`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageType? Type { get; set; }
+        /// <summary>The type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue"/> and sets the default values.
         /// </summary>
@@ -318,7 +324,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageStatus>(); } },
                 { "summary", n => { Summary = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent>(global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Tool>(global::Soenneker.OpenAI.OpenApiClient.Models.Tool.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -362,7 +368,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageStatus>("status", Status);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent>("summary", Summary);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Tool>("tools", Tools);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

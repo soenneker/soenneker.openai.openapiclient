@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "A20DBC68F81A59D62F073F02E5FAF2A10CBFF2E5BB3F2B63CC9E30C2A7384BE5318CDD5DFA692C4C6926020254A3C88D68EC4A30D91A6A552EAE942413E06A8B",
+  "descriptionHash": "A2DE6042B773D14F1234F2176E2EBFC6146CB3A7DA1A0DFA499E5F849D1C3E88615628C7D52B8EEF610AA5AB59BCD4838A2FB2596150DAD3B8CDD6B931D4550F",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.34.1",
+  "kiotaVersion": "1.35.0",
   "clientClassName": "OpenAIOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.OpenAI.OpenApiClient",

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Inference overrides applied to the message. Defaults to null when unset.
+    /// Model and tool overrides applied when generating the assistant response.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InferenceOptions : IAdditionalDataHolder, IParsable
