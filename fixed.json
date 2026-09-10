@@ -38428,7 +38428,7 @@
           },
           "model_sample": {
             "type": "string",
-            "description": "The model sample to be evaluated. This value will be used to populate \nthe \u0060sample\u0060 namespace. See [the guide](/docs/guides/graders) for more details.\nThe \u0060output_json\u0060 variable will be populated if the model sample is a \nvalid JSON string.\n"
+            "description": "The model sample to be evaluated. This value will be used to populate \nthe \u0060sample\u0060 namespace. See [the guide](/docs/guides/graders) for more details.\nThe \u0060output_json\u0060 variable will be populated if the model sample is a \nvalid JSON string.\n \n"
           }
         }
       },
