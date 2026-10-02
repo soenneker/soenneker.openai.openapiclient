@@ -25,7 +25,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunDataSource DataSource { get; set; }
 #endif
-        /// <summary>An object representing an error response from the Eval API.</summary>
+        /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError? Error { get; set; }

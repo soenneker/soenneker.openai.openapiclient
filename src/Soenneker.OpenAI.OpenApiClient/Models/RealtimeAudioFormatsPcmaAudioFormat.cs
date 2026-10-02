@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The audio format. Always `audio/pcma`.</summary>
+        /// <summary>The audio encoding. Always `audio/pcma`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AudioPcmaType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmaAudioFormat"/> and sets the default values.

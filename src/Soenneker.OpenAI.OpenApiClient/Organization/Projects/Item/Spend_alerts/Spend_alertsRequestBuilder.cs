@@ -52,6 +52,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertListResource"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.PermissionErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertListResource?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts.Spend_alertsRequestBuilder.Spend_alertsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -62,7 +65,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertListResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertListResource.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.OpenAI.OpenApiClient.Models.PermissionErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertListResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlertListResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a project spend alert.
@@ -71,6 +80,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts
         /// <param name="body">Parameters for creating or updating a spend alert.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.PermissionErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlert?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpendAlertBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -82,7 +94,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlert>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlert.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.OpenAI.OpenApiClient.Models.PermissionErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlert>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendAlert.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists project spend alerts.

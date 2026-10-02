@@ -16,6 +16,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Create the service account without default roles or an API key.</summary>
         public bool? CreateServiceAccountOnly { get; set; }
+        /// <summary>Number of seconds until the initial API key expires. If omitted or null, the key does not expire unless the effective organization or project policy requires an expiration. When a policy sets a maximum lifetime, this value must be provided and must not exceed that limit. A non-null value cannot be used when `create_service_account_only` is true.</summary>
+        public int? ExpiresInSeconds { get; set; }
         /// <summary>The name of the service account being created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,6 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "create_service_account_only", n => { CreateServiceAccountOnly = n.GetBoolValue(); } },
+                { "expires_in_seconds", n => { ExpiresInSeconds = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -61,6 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("create_service_account_only", CreateServiceAccountOnly);
+            writer.WriteIntValue("expires_in_seconds", ExpiresInSeconds);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

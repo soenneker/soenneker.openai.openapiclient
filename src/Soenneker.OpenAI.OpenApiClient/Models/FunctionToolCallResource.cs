@@ -22,6 +22,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Arguments { get; set; }
 #endif
+        /// <summary>Whether the function tool call runs asynchronously.</summary>
+        public bool? Async { get; set; }
         /// <summary>The caller property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,6 +102,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "arguments", n => { Arguments = n.GetStringValue(); } },
+                { "async", n => { Async = n.GetBoolValue(); } },
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "caller", n => { Caller = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCaller.CreateFromDiscriminatorValue); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
@@ -118,6 +121,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("arguments", Arguments);
+            writer.WriteBoolValue("async", Async);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCaller>("caller", Caller);
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("created_by", CreatedBy);

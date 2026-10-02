@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// References an image [File](/docs/api-reference/files) in the content of a message.
+    /// References an image [File](https://developers.openai.com/api/reference/resources/files) in the content of a message.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessageContentImageFileObject : IAdditionalDataHolder, IParsable

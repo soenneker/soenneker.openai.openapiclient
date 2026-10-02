@@ -75,7 +75,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaOutputModalitiesItem?> OutputModalities { get; set; }
 #endif
-        /// <summary>Reference to a prompt template and its variables.[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).</summary>
+        /// <summary>Reference to a prompt template and its variables.[Learn more](https://developers.openai.com/api/docs/guides/text?api-mode=responses#version-prompts-in-code).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.Prompt? Prompt { get; set; }

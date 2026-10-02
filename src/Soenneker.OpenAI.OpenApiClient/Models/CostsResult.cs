@@ -31,6 +31,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string ApiKeyId { get; set; }
 #endif
+        /// <summary>When grouped by `api_source`, `agents_api` identifies attributed Agents API activity and `unlabeled` includes all records without published source attribution, including historical and unknown origins. Unlabeled does not imply direct API usage. Without source grouping, this field is null.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultApiSource? ApiSource { get; set; }
         /// <summary>When `group_by=line_item`, this field provides the line item of the grouped costs result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,6 +53,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>When `group_by=line_item`, this field provides the quantity of the grouped costs result.</summary>
         public double? Quantity { get; set; }
+        /// <summary>The unit of the `quantity` value. If no single supported unit applies to the result, this field is `null`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnit? QuantityUnit { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnit QuantityUnit { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResult"/> and sets the default values.
         /// </summary>
@@ -78,10 +88,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "amount", n => { Amount = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultAmount>(global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultAmount.CreateFromDiscriminatorValue); } },
                 { "api_key_id", n => { ApiKeyId = n.GetStringValue(); } },
+                { "api_source", n => { ApiSource = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultApiSource>(); } },
                 { "line_item", n => { LineItem = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCostsResultObject>(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "quantity", n => { Quantity = n.GetDoubleValue(); } },
+                { "quantity_unit", n => { QuantityUnit = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnit>(global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnit.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -93,10 +105,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultAmount>("amount", Amount);
             writer.WriteStringValue("api_key_id", ApiKeyId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultApiSource>("api_source", ApiSource);
             writer.WriteStringValue("line_item", LineItem);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCostsResultObject>("object", Object);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteDoubleValue("quantity", Quantity);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnit>("quantity_unit", QuantityUnit);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

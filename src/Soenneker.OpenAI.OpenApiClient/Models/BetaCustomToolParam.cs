@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)
+    /// A custom tool that processes input using a specified format. Learn more about   [custom tools](https://developers.openai.com/api/docs/guides/function-calling#custom-tools)
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaCustomToolParam : IAdditionalDataHolder, IParsable
@@ -23,6 +23,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller?> AllowedCallers { get; set; }
 #endif
+        /// <summary>Whether the tool response can be returned asynchronously versus immediately returned on next response creation.</summary>
+        public bool? Async { get; set; }
         /// <summary>Whether this tool should be deferred and discovered via tool search.</summary>
         public bool? DeferLoading { get; set; }
         /// <summary>Optional description of the custom tool, used to provide more context.</summary>
@@ -77,6 +79,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allowed_callers", n => { AllowedCallers = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>()?.AsList(); } },
+                { "async", n => { Async = n.GetBoolValue(); } },
                 { "defer_loading", n => { DeferLoading = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolParamFormat>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolParamFormat.CreateFromDiscriminatorValue); } },
@@ -92,6 +95,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>("allowed_callers", AllowedCallers);
+            writer.WriteBoolValue("async", Async);
             writer.WriteBoolValue("defer_loading", DeferLoading);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolParamFormat>("format", Format);

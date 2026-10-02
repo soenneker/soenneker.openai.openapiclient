@@ -47,7 +47,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod Method { get; set; }
 #endif
-        /// <summary>The name of the model to fine-tune. You can select one of the[supported models](/docs/guides/fine-tuning#which-models-can-be-fine-tuned).</summary>
+        /// <summary>The name of the model to fine-tune. You can select one of the[supported models](https://developers.openai.com/api/docs/guides/model-optimization#fine-tuning-methods).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestModel? Model { get; set; }
@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Suffix { get; set; }
 #endif
-        /// <summary>The ID of an uploaded file that contains training data.See [upload file](/docs/api-reference/files/create) for how to upload a file.Your dataset must be formatted as a JSONL file. Additionally, you must upload your file with the purpose `fine-tune`.The contents of the file should differ depending on if the model uses the [chat](/docs/api-reference/fine-tuning/chat-input), [completions](/docs/api-reference/fine-tuning/completions-input) format, or if the fine-tuning method uses the [preference](/docs/api-reference/fine-tuning/preference-input) format.See the [fine-tuning guide](/docs/guides/model-optimization) for more details.</summary>
+        /// <summary>The ID of an uploaded file that contains training data.See [upload file](https://developers.openai.com/api/reference/resources/files/methods/create) for how to upload a file.Your dataset must be formatted as a JSONL file. Additionally, you must upload your file with the purpose `fine-tune`.The contents of the file should differ depending on if the model uses the [chat](https://developers.openai.com/api/docs/guides/supervised-fine-tuning#formatting-your-data), [completions](https://developers.openai.com/api/docs/guides/supervised-fine-tuning#formatting-your-data) format, or if the fine-tuning method uses the [preference](https://developers.openai.com/api/docs/guides/direct-preference-optimization) format.See the [fine-tuning guide](https://developers.openai.com/api/docs/guides/model-optimization) for more details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TrainingFile { get; set; }
@@ -73,7 +73,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string TrainingFile { get; set; }
 #endif
-        /// <summary>The ID of an uploaded file that contains validation data.If you provide this file, the data is used to generate validationmetrics periodically during fine-tuning. These metrics can be viewed inthe fine-tuning results file.The same data should not be present in both train and validation files.Your dataset must be formatted as a JSONL file. You must upload your file with the purpose `fine-tune`.See the [fine-tuning guide](/docs/guides/model-optimization) for more details.</summary>
+        /// <summary>The ID of an uploaded file that contains validation data.If you provide this file, the data is used to generate validationmetrics periodically during fine-tuning. These metrics can be viewed inthe fine-tuning results file.The same data should not be present in both train and validation files.Your dataset must be formatted as a JSONL file. You must upload your file with the purpose `fine-tune`.See the [fine-tuning guide](https://developers.openai.com/api/docs/guides/model-optimization) for more details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ValidationFile { get; set; }

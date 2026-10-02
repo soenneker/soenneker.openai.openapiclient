@@ -55,6 +55,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         ExternalKeyRemoved,
         #pragma warning restore CS1591
+        [EnumMember(Value = "external_storage.registered")]
+        #pragma warning disable CS1591
+        ExternalStorageRegistered,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "external_storage.removed")]
+        #pragma warning disable CS1591
+        ExternalStorageRemoved,
+        #pragma warning restore CS1591
         [EnumMember(Value = "group.created")]
         #pragma warning disable CS1591
         GroupCreated,
@@ -287,6 +295,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         TenantWorkloadIdentityPrincipalProvisioned,
         #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.workload_identity.access_token.issued")]
+        #pragma warning disable CS1591
+        TenantWorkloadIdentityAccessTokenIssued,
+        #pragma warning restore CS1591
         [EnumMember(Value = "tenant.admin_api_key.created")]
         #pragma warning disable CS1591
         TenantAdminApiKeyCreated,
@@ -302,6 +314,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "tenant.project_api_key.created")]
         #pragma warning disable CS1591
         TenantProjectApiKeyCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.trusted_access.business_verification.started")]
+        #pragma warning disable CS1591
+        TenantTrustedAccessBusinessVerificationStarted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.trusted_access.application.submitted")]
+        #pragma warning disable CS1591
+        TenantTrustedAccessApplicationSubmitted,
         #pragma warning restore CS1591
         [EnumMember(Value = "tenant.chatgpt_access_token.revoked")]
         #pragma warning disable CS1591
@@ -510,6 +530,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "tenant.resource_access.deleted")]
         #pragma warning disable CS1591
         TenantResourceAccessDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant.ads_account.onboarding.redemption")]
+        #pragma warning disable CS1591
+        TenantAdsAccountOnboardingRedemption,
         #pragma warning restore CS1591
         [EnumMember(Value = "tenant.session_policy.created")]
         #pragma warning disable CS1591

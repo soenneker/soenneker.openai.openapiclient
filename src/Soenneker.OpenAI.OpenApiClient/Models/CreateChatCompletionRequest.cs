@@ -12,7 +12,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class CreateChatCompletionRequest : global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponseProperties, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Parameters for audio output. Required when audio output is requested with`modalities: [&quot;audio&quot;]`. [Learn more](/docs/guides/audio).</summary>
+        /// <summary>Parameters for audio output. Required when audio output is requested with`modalities: [&quot;audio&quot;]`. [Learn more](https://developers.openai.com/api/docs/guides/audio).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Audio? Audio { get; set; }
@@ -50,12 +50,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Whether to return log probabilities of the output tokens or not. If true,returns the log probabilities of each output token returned in the`content` of `message`.</summary>
         public bool? Logprobs { get; set; }
-        /// <summary>An upper bound for the number of tokens that can be generated for a completion, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).</summary>
+        /// <summary>An upper bound for the number of tokens that can be generated for a completion, including visible output tokens and [reasoning tokens](https://developers.openai.com/api/docs/guides/reasoning).</summary>
         public int? MaxCompletionTokens { get; set; }
-        /// <summary>The maximum number of [tokens](/tokenizer) that can be generated in thechat completion. This value can be used to control[costs](https://openai.com/api/pricing/) for text generated via API.This value is now deprecated in favor of `max_completion_tokens`, and isnot compatible with [o-series models](/docs/guides/reasoning).</summary>
+        /// <summary>The maximum number of [tokens](https://platform.openai.com/tokenizer) that can be generated in thechat completion. This value can be used to control[costs](https://openai.com/api/pricing/) for text generated via API.This value is now deprecated in favor of `max_completion_tokens`, and isnot compatible with [o-series models](https://developers.openai.com/api/docs/guides/reasoning).</summary>
         [Obsolete("")]
         public int? MaxTokens { get; set; }
-        /// <summary>A list of messages comprising the conversation so far. Depending on the[model](/docs/models) you use, different message types (modalities) aresupported, like [text](/docs/guides/text-generation),[images](/docs/guides/vision), and [audio](/docs/guides/audio).</summary>
+        /// <summary>A list of messages comprising the conversation so far. Depending on the[model](https://developers.openai.com/api/docs/models) you use, different message types (modalities) aresupported, like [text](https://developers.openai.com/api/docs/guides/text),[images](https://developers.openai.com/api/docs/guides/images-vision), and [audio](https://developers.openai.com/api/docs/guides/audio).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestMessage>? Messages { get; set; }
@@ -63,7 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestMessage> Messages { get; set; }
 #endif
-        /// <summary>Output types that you would like the model to generate.Most models are capable of generating text, which is the default:`[&quot;text&quot;]`The `gpt-4o-audio-preview` model can also be used to[generate audio](/docs/guides/audio). To request that this model generateboth text and audio responses, you can use:`[&quot;text&quot;, &quot;audio&quot;]`</summary>
+        /// <summary>Output types that you would like the model to generate.Most models are capable of generating text, which is the default:`[&quot;text&quot;]`The `gpt-4o-audio-preview` model can also be used to[generate audio](https://developers.openai.com/api/docs/guides/audio). To request that this model generateboth text and audio responses, you can use:`[&quot;text&quot;, &quot;audio&quot;]`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesItem?>? Modalities { get; set; }
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseModalitiesItem?> Modalities { get; set; }
 #endif
-        /// <summary>Model ID used to generate the response, like `gpt-4o` or `o3`. OpenAIoffers a wide range of models with different capabilities, performancecharacteristics, and price points. Refer to the [model guide](/docs/models)to browse and compare available models.</summary>
+        /// <summary>Model ID used to generate the response, like `gpt-6-astra` or `o3`. OpenAIoffers a wide range of models with different capabilities, performancecharacteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models)to browse and compare available models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsShared? Model { get; set; }
@@ -89,9 +89,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. Keep `n` as `1` to minimize costs.</summary>
         public int? N { get; set; }
-        /// <summary>Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.</summary>
+        /// <summary>Whether to enable [parallel function calling](https://developers.openai.com/api/docs/guides/function-calling#parallel-function-calling) during tool use.</summary>
         public bool? ParallelToolCalls { get; set; }
-        /// <summary>Configuration for a [Predicted Output](/docs/guides/predicted-outputs),which can greatly improve response times when large parts of the modelresponse are known ahead of time. This is most common when you areregenerating a file with only minor changes to most of the content.</summary>
+        /// <summary>Configuration for a [Predicted Output](https://developers.openai.com/api/docs/guides/predicted-outputs),which can greatly improve response times when large parts of the modelresponse are known ahead of time. This is most common when you areregenerating a file with only minor changes to most of the content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Prediction? Prediction { get; set; }
@@ -101,9 +101,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Number between -2.0 and 2.0. Positive values penalize new tokens based onwhether they appear in the text so far, increasing the model&apos;s likelihoodto talk about new topics.</summary>
         public double? PresencePenalty { get; set; }
-        /// <summary>Constrains effort on reasoning for reasoning models. Currently supportedvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.Reducing reasoning effort can result in faster responses and fewer tokensused on reasoning in a response. Not all reasoning models support everyvalue. See the[reasoning guide](https://platform.openai.com/docs/guides/reasoning)for model-specific support.</summary>
+        /// <summary>Constrains effort on reasoning for reasoning models. Currently supportedvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.Reducing reasoning effort can result in faster responses and fewer tokensused on reasoning in a response. Not all reasoning models support everyvalue. See the[reasoning guide](https://developers.openai.com/api/docs/guides/reasoning)for model-specific support.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? ReasoningEffort { get; set; }
-        /// <summary>An object specifying the format that the model must output.Setting to `{ &quot;type&quot;: &quot;json_schema&quot;, &quot;json_schema&quot;: {...} }` enablesStructured Outputs which ensures the model will match your supplied JSONschema. Learn more in the [Structured Outputsguide](/docs/guides/structured-outputs).Setting to `{ &quot;type&quot;: &quot;json_object&quot; }` enables the older JSON mode, whichensures the message the model generates is valid JSON. Using `json_schema`is preferred for models that support it.</summary>
+        /// <summary>An object specifying the format that the model must output.Setting to `{ &quot;type&quot;: &quot;json_schema&quot;, &quot;json_schema&quot;: {...} }` enablesStructured Outputs which ensures the model will match your supplied JSONschema. Learn more in the [Structured Outputsguide](https://developers.openai.com/api/docs/guides/structured-outputs).Setting to `{ &quot;type&quot;: &quot;json_object&quot; }` enables the older JSON mode, whichensures the message the model generates is valid JSON. Using `json_schema`is preferred for models that support it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ResponseFormat? ResponseFormat { get; set; }
@@ -113,7 +113,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>This feature is in Beta.If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend.</summary>
         [Obsolete("")]
-        public int? Seed { get; set; }
+        public long? Seed { get; set; }
+        /// <summary>Specifies the processing type used for serving the request.  - If set to &apos;auto&apos;, then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use &apos;default&apos;.  - If set to &apos;default&apos;, then the request will be processed with the standard pricing and performance for the selected model.  - If set to &apos;[flex](https://developers.openai.com/api/docs/guides/flex-processing)&apos;, then the request will be processed with the Flex Processing service tier.  - To opt-in to [Fast mode](https://developers.openai.com/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.  - When not set, the default behavior is &apos;auto&apos;.  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier? ServiceTier { get; set; }
         /// <summary>Not supported with latest reasoning models `o3` and `o4-mini`.Up to 4 sequences where the API will stop generating further tokens. Thereturned text will not contain the stop sequence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -122,9 +124,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration Stop { get; set; }
 #endif
-        /// <summary>Whether or not to store the output of this chat completion request foruse in our [model distillation](/docs/guides/distillation) or[evals](/docs/guides/evals) products.Supports text and image inputs. Note: image inputs over 8MB will be dropped.</summary>
+        /// <summary>Whether or not to store the output of this chat completion request foruse in our [model distillation](https://developers.openai.com/api/docs/guides/supervised-fine-tuning#distilling-from-a-larger-model) or[evals](https://developers.openai.com/api/docs/guides/evals) products.Supports text and image inputs. Note: image inputs over 8MB will be dropped.</summary>
         public bool? Store { get; set; }
-        /// <summary>If set to true, the model response data will be streamed to the clientas it is generated using [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format).See the [Streaming section below](/docs/api-reference/chat/streaming)for more information, along with the [streaming responses](/docs/guides/streaming-responses)guide for more information on how to handle the streaming events.</summary>
+        /// <summary>If set to true, the model response data will be streamed to the clientas it is generated using [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format).See the [Streaming section below](https://developers.openai.com/api/reference/resources/chat/subresources/completions/streaming-events)for more information, along with the [streaming responses](https://developers.openai.com/api/docs/guides/streaming-responses)guide for more information on how to handle the streaming events.</summary>
         public bool? Stream { get; set; }
         /// <summary>Options for streaming response. Only set this when you set `stream: true`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -142,7 +144,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionToolChoiceOption ToolChoice { get; set; }
 #endif
-        /// <summary>A list of tools the model may call. You can provide either[custom tools](/docs/guides/function-calling#custom-tools) or[function tools](/docs/guides/function-calling).</summary>
+        /// <summary>A list of tools the model may call. You can provide either[custom tools](https://developers.openai.com/api/docs/guides/function-calling#custom-tools) or[function tools](https://developers.openai.com/api/docs/guides/function-calling).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ToolsItem>? Tools { get; set; }
@@ -152,7 +154,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Constrains the verbosity of the model&apos;s response. Lower values will result inmore concise responses, while higher values will result in more verbose responses.Currently supported values are `low`, `medium`, and `high`. The default is`medium`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity? Verbosity { get; set; }
-        /// <summary>This tool searches the web for relevant results to use in a response.Learn more about the [web search tool](/docs/guides/tools-web-search?api-mode=chat).</summary>
+        /// <summary>This tool searches the web for relevant results to use in a response.Learn more about the [web search tool](https://developers.openai.com/api/docs/guides/tools-web-search).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptions? WebSearchOptions { get; set; }
@@ -208,7 +210,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "presence_penalty", n => { PresencePenalty = n.GetDoubleValue(); } },
                 { "reasoning_effort", n => { ReasoningEffort = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(); } },
                 { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ResponseFormat>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ResponseFormat.CreateFromDiscriminatorValue); } },
-                { "seed", n => { Seed = n.GetIntValue(); } },
+                { "seed", n => { Seed = n.GetLongValue(); } },
+                { "service_tier", n => { ServiceTier = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier>(); } },
                 { "stop", n => { Stop = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration>(global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration.CreateFromDiscriminatorValue); } },
                 { "store", n => { Store = n.GetBoolValue(); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
@@ -245,7 +248,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteDoubleValue("presence_penalty", PresencePenalty);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("reasoning_effort", ReasoningEffort);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ResponseFormat>("response_format", ResponseFormat);
-            writer.WriteIntValue("seed", Seed);
+            writer.WriteLongValue("seed", Seed);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier>("service_tier", ServiceTier);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.StopConfiguration>("stop", Stop);
             writer.WriteBoolValue("store", Store);
             writer.WriteBoolValue("stream", Stream);

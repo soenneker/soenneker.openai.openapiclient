@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string EncryptedContent { get; set; }
 #endif
-        /// <summary>The type of the input item. Always `encrypted_content`.</summary>
+        /// <summary>The content type. Always `encrypted_content`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.EncryptedContentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaEncryptedContent"/> and sets the default values.

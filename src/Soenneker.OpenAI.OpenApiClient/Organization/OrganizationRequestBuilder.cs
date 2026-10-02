@@ -7,6 +7,7 @@ using Soenneker.OpenAI.OpenApiClient.Organization.Audit_logs;
 using Soenneker.OpenAI.OpenApiClient.Organization.Certificates;
 using Soenneker.OpenAI.OpenApiClient.Organization.Costs;
 using Soenneker.OpenAI.OpenApiClient.Organization.Data_retention;
+using Soenneker.OpenAI.OpenApiClient.Organization.External_storage;
 using Soenneker.OpenAI.OpenApiClient.Organization.Groups;
 using Soenneker.OpenAI.OpenApiClient.Organization.Invites;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects;
@@ -51,6 +52,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Data_retention.Data_retentionRequestBuilder Data_retention
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Data_retention.Data_retentionRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The external_storage property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.External_storage.External_storageRequestBuilder External_storage
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.External_storage.External_storageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The groups property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Groups.GroupsRequestBuilder Groups

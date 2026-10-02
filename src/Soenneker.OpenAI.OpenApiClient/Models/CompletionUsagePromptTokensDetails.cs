@@ -21,6 +21,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? CachedTokens { get; set; }
         /// <summary>The unadjusted number of prompt tokens written to cache.</summary>
         public int? CacheWriteTokens { get; set; }
+        /// <summary>Image input tokens present in the prompt.</summary>
+        public int? ImageTokens { get; set; }
+        /// <summary>Text input tokens present in the prompt.</summary>
+        public int? TextTokens { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails"/> and sets the default values.
         /// </summary>
@@ -52,6 +56,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "audio_tokens", n => { AudioTokens = n.GetIntValue(); } },
                 { "cache_write_tokens", n => { CacheWriteTokens = n.GetIntValue(); } },
                 { "cached_tokens", n => { CachedTokens = n.GetIntValue(); } },
+                { "image_tokens", n => { ImageTokens = n.GetIntValue(); } },
+                { "text_tokens", n => { TextTokens = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -64,6 +70,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("audio_tokens", AudioTokens);
             writer.WriteIntValue("cached_tokens", CachedTokens);
             writer.WriteIntValue("cache_write_tokens", CacheWriteTokens);
+            writer.WriteIntValue("image_tokens", ImageTokens);
+            writer.WriteIntValue("text_tokens", TextTokens);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

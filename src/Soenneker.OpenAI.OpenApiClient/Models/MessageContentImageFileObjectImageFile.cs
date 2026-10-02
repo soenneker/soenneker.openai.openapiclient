@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies the detail level of the image if specified by the user. `low` uses fewer tokens, you can opt in to high resolution using `high`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFileDetail? Detail { get; set; }
-        /// <summary>The [File](/docs/api-reference/files) ID of the image in the message content. Set `purpose=&quot;vision&quot;` when uploading the File if you need to later display the file content.</summary>
+        /// <summary>The [File](https://developers.openai.com/api/reference/resources/files) ID of the image in the message content. Set `purpose=&quot;vision&quot;` when uploading the File if you need to later display the file content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FileId { get; set; }

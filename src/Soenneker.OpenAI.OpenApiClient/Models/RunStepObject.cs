@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The ID of the [assistant](/docs/api-reference/assistants) associated with the run step.</summary>
+        /// <summary>The ID of the [assistant](https://developers.openai.com/api/docs/assistants/migration) associated with the run step.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AssistantId { get; set; }
@@ -59,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The object type, which is always `thread.run.step`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadRunStepObject? Object { get; set; }
-        /// <summary>The ID of the [run](/docs/api-reference/runs) that this run step is a part of.</summary>
+        /// <summary>The ID of the [run](https://developers.openai.com/api/docs/assistants/migration) that this run step is a part of.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RunId { get; set; }
@@ -77,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectStepDetails StepDetails { get; set; }
 #endif
-        /// <summary>The ID of the [thread](/docs/api-reference/threads) that was run.</summary>
+        /// <summary>The ID of the [thread](https://developers.openai.com/api/docs/assistants/migration) that was run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ThreadId { get; set; }

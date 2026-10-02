@@ -8,13 +8,15 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Search the Internet for sources related to the prompt. Learn more about the[web search tool](/docs/guides/tools-web-search).
+    /// Search the Internet for sources related to the prompt. Learn more about the[web search tool](https://developers.openai.com/api/docs/guides/tools-web-search).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaWebSearchTool : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.</summary>
+        public bool? ExternalWebAccess { get; set; }
         /// <summary>Filters for the search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -27,7 +29,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolSearchContextSize? SearchContextSize { get; set; }
         /// <summary>The type of the web search tool. One of `web_search` or `web_search_2025_08_26`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolType? Type { get; set; }
-        /// <summary>The approximate location of the user.</summary>
+        /// <summary>The approximate location of the user. If omitted or null, defaults to theUnited States. To avoid this fallback, pass `{&quot;type&quot;: &quot;approximate&quot;}` withoutlocation fields. To localize results, provide the relevant location fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchApproximateLocation? UserLocation { get; set; }
@@ -41,6 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public BetaWebSearchTool()
         {
             AdditionalData = new Dictionary<string, object>();
+            ExternalWebAccess = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -60,6 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "external_web_access", n => { ExternalWebAccess = n.GetBoolValue(); } },
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolFilters>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolFilters.CreateFromDiscriminatorValue); } },
                 { "search_context_size", n => { SearchContextSize = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolSearchContextSize>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolType>(); } },
@@ -73,6 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("external_web_access", ExternalWebAccess);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolFilters>("filters", Filters);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolSearchContextSize>("search_context_size", SearchContextSize);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolType>("type", Type);

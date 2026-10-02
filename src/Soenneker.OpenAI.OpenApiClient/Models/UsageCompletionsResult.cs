@@ -23,6 +23,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string ApiKeyId { get; set; }
 #endif
+        /// <summary>When grouped by `api_source`, `agents_api` identifies attributed Agents API activity and `unlabeled` includes all records without published source attribution, including historical and unknown origins. Unlabeled does not imply direct API usage. Without source grouping, this field is null.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultApiSource? ApiSource { get; set; }
         /// <summary>When `group_by=batch`, this field tells whether the grouped usage result is batch or not.</summary>
         public bool? Batch { get; set; }
         /// <summary>The aggregated number of uncached audio input tokens used.</summary>
@@ -35,7 +37,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? InputCachedTextTokens { get; set; }
         /// <summary>The aggregated number of cached input tokens used across text, audio, and image inputs. For customers subscribed to Scale Tier, this includes Scale Tier tokens.</summary>
         public int? InputCachedTokens { get; set; }
-        /// <summary>The aggregated number of input tokens written to the cache.</summary>
+        /// <summary>The aggregated number of input tokens written to the cache with a 12-hour retention period.</summary>
+        public int? InputCacheWrite12hTokens { get; set; }
+        /// <summary>The aggregated number of input tokens written to the cache with a 30-minute retention period.</summary>
         public int? InputCacheWriteTokens { get; set; }
         /// <summary>The aggregated number of uncached image input tokens used.</summary>
         public int? InputImageTokens { get; set; }
@@ -115,8 +119,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "api_key_id", n => { ApiKeyId = n.GetStringValue(); } },
+                { "api_source", n => { ApiSource = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultApiSource>(); } },
                 { "batch", n => { Batch = n.GetBoolValue(); } },
                 { "input_audio_tokens", n => { InputAudioTokens = n.GetIntValue(); } },
+                { "input_cache_write_12h_tokens", n => { InputCacheWrite12hTokens = n.GetIntValue(); } },
                 { "input_cache_write_tokens", n => { InputCacheWriteTokens = n.GetIntValue(); } },
                 { "input_cached_audio_tokens", n => { InputCachedAudioTokens = n.GetIntValue(); } },
                 { "input_cached_image_tokens", n => { InputCachedImageTokens = n.GetIntValue(); } },
@@ -146,12 +152,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_id", ApiKeyId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageCompletionsResultApiSource>("api_source", ApiSource);
             writer.WriteBoolValue("batch", Batch);
             writer.WriteIntValue("input_audio_tokens", InputAudioTokens);
             writer.WriteIntValue("input_cached_audio_tokens", InputCachedAudioTokens);
             writer.WriteIntValue("input_cached_image_tokens", InputCachedImageTokens);
             writer.WriteIntValue("input_cached_text_tokens", InputCachedTextTokens);
             writer.WriteIntValue("input_cached_tokens", InputCachedTokens);
+            writer.WriteIntValue("input_cache_write_12h_tokens", InputCacheWrite12hTokens);
             writer.WriteIntValue("input_cache_write_tokens", InputCacheWriteTokens);
             writer.WriteIntValue("input_image_tokens", InputImageTokens);
             writer.WriteIntValue("input_text_tokens", InputTextTokens);

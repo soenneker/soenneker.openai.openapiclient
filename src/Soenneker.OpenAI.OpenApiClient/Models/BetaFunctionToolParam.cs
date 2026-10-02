@@ -22,6 +22,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller?> AllowedCallers { get; set; }
 #endif
+        /// <summary>Whether the tool response can be returned asynchronously versus immediately returned on next response creation.</summary>
+        public bool? Async { get; set; }
         /// <summary>Whether this function should be deferred and discovered via tool search.</summary>
         public bool? DeferLoading { get; set; }
         /// <summary>The description property</summary>
@@ -86,6 +88,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allowed_callers", n => { AllowedCallers = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>()?.AsList(); } },
+                { "async", n => { Async = n.GetBoolValue(); } },
                 { "defer_loading", n => { DeferLoading = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -103,6 +106,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>("allowed_callers", AllowedCallers);
+            writer.WriteBoolValue("async", Async);
             writer.WriteBoolValue("defer_loading", DeferLoading);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);

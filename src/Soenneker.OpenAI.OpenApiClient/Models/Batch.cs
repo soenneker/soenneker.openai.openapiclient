@@ -88,7 +88,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BatchMetadata Metadata { get; set; }
 #endif
-        /// <summary>Model ID used to process the batch, like `gpt-5-2025-08-07`. OpenAIoffers a wide range of models with different capabilities, performancecharacteristics, and price points. Refer to the [modelguide](/docs/models) to browse and compare available models.</summary>
+        /// <summary>Model ID used to process the batch, like `gpt-6-astra`. OpenAIoffers a wide range of models with different capabilities, performancecharacteristics, and price points. Refer to the [modelguide](https://developers.openai.com/api/docs/models) to browse and compare available models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }

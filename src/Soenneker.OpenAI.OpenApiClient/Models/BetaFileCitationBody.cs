@@ -31,7 +31,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Filename { get; set; }
 #endif
-        /// <summary>The index of the file in the list of files.</summary>
+        /// <summary>The index in the output text at which to insert the file citation.</summary>
         public int? Index { get; set; }
         /// <summary>Always `file_citation`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FileCitationType? Type { get; set; }

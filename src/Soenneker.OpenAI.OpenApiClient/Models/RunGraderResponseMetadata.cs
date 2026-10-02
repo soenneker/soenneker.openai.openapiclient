@@ -49,7 +49,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataScoresProperty Scores { get; set; }
 #endif
         /// <summary>The token_usage property</summary>
-        public int? TokenUsage { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage? TokenUsage { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage TokenUsage { get; set; }
+#endif
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,7 +94,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "sampled_model_name", n => { SampledModelName = n.GetStringValue(); } },
                 { "scores", n => { Scores = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataScoresProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataScoresProperty.CreateFromDiscriminatorValue); } },
-                { "token_usage", n => { TokenUsage = n.GetIntValue(); } },
+                { "token_usage", n => { TokenUsage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -104,7 +110,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("sampled_model_name", SampledModelName);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataScoresProperty>("scores", Scores);
-            writer.WriteIntValue("token_usage", TokenUsage);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage>("token_usage", TokenUsage);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

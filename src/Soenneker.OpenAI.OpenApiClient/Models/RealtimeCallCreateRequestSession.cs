@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Optional session configuration to apply before the realtime session iscreated. Use the same parameters you would send in a [`create client secret`](/docs/api-reference/realtime-sessions/create-realtime-client-secret)request.
+    /// Optional session configuration to apply before the realtime session iscreated. Use the same parameters you would send in a [`create client secret`](https://developers.openai.com/api/reference/resources/realtime/subresources/client_secrets/methods/create)request.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RealtimeCallCreateRequestSession : IAdditionalDataHolder, IParsable
@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Whether the model may call multiple tools in parallel. Only supported byreasoning Realtime models such as `gpt-realtime-2`.</summary>
         public bool? ParallelToolCalls { get; set; }
-        /// <summary>Reference to a prompt template and its variables.[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).</summary>
+        /// <summary>Reference to a prompt template and its variables.[Learn more](https://developers.openai.com/api/docs/guides/text?api-mode=responses#version-prompts-in-code).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.Prompt? Prompt { get; set; }

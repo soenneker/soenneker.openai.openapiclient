@@ -26,10 +26,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The graders property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiGraders? Graders { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiGradersProperty? Graders { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiGraders Graders { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiGradersProperty Graders { get; set; }
 #endif
         /// <summary>The name of the grader.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,7 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "calculate_output", n => { CalculateOutput = n.GetStringValue(); } },
-                { "graders", n => { Graders = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiGraders>(global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiGraders.CreateFromDiscriminatorValue); } },
+                { "graders", n => { Graders = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiGradersProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiGradersProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiType>(); } },
             };
@@ -80,7 +80,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("calculate_output", CalculateOutput);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiGraders>("graders", Graders);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GraderMultiGradersProperty>("graders", Graders);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

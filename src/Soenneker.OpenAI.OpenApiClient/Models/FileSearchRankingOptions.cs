@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.
+    /// The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.See the [file search tool documentation](https://developers.openai.com/api/docs/guides/tools-file-search#retrieval-customization) for more information.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FileSearchRankingOptions : IAdditionalDataHolder, IParsable

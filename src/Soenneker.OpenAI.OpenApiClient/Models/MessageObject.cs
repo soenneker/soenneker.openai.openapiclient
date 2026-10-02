@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Represents a message within a [thread](/docs/api-reference/threads).
+    /// Represents a message within a [thread](https://developers.openai.com/api/docs/assistants/migration).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessageObject : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>If applicable, the ID of the [assistant](/docs/api-reference/assistants) that authored this message.</summary>
+        /// <summary>If applicable, the ID of the [assistant](https://developers.openai.com/api/docs/assistants/migration) that authored this message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AssistantId { get; set; }
@@ -73,7 +73,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadMessageObject? Object { get; set; }
         /// <summary>The entity that produced the message. One of `user` or `assistant`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectRole? Role { get; set; }
-        /// <summary>The ID of the [run](/docs/api-reference/runs) associated with the creation of this message. Value is `null` when messages are created manually using the create message or create thread endpoints.</summary>
+        /// <summary>The ID of the [run](https://developers.openai.com/api/docs/assistants/migration) associated with the creation of this message. Value is `null` when messages are created manually using the create message or create thread endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RunId { get; set; }
@@ -83,7 +83,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The status of the message, which can be either `in_progress`, `incomplete`, or `completed`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectStatus? Status { get; set; }
-        /// <summary>The [thread](/docs/api-reference/threads) ID that this message belongs to.</summary>
+        /// <summary>The [thread](https://developers.openai.com/api/docs/assistants/migration) ID that this message belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ThreadId { get; set; }

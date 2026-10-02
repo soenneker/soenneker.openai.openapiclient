@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Sent when an incoming API SIP session is available for Realtime acceptance.The same pending session can also emit `live.call.incoming`; the firstsuccessful Realtime or Live accept endpoint selects the runtime surface.
+    /// Sent when an incoming API SIP session is available for Realtime acceptance.The same pending session can also emit `live.transport.incoming`; the firstsuccessful Realtime or Live accept endpoint selects the runtime surface.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookRealtimeCallIncoming : IAdditionalDataHolder, IParsable
@@ -33,7 +33,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The object of the event. Always `event`.</summary>
+        /// <summary>The object type. Always `event`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.EventValueObject? Object { get; set; }
         /// <summary>The type of the event. Always `realtime.call.incoming`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCallIncomingType? Type { get; set; }

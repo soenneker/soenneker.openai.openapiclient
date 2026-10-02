@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Create a session and client secret for the Realtime API. The request can specifyeither a realtime or a transcription session configuration.[Learn more about the Realtime API](/docs/guides/realtime).
+    /// Create a session and client secret for the Realtime API. The request can specifyeither a realtime or a transcription session configuration.[Learn more about the Realtime API](https://developers.openai.com/api/docs/guides/realtime).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RealtimeCreateClientSecretRequest : IAdditionalDataHolder, IParsable

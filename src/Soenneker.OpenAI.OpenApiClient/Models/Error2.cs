@@ -23,6 +23,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Code { get; set; }
 #endif
+        /// <summary>The Retry-After and Retry-After-Ms headers returned with the original error, if any.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Error2HeadersProperty? Headers { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Error2HeadersProperty Headers { get; set; }
+#endif
         /// <summary>A human-readable description of the error that was returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,6 +38,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public string Message { get; set; }
+#endif
+        /// <summary>The misalignment property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResource? Misalignment { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResource Misalignment { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Error2"/> and sets the default values.
@@ -57,7 +73,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "code", n => { Code = n.GetStringValue(); } },
+                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Error2HeadersProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.Error2HeadersProperty.CreateFromDiscriminatorValue); } },
                 { "message", n => { Message = n.GetStringValue(); } },
+                { "misalignment", n => { Misalignment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResource>(global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +86,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Error2HeadersProperty>("headers", Headers);
             writer.WriteStringValue("message", Message);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResource>("misalignment", Misalignment);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

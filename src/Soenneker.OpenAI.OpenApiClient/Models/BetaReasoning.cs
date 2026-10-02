@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// **gpt-5 and o-series models only**Configuration options for[reasoning models](https://platform.openai.com/docs/guides/reasoning).
+    /// Configuration options for[reasoning models](https://developers.openai.com/api/docs/guides/reasoning).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaReasoning : IAdditionalDataHolder, IParsable
@@ -17,7 +17,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Controls which reasoning items are rendered back to the model on later turns.If omitted or set to `auto`, the model determines the context mode. The`gpt-5.6` model family defaults to `all_turns`; earlier models default to`current_turn`.When returned on a response, this is the effective reasoning context modeused for the response.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningContext? Context { get; set; }
-        /// <summary>Constrains effort on reasoning for reasoning models. Currently supportedvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.Reducing reasoning effort can result in faster responses and fewer tokensused on reasoning in a response. Not all reasoning models support everyvalue. See the[reasoning guide](https://platform.openai.com/docs/guides/reasoning)for model-specific support.</summary>
+        /// <summary>Constrains effort on reasoning for reasoning models. Currently supportedvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.Reducing reasoning effort can result in faster responses and fewer tokensused on reasoning in a response. Not all reasoning models support everyvalue. See the[reasoning guide](https://developers.openai.com/api/docs/guides/reasoning)for model-specific support.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningEffort? Effort { get; set; }
         /// <summary>**Deprecated:** use `summary` instead.A summary of the reasoning performed by the model. This can beuseful for debugging and understanding the model&apos;s reasoning process.One of `auto`, `concise`, or `detailed`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningGenerateSummary? GenerateSummary { get; set; }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// A tool call to a computer use tool. See the[computer use guide](/docs/guides/tools-computer-use) for more information.
+    /// A tool call to a computer use tool. See the[computer use guide](https://developers.openai.com/api/docs/guides/tools-computer-use) for more information.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ComputerToolCall : IAdditionalDataHolder, IParsable

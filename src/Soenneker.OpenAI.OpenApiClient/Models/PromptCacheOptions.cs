@@ -15,6 +15,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The response ID supplied as the prompt cache diagnostics comparison.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ComparisonResponseId { get; set; }
+#nullable restore
+#else
+        public string ComparisonResponseId { get; set; }
+#endif
         /// <summary>Whether implicit prompt-cache breakpoints were enabled.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheModeEnum? Mode { get; set; }
         /// <summary>The ttl property</summary>
@@ -44,6 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "comparison_response_id", n => { ComparisonResponseId = n.GetStringValue(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheModeEnum>(); } },
                 { "ttl", n => { Ttl = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheTtlEnum>(); } },
             };
@@ -55,6 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("comparison_response_id", ComparisonResponseId);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheModeEnum>("mode", Mode);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheTtlEnum>("ttl", Ttl);
             writer.WriteAdditionalData(AdditionalData);

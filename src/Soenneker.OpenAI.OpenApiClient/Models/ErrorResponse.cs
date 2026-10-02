@@ -24,7 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.Error Error { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
-        public override string Message { get => Error?.MessageEscaped ?? string.Empty; }
+        public override string Message { get => base.Message; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse"/> and sets the default values.
         /// </summary>

@@ -48,6 +48,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         ComputerUsePreview20250311,
         #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-5.5-pro")]
+        #pragma warning disable CS1591
+        Gpt55Pro,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-5.5-pro-2026-04-23")]
+        #pragma warning disable CS1591
+        Gpt55Pro20260423,
+        #pragma warning restore CS1591
         [EnumMember(Value = "gpt-5-codex")]
         #pragma warning disable CS1591
         Gpt5Codex,
@@ -63,6 +71,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "gpt-5.1-codex-max")]
         #pragma warning disable CS1591
         Gpt51CodexMax,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-daybreak-blue-latest")]
+        #pragma warning disable CS1591
+        GptDaybreakBlueLatest,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-daybreak-red-latest")]
+        #pragma warning disable CS1591
+        GptDaybreakRedLatest,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-5.6-cyber")]
+        #pragma warning disable CS1591
+        Gpt56Cyber,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-rosalind-research")]
+        #pragma warning disable CS1591
+        GptRosalindResearch,
         #pragma warning restore CS1591
     }
 }

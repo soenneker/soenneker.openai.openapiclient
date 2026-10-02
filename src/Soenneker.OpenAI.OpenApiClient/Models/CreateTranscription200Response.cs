@@ -45,20 +45,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscription200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscription200Response();
-            if("CreateTranscriptionResponseDiarizedJson".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CreateTranscriptionResponseDiarizedJson = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJson();
-            }
-            else if("CreateTranscriptionResponseJson".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CreateTranscriptionResponseJson = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJson();
-            }
-            else if("CreateTranscriptionResponseVerboseJson".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CreateTranscriptionResponseVerboseJson = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseVerboseJson();
-            }
+            result.CreateTranscriptionResponseDiarizedJson = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJson();
+            result.CreateTranscriptionResponseJson = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJson();
+            result.CreateTranscriptionResponseVerboseJson = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseVerboseJson();
             return result;
         }
         /// <summary>
@@ -67,17 +57,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateTranscriptionResponseDiarizedJson != null)
+            if(CreateTranscriptionResponseDiarizedJson != null || CreateTranscriptionResponseJson != null || CreateTranscriptionResponseVerboseJson != null)
             {
-                return CreateTranscriptionResponseDiarizedJson.GetFieldDeserializers();
-            }
-            else if(CreateTranscriptionResponseJson != null)
-            {
-                return CreateTranscriptionResponseJson.GetFieldDeserializers();
-            }
-            else if(CreateTranscriptionResponseVerboseJson != null)
-            {
-                return CreateTranscriptionResponseVerboseJson.GetFieldDeserializers();
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CreateTranscriptionResponseDiarizedJson, CreateTranscriptionResponseJson, CreateTranscriptionResponseVerboseJson);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -88,18 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateTranscriptionResponseDiarizedJson != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJson>(null, CreateTranscriptionResponseDiarizedJson);
-            }
-            else if(CreateTranscriptionResponseJson != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseJson>(null, CreateTranscriptionResponseJson);
-            }
-            else if(CreateTranscriptionResponseVerboseJson != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseVerboseJson>(null, CreateTranscriptionResponseVerboseJson);
-            }
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranscriptionResponseDiarizedJson>(null, CreateTranscriptionResponseDiarizedJson, CreateTranscriptionResponseJson, CreateTranscriptionResponseVerboseJson);
         }
     }
 }

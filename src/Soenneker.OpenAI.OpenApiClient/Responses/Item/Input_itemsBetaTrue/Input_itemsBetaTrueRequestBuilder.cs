@@ -39,6 +39,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_itemsBetaTrue
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseItemList"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseItemList?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_itemsBetaTrue.Input_itemsBetaTrueRequestBuilder.Input_itemsBetaTrueRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -49,7 +51,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_itemsBetaTrue
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseItemList>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseItemList.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::Soenneker.OpenAI.OpenApiClient.Models.BetaErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseItemList>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseItemList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of input items for a given response.

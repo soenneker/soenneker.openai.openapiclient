@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// JSON Schema response format. Used to generate structured JSON responses.Learn more about [Structured Outputs](/docs/guides/structured-outputs).
+    /// JSON Schema response format. Used to generate structured JSON responses.Learn more about [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ResponseFormatJsonSchema : IAdditionalDataHolder, IParsable

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// An array of content parts with a defined type. Supported options differ based on the [model](/docs/models) being used to generate the response. Can contain text, image, or audio inputs.
+    /// An array of content parts with a defined type. Supported options differ based on the [model](https://developers.openai.com/api/docs/models) being used to generate the response. Can contain text, image, or audio inputs.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatCompletionRequestUserMessageContentPart : IAdditionalDataHolder, IParsable

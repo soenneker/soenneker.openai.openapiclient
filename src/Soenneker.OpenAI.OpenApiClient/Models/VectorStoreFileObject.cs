@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileObjectStatus? Status { get; set; }
         /// <summary>The total vector store usage in bytes. Note that this may be different from the original file size.</summary>
         public int? UsageBytes { get; set; }
-        /// <summary>The ID of the [vector store](/docs/api-reference/vector-stores/object) that the [File](/docs/api-reference/files) is attached to.</summary>
+        /// <summary>The ID of the [vector store](https://developers.openai.com/api/reference/resources/vector_stores) that the [File](https://developers.openai.com/api/reference/resources/files) is attached to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VectorStoreId { get; set; }

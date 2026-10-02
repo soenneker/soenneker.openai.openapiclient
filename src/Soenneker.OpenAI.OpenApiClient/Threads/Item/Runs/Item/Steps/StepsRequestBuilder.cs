@@ -52,6 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.Steps
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListRunStepsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ListRunStepsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.Steps.StepsRequestBuilder.StepsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -62,7 +63,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.Steps
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ListRunStepsResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ListRunStepsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ListRunStepsResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ListRunStepsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of run steps belonging to a run.
@@ -118,7 +123,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.Steps
             [QueryParameter("before")]
             public string Before { get; set; }
 #endif
-            /// <summary>A list of additional fields to include in the response. Currently the only supported value is `step_details.tool_calls[*].file_search.results[*].content` to fetch the file search result content.See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.</summary>
+            /// <summary>A list of additional fields to include in the response. Currently the only supported value is `step_details.tool_calls[*].file_search.results[*].content` to fetch the file search result content.See the [file search tool documentation](https://developers.openai.com/api/docs/guides/tools-file-search#retrieval-customization) for more information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("include%5B%5D")]

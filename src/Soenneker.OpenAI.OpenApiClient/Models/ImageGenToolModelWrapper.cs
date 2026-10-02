@@ -14,7 +14,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The image generation model to use. Default: `gpt-image-1`.</summary>
+        /// <summary>The image generation model to use. One of `gpt-image-1`,`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,`gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`,`gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`,`gpt-image-2.5-flare-2026-09-08`, or `chatgpt-image-latest`. Default:`gpt-image-1`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolModelWrapperValue? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolModelWrapper"/> and sets the default values.

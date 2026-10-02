@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The intended purpose of the uploaded file.See the [documentation on Filepurposes](/docs/api-reference/files/create#files-create-purpose).</summary>
+    /// <summary>The intended purpose of the uploaded file.See the [documentation on Filepurposes](https://developers.openai.com/api/reference/resources/files/methods/create#%28resource%29%20files%20%3E%20%28method%29%20create%20%3E%20%28params%29%200%20%3E%20%28param%29%20purpose%20%3E%20%28schema%29).</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateUploadRequestPurpose
     {

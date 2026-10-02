@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Give the model access to additional tools via remote Model Context Protocol(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).
+    /// Give the model access to additional tools via remote Model Context Protocol(MCP) servers. [Learn more about MCP](https://developers.openai.com/api/docs/guides/tools-connectors-mcp).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaMcpTool : IAdditionalDataHolder, IParsable
@@ -39,7 +39,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Authorization { get; set; }
 #endif
-        /// <summary>Identifier for service connectors, like those available in ChatGPT. One of`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn moreabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).Currently supported `connector_id` values are:- Dropbox: `connector_dropbox`- Gmail: `connector_gmail`- Google Calendar: `connector_googlecalendar`- Google Drive: `connector_googledrive`- Microsoft Teams: `connector_microsoftteams`- Outlook Calendar: `connector_outlookcalendar`- Outlook Email: `connector_outlookemail`- SharePoint: `connector_sharepoint`</summary>
+        /// <summary>Identifier for service connectors, like those available in ChatGPT. One of`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn moreabout service connectors [here](https://developers.openai.com/api/docs/guides/tools-connectors-mcp#connectors).This field is deprecated for models released after September 1, 2026.Use `server_url` to connect to a remote MCP server, or `tunnel_id` toconnect through a Secure MCP Tunnel.Currently supported `connector_id` values are:- Dropbox: `connector_dropbox`- Gmail: `connector_gmail`- Google Calendar: `connector_googlecalendar`- Google Drive: `connector_googledrive`- Microsoft Teams: `connector_microsoftteams`- Outlook Calendar: `connector_outlookcalendar`- Outlook Email: `connector_outlookemail`- SharePoint: `connector_sharepoint`</summary>
+        [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolConnectorId? ConnectorId { get; set; }
         /// <summary>Whether this MCP tool is deferred and discovered via tool search.</summary>
         public bool? DeferLoading { get; set; }

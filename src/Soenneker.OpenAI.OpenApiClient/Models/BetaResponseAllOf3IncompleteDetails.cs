@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The reason why the response is incomplete.</summary>
+        /// <summary>The reason why the response is incomplete. `steered` meansthe response stopped at a safe output boundary after aWebSocket `response.steer` event. The server can then createa successor response automatically with the queued input.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetailsReason? Reason { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetails"/> and sets the default values.

@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The Transceiver `rtc_...` ID of the pending SIP session. The samevalue appears as `session_id` in `live.call.incoming`.</summary>
+        /// <summary>The ID of the pending SIP call. Pass this value unchanged whenaccepting or rejecting the call through the Realtime API. For theLive API, use the `session_id` from `live.transport.incoming` instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CallId { get; set; }
@@ -23,13 +23,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string CallId { get; set; }
 #endif
-        /// <summary>Headers from the SIP Invite.</summary>
+        /// <summary>Headers from the SIP INVITE, excluding SIP authorization headers.Retained names, values, repeated entries, and order are preserved.Treat these values as untrusted call metadata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.WebhookRealtimeCallIncomingDataSipHeadersItem>? SipHeaders { get; set; }
 #nullable restore
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.WebhookRealtimeCallIncomingDataSipHeadersItem> SipHeaders { get; set; }
+#endif
+        /// <summary>Media protection selected on the SIP leg during SDP negotiation. `srtp`indicates SRTP; `rtp` indicates unencrypted RTP. Omitted when unknown.This does not describe SIP signaling security or confirm that media hasflowed. Clients should handle unrecognized values as unknown.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebhookRealtimeCallIncomingDataSipMediaSecurity? SipMediaSecurity { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebhookRealtimeCallIncomingDataSipMediaSecurity SipMediaSecurity { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebhookRealtimeCallIncomingData"/> and sets the default values.
@@ -58,6 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "sip_headers", n => { SipHeaders = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.WebhookRealtimeCallIncomingDataSipHeadersItem>(global::Soenneker.OpenAI.OpenApiClient.Models.WebhookRealtimeCallIncomingDataSipHeadersItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "sip_media_security", n => { SipMediaSecurity = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebhookRealtimeCallIncomingDataSipMediaSecurity>(global::Soenneker.OpenAI.OpenApiClient.Models.WebhookRealtimeCallIncomingDataSipMediaSecurity.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -69,6 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("call_id", CallId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.WebhookRealtimeCallIncomingDataSipHeadersItem>("sip_headers", SipHeaders);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebhookRealtimeCallIncomingDataSipMediaSecurity>("sip_media_security", SipMediaSecurity);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

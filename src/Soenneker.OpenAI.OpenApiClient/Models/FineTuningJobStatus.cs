@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The current status of the fine-tuning job, which can be either `validating_files`, `queued`, `running`, `succeeded`, `failed`, or `cancelled`.</summary>
+    /// <summary>The current status of the fine-tuning job, which can be `validating_files`, `queued`, `running`, `pausing`, `paused`, `succeeded`, `failed`, or `cancelled`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum FineTuningJobStatus
     {
@@ -30,6 +30,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "cancelled")]
         #pragma warning disable CS1591
         Cancelled,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "pausing")]
+        #pragma warning disable CS1591
+        Pausing,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "paused")]
+        #pragma warning disable CS1591
+        Paused,
         #pragma warning restore CS1591
     }
 }

@@ -52,6 +52,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Files
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ListFilesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ListFilesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Files.FilesRequestBuilder.FilesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -62,15 +65,24 @@ namespace Soenneker.OpenAI.OpenApiClient.Files
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ListFilesResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ListFilesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ListFilesResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ListFilesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Upload a file that can be used across various endpoints. Individual filescan be up to 512 MB, and each project can store up to 2.5 TB of files intotal. There is no organization-wide storage limit. Uploads to thisendpoint are rate-limited to 1,000 requests per minute per authenticateduser.- The Assistants API supports files up to 2 million tokens and of specific  file types. See the [Assistants Tools guide](/docs/assistants/tools) for  details.- The Fine-tuning API only supports `.jsonl` files. The input also has  certain required formats for fine-tuning  [chat](/docs/api-reference/fine-tuning/chat-input) or  [completions](/docs/api-reference/fine-tuning/completions-input) models.- The Batch API only supports `.jsonl` files up to 200 MB in size. The input  also has a specific required  [format](/docs/api-reference/batch/request-input).- For Retrieval or `file_search` ingestion, upload files here first. If  you need to attach multiple uploaded files to the same vector store, use  [`/vector_stores/{vector_store_id}/file_batches`](/docs/api-reference/vector-stores-file-batches/createBatch)  instead of attaching them one by one. Vector store attachment has separate  limits from file upload, including 2,000 attached files per minute per  organization.Please [contact us](https://help.openai.com/) if you need to increase thesestorage limits.
+        /// Upload a file that can be used across various endpoints. Individual filescan be up to 512 MB, and each project can store up to 2.5 TB of files intotal. There is no organization-wide storage limit. Uploads to thisendpoint are rate-limited to 1,000 requests per minute per authenticateduser.- The Assistants API supports files up to 2 million tokens and of specific  file types. See the [Assistants Tools guide](https://developers.openai.com/api/docs/guides/tools) for  details.- The Fine-tuning API only supports `.jsonl` files. The input also has  certain required formats for fine-tuning  [chat](https://developers.openai.com/api/docs/guides/supervised-fine-tuning#formatting-your-data) or  [completions](https://developers.openai.com/api/docs/guides/supervised-fine-tuning#formatting-your-data) models.- The Batch API only supports `.jsonl` files up to 200 MB in size. The input  also has a specific required  [format](https://developers.openai.com/api/docs/guides/batch#1-prepare-your-batch-file).- For Retrieval or `file_search` ingestion, upload files here first. If  you need to attach multiple uploaded files to the same vector store, use  [`/vector_stores/{vector_store_id}/file_batches`](https://developers.openai.com/api/reference/resources/vector_stores/subresources/file_batches/methods/create)  instead of attaching them one by one. Vector store attachment has separate  limits from file upload, including 2,000 attached files per minute per  organization.Please [contact us](https://help.openai.com/) if you need to increase thesestorage limits.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile?> PostAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -82,7 +94,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Files
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of files.
@@ -104,7 +122,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Files
             return requestInfo;
         }
         /// <summary>
-        /// Upload a file that can be used across various endpoints. Individual filescan be up to 512 MB, and each project can store up to 2.5 TB of files intotal. There is no organization-wide storage limit. Uploads to thisendpoint are rate-limited to 1,000 requests per minute per authenticateduser.- The Assistants API supports files up to 2 million tokens and of specific  file types. See the [Assistants Tools guide](/docs/assistants/tools) for  details.- The Fine-tuning API only supports `.jsonl` files. The input also has  certain required formats for fine-tuning  [chat](/docs/api-reference/fine-tuning/chat-input) or  [completions](/docs/api-reference/fine-tuning/completions-input) models.- The Batch API only supports `.jsonl` files up to 200 MB in size. The input  also has a specific required  [format](/docs/api-reference/batch/request-input).- For Retrieval or `file_search` ingestion, upload files here first. If  you need to attach multiple uploaded files to the same vector store, use  [`/vector_stores/{vector_store_id}/file_batches`](/docs/api-reference/vector-stores-file-batches/createBatch)  instead of attaching them one by one. Vector store attachment has separate  limits from file upload, including 2,000 attached files per minute per  organization.Please [contact us](https://help.openai.com/) if you need to increase thesestorage limits.
+        /// Upload a file that can be used across various endpoints. Individual filescan be up to 512 MB, and each project can store up to 2.5 TB of files intotal. There is no organization-wide storage limit. Uploads to thisendpoint are rate-limited to 1,000 requests per minute per authenticateduser.- The Assistants API supports files up to 2 million tokens and of specific  file types. See the [Assistants Tools guide](https://developers.openai.com/api/docs/guides/tools) for  details.- The Fine-tuning API only supports `.jsonl` files. The input also has  certain required formats for fine-tuning  [chat](https://developers.openai.com/api/docs/guides/supervised-fine-tuning#formatting-your-data) or  [completions](https://developers.openai.com/api/docs/guides/supervised-fine-tuning#formatting-your-data) models.- The Batch API only supports `.jsonl` files up to 200 MB in size. The input  also has a specific required  [format](https://developers.openai.com/api/docs/guides/batch#1-prepare-your-batch-file).- For Retrieval or `file_search` ingestion, upload files here first. If  you need to attach multiple uploaded files to the same vector store, use  [`/vector_stores/{vector_store_id}/file_batches`](https://developers.openai.com/api/reference/resources/vector_stores/subresources/file_batches/methods/create)  instead of attaching them one by one. Vector store attachment has separate  limits from file upload, including 2,000 attached files per minute per  organization.Please [contact us](https://help.openai.com/) if you need to increase thesestorage limits.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

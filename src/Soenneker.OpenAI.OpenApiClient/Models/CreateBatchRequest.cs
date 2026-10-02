@@ -18,7 +18,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.Value24HCompletionWindow? CompletionWindow { get; set; }
         /// <summary>The endpoint to be used for all requests in the batch. Currently `/v1/responses`, `/v1/chat/completions`, `/v1/embeddings`, `/v1/completions`, `/v1/moderations`, `/v1/images/generations`, `/v1/images/edits`, and `/v1/videos` are supported. Note that `/v1/embeddings` batches are also restricted to a maximum of 50,000 embedding inputs across all requests in the batch.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestEndpoint? Endpoint { get; set; }
-        /// <summary>The ID of an uploaded file that contains requests for the new batch.See [upload file](/docs/api-reference/files/create) for how to upload a file.Your input file must be formatted as a [JSONL file](/docs/api-reference/batch/request-input), and must be uploaded with the purpose `batch`. The file can contain up to 50,000 requests, and can be up to 200 MB in size.</summary>
+        /// <summary>The ID of an uploaded file that contains requests for the new batch.See [upload file](https://developers.openai.com/api/reference/resources/files/methods/create) for how to upload a file.Your input file must be formatted as a [JSONL file](https://developers.openai.com/api/docs/guides/batch#1-prepare-your-batch-file), and must be uploaded with the purpose `batch`. The file can contain up to 50,000 requests, and can be up to 200 MB in size.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? InputFileId { get; set; }

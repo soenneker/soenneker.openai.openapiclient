@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// The results of a file search tool call. See the[file search guide](/docs/guides/tools-file-search) for more information.
+    /// The results of a file search tool call. See the[file search guide](https://developers.openai.com/api/docs/guides/tools-file-search) for more information.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FileSearchToolCall : IAdditionalDataHolder, IParsable

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Represents a thread that contains [messages](/docs/api-reference/messages).
+    /// Represents a thread that contains [messages](https://developers.openai.com/api/docs/assistants/migration).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ThreadObject : IAdditionalDataHolder, IParsable

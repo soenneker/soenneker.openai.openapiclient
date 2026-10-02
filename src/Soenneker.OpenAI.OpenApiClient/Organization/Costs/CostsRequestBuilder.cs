@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Costs
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CostsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/costs?start_time={start_time}{&api_key_ids*,bucket_width*,end_time*,group_by*,limit*,page*,project_ids*}", pathParameters)
+        public CostsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/costs?start_time={start_time}{&api_key_ids*,bucket_width*,end_time*,group_by*,limit*,line_items*,page*,project_ids*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Costs
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CostsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/costs?start_time={start_time}{&api_key_ids*,bucket_width*,end_time*,group_by*,limit*,page*,project_ids*}", rawUrl)
+        public CostsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/costs?start_time={start_time}{&api_key_ids*,bucket_width*,end_time*,group_by*,limit*,line_items*,page*,project_ids*}", rawUrl)
         {
         }
         /// <summary>
@@ -39,6 +39,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Costs
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.PermissionErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Organization.Costs.CostsRequestBuilder.CostsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -49,7 +52,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Costs
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.OpenAI.OpenApiClient.Models.PermissionErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.UsageResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get costs details for the organization.
@@ -101,7 +110,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Costs
             /// <summary>End time (Unix seconds) of the query time range, exclusive.</summary>
             [QueryParameter("end_time")]
             public int? EndTime { get; set; }
-            /// <summary>Group the costs by the specified fields. Support fields include `project_id`, `line_item`, `api_key_id` and any combination of them.</summary>
+            /// <summary>Group the costs by the specified fields. Support fields include `project_id`, `line_item`, `api_key_id`, `api_source` and any combination of them. When grouped by `api_source`, results use `agents_api` for attributed Agents API activity and `unlabeled` for all other activity. Without source grouping, `api_source` is null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("group_by")]
@@ -114,6 +123,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Costs
             /// <summary>A limit on the number of buckets to be returned. Limit can range between 1 and 180, and the default is 7.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            /// <summary>Return only costs for these exact line item names. Each value must match the complete `line_item` value, for example `gpt-6-astra, input_tokens`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("line_items")]
+            public string[]? LineItems { get; set; }
+#nullable restore
+#else
+            [QueryParameter("line_items")]
+            public string[] LineItems { get; set; }
+#endif
             /// <summary>A cursor for use in pagination. Corresponding to the `next_page` field from the previous response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationRequestInput Input { get; set; }
 #endif
-        /// <summary>The content moderation model you would like to use. Learn more in[the moderation guide](/docs/guides/moderation), and learn aboutavailable models [here](/docs/models#moderation).</summary>
+        /// <summary>The content moderation model you would like to use. Learn more in[the moderation guide](https://developers.openai.com/api/docs/guides/moderation), and learn aboutavailable models [here](https://developers.openai.com/api/docs/guides/moderation).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationRequestModel? Model { get; set; }

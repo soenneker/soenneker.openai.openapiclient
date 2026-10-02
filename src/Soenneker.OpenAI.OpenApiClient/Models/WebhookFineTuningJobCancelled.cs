@@ -33,7 +33,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The object of the event. Always `event`.</summary>
+        /// <summary>The object type. Always `event`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.EventValueObject? Object { get; set; }
         /// <summary>The type of the event. Always `fine_tuning.job.cancelled`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCancelledType? Type { get; set; }

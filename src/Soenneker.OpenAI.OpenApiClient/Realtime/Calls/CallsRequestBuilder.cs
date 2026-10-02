@@ -18,7 +18,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Realtime.Calls
     public partial class CallsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.realtime.calls.item collection</summary>
-        /// <param name="position">The identifier for the call provided in the[`realtime.call.incoming`](/docs/api-reference/webhook-events/realtime/call/incoming)webhook.</param>
+        /// <param name="position">The identifier for the call provided in the[`realtime.call.incoming`](https://developers.openai.com/api/reference/resources/webhooks#realtime.call.incoming)webhook.</param>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.WithCallItemRequestBuilder"/></returns>
         public global::Soenneker.OpenAI.OpenApiClient.Realtime.Calls.Item.WithCallItemRequestBuilder this[string position]
         {

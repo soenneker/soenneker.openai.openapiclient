@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// The dataset item provided to the grader. This will be used to populate the `item` namespace. See [the guide](/docs/guides/graders) for more details. 
+    /// The dataset item provided to the grader. This will be used to populatethe `item` namespace. See [the guide](https://developers.openai.com/api/docs/guides/graders) for more details.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunGraderRequestItemProperty : IAdditionalDataHolder, IParsable

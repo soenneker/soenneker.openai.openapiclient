@@ -20,11 +20,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Videos.Item
     public partial class WithVideoItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The content property</summary>
+        [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Videos.Item.Content.ContentRequestBuilder Content
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Videos.Item.Content.ContentRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The remix property</summary>
+        [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Videos.Item.Remix.RemixRequestBuilder Remix
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Videos.Item.Remix.RemixRequestBuilder(PathParameters, RequestAdapter);
@@ -51,6 +53,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Videos.Item
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.DeletedVideoResource"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 500 status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.DeletedVideoResource?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -61,7 +67,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Videos.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.DeletedVideoResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.DeletedVideoResource.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.DeletedVideoResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.DeletedVideoResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Fetch the latest metadata for a generated video.
@@ -69,6 +81,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Videos.Item
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -79,13 +94,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Videos.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.VideoResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Permanently delete a completed or failed video and its stored assets.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -105,6 +126,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Videos.Item
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -124,6 +146,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Videos.Item
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Videos.Item.WithVideoItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Videos.Item.WithVideoItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.OpenAI.OpenApiClient.Videos.Item.WithVideoItemRequestBuilder(rawUrl, RequestAdapter);

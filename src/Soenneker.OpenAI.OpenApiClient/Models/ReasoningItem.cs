@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// A description of the chain of thought used by a reasoning model while generatinga response. Be sure to include these items in your `input` to the Responses APIfor subsequent turns of a conversation if you are manually[managing context](/docs/guides/conversation-state).
+    /// A description of the chain of thought used by a reasoning model while generatinga response. Be sure to include these items in your `input` to the Responses APIfor subsequent turns of a conversation if you are manually[managing context](https://developers.openai.com/api/docs/guides/conversation-state).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReasoningItem : IAdditionalDataHolder, IParsable
@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningTextContent> Content { get; set; }
 #endif
-        /// <summary>The encrypted content of the reasoning item. This is populated by defaultfor reasoning items returned by `POST /v1/responses` and WebSocket`response.create` requests.</summary>
+        /// <summary>The encrypted content of the reasoning item. This is populated by defaultfor reasoning items returned by `POST /v1/responses` and WebSocket`response.create` requests.When streaming, use the completed reasoning item and its`encrypted_content` from the `response.output_item.done` event insubsequent requests. The `encrypted_content` in`response.output_item.added` may be incomplete. This is especiallyimportant when `store` is `false` or when using Zero Data Retention.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EncryptedContent { get; set; }

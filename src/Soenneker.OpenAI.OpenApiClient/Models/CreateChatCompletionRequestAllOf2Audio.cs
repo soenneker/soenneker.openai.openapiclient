@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Parameters for audio output. Required when audio output is requested with`modalities: [&quot;audio&quot;]`. [Learn more](/docs/guides/audio).
+    /// Parameters for audio output. Required when audio output is requested with`modalities: [&quot;audio&quot;]`. [Learn more](https://developers.openai.com/api/docs/guides/audio).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateChatCompletionRequestAllOf2Audio : IAdditionalDataHolder, IParsable
@@ -17,7 +17,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies the output audio format. Must be one of `wav`, `mp3`, `flac`,`opus`, or `pcm16`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2AudioFormat? Format { get; set; }
-        /// <summary>The voice the model uses to respond. Supported built-in voices are`alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `nova`, `onyx`,`sage`, `shimmer`, `marin`, and `cedar`. You may also provide acustom voice object with an `id`, for example `{ &quot;id&quot;: &quot;voice_1234&quot; }`.</summary>
+        /// <summary>The voice the model uses to respond. Supported built-in voices are`alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `nova`, `onyx`,`sage`, `shimmer`, `marin`, and `cedar`. You may also provide acustom voice object with an `id`, for example `{ &quot;id&quot;: &quot;voice_1234&quot; }`.Custom voices must be created from audio samples. Voices created from textprompts are supported only in Live.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice? Voice { get; set; }

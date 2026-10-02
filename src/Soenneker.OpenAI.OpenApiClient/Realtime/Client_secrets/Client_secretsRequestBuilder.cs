@@ -34,12 +34,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Realtime.Client_secrets
         {
         }
         /// <summary>
-        /// Create a Realtime client secret with an associated session configuration.Client secrets are short-lived tokens that can be passed to a client app,such as a web frontend or mobile client, which grants access to the Realtime API withoutleaking your main API key. You can configure a custom TTL for each client secret.You can also attach session configuration options to the client secret, which will beapplied to any sessions created using that client secret, but these can also be overriddenby the client connection.[Learn more about authentication with client secrets over WebRTC](/docs/guides/realtime-webrtc).Returns the created client secret and the effective session object. The client secret is a string that looks like `ek_1234`.
+        /// Create a Realtime client secret with an associated session configuration.Client secrets are short-lived tokens that can be passed to a client app,such as a web frontend or mobile client, which grants access to the Realtime API withoutleaking your main API key. You can configure a custom TTL for each client secret.You can also attach session configuration options to the client secret, which will beapplied to any sessions created using that client secret, but these can also be overriddenby the client connection.[Learn more about authentication with client secrets over WebRTC](https://developers.openai.com/api/docs/guides/realtime-webrtc).Returns the created client secret and the effective session object. The client secret is a string that looks like `ek_1234`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretResponse"/></returns>
-        /// <param name="body">Create a session and client secret for the Realtime API. The request can specifyeither a realtime or a transcription session configuration.[Learn more about the Realtime API](/docs/guides/realtime).</param>
+        /// <param name="body">Create a session and client secret for the Realtime API. The request can specifyeither a realtime or a transcription session configuration.[Learn more about the Realtime API](https://developers.openai.com/api/docs/guides/realtime).</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretResponse?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -51,13 +54,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Realtime.Client_secrets
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a Realtime client secret with an associated session configuration.Client secrets are short-lived tokens that can be passed to a client app,such as a web frontend or mobile client, which grants access to the Realtime API withoutleaking your main API key. You can configure a custom TTL for each client secret.You can also attach session configuration options to the client secret, which will beapplied to any sessions created using that client secret, but these can also be overriddenby the client connection.[Learn more about authentication with client secrets over WebRTC](/docs/guides/realtime-webrtc).Returns the created client secret and the effective session object. The client secret is a string that looks like `ek_1234`.
+        /// Create a Realtime client secret with an associated session configuration.Client secrets are short-lived tokens that can be passed to a client app,such as a web frontend or mobile client, which grants access to the Realtime API withoutleaking your main API key. You can configure a custom TTL for each client secret.You can also attach session configuration options to the client secret, which will beapplied to any sessions created using that client secret, but these can also be overriddenby the client connection.[Learn more about authentication with client secrets over WebRTC](https://developers.openai.com/api/docs/guides/realtime-webrtc).Returns the created client secret and the effective session object. The client secret is a string that looks like `ek_1234`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Create a session and client secret for the Realtime API. The request can specifyeither a realtime or a transcription session configuration.[Learn more about the Realtime API](/docs/guides/realtime).</param>
+        /// <param name="body">Create a session and client secret for the Realtime API. The request can specifyeither a realtime or a transcription session configuration.[Learn more about the Realtime API](https://developers.openai.com/api/docs/guides/realtime).</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

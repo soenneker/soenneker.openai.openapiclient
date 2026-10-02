@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Data about a previous audio response from the model.[Learn more](/docs/guides/audio).</summary>
+        /// <summary>Data about a previous audio response from the model.[Learn more](https://developers.openai.com/api/docs/guides/audio).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageAudio? Audio { get; set; }

@@ -39,7 +39,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaJsonSchemaSchema Schema { get; set; }
 #endif
-        /// <summary>Whether to enable strict schema adherence when generating the output.If set to true, the model will always follow the exact schema definedin the `schema` field. Only a subset of JSON Schema is supported when`strict` is `true`. To learn more, read the [Structured Outputsguide](/docs/guides/structured-outputs).</summary>
+        /// <summary>Whether to enable strict schema adherence when generating the output.If set to true, the model will always follow the exact schema definedin the `schema` field. Only a subset of JSON Schema is supported when`strict` is `true`. To learn more, read the [Structured Outputsguide](https://developers.openai.com/api/docs/guides/structured-outputs).</summary>
         public bool? Strict { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaJsonSchema"/> and sets the default values.

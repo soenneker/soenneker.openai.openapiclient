@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -35,6 +36,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string OwnedBy { get; set; }
 #endif
+        /// <summary>The date when the model will shut down, or null if not announced.</summary>
+        public Date? ShutdownDate { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ModelValue"/> and sets the default values.
         /// </summary>
@@ -64,6 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelObject>(); } },
                 { "owned_by", n => { OwnedBy = n.GetStringValue(); } },
+                { "shutdown_date", n => { ShutdownDate = n.GetDateValue(); } },
             };
         }
         /// <summary>
@@ -77,6 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelObject>("object", Object);
             writer.WriteStringValue("owned_by", OwnedBy);
+            writer.WriteDateValue("shutdown_date", ShutdownDate);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -23,6 +23,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string ApiKeyId { get; set; }
 #endif
+        /// <summary>When grouped by `api_source`, `agents_api` identifies attributed Agents API activity and `unlabeled` includes all records without published source attribution, including historical and unknown origins. Unlabeled does not imply direct API usage. Without source grouping, this field is null.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultApiSource? ApiSource { get; set; }
         /// <summary>When `group_by=context_level`, this field provides the search context size of the grouped usage result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -87,6 +89,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "api_key_id", n => { ApiKeyId = n.GetStringValue(); } },
+                { "api_source", n => { ApiSource = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultApiSource>(); } },
                 { "context_level", n => { ContextLevel = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "num_model_requests", n => { NumModelRequests = n.GetIntValue(); } },
@@ -104,6 +107,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_id", ApiKeyId);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UsageWebSearchCallsResultApiSource>("api_source", ApiSource);
             writer.WriteStringValue("context_level", ContextLevel);
             writer.WriteStringValue("model", Model);
             writer.WriteIntValue("num_model_requests", NumModelRequests);

@@ -3,18 +3,10 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The quality of the image that will be generated.- `auto` (default value) will automatically select the best quality for the given model.- `high`, `medium` and `low` are supported for the GPT image models.- `hd` and `standard` are supported for `dall-e-3`.- `standard` is the only option for `dall-e-2`.</summary>
+    /// <summary>The quality of the image that will be generated.- `auto` (default value) will automatically select the best quality for the given  model.- `high`, `medium` and `low` are supported for the GPT image models.- `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08`  snapshots, also support `xhigh` and `max`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateImageRequestQuality
     {
-        [EnumMember(Value = "standard")]
-        #pragma warning disable CS1591
-        Standard,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "hd")]
-        #pragma warning disable CS1591
-        Hd,
-        #pragma warning restore CS1591
         [EnumMember(Value = "low")]
         #pragma warning disable CS1591
         Low,
@@ -27,9 +19,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         High,
         #pragma warning restore CS1591
+        [EnumMember(Value = "xhigh")]
+        #pragma warning disable CS1591
+        Xhigh,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "max")]
+        #pragma warning disable CS1591
+        Max,
+        #pragma warning restore CS1591
         [EnumMember(Value = "auto")]
         #pragma warning disable CS1591
         Auto,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "standard")]
+        #pragma warning disable CS1591
+        Standard,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "hd")]
+        #pragma warning disable CS1591
+        Hd,
         #pragma warning restore CS1591
     }
 }

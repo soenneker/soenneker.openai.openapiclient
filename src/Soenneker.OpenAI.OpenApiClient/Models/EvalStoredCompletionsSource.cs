@@ -29,7 +29,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsSourceMetadata Metadata { get; set; }
 #endif
-        /// <summary>An optional model to filter by (e.g., &apos;gpt-4o&apos;).</summary>
+        /// <summary>An optional model to filter by (e.g., &apos;gpt-6-astra&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }

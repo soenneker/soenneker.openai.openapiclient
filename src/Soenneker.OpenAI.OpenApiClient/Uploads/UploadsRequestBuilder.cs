@@ -47,12 +47,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Uploads
         {
         }
         /// <summary>
-        /// Creates an intermediate [Upload](/docs/api-reference/uploads/object) objectthat you can add [Parts](/docs/api-reference/uploads/part-object) to.Currently, an Upload can accept at most 8 GB in total and expires after anhour after you create it.Once you complete the Upload, we will create a[File](/docs/api-reference/files/object) object that contains all the partsyou uploaded. This File is usable in the rest of our platform as a regularFile object.For certain `purpose` values, the correct `mime_type` must be specified. Please refer to documentation for the [supported MIME types for your use case](/docs/assistants/tools/file-search#supported-files).For guidance on the proper filename extensions for each purpose, pleasefollow the documentation on [creating aFile](/docs/api-reference/files/create).Returns the Upload object with status `pending`.
+        /// Creates an intermediate [Upload](https://developers.openai.com/api/reference/resources/uploads) objectthat you can add [Parts](https://developers.openai.com/api/reference/resources/uploads/subresources/parts) to.Currently, an Upload can accept at most 8 GB in total and expires after anhour after you create it.Once you complete the Upload, we will create a[File](https://developers.openai.com/api/reference/resources/files) object that contains all the partsyou uploaded. This File is usable in the rest of our platform as a regularFile object.For certain `purpose` values, the correct `mime_type` must be specified.Please refer to documentation for the[supported MIME types for your use case](https://developers.openai.com/api/docs/guides/tools-file-search#supported-files).For guidance on the proper filename extensions for each purpose, pleasefollow the documentation on [creating aFile](https://developers.openai.com/api/reference/resources/files/methods/create).Returns the Upload object with status `pending`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Upload"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.Upload?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -64,10 +66,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Uploads
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.Upload>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.Upload.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.Upload>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.Upload.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates an intermediate [Upload](/docs/api-reference/uploads/object) objectthat you can add [Parts](/docs/api-reference/uploads/part-object) to.Currently, an Upload can accept at most 8 GB in total and expires after anhour after you create it.Once you complete the Upload, we will create a[File](/docs/api-reference/files/object) object that contains all the partsyou uploaded. This File is usable in the rest of our platform as a regularFile object.For certain `purpose` values, the correct `mime_type` must be specified. Please refer to documentation for the [supported MIME types for your use case](/docs/assistants/tools/file-search#supported-files).For guidance on the proper filename extensions for each purpose, pleasefollow the documentation on [creating aFile](/docs/api-reference/files/create).Returns the Upload object with status `pending`.
+        /// Creates an intermediate [Upload](https://developers.openai.com/api/reference/resources/uploads) objectthat you can add [Parts](https://developers.openai.com/api/reference/resources/uploads/subresources/parts) to.Currently, an Upload can accept at most 8 GB in total and expires after anhour after you create it.Once you complete the Upload, we will create a[File](https://developers.openai.com/api/reference/resources/files) object that contains all the partsyou uploaded. This File is usable in the rest of our platform as a regularFile object.For certain `purpose` values, the correct `mime_type` must be specified.Please refer to documentation for the[supported MIME types for your use case](https://developers.openai.com/api/docs/guides/tools-file-search#supported-files).For guidance on the proper filename extensions for each purpose, pleasefollow the documentation on [creating aFile](https://developers.openai.com/api/reference/resources/files/methods/create).Returns the Upload object with status `pending`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

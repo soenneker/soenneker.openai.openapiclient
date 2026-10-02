@@ -6,6 +6,7 @@ using Microsoft.Kiota.Serialization.Form;
 using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
+using Soenneker.OpenAI.OpenApiClient.Agents;
 using Soenneker.OpenAI.OpenApiClient.Assistants;
 using Soenneker.OpenAI.OpenApiClient.Audio;
 using Soenneker.OpenAI.OpenApiClient.Batches;
@@ -20,6 +21,7 @@ using Soenneker.OpenAI.OpenApiClient.Evals;
 using Soenneker.OpenAI.OpenApiClient.Files;
 using Soenneker.OpenAI.OpenApiClient.Fine_tuning;
 using Soenneker.OpenAI.OpenApiClient.Images;
+using Soenneker.OpenAI.OpenApiClient.Live;
 using Soenneker.OpenAI.OpenApiClient.ModelsRequests;
 using Soenneker.OpenAI.OpenApiClient.Moderations;
 using Soenneker.OpenAI.OpenApiClient.Organization;
@@ -27,11 +29,15 @@ using Soenneker.OpenAI.OpenApiClient.Projects;
 using Soenneker.OpenAI.OpenApiClient.Realtime;
 using Soenneker.OpenAI.OpenApiClient.Responses;
 using Soenneker.OpenAI.OpenApiClient.ResponsesBetaTrue;
+using Soenneker.OpenAI.OpenApiClient.Safety;
 using Soenneker.OpenAI.OpenApiClient.Skills;
 using Soenneker.OpenAI.OpenApiClient.Threads;
 using Soenneker.OpenAI.OpenApiClient.Uploads;
+using Soenneker.OpenAI.OpenApiClient.Vaults;
 using Soenneker.OpenAI.OpenApiClient.Vector_stores;
 using Soenneker.OpenAI.OpenApiClient.Videos;
+using Soenneker.OpenAI.OpenApiClient.Webhook_endpoints;
+using Soenneker.OpenAI.OpenApiClient.Webhook_event_types;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -44,6 +50,11 @@ namespace Soenneker.OpenAI.OpenApiClient
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OpenAIOpenApiClient : BaseRequestBuilder
     {
+        /// <summary>The agents property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Agents.AgentsRequestBuilder Agents
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Agents.AgentsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The assistants property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Assistants.AssistantsRequestBuilder Assistants
         {
@@ -114,6 +125,11 @@ namespace Soenneker.OpenAI.OpenApiClient
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Images.ImagesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The live property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Live.LiveRequestBuilder Live
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Live.LiveRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The models property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.ModelsRequests.ModelsRequestBuilder Models
         {
@@ -149,6 +165,11 @@ namespace Soenneker.OpenAI.OpenApiClient
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.ResponsesBetaTrue.ResponsesBetaTrueRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The safety property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Safety.SafetyRequestBuilder Safety
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Safety.SafetyRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The skills property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Skills.SkillsRequestBuilder Skills
         {
@@ -164,6 +185,11 @@ namespace Soenneker.OpenAI.OpenApiClient
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Uploads.UploadsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The vaults property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Vaults.VaultsRequestBuilder Vaults
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Vaults.VaultsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The vector_stores property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Vector_storesRequestBuilder Vector_stores
         {
@@ -173,6 +199,16 @@ namespace Soenneker.OpenAI.OpenApiClient
         public global::Soenneker.OpenAI.OpenApiClient.Videos.VideosRequestBuilder Videos
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Videos.VideosRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The webhook_endpoints property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Webhook_endpoints.Webhook_endpointsRequestBuilder Webhook_endpoints
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Webhook_endpoints.Webhook_endpointsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The webhook_event_types property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Webhook_event_types.Webhook_event_typesRequestBuilder Webhook_event_types
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Webhook_event_types.Webhook_event_typesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.OpenAIOpenApiClient"/> and sets the default values.

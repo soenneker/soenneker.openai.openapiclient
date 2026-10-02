@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The quality of the image generated. Either `low`, `medium`, or `high`.</summary>
+    /// <summary>The quality of the image generated. One of `low`, `medium`, `high`, `xhigh`, or `max`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ImagesResponseQuality
     {
@@ -18,6 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "high")]
         #pragma warning disable CS1591
         High,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "xhigh")]
+        #pragma warning disable CS1591
+        Xhigh,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "max")]
+        #pragma warning disable CS1591
+        Max,
         #pragma warning restore CS1591
     }
 }

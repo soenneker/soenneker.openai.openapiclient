@@ -25,6 +25,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Message { get; set; }
 #endif
+        /// <summary>The misalignment property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMisalignmentErrorDetailsResource? Misalignment { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMisalignmentErrorDetailsResource Misalignment { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseError"/> and sets the default values.
         /// </summary>
@@ -52,6 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "code", n => { Code = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseErrorCode>(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
+                { "misalignment", n => { Misalignment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMisalignmentErrorDetailsResource>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMisalignmentErrorDetailsResource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -63,6 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseErrorCode>("code", Code);
             writer.WriteStringValue("message", Message);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMisalignmentErrorDetailsResource>("misalignment", Misalignment);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

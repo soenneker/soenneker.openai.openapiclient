@@ -8,11 +8,19 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Client event for creating a response over a persistent WebSocket connection.This payload uses the same top-level fields as `POST /v1/responses`.Notes:- `stream` is implicit over WebSocket and should not be sent.- `background` is not supported over WebSocket.
+    /// Client event for creating a response over a persistent WebSocket connection.This payload uses the same top-level fields as `POST /v1/responses`, plusWebSocket-only envelope metadata.Notes:- `stream` is implicit over WebSocket and should not be sent.- `background` is not supported over WebSocket.- `stream_id` is WebSocket-only and is not part of `POST /v1/responses`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaResponsesClientEventResponseCreate : global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody, IParsable
     {
+        /// <summary>The WebSocket lane for this response. Requests with the same`stream_id` are processed FIFO, and events for the response echo thesame `stream_id`.`stream_id` controls routing; `previous_response_id` controlsconversation lineage, so a new lane can fork from a response createdon another lane.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StreamId { get; set; }
+#nullable restore
+#else
+        public string StreamId { get; set; }
+#endif
         /// <summary>The event type, must be `response.create`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseCreateType? Type { get; set; }
         /// <summary>
@@ -33,6 +41,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "stream_id", n => { StreamId = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseCreateType>(); } },
             };
         }
@@ -44,6 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteStringValue("stream_id", StreamId);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseCreateType>("type", Type);
         }
     }

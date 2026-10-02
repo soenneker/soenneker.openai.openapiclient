@@ -8,14 +8,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public enum CreateImageEditRequestSizeAnyOf2
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "256x256")]
-        #pragma warning disable CS1591
-        Value256X256,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "512x512")]
-        #pragma warning disable CS1591
-        Value512X512,
-        #pragma warning restore CS1591
         [EnumMember(Value = "1024x1024")]
         #pragma warning disable CS1591
         Value1024X1024,
@@ -31,6 +23,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "auto")]
         #pragma warning disable CS1591
         Auto,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "256x256")]
+        #pragma warning disable CS1591
+        Value256X256,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "512x512")]
+        #pragma warning disable CS1591
+        Value512X512,
         #pragma warning restore CS1591
     }
 }

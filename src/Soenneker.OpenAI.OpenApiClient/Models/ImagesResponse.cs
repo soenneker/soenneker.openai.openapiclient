@@ -29,10 +29,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The output format of the image generation. Either `png`, `webp`, or `jpeg`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseOutputFormat? OutputFormat { get; set; }
-        /// <summary>The quality of the image generated. Either `low`, `medium`, or `high`.</summary>
+        /// <summary>The quality of the image generated. One of `low`, `medium`, `high`, `xhigh`, or `max`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseQuality? Quality { get; set; }
-        /// <summary>The size of the image generated. Either `1024x1024`, `1024x1536`, or `1536x1024`.</summary>
+        /// <summary>The image dimensions as a `WIDTHxHEIGHT` string, for example `1536x864`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseSize? Size { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseSize Size { get; set; }
+#endif
         /// <summary>For `gpt-image-1` only, the token usage information for the image generation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Image>(global::Soenneker.OpenAI.OpenApiClient.Models.Image.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "output_format", n => { OutputFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseOutputFormat>(); } },
                 { "quality", n => { Quality = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseQuality>(); } },
-                { "size", n => { Size = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseSize>(); } },
+                { "size", n => { Size = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseSize>(global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseSize.CreateFromDiscriminatorValue); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenUsage.CreateFromDiscriminatorValue); } },
             };
         }
@@ -87,7 +93,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Image>("data", Data);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseOutputFormat>("output_format", OutputFormat);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseQuality>("quality", Quality);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseSize>("size", Size);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseSize>("size", Size);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenUsage>("usage", Usage);
             writer.WriteAdditionalData(AdditionalData);
         }

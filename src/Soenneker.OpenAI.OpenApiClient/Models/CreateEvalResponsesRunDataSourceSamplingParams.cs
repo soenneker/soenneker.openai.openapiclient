@@ -16,13 +16,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum number of tokens in the generated output.</summary>
         public int? MaxCompletionTokens { get; set; }
-        /// <summary>Constrains effort on reasoning for reasoning models. Currently supportedvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.Reducing reasoning effort can result in faster responses and fewer tokensused on reasoning in a response. Not all reasoning models support everyvalue. See the[reasoning guide](https://platform.openai.com/docs/guides/reasoning)for model-specific support.</summary>
+        /// <summary>Constrains effort on reasoning for reasoning models. Currently supportedvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.Reducing reasoning effort can result in faster responses and fewer tokensused on reasoning in a response. Not all reasoning models support everyvalue. See the[reasoning guide](https://developers.openai.com/api/docs/guides/reasoning)for model-specific support.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? ReasoningEffort { get; set; }
         /// <summary>A seed value to initialize the randomness, during sampling.</summary>
         public int? Seed { get; set; }
         /// <summary>A higher temperature increases randomness in the outputs.</summary>
         public double? Temperature { get; set; }
-        /// <summary>Configuration options for a text response from the model. Can be plaintext or structured JSON data. Learn more:- [Text inputs and outputs](/docs/guides/text)- [Structured Outputs](/docs/guides/structured-outputs)</summary>
+        /// <summary>Configuration options for a text response from the model. Can be plaintext or structured JSON data. Learn more:- [Text inputs and outputs](https://developers.openai.com/api/docs/guides/text)- [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSamplingParamsText? Text { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSamplingParamsText Text { get; set; }
 #endif
-        /// <summary>An array of tools the model may call while generating a response. Youcan specify which tool to use by setting the `tool_choice` parameter.The two categories of tools you can provide the model are:- **Built-in tools**: Tools that are provided by OpenAI that extend the  model&apos;s capabilities, like [web search](/docs/guides/tools-web-search)  or [file search](/docs/guides/tools-file-search). Learn more about  [built-in tools](/docs/guides/tools).- **Function calls (custom tools)**: Functions that are defined by you,  enabling the model to call your own code. Learn more about  [function calling](/docs/guides/function-calling).</summary>
+        /// <summary>An array of tools the model may call while generating a response. Youcan specify which tool to use by setting the `tool_choice` parameter.The two categories of tools you can provide the model are:- **Built-in tools**: Tools that are provided by OpenAI that extend the  model&apos;s capabilities, like [web search](https://developers.openai.com/api/docs/guides/tools-web-search)  or [file search](https://developers.openai.com/api/docs/guides/tools-file-search). Learn more about  [built-in tools](https://developers.openai.com/api/docs/guides/tools).- **Function calls (custom tools)**: Functions that are defined by you,  enabling the model to call your own code. Learn more about  [function calling](https://developers.openai.com/api/docs/guides/function-calling).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.Tool>? Tools { get; set; }

@@ -124,6 +124,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegistered? ExternalStorageRegistered { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegistered ExternalStorageRegistered { get; set; }
+#endif
+        /// <summary>The details for events with this `type`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRemoved? ExternalStorageRemoved { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRemoved ExternalStorageRemoved { get; set; }
+#endif
+        /// <summary>The details for events with this `type`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated? GroupCreated { get; set; }
 #nullable restore
 #else
@@ -522,6 +538,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "effective_at", n => { EffectiveAt = n.GetIntValue(); } },
                 { "external_key.registered", n => { ExternalKeyRegistered = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered.CreateFromDiscriminatorValue); } },
                 { "external_key.removed", n => { ExternalKeyRemoved = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved.CreateFromDiscriminatorValue); } },
+                { "external_storage.registered", n => { ExternalStorageRegistered = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegistered>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegistered.CreateFromDiscriminatorValue); } },
+                { "external_storage.removed", n => { ExternalStorageRemoved = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRemoved>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRemoved.CreateFromDiscriminatorValue); } },
                 { "group.created", n => { GroupCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated.CreateFromDiscriminatorValue); } },
                 { "group.deleted", n => { GroupDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupDeleted.CreateFromDiscriminatorValue); } },
                 { "group.updated", n => { GroupUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupUpdated.CreateFromDiscriminatorValue); } },
@@ -591,6 +609,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("effective_at", EffectiveAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered>("external_key.registered", ExternalKeyRegistered);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved>("external_key.removed", ExternalKeyRemoved);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegistered>("external_storage.registered", ExternalStorageRegistered);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRemoved>("external_storage.removed", ExternalStorageRemoved);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated>("group.created", GroupCreated);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupDeleted>("group.deleted", GroupDeleted);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupUpdated>("group.updated", GroupUpdated);

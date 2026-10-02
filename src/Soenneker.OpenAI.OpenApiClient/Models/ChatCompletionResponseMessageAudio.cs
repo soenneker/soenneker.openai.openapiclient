@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// If the audio output modality is requested, this object contains dataabout the audio response from the model. [Learn more](/docs/guides/audio).
+    /// If the audio output modality is requested, this object contains dataabout the audio response from the model. [Learn more](https://developers.openai.com/api/docs/guides/audio).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatCompletionResponseMessageAudio : IAdditionalDataHolder, IParsable

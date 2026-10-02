@@ -38,7 +38,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string MimeType { get; set; }
 #endif
-        /// <summary>The intended purpose of the uploaded file.See the [documentation on Filepurposes](/docs/api-reference/files/create#files-create-purpose).</summary>
+        /// <summary>The intended purpose of the uploaded file.See the [documentation on Filepurposes](https://developers.openai.com/api/reference/resources/files/methods/create#%28resource%29%20files%20%3E%20%28method%29%20create%20%3E%20%28params%29%200%20%3E%20%28param%29%20purpose%20%3E%20%28schema%29).</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateUploadRequestPurpose? Purpose { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

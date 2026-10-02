@@ -39,7 +39,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretResponseSession();
-            if("RealtimeSessionCreateResponseGa".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("realtime".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RealtimeSessionCreateResponseGa = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGa();
             }

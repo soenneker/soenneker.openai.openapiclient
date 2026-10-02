@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestGrader Grader { get; set; }
 #endif
-        /// <summary>The dataset item provided to the grader. This will be used to populate the `item` namespace. See [the guide](/docs/guides/graders) for more details. </summary>
+        /// <summary>The dataset item provided to the grader. This will be used to populatethe `item` namespace. See [the guide](https://developers.openai.com/api/docs/guides/graders) for more details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestItemProperty? Item { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestItemProperty Item { get; set; }
 #endif
-        /// <summary>The model sample to be evaluated. This value will be used to populate the `sample` namespace. See [the guide](/docs/guides/graders) for more details.The `output_json` variable will be populated if the model sample is a valid JSON string. </summary>
+        /// <summary>The model sample to be evaluated. This value will be used to populatethe `sample` namespace. See [the guide](https://developers.openai.com/api/docs/guides/graders) for more details.The `output_json` variable will be populated if the model sample is avalid JSON string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ModelSample { get; set; }

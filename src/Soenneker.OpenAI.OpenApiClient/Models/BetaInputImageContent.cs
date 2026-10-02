@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// An image input to the model. Learn about [image inputs](/docs/guides/vision).
+    /// An image input to the model. Learn about [image inputs](https://developers.openai.com/api/docs/guides/images-vision).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaInputImageContent : IAdditionalDataHolder, IParsable

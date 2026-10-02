@@ -52,6 +52,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Chat.Completions
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionList"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionList?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Chat.Completions.CompletionsRequestBuilder.CompletionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -62,15 +65,27 @@ namespace Soenneker.OpenAI.OpenApiClient.Chat.Completions
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionList>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionList.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionList>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// **Starting a new project?** We recommend trying [Responses](/docs/api-reference/responses)to take advantage of the latest OpenAI platform features. Compare[Chat Completions with Responses](/docs/guides/responses-vs-chat-completions?api-mode=responses).---Creates a model response for the given chat conversation. Learn more in the[text generation](/docs/guides/text-generation), [vision](/docs/guides/vision),and [audio](/docs/guides/audio) guides.Parameter support can differ depending on the model used to generate theresponse, particularly for newer reasoning models. Parameters that are onlysupported for reasoning models are noted below. For the current state ofunsupported parameters in reasoning models,[refer to the reasoning guide](/docs/guides/reasoning).Returns a chat completion object, or a streamed sequence of chat completionchunk objects if the request is streamed.
+        /// **Starting a new project?** We recommend trying [Responses](https://developers.openai.com/api/reference/resources/responses)to take advantage of the latest OpenAI platform features. Compare[Chat Completions with Responses](https://developers.openai.com/api/docs/guides/migrate-to-responses?api-mode=responses).---Creates a model response for the given chat conversation. Learn more in the[text generation](https://developers.openai.com/api/docs/guides/text), [vision](https://developers.openai.com/api/docs/guides/images-vision),and [audio](https://developers.openai.com/api/docs/guides/audio) guides.Parameter support can differ depending on the model used to generate theresponse, particularly for newer reasoning models. Parameters that are onlysupported for reasoning models are noted below. For the current state ofunsupported parameters in reasoning models,[refer to the reasoning guide](https://developers.openai.com/api/docs/guides/reasoning).Returns a chat completion object, or a streamed sequence of chat completionchunk objects if the request is streamed.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -82,7 +97,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Chat.Completions
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List stored Chat Completions. Only Chat Completions that have been storedwith the `store` parameter set to `true` will be returned.
@@ -104,7 +128,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Chat.Completions
             return requestInfo;
         }
         /// <summary>
-        /// **Starting a new project?** We recommend trying [Responses](/docs/api-reference/responses)to take advantage of the latest OpenAI platform features. Compare[Chat Completions with Responses](/docs/guides/responses-vs-chat-completions?api-mode=responses).---Creates a model response for the given chat conversation. Learn more in the[text generation](/docs/guides/text-generation), [vision](/docs/guides/vision),and [audio](/docs/guides/audio) guides.Parameter support can differ depending on the model used to generate theresponse, particularly for newer reasoning models. Parameters that are onlysupported for reasoning models are noted below. For the current state ofunsupported parameters in reasoning models,[refer to the reasoning guide](/docs/guides/reasoning).Returns a chat completion object, or a streamed sequence of chat completionchunk objects if the request is streamed.
+        /// **Starting a new project?** We recommend trying [Responses](https://developers.openai.com/api/reference/resources/responses)to take advantage of the latest OpenAI platform features. Compare[Chat Completions with Responses](https://developers.openai.com/api/docs/guides/migrate-to-responses?api-mode=responses).---Creates a model response for the given chat conversation. Learn more in the[text generation](https://developers.openai.com/api/docs/guides/text), [vision](https://developers.openai.com/api/docs/guides/images-vision),and [audio](https://developers.openai.com/api/docs/guides/audio) guides.Parameter support can differ depending on the model used to generate theresponse, particularly for newer reasoning models. Parameters that are onlysupported for reasoning models are noted below. For the current state ofunsupported parameters in reasoning models,[refer to the reasoning guide](https://developers.openai.com/api/docs/guides/reasoning).Returns a chat completion object, or a streamed sequence of chat completionchunk objects if the request is streamed.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// This tool searches the web for relevant results to use in a response.Learn more about the [web search tool](/docs/guides/tools-web-search?api-mode=chat).
+    /// This tool searches the web for relevant results to use in a response.Learn more about the [web search tool](https://developers.openai.com/api/docs/guides/tools-web-search).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateChatCompletionRequestAllOf2WebSearchOptions : IAdditionalDataHolder, IParsable

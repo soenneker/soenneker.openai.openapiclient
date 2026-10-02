@@ -34,12 +34,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses.Item.Cancel
         {
         }
         /// <summary>
-        /// Cancels a model response with the given ID. Only responses created withthe `background` parameter set to `true` can be cancelled. [Learn more](/docs/guides/background).
+        /// Cancels a model response with the given ID. Only responses created withthe `background` parameter set to `true` can be cancelled.[Learn more](https://developers.openai.com/api/docs/guides/background).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -52,12 +53,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses.Item.Cancel
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "404", global::Soenneker.OpenAI.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Cancels a model response with the given ID. Only responses created withthe `background` parameter set to `true` can be cancelled. [Learn more](/docs/guides/background).
+        /// Cancels a model response with the given ID. Only responses created withthe `background` parameter set to `true` can be cancelled.[Learn more](https://developers.openai.com/api/docs/guides/background).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

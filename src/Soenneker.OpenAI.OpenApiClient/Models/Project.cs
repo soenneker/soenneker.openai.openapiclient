@@ -45,6 +45,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The object type, which is always `organization.project`</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectObject? Object { get; set; }
+        /// <summary>The residency configuration for the project.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicProjectResidency? Residency { get; set; }
         /// <summary>`active` or `archived`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,6 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectObject>(); } },
+                { "residency", n => { Residency = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicProjectResidency>(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
             };
         }
@@ -100,6 +103,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectObject>("object", Object);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicProjectResidency>("residency", Residency);
             writer.WriteStringValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }

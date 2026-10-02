@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The image generation model to use. Default: `gpt-image-1`.</summary>
+    /// <summary>The image generation model to use. One of `gpt-image-1`,`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,`gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`,`gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`,`gpt-image-2.5-flare-2026-09-08`, or `chatgpt-image-latest`. Default:`gpt-image-1`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ImageGenToolModelWrapperValue
     {
@@ -18,6 +18,30 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "gpt-image-1.5")]
         #pragma warning disable CS1591
         GptImage15,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-image-2")]
+        #pragma warning disable CS1591
+        GptImage2,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-image-2-2026-04-21")]
+        #pragma warning disable CS1591
+        GptImage220260421,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-image-2.5-sunburst")]
+        #pragma warning disable CS1591
+        GptImage25Sunburst,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-image-2.5-sunburst-2026-09-08")]
+        #pragma warning disable CS1591
+        GptImage25Sunburst20260908,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-image-2.5-flare")]
+        #pragma warning disable CS1591
+        GptImage25Flare,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-image-2.5-flare-2026-09-08")]
+        #pragma warning disable CS1591
+        GptImage25Flare20260908,
         #pragma warning restore CS1591
     }
 }

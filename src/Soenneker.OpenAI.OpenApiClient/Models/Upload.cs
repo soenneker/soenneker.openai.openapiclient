@@ -24,10 +24,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The ready File object after the Upload is completed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UploadFile? File { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile? File { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UploadFile File { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile File { get; set; }
 #endif
         /// <summary>The name of the file to be uploaded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,7 +47,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The object type, which is always &quot;upload&quot;.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.UploadObject? Object { get; set; }
-        /// <summary>The intended purpose of the file. [Please refer here](/docs/api-reference/files/object#files/object-purpose) for acceptable values.</summary>
+        /// <summary>The intended purpose of the file. [Please refer here](https://developers.openai.com/api/reference/resources/files#%28resource%29%20files%20%3E%20%28model%29%20file_object%20%3E%20%28schema%29%20%3E%20%28property%29%20purpose) for acceptable values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Purpose { get; set; }
@@ -85,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "bytes", n => { Bytes = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
-                { "file", n => { File = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UploadFile>(global::Soenneker.OpenAI.OpenApiClient.Models.UploadFile.CreateFromDiscriminatorValue); } },
+                { "file", n => { File = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile>(global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile.CreateFromDiscriminatorValue); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UploadObject>(); } },
@@ -103,7 +103,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("bytes", Bytes);
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteIntValue("expires_at", ExpiresAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UploadFile>("file", File);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFile>("file", File);
             writer.WriteStringValue("filename", Filename);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UploadObject>("object", Object);

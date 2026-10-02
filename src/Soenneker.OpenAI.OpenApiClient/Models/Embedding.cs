@@ -15,13 +15,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The embedding vector, which is a list of floats. The length of vector depends on the model as listed in the [embedding guide](/docs/guides/embeddings).</summary>
+        /// <summary>The embedding vector, returned as a list of floats when `encoding_format` is `float` (the default), or as a base64-encoded string when `encoding_format` is `base64`. The length of the vector depends on the model as listed in the [embedding guide](https://developers.openai.com/api/docs/guides/embeddings).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<float?>? EmbeddingProp { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EmbeddingEmbedding? EmbeddingProp { get; set; }
 #nullable restore
 #else
-        public List<float?> EmbeddingProp { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EmbeddingEmbedding EmbeddingProp { get; set; }
 #endif
         /// <summary>The index of the embedding in the list of embeddings.</summary>
         public int? Index { get; set; }
@@ -52,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "embedding", n => { EmbeddingProp = n.GetCollectionOfPrimitiveValues<float?>()?.AsList(); } },
+                { "embedding", n => { EmbeddingProp = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EmbeddingEmbedding>(global::Soenneker.OpenAI.OpenApiClient.Models.EmbeddingEmbedding.CreateFromDiscriminatorValue); } },
                 { "index", n => { Index = n.GetIntValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EmbeddingObject>(); } },
             };
@@ -64,7 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<float?>("embedding", EmbeddingProp);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EmbeddingEmbedding>("embedding", EmbeddingProp);
             writer.WriteIntValue("index", Index);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EmbeddingObject>("object", Object);
             writer.WriteAdditionalData(AdditionalData);

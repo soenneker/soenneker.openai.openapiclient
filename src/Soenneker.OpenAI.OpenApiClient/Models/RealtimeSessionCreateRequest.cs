@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string OutputAudioFormat { get; set; }
 #endif
-        /// <summary>Reference to a prompt template and its variables.[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).</summary>
+        /// <summary>Reference to a prompt template and its variables.[Learn more](https://developers.openai.com/api/docs/guides/text?api-mode=responses#version-prompts-in-code).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.Prompt? Prompt { get; set; }
@@ -123,7 +123,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestTurnDetection TurnDetection { get; set; }
 #endif
-        /// <summary>The voice the model uses to respond. Supported built-in voices are`alloy`, `ash`, `ballad`, `coral`, `echo`, `sage`, `shimmer`, `verse`,`marin`, and `cedar`. You may also provide a custom voice object with an`id`, for example `{ &quot;id&quot;: &quot;voice_1234&quot; }`. Voice cannot be changed duringthe session once the model has responded with audio at least once.</summary>
+        /// <summary>The voice the model uses to respond. Supported built-in voices are`alloy`, `ash`, `ballad`, `coral`, `echo`, `sage`, `shimmer`, `verse`,`marin`, and `cedar`. You may also provide a custom voice object with an`id`, for example `{ &quot;id&quot;: &quot;voice_1234&quot; }`. Voice cannot be changed duringthe session once the model has responded with audio at least once.Custom voices must be created from audio samples. Voices created from text prompts are supported only in Live.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice? Voice { get; set; }

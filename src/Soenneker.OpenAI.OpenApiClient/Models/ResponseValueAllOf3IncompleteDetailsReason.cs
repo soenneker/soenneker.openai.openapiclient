@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The reason why the response is incomplete.</summary>
+    /// <summary>The reason why the response is incomplete. `steered` meansthe response stopped at a safe output boundary after aWebSocket `response.steer` event. The server can then createa successor response automatically with the queued input.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ResponseValueAllOf3IncompleteDetailsReason
     {
@@ -11,9 +11,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         MaxOutputTokens,
         #pragma warning restore CS1591
+        [EnumMember(Value = "max_messages")]
+        #pragma warning disable CS1591
+        MaxMessages,
+        #pragma warning restore CS1591
         [EnumMember(Value = "content_filter")]
         #pragma warning disable CS1591
         ContentFilter,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "steered")]
+        #pragma warning disable CS1591
+        Steered,
         #pragma warning restore CS1591
     }
 }

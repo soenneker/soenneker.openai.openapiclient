@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaAdditionalTools"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentMessage"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaApplyPatchToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaApplyPatchToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactionBody"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallOutputResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallOutputResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputMessageResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpApprovalRequest"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpApprovalResponseResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListTools"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaOutputMessage"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaProgram"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaProgramOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningItem"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolCall"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaAdditionalTools"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentMessage"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaApplyPatchToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaApplyPatchToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactionBody"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallOutputResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallOutputResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCustomToolCallResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileSearchToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallOutputResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputMessageResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaLocalShellToolCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpApprovalRequest"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpApprovalResponseResource"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpListTools"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentCallOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaOutputMessage"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaProgram"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaProgramOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningItem"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdate"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchCall"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchOutput"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchToolCall"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaItemResource : IComposedTypeWrapper, IParsable
@@ -245,6 +245,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningItem BetaReasoningItem { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdate"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdate? BetaResponseConfigurationUpdate { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdate BetaResponseConfigurationUpdate { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchCall"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -395,6 +403,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.BetaReasoningItem = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningItem();
             }
+            else if("BetaResponseConfigurationUpdate".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.BetaResponseConfigurationUpdate = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdate();
+            }
             else if("BetaToolSearchCall".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BetaToolSearchCall = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolSearchCall();
@@ -530,6 +542,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(BetaReasoningItem != null)
             {
                 return BetaReasoningItem.GetFieldDeserializers();
+            }
+            else if(BetaResponseConfigurationUpdate != null)
+            {
+                return BetaResponseConfigurationUpdate.GetFieldDeserializers();
             }
             else if(BetaToolSearchCall != null)
             {
@@ -667,6 +683,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(BetaReasoningItem != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoningItem>(null, BetaReasoningItem);
+            }
+            else if(BetaResponseConfigurationUpdate != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdate>(null, BetaResponseConfigurationUpdate);
             }
             else if(BetaToolSearchCall != null)
             {

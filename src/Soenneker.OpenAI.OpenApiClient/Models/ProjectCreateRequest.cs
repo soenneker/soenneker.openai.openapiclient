@@ -22,7 +22,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string ExternalKeyId { get; set; }
 #endif
-        /// <summary>Create the project with the specified data residency region. Your organization must have access to Data residency functionality in order to use. See [data residency controls](/docs/guides/your-data#data-residency-controls) to review the functionality and limitations of setting this field.</summary>
+        /// <summary>Create the project with the specified data residency region. Your organization must have access to Data residency functionality in order to use. See [data residency controls](https://developers.openai.com/api/docs/guides/your-data#data-residency-controls) to review the functionality and limitations of setting this field.Deprecated: use `residency` instead. Do not provide both `geography` and `residency`.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Geography { get; set; }
@@ -37,6 +38,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public string Name { get; set; }
+#endif
+        /// <summary>Create the project with the specified residency configuration. Your organization must have access to the requested residency configuration in order to use it. See [data residency controls](https://developers.openai.com/api/docs/guides/your-data#data-residency-controls) to review the functionality and limitations of setting this field.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicProjectResidencyWrapper? Residency { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicProjectResidencyWrapper Residency { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequest"/> and sets the default values.
@@ -66,6 +75,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "external_key_id", n => { ExternalKeyId = n.GetStringValue(); } },
                 { "geography", n => { Geography = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "residency", n => { Residency = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicProjectResidencyWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.PublicProjectResidencyWrapper.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -78,6 +88,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("external_key_id", ExternalKeyId);
             writer.WriteStringValue("geography", Geography);
             writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicProjectResidencyWrapper>("residency", Residency);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

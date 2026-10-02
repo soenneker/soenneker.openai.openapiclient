@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// A tool call to run a function. See the [function calling guide](/docs/guides/function-calling) for more information.
+    /// A tool call to run a function. See the[function calling guide](https://developers.openai.com/api/docs/guides/function-calling) for more information.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FunctionToolCall : IAdditionalDataHolder, IParsable
@@ -23,6 +23,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Arguments { get; set; }
 #endif
+        /// <summary>Whether the function tool call runs asynchronously.</summary>
+        public bool? Async { get; set; }
         /// <summary>The caller property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,6 +95,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "arguments", n => { Arguments = n.GetStringValue(); } },
+                { "async", n => { Async = n.GetBoolValue(); } },
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "caller", n => { Caller = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCaller.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -110,6 +113,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("arguments", Arguments);
+            writer.WriteBoolValue("async", Async);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallCaller>("caller", Caller);
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("id", Id);

@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Represents an execution run on a [thread](/docs/api-reference/threads).
+    /// Represents an execution run on a [thread](https://developers.openai.com/api/docs/assistants/migration).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunObject : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The ID of the [assistant](/docs/api-reference/assistants) used for execution of this run.</summary>
+        /// <summary>The ID of the [assistant](https://developers.openai.com/api/docs/assistants/migration) used for execution of this run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AssistantId { get; set; }
@@ -49,7 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectIncompleteDetails IncompleteDetails { get; set; }
 #endif
-        /// <summary>The instructions that the [assistant](/docs/api-reference/assistants) used for this run.</summary>
+        /// <summary>The instructions that the [assistant](https://developers.openai.com/api/docs/assistants/migration) used for this run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Instructions { get; set; }
@@ -77,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectMetadata Metadata { get; set; }
 #endif
-        /// <summary>The model that the [assistant](/docs/api-reference/assistants) used for this run.</summary>
+        /// <summary>The model that the [assistant](https://developers.openai.com/api/docs/assistants/migration) used for this run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }
@@ -87,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The object type, which is always `thread.run`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ThreadRunObject? Object { get; set; }
-        /// <summary>Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.</summary>
+        /// <summary>Whether to enable [parallel function calling](https://developers.openai.com/api/docs/guides/function-calling#parallel-function-calling) during tool use.</summary>
         public bool? ParallelToolCalls { get; set; }
         /// <summary>Details on the action required to continue the run. Will be `null` if no action is required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +111,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectStatus? Status { get; set; }
         /// <summary>The sampling temperature used for this run. If not set, defaults to 1.</summary>
         public double? Temperature { get; set; }
-        /// <summary>The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run.</summary>
+        /// <summary>The ID of the [thread](https://developers.openai.com/api/docs/assistants/migration) that was executed on as a part of this run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ThreadId { get; set; }
@@ -122,12 +122,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The tool_choice property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolChoice? ToolChoice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption? ToolChoice { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolChoice ToolChoice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption ToolChoice { get; set; }
 #endif
-        /// <summary>The list of tools that the [assistant](/docs/api-reference/assistants) used for this run.</summary>
+        /// <summary>The list of tools that the [assistant](https://developers.openai.com/api/docs/assistants/migration) used for this run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolsItem>? Tools { get; set; }
@@ -140,10 +140,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The truncation_strategy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy? TruncationStrategy { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject? TruncationStrategy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy TruncationStrategy { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject TruncationStrategy { get; set; }
 #endif
         /// <summary>Usage statistics related to the run. This value will be `null` if the run is not in a terminal state (i.e. `in_progress`, `queued`, etc.).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -200,10 +200,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectStatus>(); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "thread_id", n => { ThreadId = n.GetStringValue(); } },
-                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolChoice>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolChoice.CreateFromDiscriminatorValue); } },
+                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },
-                { "truncation_strategy", n => { TruncationStrategy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy.CreateFromDiscriminatorValue); } },
+                { "truncation_strategy", n => { TruncationStrategy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject>(global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject.CreateFromDiscriminatorValue); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunCompletionUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.RunCompletionUsage.CreateFromDiscriminatorValue); } },
             };
         }
@@ -236,10 +236,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectStatus>("status", Status);
             writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteStringValue("thread_id", ThreadId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolChoice>("tool_choice", ToolChoice);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption>("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectToolsItem>("tools", Tools);
             writer.WriteDoubleValue("top_p", TopP);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy>("truncation_strategy", TruncationStrategy);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject>("truncation_strategy", TruncationStrategy);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunCompletionUsage>("usage", Usage);
             writer.WriteAdditionalData(AdditionalData);
         }

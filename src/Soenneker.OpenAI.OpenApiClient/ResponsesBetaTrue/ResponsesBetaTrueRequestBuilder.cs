@@ -34,12 +34,16 @@ namespace Soenneker.OpenAI.OpenApiClient.ResponsesBetaTrue
         {
         }
         /// <summary>
-        /// Creates a model response. Provide [text](/docs/guides/text) or[image](/docs/guides/images) inputs to generate [text](/docs/guides/text)or [JSON](/docs/guides/structured-outputs) outputs. Have the model callyour own [custom code](/docs/guides/function-calling) or use built-in[tools](/docs/guides/tools) like [web search](/docs/guides/tools-web-search)or [file search](/docs/guides/tools-file-search) to use your own dataas input for the model&apos;s response.
+        /// Creates a model response. Provide [text](https://developers.openai.com/api/docs/guides/text) or[image](https://developers.openai.com/api/docs/guides/images-vision) inputs to generate [text](https://developers.openai.com/api/docs/guides/text)or [JSON](https://developers.openai.com/api/docs/guides/structured-outputs) outputs. Have the model callyour own [custom code](https://developers.openai.com/api/docs/guides/function-calling) or use built-in[tools](https://developers.openai.com/api/docs/guides/tools) like [web search](https://developers.openai.com/api/docs/guides/tools-web-search)or [file search](https://developers.openai.com/api/docs/guides/tools-file-search) to use your own dataas input for the model&apos;s response.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponse?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -51,10 +55,17 @@ namespace Soenneker.OpenAI.OpenApiClient.ResponsesBetaTrue
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.OpenAI.OpenApiClient.Models.BetaErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.OpenAI.OpenApiClient.Models.BetaErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a model response. Provide [text](/docs/guides/text) or[image](/docs/guides/images) inputs to generate [text](/docs/guides/text)or [JSON](/docs/guides/structured-outputs) outputs. Have the model callyour own [custom code](/docs/guides/function-calling) or use built-in[tools](/docs/guides/tools) like [web search](/docs/guides/tools-web-search)or [file search](/docs/guides/tools-file-search) to use your own dataas input for the model&apos;s response.
+        /// Creates a model response. Provide [text](https://developers.openai.com/api/docs/guides/text) or[image](https://developers.openai.com/api/docs/guides/images-vision) inputs to generate [text](https://developers.openai.com/api/docs/guides/text)or [JSON](https://developers.openai.com/api/docs/guides/structured-outputs) outputs. Have the model callyour own [custom code](https://developers.openai.com/api/docs/guides/function-calling) or use built-in[tools](https://developers.openai.com/api/docs/guides/tools) like [web search](https://developers.openai.com/api/docs/guides/tools-web-search)or [file search](https://developers.openai.com/api/docs/guides/tools-file-search) to use your own dataas input for the model&apos;s response.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -8,44 +8,35 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// For fine-tuning jobs that have `failed`, this will contain more information on the cause of the failure.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorMember2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class FineTuningJobError : IAdditionalDataHolder, IParsable
+    public partial class FineTuningJobError : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A machine-readable error code.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Code { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1? FineTuningJobErrorAnyOf1 { get; set; }
 #nullable restore
 #else
-        public string Code { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1 FineTuningJobErrorAnyOf1 { get; set; }
 #endif
-        /// <summary>A human-readable error message.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorMember1? FineTuningJobErrorMember1 { get; set; }
 #nullable restore
 #else
-        public string Message { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorMember1 FineTuningJobErrorMember1 { get; set; }
 #endif
-        /// <summary>The parameter that was invalid, usually `training_file` or `validation_file`. This field will be null if the failure was not parameter-specific.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorMember2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Param { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorMember2? FineTuningJobErrorMember2 { get; set; }
 #nullable restore
 #else
-        public string Param { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorMember2 FineTuningJobErrorMember2 { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError"/> and sets the default values.
-        /// </summary>
-        public FineTuningJobError()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -54,7 +45,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError();
+            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError();
+            result.FineTuningJobErrorAnyOf1 = new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1();
+            result.FineTuningJobErrorMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorMember1();
+            result.FineTuningJobErrorMember2 = new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorMember2();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,12 +57,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(FineTuningJobErrorAnyOf1 != null || FineTuningJobErrorMember1 != null || FineTuningJobErrorMember2 != null)
             {
-                { "code", n => { Code = n.GetStringValue(); } },
-                { "message", n => { Message = n.GetStringValue(); } },
-                { "param", n => { Param = n.GetStringValue(); } },
-            };
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FineTuningJobErrorAnyOf1, FineTuningJobErrorMember1, FineTuningJobErrorMember2);
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -76,10 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("code", Code);
-            writer.WriteStringValue("message", Message);
-            writer.WriteStringValue("param", Param);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobErrorAnyOf1>(null, FineTuningJobErrorAnyOf1, FineTuningJobErrorMember1, FineTuningJobErrorMember2);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The type of hosted tool the model should to use. Learn more about[built-in tools](/docs/guides/tools).Allowed values are:- `file_search`- `web_search_preview`- `computer`- `computer_use_preview`- `computer_use`- `code_interpreter`- `image_generation`</summary>
+    /// <summary>The type of hosted tool the model should to use. Learn more about[built-in tools](https://developers.openai.com/api/docs/guides/tools).Allowed values are:- `file_search`- `web_search_preview`- `computer`- `computer_use_preview`- `computer_use`- `code_interpreter`- `image_generation`</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ToolChoiceTypesType
     {

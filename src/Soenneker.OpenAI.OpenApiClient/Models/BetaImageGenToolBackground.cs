@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>Background type for the generated image. One of `transparent`,`opaque`, or `auto`. Default: `auto`.</summary>
+    /// <summary>Set the background of the generated image. One of `transparent`, `opaque`,or `auto`. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, includingtheir `2026-09-08` snapshots, support `opaque` and `transparent`backgrounds. Transparent backgrounds are available for supported GPT Imagemodels. For `gpt-image-2` and `gpt-image-2-2026-04-21`, this support is inpreview. When using `transparent`, set the output format to `png` or `webp`.Default: `auto`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum BetaImageGenToolBackground
     {

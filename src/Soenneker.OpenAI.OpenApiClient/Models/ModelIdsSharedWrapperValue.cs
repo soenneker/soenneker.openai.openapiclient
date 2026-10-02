@@ -8,6 +8,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public enum ModelIdsSharedWrapperValue
     #pragma warning restore CS1591
     {
+        [EnumMember(Value = "gpt-6-astra")]
+        #pragma warning disable CS1591
+        Gpt6Astra,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-6.1-sol")]
+        #pragma warning disable CS1591
+        Gpt61Sol,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-6-sol")]
+        #pragma warning disable CS1591
+        Gpt6Sol,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-6-luna")]
+        #pragma warning disable CS1591
+        Gpt6Luna,
+        #pragma warning restore CS1591
         [EnumMember(Value = "gpt-5.6-sol")]
         #pragma warning disable CS1591
         Gpt56Sol,
@@ -23,6 +39,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "gpt-5.5")]
         #pragma warning disable CS1591
         Gpt55,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-5.5-2026-04-23")]
+        #pragma warning disable CS1591
+        Gpt5520260423,
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-5.4")]
         #pragma warning disable CS1591
@@ -203,6 +223,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "gpt-4o-2024-05-13")]
         #pragma warning disable CS1591
         Gpt4O20240513,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-audio-mini")]
+        #pragma warning disable CS1591
+        GptAudioMini,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-audio-mini-2025-12-15")]
+        #pragma warning disable CS1591
+        GptAudioMini20251215,
         #pragma warning restore CS1591
         [EnumMember(Value = "gpt-4o-audio-preview")]
         #pragma warning disable CS1591

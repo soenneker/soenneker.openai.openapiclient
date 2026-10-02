@@ -22,7 +22,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string ExternalKeyId { get; set; }
 #endif
-        /// <summary>Geography for the project.</summary>
+        /// <summary>Geography for the project.Deprecated: use `residency` when creating a project to configure data residency. This field is retained for backward compatibility.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Geography { get; set; }

@@ -20,5 +20,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         ApiKeyId,
         #pragma warning restore CS1591
+        [EnumMember(Value = "api_source")]
+        #pragma warning disable CS1591
+        ApiSource,
+        #pragma warning restore CS1591
     }
 }

@@ -17,7 +17,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The sample rate of the audio. Always `24000`.</summary>
         public int? Rate { get; set; }
-        /// <summary>The audio format. Always `audio/pcm`.</summary>
+        /// <summary>The audio encoding. Always `audio/pcm`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AudioPcmType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormatsPcmAudioFormat"/> and sets the default values.

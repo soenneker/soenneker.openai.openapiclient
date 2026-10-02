@@ -12,7 +12,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class BetaCreateResponseBody : global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponseProperties, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Whether to run the model response in the background.[Learn more](/docs/guides/background).</summary>
+        /// <summary>Domain-specific access programs to use for this request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAccessProgramsParam? AccessPrograms { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAccessProgramsParam AccessPrograms { get; set; }
+#endif
+        /// <summary>Whether to run the model response in the background.[Learn more](https://developers.openai.com/api/docs/guides/background).</summary>
         public bool? Background { get; set; }
         /// <summary>Context management configuration for this request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,7 +46,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaIncludeEnum?> Include { get; set; }
 #endif
-        /// <summary>Text, image, or file inputs to the model, used to generate a response.Learn more:- [Text inputs and outputs](/docs/guides/text)- [Image inputs](/docs/guides/images)- [File inputs](/docs/guides/pdf-files)- [Conversation state](/docs/guides/conversation-state)- [Function calling](/docs/guides/function-calling)</summary>
+        /// <summary>Text, image, or file inputs to the model, used to generate a response.Learn more:- [Text inputs and outputs](https://developers.openai.com/api/docs/guides/text)- [Image inputs](https://developers.openai.com/api/docs/guides/images-vision)- [File inputs](https://developers.openai.com/api/docs/guides/file-inputs)- [Conversation state](https://developers.openai.com/api/docs/guides/conversation-state)- [Function calling](https://developers.openai.com/api/docs/guides/function-calling)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputParam? Input { get; set; }
@@ -54,11 +62,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Instructions { get; set; }
 #endif
-        /// <summary>An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).</summary>
+        /// <summary>An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](https://developers.openai.com/api/docs/guides/reasoning).</summary>
         public int? MaxOutputTokens { get; set; }
         /// <summary>The maximum number of total calls to built-in tools that can be processed in a response. This maximum number applies across all built-in tool calls, not per individual tool. Any further attempts to call a tool by the model will be ignored.</summary>
         public int? MaxToolCalls { get; set; }
-        /// <summary>Model ID used to generate the response, like `gpt-4o` or `o3`. OpenAIoffers a wide range of models with different capabilities, performancecharacteristics, and price points. Refer to the [model guide](/docs/models)to browse and compare available models.</summary>
+        /// <summary>Model ID used to generate the response, like `gpt-6-astra`. OpenAIoffers a wide range of models with different capabilities, performancecharacteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models)to browse and compare available models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses? Model { get; set; }
@@ -84,7 +92,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Whether to allow the model to run tool calls in parallel.</summary>
         public bool? ParallelToolCalls { get; set; }
-        /// <summary>The unique ID of the previous response to the model. Use this tocreate multi-turn conversations. Learn more about[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.</summary>
+        /// <summary>The unique ID of the previous response to the model. Use this tocreate multi-turn conversations. Learn more about[conversation state](https://developers.openai.com/api/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PreviousResponseId { get; set; }
@@ -92,7 +100,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string PreviousResponseId { get; set; }
 #endif
-        /// <summary>Reference to a prompt template and its variables.[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).</summary>
+        /// <summary>Reference to a prompt template and its variables.[Learn more](https://developers.openai.com/api/docs/guides/text?api-mode=responses#version-prompts-in-code).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt? Prompt { get; set; }
@@ -108,9 +116,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoning Reasoning { get; set; }
 #endif
-        /// <summary>Whether to store the generated model response for later retrieval viaAPI.</summary>
+        /// <summary>Specifies the processing type used for serving the request.  - If set to &apos;auto&apos;, then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use &apos;default&apos;.  - If set to &apos;default&apos;, then the request will be processed with the standard pricing and performance for the selected model.  - If set to &apos;[flex](https://developers.openai.com/api/docs/guides/flex-processing)&apos;, then the request will be processed with the Flex Processing service tier.  - To opt-in to [Fast mode](https://developers.openai.com/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.  - If set to &apos;ultrafast&apos;, then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.  - When not set, the default behavior is &apos;auto&apos;.  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierResponses? ServiceTier { get; set; }
+        /// <summary>Whether to store the generated model response for later retrieval viaAPI.Defaults to true when omitted.If set to true, response data will be stored for at least 30 days, subject to the [data retention exceptions](https://developers.openai.com/api/docs/guides/your-data#v1responses).</summary>
         public bool? Store { get; set; }
-        /// <summary>If set to true, the model response data will be streamed to the clientas it is generated using [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format).See the [Streaming section below](/docs/api-reference/responses-streaming)for more information.</summary>
+        /// <summary>If set to true, the model response data will be streamed to the clientas it is generated using [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format).See the [Streaming section below](https://developers.openai.com/api/reference/resources/responses/streaming-events)for more information.</summary>
         public bool? Stream { get; set; }
         /// <summary>Options for streaming responses. Only set this when you set `stream: true`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -120,7 +130,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions StreamOptions { get; set; }
 #endif
-        /// <summary>Configuration options for a text response from the model. Can be plaintext or structured JSON data. Learn more:- [Text inputs and outputs](/docs/guides/text)- [Structured Outputs](/docs/guides/structured-outputs)</summary>
+        /// <summary>Configuration options for a text response from the model. Can be plaintext or structured JSON data. Learn more:- [Text inputs and outputs](https://developers.openai.com/api/docs/guides/text)- [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTextParam? Text { get; set; }
@@ -136,7 +146,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam ToolChoice { get; set; }
 #endif
-        /// <summary>An array of tools the model may call while generating a response. Youcan specify which tool to use by setting the `tool_choice` parameter.We support the following categories of tools:- **Built-in tools**: Tools that are provided by OpenAI that extend the  model&apos;s capabilities, like [web search](/docs/guides/tools-web-search)  or [file search](/docs/guides/tools-file-search). Learn more about  [built-in tools](/docs/guides/tools).- **MCP Tools**: Integrations with third-party systems via custom MCP servers  or predefined connectors such as Google Drive and SharePoint. Learn more about  [MCP Tools](/docs/guides/tools-connectors-mcp).- **Function calls (custom tools)**: Functions that are defined by you,  enabling the model to call your own code with strongly typed arguments  and outputs. Learn more about  [function calling](/docs/guides/function-calling). You can also use  custom tools to call your own code.</summary>
+        /// <summary>An array of tools the model may call while generating a response. Youcan specify which tool to use by setting the `tool_choice` parameter.We support the following categories of tools:- **Built-in tools**: Tools that are provided by OpenAI that extend the  model&apos;s capabilities, like [web search](https://developers.openai.com/api/docs/guides/tools-web-search)  or [file search](https://developers.openai.com/api/docs/guides/tools-file-search). Learn more about  [built-in tools](https://developers.openai.com/api/docs/guides/tools).- **MCP Tools**: Integrations with third-party systems via custom MCP servers  or predefined connectors such as Google Drive and SharePoint. Learn more about  [MCP Tools](https://developers.openai.com/api/docs/guides/tools-connectors-mcp).- **Function calls (custom tools)**: Functions that are defined by you,  enabling the model to call your own code with strongly typed arguments  and outputs. Learn more about  [function calling](https://developers.openai.com/api/docs/guides/function-calling). You can also use  custom tools to call your own code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool>? Tools { get; set; }
@@ -175,6 +185,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "access_programs", n => { AccessPrograms = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAccessProgramsParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAccessProgramsParam.CreateFromDiscriminatorValue); } },
                 { "background", n => { Background = n.GetBoolValue(); } },
                 { "context_management", n => { ContextManagement = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContextManagementParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaContextManagementParam.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "conversation", n => { Conversation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam.CreateFromDiscriminatorValue); } },
@@ -190,6 +201,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "previous_response_id", n => { PreviousResponseId = n.GetStringValue(); } },
                 { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt.CreateFromDiscriminatorValue); } },
                 { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoning.CreateFromDiscriminatorValue); } },
+                { "service_tier", n => { ServiceTier = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierResponses>(); } },
                 { "store", n => { Store = n.GetBoolValue(); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "stream_options", n => { StreamOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions.CreateFromDiscriminatorValue); } },
@@ -207,6 +219,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAccessProgramsParam>("access_programs", AccessPrograms);
             writer.WriteBoolValue("background", Background);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContextManagementParam>("context_management", ContextManagement);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam>("conversation", Conversation);
@@ -222,6 +235,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("previous_response_id", PreviousResponseId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt>("prompt", Prompt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoning>("reasoning", Reasoning);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierResponses>("service_tier", ServiceTier);
             writer.WriteBoolValue("store", Store);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions>("stream_options", StreamOptions);

@@ -13,7 +13,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateThreadRequest : IParsable
     {
-        /// <summary>A list of [messages](/docs/api-reference/messages) to start the thread with.</summary>
+        /// <summary>A list of [messages](https://developers.openai.com/api/docs/assistants/migration) to start the thread with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateMessageRequest>? Messages { get; set; }

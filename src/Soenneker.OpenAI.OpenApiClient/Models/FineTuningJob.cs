@@ -17,7 +17,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Unix timestamp (in seconds) for when the fine-tuning job was created.</summary>
         public int? CreatedAt { get; set; }
-        /// <summary>For fine-tuning jobs that have `failed`, this will contain more information on the cause of the failure.</summary>
+        /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError? Error { get; set; }
@@ -69,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobMetadata Metadata { get; set; }
 #endif
-        /// <summary>The method used for fine-tuning.</summary>
+        /// <summary>The method property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod? Method { get; set; }
@@ -95,7 +95,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string OrganizationId { get; set; }
 #endif
-        /// <summary>The compiled results file ID(s) for the fine-tuning job. You can retrieve the results with the [Files API](/docs/api-reference/files/retrieve-contents).</summary>
+        /// <summary>The compiled results file ID(s) for the fine-tuning job. You can retrieve the results with the [Files API](https://developers.openai.com/api/reference/resources/files/methods/content).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? ResultFiles { get; set; }
@@ -105,11 +105,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The seed used for the fine-tuning job.</summary>
         public int? Seed { get; set; }
-        /// <summary>The current status of the fine-tuning job, which can be either `validating_files`, `queued`, `running`, `succeeded`, `failed`, or `cancelled`.</summary>
+        /// <summary>The current status of the fine-tuning job, which can be `validating_files`, `queued`, `running`, `pausing`, `paused`, `succeeded`, `failed`, or `cancelled`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobStatus? Status { get; set; }
         /// <summary>The total number of billable tokens processed by this fine-tuning job. The value will be null if the fine-tuning job is still running.</summary>
         public int? TrainedTokens { get; set; }
-        /// <summary>The file ID used for training. You can retrieve the training data with the [Files API](/docs/api-reference/files/retrieve-contents).</summary>
+        /// <summary>The file ID used for training. You can retrieve the training data with the [Files API](https://developers.openai.com/api/reference/resources/files/methods/content).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TrainingFile { get; set; }
@@ -117,7 +117,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string TrainingFile { get; set; }
 #endif
-        /// <summary>The file ID used for validation. You can retrieve the validation results with the [Files API](/docs/api-reference/files/retrieve-contents).</summary>
+        /// <summary>The file ID used for validation. You can retrieve the validation results with the [Files API](https://developers.openai.com/api/reference/resources/files/methods/content).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ValidationFile { get; set; }

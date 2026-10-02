@@ -15,7 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The number of tokens that were retrieved from the cache. [More onprompt caching](/docs/guides/prompt-caching).</summary>
+        /// <summary>The number of tokens that were retrieved from the cache. [More onprompt caching](https://developers.openai.com/api/docs/guides/prompt-caching).</summary>
         public int? CachedTokens { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BatchUsageInputTokensDetails"/> and sets the default values.

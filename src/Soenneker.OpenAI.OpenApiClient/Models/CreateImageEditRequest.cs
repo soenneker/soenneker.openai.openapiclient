@@ -14,9 +14,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Allows to set transparency for the background of the generated image(s).This parameter is only supported for the GPT image models. Must be one of`transparent`, `opaque` or `auto` (default value). When `auto` is used, themodel will automatically determine the best background for the image.If `transparent`, the output format needs to support transparency, so itshould be set to either `png` (default value) or `webp`.</summary>
+        /// <summary>Set the background of the generated image(s). This parameter is only supported forthe GPT image models. Must be one of `transparent`, `opaque`, or `auto` (defaultvalue). When `auto` is used, the model will automatically determine the bestbackground for the image.`gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08`snapshots, support `opaque` and `transparent` backgrounds. Transparent backgroundsare available for supported GPT Image models. For `gpt-image-2` and`gpt-image-2-2026-04-21`, this support is in preview. When using `transparent`,set the output format to `png` or `webp`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground? Background { get; set; }
-        /// <summary>The image(s) to edit. Must be a supported image file or an array of images.For the GPT image models (`gpt-image-1`, `gpt-image-1-mini`, and `gpt-image-1.5`), each image should be a `png`, `webp`, or `jpg`file less than 50MB. You can provide up to 16 images.`chatgpt-image-latest` follows the same input constraints as GPT image models.For `dall-e-2`, you can only provide one image, and it should be a square`png` file less than 4MB.</summary>
+        /// <summary>The image(s) to edit. Must be a supported image file or an array of images.For the GPT image models (`gpt-image-1`, `gpt-image-1-mini`, `gpt-image-1.5`,`gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`,`gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, and`gpt-image-2.5-flare-2026-09-08`), each image should be a `png`, `webp`, or `jpg`file less than 50MB. You can provide up to 16 images. `chatgpt-image-latest`follows the same input constraints as GPT image models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage? Image { get; set; }
@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public byte[] Mask { get; set; }
 #endif
-        /// <summary>The model to use for image generation. Defaults to `gpt-image-1.5`.</summary>
+        /// <summary>The GPT image model to use for image editing (`gpt-image-1`, `gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`, `gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, `gpt-image-2.5-flare-2026-09-08`, or `chatgpt-image-latest`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel? Model { get; set; }
@@ -56,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat? OutputFormat { get; set; }
         /// <summary>The number of partial images to generate. This parameter is used forstreaming responses that return partial images. Value must be between 0 and 3.When set to 0, the response will be a single image sent in one streaming event.Note that the final image may be sent before the full number of partial imagesare generated if the full image is generated more quickly.</summary>
         public int? PartialImages { get; set; }
-        /// <summary>A text description of the desired image(s). The maximum length is 1000 characters for `dall-e-2`, and 32000 characters for the GPT image models.</summary>
+        /// <summary>A text description of the desired image(s). The maximum length is 32000 characters for the GPT image models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Prompt { get; set; }
@@ -64,11 +64,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Prompt { get; set; }
 #endif
-        /// <summary>The quality of the image that will be generated for GPT image models. Defaults to `auto`.</summary>
+        /// <summary>The quality of the image that will be generated for GPT image models. The GPT image models support `low`, `medium`, and `high`. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08` snapshots, also support `xhigh` and `max`. Defaults to `auto`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality? Quality { get; set; }
-        /// <summary>The format in which the generated images are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated. This parameter is only supported for `dall-e-2` (default is `url` for `dall-e-2`), as GPT image models always return base64-encoded images.</summary>
+        /// <summary>Legacy response format parameter for retired image models. Unsupported for GPT image models, which always return base64-encoded images.</summary>
+        [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat? ResponseFormat { get; set; }
-        /// <summary>The size of the generated images. For `gpt-image-2` and `gpt-image-2-2026-04-21`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model&apos;s current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing. For `dall-e-2`, use one of `256x256`, `512x512`, or `1024x1024`. For `dall-e-3`, use one of `1024x1024`, `1792x1024`, or `1024x1792`.</summary>
+        /// <summary>The size of the generated images. Defaults to `auto`. For `gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`, `gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, and `gpt-image-2.5-flare-2026-09-08`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model&apos;s current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestSize? Size { get; set; }
@@ -76,9 +77,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestSize Size { get; set; }
 #endif
-        /// <summary>Edit the image in streaming mode. Defaults to `false`. See the[Image generation guide](/docs/guides/image-generation) for more information.</summary>
+        /// <summary>Edit the image in streaming mode. Defaults to `false`. See the[Image generation guide](https://developers.openai.com/api/docs/guides/image-generation) for more information.</summary>
         public bool? Stream { get; set; }
-        /// <summary>A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices#end-user-ids).</summary>
+        /// <summary>A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? User { get; set; }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// An Eval object with a data source config and testing criteria.An Eval represents a task to be done for your LLM integration.Like: - Improve the quality of my chatbot - See how well my chatbot handles customer support - Check if o4-mini is better at my usecase than gpt-4o
+    /// An Eval object with a data source config and testing criteria.An Eval represents a task to be done for your LLM integration.Like: - Improve the quality of my chatbot - See how well my chatbot handles customer support - Check if o4-mini is better at my usecase than gpt-6-astra
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Eval : IAdditionalDataHolder, IParsable
