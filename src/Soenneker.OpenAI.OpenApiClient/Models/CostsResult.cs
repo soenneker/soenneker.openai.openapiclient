@@ -61,6 +61,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnit QuantityUnit { get; set; }
 #endif
+        /// <summary>When `group_by=user_id`, this field provides the user ID of the grouped costs result.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserId { get; set; }
+#nullable restore
+#else
+        public string UserId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResult"/> and sets the default values.
         /// </summary>
@@ -94,6 +102,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "quantity", n => { Quantity = n.GetDoubleValue(); } },
                 { "quantity_unit", n => { QuantityUnit = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnit>(global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnit.CreateFromDiscriminatorValue); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -111,6 +120,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteDoubleValue("quantity", Quantity);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnit>("quantity_unit", QuantityUnit);
+            writer.WriteStringValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

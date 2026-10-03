@@ -12,6 +12,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         ProjectId,
         #pragma warning restore CS1591
+        [EnumMember(Value = "user_id")]
+        #pragma warning disable CS1591
+        UserId,
+        #pragma warning restore CS1591
         [EnumMember(Value = "line_item")]
         #pragma warning disable CS1591
         LineItem,

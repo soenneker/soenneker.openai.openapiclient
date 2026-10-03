@@ -7924,7 +7924,7 @@
           {
             "name": "group_by",
             "in": "query",
-            "description": "Group the costs by the specified fields. Support fields include \u0060project_id\u0060, \u0060line_item\u0060, \u0060api_key_id\u0060, \u0060api_source\u0060 and any combination of them. When grouped by \u0060api_source\u0060, results use \u0060agents_api\u0060 for attributed Agents API activity and \u0060unlabeled\u0060 for all other activity. Without source grouping, \u0060api_source\u0060 is null.",
+            "description": "Group the costs by the specified fields. Supported fields include \u0060project_id\u0060, \u0060user_id\u0060, \u0060line_item\u0060, \u0060api_key_id\u0060, and \u0060api_source\u0060. Support for combining \u0060user_id\u0060 with \u0060project_id\u0060 grouping or the \u0060project_ids\u0060 filter depends on the organization and requested time range. Unsupported combinations return HTTP 400. When grouped by \u0060api_source\u0060, results use \u0060agents_api\u0060 for attributed Agents API activity and \u0060unlabeled\u0060 for all other activity. Without source grouping, \u0060api_source\u0060 is null.",
             "schema": {
               "type": "array",
               "items": {
@@ -9505,6 +9505,16 @@
               }
             }
           },
+          "201": {
+            "description": "User invited successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Invite"
+                }
+              }
+            }
+          },
           "400": {
             "description": "The invite request is invalid or the user has already joined or been invited.",
             "content": {
@@ -9857,6 +9867,16 @@
         },
         "responses": {
           "200": {
+            "description": "Project created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Project"
+                }
+              }
+            }
+          },
+          "201": {
             "description": "Project created successfully.",
             "content": {
               "application/json": {
@@ -12150,6 +12170,16 @@
               }
             }
           },
+          "201": {
+            "description": "Project service account created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectServiceAccountCreateResponse"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Error response when project is archived.",
             "content": {
@@ -13098,6 +13128,16 @@
         },
         "responses": {
           "200": {
+            "description": "User added to project successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectUser"
+                }
+              }
+            }
+          },
+          "201": {
             "description": "User added to project successfully.",
             "content": {
               "application/json": {
@@ -36306,6 +36346,13 @@
               "string"
             ],
             "description": "When \u0060group_by=project_id\u0060, this field provides the project ID of the grouped costs result."
+          },
+          "user_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When \u0060group_by=user_id\u0060, this field provides the user ID of the grouped costs result."
           },
           "api_key_id": {
             "type": [
@@ -69140,6 +69187,55 @@
         },
         "description": "A web search tool available to the Live session\u2019s Responses backend."
       },
+      "LiveFileSearchToolInputParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/FileSearchType"
+          }
+        }
+      },
+      "LiveCodeInterpreterToolInputParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/CodeInterpreterType"
+          }
+        }
+      },
+      "LiveHostedShellToolInputParam": {
+        "required": [
+          "type",
+          "environment"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ShellType"
+          },
+          "environment": {
+            "$ref": "#/components/schemas/LiveHostedShellToolInputParamEnvironmentProperty"
+          }
+        },
+        "description": "A Responses shell tool with a container_auto or container_reference environment. Local execution and domain secrets are not supported."
+      },
+      "LiveImageGenerationToolInputParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ImageGenerationType"
+          }
+        }
+      },
       "LiveToolChoiceEnum": {
         "enum": [
           "auto",
@@ -77105,6 +77201,9 @@
           "context_length_exceeded",
           "session_budget_exceeded",
           "usage_limit_exceeded",
+          "project_spend_limit_exceeded",
+          "organization_spend_limit_exceeded",
+          "organization_usage_limit_exceeded",
           "credit_balance_exhausted",
           "rate_limit_exceeded",
           "flex_unavailable",
@@ -77129,6 +77228,9 @@
           "The request exceeds the model\u0027s context window.",
           "The session has reached its usage budget.",
           "The organization has reached a usage, plan, or billing limit.",
+          "The project has reached its enforced spend limit.",
+          "The organization has reached its enforced spend limit.",
+          "The organization has reached its OpenAI-assigned usage limit.",
           "The organization has no API credits remaining.",
           "The request exceeds the available rate limit.",
           "Flex processing is temporarily unavailable.",
@@ -77161,6 +77263,18 @@
             {
               "value": "usage_limit_exceeded",
               "name": "UsageLimitExceeded"
+            },
+            {
+              "value": "project_spend_limit_exceeded",
+              "name": "ProjectSpendLimitExceeded"
+            },
+            {
+              "value": "organization_spend_limit_exceeded",
+              "name": "OrganizationSpendLimitExceeded"
+            },
+            {
+              "value": "organization_usage_limit_exceeded",
+              "name": "OrganizationUsageLimitExceeded"
             },
             {
               "value": "credit_balance_exhausted",
@@ -113865,6 +113979,18 @@
           },
           {
             "$ref": "#/components/schemas/LiveWebSearchToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveFileSearchToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveCodeInterpreterToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveHostedShellToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveImageGenerationToolInputParam"
           }
         ],
         "properties": {
@@ -113889,6 +114015,9 @@
             ],
             "description": "Whether the delegated Responses model must follow the function\u2019s parameter schema exactly."
           },
+          "environment": {
+            "$ref": "#/components/schemas/LiveHostedShellToolInputParamEnvironmentProperty"
+          },
           "type": {
             "type": "string"
           }
@@ -113897,7 +114026,11 @@
           "propertyName": "type",
           "mapping": {
             "LiveFunctionToolInputParam": "#/components/schemas/LiveFunctionToolInputParam",
-            "LiveWebSearchToolInputParam": "#/components/schemas/LiveWebSearchToolInputParam"
+            "LiveWebSearchToolInputParam": "#/components/schemas/LiveWebSearchToolInputParam",
+            "LiveFileSearchToolInputParam": "#/components/schemas/LiveFileSearchToolInputParam",
+            "LiveCodeInterpreterToolInputParam": "#/components/schemas/LiveCodeInterpreterToolInputParam",
+            "LiveHostedShellToolInputParam": "#/components/schemas/LiveHostedShellToolInputParam",
+            "LiveImageGenerationToolInputParam": "#/components/schemas/LiveImageGenerationToolInputParam"
           }
         }
       },
@@ -114100,6 +114233,18 @@
           },
           {
             "$ref": "#/components/schemas/LiveWebSearchToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveFileSearchToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveCodeInterpreterToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveHostedShellToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveImageGenerationToolInputParam"
           }
         ],
         "properties": {
@@ -114124,6 +114269,9 @@
             ],
             "description": "Whether the delegated Responses model must follow the function\u2019s parameter schema exactly."
           },
+          "environment": {
+            "$ref": "#/components/schemas/LiveHostedShellToolInputParamEnvironmentProperty"
+          },
           "type": {
             "type": "string"
           }
@@ -114132,7 +114280,11 @@
           "propertyName": "type",
           "mapping": {
             "LiveFunctionToolInputParam": "#/components/schemas/LiveFunctionToolInputParam",
-            "LiveWebSearchToolInputParam": "#/components/schemas/LiveWebSearchToolInputParam"
+            "LiveWebSearchToolInputParam": "#/components/schemas/LiveWebSearchToolInputParam",
+            "LiveFileSearchToolInputParam": "#/components/schemas/LiveFileSearchToolInputParam",
+            "LiveCodeInterpreterToolInputParam": "#/components/schemas/LiveCodeInterpreterToolInputParam",
+            "LiveHostedShellToolInputParam": "#/components/schemas/LiveHostedShellToolInputParam",
+            "LiveImageGenerationToolInputParam": "#/components/schemas/LiveImageGenerationToolInputParam"
           }
         }
       },
@@ -115691,7 +115843,7 @@
             "description": "Domains blocked for both executor and browser when access is restricted. A nonempty list requires \u0060access: restricted\u0060 and cannot be combined with nonempty \u0060allowed_domains\u0060. Wildcard domains are not supported."
           }
         },
-        "description": "Network access policy for the environment. Defaults to disabled for GA requests and enabled for beta requests."
+        "description": "Network access policy for the environment. If omitted, the API version determines whether network access is enabled or disabled."
       },
       "CreateEnvironmentTemplateParamsDesktop": {
         "type": "object",
@@ -115811,7 +115963,7 @@
             "description": "Domains blocked for both executor and browser when access is restricted. A nonempty list requires \u0060access: restricted\u0060 and cannot be combined with nonempty \u0060allowed_domains\u0060. Wildcard domains are not supported."
           }
         },
-        "description": "Network access available after setup completes. Omit to preserve the current policy, or pass \u0060null\u0060 to reset to disabled for GA requests or enabled for beta requests."
+        "description": "Network access available after setup completes. Omit to preserve the current policy, or pass \u0060null\u0060 to reset to the default policy."
       },
       "UpdateEnvironmentTemplateParamsDesktop": {
         "type": "object",
@@ -116214,7 +116366,7 @@
             "description": "Domains blocked for both executor and browser when access is restricted. A nonempty list requires \u0060access: restricted\u0060 and cannot be combined with nonempty \u0060allowed_domains\u0060. Wildcard domains are not supported."
           }
         },
-        "description": "Network access policy for the environment. Defaults to disabled for GA requests and enabled for beta requests."
+        "description": "Network access policy for the environment. If omitted, the API version determines whether network access is enabled or disabled."
       },
       "EnvironmentParamOpenaiHostedDesktop": {
         "type": "object",
@@ -127699,6 +127851,12 @@
           "$ref": "#/components/schemas/LiveFunctionToolInputParamParametersAdditionalProperties"
         },
         "description": "A JSON Schema object describing the arguments accepted by the function."
+      },
+      "LiveHostedShellToolInputParamEnvironment": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/LiveHostedShellToolInputParamEnvironmentAdditionalProperties"
+        }
       },
       "Error2Headers": {
         "type": "object",
@@ -139392,6 +139550,12 @@
         },
         "description": "A JSON Schema object describing the arguments accepted by the function."
       },
+      "LiveHostedShellToolInputParamEnvironmentProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/LiveHostedShellToolInputParamEnvironmentPropertyAdditionalProperties"
+        }
+      },
       "UpdateConversationBodyMetadata": {
         "type": "object",
         "additionalProperties": {
@@ -139899,6 +140063,9 @@
       "LiveFunctionToolInputParamParametersAdditionalProperties": {
         "type": "object"
       },
+      "LiveHostedShellToolInputParamEnvironmentAdditionalProperties": {
+        "type": "object"
+      },
       "TextFormatResourceJsonSchemaSchemaAdditionalProperties": {
         "type": "object"
       },
@@ -140008,6 +140175,9 @@
         "type": "object"
       },
       "LiveFunctionToolInputParamParametersPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "LiveHostedShellToolInputParamEnvironmentPropertyAdditionalProperties": {
         "type": "object"
       },
       "TextFormatResourceJsonSchemaSchemaPropertyAdditionalProperties": {
@@ -157274,6 +157444,7 @@
         "enum": [
           "alloy",
           "ash",
+          "aube",
           "ballad",
           "beacon",
           "bossa",
@@ -157317,6 +157488,10 @@
             {
               "value": "ash",
               "name": "Ash"
+            },
+            {
+              "value": "aube",
+              "name": "Aube"
             },
             {
               "value": "ballad",
@@ -163250,6 +163425,7 @@
       "UsageCostsGroupByParameterItem": {
         "enum": [
           "project_id",
+          "user_id",
           "line_item",
           "api_key_id",
           "api_source"
@@ -163263,6 +163439,10 @@
             {
               "value": "project_id",
               "name": "ProjectId"
+            },
+            {
+              "value": "user_id",
+              "name": "UserId"
             },
             {
               "value": "line_item",

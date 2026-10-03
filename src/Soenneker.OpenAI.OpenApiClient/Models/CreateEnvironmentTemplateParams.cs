@@ -53,7 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Network access policy for the environment. Defaults to disabled for GA requests and enabled for beta requests.</summary>
+        /// <summary>Network access policy for the environment. If omitted, the API version determines whether network access is enabled or disabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.NetworkPolicyParam? Network { get; set; }

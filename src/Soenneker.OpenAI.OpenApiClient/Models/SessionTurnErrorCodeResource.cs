@@ -19,6 +19,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         UsageLimitExceeded,
         #pragma warning restore CS1591
+        [EnumMember(Value = "project_spend_limit_exceeded")]
+        #pragma warning disable CS1591
+        ProjectSpendLimitExceeded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "organization_spend_limit_exceeded")]
+        #pragma warning disable CS1591
+        OrganizationSpendLimitExceeded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "organization_usage_limit_exceeded")]
+        #pragma warning disable CS1591
+        OrganizationUsageLimitExceeded,
+        #pragma warning restore CS1591
         [EnumMember(Value = "credit_balance_exhausted")]
         #pragma warning disable CS1591
         CreditBalanceExhausted,

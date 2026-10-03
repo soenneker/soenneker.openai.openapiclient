@@ -53,7 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Network access available after setup completes. Omit to preserve the current policy, or pass `null` to reset to disabled for GA requests or enabled for beta requests.</summary>
+        /// <summary>Network access available after setup completes. Omit to preserve the current policy, or pass `null` to reset to the default policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.NetworkPolicyParam? Network { get; set; }

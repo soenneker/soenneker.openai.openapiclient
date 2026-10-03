@@ -8,11 +8,27 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolInputParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveWebSearchToolInputParam"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveCodeInterpreterToolInputParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveFileSearchToolInputParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolInputParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveImageGenerationToolInputParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveWebSearchToolInputParam"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LiveResponsesDelegationSettingsUpdateInputParamToolsItem : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveCodeInterpreterToolInputParam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveCodeInterpreterToolInputParam? LiveCodeInterpreterToolInputParam { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveCodeInterpreterToolInputParam LiveCodeInterpreterToolInputParam { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveFileSearchToolInputParam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveFileSearchToolInputParam? LiveFileSearchToolInputParam { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveFileSearchToolInputParam LiveFileSearchToolInputParam { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolInputParam"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,6 +36,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolInputParam LiveFunctionToolInputParam { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParam? LiveHostedShellToolInputParam { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParam LiveHostedShellToolInputParam { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveImageGenerationToolInputParam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveImageGenerationToolInputParam? LiveImageGenerationToolInputParam { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveImageGenerationToolInputParam LiveImageGenerationToolInputParam { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveWebSearchToolInputParam"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,9 +71,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsUpdateInputParamToolsItem();
-            if("LiveFunctionToolInputParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("LiveCodeInterpreterToolInputParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.LiveCodeInterpreterToolInputParam = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveCodeInterpreterToolInputParam();
+            }
+            else if("LiveFileSearchToolInputParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.LiveFileSearchToolInputParam = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveFileSearchToolInputParam();
+            }
+            else if("LiveFunctionToolInputParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.LiveFunctionToolInputParam = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolInputParam();
+            }
+            else if("LiveHostedShellToolInputParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.LiveHostedShellToolInputParam = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParam();
+            }
+            else if("LiveImageGenerationToolInputParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.LiveImageGenerationToolInputParam = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveImageGenerationToolInputParam();
             }
             else if("LiveWebSearchToolInputParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -55,9 +103,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(LiveFunctionToolInputParam != null)
+            if(LiveCodeInterpreterToolInputParam != null)
+            {
+                return LiveCodeInterpreterToolInputParam.GetFieldDeserializers();
+            }
+            else if(LiveFileSearchToolInputParam != null)
+            {
+                return LiveFileSearchToolInputParam.GetFieldDeserializers();
+            }
+            else if(LiveFunctionToolInputParam != null)
             {
                 return LiveFunctionToolInputParam.GetFieldDeserializers();
+            }
+            else if(LiveHostedShellToolInputParam != null)
+            {
+                return LiveHostedShellToolInputParam.GetFieldDeserializers();
+            }
+            else if(LiveImageGenerationToolInputParam != null)
+            {
+                return LiveImageGenerationToolInputParam.GetFieldDeserializers();
             }
             else if(LiveWebSearchToolInputParam != null)
             {
@@ -72,9 +136,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(LiveFunctionToolInputParam != null)
+            if(LiveCodeInterpreterToolInputParam != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveCodeInterpreterToolInputParam>(null, LiveCodeInterpreterToolInputParam);
+            }
+            else if(LiveFileSearchToolInputParam != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveFileSearchToolInputParam>(null, LiveFileSearchToolInputParam);
+            }
+            else if(LiveFunctionToolInputParam != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolInputParam>(null, LiveFunctionToolInputParam);
+            }
+            else if(LiveHostedShellToolInputParam != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParam>(null, LiveHostedShellToolInputParam);
+            }
+            else if(LiveImageGenerationToolInputParam != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveImageGenerationToolInputParam>(null, LiveImageGenerationToolInputParam);
             }
             else if(LiveWebSearchToolInputParam != null)
             {

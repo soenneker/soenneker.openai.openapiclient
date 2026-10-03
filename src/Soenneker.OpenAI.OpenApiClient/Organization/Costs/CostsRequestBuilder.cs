@@ -110,7 +110,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Costs
             /// <summary>End time (Unix seconds) of the query time range, exclusive.</summary>
             [QueryParameter("end_time")]
             public int? EndTime { get; set; }
-            /// <summary>Group the costs by the specified fields. Support fields include `project_id`, `line_item`, `api_key_id`, `api_source` and any combination of them. When grouped by `api_source`, results use `agents_api` for attributed Agents API activity and `unlabeled` for all other activity. Without source grouping, `api_source` is null.</summary>
+            /// <summary>Group the costs by the specified fields. Supported fields include `project_id`, `user_id`, `line_item`, `api_key_id`, and `api_source`. Support for combining `user_id` with `project_id` grouping or the `project_ids` filter depends on the organization and requested time range. Unsupported combinations return HTTP 400. When grouped by `api_source`, results use `agents_api` for attributed Agents API activity and `unlabeled` for all other activity. Without source grouping, `api_source` is null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("group_by")]
