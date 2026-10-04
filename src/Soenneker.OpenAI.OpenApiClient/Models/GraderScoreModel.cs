@@ -39,7 +39,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The range of the score. Defaults to `[0, 1]`.</summary>
+        /// <summary>The service requires two numbers for the score range. Defaults to `[0, 1]`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<double?>? Range { get; set; }

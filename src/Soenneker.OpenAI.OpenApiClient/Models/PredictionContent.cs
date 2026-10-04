@@ -8,10 +8,10 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Configuration for a [Predicted Output](https://developers.openai.com/api/docs/guides/predicted-outputs),which can greatly improve response times when large parts of the modelresponse are known ahead of time. This is most common when you areregenerating a file with only minor changes to most of the content.
+    /// Static predicted output content, such as the content of a text file that isbeing regenerated.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateChatCompletionRequestAllOf2Prediction : IAdditionalDataHolder, IParsable
+    public partial class PredictionContent : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -26,21 +26,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The type of the predicted content you want to provide. This type iscurrently always `content`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ContentType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Prediction"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PredictionContent"/> and sets the default values.
         /// </summary>
-        public CreateChatCompletionRequestAllOf2Prediction()
+        public PredictionContent()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Prediction"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PredictionContent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Prediction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.PredictionContent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Prediction();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.PredictionContent();
         }
         /// <summary>
         /// The deserialization information for the current model

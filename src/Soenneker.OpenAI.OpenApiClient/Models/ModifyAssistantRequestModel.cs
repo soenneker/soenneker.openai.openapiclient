@@ -8,18 +8,18 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ModifyAssistantRequestModelBranch1"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper3"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ModifyAssistantRequestModelBranch1"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ModifyAssistantRequestModel : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper2? AssistantSupportedModelsWrapper2 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper3? AssistantSupportedModelsWrapper3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper2 AssistantSupportedModelsWrapper2 { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper3 AssistantSupportedModelsWrapper3 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ModifyAssistantRequestModelBranch1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,7 +38,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ModifyAssistantRequestModel();
-            result.AssistantSupportedModelsWrapper2 = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper2();
+            result.AssistantSupportedModelsWrapper3 = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper3();
             result.ModifyAssistantRequestModelBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ModifyAssistantRequestModelBranch1();
             return result;
         }
@@ -48,9 +48,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(AssistantSupportedModelsWrapper2 != null || ModifyAssistantRequestModelBranch1 != null)
+            if(AssistantSupportedModelsWrapper3 != null || ModifyAssistantRequestModelBranch1 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AssistantSupportedModelsWrapper2, ModifyAssistantRequestModelBranch1);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AssistantSupportedModelsWrapper3, ModifyAssistantRequestModelBranch1);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper2>(null, AssistantSupportedModelsWrapper2, ModifyAssistantRequestModelBranch1);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModelsWrapper3>(null, AssistantSupportedModelsWrapper3, ModifyAssistantRequestModelBranch1);
         }
     }
 }

@@ -15,11 +15,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The size of the file, in bytes.</summary>
+        /// <summary>The size of the file, in bytes. In a completed file upload response, this canbe null when the file size is not yet available.</summary>
         public int? Bytes { get; set; }
         /// <summary>The Unix timestamp (in seconds) for when the file was created.</summary>
         public int? CreatedAt { get; set; }
-        /// <summary>The Unix timestamp (in seconds) for when the file will expire.</summary>
+        /// <summary>The Unix timestamp (in seconds) for when the file will expire. In acompleted file upload response, this can be null when no expiry is set.</summary>
         public int? ExpiresAt { get; set; }
         /// <summary>The name of the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,7 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Deprecated. The current status of the file, which can be either `uploaded`, `processed`, or `error`.</summary>
         [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Models.OpenAiFileStatus? Status { get; set; }
-        /// <summary>Deprecated. For details on why a fine-tuning training file failed validation, see the `error` field on `fine_tuning.job`.</summary>
+        /// <summary>Deprecated. For details on why a fine-tuning training file failed validation, see the `error` field on `fine_tuning.job`. Completed file upload responses can return null when these details are unset.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

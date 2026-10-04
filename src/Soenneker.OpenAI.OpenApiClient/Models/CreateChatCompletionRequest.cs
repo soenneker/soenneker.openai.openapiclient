@@ -94,10 +94,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration for a [Predicted Output](https://developers.openai.com/api/docs/guides/predicted-outputs),which can greatly improve response times when large parts of the modelresponse are known ahead of time. This is most common when you areregenerating a file with only minor changes to most of the content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Prediction? Prediction { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PredictionContent? Prediction { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Prediction Prediction { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PredictionContent Prediction { get; set; }
 #endif
         /// <summary>Number between -2.0 and 2.0. Positive values penalize new tokens based onwhether they appear in the text so far, increasing the model&apos;s likelihoodto talk about new topics.</summary>
         public double? PresencePenalty { get; set; }
@@ -206,7 +206,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "moderation", n => { Moderation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModerationParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ModerationParam.CreateFromDiscriminatorValue); } },
                 { "n", n => { N = n.GetIntValue(); } },
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
-                { "prediction", n => { Prediction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Prediction>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Prediction.CreateFromDiscriminatorValue); } },
+                { "prediction", n => { Prediction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PredictionContent>(global::Soenneker.OpenAI.OpenApiClient.Models.PredictionContent.CreateFromDiscriminatorValue); } },
                 { "presence_penalty", n => { PresencePenalty = n.GetDoubleValue(); } },
                 { "reasoning_effort", n => { ReasoningEffort = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(); } },
                 { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ResponseFormat>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ResponseFormat.CreateFromDiscriminatorValue); } },
@@ -244,7 +244,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModerationParam>("moderation", Moderation);
             writer.WriteIntValue("n", N);
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2Prediction>("prediction", Prediction);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PredictionContent>("prediction", Prediction);
             writer.WriteDoubleValue("presence_penalty", PresencePenalty);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("reasoning_effort", ReasoningEffort);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ResponseFormat>("response_format", ResponseFormat);
