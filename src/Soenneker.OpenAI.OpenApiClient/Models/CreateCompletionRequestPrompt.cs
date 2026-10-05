@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="string"/>, List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequestPromptMember1&gt;, List&lt;int&gt;, List&lt;string&gt;
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequestPromptMember2"/>, <see cref="string"/>, List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequestPromptMember1&gt;, List&lt;int&gt;, List&lt;string&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateCompletionRequestPrompt : IComposedTypeWrapper, IParsable
@@ -20,6 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequestPromptMember1> CreateCompletionRequestPromptMember1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequestPromptMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequestPromptMember2? CreateCompletionRequestPromptMember2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequestPromptMember2 CreateCompletionRequestPromptMember2 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,6 +87,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if(CreateCompletionRequestPromptMember2 != null)
+            {
+                return CreateCompletionRequestPromptMember2.GetFieldDeserializers();
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -88,7 +100,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateCompletionRequestPromptString != null)
+            if(CreateCompletionRequestPromptMember2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionRequestPromptMember2>(null, CreateCompletionRequestPromptMember2);
+            }
+            else if(CreateCompletionRequestPromptString != null)
             {
                 writer.WriteStringValue(null, CreateCompletionRequestPromptString);
             }

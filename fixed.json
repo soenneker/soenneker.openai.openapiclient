@@ -105479,10 +105479,6 @@
         ],
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique ID of the computer call tool output.\n"
-          },
           "status": {
             "description": "The status of the message input. One of \u0060in_progress\u0060, \u0060completed\u0060, or\n\u0060incomplete\u0060. Populated when input items are returned via API.\n",
             "$ref": "#/components/schemas/ComputerCallOutputStatus"
@@ -105866,10 +105862,7 @@
         "x-oaiTypeLabel": "string"
       },
       "CreateCompletionRequestPrompt": {
-        "type": [
-          "null",
-          "object"
-        ],
+        "type": "object",
         "oneOf": [
           {
             "type": "string",
@@ -105903,6 +105896,9 @@
               }
             },
             "example": "[[1212, 318, 257, 1332, 13]]"
+          },
+          {
+            "type": "null"
           }
         ],
         "description": "The prompt(s) to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays.\n\nNote that \u003C|endoftext|\u003E is the document separator that the model sees during training, so if a prompt is not specified the model will generate as if from the beginning of a new document.\n"
@@ -106615,20 +106611,21 @@
         "example": "1024x1024"
       },
       "CreateImageVariationRequestModel": {
-        "type": [
-          "null",
-          "object"
-        ],
+        "type": "object",
         "anyOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/CreateImageVariationRequestModelBranch1"
           },
           {
-            "$ref": "#/components/schemas/CreateImageVariationRequestModelAnyOf2"
+            "$ref": "#/components/schemas/CreateImageVariationRequestModelWrapper"
+          },
+          {
+            "type": "null"
           }
         ],
         "description": "The legacy model used by the retired image variations endpoint. This endpoint no longer accepts requests.",
-        "example": "dall-e-2"
+        "example": "dall-e-2",
+        "x-oaiTypeLabel": "string"
       },
       "CreateMessageRequestContent": {
         "type": "object",
@@ -119420,10 +119417,6 @@
         ],
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique ID of the computer call tool output.\n"
-          },
           "status": {
             "description": "The status of the message input. One of \u0060in_progress\u0060, \u0060completed\u0060, or\n\u0060incomplete\u0060. Populated when input items are returned via API.\n",
             "$ref": "#/components/schemas/BetaComputerCallOutputStatus"
@@ -126288,6 +126281,22 @@
       },
       "RealtimeSessionInputAudioNoiseReduction": {
         "type": "object",
+        "not": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
         "properties": {
           "type": {
             "description": "Type of noise reduction. \u0060near_field\u0060 is for close-talking microphones such as headphones, \u0060far_field\u0060 is for far-field microphones such as laptop or conference room microphones.\n",
@@ -126450,6 +126459,22 @@
       },
       "RealtimeTranscriptionSessionCreateRequestInputAudioNoiseReduction": {
         "type": "object",
+        "not": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
         "properties": {
           "type": {
             "description": "Type of noise reduction. \u0060near_field\u0060 is for close-talking microphones such as headphones, \u0060far_field\u0060 is for far-field microphones such as laptop or conference room microphones.\n",
@@ -130657,6 +130682,22 @@
       },
       "RealtimeSessionCreateRequestGaAudioInputNoiseReduction": {
         "type": "object",
+        "not": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
         "properties": {
           "type": {
             "description": "Type of noise reduction. \u0060near_field\u0060 is for close-talking microphones such as headphones, \u0060far_field\u0060 is for far-field microphones such as laptop or conference room microphones.\n",
@@ -130716,6 +130757,22 @@
       },
       "RealtimeTranscriptionSessionCreateRequestGaAudioInputNoiseReduction": {
         "type": "object",
+        "not": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
         "properties": {
           "type": {
             "description": "Type of noise reduction. \u0060near_field\u0060 is for close-talking microphones such as headphones, \u0060far_field\u0060 is for far-field microphones such as laptop or conference room microphones.\n",
@@ -131795,6 +131852,17 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/CreateImageRequestSizeWrapperValue"
+          }
+        }
+      },
+      "CreateImageVariationRequestModelWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/DallE2Value"
           }
         }
       },
@@ -133793,6 +133861,17 @@
         }
       },
       "CreateImageRequestSizeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateImageVariationRequestModelBranch1": {
         "required": [
           "value"
         ],
@@ -141761,7 +141840,8 @@
       "CreateImageEditRequestResponseFormat": {
         "enum": [
           "url",
-          "b64_json"
+          "b64_json",
+          null
         ],
         "type": [
           "null",
@@ -141929,7 +142009,8 @@
       "CreateImageRequestResponseFormat": {
         "enum": [
           "url",
-          "b64_json"
+          "b64_json",
+          null
         ],
         "type": [
           "null",
@@ -142047,7 +142128,8 @@
       "CreateImageRequestStyle": {
         "enum": [
           "vivid",
-          "natural"
+          "natural",
+          null
         ],
         "type": [
           "null",
@@ -142075,7 +142157,8 @@
       "CreateImageVariationRequestResponseFormat": {
         "enum": [
           "url",
-          "b64_json"
+          "b64_json",
+          null
         ],
         "type": [
           "null",
@@ -142103,7 +142186,8 @@
         "enum": [
           "256x256",
           "512x512",
-          "1024x1024"
+          "1024x1024",
+          null
         ],
         "type": [
           "null",
@@ -156601,24 +156685,6 @@
           ]
         }
       },
-      "CreateImageVariationRequestModelAnyOf2": {
-        "enum": [
-          "dall-e-2"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "CreateImageVariationRequestModelAnyOf2",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "dall-e-2",
-              "name": "DallE2"
-            }
-          ]
-        }
-      },
       "FineTuningJobHyperparametersBatchSizeOneOf1": {
         "enum": [
           "auto"
@@ -161614,6 +161680,24 @@
             {
               "value": "1024x1792",
               "name": "Value1024X1792"
+            }
+          ]
+        }
+      },
+      "DallE2Value": {
+        "enum": [
+          "dall-e-2"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "DallE2Value",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "dall-e-2",
+              "name": "DallE2"
             }
           ]
         }
