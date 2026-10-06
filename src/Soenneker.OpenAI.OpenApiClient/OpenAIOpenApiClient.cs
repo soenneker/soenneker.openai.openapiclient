@@ -16,6 +16,7 @@ using Soenneker.OpenAI.OpenApiClient.Completions;
 using Soenneker.OpenAI.OpenApiClient.Containers;
 using Soenneker.OpenAI.OpenApiClient.Content_provenance_checks;
 using Soenneker.OpenAI.OpenApiClient.Conversations;
+using Soenneker.OpenAI.OpenApiClient.Decisions;
 using Soenneker.OpenAI.OpenApiClient.Embeddings;
 using Soenneker.OpenAI.OpenApiClient.Evals;
 using Soenneker.OpenAI.OpenApiClient.Files;
@@ -99,6 +100,11 @@ namespace Soenneker.OpenAI.OpenApiClient
         public global::Soenneker.OpenAI.OpenApiClient.Conversations.ConversationsRequestBuilder Conversations
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Conversations.ConversationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The decisions property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Decisions.DecisionsRequestBuilder Decisions
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Decisions.DecisionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The embeddings property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Embeddings.EmbeddingsRequestBuilder Embeddings

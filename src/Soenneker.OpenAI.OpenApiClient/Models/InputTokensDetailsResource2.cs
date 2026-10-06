@@ -7,29 +7,23 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// A breakdown of input token usage for a session or turn.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class LiveHostedShellToolInputParamEnvironmentProperty : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class InputTokensDetailsResource2 : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParamEnvironmentProperty"/> and sets the default values.
-        /// </summary>
-        public LiveHostedShellToolInputParamEnvironmentProperty()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>The number of input tokens retrieved from the prompt cache.</summary>
+        public long? CachedTokens { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParamEnvironmentProperty"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputTokensDetailsResource2"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParamEnvironmentProperty CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.InputTokensDetailsResource2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParamEnvironmentProperty();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.InputTokensDetailsResource2();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -39,6 +33,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "cached_tokens", n => { CachedTokens = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -48,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteLongValue("cached_tokens", CachedTokens);
         }
     }
 }

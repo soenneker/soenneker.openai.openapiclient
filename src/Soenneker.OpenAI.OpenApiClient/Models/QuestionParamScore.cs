@@ -9,11 +9,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class LiveFunctionToolChoiceParam : IAdditionalDataHolder, IParsable
+    public partial class QuestionParamScore : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The instructions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Instructions { get; set; }
+#nullable restore
+#else
+        public string Instructions { get; set; }
+#endif
+        /// <summary>The levels property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ScoreLevelParam>? Levels { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ScoreLevelParam> Levels { get; set; }
+#endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,24 +36,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The type of tool being defined: `function`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType? Type { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolChoiceParam"/> and sets the default values.
-        /// </summary>
-        public LiveFunctionToolChoiceParam()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>The type of the object. Always `score`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ScoreType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolChoiceParam"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamScore"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolChoiceParam CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamScore CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolChoiceParam();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamScore();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,8 +56,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "instructions", n => { Instructions = n.GetStringValue(); } },
+                { "levels", n => { Levels = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ScoreLevelParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ScoreLevelParam.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScoreType>(); } },
             };
         }
         /// <summary>
@@ -60,9 +69,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("instructions", Instructions);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ScoreLevelParam>("levels", Levels);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionType>("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScoreType>("type", Type);
         }
     }
 }

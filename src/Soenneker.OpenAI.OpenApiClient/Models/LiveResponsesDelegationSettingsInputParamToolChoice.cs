@@ -8,35 +8,22 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolChoiceParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveMcpToolChoiceParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnumWrapper"/>
+    /// Controls which tool the Responses backend uses when handling a task delegated by the Live model.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class LiveResponsesDelegationSettingsInputParamToolChoice : IComposedTypeWrapper, IParsable
+    public partial class LiveResponsesDelegationSettingsInputParamToolChoice : IAdditionalDataHolder, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolChoiceParam"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolChoiceParam? LiveFunctionToolChoiceParam { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolChoiceParam LiveFunctionToolChoiceParam { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveMcpToolChoiceParam"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveMcpToolChoiceParam? LiveMcpToolChoiceParam { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveMcpToolChoiceParam LiveMcpToolChoiceParam { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnumWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnumWrapper? LiveToolChoiceEnumWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnumWrapper LiveToolChoiceEnumWrapper { get; set; }
-#endif
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The value property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnum? Value { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParamToolChoice"/> and sets the default values.
+        /// </summary>
+        public LiveResponsesDelegationSettingsInputParamToolChoice()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -45,21 +32,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParamToolChoice CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParamToolChoice();
-            if("LiveFunctionToolChoiceParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.LiveFunctionToolChoiceParam = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolChoiceParam();
-            }
-            else if("LiveMcpToolChoiceParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.LiveMcpToolChoiceParam = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveMcpToolChoiceParam();
-            }
-            else if("LiveToolChoiceEnumWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.LiveToolChoiceEnumWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnumWrapper();
-            }
-            return result;
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParamToolChoice();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,19 +40,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(LiveFunctionToolChoiceParam != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return LiveFunctionToolChoiceParam.GetFieldDeserializers();
-            }
-            else if(LiveMcpToolChoiceParam != null)
-            {
-                return LiveMcpToolChoiceParam.GetFieldDeserializers();
-            }
-            else if(LiveToolChoiceEnumWrapper != null)
-            {
-                return LiveToolChoiceEnumWrapper.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnum>(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -88,18 +52,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(LiveFunctionToolChoiceParam != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveFunctionToolChoiceParam>(null, LiveFunctionToolChoiceParam);
-            }
-            else if(LiveMcpToolChoiceParam != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveMcpToolChoiceParam>(null, LiveMcpToolChoiceParam);
-            }
-            else if(LiveToolChoiceEnumWrapper != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnumWrapper>(null, LiveToolChoiceEnumWrapper);
-            }
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnum>("value", Value);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

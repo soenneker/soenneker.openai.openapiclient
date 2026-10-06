@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Vaults
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VaultsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/vaults{?after*,limit*,order*,status*}", pathParameters)
+        public VaultsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/vaults{?after*,limit*,metadata*,order*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Vaults
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VaultsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/vaults{?after*,limit*,order*,status*}", rawUrl)
+        public VaultsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/vaults{?after*,limit*,metadata*,order*,status*}", rawUrl)
         {
         }
         /// <summary>
@@ -187,6 +187,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Vaults
             /// <summary>The maximum number of resources to return. Defaults to 20. Values are clamped between 1 and 100.</summary>
             [QueryParameter("limit")]
             public long? Limit { get; set; }
+            /// <summary>Exact string matches supplied as `metadata[key]=value`. All supplied pairs must match. Up to 16 pairs, with keys from 1 to 64 characters and values up to 512 characters. Filtering is eventually consistent; metadata changes may take time to appear.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("metadata")]
+            public string? Metadata { get; set; }
+#nullable restore
+#else
+            [QueryParameter("metadata")]
+            public string Metadata { get; set; }
+#endif
             /// <summary>Sort order by the `created_at` timestamp. Use `asc` for ascending order or `desc` for descending order. Defaults to `desc`.</summary>
             [QueryParameter("order")]
             public global::Soenneker.OpenAI.OpenApiClient.Models.ListOrderParam? Order { get; set; }

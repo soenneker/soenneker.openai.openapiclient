@@ -93,6 +93,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -113,6 +114,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions
                 { "403", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
             };

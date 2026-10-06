@@ -7,13 +7,12 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// A breakdown of output token usage for a session or turn.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class OutputTokensDetailsResource : IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>The number of output tokens used for reasoning.</summary>
+        /// <summary>The reasoning_tokens property</summary>
         public long? ReasoningTokens { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

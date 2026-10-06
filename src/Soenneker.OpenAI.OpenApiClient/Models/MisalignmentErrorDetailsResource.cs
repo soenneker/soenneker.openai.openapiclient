@@ -30,6 +30,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorType ErrorType { get; set; }
 #endif
+        /// <summary>An opaque target for explicitly continuing this review, or null when unavailable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReviewTarget { get; set; }
+#nullable restore
+#else
+        public string ReviewTarget { get; set; }
+#endif
         /// <summary>The steer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,6 +73,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "detailed_explanation", n => { DetailedExplanation = n.GetStringValue(); } },
                 { "error_type", n => { ErrorType = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorType>(global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorType.CreateFromDiscriminatorValue); } },
+                { "review_target", n => { ReviewTarget = n.GetStringValue(); } },
                 { "steer", n => { Steer = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentSteer>(global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentSteer.CreateFromDiscriminatorValue); } },
             };
         }
@@ -77,6 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("detailed_explanation", DetailedExplanation);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorType>("error_type", ErrorType);
+            writer.WriteStringValue("review_target", ReviewTarget);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentSteer>("steer", Steer);
             writer.WriteAdditionalData(AdditionalData);
         }

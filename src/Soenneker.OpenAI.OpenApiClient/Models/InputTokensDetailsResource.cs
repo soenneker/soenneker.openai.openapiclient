@@ -7,14 +7,15 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// A breakdown of input token usage for a session or turn.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class InputTokensDetailsResource : IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>The number of input tokens retrieved from the prompt cache.</summary>
+        /// <summary>The cached_tokens property</summary>
         public long? CachedTokens { get; set; }
+        /// <summary>The cache_write_tokens property</summary>
+        public long? CacheWriteTokens { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -33,6 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "cache_write_tokens", n => { CacheWriteTokens = n.GetLongValue(); } },
                 { "cached_tokens", n => { CachedTokens = n.GetLongValue(); } },
             };
         }
@@ -44,6 +46,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteLongValue("cached_tokens", CachedTokens);
+            writer.WriteLongValue("cache_write_tokens", CacheWriteTokens);
         }
     }
 }

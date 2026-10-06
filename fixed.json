@@ -25662,6 +25662,47 @@
         }
       }
     },
+    "/decisions": {
+      "post": {
+        "tags": [
+          "Decisions"
+        ],
+        "summary": "Create a decision",
+        "description": "Evaluate ordered classification and scoring questions against shared input. Answers are returned in question order.\n\nSupply input as a string or user messages containing text and inline images. Only user messages with \u0060input_text\u0060 and \u0060input_image\u0060 parts are supported; non-user roles, function calls, files, audio, and item references are not supported. Images require a data URL, not an external URL or file ID. At most 128 images are allowed across the request.\n\nEach question can return a refusal instead of a scored answer. A refusal has type \u0060refusal\u0060 and the corresponding question name, or null if unnamed.",
+        "operationId": "CreateDecision",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecisionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The answers and token usage.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecisionResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-oaiMeta": {
+          "group": "decisions",
+          "examples": {
+            "request": {
+              "curl": "curl https://api.openai.com/v1/decisions \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_API_KEY\u0022 \\\n  -d \u0027{\n    \u0022model\u0022: \u0022gpt-6-luna\u0022,\n    \u0022input\u0022: \u0022The package arrived with a broken screen.\u0022,\n    \u0022questions\u0022: [\n      {\n        \u0022type\u0022: \u0022predicate\u0022,\n        \u0022name\u0022: \u0022damaged\u0022,\n        \u0022instructions\u0022: \u0022Does the customer report a damaged item?\u0022\n      }\n    ]\n  }\u0027\n"
+            },
+            "response": "{\n  \u0022model\u0022: \u0022gpt-6-luna\u0022,\n  \u0022answers\u0022: [\n    {\u0022type\u0022: \u0022predicate\u0022, \u0022name\u0022: \u0022damaged\u0022, \u0022probability\u0022: 0.95}\n  ],\n  \u0022usage\u0022: {\n    \u0022input_tokens\u0022: 42,\n    \u0022input_tokens_details\u0022: {\u0022cached_tokens\u0022: 0, \u0022cache_write_tokens\u0022: 0},\n    \u0022output_tokens\u0022: 0,\n    \u0022output_tokens_details\u0022: {\u0022reasoning_tokens\u0022: 0},\n    \u0022total_tokens\u0022: 42\n  }\n}\n"
+          }
+        }
+      }
+    },
     "/agents/environments/{environmentId}": {
       "get": {
         "tags": [
@@ -25998,6 +26039,16 @@
           },
           "409": {
             "description": "The request conflicted with the current session state.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "The Files API rate limit for your user has been exceeded.",
             "content": {
               "application/json": {
                 "schema": {
@@ -28152,6 +28203,16 @@
               }
             }
           },
+          "429": {
+            "description": "The Files API rate limit for your user has been exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
           "500": {
             "description": "An internal error occurred.",
             "content": {
@@ -29906,6 +29967,28 @@
         "operationId": "ListVaults",
         "parameters": [
           {
+            "name": "metadata",
+            "in": "query",
+            "description": "Exact string matches supplied as \u0060metadata[key]=value\u0060. All supplied pairs must match. Up to 16 pairs, with keys from 1 to 64 characters and values up to 512 characters. Filtering is eventually consistent; metadata changes may take time to appear.",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "propertyNames": {
+                "maxLength": 64,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxProperties": 16,
+              "minProperties": 0,
+              "type": "object",
+              "additionalProperties": {
+                "maxLength": 512,
+                "minLength": 0,
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "order",
             "in": "query",
             "description": "Sort order by the \u0060created_at\u0060 timestamp. Use \u0060asc\u0060 for ascending order or \u0060desc\u0060 for descending order. Defaults to \u0060desc\u0060.",
@@ -30234,6 +30317,119 @@
           }
         }
       },
+      "post": {
+        "tags": [
+          "Vaults"
+        ],
+        "summary": "Update a vault",
+        "description": "Updates the name or metadata of an active vault. Omitted fields remain unchanged. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).",
+        "operationId": "UpdateVault",
+        "parameters": [
+          {
+            "name": "vaultId",
+            "in": "path",
+            "description": "The ID of the vault.",
+            "required": true,
+            "schema": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateVaultParams"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The updated vault.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaultResource"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication or project context was missing.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key lacks the required management permission.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested vault or credential was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The request conflicted with the current vault state.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The service is temporarily unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          }
+        }
+      },
       "delete": {
         "tags": [
           "Vaults"
@@ -30356,6 +30552,28 @@
               "maxLength": 1048576,
               "minLength": 0,
               "type": "string"
+            }
+          },
+          {
+            "name": "metadata",
+            "in": "query",
+            "description": "Exact string matches supplied as \u0060metadata[key]=value\u0060. All supplied pairs must match. Up to 16 pairs, with keys from 1 to 64 characters and values up to 512 characters. Filtering is eventually consistent; metadata changes may take time to appear.",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "propertyNames": {
+                "maxLength": 64,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxProperties": 16,
+              "minProperties": 0,
+              "type": "object",
+              "additionalProperties": {
+                "maxLength": 512,
+                "minLength": 0,
+                "type": "string"
+              }
             }
           },
           {
@@ -35136,6 +35354,9 @@
       "ChatCompletionStreamResponseDelta": {
         "type": "object",
         "properties": {
+          "audio": {
+            "$ref": "#/components/schemas/ChatCompletionStreamResponseDeltaAudio"
+          },
           "content": {
             "type": [
               "null",
@@ -42780,7 +43001,7 @@
           "tools": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Tool"
+              "$ref": "#/components/schemas/ToolSearchOutputTool"
             },
             "description": "The loaded tool definitions returned by the tool search output."
           },
@@ -43272,7 +43493,7 @@
           "tools": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Tool"
+              "$ref": "#/components/schemas/ToolSearchOutputTool"
             },
             "description": "The loaded tool definitions returned by the tool search output."
           },
@@ -46285,7 +46506,10 @@
             "description": "The file identifier, which can be referenced in the API endpoints."
           },
           "bytes": {
-            "type": "integer",
+            "type": [
+              "null",
+              "integer"
+            ],
             "description": "The size of the file, in bytes. In a completed file upload response, this can\nbe null when the file size is not yet available.\n"
           },
           "created_at": {
@@ -60852,6 +61076,248 @@
         },
         "description": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](https://developers.openai.com/api/docs/guides/tools).\n"
       },
+      "ToolSearchOutputTool": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/FunctionTool"
+          },
+          {
+            "$ref": "#/components/schemas/FileSearchTool"
+          },
+          {
+            "$ref": "#/components/schemas/ComputerTool"
+          },
+          {
+            "$ref": "#/components/schemas/ComputerUsePreviewTool"
+          },
+          {
+            "$ref": "#/components/schemas/WebSearchTool"
+          },
+          {
+            "$ref": "#/components/schemas/McpTool"
+          },
+          {
+            "$ref": "#/components/schemas/CodeInterpreterTool"
+          },
+          {
+            "$ref": "#/components/schemas/ProgrammaticToolCallingParam"
+          },
+          {
+            "$ref": "#/components/schemas/ImageGenTool"
+          },
+          {
+            "$ref": "#/components/schemas/LocalShellToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/FunctionShellToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/CustomToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/ToolSearchOutputNamespaceToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/ToolSearchToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/WebSearchPreviewTool"
+          },
+          {
+            "$ref": "#/components/schemas/ApplyPatchToolParam"
+          }
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the function to call."
+          },
+          "async": {
+            "type": "boolean"
+          },
+          "output_schema": {
+            "$ref": "#/components/schemas/FunctionToolOutputSchemaProperty"
+          },
+          "strict": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether strict parameter validation is enforced for this function tool."
+          },
+          "defer_loading": {
+            "type": "boolean",
+            "description": "Whether this function is deferred and loaded via tool search."
+          },
+          "allowed_callers": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/CallableToolAllowedCaller"
+            },
+            "description": "The tool invocation context(s)."
+          },
+          "vector_store_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The IDs of the vector stores to search."
+          },
+          "max_num_results": {
+            "type": "integer",
+            "description": "The maximum number of results to return. This number should be between 1 and 50 inclusive."
+          },
+          "ranking_options": {
+            "description": "Ranking options for search.",
+            "$ref": "#/components/schemas/RankingOptions"
+          },
+          "display_width": {
+            "type": "integer",
+            "description": "The width of the computer display."
+          },
+          "display_height": {
+            "type": "integer",
+            "description": "The height of the computer display."
+          },
+          "external_web_access": {
+            "type": "boolean",
+            "description": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+            "default": true
+          },
+          "server_label": {
+            "type": "string",
+            "description": "A label for this MCP server, used to identify it in tool calls.\n"
+          },
+          "server_url": {
+            "type": "string",
+            "description": "The URL for the MCP server. One of \u0060server_url\u0060, \u0060connector_id\u0060, or\n\u0060tunnel_id\u0060 must be provided.\n",
+            "format": "uri"
+          },
+          "connector_id": {
+            "$ref": "#/components/schemas/McpToolConnectorId"
+          },
+          "tunnel_id": {
+            "pattern": "^tunnel_[a-z0-9]{32}$",
+            "type": "string",
+            "description": "The Secure MCP Tunnel ID to use instead of a direct server URL. One of\n\u0060server_url\u0060, \u0060connector_id\u0060, or \u0060tunnel_id\u0060 must be provided.\n"
+          },
+          "authorization": {
+            "type": "string",
+            "description": "An OAuth access token that can be used with a remote MCP server, either\nwith a custom MCP server URL or a service connector. Your application\nmust handle the OAuth authorization flow and provide the token here.\n"
+          },
+          "server_description": {
+            "type": "string",
+            "description": "Optional description of the MCP server, used to provide more context.\n"
+          },
+          "headers": {
+            "$ref": "#/components/schemas/McpToolHeadersProperty"
+          },
+          "allowed_tools": {
+            "$ref": "#/components/schemas/McpToolAllowedTools"
+          },
+          "require_approval": {
+            "$ref": "#/components/schemas/McpToolRequireApproval"
+          },
+          "container": {
+            "$ref": "#/components/schemas/CodeInterpreterToolContainer"
+          },
+          "model": {
+            "$ref": "#/components/schemas/ImageGenToolModel"
+          },
+          "quality": {
+            "$ref": "#/components/schemas/ImageGenToolQuality"
+          },
+          "size": {
+            "$ref": "#/components/schemas/ImageGenToolSize"
+          },
+          "output_format": {
+            "$ref": "#/components/schemas/ImageGenToolOutputFormat"
+          },
+          "output_compression": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Compression level for the output image. Default: 100.\n",
+            "default": 100
+          },
+          "moderation": {
+            "$ref": "#/components/schemas/ImageGenToolModeration"
+          },
+          "background": {
+            "$ref": "#/components/schemas/ImageGenToolBackground"
+          },
+          "input_fidelity": {
+            "$ref": "#/components/schemas/ImageGenToolInputFidelity"
+          },
+          "input_image_mask": {
+            "$ref": "#/components/schemas/ImageGenToolInputImageMask"
+          },
+          "partial_images": {
+            "maximum": 3,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Number of partial images to generate in streaming mode, from 0 (default value) to 3.\n",
+            "default": 0
+          },
+          "action": {
+            "description": "Whether to generate a new image or edit an existing image. Default: \u0060auto\u0060.\n",
+            "$ref": "#/components/schemas/ImageGenActionEnum"
+          },
+          "format": {
+            "$ref": "#/components/schemas/CustomToolParamFormat"
+          },
+          "tools": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ToolSearchOutputNamespaceToolParamToolsItem"
+            },
+            "description": "The function/custom tools loaded inside this namespace."
+          },
+          "execution": {
+            "description": "Whether tool search is executed by the server or by the client.",
+            "$ref": "#/components/schemas/ToolSearchExecutionType"
+          },
+          "search_content_types": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchContentType"
+            }
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": "A tool definition returned by a tool search output.\n",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "FunctionTool": "#/components/schemas/FunctionTool",
+            "FileSearchTool": "#/components/schemas/FileSearchTool",
+            "ComputerTool": "#/components/schemas/ComputerTool",
+            "ComputerUsePreviewTool": "#/components/schemas/ComputerUsePreviewTool",
+            "WebSearchTool": "#/components/schemas/WebSearchTool",
+            "McpTool": "#/components/schemas/McpTool",
+            "CodeInterpreterTool": "#/components/schemas/CodeInterpreterTool",
+            "ProgrammaticToolCallingParam": "#/components/schemas/ProgrammaticToolCallingParam",
+            "ImageGenTool": "#/components/schemas/ImageGenTool",
+            "LocalShellToolParam": "#/components/schemas/LocalShellToolParam",
+            "FunctionShellToolParam": "#/components/schemas/FunctionShellToolParam",
+            "CustomToolParam": "#/components/schemas/CustomToolParam",
+            "ToolSearchOutputNamespaceToolParam": "#/components/schemas/ToolSearchOutputNamespaceToolParam",
+            "ToolSearchToolParam": "#/components/schemas/ToolSearchToolParam",
+            "WebSearchPreviewTool": "#/components/schemas/WebSearchPreviewTool",
+            "ApplyPatchToolParam": "#/components/schemas/ApplyPatchToolParam"
+          }
+        }
+      },
       "ToolsArray": {
         "type": "array",
         "items": {
@@ -64173,6 +64639,16 @@
       "MisalignmentErrorDetailsResource": {
         "type": "object",
         "properties": {
+          "review_target": {
+            "maxLength": 96,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._~:-]\u002B$",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "An opaque target for explicitly continuing this review, or null when unavailable."
+          },
           "error_type": {
             "$ref": "#/components/schemas/MisalignmentErrorType"
           },
@@ -68118,6 +68594,97 @@
           }
         }
       },
+      "ToolSearchOutputFunctionToolParam": {
+        "required": [
+          "name",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^(?![\\s\\S]*[\\r\\n])[a-zA-Z0-9_.-]\u002B$",
+            "type": "string",
+            "description": "The name of the loaded function tool."
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/ToolSearchOutputFunctionToolParamParameters"
+          },
+          "strict": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise."
+          },
+          "type": {
+            "$ref": "#/components/schemas/FunctionType"
+          },
+          "async": {
+            "type": "boolean",
+            "description": "Whether the tool response can be returned asynchronously versus immediately returned on next response creation."
+          },
+          "output_schema": {
+            "$ref": "#/components/schemas/ToolSearchOutputFunctionToolParamOutputSchemaProperty"
+          },
+          "defer_loading": {
+            "type": "boolean",
+            "description": "Whether this function should be deferred and discovered via tool search."
+          },
+          "allowed_callers": {
+            "minItems": 1,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/CallableToolAllowedCaller"
+            },
+            "description": "The tool invocation context(s)."
+          }
+        },
+        "x-openai-structured-output": "function"
+      },
+      "ToolSearchOutputNamespaceToolParam": {
+        "title": "Namespace",
+        "required": [
+          "type",
+          "name",
+          "description",
+          "tools"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/NamespaceValueType"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The namespace name used in tool calls (for example, \u0060crm\u0060)."
+          },
+          "description": {
+            "type": "string",
+            "description": "A description of the namespace shown to the model."
+          },
+          "tools": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ToolSearchOutputNamespaceToolParamToolsItem"
+            },
+            "description": "The function/custom tools loaded inside this namespace."
+          }
+        },
+        "description": "Groups function/custom tools under a shared namespace."
+      },
       "ToolSearchOutputItemParam": {
         "required": [
           "type",
@@ -68152,7 +68719,7 @@
           "tools": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Tool"
+              "$ref": "#/components/schemas/ToolSearchOutputTool"
             },
             "description": "The loaded tool definitions returned by the tool search output."
           },
@@ -69199,10 +69766,245 @@
           }
         }
       },
-      "LiveHostedShellToolInputParam": {
+      "LiveContainerMemoryLimit": {
+        "enum": [
+          "1g",
+          "4g",
+          "16g",
+          "64g"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "LiveContainerMemoryLimit",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "1g",
+              "name": "Value1G"
+            },
+            {
+              "value": "4g",
+              "name": "Value4G"
+            },
+            {
+              "value": "16g",
+              "name": "Value16G"
+            },
+            {
+              "value": "64g",
+              "name": "Value64G"
+            }
+          ]
+        }
+      },
+      "LiveContainerNetworkPolicyDisabledParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DisabledType"
+          }
+        }
+      },
+      "LiveHostedShellNetworkPolicyAllowlistParam": {
         "required": [
           "type",
-          "environment"
+          "allowed_domains"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AllowlistType"
+          },
+          "allowed_domains": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of allowed domains when type is \u0060allowlist\u0060."
+          }
+        }
+      },
+      "LiveSkillReferenceParam": {
+        "required": [
+          "type",
+          "skill_id"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SkillReferenceType"
+          },
+          "skill_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The ID of the referenced skill."
+          },
+          "version": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional skill version. Use a positive integer or \u0027latest\u0027. Omit for default."
+          }
+        }
+      },
+      "LiveInlineSkillSourceParam": {
+        "required": [
+          "type",
+          "media_type",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/Base64Type"
+          },
+          "media_type": {
+            "$ref": "#/components/schemas/ApplicationZipMediaType"
+          },
+          "data": {
+            "maxLength": 70254592,
+            "minLength": 1,
+            "type": "string",
+            "description": "Base64-encoded skill zip bundle."
+          }
+        },
+        "description": "Inline skill payload"
+      },
+      "LiveInlineSkillParam": {
+        "required": [
+          "type",
+          "name",
+          "description",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InlineType"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the skill."
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the skill."
+          },
+          "source": {
+            "description": "Inline skill payload",
+            "$ref": "#/components/schemas/LiveInlineSkillSourceParam"
+          }
+        }
+      },
+      "LiveHostedShellContainerAutoParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ContainerAutoType"
+          },
+          "file_ids": {
+            "maxItems": 50,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "An optional list of uploaded files to make available to your code."
+          },
+          "memory_limit": {
+            "$ref": "#/components/schemas/LiveHostedShellContainerAutoParamMemoryLimit"
+          },
+          "network_policy": {
+            "$ref": "#/components/schemas/LiveHostedShellContainerAutoParamNetworkPolicy"
+          },
+          "skills": {
+            "maxItems": 200,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/LiveHostedShellContainerAutoParamSkillsItem"
+            },
+            "description": "An optional list of skills referenced by id or inline data."
+          }
+        }
+      },
+      "LiveContainerReferenceParam": {
+        "required": [
+          "type",
+          "container_id"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ContainerReferenceType"
+          },
+          "container_id": {
+            "type": "string",
+            "description": "The ID of the referenced container."
+          }
+        }
+      },
+      "LiveLocalSkillParam": {
+        "required": [
+          "name",
+          "description",
+          "path"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the skill."
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the skill."
+          },
+          "path": {
+            "type": "string",
+            "description": "The path to the directory containing the skill."
+          }
+        }
+      },
+      "LiveLocalEnvironmentParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/LocalType"
+          },
+          "skills": {
+            "maxItems": 200,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/LiveLocalSkillParam"
+            },
+            "description": "An optional list of skills."
+          }
+        }
+      },
+      "LiveHostedShellToolInputParam": {
+        "required": [
+          "type"
         ],
         "type": "object",
         "properties": {
@@ -69210,10 +70012,10 @@
             "$ref": "#/components/schemas/ShellType"
           },
           "environment": {
-            "$ref": "#/components/schemas/LiveHostedShellToolInputParamEnvironmentProperty"
+            "$ref": "#/components/schemas/LiveHostedShellToolInputParamEnvironment"
           }
         },
-        "description": "A Responses shell tool with a container_auto or container_reference environment. Local execution and domain secrets are not supported."
+        "description": "A Responses shell tool. Use a hosted container or return local shell results with response.item.create. Domain secrets are not supported."
       },
       "LiveImageGenerationToolInputParam": {
         "required": [
@@ -69223,6 +70025,83 @@
         "properties": {
           "type": {
             "$ref": "#/components/schemas/ImageGenerationType"
+          }
+        }
+      },
+      "LiveMcpToolInputParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/McpType"
+          }
+        }
+      },
+      "LiveCustomToolInputParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/CustomType"
+          }
+        }
+      },
+      "LiveNamespaceToolInputParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/NamespaceValueType"
+          }
+        }
+      },
+      "LiveToolSearchToolInputParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ToolSearchType"
+          }
+        }
+      },
+      "LiveProgrammaticToolInputParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ProgrammaticToolCallingType"
+          }
+        }
+      },
+      "LiveComputerToolInputParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ComputerType"
+          }
+        }
+      },
+      "LiveApplyPatchToolInputParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ApplyPatchType"
           }
         }
       },
@@ -69251,49 +70130,6 @@
               "name": "Required"
             }
           ]
-        }
-      },
-      "LiveFunctionToolChoiceParam": {
-        "required": [
-          "type",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/FunctionType"
-          },
-          "name": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9_-]\u002B$",
-            "type": "string"
-          }
-        }
-      },
-      "LiveMcpToolChoiceParam": {
-        "required": [
-          "type",
-          "server_label",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/McpType"
-          },
-          "server_label": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9_-]\u002B$",
-            "type": "string"
-          },
-          "name": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9_-]\u002B$",
-            "type": "string"
-          }
         }
       },
       "LiveResponsesDelegationSettingsInputParam": {
@@ -74308,6 +75144,732 @@
         },
         "description": "A paginated list of ChatKit threads."
       },
+      "DecisionInputText": {
+        "required": [
+          "type",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InputTextType"
+          },
+          "text": {
+            "maxLength": 10485760,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImageDetailParam": {
+        "enum": [
+          "low",
+          "high",
+          "auto",
+          "original"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ImageDetailParam",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            },
+            {
+              "value": "auto",
+              "name": "Auto"
+            },
+            {
+              "value": "original",
+              "name": "Original"
+            }
+          ]
+        }
+      },
+      "DecisionInputImage": {
+        "required": [
+          "image_url",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "image_url": {
+            "maxLength": 1073741824,
+            "minLength": 0,
+            "pattern": "^data:",
+            "type": "string",
+            "description": "A base64-encoded image in a data URL."
+          },
+          "detail": {
+            "$ref": "#/components/schemas/DecisionInputImageDetail"
+          },
+          "type": {
+            "$ref": "#/components/schemas/InputImageType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "An inline image. External URLs and file IDs are not supported."
+      },
+      "DecisionInputContentParts": {
+        "maxItems": 16384,
+        "minItems": 0,
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/DecisionInputContentPartsItem"
+        }
+      },
+      "DecisionInputContent": {
+        "type": "object",
+        "oneOf": [
+          {
+            "maxLength": 10485760,
+            "minLength": 0,
+            "type": "string"
+          },
+          {
+            "maxItems": 16384,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DecisionInputContentPartsItem"
+            }
+          }
+        ],
+        "description": "Text evidence or an ordered list of text and inline image parts."
+      },
+      "DecisionInputMessage": {
+        "required": [
+          "role",
+          "content"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/UserRole"
+          },
+          "content": {
+            "description": "Text evidence or an ordered list of text and inline image parts.",
+            "$ref": "#/components/schemas/DecisionInputContent"
+          },
+          "type": {
+            "$ref": "#/components/schemas/MessageType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A user message containing text or inline images."
+      },
+      "DecisionInput": {
+        "type": "object",
+        "oneOf": [
+          {
+            "maxLength": 10485760,
+            "minLength": 0,
+            "type": "string"
+          },
+          {
+            "maxItems": 131072,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DecisionInputOneOf2Item"
+            }
+          }
+        ],
+        "description": "Shared evidence, as a string or an array of user messages containing text and inline images. Non-user roles, function calls, function-call outputs, files, audio, and item references are not supported. At most 128 image parts are allowed across all messages in one request."
+      },
+      "QuestionParamPredicate": {
+        "required": [
+          "type",
+          "instructions"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/PredicateType"
+          },
+          "name": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          "instructions": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChoiceValueParam": {
+        "type": "object",
+        "oneOf": [
+          {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          }
+        ],
+        "description": "Choice values are typed: a string and a boolean with the same text are distinct."
+      },
+      "ChoiceOptionParam": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "description": "Choice values are typed: a string and a boolean with the same text are distinct.",
+            "$ref": "#/components/schemas/ChoiceValueParam"
+          },
+          "description": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "QuestionParamChoice": {
+        "required": [
+          "type",
+          "instructions",
+          "choices"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ChoiceType"
+          },
+          "name": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          "instructions": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          "choices": {
+            "maxItems": 255,
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChoiceOptionParam"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ScoreLevelParam": {
+        "required": [
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "QuestionParamScore": {
+        "required": [
+          "type",
+          "instructions",
+          "levels"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ScoreType"
+          },
+          "name": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          "instructions": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          "levels": {
+            "maxItems": 10,
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScoreLevelParam"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "QuestionParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/QuestionParamPredicate"
+          },
+          {
+            "$ref": "#/components/schemas/QuestionParamChoice"
+          },
+          {
+            "$ref": "#/components/schemas/QuestionParamScore"
+          }
+        ],
+        "properties": {
+          "name": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          "instructions": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          "choices": {
+            "maxItems": 255,
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChoiceOptionParam"
+            }
+          },
+          "levels": {
+            "maxItems": 10,
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScoreLevelParam"
+            }
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": "A question about the request\u0027s input, with an optional correlation name.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "predicate": "#/components/schemas/QuestionParamPredicate",
+            "choice": "#/components/schemas/QuestionParamChoice",
+            "score": "#/components/schemas/QuestionParamScore",
+            "QuestionParamPredicate": "#/components/schemas/QuestionParamPredicate",
+            "QuestionParamChoice": "#/components/schemas/QuestionParamChoice",
+            "QuestionParamScore": "#/components/schemas/QuestionParamScore"
+          }
+        },
+        "x-oai-discriminator-values": [
+          "predicate",
+          "choice",
+          "score"
+        ]
+      },
+      "DecisionRequest": {
+        "required": [
+          "model",
+          "input",
+          "questions"
+        ],
+        "type": "object",
+        "properties": {
+          "model": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          "input": {
+            "description": "Shared evidence, as a string or an array of user messages containing text and inline images. Non-user roles, function calls, function-call outputs, files, audio, and item references are not supported. At most 128 image parts are allowed across all messages in one request.",
+            "$ref": "#/components/schemas/DecisionInput"
+          },
+          "questions": {
+            "maxItems": 200,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuestionParam"
+            }
+          },
+          "safety_identifier": {
+            "maxLength": 128,
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Opaque caller-provided end-user identifier, scoped by the verified org. Match Responses\u0027 limit; this is never the authenticated user identity."
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnswerResourcePredicate": {
+        "required": [
+          "type",
+          "name",
+          "probability"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/PredicateType"
+          },
+          "name": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "probability": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChoiceValueResource": {
+        "type": "object",
+        "oneOf": [
+          {
+            "minLength": 0,
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          }
+        ],
+        "description": "Choice values are typed: a string and a boolean with the same text are distinct."
+      },
+      "ChoiceProbabilityResource": {
+        "required": [
+          "value",
+          "probability"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "description": "Choice values are typed: a string and a boolean with the same text are distinct.",
+            "$ref": "#/components/schemas/ChoiceValueResource"
+          },
+          "probability": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnswerResourceChoice": {
+        "required": [
+          "type",
+          "name",
+          "choice",
+          "probabilities",
+          "confidence"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ChoiceType"
+          },
+          "name": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "choice": {
+            "description": "Choice values are typed: a string and a boolean with the same text are distinct.",
+            "$ref": "#/components/schemas/ChoiceValueResource"
+          },
+          "probabilities": {
+            "maxItems": 2000,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChoiceProbabilityResource"
+            }
+          },
+          "confidence": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ScoreProbabilityResource": {
+        "required": [
+          "value",
+          "label",
+          "probability"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "label": {
+            "minLength": 0,
+            "type": "string"
+          },
+          "probability": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnswerResourceScore": {
+        "required": [
+          "type",
+          "name",
+          "score",
+          "probabilities",
+          "confidence"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ScoreType"
+          },
+          "name": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "score": {
+            "type": "number"
+          },
+          "probabilities": {
+            "maxItems": 2000,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScoreProbabilityResource"
+            }
+          },
+          "confidence": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnswerResourceRefusal": {
+        "required": [
+          "type",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/RefusalType"
+          },
+          "name": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "description": "The host may decline one question without disclosing its refusal score."
+      },
+      "AnswerResource": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AnswerResourcePredicate"
+          },
+          {
+            "$ref": "#/components/schemas/AnswerResourceChoice"
+          },
+          {
+            "$ref": "#/components/schemas/AnswerResourceScore"
+          },
+          {
+            "$ref": "#/components/schemas/AnswerResourceRefusal"
+          }
+        ],
+        "properties": {
+          "name": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "probability": {
+            "type": "number"
+          },
+          "choice": {
+            "description": "Choice values are typed: a string and a boolean with the same text are distinct.",
+            "$ref": "#/components/schemas/ChoiceValueResource"
+          },
+          "probabilities": {
+            "maxItems": 2000,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChoiceProbabilityResource"
+            }
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "number"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": "A completed question always includes its name, including null when unnamed.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "predicate": "#/components/schemas/AnswerResourcePredicate",
+            "choice": "#/components/schemas/AnswerResourceChoice",
+            "score": "#/components/schemas/AnswerResourceScore",
+            "refusal": "#/components/schemas/AnswerResourceRefusal",
+            "AnswerResourcePredicate": "#/components/schemas/AnswerResourcePredicate",
+            "AnswerResourceChoice": "#/components/schemas/AnswerResourceChoice",
+            "AnswerResourceScore": "#/components/schemas/AnswerResourceScore",
+            "AnswerResourceRefusal": "#/components/schemas/AnswerResourceRefusal"
+          }
+        },
+        "x-oai-discriminator-values": [
+          "predicate",
+          "choice",
+          "score",
+          "refusal"
+        ]
+      },
+      "InputTokensDetailsResource": {
+        "required": [
+          "cached_tokens",
+          "cache_write_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "cached_tokens": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int64"
+          },
+          "cache_write_tokens": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OutputTokensDetailsResource": {
+        "required": [
+          "reasoning_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "reasoning_tokens": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseUsageResource": {
+        "required": [
+          "input_tokens",
+          "input_tokens_details",
+          "output_tokens",
+          "output_tokens_details",
+          "total_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "input_tokens": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int64"
+          },
+          "input_tokens_details": {
+            "$ref": "#/components/schemas/InputTokensDetailsResource"
+          },
+          "output_tokens": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int64"
+          },
+          "output_tokens_details": {
+            "$ref": "#/components/schemas/OutputTokensDetailsResource"
+          },
+          "total_tokens": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DecisionResponse": {
+        "required": [
+          "model",
+          "answers",
+          "usage"
+        ],
+        "type": "object",
+        "properties": {
+          "model": {
+            "minLength": 0,
+            "type": "string"
+          },
+          "answers": {
+            "maxItems": 2000,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnswerResource"
+            }
+          },
+          "usage": {
+            "$ref": "#/components/schemas/ResponseUsageResource"
+          }
+        },
+        "additionalProperties": false
+      },
       "EnvironmentTypeResource": {
         "enum": [
           "openai_hosted",
@@ -77353,7 +78915,7 @@
         "additionalProperties": false,
         "description": "A customer-safe error describing why a session request failed."
       },
-      "InputTokensDetailsResource": {
+      "InputTokensDetailsResource2": {
         "required": [
           "cached_tokens"
         ],
@@ -77368,7 +78930,7 @@
         "additionalProperties": false,
         "description": "A breakdown of input token usage for a session or turn."
       },
-      "OutputTokensDetailsResource": {
+      "OutputTokensDetailsResource2": {
         "required": [
           "reasoning_tokens"
         ],
@@ -77399,8 +78961,7 @@
             "format": "int64"
           },
           "input_tokens_details": {
-            "description": "A breakdown of the agent\u0027s input token usage.",
-            "$ref": "#/components/schemas/InputTokensDetailsResource"
+            "$ref": "#/components/schemas/InputTokensDetailsResource2"
           },
           "output_tokens": {
             "type": "integer",
@@ -77408,8 +78969,7 @@
             "format": "int64"
           },
           "output_tokens_details": {
-            "description": "A breakdown of the agent\u0027s output token usage.",
-            "$ref": "#/components/schemas/OutputTokensDetailsResource"
+            "$ref": "#/components/schemas/OutputTokensDetailsResource2"
           },
           "total_tokens": {
             "type": "integer",
@@ -79504,7 +81064,7 @@
             "items": {
               "$ref": "#/components/schemas/PersistedAgentToolConfigParam"
             },
-            "description": "Tools available to the agent. Defaults to an empty list."
+            "description": "Tools available to the agent. Defaults to an empty list. The tool list must fit within 3 MiB (3,145,728 bytes) of compact UTF-8 JSON."
           },
           "multi_agent": {
             "$ref": "#/components/schemas/CreateAgentParamsMultiAgent"
@@ -79565,7 +81125,7 @@
             "items": {
               "$ref": "#/components/schemas/PersistedAgentToolConfigParam"
             },
-            "description": "Tools available to the agent."
+            "description": "Replaces the tool list. Omit to leave it unchanged, or pass null to clear it. The replacement must fit within 3 MiB (3,145,728 bytes) of compact UTF-8 JSON."
           }
         },
         "additionalProperties": false,
@@ -82505,7 +84065,7 @@
             "items": {
               "$ref": "#/components/schemas/AgentToolConfigParam"
             },
-            "description": "Tools available to the agent. Omit to inherit, or pass null to clear them."
+            "description": "Tools available to the agent. Omit to inherit, or pass null to clear them. The resolved tool list must fit within 3 MiB (3,145,728 bytes) of compact UTF-8 JSON."
           }
         },
         "additionalProperties": false,
@@ -85896,6 +87456,25 @@
         },
         "additionalProperties": false,
         "description": "Parameters for creating a vault to store credentials used by agent tools."
+      },
+      "UpdateVaultParams": {
+        "type": "object",
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/UpdateVaultParamsMetadataProperty"
+          },
+          "name": {
+            "maxLength": 1048576,
+            "minLength": 1,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "A replacement name. Omit to leave unchanged, or pass null to clear it. The name is trimmed before storage. It must contain 1 to 256 UTF-8 bytes after trimming."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Fields to replace on an active vault."
       },
       "DeletedVaultResource": {
         "required": [
@@ -92167,7 +93746,7 @@
           "tools": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BetaTool"
+              "$ref": "#/components/schemas/BetaToolSearchOutputTool"
             },
             "description": "The loaded tool definitions returned by the tool search output."
           },
@@ -92584,7 +94163,7 @@
           "tools": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BetaTool"
+              "$ref": "#/components/schemas/BetaToolSearchOutputTool"
             },
             "description": "The loaded tool definitions returned by the tool search output."
           },
@@ -94497,7 +96076,7 @@
           "tools": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BetaTool"
+              "$ref": "#/components/schemas/BetaToolSearchOutputTool"
             },
             "description": "The loaded tool definitions returned by the tool search output."
           },
@@ -94532,6 +96111,339 @@
             }
           ]
         }
+      },
+      "BetaToolSearchOutputTool": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BetaFunctionTool"
+          },
+          {
+            "$ref": "#/components/schemas/BetaFileSearchTool"
+          },
+          {
+            "$ref": "#/components/schemas/BetaComputerTool"
+          },
+          {
+            "$ref": "#/components/schemas/BetaComputerUsePreviewTool"
+          },
+          {
+            "$ref": "#/components/schemas/BetaWebSearchTool"
+          },
+          {
+            "$ref": "#/components/schemas/BetaMcpTool"
+          },
+          {
+            "$ref": "#/components/schemas/BetaCodeInterpreterTool"
+          },
+          {
+            "$ref": "#/components/schemas/BetaProgrammaticToolCallingParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaImageGenTool"
+          },
+          {
+            "$ref": "#/components/schemas/BetaLocalShellToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaFunctionShellToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaCustomToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaToolSearchOutputNamespaceToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaToolSearchToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaWebSearchPreviewTool"
+          },
+          {
+            "$ref": "#/components/schemas/BetaApplyPatchToolParam"
+          }
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the function to call."
+          },
+          "async": {
+            "type": "boolean"
+          },
+          "output_schema": {
+            "$ref": "#/components/schemas/BetaFunctionToolOutputSchemaProperty"
+          },
+          "strict": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether strict parameter validation is enforced for this function tool."
+          },
+          "defer_loading": {
+            "type": "boolean",
+            "description": "Whether this function is deferred and loaded via tool search."
+          },
+          "allowed_callers": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/BetaCallableToolAllowedCaller"
+            },
+            "description": "The tool invocation context(s)."
+          },
+          "vector_store_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The IDs of the vector stores to search."
+          },
+          "max_num_results": {
+            "type": "integer",
+            "description": "The maximum number of results to return. This number should be between 1 and 50 inclusive."
+          },
+          "ranking_options": {
+            "description": "Ranking options for search.",
+            "$ref": "#/components/schemas/BetaRankingOptions"
+          },
+          "display_width": {
+            "type": "integer",
+            "description": "The width of the computer display."
+          },
+          "display_height": {
+            "type": "integer",
+            "description": "The height of the computer display."
+          },
+          "external_web_access": {
+            "type": "boolean",
+            "description": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+            "default": true
+          },
+          "server_label": {
+            "type": "string",
+            "description": "A label for this MCP server, used to identify it in tool calls.\n"
+          },
+          "server_url": {
+            "type": "string",
+            "description": "The URL for the MCP server. One of \u0060server_url\u0060, \u0060connector_id\u0060, or\n\u0060tunnel_id\u0060 must be provided.\n",
+            "format": "uri"
+          },
+          "connector_id": {
+            "$ref": "#/components/schemas/BetaMcpToolConnectorId"
+          },
+          "tunnel_id": {
+            "pattern": "^tunnel_[a-z0-9]{32}$",
+            "type": "string",
+            "description": "The Secure MCP Tunnel ID to use instead of a direct server URL. One of\n\u0060server_url\u0060, \u0060connector_id\u0060, or \u0060tunnel_id\u0060 must be provided.\n"
+          },
+          "authorization": {
+            "type": "string",
+            "description": "An OAuth access token that can be used with a remote MCP server, either\nwith a custom MCP server URL or a service connector. Your application\nmust handle the OAuth authorization flow and provide the token here.\n"
+          },
+          "server_description": {
+            "type": "string",
+            "description": "Optional description of the MCP server, used to provide more context.\n"
+          },
+          "headers": {
+            "$ref": "#/components/schemas/BetaMcpToolHeadersProperty"
+          },
+          "allowed_tools": {
+            "$ref": "#/components/schemas/BetaMcpToolAllowedTools"
+          },
+          "require_approval": {
+            "$ref": "#/components/schemas/BetaMcpToolRequireApproval"
+          },
+          "container": {
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolContainer"
+          },
+          "model": {
+            "$ref": "#/components/schemas/BetaImageGenToolModel"
+          },
+          "quality": {
+            "$ref": "#/components/schemas/BetaImageGenToolQuality"
+          },
+          "size": {
+            "$ref": "#/components/schemas/BetaImageGenToolSize"
+          },
+          "output_format": {
+            "$ref": "#/components/schemas/BetaImageGenToolOutputFormat"
+          },
+          "output_compression": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Compression level for the output image. Default: 100.\n",
+            "default": 100
+          },
+          "moderation": {
+            "$ref": "#/components/schemas/BetaImageGenToolModeration"
+          },
+          "background": {
+            "$ref": "#/components/schemas/BetaImageGenToolBackground"
+          },
+          "input_fidelity": {
+            "$ref": "#/components/schemas/BetaImageGenToolInputFidelity"
+          },
+          "input_image_mask": {
+            "$ref": "#/components/schemas/BetaImageGenToolInputImageMask"
+          },
+          "partial_images": {
+            "maximum": 3,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Number of partial images to generate in streaming mode, from 0 (default value) to 3.\n",
+            "default": 0
+          },
+          "action": {
+            "description": "Whether to generate a new image or edit an existing image. Default: \u0060auto\u0060.\n",
+            "$ref": "#/components/schemas/BetaImageGenActionEnum"
+          },
+          "format": {
+            "$ref": "#/components/schemas/BetaCustomToolParamFormat"
+          },
+          "tools": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BetaToolSearchOutputNamespaceToolParamToolsItem"
+            },
+            "description": "The function/custom tools loaded inside this namespace."
+          },
+          "execution": {
+            "description": "Whether tool search is executed by the server or by the client.",
+            "$ref": "#/components/schemas/BetaToolSearchExecutionType"
+          },
+          "search_content_types": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BetaSearchContentType"
+            }
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": "A tool definition returned by a tool search output.\n",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "BetaFunctionTool": "#/components/schemas/BetaFunctionTool",
+            "BetaFileSearchTool": "#/components/schemas/BetaFileSearchTool",
+            "BetaComputerTool": "#/components/schemas/BetaComputerTool",
+            "BetaComputerUsePreviewTool": "#/components/schemas/BetaComputerUsePreviewTool",
+            "BetaWebSearchTool": "#/components/schemas/BetaWebSearchTool",
+            "BetaMcpTool": "#/components/schemas/BetaMcpTool",
+            "BetaCodeInterpreterTool": "#/components/schemas/BetaCodeInterpreterTool",
+            "BetaProgrammaticToolCallingParam": "#/components/schemas/BetaProgrammaticToolCallingParam",
+            "BetaImageGenTool": "#/components/schemas/BetaImageGenTool",
+            "BetaLocalShellToolParam": "#/components/schemas/BetaLocalShellToolParam",
+            "BetaFunctionShellToolParam": "#/components/schemas/BetaFunctionShellToolParam",
+            "BetaCustomToolParam": "#/components/schemas/BetaCustomToolParam",
+            "BetaToolSearchOutputNamespaceToolParam": "#/components/schemas/BetaToolSearchOutputNamespaceToolParam",
+            "BetaToolSearchToolParam": "#/components/schemas/BetaToolSearchToolParam",
+            "BetaWebSearchPreviewTool": "#/components/schemas/BetaWebSearchPreviewTool",
+            "BetaApplyPatchToolParam": "#/components/schemas/BetaApplyPatchToolParam"
+          }
+        }
+      },
+      "BetaToolSearchOutputNamespaceToolParam": {
+        "title": "Namespace",
+        "required": [
+          "type",
+          "name",
+          "description",
+          "tools"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/NamespaceValueType"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The namespace name used in tool calls (for example, \u0060crm\u0060)."
+          },
+          "description": {
+            "type": "string",
+            "description": "A description of the namespace shown to the model."
+          },
+          "tools": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BetaToolSearchOutputNamespaceToolParamToolsItem"
+            },
+            "description": "The function/custom tools loaded inside this namespace."
+          }
+        },
+        "description": "Groups function/custom tools under a shared namespace."
+      },
+      "BetaToolSearchOutputFunctionToolParam": {
+        "required": [
+          "name",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^(?![\\s\\S]*[\\r\\n])[a-zA-Z0-9_.-]\u002B$",
+            "type": "string",
+            "description": "The name of the loaded function tool."
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/BetaToolSearchOutputFunctionToolParamParameters"
+          },
+          "strict": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise."
+          },
+          "type": {
+            "$ref": "#/components/schemas/FunctionType"
+          },
+          "async": {
+            "type": "boolean",
+            "description": "Whether the tool response can be returned asynchronously versus immediately returned on next response creation."
+          },
+          "output_schema": {
+            "$ref": "#/components/schemas/BetaToolSearchOutputFunctionToolParamOutputSchemaProperty"
+          },
+          "defer_loading": {
+            "type": "boolean",
+            "description": "Whether this function should be deferred and discovered via tool search."
+          },
+          "allowed_callers": {
+            "minItems": 1,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/BetaCallableToolAllowedCaller"
+            },
+            "description": "The tool invocation context(s)."
+          }
+        },
+        "x-openai-structured-output": "function"
       },
       "BetaToolSearchCallItemParam": {
         "required": [
@@ -96707,6 +98619,16 @@
       "BetaMisalignmentErrorDetailsResource": {
         "type": "object",
         "properties": {
+          "review_target": {
+            "maxLength": 96,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._~:-]\u002B$",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "An opaque target for explicitly continuing this review, or null when unavailable."
+          },
           "error_type": {
             "$ref": "#/components/schemas/BetaMisalignmentErrorType"
           },
@@ -112020,7 +113942,10 @@
             "description": "The file identifier, which can be referenced in the API endpoints."
           },
           "bytes": {
-            "type": "integer",
+            "type": [
+              "null",
+              "integer"
+            ],
             "description": "The size of the file, in bytes. In a completed file upload response, this can\nbe null when the file size is not yet available.\n"
           },
           "created_at": {
@@ -113645,6 +115570,81 @@
           }
         }
       },
+      "ToolSearchOutputFunctionToolParamParameters": {
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "ToolSearchOutputNamespaceToolParamToolsItem": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ToolSearchOutputFunctionToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/CustomToolParam"
+          }
+        ],
+        "properties": {
+          "name": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^(?![\\s\\S]*[\\r\\n])[a-zA-Z0-9_.-]\u002B$",
+            "type": "string",
+            "description": "The name of the loaded function tool."
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/ToolSearchOutputFunctionToolParamParameters"
+          },
+          "strict": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise."
+          },
+          "async": {
+            "type": "boolean",
+            "description": "Whether the tool response can be returned asynchronously versus immediately returned on next response creation."
+          },
+          "output_schema": {
+            "$ref": "#/components/schemas/ToolSearchOutputFunctionToolParamOutputSchemaProperty"
+          },
+          "defer_loading": {
+            "type": "boolean",
+            "description": "Whether this function should be deferred and discovered via tool search."
+          },
+          "allowed_callers": {
+            "minItems": 1,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/CallableToolAllowedCaller"
+            },
+            "description": "The tool invocation context(s)."
+          },
+          "format": {
+            "$ref": "#/components/schemas/CustomToolParamFormat"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": "A function or custom tool loaded into a namespace by tool search.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "ToolSearchOutputFunctionToolParam": "#/components/schemas/ToolSearchOutputFunctionToolParam",
+            "CustomToolParam": "#/components/schemas/CustomToolParam"
+          }
+        }
+      },
       "ToolSearchOutputItemParamStatus": {
         "type": "object",
         "anyOf": [
@@ -113878,6 +115878,149 @@
           }
         }
       },
+      "LiveHostedShellContainerAutoParamMemoryLimit": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/LiveContainerMemoryLimitWrapper"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/LiveContainerMemoryLimit"
+          }
+        }
+      },
+      "LiveHostedShellContainerAutoParamNetworkPolicy": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveContainerNetworkPolicyDisabledParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveHostedShellNetworkPolicyAllowlistParam"
+          }
+        ],
+        "properties": {
+          "allowed_domains": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of allowed domains when type is \u0060allowlist\u0060."
+          }
+        },
+        "description": "Network access policy for the container."
+      },
+      "LiveHostedShellContainerAutoParamSkillsItem": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveSkillReferenceParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveInlineSkillParam"
+          }
+        ],
+        "properties": {
+          "skill_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The ID of the referenced skill."
+          },
+          "version": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional skill version. Use a positive integer or \u0027latest\u0027. Omit for default."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the skill."
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the skill."
+          },
+          "source": {
+            "description": "Inline skill payload",
+            "$ref": "#/components/schemas/LiveInlineSkillSourceParam"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "LiveSkillReferenceParam": "#/components/schemas/LiveSkillReferenceParam",
+            "LiveInlineSkillParam": "#/components/schemas/LiveInlineSkillParam"
+          }
+        }
+      },
+      "LiveHostedShellToolInputParamEnvironment": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveHostedShellContainerAutoParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveContainerReferenceParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveLocalEnvironmentParam"
+          }
+        ],
+        "properties": {
+          "file_ids": {
+            "maxItems": 50,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "An optional list of uploaded files to make available to your code."
+          },
+          "memory_limit": {
+            "$ref": "#/components/schemas/LiveHostedShellContainerAutoParamMemoryLimit"
+          },
+          "network_policy": {
+            "$ref": "#/components/schemas/LiveHostedShellContainerAutoParamNetworkPolicy"
+          },
+          "skills": {
+            "maxItems": 200,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/LiveHostedShellContainerAutoParamSkillsItem"
+            },
+            "description": "An optional list of skills referenced by id or inline data."
+          },
+          "container_id": {
+            "type": "string",
+            "description": "The ID of the referenced container."
+          }
+        }
+      },
       "LiveResponsesDelegationSettingsInputParamServiceTier": {
         "type": "object",
         "anyOf": [
@@ -113954,6 +116097,27 @@
           },
           {
             "$ref": "#/components/schemas/LiveImageGenerationToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveMcpToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveCustomToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveNamespaceToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveToolSearchToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveProgrammaticToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveComputerToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveApplyPatchToolInputParam"
           }
         ],
         "properties": {
@@ -113979,7 +116143,7 @@
             "description": "Whether the delegated Responses model must follow the function\u2019s parameter schema exactly."
           },
           "environment": {
-            "$ref": "#/components/schemas/LiveHostedShellToolInputParamEnvironmentProperty"
+            "$ref": "#/components/schemas/LiveHostedShellToolInputParamEnvironment"
           },
           "type": {
             "type": "string"
@@ -113993,7 +116157,14 @@
             "LiveFileSearchToolInputParam": "#/components/schemas/LiveFileSearchToolInputParam",
             "LiveCodeInterpreterToolInputParam": "#/components/schemas/LiveCodeInterpreterToolInputParam",
             "LiveHostedShellToolInputParam": "#/components/schemas/LiveHostedShellToolInputParam",
-            "LiveImageGenerationToolInputParam": "#/components/schemas/LiveImageGenerationToolInputParam"
+            "LiveImageGenerationToolInputParam": "#/components/schemas/LiveImageGenerationToolInputParam",
+            "LiveMcpToolInputParam": "#/components/schemas/LiveMcpToolInputParam",
+            "LiveCustomToolInputParam": "#/components/schemas/LiveCustomToolInputParam",
+            "LiveNamespaceToolInputParam": "#/components/schemas/LiveNamespaceToolInputParam",
+            "LiveToolSearchToolInputParam": "#/components/schemas/LiveToolSearchToolInputParam",
+            "LiveProgrammaticToolInputParam": "#/components/schemas/LiveProgrammaticToolInputParam",
+            "LiveComputerToolInputParam": "#/components/schemas/LiveComputerToolInputParam",
+            "LiveApplyPatchToolInputParam": "#/components/schemas/LiveApplyPatchToolInputParam"
           }
         }
       },
@@ -114004,27 +116175,15 @@
             "$ref": "#/components/schemas/LiveToolChoiceEnumWrapper"
           },
           {
-            "$ref": "#/components/schemas/LiveFunctionToolChoiceParam"
-          },
-          {
-            "$ref": "#/components/schemas/LiveMcpToolChoiceParam"
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
           }
         ],
         "properties": {
           "value": {
             "$ref": "#/components/schemas/LiveToolChoiceEnum"
-          },
-          "name": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9_-]\u002B$",
-            "type": "string"
-          },
-          "server_label": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9_-]\u002B$",
-            "type": "string"
           }
         },
         "description": "Controls which tool the Responses backend uses when handling a task delegated by the Live model."
@@ -114208,6 +116367,27 @@
           },
           {
             "$ref": "#/components/schemas/LiveImageGenerationToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveMcpToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveCustomToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveNamespaceToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveToolSearchToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveProgrammaticToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveComputerToolInputParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveApplyPatchToolInputParam"
           }
         ],
         "properties": {
@@ -114233,7 +116413,7 @@
             "description": "Whether the delegated Responses model must follow the function\u2019s parameter schema exactly."
           },
           "environment": {
-            "$ref": "#/components/schemas/LiveHostedShellToolInputParamEnvironmentProperty"
+            "$ref": "#/components/schemas/LiveHostedShellToolInputParamEnvironment"
           },
           "type": {
             "type": "string"
@@ -114247,7 +116427,14 @@
             "LiveFileSearchToolInputParam": "#/components/schemas/LiveFileSearchToolInputParam",
             "LiveCodeInterpreterToolInputParam": "#/components/schemas/LiveCodeInterpreterToolInputParam",
             "LiveHostedShellToolInputParam": "#/components/schemas/LiveHostedShellToolInputParam",
-            "LiveImageGenerationToolInputParam": "#/components/schemas/LiveImageGenerationToolInputParam"
+            "LiveImageGenerationToolInputParam": "#/components/schemas/LiveImageGenerationToolInputParam",
+            "LiveMcpToolInputParam": "#/components/schemas/LiveMcpToolInputParam",
+            "LiveCustomToolInputParam": "#/components/schemas/LiveCustomToolInputParam",
+            "LiveNamespaceToolInputParam": "#/components/schemas/LiveNamespaceToolInputParam",
+            "LiveToolSearchToolInputParam": "#/components/schemas/LiveToolSearchToolInputParam",
+            "LiveProgrammaticToolInputParam": "#/components/schemas/LiveProgrammaticToolInputParam",
+            "LiveComputerToolInputParam": "#/components/schemas/LiveComputerToolInputParam",
+            "LiveApplyPatchToolInputParam": "#/components/schemas/LiveApplyPatchToolInputParam"
           }
         }
       },
@@ -114258,27 +116445,15 @@
             "$ref": "#/components/schemas/LiveToolChoiceEnumWrapper2"
           },
           {
-            "$ref": "#/components/schemas/LiveFunctionToolChoiceParam"
-          },
-          {
-            "$ref": "#/components/schemas/LiveMcpToolChoiceParam"
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
           }
         ],
         "properties": {
           "value": {
             "$ref": "#/components/schemas/LiveToolChoiceEnum"
-          },
-          "name": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9_-]\u002B$",
-            "type": "string"
-          },
-          "server_label": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9_-]\u002B$",
-            "type": "string"
           }
         },
         "description": "Controls which tool the Responses backend uses when handling a task delegated by the Live model."
@@ -115100,6 +117275,104 @@
           }
         }
       },
+      "DecisionInputImageDetail": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ImageDetailParamWrapper"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/ImageDetailParam"
+          }
+        },
+        "description": "The image detail level, using the selected model\u0027s image profile. Defaults to auto."
+      },
+      "DecisionInputContentPartsItem": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DecisionInputText"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputImage"
+          }
+        ],
+        "properties": {
+          "text": {
+            "maxLength": 10485760,
+            "minLength": 0,
+            "type": "string"
+          },
+          "image_url": {
+            "maxLength": 1073741824,
+            "minLength": 0,
+            "pattern": "^data:",
+            "type": "string",
+            "description": "A base64-encoded image in a data URL."
+          },
+          "detail": {
+            "$ref": "#/components/schemas/DecisionInputImageDetail"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "input_text": "#/components/schemas/DecisionInputText",
+            "input_image": "#/components/schemas/DecisionInputImage",
+            "DecisionInputText": "#/components/schemas/DecisionInputText",
+            "DecisionInputImage": "#/components/schemas/DecisionInputImage"
+          }
+        },
+        "x-oai-discriminator-values": [
+          "input_text",
+          "input_image"
+        ]
+      },
+      "DecisionInputOneOf2Item": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DecisionInputMessage"
+          }
+        ],
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/UserRole"
+          },
+          "content": {
+            "description": "Text evidence or an ordered list of text and inline image parts.",
+            "$ref": "#/components/schemas/DecisionInputContent"
+          },
+          "type": {
+            "$ref": "#/components/schemas/MessageType"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "message": "#/components/schemas/DecisionInputMessage",
+            "DecisionInputMessage": "#/components/schemas/DecisionInputMessage"
+          }
+        },
+        "x-oai-discriminator-values": [
+          "message"
+        ],
+        "x-oai-default-discriminator-value": "message"
+      },
       "MessageItemResourcePhase": {
         "type": "object",
         "anyOf": [
@@ -115273,8 +117546,7 @@
             "format": "int64"
           },
           "input_tokens_details": {
-            "description": "A breakdown of the agent\u0027s input token usage.",
-            "$ref": "#/components/schemas/InputTokensDetailsResource"
+            "$ref": "#/components/schemas/InputTokensDetailsResource2"
           },
           "output_tokens": {
             "type": "integer",
@@ -115282,8 +117554,7 @@
             "format": "int64"
           },
           "output_tokens_details": {
-            "description": "A breakdown of the agent\u0027s output token usage.",
-            "$ref": "#/components/schemas/OutputTokensDetailsResource"
+            "$ref": "#/components/schemas/OutputTokensDetailsResource2"
           },
           "total_tokens": {
             "type": "integer",
@@ -116026,8 +118297,7 @@
             "format": "int64"
           },
           "input_tokens_details": {
-            "description": "A breakdown of the agent\u0027s input token usage.",
-            "$ref": "#/components/schemas/InputTokensDetailsResource"
+            "$ref": "#/components/schemas/InputTokensDetailsResource2"
           },
           "output_tokens": {
             "type": "integer",
@@ -116035,8 +118305,7 @@
             "format": "int64"
           },
           "output_tokens_details": {
-            "description": "A breakdown of the agent\u0027s output token usage.",
-            "$ref": "#/components/schemas/OutputTokensDetailsResource"
+            "$ref": "#/components/schemas/OutputTokensDetailsResource2"
           },
           "total_tokens": {
             "type": "integer",
@@ -116407,8 +118676,7 @@
             "format": "int64"
           },
           "input_tokens_details": {
-            "description": "A breakdown of the agent\u0027s input token usage.",
-            "$ref": "#/components/schemas/InputTokensDetailsResource"
+            "$ref": "#/components/schemas/InputTokensDetailsResource2"
           },
           "output_tokens": {
             "type": "integer",
@@ -116416,8 +118684,7 @@
             "format": "int64"
           },
           "output_tokens_details": {
-            "description": "A breakdown of the agent\u0027s output token usage.",
-            "$ref": "#/components/schemas/OutputTokensDetailsResource"
+            "$ref": "#/components/schemas/OutputTokensDetailsResource2"
           },
           "total_tokens": {
             "type": "integer",
@@ -116444,8 +118711,7 @@
             "format": "int64"
           },
           "input_tokens_details": {
-            "description": "A breakdown of the agent\u0027s input token usage.",
-            "$ref": "#/components/schemas/InputTokensDetailsResource"
+            "$ref": "#/components/schemas/InputTokensDetailsResource2"
           },
           "output_tokens": {
             "type": "integer",
@@ -116453,8 +118719,7 @@
             "format": "int64"
           },
           "output_tokens_details": {
-            "description": "A breakdown of the agent\u0027s output token usage.",
-            "$ref": "#/components/schemas/OutputTokensDetailsResource"
+            "$ref": "#/components/schemas/OutputTokensDetailsResource2"
           },
           "total_tokens": {
             "type": "integer",
@@ -116481,8 +118746,7 @@
             "format": "int64"
           },
           "input_tokens_details": {
-            "description": "A breakdown of the agent\u0027s input token usage.",
-            "$ref": "#/components/schemas/InputTokensDetailsResource"
+            "$ref": "#/components/schemas/InputTokensDetailsResource2"
           },
           "output_tokens": {
             "type": "integer",
@@ -116490,8 +118754,7 @@
             "format": "int64"
           },
           "output_tokens_details": {
-            "description": "A breakdown of the agent\u0027s output token usage.",
-            "$ref": "#/components/schemas/OutputTokensDetailsResource"
+            "$ref": "#/components/schemas/OutputTokensDetailsResource2"
           },
           "total_tokens": {
             "type": "integer",
@@ -118270,6 +120533,81 @@
             "$ref": "#/components/schemas/BetaFunctionCallItemStatus"
           }
         }
+      },
+      "BetaToolSearchOutputNamespaceToolParamToolsItem": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BetaToolSearchOutputFunctionToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaCustomToolParam"
+          }
+        ],
+        "properties": {
+          "name": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^(?![\\s\\S]*[\\r\\n])[a-zA-Z0-9_.-]\u002B$",
+            "type": "string",
+            "description": "The name of the loaded function tool."
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/BetaToolSearchOutputFunctionToolParamParameters"
+          },
+          "strict": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise."
+          },
+          "async": {
+            "type": "boolean",
+            "description": "Whether the tool response can be returned asynchronously versus immediately returned on next response creation."
+          },
+          "output_schema": {
+            "$ref": "#/components/schemas/BetaToolSearchOutputFunctionToolParamOutputSchemaProperty"
+          },
+          "defer_loading": {
+            "type": "boolean",
+            "description": "Whether this function should be deferred and discovered via tool search."
+          },
+          "allowed_callers": {
+            "minItems": 1,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/BetaCallableToolAllowedCaller"
+            },
+            "description": "The tool invocation context(s)."
+          },
+          "format": {
+            "$ref": "#/components/schemas/BetaCustomToolParamFormat"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": "A function or custom tool loaded into a namespace by tool search.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "BetaToolSearchOutputFunctionToolParam": "#/components/schemas/BetaToolSearchOutputFunctionToolParam",
+            "BetaCustomToolParam": "#/components/schemas/BetaCustomToolParam"
+          }
+        }
+      },
+      "BetaToolSearchOutputFunctionToolParamParameters": {
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "BetaToolSearchCallItemParamAgent": {
         "type": "object",
@@ -124523,6 +126861,29 @@
         },
         "description": "If the audio output modality is requested, this object contains data\nabout the audio response from the model. [Learn more](https://developers.openai.com/api/docs/guides/audio).\n"
       },
+      "ChatCompletionStreamResponseDeltaAudio": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for this audio response."
+          },
+          "expires_at": {
+            "type": "integer",
+            "description": "The Unix timestamp (in seconds) for when this audio response will no\nlonger be accessible on the server for use in multi-turn conversations.\n",
+            "format": "unixtime"
+          },
+          "data": {
+            "type": "string",
+            "description": "Base64 encoded audio bytes generated by the model, in the format\nspecified in the request.\n"
+          },
+          "transcript": {
+            "type": "string",
+            "description": "Transcript text from this audio chunk."
+          }
+        },
+        "description": "A partial audio response. Audio chunks may carry an ID, base64 data, or\ntranscript text; the final audio update contains only its expiry timestamp.\n"
+      },
       "ChatCompletionStreamResponseDeltaFunctionCall": {
         "type": "object",
         "properties": {
@@ -124731,7 +127092,6 @@
       "CreateChatCompletionStreamResponseChoicesItem": {
         "required": [
           "delta",
-          "finish_reason",
           "index"
         ],
         "type": "object",
@@ -127833,6 +130193,16 @@
         "description": "Environment variables to set for the command.",
         "x-oaiTypeLabel": "map"
       },
+      "ToolSearchOutputFunctionToolParamOutputSchema": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ToolSearchOutputFunctionToolParamOutputSchemaAdditionalProperties"
+        },
+        "description": "A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs."
+      },
       "ConversationResourceMetadata": {
         "type": "object",
         "additionalProperties": {
@@ -127850,12 +130220,6 @@
           "$ref": "#/components/schemas/LiveFunctionToolInputParamParametersAdditionalProperties"
         },
         "description": "A JSON Schema object describing the arguments accepted by the function."
-      },
-      "LiveHostedShellToolInputParamEnvironment": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/LiveHostedShellToolInputParamEnvironmentAdditionalProperties"
-        }
       },
       "Error2Headers": {
         "type": "object",
@@ -128294,6 +130658,22 @@
         },
         "description": "Key-value pairs to associate with the vault, such as an application or team identifier."
       },
+      "UpdateVaultParamsMetadata": {
+        "propertyNames": {
+          "maxLength": 64,
+          "minLength": 1,
+          "type": "string"
+        },
+        "maxProperties": 16,
+        "minProperties": 0,
+        "type": "object",
+        "additionalProperties": {
+          "maxLength": 512,
+          "minLength": 0,
+          "type": "string"
+        },
+        "description": "Replaces all metadata. Omit to leave unchanged, or pass {} to clear it. Up to 16 string key-value pairs, with keys up to 64 and values up to 512 characters."
+      },
       "VaultCredentialResourceMetadata": {
         "propertyNames": {
           "minLength": 0,
@@ -128464,6 +130844,16 @@
           }
         },
         "description": "Updates to reasoning configuration. Only effort is supported."
+      },
+      "BetaToolSearchOutputFunctionToolParamOutputSchema": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/BetaToolSearchOutputFunctionToolParamOutputSchemaAdditionalProperties"
+        },
+        "description": "A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs."
       },
       "BetaWebSearchActionSearchSourcesItem": {
         "title": "Web search source",
@@ -132746,6 +135136,17 @@
           }
         }
       },
+      "LiveContainerMemoryLimitWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/LiveContainerMemoryLimit"
+          }
+        }
+      },
       "LiveResponsesServiceTierWrapper": {
         "required": [
           "value"
@@ -132864,6 +135265,17 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/ServiceTierEnum"
+          }
+        }
+      },
+      "ImageDetailParamWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/ImageDetailParam"
           }
         }
       },
@@ -139680,6 +142092,13 @@
       "ToolSearchCallItemParamArguments": {
         "type": "object"
       },
+      "ToolSearchOutputFunctionToolParamOutputSchemaProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ToolSearchOutputFunctionToolParamOutputSchemaPropertyAdditionalProperties"
+        },
+        "description": "A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs."
+      },
       "ConversationResourceMetadataProperty": {
         "type": "object",
         "additionalProperties": {
@@ -139693,12 +142112,6 @@
           "$ref": "#/components/schemas/LiveFunctionToolInputParamParametersPropertyAdditionalProperties"
         },
         "description": "A JSON Schema object describing the arguments accepted by the function."
-      },
-      "LiveHostedShellToolInputParamEnvironmentProperty": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/LiveHostedShellToolInputParamEnvironmentPropertyAdditionalProperties"
-        }
       },
       "UpdateConversationBodyMetadata": {
         "type": "object",
@@ -139949,6 +142362,15 @@
         },
         "description": "Key-value pairs to associate with the vault, such as an application or team identifier."
       },
+      "UpdateVaultParamsMetadataProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "maxLength": 512,
+          "minLength": 0,
+          "type": "string"
+        },
+        "description": "Replaces all metadata. Omit to leave unchanged, or pass {} to clear it. Up to 16 string key-value pairs, with keys up to 64 and values up to 512 characters."
+      },
       "VaultCredentialResourceMetadataProperty": {
         "type": "object",
         "additionalProperties": {
@@ -140043,6 +142465,13 @@
           "type": "string"
         },
         "description": "Environment variables to set for the command."
+      },
+      "BetaToolSearchOutputFunctionToolParamOutputSchemaProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/BetaToolSearchOutputFunctionToolParamOutputSchemaPropertyAdditionalProperties"
+        },
+        "description": "A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs."
       },
       "BetaToolSearchCallItemParamArguments": {
         "type": "object"
@@ -140204,10 +142633,10 @@
       "FunctionToolParamOutputSchemaAdditionalProperties": {
         "type": "object"
       },
-      "LiveFunctionToolInputParamParametersAdditionalProperties": {
+      "ToolSearchOutputFunctionToolParamOutputSchemaAdditionalProperties": {
         "type": "object"
       },
-      "LiveHostedShellToolInputParamEnvironmentAdditionalProperties": {
+      "LiveFunctionToolInputParamParametersAdditionalProperties": {
         "type": "object"
       },
       "TextFormatResourceJsonSchemaSchemaAdditionalProperties": {
@@ -140253,6 +142682,9 @@
         "type": "object"
       },
       "BetaFunctionToolOutputSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "BetaToolSearchOutputFunctionToolParamOutputSchemaAdditionalProperties": {
         "type": "object"
       },
       "BetaFileSearchToolCallResultsItemAttributes": {
@@ -140318,10 +142750,10 @@
       "FunctionToolParamOutputSchemaPropertyAdditionalProperties": {
         "type": "object"
       },
-      "LiveFunctionToolInputParamParametersPropertyAdditionalProperties": {
+      "ToolSearchOutputFunctionToolParamOutputSchemaPropertyAdditionalProperties": {
         "type": "object"
       },
-      "LiveHostedShellToolInputParamEnvironmentPropertyAdditionalProperties": {
+      "LiveFunctionToolInputParamParametersPropertyAdditionalProperties": {
         "type": "object"
       },
       "TextFormatResourceJsonSchemaSchemaPropertyAdditionalProperties": {
@@ -140367,6 +142799,9 @@
         "type": "object"
       },
       "BetaFunctionToolOutputSchemaPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "BetaToolSearchOutputFunctionToolParamOutputSchemaPropertyAdditionalProperties": {
         "type": "object"
       },
       "RunGraderResponseMetadataScoresPropertyAdditionalProperties": {
@@ -153414,6 +155849,63 @@
           ]
         }
       },
+      "PredicateType": {
+        "enum": [
+          "predicate"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the object. Always \u0060predicate\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "PredicateType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "predicate",
+              "name": "Predicate"
+            }
+          ]
+        }
+      },
+      "ChoiceType": {
+        "enum": [
+          "choice"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the object. Always \u0060choice\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "ChoiceType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "choice",
+              "name": "Choice"
+            }
+          ]
+        }
+      },
+      "ScoreType": {
+        "enum": [
+          "score"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the object. Always \u0060score\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "ScoreType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "score",
+              "name": "Score"
+            }
+          ]
+        }
+      },
       "AgentEnvironmentObject": {
         "enum": [
           "agent.environment"
@@ -157244,7 +159736,6 @@
         "enum": [
           "alloy",
           "ash",
-          "aube",
           "ballad",
           "beacon",
           "bossa",
@@ -157288,10 +159779,6 @@
             {
               "value": "ash",
               "name": "Ash"
-            },
-            {
-              "value": "aube",
-              "name": "Aube"
             },
             {
               "value": "ballad",

@@ -110,6 +110,43 @@ namespace Soenneker.OpenAI.OpenApiClient.Vaults.Item
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.VaultResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.VaultResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
+        /// Updates the name or metadata of an active vault. Omitted fields remain unchanged. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VaultResource"/></returns>
+        /// <param name="body">Fields to replace on an active vault.</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2">When receiving a 503 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.VaultResource?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.UpdateVaultParams body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.VaultResource> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.UpdateVaultParams body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.VaultResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.VaultResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
         /// Deletes a vault and all its credentials. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -145,6 +182,28 @@ namespace Soenneker.OpenAI.OpenApiClient.Vaults.Item
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
+        /// Updates the name or metadata of an active vault. Omitted fields remain unchanged. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">Fields to replace on an active vault.</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.UpdateVaultParams body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToPostRequestInformation(global::Soenneker.OpenAI.OpenApiClient.Models.UpdateVaultParams body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>

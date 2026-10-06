@@ -77,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.TextParam Text { get; set; }
 #endif
-        /// <summary>Tools available to the agent. Defaults to an empty list.</summary>
+        /// <summary>Tools available to the agent. Defaults to an empty list. The tool list must fit within 3 MiB (3,145,728 bytes) of compact UTF-8 JSON.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParam>? Tools { get; set; }

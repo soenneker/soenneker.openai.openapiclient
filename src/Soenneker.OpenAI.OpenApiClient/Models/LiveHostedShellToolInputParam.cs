@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// A Responses shell tool with a container_auto or container_reference environment. Local execution and domain secrets are not supported.
+    /// A Responses shell tool. Use a hosted container or return local shell results with response.item.create. Domain secrets are not supported.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LiveHostedShellToolInputParam : IAdditionalDataHolder, IParsable
@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParamEnvironmentProperty? Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParamEnvironment? Environment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParamEnvironmentProperty Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParamEnvironment Environment { get; set; }
 #endif
         /// <summary>The type of the shell tool. Always `shell`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ShellType? Type { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParamEnvironmentProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParamEnvironmentProperty.CreateFromDiscriminatorValue); } },
+                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParamEnvironment>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParamEnvironment.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ShellType>(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParamEnvironmentProperty>("environment", Environment);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellToolInputParamEnvironment>("environment", Environment);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ShellType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
