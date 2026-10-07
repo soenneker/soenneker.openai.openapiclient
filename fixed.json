@@ -25668,7 +25668,7 @@
           "Decisions"
         ],
         "summary": "Create a decision",
-        "description": "Evaluate ordered classification and scoring questions against shared input. Answers are returned in question order.\n\nSupply input as a string or user messages containing text and inline images. Only user messages with \u0060input_text\u0060 and \u0060input_image\u0060 parts are supported; non-user roles, function calls, files, audio, and item references are not supported. Images require a data URL, not an external URL or file ID. At most 128 images are allowed across the request.\n\nEach question can return a refusal instead of a scored answer. A refusal has type \u0060refusal\u0060 and the corresponding question name, or null if unnamed.",
+        "description": "Use this endpoint to ask classification or scoring questions about the same input. You\u2019ll get the answers back in the order you asked the questions.\n\nFor text, you can pass a string. You can also send user messages containing \u0060input_text\u0060 and \u0060input_image\u0060 parts, with up to 128 images per request. Images must be data URLs; external URLs and file IDs aren\u2019t accepted. Other message roles, function calls, files, audio, and item references aren\u2019t supported.\n\nSometimes a question returns a refusal instead of an answer. The result has type \u0060refusal\u0060 and includes the question\u2019s name, or \u0060null\u0060 if you didn\u2019t give it one.",
         "operationId": "CreateDecision",
         "requestBody": {
           "content": {
@@ -38032,12 +38032,12 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
+            "maxLength": 128,
             "type": [
               "null",
               "string"
             ],
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
+            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 128 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
             "example": "safety-identifier-1234"
           },
           "prompt_cache_key": {
@@ -38148,12 +38148,12 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
+            "maxLength": 128,
             "type": [
               "null",
               "string"
             ],
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
+            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 128 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
             "example": "safety-identifier-1234"
           },
           "prompt_cache_key": {
@@ -46329,12 +46329,12 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
+            "maxLength": 128,
             "type": [
               "null",
               "string"
             ],
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
+            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 128 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
             "example": "safety-identifier-1234"
           },
           "prompt_cache_key": {
@@ -55016,12 +55016,12 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
+            "maxLength": 128,
             "type": [
               "null",
               "string"
             ],
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
+            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 128 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
             "example": "safety-identifier-1234"
           },
           "prompt_cache_key": {
@@ -58395,12 +58395,12 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
+            "maxLength": 128,
             "type": [
               "null",
               "string"
             ],
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
+            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 128 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
             "example": "safety-identifier-1234"
           },
           "prompt_cache_key": {
@@ -58610,12 +58610,12 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
+            "maxLength": 128,
             "type": [
               "null",
               "string"
             ],
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
+            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 128 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
             "example": "safety-identifier-1234"
           },
           "prompt_cache_key": {
@@ -75283,7 +75283,7 @@
             }
           }
         ],
-        "description": "Shared evidence, as a string or an array of user messages containing text and inline images. Non-user roles, function calls, function-call outputs, files, audio, and item references are not supported. At most 128 image parts are allowed across all messages in one request."
+        "description": "The text or images to evaluate for every question. Provide a text string or user messages containing text and inline images. Images must be inline data URLs; at most 128 images are allowed across all messages in one request. External URLs, files, audio, tools, and item references are not supported."
       },
       "QuestionParamPredicate": {
         "required": [
@@ -75306,7 +75306,8 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Estimate how likely it is that a statement about the input is true."
       },
       "ChoiceValueParam": {
         "type": "object",
@@ -75367,10 +75368,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChoiceOptionParam"
-            }
+            },
+            "description": "Provide between 2 and 255 choices. Each choice must be unique."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Choose from the supplied options based on the input."
       },
       "ScoreLevelParam": {
         "required": [
@@ -75421,7 +75424,8 @@
             }
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Rate the input against the supplied ordered levels."
       },
       "QuestionParam": {
         "required": [
@@ -75456,7 +75460,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChoiceOptionParam"
-            }
+            },
+            "description": "Provide between 2 and 255 choices. Each choice must be unique."
           },
           "levels": {
             "maxItems": 10,
@@ -75502,7 +75507,7 @@
             "type": "string"
           },
           "input": {
-            "description": "Shared evidence, as a string or an array of user messages containing text and inline images. Non-user roles, function calls, function-call outputs, files, audio, and item references are not supported. At most 128 image parts are allowed across all messages in one request.",
+            "description": "The text or images to evaluate for every question. Provide a text string or user messages containing text and inline images. Images must be inline data URLs; at most 128 images are allowed across all messages in one request. External URLs, files, audio, tools, and item references are not supported.",
             "$ref": "#/components/schemas/DecisionInput"
           },
           "questions": {
@@ -75695,7 +75700,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "The host may decline one question without disclosing its refusal score."
+        "description": "The model declined to answer this question. Other questions in the same request can still receive answers."
       },
       "AnswerResource": {
         "required": [
@@ -78756,6 +78761,7 @@
           "project_spend_limit_exceeded",
           "organization_spend_limit_exceeded",
           "organization_usage_limit_exceeded",
+          "billing_not_active",
           "credit_balance_exhausted",
           "rate_limit_exceeded",
           "flex_unavailable",
@@ -78783,6 +78789,7 @@
           "The project has reached its enforced spend limit.",
           "The organization has reached its enforced spend limit.",
           "The organization has reached its OpenAI-assigned usage limit.",
+          "Billing is not active for the account.",
           "The organization has no API credits remaining.",
           "The request exceeds the available rate limit.",
           "Flex processing is temporarily unavailable.",
@@ -78827,6 +78834,10 @@
             {
               "value": "organization_usage_limit_exceeded",
               "name": "OrganizationUsageLimitExceeded"
+            },
+            {
+              "value": "billing_not_active",
+              "name": "BillingNotActive"
             },
             {
               "value": "credit_balance_exhausted",
@@ -101214,12 +101225,12 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
+            "maxLength": 128,
             "type": [
               "null",
               "string"
             ],
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
+            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 128 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
             "example": "safety-identifier-1234"
           },
           "prompt_cache_key": {
@@ -102394,12 +102405,12 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
+            "maxLength": 128,
             "type": [
               "null",
               "string"
             ],
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
+            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 128 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
             "example": "safety-identifier-1234"
           },
           "prompt_cache_key": {
@@ -106101,12 +106112,12 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
+            "maxLength": 128,
             "type": [
               "null",
               "string"
             ],
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
+            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 128 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
             "example": "safety-identifier-1234"
           },
           "prompt_cache_key": {
@@ -106541,12 +106552,12 @@
             "deprecated": true
           },
           "safety_identifier": {
-            "maxLength": 64,
+            "maxLength": 128,
             "type": [
               "null",
               "string"
             ],
-            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
+            "description": "A stable identifier used to help detect users of your application that may be violating OpenAI\u0027s usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 128 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
             "example": "safety-identifier-1234"
           },
           "prompt_cache_key": {
@@ -159757,8 +159768,8 @@
           "quartz",
           "ripple",
           "sage",
+          "shida",
           "shimmer",
-          "shitan",
           "sillage",
           "stone",
           "tempo",
@@ -159865,12 +159876,12 @@
               "name": "Sage"
             },
             {
-              "value": "shimmer",
-              "name": "Shimmer"
+              "value": "shida",
+              "name": "Shida"
             },
             {
-              "value": "shitan",
-              "name": "Shitan"
+              "value": "shimmer",
+              "name": "Shimmer"
             },
             {
               "value": "sillage",

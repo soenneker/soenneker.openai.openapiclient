@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// The host may decline one question without disclosing its refusal score.
+    /// The model declined to answer this question. Other questions in the same request can still receive answers.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AnswerResourceRefusal : IParsable

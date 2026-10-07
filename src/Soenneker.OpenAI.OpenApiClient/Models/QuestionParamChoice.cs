@@ -7,12 +7,13 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// Choose from the supplied options based on the input.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class QuestionParamChoice : IParsable
-    #pragma warning restore CS1591
     {
-        /// <summary>The choices property</summary>
+        /// <summary>Provide between 2 and 255 choices. Each choice must be unique.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChoiceOptionParam>? Choices { get; set; }
