@@ -11,6 +11,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         Pending,
         #pragma warning restore CS1591
+        [EnumMember(Value = "ready")]
+        #pragma warning disable CS1591
+        Ready,
+        #pragma warning restore CS1591
         [EnumMember(Value = "connected")]
         #pragma warning disable CS1591
         Connected,

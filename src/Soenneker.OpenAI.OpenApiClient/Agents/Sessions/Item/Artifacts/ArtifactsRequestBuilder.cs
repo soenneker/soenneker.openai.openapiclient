@@ -115,7 +115,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item.Artifacts
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ArtifactsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Return artifacts after this immutable artifact ID.</summary>
+            /// <summary>Return resources after this resource ID in the selected order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("after")]
@@ -135,10 +135,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item.Artifacts
             [QueryParameter("environment_id")]
             public string EnvironmentId { get; set; }
 #endif
-            /// <summary>The maximum number of artifacts to return, between 1 and 100.</summary>
+            /// <summary>The maximum number of resources to return, between 1 and 100. Defaults to 20.</summary>
             [QueryParameter("limit")]
             public long? Limit { get; set; }
-            /// <summary>Sort by creation time and ID. Defaults to descending.</summary>
+            /// <summary>The order in which resources are returned. Defaults to `desc`.</summary>
             [QueryParameter("order")]
             public global::Soenneker.OpenAI.OpenApiClient.Models.ListOrderParam? Order { get; set; }
         }

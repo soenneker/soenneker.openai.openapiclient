@@ -8,11 +8,13 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// An existing OpenAI-hosted environment or new inline/template-based hosted configuration.
+    /// Configuration for a new prewarmed OpenAI-hosted environment.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class EnvironmentParamOpenaiHosted : IParsable
+    public partial class CreateEnvironmentParam : IAdditionalDataHolder, IParsable
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Directories that contain capabilities exposed to the agent. Defaults to an empty list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -21,8 +23,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<string> CapabilityDirectories { get; set; }
 #endif
-        /// <summary>The hosted container size. Omission selects the medium tier.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeParam? ContainerSize { get; set; }
         /// <summary>Desktop provisioning. Omission or null inherits the template setting, or defaults to disabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,20 +34,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Environment variables made available to the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamOpenaiHostedEnvProperty? Env { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEnvironmentParamOpenaiHostedEnvProperty? Env { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamOpenaiHostedEnvProperty Env { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEnvironmentParamOpenaiHostedEnvProperty Env { get; set; }
 #endif
-        /// <summary>An existing prewarmed environment. Cannot be combined with a template or inline configuration.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? EnvironmentId { get; set; }
-#nullable restore
-#else
-        public string EnvironmentId { get; set; }
-#endif
-        /// <summary>A reusable hosted template applied before inline session configuration. Omitted fields inherit the template; network overrides cannot broaden its policy.</summary>
+        /// <summary>A reusable hosted template applied before inline configuration. Omitted fields inherit the template; network overrides cannot broaden its policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EnvironmentTemplateId { get; set; }
@@ -106,14 +98,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The type of the object. Always `openai_hosted`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.OpenaiHostedType? Type { get; set; }
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEnvironmentParam"/> and sets the default values.
+        /// </summary>
+        public CreateEnvironmentParam()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamOpenaiHosted"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEnvironmentParam"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamOpenaiHosted CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateEnvironmentParam CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamOpenaiHosted();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEnvironmentParam();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -124,10 +123,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "capability_directories", n => { CapabilityDirectories = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "container_size", n => { ContainerSize = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeParam>(); } },
                 { "desktop", n => { Desktop = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DesktopParam>(global::Soenneker.OpenAI.OpenApiClient.Models.DesktopParam.CreateFromDiscriminatorValue); } },
-                { "env", n => { Env = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamOpenaiHostedEnvProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamOpenaiHostedEnvProperty.CreateFromDiscriminatorValue); } },
-                { "environment_id", n => { EnvironmentId = n.GetStringValue(); } },
+                { "env", n => { Env = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEnvironmentParamOpenaiHostedEnvProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEnvironmentParamOpenaiHostedEnvProperty.CreateFromDiscriminatorValue); } },
                 { "environment_template_id", n => { EnvironmentTemplateId = n.GetStringValue(); } },
                 { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.HostedEnvironmentFileParam>(global::Soenneker.OpenAI.OpenApiClient.Models.HostedEnvironmentFileParam.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "network", n => { Network = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.NetworkPolicyParam>(global::Soenneker.OpenAI.OpenApiClient.Models.NetworkPolicyParam.CreateFromDiscriminatorValue); } },
@@ -146,10 +143,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("capability_directories", CapabilityDirectories);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeParam>("container_size", ContainerSize);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DesktopParam>("desktop", Desktop);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamOpenaiHostedEnvProperty>("env", Env);
-            writer.WriteStringValue("environment_id", EnvironmentId);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEnvironmentParamOpenaiHostedEnvProperty>("env", Env);
             writer.WriteStringValue("environment_template_id", EnvironmentTemplateId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.HostedEnvironmentFileParam>("files", Files);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.NetworkPolicyParam>("network", Network);
@@ -158,6 +153,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SetupCommandParam>("setup_commands", SetupCommands);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.HostedSkillParam>("skills", Skills);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenaiHostedType>("type", Type);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

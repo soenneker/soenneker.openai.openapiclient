@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public double? Speed { get; set; }
         /// <summary>The format to stream the audio in. Supported formats are `sse` and `audio`. `sse` is not supported for `tts-1` or `tts-1-hd`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestStreamFormat? StreamFormat { get; set; }
-        /// <summary>The voice to use when generating the audio. Supported built-in voices are `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`, `verse`, `marin`, and `cedar`. You may also provide a custom voice object with an `id`, for example `{ &quot;id&quot;: &quot;voice_1234&quot; }`. Previews of the voices are available in the [Text to speech guide](https://developers.openai.com/api/docs/guides/text-to-speech#voice-options). Custom voices must be created from audio samples. Voices created from text prompts are supported only in Live.</summary>
+        /// <summary>The voice to use when generating the audio. Supported built-in voices are `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`, `verse`, `marin`, and `cedar`. You may also provide a custom voice object with an `id`, for example `{ &quot;id&quot;: &quot;voice_1234&quot; }`. Previews of the voices are available in the [Text to speech guide](https://developers.openai.com/api/docs/guides/text-to-speech#voice-options). Custom voices must be created from audio samples.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoice? Voice { get; set; }

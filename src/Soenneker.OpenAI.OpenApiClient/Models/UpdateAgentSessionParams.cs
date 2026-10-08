@@ -29,6 +29,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParamsMetadataProperty Metadata { get; set; }
 #endif
+        /// <summary>Omit to retain the limit; null or a null limit removes it without resetting spend.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlParam? SpendControl { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlParam SpendControl { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -49,6 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateSessionAgentParam>(global::Soenneker.OpenAI.OpenApiClient.Models.UpdateSessionAgentParam.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParamsMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParamsMetadataProperty.CreateFromDiscriminatorValue); } },
+                { "spend_control", n => { SpendControl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlParam>(global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlParam.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -60,6 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateSessionAgentParam>("agent", Agent);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParamsMetadataProperty>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlParam>("spend_control", SpendControl);
         }
     }
 }

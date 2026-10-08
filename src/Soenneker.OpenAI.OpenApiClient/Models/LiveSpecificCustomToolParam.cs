@@ -9,35 +9,37 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class CreateVoicePromptRequestModelBranch1 : IAdditionalDataHolder, IParsable
+    public partial class LiveSpecificCustomToolParam : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The value property</summary>
+        /// <summary>The name of the custom tool to call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Value { get; set; }
+        public string? Name { get; set; }
 #nullable restore
 #else
-        public string Value { get; set; }
+        public string Name { get; set; }
 #endif
+        /// <summary>The type of the tool. Always `custom`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateVoicePromptRequestModelBranch1"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveSpecificCustomToolParam"/> and sets the default values.
         /// </summary>
-        public CreateVoicePromptRequestModelBranch1()
+        public LiveSpecificCustomToolParam()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateVoicePromptRequestModelBranch1"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveSpecificCustomToolParam"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateVoicePromptRequestModelBranch1 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.LiveSpecificCustomToolParam CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVoicePromptRequestModelBranch1();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.LiveSpecificCustomToolParam();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +49,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomType>(); } },
             };
         }
         /// <summary>
@@ -57,7 +60,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("value", Value);
+            writer.WriteStringValue("name", Name);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

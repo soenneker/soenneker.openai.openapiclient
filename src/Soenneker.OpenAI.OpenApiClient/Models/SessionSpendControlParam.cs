@@ -8,29 +8,22 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// A list of one or many input items to the model, containing different content types.
+    /// Sets the session-wide limit without changing recorded spend.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class BetaInputItem : IAdditionalDataHolder, IParsable
+    public partial class SessionSpendControlParam : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputItem"/> and sets the default values.
-        /// </summary>
-        public BetaInputItem()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Positive USD cents, or null to remove the limit.</summary>
+        public long? Limit { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputItem"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlParam"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlParam CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputItem();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlParam();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +33,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "limit", n => { Limit = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -49,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteLongValue("limit", Limit);
         }
     }
 }

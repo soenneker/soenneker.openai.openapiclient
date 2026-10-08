@@ -5,16 +5,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum CreateVoicePromptRequestModelWrapperValue
+    public enum OciType
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "auto")]
+        [EnumMember(Value = "oci")]
         #pragma warning disable CS1591
-        Auto,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "2026-10-01")]
-        #pragma warning disable CS1591
-        Value20261001,
+        Oci,
         #pragma warning restore CS1591
     }
 }

@@ -184,7 +184,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Vaults.Item.Credentials
             [QueryParameter("after")]
             public string After { get; set; }
 #endif
-            /// <summary>The maximum number of resources to return. Defaults to 20. Values are clamped between 1 and 100.</summary>
+            /// <summary>The maximum number of resources to return, between 1 and 100. Defaults to 20.</summary>
             [QueryParameter("limit")]
             public long? Limit { get; set; }
             /// <summary>Exact string matches supplied as `metadata[key]=value`. All supplied pairs must match. Up to 16 pairs, with keys from 1 to 64 characters and values up to 512 characters. Filtering is eventually consistent; metadata changes may take time to appear.</summary>
@@ -197,7 +197,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Vaults.Item.Credentials
             [QueryParameter("metadata")]
             public string Metadata { get; set; }
 #endif
-            /// <summary>Sort order by the `created_at` timestamp. Use `asc` for ascending order or `desc` for descending order. Defaults to `desc`.</summary>
+            /// <summary>The order in which resources are returned. Defaults to `desc`.</summary>
             [QueryParameter("order")]
             public global::Soenneker.OpenAI.OpenApiClient.Models.ListOrderParam? Order { get; set; }
             /// <summary>Filter by one status or a list, such as `status=active` or `status[]=active&amp;status[]=archived`. Both statuses are included by default.</summary>

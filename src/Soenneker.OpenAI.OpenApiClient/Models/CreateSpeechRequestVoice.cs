@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// The voice to use when generating the audio. Supported built-in voices are `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`, `verse`, `marin`, and `cedar`. You may also provide a custom voice object with an `id`, for example `{ &quot;id&quot;: &quot;voice_1234&quot; }`. Previews of the voices are available in the [Text to speech guide](https://developers.openai.com/api/docs/guides/text-to-speech#voice-options). Custom voices must be created from audio samples. Voices created from text prompts are supported only in Live.
+    /// The voice to use when generating the audio. Supported built-in voices are `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`, `verse`, `marin`, and `cedar`. You may also provide a custom voice object with an `id`, for example `{ &quot;id&quot;: &quot;voice_1234&quot; }`. Previews of the voices are available in the [Text to speech guide](https://developers.openai.com/api/docs/guides/text-to-speech#voice-options). Custom voices must be created from audio samples.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateSpeechRequestVoice : IAdditionalDataHolder, IParsable

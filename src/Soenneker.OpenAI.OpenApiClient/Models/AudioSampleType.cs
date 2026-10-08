@@ -3,17 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>How the voice was created. Voices created from text prompts are supported only in Live.</summary>
+    /// <summary>The voice creation method. Defaults to `audio_sample` when omitted.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum VoiceResourceType
+    public enum AudioSampleType
     {
         [EnumMember(Value = "audio_sample")]
         #pragma warning disable CS1591
         AudioSample,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "prompt")]
-        #pragma warning disable CS1591
-        Prompt,
         #pragma warning restore CS1591
     }
 }

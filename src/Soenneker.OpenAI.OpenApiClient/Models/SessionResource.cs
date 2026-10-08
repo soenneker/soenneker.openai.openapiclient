@@ -67,6 +67,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResource> RequiredActions { get; set; }
 #endif
+        /// <summary>Configured spending limit and best-effort consumption, in USD cents. Unlimited sessions omit this object.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlResource? SpendControl { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlResource SpendControl { get; set; }
+#endif
         /// <summary>The current status of the session.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.SessionStatusResource? Status { get; set; }
         /// <summary>Best-effort token usage for the session, or null if unknown. Recorded usage may change.</summary>
@@ -112,6 +120,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionResourceMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.SessionResourceMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AgentSessionObject>(); } },
                 { "required_actions", n => { RequiredActions = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResource>(global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResource.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "spend_control", n => { SpendControl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlResource>(global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlResource.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionStatusResource>(); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource.CreateFromDiscriminatorValue); } },
                 { "vault_ids", n => { VaultIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -133,6 +142,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionResourceMetadataProperty>("metadata", Metadata);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AgentSessionObject>("object", Object);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResource>("required_actions", RequiredActions);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlResource>("spend_control", SpendControl);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionStatusResource>("status", Status);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource>("usage", Usage);
             writer.WriteCollectionOfPrimitiveValues<string>("vault_ids", VaultIds);

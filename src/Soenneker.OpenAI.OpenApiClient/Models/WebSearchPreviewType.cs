@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>Set to `prompt` to create a voice from a text description.</summary>
+    /// <summary>The tool to call. Always `web_search_preview`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum PromptType
+    public enum WebSearchPreviewType
     {
-        [EnumMember(Value = "prompt")]
+        [EnumMember(Value = "web_search_preview")]
         #pragma warning disable CS1591
-        Prompt,
+        WebSearchPreview,
         #pragma warning restore CS1591
     }
 }

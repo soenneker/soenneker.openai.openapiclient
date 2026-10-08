@@ -196,10 +196,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions
             [QueryParameter("agent_id")]
             public string AgentId { get; set; }
 #endif
-            /// <summary>The maximum number of resources to return.</summary>
+            /// <summary>The maximum number of resources to return, between 1 and 100. Defaults to 20.</summary>
             [QueryParameter("limit")]
             public long? Limit { get; set; }
-            /// <summary>Sort order by the `created_at` timestamp. Use `asc` for ascending order or `desc` for descending order. Defaults to `desc`.</summary>
+            /// <summary>The order in which resources are returned. Defaults to `desc`.</summary>
             [QueryParameter("order")]
             public global::Soenneker.OpenAI.OpenApiClient.Models.ListOrderParam? Order { get; set; }
         }

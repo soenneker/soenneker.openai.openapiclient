@@ -196,7 +196,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents
             [QueryParameter("after")]
             public string After { get; set; }
 #endif
-            /// <summary>The maximum number of resources to return.</summary>
+            /// <summary>The maximum number of resources to return, between 1 and 100. Defaults to 20.</summary>
             [QueryParameter("limit")]
             public long? Limit { get; set; }
             /// <summary>The order in which resources are returned. Defaults to `desc`.</summary>

@@ -1073,15 +1073,10 @@
           "Audio"
         ],
         "summary": "Create voice",
-        "description": "Creates a voice from a text prompt or from a consent recording and an audio sample.\n\nFor prompt-based creation, send \u0060type: \u0022prompt\u0022\u0060 with a \u0060name\u0060 and \u0060prompt\u0060 as JSON or multipart form data. For creation from an audio sample, send \u0060type: \u0022audio_sample\u0022\u0060 with a \u0060name\u0060, \u0060audio_sample\u0060, and \u0060consent\u0060 recording ID as multipart form data. The type defaults to \u0060audio_sample\u0060 when omitted.\n\nReturns the saved voice\u0027s metadata. Voices created from text prompts are supported only in Live, not in Realtime or the speech endpoint. The response does not include preview audio.\n",
+        "description": "Create a custom voice you can use for audio output (for example, in Text-to-Speech and the Realtime API). This requires an audio sample and a previously uploaded consent recording.\n\nSend \u0060name\u0060, \u0060audio_sample\u0060, and the \u0060consent\u0060 recording ID as multipart form data. The optional \u0060type\u0060 defaults to \u0060audio_sample\u0060.\n\nReturns the saved voice\u0027s metadata. See the [custom voices guide](https://developers.openai.com/api/docs/guides/text-to-speech#custom-voices) for requirements and best practices. Custom voices are limited to eligible customers.\n",
         "operationId": "CreateVoice",
         "requestBody": {
           "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateVoicePromptRequest"
-              }
-            },
             "multipart/form-data": {
               "schema": {
                 "$ref": "#/components/schemas/CreateVoiceRequest"
@@ -1102,7 +1097,7 @@
             }
           },
           "400": {
-            "description": "Invalid voice request, prompt, script hint, model, consent recording, or audio sample.",
+            "description": "Invalid voice request, consent recording, or audio sample.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1136,7 +1131,7 @@
           "group": "audio",
           "examples": {
             "request": {
-              "curl": "curl https://api.openai.com/v1/audio/voices \\\n  -X POST \\\n  -H \u0022Authorization: Bearer $OPENAI_API_KEY\u0022 \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -d \u0027{\n    \u0022type\u0022: \u0022prompt\u0022,\n    \u0022name\u0022: \u0022Warm narrator\u0022,\n    \u0022prompt\u0022: \u0022A warm, calm narrator with a clear, measured delivery.\u0022,\n    \u0022model\u0022: \u0022auto\u0022\n  }\u0027\n"
+              "curl": "curl https://api.openai.com/v1/audio/voices \\\n  -X POST \\\n  -H \u0022Authorization: Bearer $OPENAI_API_KEY\u0022 \\\n  -F \u0022name=My new voice\u0022 \\\n  -F \u0022consent=cons_1234\u0022 \\\n  -F \u0022audio_sample=@audio_sample.wav;type=audio/x-wav\u0022\n"
             }
           }
         }
@@ -25703,6 +25698,262 @@
         }
       }
     },
+    "/agents/environments": {
+      "get": {
+        "tags": [
+          "Agents"
+        ],
+        "summary": "List agent environments",
+        "description": "Lists OpenAI-hosted environments owned by the authenticated principal. Requires access to the prewarming beta.",
+        "operationId": "ListAgentEnvironments",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The maximum number of resources to return, between 1 and 100. Defaults to 20.",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int64",
+              "default": 20
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "The order in which resources are returned. Defaults to \u0060desc\u0060.",
+            "schema": {
+              "default": "desc",
+              "$ref": "#/components/schemas/ListOrderParam"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "description": "Return resources after this resource ID in the selected order.",
+            "schema": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The hosting type to list. Defaults to \u0060openai_hosted\u0060.",
+            "schema": {
+              "$ref": "#/components/schemas/EnvironmentTypeParam"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A page of owned environments.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "An ID-paginated list of owned environments.",
+                  "$ref": "#/components/schemas/AgentEnvironmentListResource"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication or project context was missing.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key lacks the required permission.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested environment or referenced resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The request conflicted with the current environment state.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The service is temporarily unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Agents"
+        ],
+        "summary": "Create an agent environment",
+        "description": "Creates an OpenAI-hosted environment before creating a session. Requires access to the prewarming beta.",
+        "operationId": "CreateAgentEnvironment",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "Deduplicates creation for 24 hours within the authenticated organization, project, and creator. Retry the same JSON parameters with the same key to retrieve the original environment in its current state. Different parameters or an incomplete hosted creation return 409. Deleted environments are not recreated. After retention expires, the key may create a new environment. Without this header, each request creates a new environment.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAgentEnvironmentParams"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "The created OpenAI-hosted environment.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicEnvironmentResource"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication or project context was missing.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key lacks the required permission.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested environment or referenced resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The request conflicted with the current environment state.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "The request exceeded a rate or capacity limit.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The service is temporarily unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse2"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/agents/environments/{environmentId}": {
       "get": {
         "tags": [
@@ -26924,14 +27175,13 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "The maximum number of resources to return.",
+            "description": "The maximum number of resources to return, between 1 and 100. Defaults to 20.",
             "schema": {
+              "maximum": 100,
               "minimum": 1,
-              "type": [
-                "null",
-                "integer"
-              ],
-              "format": "int64"
+              "type": "integer",
+              "format": "int64",
+              "default": 20
             }
           },
           {
@@ -27997,29 +28247,28 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "The maximum number of resources to return.",
+            "description": "The maximum number of resources to return, between 1 and 100. Defaults to 20.",
             "schema": {
+              "maximum": 100,
               "minimum": 1,
-              "type": [
-                "null",
-                "integer"
-              ],
-              "format": "int64"
+              "type": "integer",
+              "format": "int64",
+              "default": 20
             }
           },
           {
             "name": "order",
             "in": "query",
-            "description": "Sort order by the \u0060created_at\u0060 timestamp. Use \u0060asc\u0060 for ascending order or \u0060desc\u0060 for descending order. Defaults to \u0060desc\u0060.",
+            "description": "The order in which resources are returned. Defaults to \u0060desc\u0060.",
             "schema": {
               "default": "desc",
               "$ref": "#/components/schemas/ListOrderParam"
             }
           },
           {
-            "name": "agent_id",
+            "name": "after",
             "in": "query",
-            "description": "Only return sessions whose root agent has this ID. Omit to return sessions for all agents.",
+            "description": "Return resources after this resource ID in the selected order.",
             "schema": {
               "maxLength": 1048576,
               "minLength": 0,
@@ -28027,9 +28276,9 @@
             }
           },
           {
-            "name": "after",
+            "name": "agent_id",
             "in": "query",
-            "description": "Return resources after this resource ID in the selected order.",
+            "description": "Only return sessions whose root agent has this ID. Omit to return sessions for all agents.",
             "schema": {
               "maxLength": 1048576,
               "minLength": 0,
@@ -28581,44 +28830,40 @@
             }
           },
           {
+            "name": "limit",
+            "in": "query",
+            "description": "The maximum number of resources to return, between 1 and 100. Defaults to 20.",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int64",
+              "default": 20
+            }
+          },
+          {
             "name": "order",
             "in": "query",
-            "description": "Sort by creation time and ID. Defaults to descending.",
+            "description": "The order in which resources are returned. Defaults to \u0060desc\u0060.",
             "schema": {
+              "default": "desc",
               "$ref": "#/components/schemas/ListOrderParam"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "description": "Return resources after this resource ID in the selected order.",
+            "schema": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
             }
           },
           {
             "name": "environment_id",
             "in": "query",
             "description": "Restrict the listing to artifacts produced by this environment.",
-            "schema": {
-              "maxLength": 1048576,
-              "minLength": 0,
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of artifacts to return, between 1 and 100.",
-            "schema": {
-              "maximum": 100,
-              "minimum": 1,
-              "type": [
-                "null",
-                "integer"
-              ],
-              "format": "int64"
-            }
-          },
-          {
-            "name": "after",
-            "in": "query",
-            "description": "Return artifacts after this immutable artifact ID.",
             "schema": {
               "maxLength": 1048576,
               "minLength": 0,
@@ -29967,6 +30212,37 @@
         "operationId": "ListVaults",
         "parameters": [
           {
+            "name": "limit",
+            "in": "query",
+            "description": "The maximum number of resources to return, between 1 and 100. Defaults to 20.",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int64",
+              "default": 20
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "The order in which resources are returned. Defaults to \u0060desc\u0060.",
+            "schema": {
+              "default": "desc",
+              "$ref": "#/components/schemas/ListOrderParam"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "description": "Return resources after this resource ID in the selected order.",
+            "schema": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            }
+          },
+          {
             "name": "metadata",
             "in": "query",
             "description": "Exact string matches supplied as \u0060metadata[key]=value\u0060. All supplied pairs must match. Up to 16 pairs, with keys from 1 to 64 characters and values up to 512 characters. Filtering is eventually consistent; metadata changes may take time to appear.",
@@ -29989,43 +30265,11 @@
             }
           },
           {
-            "name": "order",
-            "in": "query",
-            "description": "Sort order by the \u0060created_at\u0060 timestamp. Use \u0060asc\u0060 for ascending order or \u0060desc\u0060 for descending order. Defaults to \u0060desc\u0060.",
-            "schema": {
-              "default": "desc",
-              "$ref": "#/components/schemas/ListOrderParam"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of resources to return. Defaults to 20. Values are clamped between 1 and 100.",
-            "schema": {
-              "minimum": 0,
-              "type": [
-                "null",
-                "integer"
-              ],
-              "format": "int64"
-            }
-          },
-          {
             "name": "status",
             "in": "query",
             "description": "Filter by one status or a list, such as \u0060status=active\u0060 or \u0060status[]=active\u0026status[]=archived\u0060. Both statuses are included by default.",
             "schema": {
               "$ref": "#/components/schemas/VaultStatusFilterParam"
-            }
-          },
-          {
-            "name": "after",
-            "in": "query",
-            "description": "Return resources after this resource ID in the selected order.",
-            "schema": {
-              "maxLength": 1048576,
-              "minLength": 0,
-              "type": "string"
             }
           }
         ],
@@ -30555,6 +30799,37 @@
             }
           },
           {
+            "name": "limit",
+            "in": "query",
+            "description": "The maximum number of resources to return, between 1 and 100. Defaults to 20.",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int64",
+              "default": 20
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "The order in which resources are returned. Defaults to \u0060desc\u0060.",
+            "schema": {
+              "default": "desc",
+              "$ref": "#/components/schemas/ListOrderParam"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "description": "Return resources after this resource ID in the selected order.",
+            "schema": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            }
+          },
+          {
             "name": "metadata",
             "in": "query",
             "description": "Exact string matches supplied as \u0060metadata[key]=value\u0060. All supplied pairs must match. Up to 16 pairs, with keys from 1 to 64 characters and values up to 512 characters. Filtering is eventually consistent; metadata changes may take time to appear.",
@@ -30577,43 +30852,11 @@
             }
           },
           {
-            "name": "order",
-            "in": "query",
-            "description": "Sort order by the \u0060created_at\u0060 timestamp. Use \u0060asc\u0060 for ascending order or \u0060desc\u0060 for descending order. Defaults to \u0060desc\u0060.",
-            "schema": {
-              "default": "desc",
-              "$ref": "#/components/schemas/ListOrderParam"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of resources to return. Defaults to 20. Values are clamped between 1 and 100.",
-            "schema": {
-              "minimum": 0,
-              "type": [
-                "null",
-                "integer"
-              ],
-              "format": "int64"
-            }
-          },
-          {
             "name": "status",
             "in": "query",
             "description": "Filter by one status or a list, such as \u0060status=active\u0060 or \u0060status[]=active\u0026status[]=archived\u0060. Both statuses are included by default.",
             "schema": {
               "$ref": "#/components/schemas/VaultStatusFilterParam"
-            }
-          },
-          {
-            "name": "after",
-            "in": "query",
-            "description": "Return resources after this resource ID in the selected order.",
-            "schema": {
-              "maxLength": 1048576,
-              "minLength": 0,
-              "type": "string"
             }
           }
         ],
@@ -39194,43 +39437,6 @@
         "additionalProperties": false,
         "description": "Creates a voice from a consent recording and an audio sample. Requires multipart/form-data."
       },
-      "CreateVoicePromptRequest": {
-        "title": "Prompt",
-        "required": [
-          "type",
-          "name",
-          "prompt"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/PromptType"
-          },
-          "name": {
-            "maxLength": 256,
-            "minLength": 1,
-            "type": "string",
-            "description": "The name of the new voice."
-          },
-          "prompt": {
-            "maxLength": 2000,
-            "minLength": 1,
-            "type": "string",
-            "description": "A description of the desired voice. Must not contain only whitespace."
-          },
-          "script_hint": {
-            "maxLength": 2000,
-            "minLength": 1,
-            "type": "string",
-            "description": "Optional text for the voice to speak during creation. If omitted, a script is generated from the prompt. Must not be blank after trimming whitespace; scripts that are too short are rejected."
-          },
-          "model": {
-            "$ref": "#/components/schemas/CreateVoicePromptRequestModel"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Creates a synthetic voice from a text description. Supports application/json or multipart/form-data."
-      },
       "CreateVoiceRequest": {
         "required": [
           "type"
@@ -39239,12 +39445,12 @@
         "oneOf": [
           {
             "$ref": "#/components/schemas/CreateVoiceFromConsentRequest"
-          },
-          {
-            "$ref": "#/components/schemas/CreateVoicePromptRequest"
           }
         ],
         "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AudioSampleType"
+          },
           "name": {
             "maxLength": 256,
             "minLength": 1,
@@ -39260,33 +39466,13 @@
           "consent": {
             "type": "string",
             "description": "The consent recording ID (for example, \u0060cons_1234\u0060)."
-          },
-          "prompt": {
-            "maxLength": 2000,
-            "minLength": 1,
-            "type": "string",
-            "description": "A description of the desired voice. Must not contain only whitespace."
-          },
-          "script_hint": {
-            "maxLength": 2000,
-            "minLength": 1,
-            "type": "string",
-            "description": "Optional text for the voice to speak during creation. If omitted, a script is generated from the prompt. Must not be blank after trimming whitespace; scripts that are too short are rejected."
-          },
-          "model": {
-            "$ref": "#/components/schemas/CreateVoicePromptRequestModel"
-          },
-          "type": {
-            "type": "string"
           }
         },
         "discriminator": {
           "propertyName": "type",
           "mapping": {
             "audio_sample": "#/components/schemas/CreateVoiceFromConsentRequest",
-            "prompt": "#/components/schemas/CreateVoicePromptRequest",
-            "CreateVoiceFromConsentRequest": "#/components/schemas/CreateVoiceFromConsentRequest",
-            "CreateVoicePromptRequest": "#/components/schemas/CreateVoicePromptRequest"
+            "CreateVoiceFromConsentRequest": "#/components/schemas/CreateVoiceFromConsentRequest"
           }
         },
         "x-oai-default-discriminator-value": "audio_sample"
@@ -48971,7 +49157,7 @@
             "description": "The default system instructions (i.e. system message) prepended to model \ncalls. This field allows the client to guide the model on desired \nresponses. The model can be instructed on response content and format, \n(e.g. \u0022be extremely succinct\u0022, \u0022act friendly\u0022, \u0022here are examples of good \nresponses\u0022) and on audio behavior (e.g. \u0022talk quickly\u0022, \u0022inject emotion \ninto your voice\u0022, \u0022laugh frequently\u0022). The instructions are not guaranteed \nto be followed by the model, but they provide guidance to the model on the \ndesired behavior.\n\nNote that the server sets default instructions which will be used if this \nfield is not set and are visible in the \u0060session.created\u0060 event at the \nstart of the session.\n"
           },
           "voice": {
-            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with an\n\u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed during\nthe session once the model has responded with audio at least once.\nCustom voices must be created from audio samples. Voices created from text prompts are supported only in Live.\n",
+            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with an\n\u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed during\nthe session once the model has responded with audio at least once.\nCustom voices must be created from audio samples.\n",
             "$ref": "#/components/schemas/VoiceIdsOrCustomVoice"
           },
           "output_audio_format": {
@@ -53828,7 +54014,7 @@
             "description": "The default system instructions (i.e. system message) prepended to model calls. This field allows the client to guide the model on desired responses. The model can be instructed on response content and format, (e.g. \u0022be extremely succinct\u0022, \u0022act friendly\u0022, \u0022here are examples of good responses\u0022) and on audio behavior (e.g. \u0022talk quickly\u0022, \u0022inject emotion into your voice\u0022, \u0022laugh frequently\u0022). The instructions are not guaranteed to be followed by the model, but they provide guidance to the model on the desired behavior.\nNote that the server sets default instructions which will be used if this field is not set and are visible in the \u0060session.created\u0060 event at the start of the session.\n"
           },
           "voice": {
-            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with an\n\u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed during\nthe session once the model has responded with audio at least once.\nCustom voices must be created from audio samples. Voices created from text prompts are supported only in Live.\n",
+            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with an\n\u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed during\nthe session once the model has responded with audio at least once.\nCustom voices must be created from audio samples.\n",
             "$ref": "#/components/schemas/VoiceIdsOrCustomVoice"
           },
           "input_audio_format": {
@@ -63401,7 +63587,7 @@
             "description": "The voice identifier, which can be referenced in API endpoints."
           },
           "type": {
-            "$ref": "#/components/schemas/VoiceResourceType"
+            "$ref": "#/components/schemas/AudioSampleType"
           },
           "name": {
             "type": "string",
@@ -63414,7 +63600,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "A custom voice that can be used for audio output. Voices created from text prompts are supported only in Live.",
+        "description": "A custom voice that can be used for audio output.",
         "x-oaiMeta": {
           "name": "The voice object",
           "example": "{\n  \u0022object\u0022: \u0022audio.voice\u0022,\n  \u0022id\u0022: \u0022voice_123abc\u0022,\n  \u0022name\u0022: \u0022My new voice\u0022,\n  \u0022type\u0022: \u0022audio_sample\u0022,\n  \u0022created_at\u0022: 1734220800\n}\n"
@@ -63644,6 +63830,82 @@
           }
         },
         "description": "The results of a web search tool call. See the\n[web search guide](https://developers.openai.com/api/docs/guides/tools-web-search) for more information.\n"
+      },
+      "WebhookAgentEnvironmentFailed": {
+        "title": "agent.environment.failed",
+        "required": [
+          "id",
+          "object",
+          "created_at",
+          "type",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the event."
+          },
+          "object": {
+            "$ref": "#/components/schemas/EventValueObject"
+          },
+          "created_at": {
+            "type": "integer",
+            "description": "The Unix timestamp, in seconds, when the event was created.",
+            "format": "unixtime"
+          },
+          "type": {
+            "$ref": "#/components/schemas/AgentEnvironmentFailedType"
+          },
+          "data": {
+            "description": "Identifies the environment whose lifecycle changed.",
+            "$ref": "#/components/schemas/AgentEnvironmentEvent"
+          }
+        },
+        "description": "Sent when setup fails for a prewarmed OpenAI-hosted environment before it is attached to a session.\n",
+        "x-oaiMeta": {
+          "name": "agent.environment.failed",
+          "group": "webhook-events",
+          "example": "{\n  \u0022id\u0022: \u0022evt_123\u0022,\n  \u0022object\u0022: \u0022event\u0022,\n  \u0022created_at\u0022: 1719168000,\n  \u0022type\u0022: \u0022agent.environment.failed\u0022,\n  \u0022data\u0022: {\u0022id\u0022: \u0022ccarenv_123\u0022}\n}\n"
+        }
+      },
+      "WebhookAgentEnvironmentReady": {
+        "title": "agent.environment.ready",
+        "required": [
+          "id",
+          "object",
+          "created_at",
+          "type",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the event."
+          },
+          "object": {
+            "$ref": "#/components/schemas/EventValueObject"
+          },
+          "created_at": {
+            "type": "integer",
+            "description": "The Unix timestamp, in seconds, when the event was created.",
+            "format": "unixtime"
+          },
+          "type": {
+            "$ref": "#/components/schemas/AgentEnvironmentReadyType"
+          },
+          "data": {
+            "description": "Identifies the environment whose lifecycle changed.",
+            "$ref": "#/components/schemas/AgentEnvironmentEvent"
+          }
+        },
+        "description": "Sent when a prewarmed OpenAI-hosted environment finishes setup before being attached to a session.\n",
+        "x-oaiMeta": {
+          "name": "agent.environment.ready",
+          "group": "webhook-events",
+          "example": "{\n  \u0022id\u0022: \u0022evt_123\u0022,\n  \u0022object\u0022: \u0022event\u0022,\n  \u0022created_at\u0022: 1719168000,\n  \u0022type\u0022: \u0022agent.environment.ready\u0022,\n  \u0022data\u0022: {\u0022id\u0022: \u0022ccarenv_123\u0022}\n}\n"
+        }
       },
       "WebhookAgentSessionActionRequired": {
         "title": "agent.session.action_required",
@@ -70132,6 +70394,215 @@
           ]
         }
       },
+      "LiveFunctionToolChoiceParam": {
+        "required": [
+          "type",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/FunctionType"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the function tool to call."
+          }
+        }
+      },
+      "LiveMcpToolChoiceParam": {
+        "required": [
+          "type",
+          "server_label"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/McpType"
+          },
+          "server_label": {
+            "type": "string",
+            "description": "The label of the MCP server to call."
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The name of the MCP tool to call. If omitted, the server may choose a default."
+          }
+        }
+      },
+      "LiveSpecificFileSearchParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/FileSearchType"
+          }
+        }
+      },
+      "LiveSpecificWebSearchParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/WebSearchType"
+          }
+        }
+      },
+      "LiveSpecificWebSearchPreviewParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/WebSearchPreviewType"
+          }
+        }
+      },
+      "LiveSpecificImageGenParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ImageGenerationType"
+          }
+        }
+      },
+      "LiveSpecificComputerParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ComputerType"
+          }
+        }
+      },
+      "LiveSpecificCodeInterpreterParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/CodeInterpreterType"
+          }
+        }
+      },
+      "LiveSpecificProgrammaticToolCallingParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ProgrammaticToolCallingType"
+          }
+        }
+      },
+      "LiveSpecificFunctionShellParam": {
+        "title": "Specific shell tool choice",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ShellType"
+          }
+        },
+        "description": "Forces the model to call the shell tool when a tool call is required."
+      },
+      "LiveSpecificCustomToolParam": {
+        "required": [
+          "type",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/CustomType"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the custom tool to call."
+          }
+        }
+      },
+      "LiveSpecificApplyPatchParam": {
+        "title": "Specific apply patch tool choice",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ApplyPatchType"
+          }
+        },
+        "description": "Forces the model to call the apply_patch tool when executing a tool call."
+      },
+      "LiveToolChoiceValueEnum": {
+        "enum": [
+          "none",
+          "auto",
+          "required"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "LiveToolChoiceValueEnum",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "auto",
+              "name": "Auto"
+            },
+            {
+              "value": "required",
+              "name": "Required"
+            }
+          ]
+        }
+      },
+      "LiveAllowedToolsChoiceParam": {
+        "required": [
+          "type",
+          "tools"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AllowedToolsType"
+          },
+          "tools": {
+            "maxItems": 128,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveAllowedToolsChoiceParamToolsItem"
+            },
+            "description": "The tools that the delegated Responses model may call."
+          },
+          "mode": {
+            "$ref": "#/components/schemas/LiveAllowedToolsChoiceParamMode"
+          }
+        }
+      },
       "LiveResponsesDelegationSettingsInputParam": {
         "required": [
           "model"
@@ -70707,6 +71178,29 @@
           }
         }
       },
+      "OciExternalStorageProviderResponse": {
+        "required": [
+          "type",
+          "tenancy_ocid",
+          "region",
+          "bucket"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/OciType"
+          },
+          "tenancy_ocid": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "bucket": {
+            "type": "string"
+          }
+        }
+      },
       "Provider": {
         "required": [
           "type"
@@ -70721,6 +71215,9 @@
           },
           {
             "$ref": "#/components/schemas/GcpExternalStorageProviderResponse"
+          },
+          {
+            "$ref": "#/components/schemas/OciExternalStorageProviderResponse"
           }
         ],
         "properties": {
@@ -70766,6 +71263,9 @@
           "audience": {
             "type": "string"
           },
+          "tenancy_ocid": {
+            "type": "string"
+          },
           "type": {
             "type": "string"
           }
@@ -70775,7 +71275,8 @@
           "mapping": {
             "AwsExternalStorageProviderResponse": "#/components/schemas/AwsExternalStorageProviderResponse",
             "AzureExternalStorageProviderResponse": "#/components/schemas/AzureExternalStorageProviderResponse",
-            "GcpExternalStorageProviderResponse": "#/components/schemas/GcpExternalStorageProviderResponse"
+            "GcpExternalStorageProviderResponse": "#/components/schemas/GcpExternalStorageProviderResponse",
+            "OciExternalStorageProviderResponse": "#/components/schemas/OciExternalStorageProviderResponse"
           }
         }
       },
@@ -71868,6 +72369,29 @@
             "type": "string"
           },
           "workload_identity_provider_id": {
+            "type": "string"
+          }
+        }
+      },
+      "OciExternalStorageProviderParams": {
+        "required": [
+          "type",
+          "tenancy_ocid",
+          "region",
+          "bucket"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/OciType"
+          },
+          "tenancy_ocid": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "bucket": {
             "type": "string"
           }
         }
@@ -75875,6 +76399,51 @@
         },
         "additionalProperties": false
       },
+      "ListOrderParam": {
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The order in which paginated resources are returned.",
+        "x-enumDescriptions": [
+          "Returns resources in ascending order.",
+          "Returns resources in descending order."
+        ],
+        "x-ms-enum": {
+          "name": "ListOrderParam",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "asc",
+              "name": "Asc"
+            },
+            {
+              "value": "desc",
+              "name": "Desc"
+            }
+          ]
+        }
+      },
+      "EnvironmentTypeParam": {
+        "enum": [
+          "openai_hosted"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The hosting type of an execution environment.",
+        "x-ms-enum": {
+          "name": "EnvironmentTypeParam",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "openai_hosted",
+              "name": "OpenaiHosted"
+            }
+          ]
+        }
+      },
       "EnvironmentTypeResource": {
         "enum": [
           "openai_hosted",
@@ -75901,6 +76470,7 @@
       "EnvironmentStatusResource": {
         "enum": [
           "pending",
+          "ready",
           "connected",
           "disconnected",
           "expired",
@@ -75911,6 +76481,7 @@
         "description": "The public lifecycle status of an execution environment.",
         "x-enumDescriptions": [
           "",
+          "Provisioning succeeded and the environment is available for attachment or use.",
           "",
           "",
           "",
@@ -75923,6 +76494,10 @@
             {
               "value": "pending",
               "name": "Pending"
+            },
+            {
+              "value": "ready",
+              "name": "Ready"
             },
             {
               "value": "connected",
@@ -75942,183 +76517,6 @@
             }
           ]
         }
-      },
-      "HostedPluginResourceInline": {
-        "required": [
-          "type",
-          "name",
-          "description"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/InlineType"
-          },
-          "name": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The installed plugin name."
-          },
-          "description": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The installed plugin description."
-          }
-        },
-        "additionalProperties": false,
-        "description": "A plugin installed from an inline ZIP archive."
-      },
-      "HostedPluginResource": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/HostedPluginResourceInline"
-          }
-        ],
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/InlineType"
-          },
-          "name": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The installed plugin name."
-          },
-          "description": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The installed plugin description."
-          }
-        },
-        "description": "A plugin installed in an OpenAI-hosted environment.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "inline": "#/components/schemas/HostedPluginResourceInline",
-            "HostedPluginResourceInline": "#/components/schemas/HostedPluginResourceInline"
-          }
-        },
-        "x-oai-discriminator-values": [
-          "inline"
-        ]
-      },
-      "HostedSkillResourceSkillReference": {
-        "required": [
-          "type",
-          "skill_id",
-          "version",
-          "name",
-          "description"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/SkillReferenceType"
-          },
-          "skill_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The referenced skill ID."
-          },
-          "version": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The concrete skill version installed for this session."
-          },
-          "name": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The installed skill name."
-          },
-          "description": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The installed skill description."
-          }
-        },
-        "additionalProperties": false,
-        "description": "A skill installed from the Skills API."
-      },
-      "HostedSkillResourceInline": {
-        "required": [
-          "type",
-          "name",
-          "description"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/InlineType"
-          },
-          "name": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The installed skill name."
-          },
-          "description": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The installed skill description."
-          }
-        },
-        "additionalProperties": false,
-        "description": "A skill installed from an inline ZIP archive."
-      },
-      "HostedSkillResource": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/HostedSkillResourceSkillReference"
-          },
-          {
-            "$ref": "#/components/schemas/HostedSkillResourceInline"
-          }
-        ],
-        "properties": {
-          "skill_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The referenced skill ID."
-          },
-          "version": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The concrete skill version installed for this session."
-          },
-          "name": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The installed skill name."
-          },
-          "description": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The installed skill description."
-          },
-          "type": {
-            "type": "string"
-          }
-        },
-        "description": "A skill installed in an OpenAI-hosted environment.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "skill_reference": "#/components/schemas/HostedSkillResourceSkillReference",
-            "inline": "#/components/schemas/HostedSkillResourceInline",
-            "HostedSkillResourceSkillReference": "#/components/schemas/HostedSkillResourceSkillReference",
-            "HostedSkillResourceInline": "#/components/schemas/HostedSkillResourceInline"
-          }
-        },
-        "x-oai-discriminator-values": [
-          "skill_reference",
-          "inline"
-        ]
       },
       "HostedEnvironmentFileResourceFileId": {
         "required": [
@@ -76244,6 +76642,183 @@
           "inline"
         ]
       },
+      "HostedSkillResourceSkillReference": {
+        "required": [
+          "type",
+          "skill_id",
+          "version",
+          "name",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SkillReferenceType"
+          },
+          "skill_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The referenced skill ID."
+          },
+          "version": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The concrete skill version installed for this session."
+          },
+          "name": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The installed skill name."
+          },
+          "description": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The installed skill description."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A skill installed from the Skills API."
+      },
+      "HostedSkillResourceInline": {
+        "required": [
+          "type",
+          "name",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InlineType"
+          },
+          "name": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The installed skill name."
+          },
+          "description": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The installed skill description."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A skill installed from an inline ZIP archive."
+      },
+      "HostedSkillResource": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/HostedSkillResourceSkillReference"
+          },
+          {
+            "$ref": "#/components/schemas/HostedSkillResourceInline"
+          }
+        ],
+        "properties": {
+          "skill_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The referenced skill ID."
+          },
+          "version": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The concrete skill version installed for this session."
+          },
+          "name": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The installed skill name."
+          },
+          "description": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The installed skill description."
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": "A skill installed in an OpenAI-hosted environment.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "skill_reference": "#/components/schemas/HostedSkillResourceSkillReference",
+            "inline": "#/components/schemas/HostedSkillResourceInline",
+            "HostedSkillResourceSkillReference": "#/components/schemas/HostedSkillResourceSkillReference",
+            "HostedSkillResourceInline": "#/components/schemas/HostedSkillResourceInline"
+          }
+        },
+        "x-oai-discriminator-values": [
+          "skill_reference",
+          "inline"
+        ]
+      },
+      "HostedPluginResourceInline": {
+        "required": [
+          "type",
+          "name",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InlineType"
+          },
+          "name": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The installed plugin name."
+          },
+          "description": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The installed plugin description."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A plugin installed from an inline ZIP archive."
+      },
+      "HostedPluginResource": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/HostedPluginResourceInline"
+          }
+        ],
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InlineType"
+          },
+          "name": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The installed plugin name."
+          },
+          "description": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The installed plugin description."
+          }
+        },
+        "description": "A plugin installed in an OpenAI-hosted environment.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "inline": "#/components/schemas/HostedPluginResourceInline",
+            "HostedPluginResourceInline": "#/components/schemas/HostedPluginResourceInline"
+          }
+        },
+        "x-oai-discriminator-values": [
+          "inline"
+        ]
+      },
       "PublicEnvironmentResource": {
         "required": [
           "id",
@@ -76256,6 +76831,10 @@
         ],
         "type": "object",
         "properties": {
+          "type": {
+            "description": "Whether the environment is hosted by OpenAI or by the application.",
+            "$ref": "#/components/schemas/EnvironmentTypeResource"
+          },
           "id": {
             "minLength": 0,
             "type": "string",
@@ -76264,22 +76843,18 @@
           "object": {
             "$ref": "#/components/schemas/AgentEnvironmentObject"
           },
-          "type": {
-            "description": "Whether the environment is hosted by OpenAI or by the application.",
-            "$ref": "#/components/schemas/EnvironmentTypeResource"
-          },
           "status": {
             "description": "The current environment connection status.",
             "$ref": "#/components/schemas/EnvironmentStatusResource"
           },
-          "plugins": {
+          "files": {
             "maxItems": 2000,
             "minItems": 0,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/HostedPluginResource"
+              "$ref": "#/components/schemas/HostedEnvironmentFileResource"
             },
-            "description": "Plugins installed in the environment, without their archive contents."
+            "description": "Files installed in the environment, without their contents."
           },
           "skills": {
             "maxItems": 2000,
@@ -76290,18 +76865,64 @@
             },
             "description": "Skills installed in the environment, without their archive contents."
           },
-          "files": {
+          "plugins": {
             "maxItems": 2000,
             "minItems": 0,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/HostedEnvironmentFileResource"
+              "$ref": "#/components/schemas/HostedPluginResource"
             },
-            "description": "Files installed in the environment, without their contents."
+            "description": "Plugins installed in the environment, without their archive contents."
           }
         },
         "additionalProperties": false,
         "description": "Safe metadata for a first-class execution environment."
+      },
+      "AgentEnvironmentListResource": {
+        "required": [
+          "object",
+          "data",
+          "first_id",
+          "last_id",
+          "has_more"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/ListObject"
+          },
+          "data": {
+            "maxItems": 2000,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublicEnvironmentResource"
+            },
+            "description": "The resources returned in this page, in the requested sort order."
+          },
+          "first_id": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The ID of the first resource in \u0060data\u0060, or \u0060null\u0060 if the page is empty."
+          },
+          "last_id": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The ID of the last resource in \u0060data\u0060, or \u0060null\u0060 if the page is empty. Pass this as \u0060after\u0060 with the same order and filters."
+          },
+          "has_more": {
+            "type": "boolean",
+            "description": "Whether there are more resources to retrieve after this page."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A page of Agents API resources, with IDs for retrieving additional pages."
       },
       "ErrorBodyResource": {
         "required": [
@@ -76353,121 +76974,428 @@
         "additionalProperties": false,
         "description": "An API error response."
       },
-      "ListOrderParam": {
-        "enum": [
-          "asc",
-          "desc"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The order in which paginated resources are returned.",
-        "x-enumDescriptions": [
-          "Returns resources in ascending order.",
-          "Returns resources in descending order."
-        ],
-        "x-ms-enum": {
-          "name": "ListOrderParam",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "asc",
-              "name": "Asc"
-            },
-            {
-              "value": "desc",
-              "name": "Desc"
-            }
-          ]
-        }
-      },
-      "EnvironmentFilePageObjectResource": {
-        "enum": [
-          "page"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The object type for a page of files in an execution environment.",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "EnvironmentFilePageObjectResource",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "page",
-              "name": "Page"
-            }
-          ]
-        }
-      },
-      "EnvironmentFileResource": {
-        "required": [
-          "object",
-          "environment_id",
-          "path",
-          "size_bytes"
-        ],
+      "EnvironmentPackagesParam": {
         "type": "object",
         "properties": {
-          "object": {
-            "$ref": "#/components/schemas/AgentEnvironmentFileObject"
+          "python": {
+            "maxItems": 16384,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "Python packages to install. Defaults to an empty list."
           },
-          "environment_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The ID of the environment containing this file."
+          "system": {
+            "maxItems": 16384,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "System packages to install. Defaults to an empty list."
           },
-          "path": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The absolute file path inside the environment\u0027s workspace."
-          },
-          "size_bytes": {
-            "minimum": 0,
-            "type": "integer",
-            "description": "The file size in bytes.",
-            "format": "int64"
+          "npm": {
+            "maxItems": 16384,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "npm packages to install globally. Defaults to an empty list."
           }
         },
         "additionalProperties": false,
-        "description": "A live file in an execution environment."
+        "description": "Packages to install in an OpenAI-hosted environment."
       },
-      "EnvironmentFileListResource": {
+      "SetupCommandParam": {
         "required": [
-          "object",
-          "data",
-          "next",
-          "has_more"
+          "command"
         ],
         "type": "object",
         "properties": {
-          "object": {
-            "description": "The object type. Always \u0060page\u0060.",
-            "$ref": "#/components/schemas/EnvironmentFilePageObjectResource"
+          "command": {
+            "maxLength": 65536,
+            "minLength": 0,
+            "type": "string",
+            "description": "The shell command to execute."
           },
-          "data": {
-            "maxItems": 2000,
-            "minItems": 0,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EnvironmentFileResource"
-            },
-            "description": "Files available on the current page."
-          },
-          "next": {
+          "cwd": {
+            "maxLength": 4096,
             "minLength": 0,
             "type": [
               "null",
               "string"
             ],
-            "description": "The opaque cursor to use when requesting the next page, if any."
-          },
-          "has_more": {
-            "type": "boolean",
-            "description": "Whether more files follow this page."
+            "description": "The absolute working directory. Defaults to \u0060/workspace\u0060."
           }
         },
         "additionalProperties": false,
-        "description": "A paginated list of live execution environment files."
+        "description": "A confidential setup command executed before the hosted agent starts."
+      },
+      "NetworkAccessParam": {
+        "enum": [
+          "enabled",
+          "disabled",
+          "restricted"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The network access mode for an OpenAI-hosted environment.",
+        "x-enumDescriptions": [
+          "Allows unrestricted network access.",
+          "Disables network access.",
+          "Applies the configured domain restrictions."
+        ],
+        "x-ms-enum": {
+          "name": "NetworkAccessParam",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enabled",
+              "name": "Enabled"
+            },
+            {
+              "value": "disabled",
+              "name": "Disabled"
+            },
+            {
+              "value": "restricted",
+              "name": "Restricted"
+            }
+          ]
+        }
+      },
+      "NetworkPolicyParam": {
+        "required": [
+          "access"
+        ],
+        "type": "object",
+        "properties": {
+          "access": {
+            "description": "The environment\u0027s network access mode.",
+            "$ref": "#/components/schemas/NetworkAccessParam"
+          },
+          "allowed_domains": {
+            "maxItems": 16384,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "Domains the environment may access when network access is restricted."
+          },
+          "blocked_domains": {
+            "maxItems": 100,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "Domains blocked for both executor and browser when access is restricted. A nonempty list requires \u0060access: restricted\u0060 and cannot be combined with nonempty \u0060allowed_domains\u0060. Wildcard domains are not supported."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Network access for an OpenAI-hosted environment."
+      },
+      "DesktopParam": {
+        "required": [
+          "enabled"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether to provision the desktop and its browser proxy."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Desktop configuration for an OpenAI-hosted environment."
+      },
+      "HostedSkillParamSkillReference": {
+        "required": [
+          "type",
+          "skill_id"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SkillReferenceType"
+          },
+          "skill_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The ID of the skill created through \u0060/v1/skills\u0060."
+          },
+          "version": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The skill version, a positive integer or \u0060latest\u0060; omission selects the default."
+          }
+        },
+        "additionalProperties": false,
+        "description": "References a skill uploaded through the Skills API."
+      },
+      "InlineCapabilitySourceParamBase64": {
+        "required": [
+          "type",
+          "media_type",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/Base64Type"
+          },
+          "media_type": {
+            "$ref": "#/components/schemas/ApplicationZipMediaType"
+          },
+          "data": {
+            "maxLength": 70254592,
+            "minLength": 1,
+            "type": "string",
+            "description": "Standard-base64 encoded ZIP archive bytes."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Provides ZIP bytes encoded with standard base64."
+      },
+      "InlineCapabilitySourceParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/InlineCapabilitySourceParamBase64"
+          }
+        ],
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/Base64Type"
+          },
+          "media_type": {
+            "$ref": "#/components/schemas/ApplicationZipMediaType"
+          },
+          "data": {
+            "maxLength": 70254592,
+            "minLength": 1,
+            "type": "string",
+            "description": "Standard-base64 encoded ZIP archive bytes."
+          }
+        },
+        "description": "The encoded ZIP archive for an inline skill or plugin.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "base64": "#/components/schemas/InlineCapabilitySourceParamBase64",
+            "InlineCapabilitySourceParamBase64": "#/components/schemas/InlineCapabilitySourceParamBase64"
+          }
+        },
+        "x-oai-discriminator-values": [
+          "base64"
+        ]
+      },
+      "HostedSkillParamInline": {
+        "required": [
+          "type",
+          "name",
+          "description",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InlineType"
+          },
+          "name": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The skill name declared in \u0060SKILL.md\u0060."
+          },
+          "description": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string",
+            "description": "The skill description declared in \u0060SKILL.md\u0060."
+          },
+          "source": {
+            "description": "The inline ZIP archive.",
+            "$ref": "#/components/schemas/InlineCapabilitySourceParam"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Supplies a skill ZIP directly in the session request."
+      },
+      "HostedSkillParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/HostedSkillParamSkillReference"
+          },
+          {
+            "$ref": "#/components/schemas/HostedSkillParamInline"
+          }
+        ],
+        "properties": {
+          "skill_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The ID of the skill created through \u0060/v1/skills\u0060."
+          },
+          "version": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The skill version, a positive integer or \u0060latest\u0060; omission selects the default."
+          },
+          "name": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The skill name declared in \u0060SKILL.md\u0060."
+          },
+          "description": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string",
+            "description": "The skill description declared in \u0060SKILL.md\u0060."
+          },
+          "source": {
+            "description": "The inline ZIP archive.",
+            "$ref": "#/components/schemas/InlineCapabilitySourceParam"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": "A skill installed in an OpenAI-hosted environment.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "skill_reference": "#/components/schemas/HostedSkillParamSkillReference",
+            "inline": "#/components/schemas/HostedSkillParamInline",
+            "HostedSkillParamSkillReference": "#/components/schemas/HostedSkillParamSkillReference",
+            "HostedSkillParamInline": "#/components/schemas/HostedSkillParamInline"
+          }
+        },
+        "x-oai-discriminator-values": [
+          "skill_reference",
+          "inline"
+        ]
+      },
+      "HostedPluginParamInline": {
+        "required": [
+          "type",
+          "name",
+          "description",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InlineType"
+          },
+          "name": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The plugin name declared in \u0060.codex-plugin/plugin.json\u0060."
+          },
+          "description": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string",
+            "description": "The plugin description declared in \u0060.codex-plugin/plugin.json\u0060."
+          },
+          "source": {
+            "description": "The inline ZIP archive.",
+            "$ref": "#/components/schemas/InlineCapabilitySourceParam"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Supplies a plugin ZIP directly in the session request."
+      },
+      "HostedPluginParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/HostedPluginParamInline"
+          }
+        ],
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InlineType"
+          },
+          "name": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The plugin name declared in \u0060.codex-plugin/plugin.json\u0060."
+          },
+          "description": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string",
+            "description": "The plugin description declared in \u0060.codex-plugin/plugin.json\u0060."
+          },
+          "source": {
+            "description": "The inline ZIP archive.",
+            "$ref": "#/components/schemas/InlineCapabilitySourceParam"
+          }
+        },
+        "description": "A plugin installed in an OpenAI-hosted environment.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "inline": "#/components/schemas/HostedPluginParamInline",
+            "HostedPluginParamInline": "#/components/schemas/HostedPluginParamInline"
+          }
+        },
+        "x-oai-discriminator-values": [
+          "inline"
+        ]
       },
       "HostedEnvironmentFileParamFileId": {
         "required": [
@@ -76573,6 +77501,323 @@
           "file_id",
           "inline"
         ]
+      },
+      "CreateEnvironmentParamOpenaiHosted": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/OpenaiHostedType"
+          },
+          "packages": {
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHostedPackages"
+          },
+          "setup_commands": {
+            "maxItems": 16,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/SetupCommandParam"
+            },
+            "description": "Ordered, confidential setup commands. Command bodies are never returned."
+          },
+          "network": {
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHostedNetwork"
+          },
+          "desktop": {
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHostedDesktop"
+          },
+          "env": {
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHostedEnvProperty"
+          },
+          "capability_directories": {
+            "maxItems": 16384,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "Directories that contain capabilities exposed to the agent. Defaults to an empty list."
+          },
+          "skills": {
+            "maxItems": 200,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/HostedSkillParam"
+            },
+            "description": "Skills referenced by ID or provided as inline ZIP archives. Defaults to an empty list."
+          },
+          "plugins": {
+            "maxItems": 32,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/HostedPluginParam"
+            },
+            "description": "Plugins provided as inline ZIP archives. Defaults to an empty list."
+          },
+          "files": {
+            "maxItems": 50,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/HostedEnvironmentFileParam"
+            },
+            "description": "Files available before the agent starts. Defaults to an empty list."
+          },
+          "environment_template_id": {
+            "maxLength": 64,
+            "minLength": 0,
+            "type": "string",
+            "description": "A reusable hosted template applied before inline configuration. Omitted fields inherit the template; network overrides cannot broaden its policy."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Provision an OpenAI-hosted environment from inline configuration or a template."
+      },
+      "CreateEnvironmentParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHosted"
+          }
+        ],
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/OpenaiHostedType"
+          },
+          "packages": {
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHostedPackages"
+          },
+          "setup_commands": {
+            "maxItems": 16,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/SetupCommandParam"
+            },
+            "description": "Ordered, confidential setup commands. Command bodies are never returned."
+          },
+          "network": {
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHostedNetwork"
+          },
+          "desktop": {
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHostedDesktop"
+          },
+          "env": {
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHostedEnvProperty"
+          },
+          "capability_directories": {
+            "maxItems": 16384,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "Directories that contain capabilities exposed to the agent. Defaults to an empty list."
+          },
+          "skills": {
+            "maxItems": 200,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/HostedSkillParam"
+            },
+            "description": "Skills referenced by ID or provided as inline ZIP archives. Defaults to an empty list."
+          },
+          "plugins": {
+            "maxItems": 32,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/HostedPluginParam"
+            },
+            "description": "Plugins provided as inline ZIP archives. Defaults to an empty list."
+          },
+          "files": {
+            "maxItems": 50,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/HostedEnvironmentFileParam"
+            },
+            "description": "Files available before the agent starts. Defaults to an empty list."
+          },
+          "environment_template_id": {
+            "maxLength": 64,
+            "minLength": 0,
+            "type": "string",
+            "description": "A reusable hosted template applied before inline configuration. Omitted fields inherit the template; network overrides cannot broaden its policy."
+          }
+        },
+        "description": "Configuration for a new prewarmed OpenAI-hosted environment.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "openai_hosted": "#/components/schemas/CreateEnvironmentParamOpenaiHosted",
+            "CreateEnvironmentParamOpenaiHosted": "#/components/schemas/CreateEnvironmentParamOpenaiHosted"
+          }
+        },
+        "x-oai-discriminator-values": [
+          "openai_hosted"
+        ]
+      },
+      "CreateAgentEnvironmentParams": {
+        "required": [
+          "environment"
+        ],
+        "type": "object",
+        "properties": {
+          "environment": {
+            "description": "The required hosting type and its configuration.",
+            "$ref": "#/components/schemas/CreateEnvironmentParam"
+          },
+          "vault_ids": {
+            "maxItems": 10,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "The IDs of up to 10 vaults made available to an OpenAI-hosted environment."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Parameters for creating an execution environment before its sessions."
+      },
+      "EnvironmentFilePageObjectResource": {
+        "enum": [
+          "page"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The object type for a page of files in an execution environment.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "EnvironmentFilePageObjectResource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "page",
+              "name": "Page"
+            }
+          ]
+        }
+      },
+      "EnvironmentFileResource": {
+        "required": [
+          "object",
+          "environment_id",
+          "path",
+          "size_bytes"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/AgentEnvironmentFileObject"
+          },
+          "environment_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the environment containing this file."
+          },
+          "path": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The absolute file path inside the environment\u0027s workspace."
+          },
+          "size_bytes": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The file size in bytes.",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A live file in an execution environment."
+      },
+      "EnvironmentFileListResource": {
+        "required": [
+          "object",
+          "data",
+          "next",
+          "has_more"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "description": "The object type. Always \u0060page\u0060.",
+            "$ref": "#/components/schemas/EnvironmentFilePageObjectResource"
+          },
+          "data": {
+            "maxItems": 2000,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnvironmentFileResource"
+            },
+            "description": "Files available on the current page."
+          },
+          "next": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The opaque cursor to use when requesting the next page, if any."
+          },
+          "has_more": {
+            "type": "boolean",
+            "description": "Whether more files follow this page."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated list of live execution environment files."
       },
       "SubagentObjectResource": {
         "enum": [
@@ -81634,429 +82879,6 @@
         "additionalProperties": false,
         "description": "A page of Agents API resources, with IDs for retrieving additional pages."
       },
-      "EnvironmentPackagesParam": {
-        "type": "object",
-        "properties": {
-          "python": {
-            "maxItems": 16384,
-            "minItems": 0,
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "maxLength": 1048576,
-              "minLength": 0,
-              "type": "string"
-            },
-            "description": "Python packages to install. Defaults to an empty list."
-          },
-          "system": {
-            "maxItems": 16384,
-            "minItems": 0,
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "maxLength": 1048576,
-              "minLength": 0,
-              "type": "string"
-            },
-            "description": "System packages to install. Defaults to an empty list."
-          },
-          "npm": {
-            "maxItems": 16384,
-            "minItems": 0,
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "maxLength": 1048576,
-              "minLength": 0,
-              "type": "string"
-            },
-            "description": "npm packages to install globally. Defaults to an empty list."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Packages to install in an OpenAI-hosted environment."
-      },
-      "SetupCommandParam": {
-        "required": [
-          "command"
-        ],
-        "type": "object",
-        "properties": {
-          "command": {
-            "maxLength": 65536,
-            "minLength": 0,
-            "type": "string",
-            "description": "The shell command to execute."
-          },
-          "cwd": {
-            "maxLength": 4096,
-            "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The absolute working directory. Defaults to \u0060/workspace\u0060."
-          }
-        },
-        "additionalProperties": false,
-        "description": "A confidential setup command executed before the hosted agent starts."
-      },
-      "NetworkAccessParam": {
-        "enum": [
-          "enabled",
-          "disabled",
-          "restricted"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The network access mode for an OpenAI-hosted environment.",
-        "x-enumDescriptions": [
-          "Allows unrestricted network access.",
-          "Disables network access.",
-          "Applies the configured domain restrictions."
-        ],
-        "x-ms-enum": {
-          "name": "NetworkAccessParam",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "enabled",
-              "name": "Enabled"
-            },
-            {
-              "value": "disabled",
-              "name": "Disabled"
-            },
-            {
-              "value": "restricted",
-              "name": "Restricted"
-            }
-          ]
-        }
-      },
-      "NetworkPolicyParam": {
-        "required": [
-          "access"
-        ],
-        "type": "object",
-        "properties": {
-          "access": {
-            "description": "The environment\u0027s network access mode.",
-            "$ref": "#/components/schemas/NetworkAccessParam"
-          },
-          "allowed_domains": {
-            "maxItems": 16384,
-            "minItems": 0,
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "maxLength": 1048576,
-              "minLength": 0,
-              "type": "string"
-            },
-            "description": "Domains the environment may access when network access is restricted."
-          },
-          "blocked_domains": {
-            "maxItems": 100,
-            "minItems": 0,
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "maxLength": 1048576,
-              "minLength": 0,
-              "type": "string"
-            },
-            "description": "Domains blocked for both executor and browser when access is restricted. A nonempty list requires \u0060access: restricted\u0060 and cannot be combined with nonempty \u0060allowed_domains\u0060. Wildcard domains are not supported."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Network access for an OpenAI-hosted environment."
-      },
-      "DesktopParam": {
-        "required": [
-          "enabled"
-        ],
-        "type": "object",
-        "properties": {
-          "enabled": {
-            "type": "boolean",
-            "description": "Whether to provision the desktop and its browser proxy."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Desktop configuration for an OpenAI-hosted environment."
-      },
-      "HostedSkillParamSkillReference": {
-        "required": [
-          "type",
-          "skill_id"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/SkillReferenceType"
-          },
-          "skill_id": {
-            "maxLength": 64,
-            "minLength": 1,
-            "type": "string",
-            "description": "The ID of the skill created through \u0060/v1/skills\u0060."
-          },
-          "version": {
-            "maxLength": 1048576,
-            "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The skill version, a positive integer or \u0060latest\u0060; omission selects the default."
-          }
-        },
-        "additionalProperties": false,
-        "description": "References a skill uploaded through the Skills API."
-      },
-      "InlineCapabilitySourceParamBase64": {
-        "required": [
-          "type",
-          "media_type",
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/Base64Type"
-          },
-          "media_type": {
-            "$ref": "#/components/schemas/ApplicationZipMediaType"
-          },
-          "data": {
-            "maxLength": 70254592,
-            "minLength": 1,
-            "type": "string",
-            "description": "Standard-base64 encoded ZIP archive bytes."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Provides ZIP bytes encoded with standard base64."
-      },
-      "InlineCapabilitySourceParam": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/InlineCapabilitySourceParamBase64"
-          }
-        ],
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/Base64Type"
-          },
-          "media_type": {
-            "$ref": "#/components/schemas/ApplicationZipMediaType"
-          },
-          "data": {
-            "maxLength": 70254592,
-            "minLength": 1,
-            "type": "string",
-            "description": "Standard-base64 encoded ZIP archive bytes."
-          }
-        },
-        "description": "The encoded ZIP archive for an inline skill or plugin.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "base64": "#/components/schemas/InlineCapabilitySourceParamBase64",
-            "InlineCapabilitySourceParamBase64": "#/components/schemas/InlineCapabilitySourceParamBase64"
-          }
-        },
-        "x-oai-discriminator-values": [
-          "base64"
-        ]
-      },
-      "HostedSkillParamInline": {
-        "required": [
-          "type",
-          "name",
-          "description",
-          "source"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/InlineType"
-          },
-          "name": {
-            "maxLength": 64,
-            "minLength": 1,
-            "type": "string",
-            "description": "The skill name declared in \u0060SKILL.md\u0060."
-          },
-          "description": {
-            "maxLength": 1048576,
-            "minLength": 0,
-            "type": "string",
-            "description": "The skill description declared in \u0060SKILL.md\u0060."
-          },
-          "source": {
-            "description": "The inline ZIP archive.",
-            "$ref": "#/components/schemas/InlineCapabilitySourceParam"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Supplies a skill ZIP directly in the session request."
-      },
-      "HostedSkillParam": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/HostedSkillParamSkillReference"
-          },
-          {
-            "$ref": "#/components/schemas/HostedSkillParamInline"
-          }
-        ],
-        "properties": {
-          "skill_id": {
-            "maxLength": 64,
-            "minLength": 1,
-            "type": "string",
-            "description": "The ID of the skill created through \u0060/v1/skills\u0060."
-          },
-          "version": {
-            "maxLength": 1048576,
-            "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The skill version, a positive integer or \u0060latest\u0060; omission selects the default."
-          },
-          "name": {
-            "maxLength": 64,
-            "minLength": 1,
-            "type": "string",
-            "description": "The skill name declared in \u0060SKILL.md\u0060."
-          },
-          "description": {
-            "maxLength": 1048576,
-            "minLength": 0,
-            "type": "string",
-            "description": "The skill description declared in \u0060SKILL.md\u0060."
-          },
-          "source": {
-            "description": "The inline ZIP archive.",
-            "$ref": "#/components/schemas/InlineCapabilitySourceParam"
-          },
-          "type": {
-            "type": "string"
-          }
-        },
-        "description": "A skill installed in an OpenAI-hosted environment.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "skill_reference": "#/components/schemas/HostedSkillParamSkillReference",
-            "inline": "#/components/schemas/HostedSkillParamInline",
-            "HostedSkillParamSkillReference": "#/components/schemas/HostedSkillParamSkillReference",
-            "HostedSkillParamInline": "#/components/schemas/HostedSkillParamInline"
-          }
-        },
-        "x-oai-discriminator-values": [
-          "skill_reference",
-          "inline"
-        ]
-      },
-      "HostedPluginParamInline": {
-        "required": [
-          "type",
-          "name",
-          "description",
-          "source"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/InlineType"
-          },
-          "name": {
-            "maxLength": 64,
-            "minLength": 1,
-            "type": "string",
-            "description": "The plugin name declared in \u0060.codex-plugin/plugin.json\u0060."
-          },
-          "description": {
-            "maxLength": 1048576,
-            "minLength": 0,
-            "type": "string",
-            "description": "The plugin description declared in \u0060.codex-plugin/plugin.json\u0060."
-          },
-          "source": {
-            "description": "The inline ZIP archive.",
-            "$ref": "#/components/schemas/InlineCapabilitySourceParam"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Supplies a plugin ZIP directly in the session request."
-      },
-      "HostedPluginParam": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/HostedPluginParamInline"
-          }
-        ],
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/InlineType"
-          },
-          "name": {
-            "maxLength": 64,
-            "minLength": 1,
-            "type": "string",
-            "description": "The plugin name declared in \u0060.codex-plugin/plugin.json\u0060."
-          },
-          "description": {
-            "maxLength": 1048576,
-            "minLength": 0,
-            "type": "string",
-            "description": "The plugin description declared in \u0060.codex-plugin/plugin.json\u0060."
-          },
-          "source": {
-            "description": "The inline ZIP archive.",
-            "$ref": "#/components/schemas/InlineCapabilitySourceParam"
-          }
-        },
-        "description": "A plugin installed in an OpenAI-hosted environment.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "inline": "#/components/schemas/HostedPluginParamInline",
-            "HostedPluginParamInline": "#/components/schemas/HostedPluginParamInline"
-          }
-        },
-        "x-oai-discriminator-values": [
-          "inline"
-        ]
-      },
       "CreateEnvironmentTemplateParams": {
         "type": "object",
         "properties": {
@@ -82260,6 +83082,32 @@
         },
         "additionalProperties": false,
         "description": "A deleted reusable environment template."
+      },
+      "SessionSpendControlResource": {
+        "required": [
+          "limit",
+          "consumed"
+        ],
+        "type": "object",
+        "properties": {
+          "limit": {
+            "maximum": 4503599627370495,
+            "minimum": 1,
+            "type": "integer",
+            "description": "The configured positive limit in USD cents.",
+            "format": "int64"
+          },
+          "consumed": {
+            "minimum": 0,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Best-effort recorded spend floored to whole USD cents, or null when unavailable."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Session-wide spending control, present only when a limit is configured."
       },
       "SessionStatusResource": {
         "enum": [
@@ -83405,6 +84253,10 @@
         ],
         "type": "object",
         "properties": {
+          "spend_control": {
+            "description": "Configured spending limit and best-effort consumption, in USD cents. Unlimited sessions omit this object.",
+            "$ref": "#/components/schemas/SessionSpendControlResource"
+          },
           "metadata": {
             "$ref": "#/components/schemas/SessionResourceMetadataProperty"
           },
@@ -83517,6 +84369,26 @@
         },
         "additionalProperties": false,
         "description": "A page of Agents API resources, with IDs for retrieving additional pages."
+      },
+      "SessionSpendControlParam": {
+        "required": [
+          "limit"
+        ],
+        "type": "object",
+        "properties": {
+          "limit": {
+            "maximum": 4503599627370495,
+            "minimum": 1,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Positive USD cents, or null to remove the limit.",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Sets the session-wide limit without changing recorded spend."
       },
       "AgentToolConfigParamFunction": {
         "required": [
@@ -84128,6 +85000,68 @@
           "type"
         ],
         "type": "object",
+        "not": {
+          "required": [
+            "environment_id"
+          ],
+          "anyOf": [
+            {
+              "required": [
+                "packages"
+              ]
+            },
+            {
+              "required": [
+                "setup_commands"
+              ]
+            },
+            {
+              "required": [
+                "network"
+              ]
+            },
+            {
+              "required": [
+                "desktop"
+              ]
+            },
+            {
+              "required": [
+                "env"
+              ]
+            },
+            {
+              "required": [
+                "capability_directories"
+              ]
+            },
+            {
+              "required": [
+                "skills"
+              ]
+            },
+            {
+              "required": [
+                "plugins"
+              ]
+            },
+            {
+              "required": [
+                "files"
+              ]
+            },
+            {
+              "required": [
+                "environment_template_id"
+              ]
+            },
+            {
+              "required": [
+                "container_size"
+              ]
+            }
+          ]
+        },
         "properties": {
           "type": {
             "$ref": "#/components/schemas/OpenaiHostedType"
@@ -84206,6 +85140,12 @@
             },
             "description": "Files available before the agent starts. Defaults to an empty list."
           },
+          "environment_id": {
+            "maxLength": 256,
+            "minLength": 9,
+            "type": "string",
+            "description": "An existing prewarmed environment. Cannot be combined with a template or inline configuration."
+          },
           "environment_template_id": {
             "maxLength": 64,
             "minLength": 0,
@@ -84230,12 +85170,6 @@
           "type": {
             "$ref": "#/components/schemas/SelfHostedType"
           },
-          "workspace_directory": {
-            "maxLength": 1048576,
-            "minLength": 0,
-            "type": "string",
-            "description": "Absolute project directory inside the self-hosted environment."
-          },
           "capability_directories": {
             "maxItems": 16384,
             "minItems": 0,
@@ -84249,6 +85183,12 @@
               "type": "string"
             },
             "description": "Directories that contain capabilities exposed to the agent. Defaults to an empty list."
+          },
+          "workspace_directory": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string",
+            "description": "Absolute project directory inside the self-hosted environment."
           }
         },
         "additionalProperties": false,
@@ -84344,6 +85284,12 @@
               "$ref": "#/components/schemas/HostedEnvironmentFileParam"
             },
             "description": "Files available before the agent starts. Defaults to an empty list."
+          },
+          "environment_id": {
+            "maxLength": 256,
+            "minLength": 9,
+            "type": "string",
+            "description": "An existing prewarmed environment. Cannot be combined with a template or inline configuration."
           },
           "environment_template_id": {
             "maxLength": 64,
@@ -84519,6 +85465,9 @@
         ],
         "type": "object",
         "properties": {
+          "spend_control": {
+            "$ref": "#/components/schemas/CreateAgentSessionParamsSpendControl"
+          },
           "metadata": {
             "$ref": "#/components/schemas/CreateAgentSessionParamsMetadataProperty"
           },
@@ -84561,6 +85510,68 @@
         },
         "additionalProperties": false,
         "description": "Parameters for creating a Managed Agents session."
+      },
+      "SessionEventAgentSessionTurnReasoningSummaryTextDone": {
+        "required": [
+          "type",
+          "event_id",
+          "session_id",
+          "turn_id",
+          "item_id",
+          "output_index",
+          "summary_index",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AgentSessionTurnReasoningSummaryTextDoneType"
+          },
+          "event_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The unique ID of the event."
+          },
+          "session_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the session associated with the event."
+          },
+          "turn_id": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The ID of the turn associated with the event, when applicable."
+          },
+          "item_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the reasoning item."
+          },
+          "output_index": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The index of the item in the turn output.",
+            "format": "int64"
+          },
+          "summary_index": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The index of the summary content part.",
+            "format": "int64"
+          },
+          "text": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The complete reasoning summary text."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Emitted when a reasoning summary content part is complete."
       },
       "SessionErrorResource": {
         "required": [
@@ -84784,6 +85795,133 @@
         },
         "additionalProperties": false,
         "description": "Emitted when a hosted session environment is ready to connect."
+      },
+      "SessionEventAgentSessionTurnReasoningSummaryTextDelta": {
+        "required": [
+          "type",
+          "event_id",
+          "session_id",
+          "turn_id",
+          "item_id",
+          "output_index",
+          "summary_index",
+          "delta"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AgentSessionTurnReasoningSummaryTextDeltaType"
+          },
+          "event_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The unique ID of the event."
+          },
+          "session_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the session associated with the event."
+          },
+          "turn_id": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The ID of the turn associated with the event, when applicable."
+          },
+          "item_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the reasoning item."
+          },
+          "output_index": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The index of the item in the turn output.",
+            "format": "int64"
+          },
+          "summary_index": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The index of the summary content part.",
+            "format": "int64"
+          },
+          "delta": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The summary text that was appended."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Emitted when text is appended to a reasoning summary."
+      },
+      "SessionEventAgentSessionTurnReasoningSummaryPartDone": {
+        "required": [
+          "type",
+          "event_id",
+          "session_id",
+          "turn_id",
+          "item_id",
+          "output_index",
+          "summary_index",
+          "part",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AgentSessionTurnReasoningSummaryPartDoneType"
+          },
+          "event_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The unique ID of the event."
+          },
+          "session_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the session associated with the event."
+          },
+          "turn_id": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The ID of the turn associated with the event, when applicable."
+          },
+          "item_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the reasoning item."
+          },
+          "output_index": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The index of the item in the turn output.",
+            "format": "int64"
+          },
+          "summary_index": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The index of the summary part.",
+            "format": "int64"
+          },
+          "part": {
+            "description": "The completed summary part.",
+            "$ref": "#/components/schemas/SummaryTextResource"
+          },
+          "status": {
+            "$ref": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Emitted when a reasoning summary part is complete."
       },
       "SessionEventAgentSessionEnvironmentReset": {
         "required": [
@@ -86123,195 +87261,6 @@
         "additionalProperties": false,
         "description": "Emitted when a reasoning summary content part is added."
       },
-      "SessionEventAgentSessionTurnReasoningSummaryPartDone": {
-        "required": [
-          "type",
-          "event_id",
-          "session_id",
-          "turn_id",
-          "item_id",
-          "output_index",
-          "summary_index",
-          "part",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/AgentSessionTurnReasoningSummaryPartDoneType"
-          },
-          "event_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The unique ID of the event."
-          },
-          "session_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The ID of the session associated with the event."
-          },
-          "turn_id": {
-            "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The ID of the turn associated with the event, when applicable."
-          },
-          "item_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The ID of the reasoning item."
-          },
-          "output_index": {
-            "maximum": 4294967295,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The index of the item in the turn output.",
-            "format": "int64"
-          },
-          "summary_index": {
-            "maximum": 4294967295,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The index of the summary part.",
-            "format": "int64"
-          },
-          "part": {
-            "description": "The completed summary part.",
-            "$ref": "#/components/schemas/SummaryTextResource"
-          },
-          "status": {
-            "$ref": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Emitted when a reasoning summary part is complete."
-      },
-      "SessionEventAgentSessionTurnReasoningSummaryTextDelta": {
-        "required": [
-          "type",
-          "event_id",
-          "session_id",
-          "turn_id",
-          "item_id",
-          "output_index",
-          "summary_index",
-          "delta"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/AgentSessionTurnReasoningSummaryTextDeltaType"
-          },
-          "event_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The unique ID of the event."
-          },
-          "session_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The ID of the session associated with the event."
-          },
-          "turn_id": {
-            "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The ID of the turn associated with the event, when applicable."
-          },
-          "item_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The ID of the reasoning item."
-          },
-          "output_index": {
-            "maximum": 4294967295,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The index of the item in the turn output.",
-            "format": "int64"
-          },
-          "summary_index": {
-            "maximum": 4294967295,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The index of the summary content part.",
-            "format": "int64"
-          },
-          "delta": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The summary text that was appended."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Emitted when text is appended to a reasoning summary."
-      },
-      "SessionEventAgentSessionTurnReasoningSummaryTextDone": {
-        "required": [
-          "type",
-          "event_id",
-          "session_id",
-          "turn_id",
-          "item_id",
-          "output_index",
-          "summary_index",
-          "text"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/AgentSessionTurnReasoningSummaryTextDoneType"
-          },
-          "event_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The unique ID of the event."
-          },
-          "session_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The ID of the session associated with the event."
-          },
-          "turn_id": {
-            "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The ID of the turn associated with the event, when applicable."
-          },
-          "item_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The ID of the reasoning item."
-          },
-          "output_index": {
-            "maximum": 4294967295,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The index of the item in the turn output.",
-            "format": "int64"
-          },
-          "summary_index": {
-            "maximum": 4294967295,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The index of the summary content part.",
-            "format": "int64"
-          },
-          "text": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The complete reasoning summary text."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Emitted when a reasoning summary content part is complete."
-      },
       "SessionEvent": {
         "required": [
           "type"
@@ -86494,8 +87443,11 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
+            "agent.session.turn.reasoning_summary_text.done": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryTextDone",
             "error": "#/components/schemas/SessionEventError",
             "agent.session.environment.ready": "#/components/schemas/SessionEventAgentSessionEnvironmentReady",
+            "agent.session.turn.reasoning_summary_text.delta": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryTextDelta",
+            "agent.session.turn.reasoning_summary_part.done": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartDone",
             "agent.session.environment.reset": "#/components/schemas/SessionEventAgentSessionEnvironmentReset",
             "agent.output.command_execution_output.delta": "#/components/schemas/SessionEventAgentOutputCommandExecutionOutputDelta",
             "agent.session.created": "#/components/schemas/SessionEventAgentSessionCreated",
@@ -86522,9 +87474,6 @@
             "agent.session.turn.output_text.delta": "#/components/schemas/SessionEventAgentSessionTurnOutputTextDelta",
             "agent.session.turn.output_text.done": "#/components/schemas/SessionEventAgentSessionTurnOutputTextDone",
             "agent.session.turn.reasoning_summary_part.added": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartAdded",
-            "agent.session.turn.reasoning_summary_part.done": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartDone",
-            "agent.session.turn.reasoning_summary_text.delta": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryTextDelta",
-            "agent.session.turn.reasoning_summary_text.done": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryTextDone",
             "SessionEventError": "#/components/schemas/SessionEventError",
             "SessionEventAgentSessionEnvironmentReady": "#/components/schemas/SessionEventAgentSessionEnvironmentReady",
             "SessionEventAgentSessionEnvironmentReset": "#/components/schemas/SessionEventAgentSessionEnvironmentReset",
@@ -86625,6 +87574,9 @@
       "UpdateAgentSessionParams": {
         "type": "object",
         "properties": {
+          "spend_control": {
+            "$ref": "#/components/schemas/UpdateAgentSessionParamsSpendControl"
+          },
           "agent": {
             "description": "Model settings for subsequent turns. Omitted fields stay unchanged.",
             "$ref": "#/components/schemas/UpdateSessionAgentParam"
@@ -89115,6 +90067,21 @@
             "description": "The webhook event types available to the authenticated project."
           }
         }
+      },
+      "AgentEnvironmentEvent": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the environment."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Identifies the environment whose lifecycle changed."
       },
       "AgentSessionRequiredActionTypeResource": {
         "enum": [
@@ -108866,7 +109833,7 @@
             "example": "voice_1234"
           }
         },
-        "description": "The voice to use when generating the audio. Supported built-in voices are \u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060fable\u0060, \u0060onyx\u0060, \u0060nova\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060, \u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with an \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Previews of the voices are available in the [Text to speech guide](https://developers.openai.com/api/docs/guides/text-to-speech#voice-options). Custom voices must be created from audio samples. Voices created from text prompts are supported only in Live."
+        "description": "The voice to use when generating the audio. Supported built-in voices are \u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060fable\u0060, \u0060onyx\u0060, \u0060nova\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060, \u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with an \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Previews of the voices are available in the [Text to speech guide](https://developers.openai.com/api/docs/guides/text-to-speech#voice-options). Custom voices must be created from audio samples."
       },
       "CreateThreadAndRunRequestModel": {
         "type": "object",
@@ -109155,18 +110122,6 @@
           }
         },
         "description": "The chunking strategy used to chunk the file(s). If not set, will use the \u0060auto\u0060 strategy. Only applicable if \u0060file_ids\u0060 is non-empty."
-      },
-      "CreateVoicePromptRequestModel": {
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/CreateVoicePromptRequestModelBranch1"
-          },
-          {
-            "$ref": "#/components/schemas/CreateVoicePromptRequestModelWrapper"
-          }
-        ],
-        "description": "The voice creation model to use. Defaults to \u0060auto\u0060."
       },
       "CustomToolCallCaller": {
         "type": "object",
@@ -114512,6 +115467,38 @@
           }
         }
       },
+      "WebhookAgentEnvironmentFailedAllOf2": {
+        "required": [
+          "type",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AgentEnvironmentFailedType"
+          },
+          "data": {
+            "description": "Identifies the environment whose lifecycle changed.",
+            "$ref": "#/components/schemas/AgentEnvironmentEvent"
+          }
+        }
+      },
+      "WebhookAgentEnvironmentReadyAllOf2": {
+        "required": [
+          "type",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AgentEnvironmentReadyType"
+          },
+          "data": {
+            "description": "Identifies the environment whose lifecycle changed.",
+            "$ref": "#/components/schemas/AgentEnvironmentEvent"
+          }
+        }
+      },
       "WebhookAgentSessionActionRequiredAllOf2": {
         "required": [
           "type",
@@ -116032,6 +117019,92 @@
           }
         }
       },
+      "LiveAllowedToolsChoiceParamToolsItem": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveFunctionToolChoiceParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveMcpToolChoiceParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificFileSearchParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificWebSearchParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificWebSearchPreviewParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificImageGenParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificComputerParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificCodeInterpreterParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificProgrammaticToolCallingParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificFunctionShellParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificCustomToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificApplyPatchParam"
+          }
+        ],
+        "properties": {
+          "server_label": {
+            "type": "string",
+            "description": "The label of the MCP server to call."
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "LiveFunctionToolChoiceParam": "#/components/schemas/LiveFunctionToolChoiceParam",
+            "LiveMcpToolChoiceParam": "#/components/schemas/LiveMcpToolChoiceParam",
+            "LiveSpecificFileSearchParam": "#/components/schemas/LiveSpecificFileSearchParam",
+            "LiveSpecificWebSearchParam": "#/components/schemas/LiveSpecificWebSearchParam",
+            "LiveSpecificWebSearchPreviewParam": "#/components/schemas/LiveSpecificWebSearchPreviewParam",
+            "LiveSpecificImageGenParam": "#/components/schemas/LiveSpecificImageGenParam",
+            "LiveSpecificComputerParam": "#/components/schemas/LiveSpecificComputerParam",
+            "LiveSpecificCodeInterpreterParam": "#/components/schemas/LiveSpecificCodeInterpreterParam",
+            "LiveSpecificProgrammaticToolCallingParam": "#/components/schemas/LiveSpecificProgrammaticToolCallingParam",
+            "LiveSpecificFunctionShellParam": "#/components/schemas/LiveSpecificFunctionShellParam",
+            "LiveSpecificCustomToolParam": "#/components/schemas/LiveSpecificCustomToolParam",
+            "LiveSpecificApplyPatchParam": "#/components/schemas/LiveSpecificApplyPatchParam"
+          }
+        }
+      },
+      "LiveAllowedToolsChoiceParamMode": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/LiveToolChoiceValueEnumWrapper"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/LiveToolChoiceValueEnum"
+          }
+        }
+      },
       "LiveResponsesDelegationSettingsInputParamServiceTier": {
         "type": "object",
         "anyOf": [
@@ -116186,15 +117259,79 @@
             "$ref": "#/components/schemas/LiveToolChoiceEnumWrapper"
           },
           {
+            "required": [
+              "type"
+            ],
             "type": "object",
-            "additionalProperties": {
-              "type": "object"
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LiveFunctionToolChoiceParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveMcpToolChoiceParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificFileSearchParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificWebSearchParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificWebSearchPreviewParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificImageGenParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificComputerParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificCodeInterpreterParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificProgrammaticToolCallingParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificFunctionShellParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificCustomToolParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificApplyPatchParam"
+              }
+            ],
+            "properties": {
+              "type": {
+                "type": "string"
+              }
+            },
+            "discriminator": {
+              "propertyName": "type"
             }
+          },
+          {
+            "$ref": "#/components/schemas/LiveAllowedToolsChoiceParam"
           }
         ],
         "properties": {
           "value": {
             "$ref": "#/components/schemas/LiveToolChoiceEnum"
+          },
+          "type": {
+            "$ref": "#/components/schemas/AllowedToolsType"
+          },
+          "tools": {
+            "maxItems": 128,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveAllowedToolsChoiceParamToolsItem"
+            },
+            "description": "The tools that the delegated Responses model may call."
+          },
+          "mode": {
+            "$ref": "#/components/schemas/LiveAllowedToolsChoiceParamMode"
           }
         },
         "description": "Controls which tool the Responses backend uses when handling a task delegated by the Live model."
@@ -116456,15 +117593,79 @@
             "$ref": "#/components/schemas/LiveToolChoiceEnumWrapper2"
           },
           {
+            "required": [
+              "type"
+            ],
             "type": "object",
-            "additionalProperties": {
-              "type": "object"
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LiveFunctionToolChoiceParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveMcpToolChoiceParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificFileSearchParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificWebSearchParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificWebSearchPreviewParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificImageGenParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificComputerParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificCodeInterpreterParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificProgrammaticToolCallingParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificFunctionShellParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificCustomToolParam"
+              },
+              {
+                "$ref": "#/components/schemas/LiveSpecificApplyPatchParam"
+              }
+            ],
+            "properties": {
+              "type": {
+                "type": "string"
+              }
+            },
+            "discriminator": {
+              "propertyName": "type"
             }
+          },
+          {
+            "$ref": "#/components/schemas/LiveAllowedToolsChoiceParam"
           }
         ],
         "properties": {
           "value": {
             "$ref": "#/components/schemas/LiveToolChoiceEnum"
+          },
+          "type": {
+            "$ref": "#/components/schemas/AllowedToolsType"
+          },
+          "tools": {
+            "maxItems": 128,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveAllowedToolsChoiceParamToolsItem"
+            },
+            "description": "The tools that the delegated Responses model may call."
+          },
+          "mode": {
+            "$ref": "#/components/schemas/LiveAllowedToolsChoiceParamMode"
           }
         },
         "description": "Controls which tool the Responses backend uses when handling a task delegated by the Live model."
@@ -116597,6 +117798,9 @@
           },
           {
             "$ref": "#/components/schemas/GcpExternalStorageProviderResponse"
+          },
+          {
+            "$ref": "#/components/schemas/OciExternalStorageProviderResponse"
           }
         ],
         "properties": {
@@ -116642,6 +117846,9 @@
           "audience": {
             "type": "string"
           },
+          "tenancy_ocid": {
+            "type": "string"
+          },
           "type": {
             "type": "string"
           }
@@ -116651,7 +117858,8 @@
           "mapping": {
             "AwsExternalStorageProviderResponse": "#/components/schemas/AwsExternalStorageProviderResponse",
             "AzureExternalStorageProviderResponse": "#/components/schemas/AzureExternalStorageProviderResponse",
-            "GcpExternalStorageProviderResponse": "#/components/schemas/GcpExternalStorageProviderResponse"
+            "GcpExternalStorageProviderResponse": "#/components/schemas/GcpExternalStorageProviderResponse",
+            "OciExternalStorageProviderResponse": "#/components/schemas/OciExternalStorageProviderResponse"
           }
         }
       },
@@ -116669,6 +117877,9 @@
           },
           {
             "$ref": "#/components/schemas/GcpExternalStorageProviderParams"
+          },
+          {
+            "$ref": "#/components/schemas/OciExternalStorageProviderParams"
           }
         ],
         "properties": {
@@ -116702,6 +117913,12 @@
           "workload_identity_provider_id": {
             "type": "string"
           },
+          "tenancy_ocid": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
           "type": {
             "type": "string"
           }
@@ -116711,7 +117928,8 @@
           "mapping": {
             "AwsExternalStorageProviderParams": "#/components/schemas/AwsExternalStorageProviderParams",
             "AzureExternalStorageProviderParams": "#/components/schemas/AzureExternalStorageProviderParams",
-            "GcpExternalStorageProviderParams": "#/components/schemas/GcpExternalStorageProviderParams"
+            "GcpExternalStorageProviderParams": "#/components/schemas/GcpExternalStorageProviderParams",
+            "OciExternalStorageProviderParams": "#/components/schemas/OciExternalStorageProviderParams"
           }
         }
       },
@@ -117383,6 +118601,126 @@
           "message"
         ],
         "x-oai-default-discriminator-value": "message"
+      },
+      "CreateEnvironmentParamOpenaiHostedPackages": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/EnvironmentPackagesParam"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "python": {
+            "maxItems": 16384,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "Python packages to install. Defaults to an empty list."
+          },
+          "system": {
+            "maxItems": 16384,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "System packages to install. Defaults to an empty list."
+          },
+          "npm": {
+            "maxItems": 16384,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "npm packages to install globally. Defaults to an empty list."
+          }
+        },
+        "description": "Packages to install in the environment. Defaults to empty package lists."
+      },
+      "CreateEnvironmentParamOpenaiHostedNetwork": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/NetworkPolicyParam"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "access": {
+            "description": "The environment\u0027s network access mode.",
+            "$ref": "#/components/schemas/NetworkAccessParam"
+          },
+          "allowed_domains": {
+            "maxItems": 16384,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "Domains the environment may access when network access is restricted."
+          },
+          "blocked_domains": {
+            "maxItems": 100,
+            "minItems": 0,
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "maxLength": 1048576,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "Domains blocked for both executor and browser when access is restricted. A nonempty list requires \u0060access: restricted\u0060 and cannot be combined with nonempty \u0060allowed_domains\u0060. Wildcard domains are not supported."
+          }
+        },
+        "description": "Network access policy for the environment. If omitted, the API version determines whether network access is enabled or disabled."
+      },
+      "CreateEnvironmentParamOpenaiHostedDesktop": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/DesktopParam"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether to provision the desktop and its browser proxy."
+          }
+        },
+        "description": "Desktop provisioning. Omission or null inherits the template setting, or defaults to disabled."
       },
       "MessageItemResourcePhase": {
         "type": "object",
@@ -118629,6 +119967,30 @@
         },
         "description": "Desktop provisioning. Omission or null inherits the template setting, or defaults to disabled."
       },
+      "CreateAgentSessionParamsSpendControl": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/SessionSpendControlParam"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "limit": {
+            "maximum": 4503599627370495,
+            "minimum": 1,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Positive USD cents, or null to remove the limit.",
+            "format": "int64"
+          }
+        },
+        "description": "Optional spending limit in USD cents. Omission or null creates an unlimited session."
+      },
       "CreateAgentSessionParamsInput": {
         "type": "object",
         "anyOf": [
@@ -118825,6 +120187,30 @@
           }
         },
         "description": "Omit to keep the current tier. Null resets it to auto."
+      },
+      "UpdateAgentSessionParamsSpendControl": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/SessionSpendControlParam"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "limit": {
+            "maximum": 4503599627370495,
+            "minimum": 1,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Positive USD cents, or null to remove the limit.",
+            "format": "int64"
+          }
+        },
+        "description": "Omit to retain the limit; null or a null limit removes it without resetting spend."
       },
       "SessionInputParamAgentSessionInputToolResultOutput": {
         "type": "object",
@@ -130260,6 +131646,25 @@
         "description": "State variables forwarded to the workflow. Keys may be up to 64 characters, values must be primitive types, and the map defaults to an empty object.",
         "x-oaiTypeLabel": "map"
       },
+      "CreateEnvironmentParamOpenaiHostedEnv": {
+        "propertyNames": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "maxProperties": 1024,
+        "minProperties": 0,
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": {
+          "maxLength": 1048576,
+          "minLength": 0,
+          "type": "string"
+        },
+        "description": "Environment variables made available to the agent."
+      },
       "TextFormatResourceJsonSchemaSchema": {
         "propertyNames": {
           "minLength": 0,
@@ -131191,7 +132596,7 @@
         ],
         "properties": {
           "voice": {
-            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060fable\u0060, \u0060nova\u0060, \u0060onyx\u0060,\n\u0060sage\u0060, \u0060shimmer\u0060, \u0060marin\u0060, and \u0060cedar\u0060. You may also provide a\ncustom voice object with an \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060.\nCustom voices must be created from audio samples. Voices created from text\nprompts are supported only in Live.\n",
+            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060fable\u0060, \u0060nova\u0060, \u0060onyx\u0060,\n\u0060sage\u0060, \u0060shimmer\u0060, \u0060marin\u0060, and \u0060cedar\u0060. You may also provide a\ncustom voice object with an \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060.\nCustom voices must be created from audio samples.\n",
             "$ref": "#/components/schemas/VoiceIdsOrCustomVoice"
           },
           "format": {
@@ -132507,7 +133912,7 @@
             "$ref": "#/components/schemas/RealtimeAudioFormats"
           },
           "voice": {
-            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with\nan \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed\nduring the session once the model has responded with audio at least once.\nCustom voices must be created from audio samples. Voices created from text prompts are supported only in Live.\nWe recommend \u0060marin\u0060 and \u0060cedar\u0060 for best quality.\n",
+            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with\nan \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed\nduring the session once the model has responded with audio at least once.\nCustom voices must be created from audio samples.\nWe recommend \u0060marin\u0060 and \u0060cedar\u0060 for best quality.\n",
             "default": "alloy",
             "$ref": "#/components/schemas/VoiceIdsOrCustomVoice"
           }
@@ -132544,7 +133949,7 @@
             "$ref": "#/components/schemas/RealtimeAudioFormats"
           },
           "voice": {
-            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with\nan \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed\nduring the session once the model has responded with audio at least once.\nCustom voices must be created from audio samples. Voices created from text prompts are supported only in Live.\nWe recommend \u0060marin\u0060 and \u0060cedar\u0060 for best quality.\n",
+            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with\nan \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed\nduring the session once the model has responded with audio at least once.\nCustom voices must be created from audio samples.\nWe recommend \u0060marin\u0060 and \u0060cedar\u0060 for best quality.\n",
             "default": "alloy",
             "$ref": "#/components/schemas/VoiceIdsOrCustomVoice"
           },
@@ -134333,17 +135738,6 @@
           }
         }
       },
-      "CreateVoicePromptRequestModelWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/CreateVoicePromptRequestModelWrapperValue"
-          }
-        }
-      },
       "MessagePhaseWrapper": {
         "required": [
           "value"
@@ -135155,6 +136549,17 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/LiveContainerMemoryLimit"
+          }
+        }
+      },
+      "LiveToolChoiceValueEnumWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/LiveToolChoiceValueEnum"
           }
         }
       },
@@ -136383,17 +137788,6 @@
         }
       },
       "CreateTranslationRequestModelBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "CreateVoicePromptRequestModelBranch1": {
         "required": [
           "value"
         ],
@@ -142153,6 +143547,15 @@
         },
         "description": "State variables forwarded to the workflow. Keys may be up to 64 characters, values must be primitive types, and the map defaults to an empty object."
       },
+      "CreateEnvironmentParamOpenaiHostedEnvProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "maxLength": 1048576,
+          "minLength": 0,
+          "type": "string"
+        },
+        "description": "Environment variables made available to the agent."
+      },
       "FunctionCallItemResourceArguments": {
         "type": "object",
         "description": "The arguments to pass to the function."
@@ -144966,24 +146369,6 @@
             {
               "value": "audio_sample",
               "name": "AudioSample"
-            }
-          ]
-        }
-      },
-      "PromptType": {
-        "enum": [
-          "prompt"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Set to \u0060prompt\u0060 to create a voice from a text description.",
-        "x-ms-enum": {
-          "name": "PromptType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "prompt",
-              "name": "Prompt"
             }
           ]
         }
@@ -153173,29 +154558,6 @@
           ]
         }
       },
-      "VoiceResourceType": {
-        "enum": [
-          "audio_sample",
-          "prompt"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "How the voice was created. Voices created from text prompts are supported only in Live.",
-        "x-ms-enum": {
-          "name": "VoiceResourceType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "audio_sample",
-              "name": "AudioSample"
-            },
-            {
-              "value": "prompt",
-              "name": "Prompt"
-            }
-          ]
-        }
-      },
       "FindInPageType": {
         "enum": [
           "find_in_page"
@@ -153357,6 +154719,44 @@
             {
               "value": "event",
               "name": "EventValue"
+            }
+          ]
+        }
+      },
+      "AgentEnvironmentFailedType": {
+        "enum": [
+          "agent.environment.failed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The event type. Always \u0060agent.environment.failed\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "AgentEnvironmentFailedType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agent.environment.failed",
+              "name": "AgentEnvironmentFailed"
+            }
+          ]
+        }
+      },
+      "AgentEnvironmentReadyType": {
+        "enum": [
+          "agent.environment.ready"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The event type. Always \u0060agent.environment.ready\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "AgentEnvironmentReadyType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agent.environment.ready",
+              "name": "AgentEnvironmentReady"
             }
           ]
         }
@@ -155020,6 +156420,25 @@
           ]
         }
       },
+      "WebSearchPreviewType": {
+        "enum": [
+          "web_search_preview"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The tool to call. Always \u0060web_search_preview\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "WebSearchPreviewType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "web_search_preview",
+              "name": "WebSearchPreview"
+            }
+          ]
+        }
+      },
       "AwsType": {
         "enum": [
           "aws"
@@ -155070,6 +156489,24 @@
             {
               "value": "gcp",
               "name": "Gcp"
+            }
+          ]
+        }
+      },
+      "OciType": {
+        "enum": [
+          "oci"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "OciType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "oci",
+              "name": "Oci"
             }
           ]
         }
@@ -155936,6 +157373,25 @@
           ]
         }
       },
+      "OpenaiHostedType": {
+        "enum": [
+          "openai_hosted"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the object. Always \u0060openai_hosted\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "OpenaiHostedType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "openai_hosted",
+              "name": "OpenaiHosted"
+            }
+          ]
+        }
+      },
       "AgentEnvironmentFileObject": {
         "enum": [
           "agent.environment.file"
@@ -156445,25 +157901,6 @@
           ]
         }
       },
-      "OpenaiHostedType": {
-        "enum": [
-          "openai_hosted"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The type of the object. Always \u0060openai_hosted\u0060.",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "OpenaiHostedType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "openai_hosted",
-              "name": "OpenaiHosted"
-            }
-          ]
-        }
-      },
       "SelfHostedType": {
         "enum": [
           "self_hosted"
@@ -156502,6 +157939,25 @@
           ]
         }
       },
+      "AgentSessionTurnReasoningSummaryTextDoneType": {
+        "enum": [
+          "agent.session.turn.reasoning_summary_text.done"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the object. Always \u0060agent.session.turn.reasoning_summary_text.done\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "AgentSessionTurnReasoningSummaryTextDoneType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agent.session.turn.reasoning_summary_text.done",
+              "name": "AgentSessionTurnReasoningSummaryTextDone"
+            }
+          ]
+        }
+      },
       "AgentSessionEnvironmentReadyType": {
         "enum": [
           "agent.session.environment.ready"
@@ -156517,6 +157973,67 @@
             {
               "value": "agent.session.environment.ready",
               "name": "AgentSessionEnvironmentReady"
+            }
+          ]
+        }
+      },
+      "AgentSessionTurnReasoningSummaryTextDeltaType": {
+        "enum": [
+          "agent.session.turn.reasoning_summary_text.delta"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the object. Always \u0060agent.session.turn.reasoning_summary_text.delta\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "AgentSessionTurnReasoningSummaryTextDeltaType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agent.session.turn.reasoning_summary_text.delta",
+              "name": "AgentSessionTurnReasoningSummaryTextDelta"
+            }
+          ]
+        }
+      },
+      "AgentSessionTurnReasoningSummaryPartDoneType": {
+        "enum": [
+          "agent.session.turn.reasoning_summary_part.done"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the object. Always \u0060agent.session.turn.reasoning_summary_part.done\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "AgentSessionTurnReasoningSummaryPartDoneType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agent.session.turn.reasoning_summary_part.done",
+              "name": "AgentSessionTurnReasoningSummaryPartDone"
+            }
+          ]
+        }
+      },
+      "SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus": {
+        "enum": [
+          "incomplete",
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "additionalProperties": false,
+        "description": "Present as \u0060incomplete\u0060 when summary generation was interrupted.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "incomplete",
+              "name": "Incomplete"
             }
           ]
         }
@@ -156935,86 +158452,6 @@
             {
               "value": "agent.session.turn.reasoning_summary_part.added",
               "name": "AgentSessionTurnReasoningSummaryPartAdded"
-            }
-          ]
-        }
-      },
-      "AgentSessionTurnReasoningSummaryPartDoneType": {
-        "enum": [
-          "agent.session.turn.reasoning_summary_part.done"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The type of the object. Always \u0060agent.session.turn.reasoning_summary_part.done\u0060.",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "AgentSessionTurnReasoningSummaryPartDoneType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "agent.session.turn.reasoning_summary_part.done",
-              "name": "AgentSessionTurnReasoningSummaryPartDone"
-            }
-          ]
-        }
-      },
-      "SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus": {
-        "enum": [
-          "incomplete",
-          null
-        ],
-        "type": [
-          "null",
-          "string"
-        ],
-        "additionalProperties": false,
-        "description": "Present as \u0060incomplete\u0060 when summary generation was interrupted.",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "incomplete",
-              "name": "Incomplete"
-            }
-          ]
-        }
-      },
-      "AgentSessionTurnReasoningSummaryTextDeltaType": {
-        "enum": [
-          "agent.session.turn.reasoning_summary_text.delta"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The type of the object. Always \u0060agent.session.turn.reasoning_summary_text.delta\u0060.",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "AgentSessionTurnReasoningSummaryTextDeltaType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "agent.session.turn.reasoning_summary_text.delta",
-              "name": "AgentSessionTurnReasoningSummaryTextDelta"
-            }
-          ]
-        }
-      },
-      "AgentSessionTurnReasoningSummaryTextDoneType": {
-        "enum": [
-          "agent.session.turn.reasoning_summary_text.done"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The type of the object. Always \u0060agent.session.turn.reasoning_summary_text.done\u0060.",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "AgentSessionTurnReasoningSummaryTextDoneType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "agent.session.turn.reasoning_summary_text.done",
-              "name": "AgentSessionTurnReasoningSummaryTextDone"
             }
           ]
         }
@@ -164527,28 +165964,6 @@
           ]
         }
       },
-      "CreateVoicePromptRequestModelWrapperValue": {
-        "enum": [
-          "auto",
-          "2026-10-01"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "CreateVoicePromptRequestModelWrapperValue",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "auto",
-              "name": "Auto"
-            },
-            {
-              "value": "2026-10-01",
-              "name": "Value20261001"
-            }
-          ]
-        }
-      },
       "EditImageBodyJsonParamModelWrapperValue": {
         "enum": [
           "gpt-image-1.5",
@@ -169161,10 +170576,52 @@
     "references": "count_definition_once"
   },
   "webhooks": {
+    "agent_environment_failed": {
+      "post": {
+        "description": "Sent when setup fails for a prewarmed OpenAI-hosted environment before it is attached to a session.\n",
+        "operationId": "PostOpenApiFixerWebhooksEvent0",
+        "requestBody": {
+          "description": "The event payload sent by the API.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookAgentEnvironmentFailed"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 200 status code to acknowledge receipt of the event. Non-200\nstatus codes will be retried.\n"
+          }
+        }
+      }
+    },
+    "agent_environment_ready": {
+      "post": {
+        "description": "Sent when a prewarmed OpenAI-hosted environment finishes setup before being attached to a session.\n",
+        "operationId": "PostOpenApiFixerWebhooksEvent1",
+        "requestBody": {
+          "description": "The event payload sent by the API.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookAgentEnvironmentReady"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 200 status code to acknowledge receipt of the event. Non-200\nstatus codes will be retried.\n"
+          }
+        }
+      }
+    },
     "agent_session_action_required": {
       "post": {
         "description": "Sent when an agent session requires an action. Retrieve the session for action details.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent0",
+        "operationId": "PostOpenApiFixerWebhooksEvent2",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169185,7 +170642,7 @@
     "agent_session_created": {
       "post": {
         "description": "Sent when an agent session is created.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent1",
+        "operationId": "PostOpenApiFixerWebhooksEvent3",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169206,7 +170663,7 @@
     "agent_session_failed": {
       "post": {
         "description": "Sent when an agent session fails.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent2",
+        "operationId": "PostOpenApiFixerWebhooksEvent4",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169227,7 +170684,7 @@
     "agent_session_idle": {
       "post": {
         "description": "Sent when an agent session becomes idle.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent3",
+        "operationId": "PostOpenApiFixerWebhooksEvent5",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169248,7 +170705,7 @@
     "agent_session_in_progress": {
       "post": {
         "description": "Sent when an agent session enters the in-progress state.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent4",
+        "operationId": "PostOpenApiFixerWebhooksEvent6",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169269,7 +170726,7 @@
     "batch_cancelled": {
       "post": {
         "description": "Sent when a batch has been cancelled.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent5",
+        "operationId": "PostOpenApiFixerWebhooksEvent7",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169290,7 +170747,7 @@
     "batch_completed": {
       "post": {
         "description": "Sent when a batch has completed processing.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent6",
+        "operationId": "PostOpenApiFixerWebhooksEvent8",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169311,7 +170768,7 @@
     "batch_expired": {
       "post": {
         "description": "Sent when a batch has expired before completion.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent7",
+        "operationId": "PostOpenApiFixerWebhooksEvent9",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169332,7 +170789,7 @@
     "batch_failed": {
       "post": {
         "description": "Sent when a batch has failed.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent8",
+        "operationId": "PostOpenApiFixerWebhooksEvent10",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169353,7 +170810,7 @@
     "eval_run_canceled": {
       "post": {
         "description": "Sent when an eval run has been canceled.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent9",
+        "operationId": "PostOpenApiFixerWebhooksEvent11",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169374,7 +170831,7 @@
     "eval_run_failed": {
       "post": {
         "description": "Sent when an eval run has failed.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent10",
+        "operationId": "PostOpenApiFixerWebhooksEvent12",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169395,7 +170852,7 @@
     "eval_run_succeeded": {
       "post": {
         "description": "Sent when an eval run has succeeded.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent11",
+        "operationId": "PostOpenApiFixerWebhooksEvent13",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169416,7 +170873,7 @@
     "fine_tuning_job_cancelled": {
       "post": {
         "description": "Sent when a fine-tuning job has been cancelled.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent12",
+        "operationId": "PostOpenApiFixerWebhooksEvent14",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169437,7 +170894,7 @@
     "fine_tuning_job_failed": {
       "post": {
         "description": "Sent when a fine-tuning job has failed.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent13",
+        "operationId": "PostOpenApiFixerWebhooksEvent15",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169458,7 +170915,7 @@
     "fine_tuning_job_succeeded": {
       "post": {
         "description": "Sent when a fine-tuning job has succeeded.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent14",
+        "operationId": "PostOpenApiFixerWebhooksEvent16",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169479,7 +170936,7 @@
     "live_call_incoming": {
       "post": {
         "description": "Deprecated: use \u0060live.transport.incoming\u0060. Retained only for existing subscriptions.\nSent when an incoming API SIP session is available for Live acceptance.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent15",
+        "operationId": "PostOpenApiFixerWebhooksEvent17",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169501,7 +170958,7 @@
     "live_transport_incoming": {
       "post": {
         "description": "Sent when an incoming API SIP session is available for Live acceptance.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent16",
+        "operationId": "PostOpenApiFixerWebhooksEvent18",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169522,7 +170979,7 @@
     "realtime_call_incoming": {
       "post": {
         "description": "Sent when an incoming API SIP session is available for Realtime acceptance.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent17",
+        "operationId": "PostOpenApiFixerWebhooksEvent19",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169543,7 +171000,7 @@
     "response_cancelled": {
       "post": {
         "description": "Sent when a background response has been cancelled.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent18",
+        "operationId": "PostOpenApiFixerWebhooksEvent20",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169564,7 +171021,7 @@
     "response_completed": {
       "post": {
         "description": "Sent when a background response has completed successfully.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent19",
+        "operationId": "PostOpenApiFixerWebhooksEvent21",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169585,7 +171042,7 @@
     "response_failed": {
       "post": {
         "description": "Sent when a background response has failed.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent20",
+        "operationId": "PostOpenApiFixerWebhooksEvent22",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169606,7 +171063,7 @@
     "response_incomplete": {
       "post": {
         "description": "Sent when a background response is incomplete.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent21",
+        "operationId": "PostOpenApiFixerWebhooksEvent23",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169627,7 +171084,7 @@
     "safety_alert_created": {
       "post": {
         "description": "Sent when an approved safety alert is available for an API project.\nRetrieve the alert with a project API key granted \u0060api.safety.alerts.read\u0060.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent22",
+        "operationId": "PostOpenApiFixerWebhooksEvent24",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169648,7 +171105,7 @@
     "safety_deactivation_issued": {
       "post": {
         "description": "Sent when a deactivation is issued for a safety identifier in your organization.\nRetrieve the case details with \u0060GET /v1/safety/cases/{id}\u0060 using \u0060data.id\u0060.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent23",
+        "operationId": "PostOpenApiFixerWebhooksEvent25",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169669,7 +171126,7 @@
     "safety_org_alert_created": {
       "post": {
         "description": "Sent when an approved safety alert is available for an enterprise workspace.\nRetrieve the alert from \u0060https://api.chatgpt.com/v1/safety/alerts/{id}\u0060 with\nan administrator API key for the workspace\u0027s backing organization granted\n\u0060chatgpt.enterprise.safety_alerts.read\u0060.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent24",
+        "operationId": "PostOpenApiFixerWebhooksEvent26",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -169690,7 +171147,7 @@
     "safety_warning_issued": {
       "post": {
         "description": "Sent when a warning is issued for a safety identifier in your organization.\nRetrieve the case details with \u0060GET /v1/safety/cases/{id}\u0060 using \u0060data.id\u0060.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent25",
+        "operationId": "PostOpenApiFixerWebhooksEvent27",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {

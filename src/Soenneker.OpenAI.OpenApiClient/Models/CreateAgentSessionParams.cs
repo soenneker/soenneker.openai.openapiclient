@@ -53,6 +53,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentSessionParamsMetadataProperty Metadata { get; set; }
 #endif
+        /// <summary>Optional spending limit in USD cents. Omission or null creates an unlimited session.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlParam? SpendControl { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlParam SpendControl { get; set; }
+#endif
         /// <summary>Whether to stream session events as server-sent events. Defaults to `false`.</summary>
         public bool? Stream { get; set; }
         /// <summary>The IDs of vaults made available to the session.</summary>
@@ -93,6 +101,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParam>(global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParam.CreateFromDiscriminatorValue); } },
                 { "input", n => { Input = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSessionInputParam>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateSessionInputParam.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentSessionParamsMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentSessionParamsMetadataProperty.CreateFromDiscriminatorValue); } },
+                { "spend_control", n => { SpendControl = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlParam>(global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlParam.CreateFromDiscriminatorValue); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "vault_ids", n => { VaultIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
@@ -109,6 +118,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParam>("environment", Environment);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSessionInputParam>("input", Input);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentSessionParamsMetadataProperty>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionSpendControlParam>("spend_control", SpendControl);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteCollectionOfPrimitiveValues<string>("vault_ids", VaultIds);
         }

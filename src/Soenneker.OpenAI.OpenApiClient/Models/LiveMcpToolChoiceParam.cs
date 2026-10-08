@@ -7,30 +7,47 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// A list of one or many input items to the model, containing different content types.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class BetaInputItem : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class LiveMcpToolChoiceParam : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The name of the MCP tool to call. If omitted, the server may choose a default.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
+        /// <summary>The label of the MCP server to call.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ServerLabel { get; set; }
+#nullable restore
+#else
+        public string ServerLabel { get; set; }
+#endif
+        /// <summary>The type of the MCP tool. Always `mcp`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputItem"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveMcpToolChoiceParam"/> and sets the default values.
         /// </summary>
-        public BetaInputItem()
+        public LiveMcpToolChoiceParam()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputItem"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveMcpToolChoiceParam"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.LiveMcpToolChoiceParam CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputItem();
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.LiveMcpToolChoiceParam();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +57,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "server_label", n => { ServerLabel = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpType>(); } },
             };
         }
         /// <summary>
@@ -49,6 +69,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("server_label", ServerLabel);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

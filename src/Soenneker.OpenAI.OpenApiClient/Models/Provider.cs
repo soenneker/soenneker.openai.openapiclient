@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AwsExternalStorageProviderResponse"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AzureExternalStorageProviderResponse"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalStorageProviderResponse"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AwsExternalStorageProviderResponse"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AzureExternalStorageProviderResponse"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalStorageProviderResponse"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OciExternalStorageProviderResponse"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Provider : IComposedTypeWrapper, IParsable
@@ -37,6 +37,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalStorageProviderResponse GcpExternalStorageProviderResponse { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OciExternalStorageProviderResponse"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OciExternalStorageProviderResponse? OciExternalStorageProviderResponse { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OciExternalStorageProviderResponse OciExternalStorageProviderResponse { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -59,6 +67,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.GcpExternalStorageProviderResponse = new global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalStorageProviderResponse();
             }
+            else if("OciExternalStorageProviderResponse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.OciExternalStorageProviderResponse = new global::Soenneker.OpenAI.OpenApiClient.Models.OciExternalStorageProviderResponse();
+            }
             return result;
         }
         /// <summary>
@@ -78,6 +90,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(GcpExternalStorageProviderResponse != null)
             {
                 return GcpExternalStorageProviderResponse.GetFieldDeserializers();
+            }
+            else if(OciExternalStorageProviderResponse != null)
+            {
+                return OciExternalStorageProviderResponse.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -99,6 +115,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(GcpExternalStorageProviderResponse != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalStorageProviderResponse>(null, GcpExternalStorageProviderResponse);
+            }
+            else if(OciExternalStorageProviderResponse != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OciExternalStorageProviderResponse>(null, OciExternalStorageProviderResponse);
             }
         }
     }

@@ -3,17 +3,22 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>Whether implicit prompt-cache breakpoints were enabled.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum BetaPromptCacheModeEnum
+    #pragma warning disable CS1591
+    public enum LiveToolChoiceValueEnum
+    #pragma warning restore CS1591
     {
-        [EnumMember(Value = "implicit")]
+        [EnumMember(Value = "none")]
         #pragma warning disable CS1591
-        ImplicitValue,
+        None,
         #pragma warning restore CS1591
-        [EnumMember(Value = "explicit")]
+        [EnumMember(Value = "auto")]
         #pragma warning disable CS1591
-        ExplicitValue,
+        Auto,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "required")]
+        #pragma warning disable CS1591
+        Required,
         #pragma warning restore CS1591
     }
 }
