@@ -12,7 +12,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class DecisionRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The text or images to evaluate for every question. Provide a text string or user messages containing text and inline images. Images must be inline data URLs; at most 128 images are allowed across all messages in one request. External URLs, files, audio, tools, and item references are not supported.</summary>
+        /// <summary>The text or images to evaluate for every question. Provide a text string or user messages containing text and images. Images can be base64 data URLs or publicly accessible HTTP(S) URLs; at most 128 images are allowed across all messages in one request. Files, audio, tools, and item references are not supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionInput? Input { get; set; }

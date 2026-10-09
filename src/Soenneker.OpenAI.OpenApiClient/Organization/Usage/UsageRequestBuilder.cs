@@ -6,6 +6,7 @@ using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Audio_speeches;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Audio_transcriptions;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Code_interpreter_sessions;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Completions;
+using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Decisions;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Embeddings;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage.File_search_calls;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage.Images;
@@ -43,6 +44,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Usage
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Completions.CompletionsRequestBuilder Completions
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Completions.CompletionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The decisions property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Decisions.DecisionsRequestBuilder Decisions
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Decisions.DecisionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The embeddings property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Usage.Embeddings.EmbeddingsRequestBuilder Embeddings

@@ -22444,6 +22444,254 @@
         }
       }
     },
+    "/organization/usage/decisions": {
+      "get": {
+        "summary": "Decisions",
+        "description": "Get Decisions API usage details for the organization.",
+        "operationId": "OrganizationDecisionsusage",
+        "parameters": [
+          {
+            "name": "start_time",
+            "in": "query",
+            "description": "Start time (Unix seconds) of the query time range, inclusive.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "end_time",
+            "in": "query",
+            "description": "End time (Unix seconds) of the query time range, exclusive.",
+            "schema": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          },
+          {
+            "name": "bucket_width",
+            "in": "query",
+            "description": "Width of each time bucket in response. Currently \u00601m\u0060, \u00601h\u0060 and \u00601d\u0060 are supported, default to \u00601d\u0060.",
+            "schema": {
+              "anyOf": [
+                {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DecisionsUsageBucketWidth"
+                    }
+                  ],
+                  "description": "Width of each time bucket in response. Currently \u00601m\u0060, \u00601h\u0060 and \u00601d\u0060 are supported, default to \u00601d\u0060."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Specifies the number of buckets to return.\n- \u0060bucket_width=1d\u0060: default: 7, max: 31\n- \u0060bucket_width=1h\u0060: default: 24, max: 168\n- \u0060bucket_width=1m\u0060: default: 60, max: 1440",
+            "schema": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "A cursor for use in pagination. Corresponding to the \u0060next_page\u0060 field from the previous response.",
+            "schema": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "A cursor for use in pagination. Corresponding to the \u0060next_page\u0060 field from the previous response."
+            }
+          },
+          {
+            "name": "project_ids",
+            "in": "query",
+            "description": "Return only usage for these projects.",
+            "schema": {
+              "anyOf": [
+                {
+                  "oneOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "Return only usage for these projects."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          {
+            "name": "group_by",
+            "in": "query",
+            "description": "Group the usage data by the specified fields. Support fields include \u0060project_id\u0060, \u0060user_id\u0060, \u0060api_key_id\u0060, \u0060model\u0060, \u0060batch\u0060, \u0060service_tier\u0060, \u0060api_source\u0060 or any combination of them. When grouped by \u0060api_source\u0060, results use \u0060agents_api\u0060 for attributed Agents API activity and \u0060unlabeled\u0060 for all other activity. Without source grouping, \u0060api_source\u0060 is null.",
+            "schema": {
+              "anyOf": [
+                {
+                  "oneOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/DecisionsUsageGroupBy"
+                      }
+                    }
+                  ],
+                  "description": "Group the usage data by the specified fields. Support fields include \u0060project_id\u0060, \u0060user_id\u0060, \u0060api_key_id\u0060, \u0060model\u0060, \u0060batch\u0060, \u0060service_tier\u0060, \u0060api_source\u0060 or any combination of them. When grouped by \u0060api_source\u0060, results use \u0060agents_api\u0060 for attributed Agents API activity and \u0060unlabeled\u0060 for all other activity. Without source grouping, \u0060api_source\u0060 is null."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          {
+            "name": "user_ids",
+            "in": "query",
+            "description": "Return only usage for these users.",
+            "schema": {
+              "anyOf": [
+                {
+                  "oneOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "Return only usage for these users."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          {
+            "name": "api_key_ids",
+            "in": "query",
+            "description": "Return only usage for these API keys.",
+            "schema": {
+              "anyOf": [
+                {
+                  "oneOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "Return only usage for these API keys."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          {
+            "name": "models",
+            "in": "query",
+            "description": "Return only usage for these models.",
+            "schema": {
+              "anyOf": [
+                {
+                  "oneOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "Return only usage for these models."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          {
+            "name": "batch",
+            "in": "query",
+            "description": "If \u0060true\u0060, return batch jobs only. If \u0060false\u0060, return non-batch jobs only. By default, return both.",
+            "schema": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicDecisionsUsageResponseResource"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request parameters are invalid or the requested operation cannot be performed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecisionsUsageErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The caller does not have permission to perform this operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecisionsUsagePermissionErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "The request was rejected because a rate limit was exceeded.",
+            "$ref": "#/components/responses/TooManyRequests"
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ],
+        "x-oaiMeta": {
+          "group": "usage-decisions",
+          "examples": {
+            "request": {
+              "curl": "curl --get \u0022https://api.openai.com/v1/organization/usage/decisions\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022 \\\n  --data-urlencode \u0022start_time=1790812800\u0022 \\\n  --data-urlencode \u0022end_time=1790899200\u0022 \\\n  --data-urlencode \u0022bucket_width=1d\u0022 \\\n  --data-urlencode \u0022group_by=project_id\u0022 \\\n  --data-urlencode \u0022group_by=model\u0022\n"
+            },
+            "response": "{\n    \u0022object\u0022: \u0022page\u0022,\n    \u0022data\u0022: [\n        {\n            \u0022object\u0022: \u0022bucket\u0022,\n            \u0022start_time\u0022: 1790812800,\n            \u0022end_time\u0022: 1790899200,\n            \u0022results\u0022: [\n                {\n                    \u0022object\u0022: \u0022organization.usage.decisions.result\u0022,\n                    \u0022input_tokens\u0022: 1000,\n                    \u0022input_cached_tokens\u0022: 400,\n                    \u0022output_tokens\u0022: 0,\n                    \u0022num_model_requests\u0022: 5,\n                    \u0022project_id\u0022: \u0022proj_example\u0022,\n                    \u0022model\u0022: \u0022gpt-6-luna\u0022,\n                    \u0022user_id\u0022: null,\n                    \u0022api_key_id\u0022: null,\n                    \u0022batch\u0022: null,\n                    \u0022service_tier\u0022: null\n                }\n            ]\n        }\n    ],\n    \u0022has_more\u0022: false,\n    \u0022next_page\u0022: null\n}\n"
+          }
+        }
+      }
+    },
     "/organization/external_storage": {
       "get": {
         "summary": "List external storage configurations",
@@ -25663,7 +25911,7 @@
           "Decisions"
         ],
         "summary": "Create a decision",
-        "description": "Use this endpoint to ask classification or scoring questions about the same input. You\u2019ll get the answers back in the order you asked the questions.\n\nFor text, you can pass a string. You can also send user messages containing \u0060input_text\u0060 and \u0060input_image\u0060 parts, with up to 128 images per request. Images must be data URLs; external URLs and file IDs aren\u2019t accepted. Other message roles, function calls, files, audio, and item references aren\u2019t supported.\n\nSometimes a question returns a refusal instead of an answer. The result has type \u0060refusal\u0060 and includes the question\u2019s name, or \u0060null\u0060 if you didn\u2019t give it one.",
+        "description": "Use this endpoint to ask classification or scoring questions about the same input. You\u2019ll get the answers back in the order you asked the questions.\n\nFor text, you can pass a string. You can also send user messages containing \u0060input_text\u0060 and \u0060input_image\u0060 parts, with up to 128 images per request. Images can be base64 data URLs or publicly accessible HTTP(S) URLs. File IDs aren\u2019t accepted. Other message roles, function calls, files, audio, and item references aren\u2019t supported.\n\nSometimes a question returns a refusal instead of an answer. The result has type \u0060refusal\u0060 and includes the question\u2019s name, or \u0060null\u0060 if you didn\u2019t give it one.",
         "operationId": "CreateDecision",
         "requestBody": {
           "content": {
@@ -63831,6 +64079,44 @@
         },
         "description": "The results of a web search tool call. See the\n[web search guide](https://developers.openai.com/api/docs/guides/tools-web-search) for more information.\n"
       },
+      "WebhookAgentEnvironmentExpired": {
+        "title": "agent.environment.expired",
+        "required": [
+          "id",
+          "object",
+          "created_at",
+          "type",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the event."
+          },
+          "object": {
+            "$ref": "#/components/schemas/EventValueObject"
+          },
+          "created_at": {
+            "type": "integer",
+            "description": "The Unix timestamp, in seconds, when the event was created.",
+            "format": "unixtime"
+          },
+          "type": {
+            "$ref": "#/components/schemas/AgentEnvironmentExpiredType"
+          },
+          "data": {
+            "description": "Identifies the environment whose lifecycle changed.",
+            "$ref": "#/components/schemas/AgentEnvironmentEvent"
+          }
+        },
+        "description": "Sent when an agent environment expires and can no longer resume from a snapshot.\n",
+        "x-oaiMeta": {
+          "name": "agent.environment.expired",
+          "group": "webhook-events",
+          "example": "{\n  \u0022id\u0022: \u0022evt_123\u0022,\n  \u0022object\u0022: \u0022event\u0022,\n  \u0022created_at\u0022: 1719168000,\n  \u0022type\u0022: \u0022agent.environment.expired\u0022,\n  \u0022data\u0022: {\u0022id\u0022: \u0022ccarenv_123\u0022}\n}\n"
+        }
+      },
       "WebhookAgentEnvironmentFailed": {
         "title": "agent.environment.failed",
         "required": [
@@ -63905,6 +64191,44 @@
           "name": "agent.environment.ready",
           "group": "webhook-events",
           "example": "{\n  \u0022id\u0022: \u0022evt_123\u0022,\n  \u0022object\u0022: \u0022event\u0022,\n  \u0022created_at\u0022: 1719168000,\n  \u0022type\u0022: \u0022agent.environment.ready\u0022,\n  \u0022data\u0022: {\u0022id\u0022: \u0022ccarenv_123\u0022}\n}\n"
+        }
+      },
+      "WebhookAgentEnvironmentSuspended": {
+        "title": "agent.environment.suspended",
+        "required": [
+          "id",
+          "object",
+          "created_at",
+          "type",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the event."
+          },
+          "object": {
+            "$ref": "#/components/schemas/EventValueObject"
+          },
+          "created_at": {
+            "type": "integer",
+            "description": "The Unix timestamp, in seconds, when the event was created.",
+            "format": "unixtime"
+          },
+          "type": {
+            "$ref": "#/components/schemas/AgentEnvironmentSuspendedType"
+          },
+          "data": {
+            "description": "Identifies the environment whose lifecycle changed.",
+            "$ref": "#/components/schemas/AgentEnvironmentEvent"
+          }
+        },
+        "description": "Sent when an agent environment is suspended and can resume from a snapshot.\n",
+        "x-oaiMeta": {
+          "name": "agent.environment.suspended",
+          "group": "webhook-events",
+          "example": "{\n  \u0022id\u0022: \u0022evt_123\u0022,\n  \u0022object\u0022: \u0022event\u0022,\n  \u0022created_at\u0022: 1719168000,\n  \u0022type\u0022: \u0022agent.environment.suspended\u0022,\n  \u0022data\u0022: {\u0022id\u0022: \u0022ccarenv_123\u0022}\n}\n"
         }
       },
       "WebhookAgentSessionActionRequired": {
@@ -72172,6 +72496,378 @@
               "string"
             ],
             "description": "A customer-safe description derived from error_type, or null for zero data retention requests."
+          },
+          "detailed_explanation": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "A generated explanation, temporarily available for eligible zero data retention alerts. Omitted when unavailable."
+          }
+        }
+      },
+      "DecisionsUsageBucketWidth": {
+        "enum": [
+          "1m",
+          "1h",
+          "1d"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "DecisionsUsageBucketWidth",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "1m",
+              "name": "Value1M"
+            },
+            {
+              "value": "1h",
+              "name": "Value1H"
+            },
+            {
+              "value": "1d",
+              "name": "Value1D"
+            }
+          ]
+        }
+      },
+      "DecisionsUsageGroupBy": {
+        "enum": [
+          "project_id",
+          "user_id",
+          "api_key_id",
+          "model",
+          "batch",
+          "service_tier",
+          "api_source"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "DecisionsUsageGroupBy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "project_id",
+              "name": "ProjectId"
+            },
+            {
+              "value": "user_id",
+              "name": "UserId"
+            },
+            {
+              "value": "api_key_id",
+              "name": "ApiKeyId"
+            },
+            {
+              "value": "model",
+              "name": "Model"
+            },
+            {
+              "value": "batch",
+              "name": "Batch"
+            },
+            {
+              "value": "service_tier",
+              "name": "ServiceTier"
+            },
+            {
+              "value": "api_source",
+              "name": "ApiSource"
+            }
+          ]
+        }
+      },
+      "DecisionsUsageApiSource": {
+        "enum": [
+          "agents_api",
+          "unlabeled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "DecisionsUsageApiSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agents_api",
+              "name": "AgentsApi"
+            },
+            {
+              "value": "unlabeled",
+              "name": "Unlabeled"
+            }
+          ]
+        }
+      },
+      "DecisionsUsageResult": {
+        "required": [
+          "object",
+          "input_tokens",
+          "output_tokens",
+          "num_model_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "api_source": {
+            "$ref": "#/components/schemas/DecisionsUsageResultApiSource"
+          },
+          "object": {
+            "$ref": "#/components/schemas/OrganizationUsageDecisionsResultObject"
+          },
+          "input_tokens": {
+            "type": "integer",
+            "description": "The aggregated number of input tokens used, including cached and cache-write tokens. This includes text, audio, and image tokens. For customers subscribed to Scale Tier, this includes Scale Tier tokens."
+          },
+          "input_cached_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of cached input tokens used across text, audio, and image inputs. For customers subscribed to Scale Tier, this includes Scale Tier tokens."
+          },
+          "input_cache_write_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of input tokens written to the cache with a 30-minute retention period."
+          },
+          "input_cache_write_12h_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of input tokens written to the cache with a 12-hour retention period."
+          },
+          "input_uncached_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of uncached input tokens used across text, audio, and image inputs, excluding cache-write tokens."
+          },
+          "output_tokens": {
+            "type": "integer",
+            "description": "The aggregated number of output tokens used across text, audio, and image outputs. For customers subscribed to Scale Tier, this includes Scale Tier tokens."
+          },
+          "input_text_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of uncached text input tokens used, excluding cache-write tokens."
+          },
+          "output_text_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of text output tokens used."
+          },
+          "input_cached_text_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of cached text input tokens used."
+          },
+          "input_audio_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of uncached audio input tokens used."
+          },
+          "input_cached_audio_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of cached audio input tokens used."
+          },
+          "output_audio_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of audio output tokens used."
+          },
+          "input_image_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of uncached image input tokens used."
+          },
+          "input_cached_image_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of cached image input tokens used."
+          },
+          "output_image_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of image output tokens used."
+          },
+          "num_model_requests": {
+            "type": "integer",
+            "description": "The count of requests made to the model."
+          },
+          "project_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When \u0060group_by=project_id\u0060, this field provides the project ID of the grouped usage result."
+          },
+          "user_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When \u0060group_by=user_id\u0060, this field provides the user ID of the grouped usage result."
+          },
+          "api_key_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When \u0060group_by=api_key_id\u0060, this field provides the API key ID of the grouped usage result."
+          },
+          "model": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When \u0060group_by=model\u0060, this field provides the model name of the grouped usage result."
+          },
+          "batch": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "When \u0060group_by=batch\u0060, this field tells whether the grouped usage result is batch or not."
+          },
+          "service_tier": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When \u0060group_by=service_tier\u0060, this field provides the service tier of the grouped usage result."
+          }
+        },
+        "description": "The aggregated Decisions API usage details of the specific time bucket."
+      },
+      "DecisionsUsageBucket": {
+        "required": [
+          "object",
+          "start_time",
+          "end_time",
+          "results"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/BucketObject"
+          },
+          "start_time": {
+            "type": "integer"
+          },
+          "end_time": {
+            "type": "integer"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DecisionsUsageResult"
+            }
+          }
+        }
+      },
+      "PublicDecisionsUsageResponseResource": {
+        "required": [
+          "object",
+          "has_more",
+          "next_page",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/PageObject"
+          },
+          "has_more": {
+            "type": "boolean"
+          },
+          "next_page": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DecisionsUsageBucket"
+            }
+          }
+        }
+      },
+      "DecisionsUsageErrorDetails": {
+        "required": [
+          "code",
+          "message",
+          "param",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "param": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "DecisionsUsageErrorResponse": {
+        "required": [
+          "error"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/DecisionsUsageErrorDetails"
+          }
+        }
+      },
+      "DecisionsUsagePermissionErrorResponse": {
+        "required": [
+          "error"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/DecisionsUsagePermissionErrorResponseError"
           }
         }
       },
@@ -75728,9 +76424,9 @@
           "image_url": {
             "maxLength": 1073741824,
             "minLength": 0,
-            "pattern": "^data:",
+            "pattern": "^(data:|https?://)",
             "type": "string",
-            "description": "A base64-encoded image in a data URL."
+            "description": "A base64-encoded image in a data URL or a publicly accessible HTTP(S) image URL."
           },
           "detail": {
             "$ref": "#/components/schemas/DecisionInputImageDetail"
@@ -75740,7 +76436,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "An inline image. External URLs and file IDs are not supported."
+        "description": "An image provided as a base64 data URL or a publicly accessible HTTP(S) URL. File IDs are not supported."
       },
       "DecisionInputContentParts": {
         "maxItems": 16384,
@@ -75767,7 +76463,7 @@
             }
           }
         ],
-        "description": "Text evidence or an ordered list of text and inline image parts."
+        "description": "Text evidence or an ordered list of text and image parts."
       },
       "DecisionInputMessage": {
         "required": [
@@ -75780,7 +76476,7 @@
             "$ref": "#/components/schemas/UserRole"
           },
           "content": {
-            "description": "Text evidence or an ordered list of text and inline image parts.",
+            "description": "Text evidence or an ordered list of text and image parts.",
             "$ref": "#/components/schemas/DecisionInputContent"
           },
           "type": {
@@ -75788,7 +76484,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "A user message containing text or inline images."
+        "description": "A user message containing text or images."
       },
       "DecisionInput": {
         "type": "object",
@@ -75807,7 +76503,7 @@
             }
           }
         ],
-        "description": "The text or images to evaluate for every question. Provide a text string or user messages containing text and inline images. Images must be inline data URLs; at most 128 images are allowed across all messages in one request. External URLs, files, audio, tools, and item references are not supported."
+        "description": "The text or images to evaluate for every question. Provide a text string or user messages containing text and images. Images can be base64 data URLs or publicly accessible HTTP(S) URLs; at most 128 images are allowed across all messages in one request. Files, audio, tools, and item references are not supported."
       },
       "QuestionParamPredicate": {
         "required": [
@@ -76031,7 +76727,7 @@
             "type": "string"
           },
           "input": {
-            "description": "The text or images to evaluate for every question. Provide a text string or user messages containing text and inline images. Images must be inline data URLs; at most 128 images are allowed across all messages in one request. External URLs, files, audio, tools, and item references are not supported.",
+            "description": "The text or images to evaluate for every question. Provide a text string or user messages containing text and images. Images can be base64 data URLs or publicly accessible HTTP(S) URLs; at most 128 images are allowed across all messages in one request. Files, audio, tools, and item references are not supported.",
             "$ref": "#/components/schemas/DecisionInput"
           },
           "questions": {
@@ -76473,6 +77169,7 @@
           "ready",
           "connected",
           "disconnected",
+          "suspended",
           "expired",
           "failed"
         ],
@@ -76484,6 +77181,7 @@
           "Provisioning succeeded and the environment is available for attachment or use.",
           "",
           "",
+          "The sandbox is stopped and can be resumed from its private checkpoint.",
           "",
           ""
         ],
@@ -76506,6 +77204,10 @@
             {
               "value": "disconnected",
               "name": "Disconnected"
+            },
+            {
+              "value": "suspended",
+              "name": "Suspended"
             },
             {
               "value": "expired",
@@ -85661,6 +86363,8 @@
           "ready",
           "connected",
           "disconnected",
+          "suspended",
+          "expired",
           "failed"
         ],
         "type": "string",
@@ -85671,6 +86375,8 @@
           "The environment is ready to connect.",
           "The environment is connected.",
           "The environment is disconnected.",
+          "The environment is stopped and can be resumed from its private checkpoint.",
+          "The environment and its private checkpoint have expired.",
           "The environment failed to connect."
         ],
         "x-ms-enum": {
@@ -85692,6 +86398,14 @@
             {
               "value": "disconnected",
               "name": "Disconnected"
+            },
+            {
+              "value": "suspended",
+              "name": "Suspended"
+            },
+            {
+              "value": "expired",
+              "name": "Expired"
             },
             {
               "value": "failed",
@@ -85796,21 +86510,18 @@
         "additionalProperties": false,
         "description": "Emitted when a hosted session environment is ready to connect."
       },
-      "SessionEventAgentSessionTurnReasoningSummaryTextDelta": {
+      "SessionEventAgentSessionEnvironmentSuspended": {
         "required": [
           "type",
           "event_id",
           "session_id",
           "turn_id",
-          "item_id",
-          "output_index",
-          "summary_index",
-          "delta"
+          "environment"
         ],
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/AgentSessionTurnReasoningSummaryTextDeltaType"
+            "$ref": "#/components/schemas/AgentSessionEnvironmentSuspendedType"
           },
           "event_id": {
             "minLength": 0,
@@ -85830,50 +86541,26 @@
             ],
             "description": "The ID of the turn associated with the event, when applicable."
           },
-          "item_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The ID of the reasoning item."
-          },
-          "output_index": {
-            "maximum": 4294967295,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The index of the item in the turn output.",
-            "format": "int64"
-          },
-          "summary_index": {
-            "maximum": 4294967295,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The index of the summary content part.",
-            "format": "int64"
-          },
-          "delta": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The summary text that was appended."
+          "environment": {
+            "description": "The current environment state.",
+            "$ref": "#/components/schemas/SessionEnvironmentStateResource"
           }
         },
         "additionalProperties": false,
-        "description": "Emitted when text is appended to a reasoning summary."
+        "description": "Emitted after an idle hosted session environment is checkpointed and stopped."
       },
-      "SessionEventAgentSessionTurnReasoningSummaryPartDone": {
+      "SessionEventAgentSessionEnvironmentExpired": {
         "required": [
           "type",
           "event_id",
           "session_id",
           "turn_id",
-          "item_id",
-          "output_index",
-          "summary_index",
-          "part",
-          "status"
+          "environment"
         ],
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/AgentSessionTurnReasoningSummaryPartDoneType"
+            "$ref": "#/components/schemas/AgentSessionEnvironmentExpiredType"
           },
           "event_id": {
             "minLength": 0,
@@ -85893,35 +86580,13 @@
             ],
             "description": "The ID of the turn associated with the event, when applicable."
           },
-          "item_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The ID of the reasoning item."
-          },
-          "output_index": {
-            "maximum": 4294967295,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The index of the item in the turn output.",
-            "format": "int64"
-          },
-          "summary_index": {
-            "maximum": 4294967295,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The index of the summary part.",
-            "format": "int64"
-          },
-          "part": {
-            "description": "The completed summary part.",
-            "$ref": "#/components/schemas/SummaryTextResource"
-          },
-          "status": {
-            "$ref": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus"
+          "environment": {
+            "description": "The current environment state.",
+            "$ref": "#/components/schemas/SessionEnvironmentStateResource"
           }
         },
         "additionalProperties": false,
-        "description": "Emitted when a reasoning summary part is complete."
+        "description": "Emitted after a suspended hosted session environment and its checkpoint expire."
       },
       "SessionEventAgentSessionEnvironmentReset": {
         "required": [
@@ -87261,6 +87926,133 @@
         "additionalProperties": false,
         "description": "Emitted when a reasoning summary content part is added."
       },
+      "SessionEventAgentSessionTurnReasoningSummaryPartDone": {
+        "required": [
+          "type",
+          "event_id",
+          "session_id",
+          "turn_id",
+          "item_id",
+          "output_index",
+          "summary_index",
+          "part",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AgentSessionTurnReasoningSummaryPartDoneType"
+          },
+          "event_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The unique ID of the event."
+          },
+          "session_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the session associated with the event."
+          },
+          "turn_id": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The ID of the turn associated with the event, when applicable."
+          },
+          "item_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the reasoning item."
+          },
+          "output_index": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The index of the item in the turn output.",
+            "format": "int64"
+          },
+          "summary_index": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The index of the summary part.",
+            "format": "int64"
+          },
+          "part": {
+            "description": "The completed summary part.",
+            "$ref": "#/components/schemas/SummaryTextResource"
+          },
+          "status": {
+            "$ref": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Emitted when a reasoning summary part is complete."
+      },
+      "SessionEventAgentSessionTurnReasoningSummaryTextDelta": {
+        "required": [
+          "type",
+          "event_id",
+          "session_id",
+          "turn_id",
+          "item_id",
+          "output_index",
+          "summary_index",
+          "delta"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AgentSessionTurnReasoningSummaryTextDeltaType"
+          },
+          "event_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The unique ID of the event."
+          },
+          "session_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the session associated with the event."
+          },
+          "turn_id": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The ID of the turn associated with the event, when applicable."
+          },
+          "item_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the reasoning item."
+          },
+          "output_index": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The index of the item in the turn output.",
+            "format": "int64"
+          },
+          "summary_index": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The index of the summary content part.",
+            "format": "int64"
+          },
+          "delta": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The summary text that was appended."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Emitted when text is appended to a reasoning summary."
+      },
       "SessionEvent": {
         "required": [
           "type"
@@ -87272,6 +88064,12 @@
           },
           {
             "$ref": "#/components/schemas/SessionEventAgentSessionEnvironmentReady"
+          },
+          {
+            "$ref": "#/components/schemas/SessionEventAgentSessionEnvironmentSuspended"
+          },
+          {
+            "$ref": "#/components/schemas/SessionEventAgentSessionEnvironmentExpired"
           },
           {
             "$ref": "#/components/schemas/SessionEventAgentSessionEnvironmentReset"
@@ -87446,8 +88244,8 @@
             "agent.session.turn.reasoning_summary_text.done": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryTextDone",
             "error": "#/components/schemas/SessionEventError",
             "agent.session.environment.ready": "#/components/schemas/SessionEventAgentSessionEnvironmentReady",
-            "agent.session.turn.reasoning_summary_text.delta": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryTextDelta",
-            "agent.session.turn.reasoning_summary_part.done": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartDone",
+            "agent.session.environment.suspended": "#/components/schemas/SessionEventAgentSessionEnvironmentSuspended",
+            "agent.session.environment.expired": "#/components/schemas/SessionEventAgentSessionEnvironmentExpired",
             "agent.session.environment.reset": "#/components/schemas/SessionEventAgentSessionEnvironmentReset",
             "agent.output.command_execution_output.delta": "#/components/schemas/SessionEventAgentOutputCommandExecutionOutputDelta",
             "agent.session.created": "#/components/schemas/SessionEventAgentSessionCreated",
@@ -87474,8 +88272,12 @@
             "agent.session.turn.output_text.delta": "#/components/schemas/SessionEventAgentSessionTurnOutputTextDelta",
             "agent.session.turn.output_text.done": "#/components/schemas/SessionEventAgentSessionTurnOutputTextDone",
             "agent.session.turn.reasoning_summary_part.added": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartAdded",
+            "agent.session.turn.reasoning_summary_part.done": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartDone",
+            "agent.session.turn.reasoning_summary_text.delta": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryTextDelta",
             "SessionEventError": "#/components/schemas/SessionEventError",
             "SessionEventAgentSessionEnvironmentReady": "#/components/schemas/SessionEventAgentSessionEnvironmentReady",
+            "SessionEventAgentSessionEnvironmentSuspended": "#/components/schemas/SessionEventAgentSessionEnvironmentSuspended",
+            "SessionEventAgentSessionEnvironmentExpired": "#/components/schemas/SessionEventAgentSessionEnvironmentExpired",
             "SessionEventAgentSessionEnvironmentReset": "#/components/schemas/SessionEventAgentSessionEnvironmentReset",
             "SessionEventAgentOutputCommandExecutionOutputDelta": "#/components/schemas/SessionEventAgentOutputCommandExecutionOutputDelta",
             "SessionEventAgentSessionCreated": "#/components/schemas/SessionEventAgentSessionCreated",
@@ -87510,6 +88312,8 @@
         "x-oai-discriminator-values": [
           "error",
           "agent.session.environment.ready",
+          "agent.session.environment.suspended",
+          "agent.session.environment.expired",
           "agent.session.environment.reset",
           "agent.output.command_execution_output.delta",
           "agent.session.created",
@@ -89756,6 +90560,10 @@
           "realtime.call.incoming",
           "video.completed",
           "video.failed",
+          "agent.environment.ready",
+          "agent.environment.failed",
+          "agent.environment.suspended",
+          "agent.environment.expired",
           "agent.session.created",
           "agent.session.action_required",
           "agent.session.in_progress",
@@ -89836,6 +90644,22 @@
             {
               "value": "video.failed",
               "name": "VideoFailed"
+            },
+            {
+              "value": "agent.environment.ready",
+              "name": "AgentEnvironmentReady"
+            },
+            {
+              "value": "agent.environment.failed",
+              "name": "AgentEnvironmentFailed"
+            },
+            {
+              "value": "agent.environment.suspended",
+              "name": "AgentEnvironmentSuspended"
+            },
+            {
+              "value": "agent.environment.expired",
+              "name": "AgentEnvironmentExpired"
             },
             {
               "value": "agent.session.created",
@@ -115467,6 +116291,22 @@
           }
         }
       },
+      "WebhookAgentEnvironmentExpiredAllOf2": {
+        "required": [
+          "type",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AgentEnvironmentExpiredType"
+          },
+          "data": {
+            "description": "Identifies the environment whose lifecycle changed.",
+            "$ref": "#/components/schemas/AgentEnvironmentEvent"
+          }
+        }
+      },
       "WebhookAgentEnvironmentFailedAllOf2": {
         "required": [
           "type",
@@ -115492,6 +116332,22 @@
         "properties": {
           "type": {
             "$ref": "#/components/schemas/AgentEnvironmentReadyType"
+          },
+          "data": {
+            "description": "Identifies the environment whose lifecycle changed.",
+            "$ref": "#/components/schemas/AgentEnvironmentEvent"
+          }
+        }
+      },
+      "WebhookAgentEnvironmentSuspendedAllOf2": {
+        "required": [
+          "type",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AgentEnvironmentSuspendedType"
           },
           "data": {
             "description": "Identifies the environment whose lifecycle changed.",
@@ -117784,6 +118640,58 @@
         },
         "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
       },
+      "DecisionsUsageResultApiSource": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/DecisionsUsageApiSourceWrapper"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/DecisionsUsageApiSource"
+          }
+        }
+      },
+      "DecisionsUsagePermissionErrorResponseError": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DecisionsUsageErrorDetails"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionsUsagePermissionErrorResponseErrorBranch2"
+          }
+        ],
+        "properties": {
+          "code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "param": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string",
+            "description": "An explanation of the missing API permissions."
+          }
+        },
+        "description": "Details about the permission error."
+      },
       "ExternalStorageResponseProvider": {
         "required": [
           "type"
@@ -118543,9 +119451,9 @@
           "image_url": {
             "maxLength": 1073741824,
             "minLength": 0,
-            "pattern": "^data:",
+            "pattern": "^(data:|https?://)",
             "type": "string",
-            "description": "A base64-encoded image in a data URL."
+            "description": "A base64-encoded image in a data URL or a publicly accessible HTTP(S) image URL."
           },
           "detail": {
             "$ref": "#/components/schemas/DecisionInputImageDetail"
@@ -118583,7 +119491,7 @@
             "$ref": "#/components/schemas/UserRole"
           },
           "content": {
-            "description": "Text evidence or an ordered list of text and inline image parts.",
+            "description": "Text evidence or an ordered list of text and image parts.",
             "$ref": "#/components/schemas/DecisionInputContent"
           },
           "type": {
@@ -136662,6 +137570,17 @@
           }
         }
       },
+      "DecisionsUsageApiSourceWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/DecisionsUsageApiSource"
+          }
+        }
+      },
       "PromptCacheRetentionEnumWrapper": {
         "required": [
           "value"
@@ -138354,6 +139273,18 @@
             "items": {
               "$ref": "#/components/schemas/LiveAllowedServerEventParam"
             }
+          }
+        }
+      },
+      "DecisionsUsagePermissionErrorResponseErrorBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "An explanation of the missing API permissions."
           }
         }
       },
@@ -154723,6 +155654,25 @@
           ]
         }
       },
+      "AgentEnvironmentExpiredType": {
+        "enum": [
+          "agent.environment.expired"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The event type. Always \u0060agent.environment.expired\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "AgentEnvironmentExpiredType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agent.environment.expired",
+              "name": "AgentEnvironmentExpired"
+            }
+          ]
+        }
+      },
       "AgentEnvironmentFailedType": {
         "enum": [
           "agent.environment.failed"
@@ -154757,6 +155707,25 @@
             {
               "value": "agent.environment.ready",
               "name": "AgentEnvironmentReady"
+            }
+          ]
+        }
+      },
+      "AgentEnvironmentSuspendedType": {
+        "enum": [
+          "agent.environment.suspended"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The event type. Always \u0060agent.environment.suspended\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "AgentEnvironmentSuspendedType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agent.environment.suspended",
+              "name": "AgentEnvironmentSuspended"
             }
           ]
         }
@@ -156714,6 +157683,24 @@
           ]
         }
       },
+      "OrganizationUsageDecisionsResultObject": {
+        "enum": [
+          "organization.usage.decisions.result"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "OrganizationUsageDecisionsResultObject",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "organization.usage.decisions.result",
+              "name": "OrganizationUsageDecisionsResult"
+            }
+          ]
+        }
+      },
       "OrganizationExternalStorageObject": {
         "enum": [
           "organization.external_storage"
@@ -157977,63 +158964,40 @@
           ]
         }
       },
-      "AgentSessionTurnReasoningSummaryTextDeltaType": {
+      "AgentSessionEnvironmentSuspendedType": {
         "enum": [
-          "agent.session.turn.reasoning_summary_text.delta"
+          "agent.session.environment.suspended"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The type of the object. Always \u0060agent.session.turn.reasoning_summary_text.delta\u0060.",
+        "description": "The type of the object. Always \u0060agent.session.environment.suspended\u0060.",
         "x-stainless-const": true,
         "x-ms-enum": {
-          "name": "AgentSessionTurnReasoningSummaryTextDeltaType",
+          "name": "AgentSessionEnvironmentSuspendedType",
           "modelAsString": false,
           "values": [
             {
-              "value": "agent.session.turn.reasoning_summary_text.delta",
-              "name": "AgentSessionTurnReasoningSummaryTextDelta"
+              "value": "agent.session.environment.suspended",
+              "name": "AgentSessionEnvironmentSuspended"
             }
           ]
         }
       },
-      "AgentSessionTurnReasoningSummaryPartDoneType": {
+      "AgentSessionEnvironmentExpiredType": {
         "enum": [
-          "agent.session.turn.reasoning_summary_part.done"
+          "agent.session.environment.expired"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The type of the object. Always \u0060agent.session.turn.reasoning_summary_part.done\u0060.",
+        "description": "The type of the object. Always \u0060agent.session.environment.expired\u0060.",
         "x-stainless-const": true,
         "x-ms-enum": {
-          "name": "AgentSessionTurnReasoningSummaryPartDoneType",
+          "name": "AgentSessionEnvironmentExpiredType",
           "modelAsString": false,
           "values": [
             {
-              "value": "agent.session.turn.reasoning_summary_part.done",
-              "name": "AgentSessionTurnReasoningSummaryPartDone"
-            }
-          ]
-        }
-      },
-      "SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus": {
-        "enum": [
-          "incomplete",
-          null
-        ],
-        "type": [
-          "null",
-          "string"
-        ],
-        "additionalProperties": false,
-        "description": "Present as \u0060incomplete\u0060 when summary generation was interrupted.",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "incomplete",
-              "name": "Incomplete"
+              "value": "agent.session.environment.expired",
+              "name": "AgentSessionEnvironmentExpired"
             }
           ]
         }
@@ -158452,6 +159416,67 @@
             {
               "value": "agent.session.turn.reasoning_summary_part.added",
               "name": "AgentSessionTurnReasoningSummaryPartAdded"
+            }
+          ]
+        }
+      },
+      "AgentSessionTurnReasoningSummaryPartDoneType": {
+        "enum": [
+          "agent.session.turn.reasoning_summary_part.done"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the object. Always \u0060agent.session.turn.reasoning_summary_part.done\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "AgentSessionTurnReasoningSummaryPartDoneType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agent.session.turn.reasoning_summary_part.done",
+              "name": "AgentSessionTurnReasoningSummaryPartDone"
+            }
+          ]
+        }
+      },
+      "SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus": {
+        "enum": [
+          "incomplete",
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "additionalProperties": false,
+        "description": "Present as \u0060incomplete\u0060 when summary generation was interrupted.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "incomplete",
+              "name": "Incomplete"
+            }
+          ]
+        }
+      },
+      "AgentSessionTurnReasoningSummaryTextDeltaType": {
+        "enum": [
+          "agent.session.turn.reasoning_summary_text.delta"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the object. Always \u0060agent.session.turn.reasoning_summary_text.delta\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "AgentSessionTurnReasoningSummaryTextDeltaType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agent.session.turn.reasoning_summary_text.delta",
+              "name": "AgentSessionTurnReasoningSummaryTextDelta"
             }
           ]
         }
@@ -170576,10 +171601,31 @@
     "references": "count_definition_once"
   },
   "webhooks": {
+    "agent_environment_expired": {
+      "post": {
+        "description": "Sent when an agent environment expires and can no longer resume from a snapshot.\n",
+        "operationId": "PostOpenApiFixerWebhooksEvent0",
+        "requestBody": {
+          "description": "The event payload sent by the API.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookAgentEnvironmentExpired"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 200 status code to acknowledge receipt of the event. Non-200\nstatus codes will be retried.\n"
+          }
+        }
+      }
+    },
     "agent_environment_failed": {
       "post": {
         "description": "Sent when setup fails for a prewarmed OpenAI-hosted environment before it is attached to a session.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent0",
+        "operationId": "PostOpenApiFixerWebhooksEvent1",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170600,7 +171646,7 @@
     "agent_environment_ready": {
       "post": {
         "description": "Sent when a prewarmed OpenAI-hosted environment finishes setup before being attached to a session.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent1",
+        "operationId": "PostOpenApiFixerWebhooksEvent2",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170618,10 +171664,31 @@
         }
       }
     },
+    "agent_environment_suspended": {
+      "post": {
+        "description": "Sent when an agent environment is suspended and can resume from a snapshot.\n",
+        "operationId": "PostOpenApiFixerWebhooksEvent3",
+        "requestBody": {
+          "description": "The event payload sent by the API.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookAgentEnvironmentSuspended"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 200 status code to acknowledge receipt of the event. Non-200\nstatus codes will be retried.\n"
+          }
+        }
+      }
+    },
     "agent_session_action_required": {
       "post": {
         "description": "Sent when an agent session requires an action. Retrieve the session for action details.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent2",
+        "operationId": "PostOpenApiFixerWebhooksEvent4",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170642,7 +171709,7 @@
     "agent_session_created": {
       "post": {
         "description": "Sent when an agent session is created.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent3",
+        "operationId": "PostOpenApiFixerWebhooksEvent5",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170663,7 +171730,7 @@
     "agent_session_failed": {
       "post": {
         "description": "Sent when an agent session fails.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent4",
+        "operationId": "PostOpenApiFixerWebhooksEvent6",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170684,7 +171751,7 @@
     "agent_session_idle": {
       "post": {
         "description": "Sent when an agent session becomes idle.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent5",
+        "operationId": "PostOpenApiFixerWebhooksEvent7",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170705,7 +171772,7 @@
     "agent_session_in_progress": {
       "post": {
         "description": "Sent when an agent session enters the in-progress state.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent6",
+        "operationId": "PostOpenApiFixerWebhooksEvent8",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170726,7 +171793,7 @@
     "batch_cancelled": {
       "post": {
         "description": "Sent when a batch has been cancelled.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent7",
+        "operationId": "PostOpenApiFixerWebhooksEvent9",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170747,7 +171814,7 @@
     "batch_completed": {
       "post": {
         "description": "Sent when a batch has completed processing.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent8",
+        "operationId": "PostOpenApiFixerWebhooksEvent10",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170768,7 +171835,7 @@
     "batch_expired": {
       "post": {
         "description": "Sent when a batch has expired before completion.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent9",
+        "operationId": "PostOpenApiFixerWebhooksEvent11",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170789,7 +171856,7 @@
     "batch_failed": {
       "post": {
         "description": "Sent when a batch has failed.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent10",
+        "operationId": "PostOpenApiFixerWebhooksEvent12",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170810,7 +171877,7 @@
     "eval_run_canceled": {
       "post": {
         "description": "Sent when an eval run has been canceled.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent11",
+        "operationId": "PostOpenApiFixerWebhooksEvent13",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170831,7 +171898,7 @@
     "eval_run_failed": {
       "post": {
         "description": "Sent when an eval run has failed.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent12",
+        "operationId": "PostOpenApiFixerWebhooksEvent14",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170852,7 +171919,7 @@
     "eval_run_succeeded": {
       "post": {
         "description": "Sent when an eval run has succeeded.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent13",
+        "operationId": "PostOpenApiFixerWebhooksEvent15",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170873,7 +171940,7 @@
     "fine_tuning_job_cancelled": {
       "post": {
         "description": "Sent when a fine-tuning job has been cancelled.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent14",
+        "operationId": "PostOpenApiFixerWebhooksEvent16",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170894,7 +171961,7 @@
     "fine_tuning_job_failed": {
       "post": {
         "description": "Sent when a fine-tuning job has failed.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent15",
+        "operationId": "PostOpenApiFixerWebhooksEvent17",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170915,7 +171982,7 @@
     "fine_tuning_job_succeeded": {
       "post": {
         "description": "Sent when a fine-tuning job has succeeded.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent16",
+        "operationId": "PostOpenApiFixerWebhooksEvent18",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170936,7 +172003,7 @@
     "live_call_incoming": {
       "post": {
         "description": "Deprecated: use \u0060live.transport.incoming\u0060. Retained only for existing subscriptions.\nSent when an incoming API SIP session is available for Live acceptance.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent17",
+        "operationId": "PostOpenApiFixerWebhooksEvent19",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170958,7 +172025,7 @@
     "live_transport_incoming": {
       "post": {
         "description": "Sent when an incoming API SIP session is available for Live acceptance.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent18",
+        "operationId": "PostOpenApiFixerWebhooksEvent20",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -170979,7 +172046,7 @@
     "realtime_call_incoming": {
       "post": {
         "description": "Sent when an incoming API SIP session is available for Realtime acceptance.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent19",
+        "operationId": "PostOpenApiFixerWebhooksEvent21",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -171000,7 +172067,7 @@
     "response_cancelled": {
       "post": {
         "description": "Sent when a background response has been cancelled.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent20",
+        "operationId": "PostOpenApiFixerWebhooksEvent22",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -171021,7 +172088,7 @@
     "response_completed": {
       "post": {
         "description": "Sent when a background response has completed successfully.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent21",
+        "operationId": "PostOpenApiFixerWebhooksEvent23",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -171042,7 +172109,7 @@
     "response_failed": {
       "post": {
         "description": "Sent when a background response has failed.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent22",
+        "operationId": "PostOpenApiFixerWebhooksEvent24",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -171063,7 +172130,7 @@
     "response_incomplete": {
       "post": {
         "description": "Sent when a background response is incomplete.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent23",
+        "operationId": "PostOpenApiFixerWebhooksEvent25",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -171084,7 +172151,7 @@
     "safety_alert_created": {
       "post": {
         "description": "Sent when an approved safety alert is available for an API project.\nRetrieve the alert with a project API key granted \u0060api.safety.alerts.read\u0060.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent24",
+        "operationId": "PostOpenApiFixerWebhooksEvent26",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -171105,7 +172172,7 @@
     "safety_deactivation_issued": {
       "post": {
         "description": "Sent when a deactivation is issued for a safety identifier in your organization.\nRetrieve the case details with \u0060GET /v1/safety/cases/{id}\u0060 using \u0060data.id\u0060.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent25",
+        "operationId": "PostOpenApiFixerWebhooksEvent27",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -171126,7 +172193,7 @@
     "safety_org_alert_created": {
       "post": {
         "description": "Sent when an approved safety alert is available for an enterprise workspace.\nRetrieve the alert from \u0060https://api.chatgpt.com/v1/safety/alerts/{id}\u0060 with\nan administrator API key for the workspace\u0027s backing organization granted\n\u0060chatgpt.enterprise.safety_alerts.read\u0060.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent26",
+        "operationId": "PostOpenApiFixerWebhooksEvent28",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {
@@ -171147,7 +172214,7 @@
     "safety_warning_issued": {
       "post": {
         "description": "Sent when a warning is issued for a safety identifier in your organization.\nRetrieve the case details with \u0060GET /v1/safety/cases/{id}\u0060 using \u0060data.id\u0060.\n",
-        "operationId": "PostOpenApiFixerWebhooksEvent27",
+        "operationId": "PostOpenApiFixerWebhooksEvent29",
         "requestBody": {
           "description": "The event payload sent by the API.",
           "content": {

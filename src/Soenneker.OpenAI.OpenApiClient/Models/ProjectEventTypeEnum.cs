@@ -76,6 +76,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         VideoFailed,
         #pragma warning restore CS1591
+        [EnumMember(Value = "agent.environment.ready")]
+        #pragma warning disable CS1591
+        AgentEnvironmentReady,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "agent.environment.failed")]
+        #pragma warning disable CS1591
+        AgentEnvironmentFailed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "agent.environment.suspended")]
+        #pragma warning disable CS1591
+        AgentEnvironmentSuspended,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "agent.environment.expired")]
+        #pragma warning disable CS1591
+        AgentEnvironmentExpired,
+        #pragma warning restore CS1591
         [EnumMember(Value = "agent.session.created")]
         #pragma warning disable CS1591
         AgentSessionCreated,

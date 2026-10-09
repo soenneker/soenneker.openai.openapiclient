@@ -16,6 +16,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The created_at property</summary>
         public int? CreatedAt { get; set; }
+        /// <summary>A generated explanation, temporarily available for eligible zero data retention alerts. Omitted when unavailable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DetailedExplanation { get; set; }
+#nullable restore
+#else
+        public string DetailedExplanation { get; set; }
+#endif
         /// <summary>The error_type property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.SafetyAlertErrorType? ErrorType { get; set; }
         /// <summary>The id property</summary>
@@ -88,6 +96,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "detailed_explanation", n => { DetailedExplanation = n.GetStringValue(); } },
                 { "error_type", n => { ErrorType = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SafetyAlertErrorType>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
@@ -106,6 +115,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteStringValue("detailed_explanation", DetailedExplanation);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SafetyAlertErrorType>("error_type", ErrorType);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("model", Model);
