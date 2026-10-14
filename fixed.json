@@ -10406,7 +10406,7 @@
           "Projects"
         ],
         "summary": "Update project API key",
-        "description": "Updates the expiration of an existing API key in the project, including a\nservice-account-owned key. Requires permission to write project API keys.\n\nProvide \u0060expires_in_seconds\u0060 to set the expiration relative to this request.\nThe value must satisfy the organization\u0027s and project\u0027s expiry policies.\nExpired keys cannot be updated. Retrying resets the expiration relative to\nthe new request. The response contains only the redacted key, not its secret.\n",
+        "description": "Updates the scopes and/or expiration of an existing API key in the project, including a\nservice-account-owned key. Requires permission to write project API keys.\n\nProvide at least one of \u0060scopes\u0060 or \u0060expires_in_seconds\u0060. Omitted fields stay\nunchanged; neither field accepts \u0060null\u0060. Both changes are saved together.\n\n\u0060scopes\u0060 replaces the key\u0027s scope restrictions using the same scope identifiers\nas the dashboard. An empty array means All permissions, subject to the owner\u0027s\neffective access; it does not mean no access. Use \u0060[\u0022api.all.read\u0022]\u0060 for read-only\naccess or specific scopes such as \u0060[\u0022api.files.read\u0022]\u0060 for restricted access.\nThis does not change user or service-account roles or grant admin permissions.\nScope changes follow the same authentication-cache propagation as dashboard edits.\n\nProvide \u0060expires_in_seconds\u0060 to set the expiration relative to this request.\nThe value must satisfy the organization\u0027s and project\u0027s expiry policies.\nExpired keys cannot be updated. Retrying resets the expiration relative to\nthe new request. The response contains only the redacted key, not its secret.\n",
         "operationId": "UpdateProjectApiKey",
         "parameters": [
           {
@@ -10433,6 +10433,11 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateProjectApiKeyBody"
+              },
+              "example": {
+                "scopes": [
+                  "api.all.read"
+                ]
               }
             }
           },
@@ -10440,7 +10445,7 @@
         },
         "responses": {
           "200": {
-            "description": "Project API key expiration updated successfully.",
+            "description": "Project API key updated successfully.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10450,7 +10455,7 @@
             }
           },
           "400": {
-            "description": "The project is archived, the key is expired, or the requested expiration is invalid.",
+            "description": "The project is archived, the key is expired, or the requested scopes or expiration are invalid.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10499,7 +10504,7 @@
           "group": "administration",
           "examples": {
             "request": {
-              "curl": "curl -X POST https://api.openai.com/v1/organization/projects/proj_abc/api_keys/key_abc \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022 \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -d \u0027{\u0022expires_in_seconds\u0022: 86400}\u0027\n"
+              "curl": "curl -X POST https://api.openai.com/v1/organization/projects/proj_abc/api_keys/key_abc \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022 \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -d \u0027{\u0022scopes\u0022: [\u0022api.all.read\u0022], \u0022expires_in_seconds\u0022: 86400}\u0027\n"
             },
             "response": "{\n    \u0022object\u0022: \u0022organization.project.api_key\u0022,\n    \u0022redacted_value\u0022: \u0022sk-abc...def\u0022,\n    \u0022name\u0022: \u0022My API Key\u0022,\n    \u0022created_at\u0022: 1711471533,\n    \u0022expires_at\u0022: 1711557933,\n    \u0022last_used_at\u0022: null,\n    \u0022id\u0022: \u0022key_abc\u0022,\n    \u0022owner_project_access\u0022: \u0022active\u0022,\n    \u0022owner\u0022: {\n        \u0022type\u0022: \u0022service_account\u0022,\n        \u0022service_account\u0022: {\n            \u0022id\u0022: \u0022svc_acct_abc\u0022,\n            \u0022name\u0022: \u0022My Service Account\u0022,\n            \u0022role\u0022: \u0022member\u0022,\n            \u0022created_at\u0022: 1711471533\n        }\n    }\n}\n"
           }
@@ -26015,7 +26020,7 @@
           "Decisions"
         ],
         "summary": "Create a decision",
-        "description": "Use this endpoint to ask classification or scoring questions about the same input. You\u2019ll get the answers back in the order you asked the questions.\n\nFor text, you can pass a string. You can also send user messages containing \u0060input_text\u0060 and \u0060input_image\u0060 parts, with up to 128 images per request. Images can be base64 data URLs or publicly accessible HTTP(S) URLs. File IDs aren\u2019t accepted. Other message roles, function calls, files, audio, and item references aren\u2019t supported.\n\nSometimes a question returns a refusal instead of an answer. The result has type \u0060refusal\u0060 and includes the question\u2019s name, or \u0060null\u0060 if you didn\u2019t give it one.",
+        "description": "Use this endpoint to quickly answer classification or scoring questions about some input. You can ask multiple questions in one request.",
         "operationId": "CreateDecision",
         "requestBody": {
           "content": {
@@ -26564,8 +26569,8 @@
         "tags": [
           "Agents"
         ],
-        "summary": "Create an agent environment file",
-        "description": "Copies inline bytes or a Files API file into a connected execution environment. See [environment files](https://developers.openai.com/api/docs/guides/agents-api/environments/files).",
+        "summary": "Write an agent environment file",
+        "description": "Copies inline bytes or a Files API file into a connected execution environment, replacing an existing regular file at the same path. Upload between turns and wait for success before starting the next turn. See [environment files](https://developers.openai.com/api/docs/guides/agents-api/environments/files).",
         "operationId": "CreateAgentEnvironmentFile",
         "parameters": [
           {
@@ -26591,7 +26596,7 @@
         },
         "responses": {
           "201": {
-            "description": "The created live environment file.",
+            "description": "The written live environment file.",
             "content": {
               "application/json": {
                 "schema": {
@@ -71774,11 +71779,14 @@
           "US_STORAGE_PROCESSING",
           "EU_STORAGE_PROCESSING",
           "JP_STORAGE",
+          "JP_STORAGE_PROCESSING",
           "KR_STORAGE",
           "CA_STORAGE",
           "SG_STORAGE",
           "IN_STORAGE",
+          "IN_STORAGE_PROCESSING",
           "AU_STORAGE",
+          "AU_STORAGE_PROCESSING",
           "GB_STORAGE",
           "AE_STORAGE",
           "AE_STORAGE_PROCESSING"
@@ -71806,6 +71814,10 @@
               "name": "JpStorage"
             },
             {
+              "value": "JP_STORAGE_PROCESSING",
+              "name": "JpStorageProcessing"
+            },
+            {
               "value": "KR_STORAGE",
               "name": "KrStorage"
             },
@@ -71822,8 +71834,16 @@
               "name": "InStorage"
             },
             {
+              "value": "IN_STORAGE_PROCESSING",
+              "name": "InStorageProcessing"
+            },
+            {
               "value": "AU_STORAGE",
               "name": "AuStorage"
+            },
+            {
+              "value": "AU_STORAGE_PROCESSING",
+              "name": "AuStorageProcessing"
             },
             {
               "value": "GB_STORAGE",
@@ -71841,16 +71861,20 @@
         }
       },
       "UpdateProjectApiKeyBody": {
-        "required": [
-          "expires_in_seconds"
-        ],
         "type": "object",
         "properties": {
           "expires_in_seconds": {
             "maximum": 31536000,
             "minimum": 1,
             "type": "integer",
-            "description": "Number of seconds from this request until the API key expires. Must comply with the organization and project expiry policies. Expired keys cannot be updated. Retrying resets the expiry relative to the new request."
+            "description": "Number of seconds from this request until the API key expires. Must comply with the organization and project expiry policies. Expired keys cannot be updated. Retrying resets the expiry relative to the new request. Omit to keep the current expiration."
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Replace the API key scope restrictions. Omit to leave scopes unchanged. An empty array removes key restrictions (All permissions), subject to the owner\u0027s effective permissions. Use [\u0022api.all.read\u0022] for read-only access. Scopes do not change the owner\u0027s roles or grant administrative permissions."
           }
         }
       },
@@ -76902,7 +76926,8 @@
           "model": {
             "maxLength": 1048576,
             "minLength": 0,
-            "type": "string"
+            "type": "string",
+            "description": "The model to use. Only \u0060gpt-6-luna\u0060 is supported."
           },
           "input": {
             "description": "The text or images to evaluate for every question. Provide a text string or user messages containing text and images. Images can be base64 data URLs or publicly accessible HTTP(S) URLs; at most 128 images are allowed across all messages in one request. Files, audio, tools, and item references are not supported.",
@@ -76914,7 +76939,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/QuestionParam"
-            }
+            },
+            "description": "Ask 1\u2013200 questions about the input. Each question can be a predicate, choice, or score. Answers come back in the same order."
           },
           "safety_identifier": {
             "maxLength": 128,
@@ -77257,7 +77283,8 @@
         "properties": {
           "model": {
             "minLength": 0,
-            "type": "string"
+            "type": "string",
+            "description": "The model used."
           },
           "answers": {
             "maxItems": 2000,
@@ -77265,9 +77292,11 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AnswerResource"
-            }
+            },
+            "description": "Answers in question order. Any question can return a refusal instead of an answer; other questions can still receive answers. A refusal has \u0060type: \u0022refusal\u0022\u0060 and the question\u0027s \u0060name\u0060, or \u0060null\u0060 if it was unnamed."
           },
           "usage": {
+            "description": "Token usage for the request.",
             "$ref": "#/components/schemas/ResponseUsageResource"
           }
         },
@@ -91584,7 +91613,7 @@
             "$ref": "#/components/schemas/SessionInputAudioUnmuteType"
           }
         },
-        "description": "Resume audio input to a Live model after muting it. The server acknowledges with \u0060session.input_audio.unmuted\u0060.",
+        "description": "Resume audio input to a Live model after muting it. The server acknowledges with \u0060session.input_audio.unmuted\u0060. An active audio fixture still pauses inference until playback finishes.",
         "example": {
           "type": "session.input_audio.unmute",
           "event_id": "evt_unmute_001"
@@ -91628,7 +91657,7 @@
             "description": "Instruction text to append, limited to 500 tokens. This is a plain string, not an array of content parts."
           }
         },
-        "description": "Append instructions to the Live conversation while it is running, optionally associating them with an existing client delegation.",
+        "description": "Append developer instructions to the Live conversation while it is running, optionally associating them with an existing client delegation. Rejected while an audio fixture is active. These instructions remain in conversation history through compaction and are included in future backend delegations. For external audio, describe content already delivered so the assistant does not repeat it.",
         "example": {
           "type": "session.instructions.append",
           "event_id": "evt_instructions_001",
@@ -91676,7 +91705,7 @@
             "description": "Silent reasoning or progress context, limited to 500 tokens. It does not directly request speech, but can influence later speech and is not a secrecy boundary."
           }
         },
-        "description": "Provide silent reasoning or progress context to the Live model, optionally for an existing client delegation.",
+        "description": "Provide silent reasoning or progress context to the Live model, optionally for an existing client delegation. Rejected while an audio fixture is active.",
         "example": {
           "type": "session.thinking.append",
           "event_id": "evt_thinking_001",
@@ -91724,7 +91753,7 @@
             "description": "Speakable context for the Live model, limited to 500 tokens. Use this for a result the model should communicate; use session.thinking.append for silent context."
           }
         },
-        "description": "Provide context the Live model can communicate to the user, optionally for an existing client delegation.",
+        "description": "Provide context the Live model can communicate to the user, optionally for an existing client delegation. Rejected while an audio fixture is active.",
         "example": {
           "type": "session.commentary.append",
           "event_id": "evt_commentary_001",
@@ -92166,7 +92195,7 @@
             "$ref": "#/components/schemas/SessionInputAudioMutedType"
           }
         },
-        "description": "Returned when a session.input_audio.mute command is accepted. Input audio is no longer sent to the model; sideband audio reflection continues.",
+        "description": "Acknowledges a session.input_audio.mute command. An independent input mute sends silence to the model and preserves sideband audio reflection. Fixture playback does not emit this event.",
         "example": {
           "type": "session.input_audio.muted",
           "event_id": "evt_muted_001",
@@ -92199,7 +92228,7 @@
             "$ref": "#/components/schemas/SessionInputAudioUnmutedType"
           }
         },
-        "description": "Returned when a session.input_audio.unmute command is accepted. Input audio is sent to the model again.",
+        "description": "Acknowledges a session.input_audio.unmute command, removing the independent input mute. An active audio fixture still pauses inference until playback finishes. Fixture playback does not emit this event.",
         "example": {
           "type": "session.input_audio.unmuted",
           "event_id": "evt_unmuted_001",
@@ -92210,6 +92239,72 @@
             "type": "session.input_audio.unmuted",
             "event_id": "evt_unmuted_001",
             "client_event_id": "evt_unmute_001"
+          }
+        }
+      },
+      "LiveOutputAudioFixturePlaying": {
+        "required": [
+          "event_id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "description": "The unique ID of the Live server event."
+          },
+          "client_event_id": {
+            "type": "string",
+            "description": "The event_id of the client command associated with this server event, when supplied."
+          },
+          "type": {
+            "$ref": "#/components/schemas/SessionOutputAudioFixturePlayingType"
+          }
+        },
+        "description": "The existing playback path has accepted the validated audio fixture. This acknowledgment does not identify when the listener receives the first sample. The optional client_event_id echoes the play command.",
+        "example": {
+          "type": "session.output_audio.fixture.playing",
+          "event_id": "evt_play_started_001",
+          "client_event_id": "evt_play_001"
+        },
+        "x-oaiMeta": {
+          "example": {
+            "type": "session.output_audio.fixture.playing",
+            "event_id": "evt_play_started_001",
+            "client_event_id": "evt_play_001"
+          }
+        }
+      },
+      "LiveOutputAudioFixturePlayed": {
+        "required": [
+          "event_id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "description": "The unique ID of the Live server event."
+          },
+          "client_event_id": {
+            "type": "string",
+            "description": "The event_id of the client command associated with this server event, when supplied."
+          },
+          "type": {
+            "$ref": "#/components/schemas/SessionOutputAudioFixturePlayedType"
+          }
+        },
+        "description": "The complete audio fixture has drained from the server mixer and normal inference has resumed. Transport buffers may still contain audio; this event does not prove listener-side completion. The optional client_event_id echoes the play command. This event is not emitted for canceled or failed playback.",
+        "example": {
+          "type": "session.output_audio.fixture.played",
+          "event_id": "evt_played_001",
+          "client_event_id": "evt_play_001"
+        },
+        "x-oaiMeta": {
+          "example": {
+            "type": "session.output_audio.fixture.played",
+            "event_id": "evt_played_001",
+            "client_event_id": "evt_play_001"
           }
         }
       },
@@ -93195,6 +93290,12 @@
             "$ref": "#/components/schemas/LiveInputAudioUnmuted"
           },
           {
+            "$ref": "#/components/schemas/LiveOutputAudioFixturePlaying"
+          },
+          {
+            "$ref": "#/components/schemas/LiveOutputAudioFixturePlayed"
+          },
+          {
             "$ref": "#/components/schemas/LiveInstructionsAppended"
           },
           {
@@ -93328,6 +93429,8 @@
             "LiveSessionUpdated": "#/components/schemas/LiveSessionUpdated",
             "LiveInputAudioMuted": "#/components/schemas/LiveInputAudioMuted",
             "LiveInputAudioUnmuted": "#/components/schemas/LiveInputAudioUnmuted",
+            "LiveOutputAudioFixturePlaying": "#/components/schemas/LiveOutputAudioFixturePlaying",
+            "LiveOutputAudioFixturePlayed": "#/components/schemas/LiveOutputAudioFixturePlayed",
             "LiveInstructionsAppended": "#/components/schemas/LiveInstructionsAppended",
             "LiveThinkingAppended": "#/components/schemas/LiveThinkingAppended",
             "LiveCommentaryAppended": "#/components/schemas/LiveCommentaryAppended",
@@ -134936,6 +135039,10 @@
           "code": {
             "type": "string",
             "description": "Error code, if any."
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable error message."
           }
         },
         "description": "A description of the error that caused the response to fail, \npopulated when the \u0060status\u0060 is \u0060failed\u0060.\n"
@@ -134993,6 +135100,10 @@
           "code": {
             "type": "string",
             "description": "Error code, if any."
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable error message."
           }
         },
         "description": "A description of the error that caused the response to fail, \npopulated when the \u0060status\u0060 is \u0060failed\u0060.\n"
@@ -160467,6 +160578,42 @@
             {
               "value": "session.input_audio.unmuted",
               "name": "SessionInputAudioUnmuted"
+            }
+          ]
+        }
+      },
+      "SessionOutputAudioFixturePlayingType": {
+        "enum": [
+          "session.output_audio.fixture.playing"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "SessionOutputAudioFixturePlayingType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "session.output_audio.fixture.playing",
+              "name": "SessionOutputAudioFixturePlaying"
+            }
+          ]
+        }
+      },
+      "SessionOutputAudioFixturePlayedType": {
+        "enum": [
+          "session.output_audio.fixture.played"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "SessionOutputAudioFixturePlayedType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "session.output_audio.fixture.played",
+              "name": "SessionOutputAudioFixturePlayed"
             }
           ]
         }

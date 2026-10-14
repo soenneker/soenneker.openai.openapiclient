@@ -12,7 +12,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class DecisionResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The answers property</summary>
+        /// <summary>Answers in question order. Any question can return a refusal instead of an answer; other questions can still receive answers. A refusal has `type: &quot;refusal&quot;` and the question&apos;s `name`, or `null` if it was unnamed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResource>? Answers { get; set; }
@@ -20,7 +20,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResource> Answers { get; set; }
 #endif
-        /// <summary>The model property</summary>
+        /// <summary>The model used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }
@@ -28,7 +28,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Model { get; set; }
 #endif
-        /// <summary>The usage property</summary>
+        /// <summary>Token usage for the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageResource? Usage { get; set; }

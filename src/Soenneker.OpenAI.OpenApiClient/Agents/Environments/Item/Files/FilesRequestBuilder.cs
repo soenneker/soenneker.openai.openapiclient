@@ -69,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Environments.Item.Files
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentFileListResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentFileListResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Copies inline bytes or a Files API file into a connected execution environment. See [environment files](https://developers.openai.com/api/docs/guides/agents-api/environments/files).
+        /// Copies inline bytes or a Files API file into a connected execution environment, replacing an existing regular file at the same path. Upload between turns and wait for success before starting the next turn. See [environment files](https://developers.openai.com/api/docs/guides/agents-api/environments/files).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentFileResource"/></returns>
         /// <param name="body">A file materialized in an OpenAI-hosted execution environment.</param>
@@ -127,7 +127,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Environments.Item.Files
             return requestInfo;
         }
         /// <summary>
-        /// Copies inline bytes or a Files API file into a connected execution environment. See [environment files](https://developers.openai.com/api/docs/guides/agents-api/environments/files).
+        /// Copies inline bytes or a Files API file into a connected execution environment, replacing an existing regular file at the same path. Upload between turns and wait for success before starting the next turn. See [environment files](https://developers.openai.com/api/docs/guides/agents-api/environments/files).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">A file materialized in an OpenAI-hosted execution environment.</param>

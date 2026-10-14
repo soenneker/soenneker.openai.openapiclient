@@ -20,7 +20,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionInput Input { get; set; }
 #endif
-        /// <summary>The model property</summary>
+        /// <summary>The model to use. Only `gpt-6-luna` is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }
@@ -28,7 +28,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Model { get; set; }
 #endif
-        /// <summary>The questions property</summary>
+        /// <summary>Ask 1–200 questions about the input. Each question can be a predicate, choice, or score. Answers come back in the same order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParam>? Questions { get; set; }

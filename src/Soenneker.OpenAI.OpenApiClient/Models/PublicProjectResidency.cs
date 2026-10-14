@@ -23,6 +23,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         JpStorage,
         #pragma warning restore CS1591
+        [EnumMember(Value = "JP_STORAGE_PROCESSING")]
+        #pragma warning disable CS1591
+        JpStorageProcessing,
+        #pragma warning restore CS1591
         [EnumMember(Value = "KR_STORAGE")]
         #pragma warning disable CS1591
         KrStorage,
@@ -39,9 +43,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         InStorage,
         #pragma warning restore CS1591
+        [EnumMember(Value = "IN_STORAGE_PROCESSING")]
+        #pragma warning disable CS1591
+        InStorageProcessing,
+        #pragma warning restore CS1591
         [EnumMember(Value = "AU_STORAGE")]
         #pragma warning disable CS1591
         AuStorage,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "AU_STORAGE_PROCESSING")]
+        #pragma warning disable CS1591
+        AuStorageProcessing,
         #pragma warning restore CS1591
         [EnumMember(Value = "GB_STORAGE")]
         #pragma warning disable CS1591
