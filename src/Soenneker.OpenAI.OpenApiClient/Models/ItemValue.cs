@@ -123,13 +123,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironment Environment { get; set; }
 #endif
-        /// <summary>Error message if the server could not list tools.</summary>
+        /// <summary>Details of a moderation failure, when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Error { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallError? Error { get; set; }
 #nullable restore
 #else
-        public string Error { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallError Error { get; set; }
 #endif
         /// <summary>Whether tool search was executed by the server or by the client.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType? Execution { get; set; }
@@ -349,7 +349,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InputContent>(global::Soenneker.OpenAI.OpenApiClient.Models.InputContent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "encrypted_content", n => { EncryptedContent = n.GetStringValue(); } },
                 { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironment>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironment.CreateFromDiscriminatorValue); } },
-                { "error", n => { Error = n.GetStringValue(); } },
+                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallError>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallError.CreateFromDiscriminatorValue); } },
                 { "execution", n => { Execution = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "input", n => { Input = n.GetStringValue(); } },
@@ -400,7 +400,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InputContent>("content", Content);
             writer.WriteStringValue("encrypted_content", EncryptedContent);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironment>("environment", Environment);
-            writer.WriteStringValue("error", Error);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallError>("error", Error);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>("execution", Execution);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("input", Input);

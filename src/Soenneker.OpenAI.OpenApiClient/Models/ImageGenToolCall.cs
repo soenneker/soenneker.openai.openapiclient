@@ -31,6 +31,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ImageBackgroundWrapper Background { get; set; }
 #endif
+        /// <summary>Details of a moderation failure, when available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallError? Error { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallError Error { get; set; }
+#endif
         /// <summary>The unique ID of the image generation call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -104,6 +112,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "action", n => { Action = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenActionEnumWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenActionEnumWrapper.CreateFromDiscriminatorValue); } },
                 { "background", n => { Background = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageBackgroundWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageBackgroundWrapper.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallError>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallError.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output_format", n => { OutputFormat = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageOutputFormatWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageOutputFormatWrapper.CreateFromDiscriminatorValue); } },
                 { "quality", n => { Quality = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallQuality>(); } },
@@ -123,6 +132,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenActionEnumWrapper>("action", Action);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageBackgroundWrapper>("background", Background);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallError>("error", Error);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageOutputFormatWrapper>("output_format", OutputFormat);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallQuality>("quality", Quality);

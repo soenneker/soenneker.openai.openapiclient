@@ -39,6 +39,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageBackgroundWrapper Background { get; set; }
 #endif
+        /// <summary>Details of a moderation failure, when available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallError? Error { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallError Error { get; set; }
+#endif
         /// <summary>The unique ID of the image generation call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -113,6 +121,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "action", n => { Action = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenActionEnumWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenActionEnumWrapper.CreateFromDiscriminatorValue); } },
                 { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag.CreateFromDiscriminatorValue); } },
                 { "background", n => { Background = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageBackgroundWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageBackgroundWrapper.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallError>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallError.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output_format", n => { OutputFormat = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageOutputFormatWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageOutputFormatWrapper.CreateFromDiscriminatorValue); } },
                 { "quality", n => { Quality = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallQuality>(); } },
@@ -133,6 +142,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenActionEnumWrapper>("action", Action);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>("agent", Agent);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageBackgroundWrapper>("background", Background);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallError>("error", Error);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageOutputFormatWrapper>("output_format", OutputFormat);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallQuality>("quality", Quality);

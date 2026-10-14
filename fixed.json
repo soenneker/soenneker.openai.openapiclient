@@ -66614,6 +66614,62 @@
           ]
         }
       },
+      "ImageGenToolCallModerationDetails": {
+        "required": [
+          "moderation_stage",
+          "categories"
+        ],
+        "type": "object",
+        "properties": {
+          "moderation_stage": {
+            "$ref": "#/components/schemas/ImageGenToolCallModerationDetailsModerationStage"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Public moderation categories. New category values may be added over time."
+          }
+        }
+      },
+      "ImageGenToolCallError": {
+        "required": [
+          "code",
+          "type",
+          "message",
+          "param"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The error code."
+          },
+          "type": {
+            "type": "string",
+            "description": "The error type."
+          },
+          "message": {
+            "type": "string",
+            "description": "A description of the error."
+          },
+          "param": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The related request parameter."
+          },
+          "moderation_details": {
+            "description": "Public details for a \u0060moderation_blocked\u0060 error, when available.",
+            "$ref": "#/components/schemas/ImageGenToolCallModerationDetails"
+          }
+        }
+      },
       "ImageGenActionEnum": {
         "enum": [
           "generate",
@@ -66721,6 +66777,10 @@
               "string"
             ],
             "description": "The generated image encoded in base64."
+          },
+          "error": {
+            "description": "Details of a moderation failure, when available.",
+            "$ref": "#/components/schemas/ImageGenToolCallError"
           },
           "size": {
             "$ref": "#/components/schemas/ImageGenToolCallSize"
@@ -97708,6 +97768,10 @@
             ],
             "description": "The generated image encoded in base64."
           },
+          "error": {
+            "description": "Details of a moderation failure, when available.",
+            "$ref": "#/components/schemas/BetaImageGenToolCallError"
+          },
           "size": {
             "$ref": "#/components/schemas/BetaImageGenToolCallSize"
           },
@@ -97785,6 +97849,62 @@
               "name": "Auto"
             }
           ]
+        }
+      },
+      "BetaImageGenToolCallError": {
+        "required": [
+          "code",
+          "type",
+          "message",
+          "param"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The error code."
+          },
+          "type": {
+            "type": "string",
+            "description": "The error type."
+          },
+          "message": {
+            "type": "string",
+            "description": "A description of the error."
+          },
+          "param": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The related request parameter."
+          },
+          "moderation_details": {
+            "description": "Public details for a \u0060moderation_blocked\u0060 error, when available.",
+            "$ref": "#/components/schemas/BetaImageGenToolCallModerationDetails"
+          }
+        }
+      },
+      "BetaImageGenToolCallModerationDetails": {
+        "required": [
+          "moderation_stage",
+          "categories"
+        ],
+        "type": "object",
+        "properties": {
+          "moderation_stage": {
+            "$ref": "#/components/schemas/BetaImageGenToolCallModerationDetailsModerationStage"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Public moderation categories. New category values may be added over time."
+          }
         }
       },
       "BetaCompactionSummaryItemParam": {
@@ -156587,6 +156707,34 @@
           ]
         }
       },
+      "ImageGenToolCallModerationDetailsModerationStage": {
+        "enum": [
+          "input",
+          "output",
+          "unknown"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The stage where moderation blocked the image generation call.",
+        "x-ms-enum": {
+          "name": "ImageGenToolCallModerationDetailsModerationStage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "input",
+              "name": "Input"
+            },
+            {
+              "value": "output",
+              "name": "Output"
+            },
+            {
+              "value": "unknown",
+              "name": "Unknown"
+            }
+          ]
+        }
+      },
       "ImageGenerationCallType": {
         "enum": [
           "image_generation_call"
@@ -161251,6 +161399,34 @@
             {
               "value": "auto",
               "name": "Auto"
+            }
+          ]
+        }
+      },
+      "BetaImageGenToolCallModerationDetailsModerationStage": {
+        "enum": [
+          "input",
+          "output",
+          "unknown"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The stage where moderation blocked the image generation call.",
+        "x-ms-enum": {
+          "name": "BetaImageGenToolCallModerationDetailsModerationStage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "input",
+              "name": "Input"
+            },
+            {
+              "value": "output",
+              "name": "Output"
+            },
+            {
+              "value": "unknown",
+              "name": "Unknown"
             }
           ]
         }
