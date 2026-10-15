@@ -45013,7 +45013,7 @@
             "items": {
               "$ref": "#/components/schemas/LiveInitialItem"
             },
-            "description": "Ordered text-only history supplied before startup. Supports developer, user, and assistant messages with one text part each; at most 128 messages and 8,192 rendered tokens in total."
+            "description": "Ordered text-only history supplied before startup. Supports developer, user, and assistant messages with one text part each; at most 128 messages and a configured rendered-token limit (8,192 by default)."
           },
           "type": {
             "$ref": "#/components/schemas/LiveType"
@@ -45073,6 +45073,9 @@
           },
           {
             "$ref": "#/components/schemas/LiveInputAudioUnmuteParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveOutputAudioFixturePlayParam"
           },
           {
             "$ref": "#/components/schemas/LiveInstructionsAppendParam"
@@ -45136,6 +45139,7 @@
             "LiveInputAudioAppendEvent": "#/components/schemas/LiveInputAudioAppendEvent",
             "LiveInputAudioMuteParam": "#/components/schemas/LiveInputAudioMuteParam",
             "LiveInputAudioUnmuteParam": "#/components/schemas/LiveInputAudioUnmuteParam",
+            "LiveOutputAudioFixturePlayParam": "#/components/schemas/LiveOutputAudioFixturePlayParam",
             "LiveInstructionsAppendParam": "#/components/schemas/LiveInstructionsAppendParam",
             "LiveThinkingAppendParam": "#/components/schemas/LiveThinkingAppendParam",
             "LiveCommentaryAppendParam": "#/components/schemas/LiveCommentaryAppendParam",
@@ -45206,6 +45210,9 @@
             "$ref": "#/components/schemas/LiveInputAudioUnmuteParam"
           },
           {
+            "$ref": "#/components/schemas/LiveOutputAudioFixturePlayParam"
+          },
+          {
             "$ref": "#/components/schemas/LiveInstructionsAppendParam"
           },
           {
@@ -45267,6 +45274,7 @@
             "LiveInputAudioAppendEvent": "#/components/schemas/LiveInputAudioAppendEvent",
             "LiveInputAudioMuteParam": "#/components/schemas/LiveInputAudioMuteParam",
             "LiveInputAudioUnmuteParam": "#/components/schemas/LiveInputAudioUnmuteParam",
+            "LiveOutputAudioFixturePlayParam": "#/components/schemas/LiveOutputAudioFixturePlayParam",
             "LiveInstructionsAppendParam": "#/components/schemas/LiveInstructionsAppendParam",
             "LiveThinkingAppendParam": "#/components/schemas/LiveThinkingAppendParam",
             "LiveCommentaryAppendParam": "#/components/schemas/LiveCommentaryAppendParam",
@@ -45350,7 +45358,7 @@
             "items": {
               "$ref": "#/components/schemas/LiveInitialItem"
             },
-            "description": "Ordered text-only history supplied before startup. Supports developer, user, and assistant messages with one text part each; at most 128 messages and 8,192 rendered tokens in total."
+            "description": "Ordered text-only history supplied before startup. Supports developer, user, and assistant messages with one text part each; at most 128 messages and a configured rendered-token limit (8,192 by default)."
           },
           "client": {
             "description": "Startup-only capabilities for an untrusted frontend attached to a unified WebRTC session. Trusted sideband connections are unaffected.",
@@ -45525,6 +45533,9 @@
             "$ref": "#/components/schemas/LiveInputAudioUnmuteParam"
           },
           {
+            "$ref": "#/components/schemas/LiveOutputAudioFixturePlayParam"
+          },
+          {
             "$ref": "#/components/schemas/LiveInstructionsAppendParam"
           },
           {
@@ -45556,6 +45567,12 @@
             "description": "Sparse delegation updates. Omitted settings retain their values. The delegation type cannot change, including resetting Responses delegation to null or client. Model, frontend instructions, audio, and startup input are immutable.",
             "$ref": "#/components/schemas/LiveSessionUpdateParams"
           },
+          "audio": {
+            "maxLength": 1920000,
+            "minLength": 1,
+            "type": "string",
+            "description": "Base64-encoded raw mono PCM16 audio, little-endian, at 24 kHz. Do not include a WAV or other container header."
+          },
           "delegation_id": {
             "minLength": 1,
             "type": [
@@ -45576,13 +45593,14 @@
             "type": "string"
           }
         },
-        "description": "Client events accepted by an attached Live sideband WebSocket. The session is already started; send audio over the primary connection.",
+        "description": "Client events accepted by an attached Live sideband WebSocket. The session has already started. Send input audio over the primary connection.",
         "discriminator": {
           "propertyName": "type",
           "mapping": {
             "LiveSessionUpdateParam": "#/components/schemas/LiveSessionUpdateParam",
             "LiveInputAudioMuteParam": "#/components/schemas/LiveInputAudioMuteParam",
             "LiveInputAudioUnmuteParam": "#/components/schemas/LiveInputAudioUnmuteParam",
+            "LiveOutputAudioFixturePlayParam": "#/components/schemas/LiveOutputAudioFixturePlayParam",
             "LiveInstructionsAppendParam": "#/components/schemas/LiveInstructionsAppendParam",
             "LiveThinkingAppendParam": "#/components/schemas/LiveThinkingAppendParam",
             "LiveCommentaryAppendParam": "#/components/schemas/LiveCommentaryAppendParam",
@@ -45642,6 +45660,12 @@
           },
           {
             "$ref": "#/components/schemas/LiveInputAudioUnmuted"
+          },
+          {
+            "$ref": "#/components/schemas/LiveOutputAudioFixturePlaying"
+          },
+          {
+            "$ref": "#/components/schemas/LiveOutputAudioFixturePlayed"
           },
           {
             "$ref": "#/components/schemas/LiveInstructionsAppended"
@@ -45757,6 +45781,8 @@
             "LiveSessionUpdated": "#/components/schemas/LiveSessionUpdated",
             "LiveInputAudioMuted": "#/components/schemas/LiveInputAudioMuted",
             "LiveInputAudioUnmuted": "#/components/schemas/LiveInputAudioUnmuted",
+            "LiveOutputAudioFixturePlaying": "#/components/schemas/LiveOutputAudioFixturePlaying",
+            "LiveOutputAudioFixturePlayed": "#/components/schemas/LiveOutputAudioFixturePlayed",
             "LiveInstructionsAppended": "#/components/schemas/LiveInstructionsAppended",
             "LiveThinkingAppended": "#/components/schemas/LiveThinkingAppended",
             "LiveCommentaryAppended": "#/components/schemas/LiveCommentaryAppended",
@@ -56340,6 +56366,20 @@
           "object"
         ],
         "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The original error type, or null if it was not recorded."
+          },
+          "param": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The request parameter associated with the error, or null if none was recorded."
+          },
           "code": {
             "description": "The error code for the response.\n",
             "$ref": "#/components/schemas/ResponseErrorCode"
@@ -71424,7 +71464,7 @@
         "items": {
           "$ref": "#/components/schemas/LiveInitialItem"
         },
-        "description": "Ordered text-only history supplied before startup. Supports developer, user, and assistant messages with one text part each; at most 128 messages and 8,192 rendered tokens in total."
+        "description": "Ordered text-only history supplied before startup. Supports developer, user, and assistant messages with one text part each; at most 128 messages and a configured rendered-token limit (8,192 by default)."
       },
       "LiveAllowedServerEventParam": {
         "required": [
@@ -73878,6 +73918,20 @@
           "code": {
             "type": "string",
             "description": "A machine-readable error code that was returned."
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The original error type, or null if it was not recorded."
+          },
+          "param": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The request parameter associated with the error, or null if none was recorded."
           },
           "message": {
             "type": "string",
@@ -76580,6 +76634,9 @@
             "maxLength": 10485760,
             "minLength": 0,
             "type": "string"
+          },
+          "prompt_cache_breakpoint": {
+            "$ref": "#/components/schemas/DecisionInputTextPromptCacheBreakpoint"
           }
         },
         "additionalProperties": false
@@ -76633,12 +76690,51 @@
           "detail": {
             "$ref": "#/components/schemas/DecisionInputImageDetail"
           },
+          "prompt_cache_breakpoint": {
+            "$ref": "#/components/schemas/DecisionInputImagePromptCacheBreakpoint"
+          },
           "type": {
             "$ref": "#/components/schemas/InputImageType"
           }
         },
         "additionalProperties": false,
         "description": "An image provided as a base64 data URL or a publicly accessible HTTP(S) URL. File IDs are not supported."
+      },
+      "DecisionInputOutputText": {
+        "required": [
+          "type",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/OutputTextType"
+          },
+          "text": {
+            "maxLength": 10485760,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DecisionInputRefusal": {
+        "required": [
+          "type",
+          "refusal"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/RefusalType"
+          },
+          "refusal": {
+            "maxLength": 10485760,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
       },
       "DecisionInputContentParts": {
         "maxItems": 16384,
@@ -76667,6 +76763,28 @@
         ],
         "description": "Text evidence or an ordered list of text and image parts."
       },
+      "MessagePhaseParam": {
+        "enum": [
+          "commentary",
+          "final_answer"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "MessagePhaseParam",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "commentary",
+              "name": "Commentary"
+            },
+            {
+              "value": "final_answer",
+              "name": "FinalAnswer"
+            }
+          ]
+        }
+      },
       "DecisionInputMessage": {
         "required": [
           "role",
@@ -76675,18 +76793,245 @@
         "type": "object",
         "properties": {
           "role": {
-            "$ref": "#/components/schemas/UserRole"
+            "$ref": "#/components/schemas/DecisionInputMessageRole"
           },
           "content": {
             "description": "Text evidence or an ordered list of text and image parts.",
             "$ref": "#/components/schemas/DecisionInputContent"
+          },
+          "phase": {
+            "$ref": "#/components/schemas/DecisionInputMessagePhase"
           },
           "type": {
             "$ref": "#/components/schemas/MessageType"
           }
         },
         "additionalProperties": false,
-        "description": "A user message containing text or images."
+        "description": "A user message containing input text or images, a developer or system message containing input text, or an assistant message containing output text or refusals. System messages are rendered as developer messages."
+      },
+      "FunctionCallStatusParam": {
+        "enum": [
+          "in_progress",
+          "completed",
+          "incomplete"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "FunctionCallStatusParam",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "in_progress",
+              "name": "InProgress"
+            },
+            {
+              "value": "completed",
+              "name": "Completed"
+            },
+            {
+              "value": "incomplete",
+              "name": "Incomplete"
+            }
+          ]
+        }
+      },
+      "DecisionInputFunctionCall": {
+        "required": [
+          "call_id",
+          "name",
+          "arguments",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "call_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "namespace": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_-]\u002B$",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_.-]\u002B$",
+            "type": "string"
+          },
+          "arguments": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/DecisionInputFunctionCallStatus"
+          },
+          "type": {
+            "$ref": "#/components/schemas/FunctionCallType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DecisionInputToolOutputContentParts": {
+        "maxItems": 16384,
+        "minItems": 0,
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/DecisionInputToolOutputContentPartsItem"
+        }
+      },
+      "DecisionInputToolOutputContent": {
+        "type": "object",
+        "oneOf": [
+          {
+            "maxLength": 10485760,
+            "minLength": 0,
+            "type": "string"
+          },
+          {
+            "maxItems": 16384,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DecisionInputToolOutputContentPartsItem"
+            }
+          }
+        ],
+        "description": "Text evidence or an ordered list of text and image parts."
+      },
+      "DecisionInputFunctionCallOutput": {
+        "required": [
+          "call_id",
+          "output",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "call_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "output": {
+            "description": "Text evidence or an ordered list of text and image parts.",
+            "$ref": "#/components/schemas/DecisionInputToolOutputContent"
+          },
+          "status": {
+            "$ref": "#/components/schemas/DecisionInputFunctionCallOutputStatus"
+          },
+          "type": {
+            "$ref": "#/components/schemas/FunctionCallOutputType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DecisionInputCustomToolCall": {
+        "required": [
+          "call_id",
+          "name",
+          "input",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "call_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "namespace": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_-]\u002B$",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_-]\u002B$",
+            "type": "string"
+          },
+          "input": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/DecisionInputCustomToolCallStatus"
+          },
+          "type": {
+            "$ref": "#/components/schemas/CustomToolCallType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DecisionInputCustomToolCallOutput": {
+        "required": [
+          "call_id",
+          "output",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "call_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "output": {
+            "description": "Text evidence or an ordered list of text and image parts.",
+            "$ref": "#/components/schemas/DecisionInputToolOutputContent"
+          },
+          "status": {
+            "$ref": "#/components/schemas/DecisionInputCustomToolCallOutputStatus"
+          },
+          "type": {
+            "$ref": "#/components/schemas/CustomToolCallOutputType"
+          }
+        },
+        "additionalProperties": false
       },
       "DecisionInput": {
         "type": "object",
@@ -76705,7 +77050,7 @@
             }
           }
         ],
-        "description": "The text or images to evaluate for every question. Provide a text string or user messages containing text and images. Images can be base64 data URLs or publicly accessible HTTP(S) URLs; at most 128 images are allowed across all messages in one request. Files, audio, tools, and item references are not supported."
+        "description": "The input to evaluate for every question. Provide a text string or an ordered array of messages, function calls and outputs, or custom tool calls and outputs. Each tool output must identify a matching call by call ID. User messages and tool outputs can contain text and images; developer and system messages can contain only input text, and assistant messages can contain output text or refusals. Images can be base64 data URLs or publicly accessible HTTP(S) URLs; at most 128 images are allowed per request. Files, audio, and item references are not supported."
       },
       "QuestionParamPredicate": {
         "required": [
@@ -76930,7 +77275,7 @@
             "description": "The model to use. Only \u0060gpt-6-luna\u0060 is supported."
           },
           "input": {
-            "description": "The text or images to evaluate for every question. Provide a text string or user messages containing text and images. Images can be base64 data URLs or publicly accessible HTTP(S) URLs; at most 128 images are allowed across all messages in one request. Files, audio, tools, and item references are not supported.",
+            "description": "The input to evaluate for every question. Provide a text string or an ordered array of messages, function calls and outputs, or custom tool calls and outputs. Each tool output must identify a matching call by call ID. User messages and tool outputs can contain text and images; developer and system messages can contain only input text, and assistant messages can contain output text or refusals. Images can be base64 data URLs or publicly accessible HTTP(S) URLs; at most 128 images are allowed per request. Files, audio, and item references are not supported.",
             "$ref": "#/components/schemas/DecisionInput"
           },
           "questions": {
@@ -76950,6 +77295,18 @@
               "string"
             ],
             "description": "Opaque caller-provided end-user identifier, scoped by the verified org. Match Responses\u0027 limit; this is never the authenticated user identity."
+          },
+          "prompt_cache_key": {
+            "maxLength": 64,
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Partition prompt cache reuse by caller-provided key."
+          },
+          "prompt_cache_options": {
+            "$ref": "#/components/schemas/DecisionRequestPromptCacheOptions"
           }
         },
         "additionalProperties": false
@@ -91380,7 +91737,7 @@
             "items": {
               "$ref": "#/components/schemas/LiveInitialItem"
             },
-            "description": "Ordered text-only history supplied before startup. Supports developer, user, and assistant messages with one text part each; at most 128 messages and 8,192 rendered tokens in total."
+            "description": "Ordered text-only history supplied before startup. Supports developer, user, and assistant messages with one text part each; at most 128 messages and a configured rendered-token limit (8,192 by default)."
           },
           "audio": {
             "description": "Startup audio configuration. Only primary WebSockets accept audio.format; WebRTC and SIP negotiate their media format. Voice and format are immutable after startup.",
@@ -91622,6 +91979,45 @@
           "example": {
             "type": "session.input_audio.unmute",
             "event_id": "evt_unmute_001"
+          }
+        }
+      },
+      "LiveOutputAudioFixturePlayParam": {
+        "required": [
+          "type",
+          "audio"
+        ],
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "maxLength": 512,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional client identifier for correlating this command with a server event\u0027s client_event_id or error.client_event_id."
+          },
+          "type": {
+            "$ref": "#/components/schemas/SessionOutputAudioFixturePlayType"
+          },
+          "audio": {
+            "maxLength": 1920000,
+            "minLength": 1,
+            "type": "string",
+            "description": "Base64-encoded raw mono PCM16 audio, little-endian, at 24 kHz. Do not include a WAV or other container header."
+          }
+        },
+        "description": "Play one complete audio fixture through the session output. Send this event over the primary WebSocket or a server sideband. Audio must be raw mono PCM16 little-endian at 24 kHz, regardless of the session audio format, and at most 30 seconds. The entire payload is validated before model speech is interrupted and input is muted. Only one fixture can be active. fixture.playing acknowledges acceptance and fixture.played reports server mixer drain. These notifications are not exact transport-media boundaries. Input arriving during playback is dropped and not replayed.",
+        "example": {
+          "type": "session.output_audio.fixture.play",
+          "event_id": "evt_play_001",
+          "audio": "AAAAAA=="
+        },
+        "x-oaiMeta": {
+          "example": {
+            "type": "session.output_audio.fixture.play",
+            "event_id": "evt_play_001",
+            "audio": "AAAAAA=="
           }
         }
       },
@@ -91977,7 +92373,7 @@
             "items": {
               "$ref": "#/components/schemas/LiveInitialItem"
             },
-            "description": "Ordered text-only history supplied before startup. Supports developer, user, and assistant messages with one text part each; at most 128 messages and 8,192 rendered tokens in total."
+            "description": "Ordered text-only history supplied before startup. Supports developer, user, and assistant messages with one text part each; at most 128 messages and a configured rendered-token limit (8,192 by default)."
           },
           "audio": {
             "description": "Startup audio configuration. Only primary WebSockets accept audio.format; WebRTC and SIP negotiate their media format. Voice and format are immutable after startup.",
@@ -92264,13 +92660,13 @@
         "description": "The existing playback path has accepted the validated audio fixture. This acknowledgment does not identify when the listener receives the first sample. The optional client_event_id echoes the play command.",
         "example": {
           "type": "session.output_audio.fixture.playing",
-          "event_id": "evt_play_started_001",
+          "event_id": "evt_playing_001",
           "client_event_id": "evt_play_001"
         },
         "x-oaiMeta": {
           "example": {
             "type": "session.output_audio.fixture.playing",
-            "event_id": "evt_play_started_001",
+            "event_id": "evt_playing_001",
             "client_event_id": "evt_play_001"
           }
         }
@@ -104176,6 +104572,20 @@
           "object"
         ],
         "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The original error type, or null if it was not recorded."
+          },
+          "param": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The request parameter associated with the error, or null if none was recorded."
+          },
           "code": {
             "description": "The error code for the response.\n",
             "$ref": "#/components/schemas/BetaResponseErrorCode"
@@ -119251,6 +119661,20 @@
             "type": "string",
             "description": "A machine-readable error code that was returned."
           },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The original error type, or null if it was not recorded."
+          },
+          "param": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The request parameter associated with the error, or null if none was recorded."
+          },
           "message": {
             "type": "string",
             "description": "A human-readable description of the error that was returned."
@@ -119781,6 +120205,103 @@
           },
           {
             "$ref": "#/components/schemas/DecisionInputImage"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputOutputText"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputRefusal"
+          }
+        ],
+        "properties": {
+          "text": {
+            "maxLength": 10485760,
+            "minLength": 0,
+            "type": "string"
+          },
+          "image_url": {
+            "maxLength": 1073741824,
+            "minLength": 0,
+            "pattern": "^(data:|https?://)",
+            "type": "string",
+            "description": "A base64-encoded image in a data URL or a publicly accessible HTTP(S) image URL."
+          },
+          "detail": {
+            "$ref": "#/components/schemas/DecisionInputImageDetail"
+          },
+          "refusal": {
+            "maxLength": 10485760,
+            "minLength": 0,
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "input_text": "#/components/schemas/DecisionInputText",
+            "input_image": "#/components/schemas/DecisionInputImage",
+            "output_text": "#/components/schemas/DecisionInputOutputText",
+            "refusal": "#/components/schemas/DecisionInputRefusal",
+            "DecisionInputText": "#/components/schemas/DecisionInputText",
+            "DecisionInputImage": "#/components/schemas/DecisionInputImage",
+            "DecisionInputOutputText": "#/components/schemas/DecisionInputOutputText",
+            "DecisionInputRefusal": "#/components/schemas/DecisionInputRefusal"
+          }
+        },
+        "x-oai-discriminator-values": [
+          "input_text",
+          "input_image",
+          "output_text",
+          "refusal"
+        ]
+      },
+      "DecisionInputMessagePhase": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/MessagePhaseParamWrapper"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/MessagePhaseParam"
+          }
+        },
+        "description": "The phase of an assistant message."
+      },
+      "DecisionInputFunctionCallStatus": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/FunctionCallStatusParamWrapper"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/FunctionCallStatusParam"
+          }
+        }
+      },
+      "DecisionInputToolOutputContentPartsItem": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DecisionInputText"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputImage"
           }
         ],
         "properties": {
@@ -119817,6 +120338,54 @@
           "input_image"
         ]
       },
+      "DecisionInputFunctionCallOutputStatus": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/FunctionCallStatusParamWrapper2"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/FunctionCallStatusParam"
+          }
+        }
+      },
+      "DecisionInputCustomToolCallStatus": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/FunctionCallStatusParamWrapper3"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/FunctionCallStatusParam"
+          }
+        }
+      },
+      "DecisionInputCustomToolCallOutputStatus": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/FunctionCallStatusParamWrapper4"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/FunctionCallStatusParam"
+          }
+        }
+      },
       "DecisionInputOneOf2Item": {
         "required": [
           "type"
@@ -119825,29 +120394,98 @@
         "oneOf": [
           {
             "$ref": "#/components/schemas/DecisionInputMessage"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputFunctionCall"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputFunctionCallOutput"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputCustomToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputCustomToolCallOutput"
           }
         ],
         "properties": {
           "role": {
-            "$ref": "#/components/schemas/UserRole"
+            "$ref": "#/components/schemas/DecisionInputMessageRole"
           },
           "content": {
             "description": "Text evidence or an ordered list of text and image parts.",
             "$ref": "#/components/schemas/DecisionInputContent"
           },
+          "phase": {
+            "$ref": "#/components/schemas/DecisionInputMessagePhase"
+          },
+          "id": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "call_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "namespace": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_-]\u002B$",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_.-]\u002B$",
+            "type": "string"
+          },
+          "arguments": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          "output": {
+            "description": "Text evidence or an ordered list of text and image parts.",
+            "$ref": "#/components/schemas/DecisionInputToolOutputContent"
+          },
+          "input": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
           "type": {
-            "$ref": "#/components/schemas/MessageType"
+            "type": "string"
           }
         },
         "discriminator": {
           "propertyName": "type",
           "mapping": {
             "message": "#/components/schemas/DecisionInputMessage",
-            "DecisionInputMessage": "#/components/schemas/DecisionInputMessage"
+            "function_call": "#/components/schemas/DecisionInputFunctionCall",
+            "function_call_output": "#/components/schemas/DecisionInputFunctionCallOutput",
+            "custom_tool_call": "#/components/schemas/DecisionInputCustomToolCall",
+            "custom_tool_call_output": "#/components/schemas/DecisionInputCustomToolCallOutput",
+            "DecisionInputMessage": "#/components/schemas/DecisionInputMessage",
+            "DecisionInputFunctionCall": "#/components/schemas/DecisionInputFunctionCall",
+            "DecisionInputFunctionCallOutput": "#/components/schemas/DecisionInputFunctionCallOutput",
+            "DecisionInputCustomToolCall": "#/components/schemas/DecisionInputCustomToolCall",
+            "DecisionInputCustomToolCallOutput": "#/components/schemas/DecisionInputCustomToolCallOutput"
           }
         },
         "x-oai-discriminator-values": [
-          "message"
+          "message",
+          "function_call",
+          "function_call_output",
+          "custom_tool_call",
+          "custom_tool_call_output"
         ],
         "x-oai-default-discriminator-value": "message"
       },
@@ -132895,6 +133533,57 @@
         "description": "State variables forwarded to the workflow. Keys may be up to 64 characters, values must be primitive types, and the map defaults to an empty object.",
         "x-oaiTypeLabel": "map"
       },
+      "DecisionInputTextPromptCacheBreakpoint": {
+        "title": "Prompt cache breakpoint",
+        "required": [
+          "mode"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "mode": {
+            "$ref": "#/components/schemas/ExplicitValueMode"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block."
+      },
+      "DecisionInputImagePromptCacheBreakpoint": {
+        "title": "Prompt cache breakpoint",
+        "required": [
+          "mode"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "mode": {
+            "$ref": "#/components/schemas/ExplicitValueMode"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block."
+      },
+      "DecisionRequestPromptCacheOptions": {
+        "title": "Prompt cache options",
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "ttl": {
+            "$ref": "#/components/schemas/Value30MTtl"
+          },
+          "mode": {
+            "$ref": "#/components/schemas/DecisionRequestPromptCacheOptionsMode"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details."
+      },
       "CreateEnvironmentParamOpenaiHostedEnv": {
         "propertyNames": {
           "maxLength": 256,
@@ -137960,6 +138649,61 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/ImageDetailParam"
+          }
+        }
+      },
+      "MessagePhaseParamWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/MessagePhaseParam"
+          }
+        }
+      },
+      "FunctionCallStatusParamWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/FunctionCallStatusParam"
+          }
+        }
+      },
+      "FunctionCallStatusParamWrapper2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/FunctionCallStatusParam"
+          }
+        }
+      },
+      "FunctionCallStatusParamWrapper3": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/FunctionCallStatusParam"
+          }
+        }
+      },
+      "FunctionCallStatusParamWrapper4": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/FunctionCallStatusParam"
           }
         }
       },
@@ -158661,6 +159405,38 @@
           ]
         }
       },
+      "DecisionInputMessageRole": {
+        "enum": [
+          "user",
+          "developer",
+          "system",
+          "assistant"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "DecisionInputMessageRole",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "user",
+              "name": "User"
+            },
+            {
+              "value": "developer",
+              "name": "Developer"
+            },
+            {
+              "value": "system",
+              "name": "System"
+            },
+            {
+              "value": "assistant",
+              "name": "Assistant"
+            }
+          ]
+        }
+      },
       "PredicateType": {
         "enum": [
           "predicate"
@@ -160426,6 +161202,24 @@
             {
               "value": "session.input_audio.unmute",
               "name": "SessionInputAudioUnmute"
+            }
+          ]
+        }
+      },
+      "SessionOutputAudioFixturePlayType": {
+        "enum": [
+          "session.output_audio.fixture.play"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "SessionOutputAudioFixturePlayType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "session.output_audio.fixture.play",
+              "name": "SessionOutputAudioFixturePlay"
             }
           ]
         }
@@ -163999,6 +164793,52 @@
           ]
         }
       },
+      "Value30MTtl": {
+        "enum": [
+          "30m"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The minimum lifetime applied to every implicit and explicit cache breakpoint written by the request. Defaults to \u006030m\u0060, which is currently the only supported value. The backend may retain cache entries for longer.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "Value30MTtl",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "30m",
+              "name": "Value30M"
+            }
+          ]
+        }
+      },
+      "DecisionRequestPromptCacheOptionsMode": {
+        "enum": [
+          "implicit",
+          "explicit",
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "additionalProperties": false,
+        "description": "Controls whether OpenAI automatically creates an implicit cache breakpoint. Defaults to \u0060implicit\u0060. With \u0060implicit\u0060, OpenAI creates one implicit breakpoint and writes up to the latest three explicit breakpoints in the request. With \u0060explicit\u0060, OpenAI does not create an implicit breakpoint and writes up to the latest four explicit breakpoints. If there are no explicit breakpoints, the request does not use prompt caching.",
+        "x-ms-enum": {
+          "name": "DecisionRequestPromptCacheOptionsMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "implicit",
+              "name": "ImplicitValue"
+            },
+            {
+              "value": "explicit",
+              "name": "ExplicitValue"
+            }
+          ]
+        }
+      },
       "BetaInputAudioInputAudioFormat": {
         "enum": [
           "mp3",
@@ -164775,6 +165615,39 @@
         "type": "string",
         "additionalProperties": false,
         "x-openai-enum-deprecations": {
+          "gpt-5.4-nano": {
+            "message": "Announced shutdown date: 2027-04-01. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5.1": {
+            "message": "Announced shutdown date: 2027-04-01. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4.1-2025-04-14": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4.1": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4.1-mini": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4.1-mini-2025-04-14": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-2024-08-06": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-2024-11-20": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-mini": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-mini-2024-07-18": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
           "gpt-5.3-chat-latest": {
             "message": "Announced shutdown date: 2026-08-10. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           },
@@ -165933,6 +166806,39 @@
         "type": "string",
         "additionalProperties": false,
         "x-openai-enum-deprecations": {
+          "gpt-5.4-nano": {
+            "message": "Announced shutdown date: 2027-04-01. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5.1": {
+            "message": "Announced shutdown date: 2027-04-01. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4.1-2025-04-14": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4.1": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4.1-mini": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4.1-mini-2025-04-14": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-2024-08-06": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-2024-11-20": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-mini": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-mini-2024-07-18": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
           "gpt-5.3-chat-latest": {
             "message": "Announced shutdown date: 2026-08-10. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           },
@@ -171893,6 +172799,11 @@
           },
           {
             "type": "object",
+            "key": "LiveOutputAudioFixturePlayParam",
+            "path": "\u003Cauto\u003E"
+          },
+          {
+            "type": "object",
             "key": "LiveInstructionsAppendParam",
             "path": "\u003Cauto\u003E"
           },
@@ -171962,6 +172873,16 @@
           {
             "type": "object",
             "key": "LiveInputAudioUnmuted",
+            "path": "\u003Cauto\u003E"
+          },
+          {
+            "type": "object",
+            "key": "LiveOutputAudioFixturePlaying",
+            "path": "\u003Cauto\u003E"
+          },
+          {
+            "type": "object",
+            "key": "LiveOutputAudioFixturePlayed",
             "path": "\u003Cauto\u003E"
           },
           {

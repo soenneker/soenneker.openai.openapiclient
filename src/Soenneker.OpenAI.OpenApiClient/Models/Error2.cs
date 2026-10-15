@@ -47,6 +47,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResource Misalignment { get; set; }
 #endif
+        /// <summary>The request parameter associated with the error, or null if none was recorded.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Param { get; set; }
+#nullable restore
+#else
+        public string Param { get; set; }
+#endif
+        /// <summary>The original error type, or null if it was not recorded.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Error2"/> and sets the default values.
         /// </summary>
@@ -76,6 +92,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Error2HeadersProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.Error2HeadersProperty.CreateFromDiscriminatorValue); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "misalignment", n => { Misalignment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResource>(global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResource.CreateFromDiscriminatorValue); } },
+                { "param", n => { Param = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -89,6 +107,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Error2HeadersProperty>("headers", Headers);
             writer.WriteStringValue("message", Message);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResource>("misalignment", Misalignment);
+            writer.WriteStringValue("param", Param);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

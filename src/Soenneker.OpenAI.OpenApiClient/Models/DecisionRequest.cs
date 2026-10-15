@@ -12,7 +12,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class DecisionRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The text or images to evaluate for every question. Provide a text string or user messages containing text and images. Images can be base64 data URLs or publicly accessible HTTP(S) URLs; at most 128 images are allowed across all messages in one request. Files, audio, tools, and item references are not supported.</summary>
+        /// <summary>The input to evaluate for every question. Provide a text string or an ordered array of messages, function calls and outputs, or custom tool calls and outputs. Each tool output must identify a matching call by call ID. User messages and tool outputs can contain text and images; developer and system messages can contain only input text, and assistant messages can contain output text or refusals. Images can be base64 data URLs or publicly accessible HTTP(S) URLs; at most 128 images are allowed per request. Files, audio, and item references are not supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionInput? Input { get; set; }
@@ -27,6 +27,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public string Model { get; set; }
+#endif
+        /// <summary>Partition prompt cache reuse by caller-provided key.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PromptCacheKey { get; set; }
+#nullable restore
+#else
+        public string PromptCacheKey { get; set; }
+#endif
+        /// <summary>Options for prompt caching. Supported for `gpt-5.6` and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with `prompt_cache_breakpoint`. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set `mode` to `explicit` to disable the implicit breakpoint. The `ttl` defaults to `30m`, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptions? PromptCacheOptions { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptions PromptCacheOptions { get; set; }
 #endif
         /// <summary>Ask 1–200 questions about the input. Each question can be a predicate, choice, or score. Answers come back in the same order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,6 +80,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "input", n => { Input = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionInput>(global::Soenneker.OpenAI.OpenApiClient.Models.DecisionInput.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
+                { "prompt_cache_key", n => { PromptCacheKey = n.GetStringValue(); } },
+                { "prompt_cache_options", n => { PromptCacheOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptions.CreateFromDiscriminatorValue); } },
                 { "questions", n => { Questions = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParam>(global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParam.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "safety_identifier", n => { SafetyIdentifier = n.GetStringValue(); } },
             };
@@ -77,6 +95,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionInput>("input", Input);
             writer.WriteStringValue("model", Model);
+            writer.WriteStringValue("prompt_cache_key", PromptCacheKey);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptions>("prompt_cache_options", PromptCacheOptions);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParam>("questions", Questions);
             writer.WriteStringValue("safety_identifier", SafetyIdentifier);
         }
