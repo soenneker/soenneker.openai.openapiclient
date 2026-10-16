@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientDelegationParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationParam"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientDelegationParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationParam"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Delegation : IComposedTypeWrapper, IParsable
@@ -20,6 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientDelegationParam LiveClientDelegationParam { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam? LiveDecisionsDelegationParam { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam LiveDecisionsDelegationParam { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationParam"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,6 +51,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.LiveClientDelegationParam = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientDelegationParam();
             }
+            else if("LiveDecisionsDelegationParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.LiveDecisionsDelegationParam = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam();
+            }
             else if("LiveResponsesDelegationParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.LiveResponsesDelegationParam = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationParam();
@@ -58,6 +70,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(LiveClientDelegationParam != null)
             {
                 return LiveClientDelegationParam.GetFieldDeserializers();
+            }
+            else if(LiveDecisionsDelegationParam != null)
+            {
+                return LiveDecisionsDelegationParam.GetFieldDeserializers();
             }
             else if(LiveResponsesDelegationParam != null)
             {
@@ -75,6 +91,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(LiveClientDelegationParam != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientDelegationParam>(null, LiveClientDelegationParam);
+            }
+            else if(LiveDecisionsDelegationParam != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam>(null, LiveDecisionsDelegationParam);
             }
             else if(LiveResponsesDelegationParam != null)
             {

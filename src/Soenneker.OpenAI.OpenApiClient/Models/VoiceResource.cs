@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// A custom voice that can be used for audio output.
+    /// A custom voice that can be used for audio output. Voices created from text prompts are supported only in Live.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VoiceResource : IParsable
@@ -33,8 +33,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The object type, which is always `audio.voice`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AudioVoiceObject? Object { get; set; }
-        /// <summary>The voice creation method. Defaults to `audio_sample` when omitted.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioSampleType? Type { get; set; }
+        /// <summary>The original text prompt used to create the voice. Present for prompt-generated voices with a stored prompt; omitted for audio-sample voices and older voices without a stored prompt.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Prompt { get; set; }
+#nullable restore
+#else
+        public string Prompt { get; set; }
+#endif
+        /// <summary>How the voice was created.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceResourceType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -57,7 +65,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioVoiceObject>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioSampleType>(); } },
+                { "prompt", n => { Prompt = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceResourceType>(); } },
             };
         }
         /// <summary>
@@ -71,7 +80,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioVoiceObject>("object", Object);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioSampleType>("type", Type);
+            writer.WriteStringValue("prompt", Prompt);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceResourceType>("type", Type);
         }
     }
 }

@@ -47,6 +47,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Legacy response format parameter for retired image models. Unsupported for GPT image models, which always return base64-encoded images.</summary>
         [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestResponseFormat? ResponseFormat { get; set; }
+        /// <summary>A stable identifier for an end user in your organization, used for safety monitoring and abuse detection. Hash a username or email address to avoid sending identifying information. A non-empty value takes precedence over the deprecated `user` parameter. If omitted, null, or empty, the API uses `user` when available. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SafetyIdentifier { get; set; }
+#nullable restore
+#else
+        public string SafetyIdentifier { get; set; }
+#endif
         /// <summary>The size of the generated images. For `gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`, `gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, and `gpt-image-2.5-flare-2026-09-08`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model&apos;s current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,7 +68,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Legacy style parameter for retired image models. Unsupported for GPT image models; describe the desired style in the prompt instead.</summary>
         [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestStyle? Style { get; set; }
-        /// <summary>A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).</summary>
+        /// <summary>Deprecated: use `safety_identifier` instead. This parameter remains accepted for backward compatibility and is used when `safety_identifier` is omitted, null, or empty. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? User { get; set; }
@@ -107,6 +116,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
                 { "quality", n => { Quality = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestQuality>(); } },
                 { "response_format", n => { ResponseFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestResponseFormat>(); } },
+                { "safety_identifier", n => { SafetyIdentifier = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSize>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSize.CreateFromDiscriminatorValue); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "style", n => { Style = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestStyle>(); } },
@@ -130,6 +140,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestQuality>("quality", Quality);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestResponseFormat>("response_format", ResponseFormat);
+            writer.WriteStringValue("safety_identifier", SafetyIdentifier);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSize>("size", Size);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestStyle>("style", Style);

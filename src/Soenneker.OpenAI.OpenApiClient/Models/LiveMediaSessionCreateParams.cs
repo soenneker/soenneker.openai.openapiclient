@@ -29,7 +29,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientConfigParam Client { get; set; }
 #endif
-        /// <summary>Who handles tasks delegated by the Live model. Omitted or null selects your application; use `responses` to let the API manage a Responses backend.</summary>
+        /// <summary>Who handles tasks delegated by the Live model. Omitted or null selects your application; use `responses` or `decisions` to delegate to the corresponding API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.Delegation? Delegation { get; set; }
@@ -63,6 +63,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Whether to store the session for later forking and recording download. Defaults to false for new sessions.</summary>
         public bool? Store { get; set; }
+        /// <summary>At most one Decisions trigger per transcript event type. Triggers run independently of delegation. On update, omit triggers to keep the current configuration, send a list to replace it, or send an empty list to disable triggers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionTriggerInputParam>? Triggers { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionTriggerInputParam> Triggers { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -88,6 +96,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsLive>(global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsLive.CreateFromDiscriminatorValue); } },
                 { "store", n => { Store = n.GetBoolValue(); } },
+                { "triggers", n => { Triggers = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionTriggerInputParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionTriggerInputParam.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -104,6 +113,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsLive>("model", Model);
             writer.WriteBoolValue("store", Store);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionTriggerInputParam>("triggers", Triggers);
         }
     }
 }

@@ -16,6 +16,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         Validated,
         #pragma warning restore CS1591
+        [EnumMember(Value = "degraded")]
+        #pragma warning disable CS1591
+        Degraded,
+        #pragma warning restore CS1591
         [EnumMember(Value = "unhealthy")]
         #pragma warning disable CS1591
         Unhealthy,

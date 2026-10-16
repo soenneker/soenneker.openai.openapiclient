@@ -25,7 +25,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The action type.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FindInPageType? Type { get; set; }
-        /// <summary>The URL of the page searched for the pattern.</summary>
+        /// <summary>The URL of the page searched for the pattern, when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Url { get; set; }

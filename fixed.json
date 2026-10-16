@@ -1073,10 +1073,15 @@
           "Audio"
         ],
         "summary": "Create voice",
-        "description": "Create a custom voice you can use for audio output (for example, in Text-to-Speech and the Realtime API). This requires an audio sample and a previously uploaded consent recording.\n\nSend \u0060name\u0060, \u0060audio_sample\u0060, and the \u0060consent\u0060 recording ID as multipart form data. The optional \u0060type\u0060 defaults to \u0060audio_sample\u0060.\n\nReturns the saved voice\u0027s metadata. See the [custom voices guide](https://developers.openai.com/api/docs/guides/text-to-speech#custom-voices) for requirements and best practices. Custom voices are limited to eligible customers.\n",
+        "description": "Creates a voice from a text prompt or from a consent recording and an audio sample.\n\nFor prompt-based creation, send \u0060type: \u0022prompt\u0022\u0060 with a \u0060name\u0060 and \u0060prompt\u0060 as JSON or multipart form data. For creation from an audio sample, send \u0060type: \u0022audio_sample\u0022\u0060 with a \u0060name\u0060, \u0060audio_sample\u0060, and \u0060consent\u0060 recording ID as multipart form data. The type defaults to \u0060audio_sample\u0060 when omitted.\n\nReturns the saved voice\u0027s metadata. Voices created from text prompts are supported only in Live, not in Realtime or the speech endpoint. The response does not include preview audio.\n",
         "operationId": "CreateVoice",
         "requestBody": {
           "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVoicePromptRequest"
+              }
+            },
             "multipart/form-data": {
               "schema": {
                 "$ref": "#/components/schemas/CreateVoiceRequest"
@@ -1097,7 +1102,7 @@
             }
           },
           "400": {
-            "description": "Invalid voice request, consent recording, or audio sample.",
+            "description": "Invalid voice request, prompt, script hint, model, consent recording, or audio sample.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1131,7 +1136,7 @@
           "group": "audio",
           "examples": {
             "request": {
-              "curl": "curl https://api.openai.com/v1/audio/voices \\\n  -X POST \\\n  -H \u0022Authorization: Bearer $OPENAI_API_KEY\u0022 \\\n  -F \u0022name=My new voice\u0022 \\\n  -F \u0022consent=cons_1234\u0022 \\\n  -F \u0022audio_sample=@audio_sample.wav;type=audio/x-wav\u0022\n"
+              "curl": "curl https://api.openai.com/v1/audio/voices \\\n  -X POST \\\n  -H \u0022Authorization: Bearer $OPENAI_API_KEY\u0022 \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -d \u0027{\n    \u0022type\u0022: \u0022prompt\u0022,\n    \u0022name\u0022: \u0022Warm narrator\u0022,\n    \u0022prompt\u0022: \u0022A warm, calm narrator with a clear, measured delivery.\u0022,\n    \u0022model\u0022: \u0022auto\u0022\n  }\u0027\n"
             }
           }
         }
@@ -2058,6 +2063,11 @@
             "description": "OK",
             "content": {
               "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCompletionResponse"
+                }
+              },
+              "text/event-stream": {
                 "schema": {
                   "$ref": "#/components/schemas/CreateCompletionResponse"
                 }
@@ -18753,6 +18763,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/ResponseValue"
                 }
+              },
+              "text/event-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseStreamEvent"
+                }
               }
             }
           },
@@ -32456,6 +32471,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/BetaResponse"
                 }
+              },
+              "text/event-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/BetaResponseStreamEvent"
+                }
               }
             }
           },
@@ -33340,6 +33360,20 @@
         ],
         "type": "string",
         "additionalProperties": false,
+        "x-openai-enum-deprecations": {
+          "gpt-4.1": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4.1-mini": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-mini": {
+            "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          }
+        },
         "x-ms-enum": {
           "name": "AssistantSupportedModels",
           "modelAsString": false,
@@ -38412,10 +38446,20 @@
             "default": 100,
             "example": 100
           },
+          "safety_identifier": {
+            "maxLength": 128,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "A stable identifier for an end user in your organization, used for safety monitoring and abuse detection. Hash a username or email address to avoid sending identifying information. A non-empty value takes precedence over the deprecated \u0060user\u0060 parameter. If omitted, null, or empty, the API uses \u0060user\u0060 when available. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).",
+            "example": "user-1234"
+          },
           "user": {
             "type": "string",
-            "description": "A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
-            "example": "user-1234"
+            "description": "Deprecated: use \u0060safety_identifier\u0060 instead. This parameter remains accepted for backward compatibility and is used when \u0060safety_identifier\u0060 is omitted, null, or empty. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).",
+            "example": "user-1234",
+            "deprecated": true
           },
           "input_fidelity": {
             "$ref": "#/components/schemas/CreateImageEditRequestInputFidelity"
@@ -38505,10 +38549,20 @@
           "style": {
             "$ref": "#/components/schemas/CreateImageRequestStyle"
           },
+          "safety_identifier": {
+            "maxLength": 128,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "A stable identifier for an end user in your organization, used for safety monitoring and abuse detection. Hash a username or email address to avoid sending identifying information. A non-empty value takes precedence over the deprecated \u0060user\u0060 parameter. If omitted, null, or empty, the API uses \u0060user\u0060 when available. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).",
+            "example": "user-1234"
+          },
           "user": {
             "type": "string",
-            "description": "A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
-            "example": "user-1234"
+            "description": "Deprecated: use \u0060safety_identifier\u0060 instead. This parameter remains accepted for backward compatibility and is used when \u0060safety_identifier\u0060 is omitted, null, or empty. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).",
+            "example": "user-1234",
+            "deprecated": true
           }
         }
       },
@@ -39794,6 +39848,43 @@
         "additionalProperties": false,
         "description": "Creates a voice from a consent recording and an audio sample. Requires multipart/form-data."
       },
+      "CreateVoicePromptRequest": {
+        "title": "Prompt",
+        "required": [
+          "type",
+          "name",
+          "prompt"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/PromptType"
+          },
+          "name": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the new voice."
+          },
+          "prompt": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string",
+            "description": "A description of the desired voice. Must not contain only whitespace."
+          },
+          "script_hint": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string",
+            "description": "Optional text for the voice to speak during creation. If omitted, a script is generated from the prompt. Must not be blank after trimming whitespace; scripts that are too short are rejected."
+          },
+          "model": {
+            "$ref": "#/components/schemas/CreateVoicePromptRequestModel"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Creates a synthetic voice from a text description. Supports application/json or multipart/form-data."
+      },
       "CreateVoiceRequest": {
         "required": [
           "type"
@@ -39802,12 +39893,12 @@
         "oneOf": [
           {
             "$ref": "#/components/schemas/CreateVoiceFromConsentRequest"
+          },
+          {
+            "$ref": "#/components/schemas/CreateVoicePromptRequest"
           }
         ],
         "properties": {
-          "type": {
-            "$ref": "#/components/schemas/AudioSampleType"
-          },
           "name": {
             "maxLength": 256,
             "minLength": 1,
@@ -39823,13 +39914,33 @@
           "consent": {
             "type": "string",
             "description": "The consent recording ID (for example, \u0060cons_1234\u0060)."
+          },
+          "prompt": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string",
+            "description": "A description of the desired voice. Must not contain only whitespace."
+          },
+          "script_hint": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string",
+            "description": "Optional text for the voice to speak during creation. If omitted, a script is generated from the prompt. Must not be blank after trimming whitespace; scripts that are too short are rejected."
+          },
+          "model": {
+            "$ref": "#/components/schemas/CreateVoicePromptRequestModel"
+          },
+          "type": {
+            "type": "string"
           }
         },
         "discriminator": {
           "propertyName": "type",
           "mapping": {
             "audio_sample": "#/components/schemas/CreateVoiceFromConsentRequest",
-            "CreateVoiceFromConsentRequest": "#/components/schemas/CreateVoiceFromConsentRequest"
+            "prompt": "#/components/schemas/CreateVoicePromptRequest",
+            "CreateVoiceFromConsentRequest": "#/components/schemas/CreateVoiceFromConsentRequest",
+            "CreateVoicePromptRequest": "#/components/schemas/CreateVoicePromptRequest"
           }
         },
         "x-oai-default-discriminator-value": "audio_sample"
@@ -40321,10 +40432,20 @@
           "size": {
             "$ref": "#/components/schemas/EditImageBodyJsonParamSize"
           },
+          "safety_identifier": {
+            "maxLength": 128,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "A stable identifier for an end user in your organization, used for safety monitoring and abuse detection. Hash a username or email address to avoid sending identifying information. A non-empty value takes precedence over the deprecated \u0060user\u0060 parameter. If omitted, null, or empty, the API uses \u0060user\u0060 when available. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).",
+            "example": "user-1234"
+          },
           "user": {
             "type": "string",
-            "description": "A unique identifier representing your end-user, which can help OpenAI\nmonitor and detect abuse.\n",
-            "example": "user-1234"
+            "description": "Deprecated: use \u0060safety_identifier\u0060 instead. This parameter remains accepted for backward compatibility and is used when \u0060safety_identifier\u0060 is omitted, null, or empty. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).",
+            "example": "user-1234",
+            "deprecated": true
           },
           "output_format": {
             "$ref": "#/components/schemas/EditImageBodyJsonParamOutputFormat"
@@ -42916,6 +43037,13 @@
         ],
         "type": "object",
         "properties": {
+          "safety_identifier": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The effective safety identifier used for safety monitoring and abuse detection. This is the non-empty \u0060safety_identifier\u0060 from the request, or the deprecated \u0060user\u0060 value when \u0060safety_identifier\u0060 is omitted, null, or empty."
+          },
           "type": {
             "$ref": "#/components/schemas/ImageEditCompletedType"
           },
@@ -43028,6 +43156,13 @@
             "type": "integer",
             "description": "0-based index for the partial image (streaming).\n"
           },
+          "safety_identifier": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The effective safety identifier used for safety monitoring and abuse detection. This is the non-empty \u0060safety_identifier\u0060 from the request, or the deprecated \u0060user\u0060 value when \u0060safety_identifier\u0060 is omitted, null, or empty."
+          },
           "usage": {
             "description": "For the GPT image models only, the token usage information for the image generation.\n",
             "$ref": "#/components/schemas/ImagesUsage"
@@ -43057,6 +43192,13 @@
         ],
         "type": "object",
         "properties": {
+          "safety_identifier": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The effective safety identifier used for safety monitoring and abuse detection. This is the non-empty \u0060safety_identifier\u0060 from the request, or the deprecated \u0060user\u0060 value when \u0060safety_identifier\u0060 is omitted, null, or empty."
+          },
           "type": {
             "$ref": "#/components/schemas/ImageGenerationCompletedType"
           },
@@ -43168,6 +43310,13 @@
           "partial_image_index": {
             "type": "integer",
             "description": "0-based index for the partial image (streaming).\n"
+          },
+          "safety_identifier": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The effective safety identifier used for safety monitoring and abuse detection. This is the non-empty \u0060safety_identifier\u0060 from the request, or the deprecated \u0060user\u0060 value when \u0060safety_identifier\u0060 is omitted, null, or empty."
           },
           "usage": {
             "description": "For the GPT image models only, the token usage information for the image generation.\n",
@@ -43286,6 +43435,13 @@
         ],
         "type": "object",
         "properties": {
+          "safety_identifier": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The effective safety identifier used for safety monitoring and abuse detection. This is the non-empty \u0060safety_identifier\u0060 from the request, or the deprecated \u0060user\u0060 value when \u0060safety_identifier\u0060 is omitted, null, or empty."
+          },
           "created": {
             "type": "integer",
             "description": "The Unix timestamp (in seconds) of when the image was created.",
@@ -45003,6 +45159,14 @@
           "delegation": {
             "$ref": "#/components/schemas/Delegation"
           },
+          "triggers": {
+            "maxItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveDecisionTriggerInputParam"
+            },
+            "description": "At most one Decisions trigger per transcript event type. Triggers run independently of delegation. On update, omit triggers to keep the current configuration, send a list to replace it, or send an empty list to disable triggers."
+          },
           "store": {
             "type": "boolean",
             "description": "Whether to store the session for later forking and recording download. Defaults to false for new sessions."
@@ -45087,6 +45251,15 @@
             "$ref": "#/components/schemas/LiveCommentaryAppendParam"
           },
           {
+            "$ref": "#/components/schemas/LiveDecisionCreateParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionItemCreateParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionItemDeleteParam"
+          },
+          {
             "$ref": "#/components/schemas/LiveResponseItemCreateParam"
           },
           {
@@ -45097,14 +45270,6 @@
           }
         ],
         "properties": {
-          "event_id": {
-            "maxLength": 512,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Optional client identifier for correlating this command with a server event\u0027s client_event_id or error.client_event_id."
-          },
           "audio": {
             "minLength": 1,
             "type": "string",
@@ -45122,9 +45287,9 @@
             "type": "string",
             "description": "Instruction text to append, limited to 500 tokens. This is a plain string, not an array of content parts."
           },
-          "item": {
-            "description": "An input item to append to the Responses backend conversation, such as a user message or a function tool result.",
-            "$ref": "#/components/schemas/InputItem"
+          "item_id": {
+            "minLength": 1,
+            "type": "string"
           },
           "type": {
             "type": "string"
@@ -45143,6 +45308,9 @@
             "LiveInstructionsAppendParam": "#/components/schemas/LiveInstructionsAppendParam",
             "LiveThinkingAppendParam": "#/components/schemas/LiveThinkingAppendParam",
             "LiveCommentaryAppendParam": "#/components/schemas/LiveCommentaryAppendParam",
+            "LiveDecisionCreateParam": "#/components/schemas/LiveDecisionCreateParam",
+            "LiveDecisionItemCreateParam": "#/components/schemas/LiveDecisionItemCreateParam",
+            "LiveDecisionItemDeleteParam": "#/components/schemas/LiveDecisionItemDeleteParam",
             "LiveResponseItemCreateParam": "#/components/schemas/LiveResponseItemCreateParam",
             "LiveResponseCreateParam": "#/components/schemas/LiveResponseCreateParam",
             "LiveSessionCloseParam": "#/components/schemas/LiveSessionCloseParam"
@@ -45222,6 +45390,15 @@
             "$ref": "#/components/schemas/LiveCommentaryAppendParam"
           },
           {
+            "$ref": "#/components/schemas/LiveDecisionCreateParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionItemCreateParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionItemDeleteParam"
+          },
+          {
             "$ref": "#/components/schemas/LiveResponseItemCreateParam"
           },
           {
@@ -45232,14 +45409,6 @@
           }
         ],
         "properties": {
-          "event_id": {
-            "maxLength": 512,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Optional client identifier for correlating this command with a server event\u0027s client_event_id or error.client_event_id."
-          },
           "audio": {
             "minLength": 1,
             "type": "string",
@@ -45257,9 +45426,9 @@
             "type": "string",
             "description": "Instruction text to append, limited to 500 tokens. This is a plain string, not an array of content parts."
           },
-          "item": {
-            "description": "An input item to append to the Responses backend conversation, such as a user message or a function tool result.",
-            "$ref": "#/components/schemas/InputItem"
+          "item_id": {
+            "minLength": 1,
+            "type": "string"
           },
           "type": {
             "type": "string"
@@ -45278,6 +45447,9 @@
             "LiveInstructionsAppendParam": "#/components/schemas/LiveInstructionsAppendParam",
             "LiveThinkingAppendParam": "#/components/schemas/LiveThinkingAppendParam",
             "LiveCommentaryAppendParam": "#/components/schemas/LiveCommentaryAppendParam",
+            "LiveDecisionCreateParam": "#/components/schemas/LiveDecisionCreateParam",
+            "LiveDecisionItemCreateParam": "#/components/schemas/LiveDecisionItemCreateParam",
+            "LiveDecisionItemDeleteParam": "#/components/schemas/LiveDecisionItemDeleteParam",
             "LiveResponseItemCreateParam": "#/components/schemas/LiveResponseItemCreateParam",
             "LiveResponseCreateParam": "#/components/schemas/LiveResponseCreateParam",
             "LiveSessionCloseParam": "#/components/schemas/LiveSessionCloseParam"
@@ -45347,6 +45519,14 @@
           },
           "delegation": {
             "$ref": "#/components/schemas/Delegation"
+          },
+          "triggers": {
+            "maxItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveDecisionTriggerInputParam"
+            },
+            "description": "At most one Decisions trigger per transcript event type. Triggers run independently of delegation. On update, omit triggers to keep the current configuration, send a list to replace it, or send an empty list to disable triggers."
           },
           "store": {
             "type": "boolean",
@@ -45545,6 +45725,15 @@
             "$ref": "#/components/schemas/LiveCommentaryAppendParam"
           },
           {
+            "$ref": "#/components/schemas/LiveDecisionCreateParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionItemCreateParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionItemDeleteParam"
+          },
+          {
             "$ref": "#/components/schemas/LiveResponseItemCreateParam"
           },
           {
@@ -45555,16 +45744,8 @@
           }
         ],
         "properties": {
-          "event_id": {
-            "maxLength": 512,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Optional client identifier for correlating this command with a server event\u0027s client_event_id or error.client_event_id."
-          },
           "session": {
-            "description": "Sparse delegation updates. Omitted settings retain their values. The delegation type cannot change, including resetting Responses delegation to null or client. Model, frontend instructions, audio, and startup input are immutable.",
+            "description": "Sparse delegation and trigger updates. Omitted settings retain their values. The delegation type cannot change. Model, frontend instructions, audio, and startup input are immutable.",
             "$ref": "#/components/schemas/LiveSessionUpdateParams"
           },
           "audio": {
@@ -45585,9 +45766,9 @@
             "type": "string",
             "description": "Instruction text to append, limited to 500 tokens. This is a plain string, not an array of content parts."
           },
-          "item": {
-            "description": "An input item to append to the Responses backend conversation, such as a user message or a function tool result.",
-            "$ref": "#/components/schemas/InputItem"
+          "item_id": {
+            "minLength": 1,
+            "type": "string"
           },
           "type": {
             "type": "string"
@@ -45604,6 +45785,9 @@
             "LiveInstructionsAppendParam": "#/components/schemas/LiveInstructionsAppendParam",
             "LiveThinkingAppendParam": "#/components/schemas/LiveThinkingAppendParam",
             "LiveCommentaryAppendParam": "#/components/schemas/LiveCommentaryAppendParam",
+            "LiveDecisionCreateParam": "#/components/schemas/LiveDecisionCreateParam",
+            "LiveDecisionItemCreateParam": "#/components/schemas/LiveDecisionItemCreateParam",
+            "LiveDecisionItemDeleteParam": "#/components/schemas/LiveDecisionItemDeleteParam",
             "LiveResponseItemCreateParam": "#/components/schemas/LiveResponseItemCreateParam",
             "LiveResponseCreateParam": "#/components/schemas/LiveResponseCreateParam",
             "LiveSessionCloseParam": "#/components/schemas/LiveSessionCloseParam"
@@ -45686,6 +45870,15 @@
             "$ref": "#/components/schemas/LiveDelegationCreated"
           },
           {
+            "$ref": "#/components/schemas/LiveDecisionEvent"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionItemCreated"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionItemDeleted"
+          },
+          {
             "$ref": "#/components/schemas/LiveResponseEvent"
           },
           {
@@ -45742,10 +45935,30 @@
               "null",
               "string"
             ],
-            "description": "The Live delegation associated with the nested Responses event. May be null or omitted when the event cannot be correlated with a delegation."
+            "description": "The Live delegation ID, or null for a transcript trigger."
           },
-          "event": {
-            "$ref": "#/components/schemas/LiveResponseEventEventProperty"
+          "trigger_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The Live-assigned ID of this trigger firing, or null for a delegation."
+          },
+          "source_event_type": {
+            "$ref": "#/components/schemas/LiveDecisionEventSourceEventType"
+          },
+          "source_event_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The event_id of the transcript delta that fired this trigger, or null for a delegation."
+          },
+          "item": {
+            "$ref": "#/components/schemas/LiveDecisionStoredInputItemParam"
+          },
+          "item_id": {
+            "type": "string"
           },
           "usage": {
             "description": "The cumulative Live audio usage so far.",
@@ -45789,6 +46002,9 @@
             "LiveInputTranscriptDelta": "#/components/schemas/LiveInputTranscriptDelta",
             "LiveOutputTranscriptDelta": "#/components/schemas/LiveOutputTranscriptDelta",
             "LiveDelegationCreated": "#/components/schemas/LiveDelegationCreated",
+            "LiveDecisionEvent": "#/components/schemas/LiveDecisionEvent",
+            "LiveDecisionItemCreated": "#/components/schemas/LiveDecisionItemCreated",
+            "LiveDecisionItemDeleted": "#/components/schemas/LiveDecisionItemDeleted",
             "LiveResponseEvent": "#/components/schemas/LiveResponseEvent",
             "LiveSessionUsageUpdated": "#/components/schemas/LiveSessionUsageUpdated",
             "LiveSessionClosed": "#/components/schemas/LiveSessionClosed",
@@ -49540,7 +49756,7 @@
             "description": "The default system instructions (i.e. system message) prepended to model \ncalls. This field allows the client to guide the model on desired \nresponses. The model can be instructed on response content and format, \n(e.g. \u0022be extremely succinct\u0022, \u0022act friendly\u0022, \u0022here are examples of good \nresponses\u0022) and on audio behavior (e.g. \u0022talk quickly\u0022, \u0022inject emotion \ninto your voice\u0022, \u0022laugh frequently\u0022). The instructions are not guaranteed \nto be followed by the model, but they provide guidance to the model on the \ndesired behavior.\n\nNote that the server sets default instructions which will be used if this \nfield is not set and are visible in the \u0060session.created\u0060 event at the \nstart of the session.\n"
           },
           "voice": {
-            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with an\n\u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed during\nthe session once the model has responded with audio at least once.\nCustom voices must be created from audio samples.\n",
+            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with an\n\u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed during\nthe session once the model has responded with audio at least once.\nCustom voices must be created from audio samples. Voices created from text prompts are supported only in Live.\n",
             "$ref": "#/components/schemas/VoiceIdsOrCustomVoice"
           },
           "output_audio_format": {
@@ -54397,7 +54613,7 @@
             "description": "The default system instructions (i.e. system message) prepended to model calls. This field allows the client to guide the model on desired responses. The model can be instructed on response content and format, (e.g. \u0022be extremely succinct\u0022, \u0022act friendly\u0022, \u0022here are examples of good responses\u0022) and on audio behavior (e.g. \u0022talk quickly\u0022, \u0022inject emotion into your voice\u0022, \u0022laugh frequently\u0022). The instructions are not guaranteed to be followed by the model, but they provide guidance to the model on the desired behavior.\nNote that the server sets default instructions which will be used if this field is not set and are visible in the \u0060session.created\u0060 event at the start of the session.\n"
           },
           "voice": {
-            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with an\n\u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed during\nthe session once the model has responded with audio at least once.\nCustom voices must be created from audio samples.\n",
+            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with an\n\u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed during\nthe session once the model has responded with audio at least once.\nCustom voices must be created from audio samples. Voices created from text prompts are supported only in Live.\n",
             "$ref": "#/components/schemas/VoiceIdsOrCustomVoice"
           },
           "input_audio_format": {
@@ -63984,7 +64200,11 @@
             "description": "The voice identifier, which can be referenced in API endpoints."
           },
           "type": {
-            "$ref": "#/components/schemas/AudioSampleType"
+            "$ref": "#/components/schemas/VoiceResourceType"
+          },
+          "prompt": {
+            "type": "string",
+            "description": "The original text prompt used to create the voice. Present for prompt-generated voices with a stored prompt; omitted for audio-sample voices and older voices without a stored prompt."
           },
           "name": {
             "type": "string",
@@ -63997,7 +64217,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "A custom voice that can be used for audio output.",
+        "description": "A custom voice that can be used for audio output. Voices created from text prompts are supported only in Live.",
         "x-oaiMeta": {
           "name": "The voice object",
           "example": "{\n  \u0022object\u0022: \u0022audio.voice\u0022,\n  \u0022id\u0022: \u0022voice_123abc\u0022,\n  \u0022name\u0022: \u0022My new voice\u0022,\n  \u0022type\u0022: \u0022audio_sample\u0022,\n  \u0022created_at\u0022: 1734220800\n}\n"
@@ -64007,7 +64227,6 @@
         "title": "Find action",
         "required": [
           "type",
-          "url",
           "pattern"
         ],
         "type": "object",
@@ -64016,8 +64235,11 @@
             "$ref": "#/components/schemas/FindInPageType"
           },
           "url": {
-            "type": "string",
-            "description": "The URL of the page searched for the pattern.\n",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The URL of the page searched for the pattern, when available.\n",
             "format": "uri"
           },
           "pattern": {
@@ -71207,6 +71429,195 @@
         },
         "description": "Delegate tasks to a Responses model managed by the Live session."
       },
+      "LiveDecisionChoiceParam": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/LiveDecisionChoiceParamValue"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "LiveDecisionChoiceQuestionParam": {
+        "required": [
+          "type",
+          "instructions",
+          "choices"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ChoiceType"
+          },
+          "name": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "choices": {
+            "maxItems": 255,
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveDecisionChoiceParam"
+            }
+          }
+        }
+      },
+      "LiveDecisionPredicateQuestionParam": {
+        "required": [
+          "type",
+          "instructions"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/PredicateType"
+          },
+          "name": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          }
+        }
+      },
+      "LiveDecisionScoreLevelParam": {
+        "required": [
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "LiveDecisionScoreQuestionParam": {
+        "required": [
+          "type",
+          "instructions",
+          "levels"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ScoreType"
+          },
+          "name": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "levels": {
+            "maxItems": 10,
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveDecisionScoreLevelParam"
+            }
+          }
+        }
+      },
+      "LiveDecisionQuestion": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveDecisionChoiceQuestionParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionPredicateQuestionParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionScoreQuestionParam"
+          }
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "choices": {
+            "maxItems": 255,
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveDecisionChoiceParam"
+            }
+          },
+          "levels": {
+            "maxItems": 10,
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveDecisionScoreLevelParam"
+            }
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "LiveDecisionChoiceQuestionParam": "#/components/schemas/LiveDecisionChoiceQuestionParam",
+            "LiveDecisionPredicateQuestionParam": "#/components/schemas/LiveDecisionPredicateQuestionParam",
+            "LiveDecisionScoreQuestionParam": "#/components/schemas/LiveDecisionScoreQuestionParam"
+          }
+        }
+      },
+      "LiveDecisionsSettingsInputParam": {
+        "required": [
+          "questions",
+          "model"
+        ],
+        "type": "object",
+        "properties": {
+          "questions": {
+            "maxItems": 64,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveDecisionQuestion"
+            },
+            "description": "Native Decision API questions evaluated together, in order."
+          },
+          "model": {
+            "minLength": 1,
+            "type": "string"
+          }
+        }
+      },
+      "LiveDecisionsDelegationParam": {
+        "required": [
+          "type",
+          "decisions"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DecisionsType"
+          },
+          "decisions": {
+            "$ref": "#/components/schemas/LiveDecisionsSettingsInputParam"
+          }
+        }
+      },
       "Delegation": {
         "type": [
           "null",
@@ -71218,15 +71629,68 @@
           },
           {
             "$ref": "#/components/schemas/LiveResponsesDelegationParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionsDelegationParam"
           }
         ],
         "properties": {
           "responses": {
             "description": "Backend model, prompt, and tools used when the Live session delegates a task to Responses.",
             "$ref": "#/components/schemas/LiveResponsesDelegationSettingsInputParam"
+          },
+          "decisions": {
+            "$ref": "#/components/schemas/LiveDecisionsSettingsInputParam"
           }
         },
-        "description": "Who handles tasks delegated by the Live model. Omitted or null selects your application; use \u0060responses\u0060 to let the API manage a Responses backend."
+        "description": "Who handles tasks delegated by the Live model. Omitted or null selects your application; use \u0060responses\u0060 or \u0060decisions\u0060 to delegate to the corresponding API."
+      },
+      "LiveDecisionQuestionsInputParam": {
+        "required": [
+          "questions"
+        ],
+        "type": "object",
+        "properties": {
+          "questions": {
+            "maxItems": 64,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveDecisionQuestion"
+            },
+            "description": "Native Decision API questions evaluated together, in order."
+          }
+        },
+        "description": "Questions evaluated using the current transcript and the session\u0027s shared Decision items."
+      },
+      "LiveDecisionTriggerInputParam": {
+        "required": [
+          "type",
+          "event_type",
+          "decisions"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DecisionsType"
+          },
+          "event_type": {
+            "$ref": "#/components/schemas/LiveDecisionTriggerInputParamEventType"
+          },
+          "decisions": {
+            "description": "Questions evaluated using the current transcript and the session\u0027s shared Decision items.",
+            "$ref": "#/components/schemas/LiveDecisionQuestionsInputParam"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Triggers": {
+        "maxItems": 2,
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/LiveDecisionTriggerInputParam"
+        },
+        "description": "At most one Decisions trigger per transcript event type. Triggers run independently of delegation. On update, omit triggers to keep the current configuration, send a list to replace it, or send an empty list to disable triggers."
       },
       "Store": {
         "type": "boolean",
@@ -73139,6 +73603,7 @@
         "enum": [
           "pending",
           "validated",
+          "degraded",
           "unhealthy"
         ],
         "type": "string",
@@ -73154,6 +73619,10 @@
             {
               "value": "validated",
               "name": "Validated"
+            },
+            {
+              "value": "degraded",
+              "name": "Degraded"
             },
             {
               "value": "unhealthy",
@@ -84349,32 +84818,6 @@
         "additionalProperties": false,
         "description": "A deleted reusable environment template."
       },
-      "SessionSpendControlResource": {
-        "required": [
-          "limit",
-          "consumed"
-        ],
-        "type": "object",
-        "properties": {
-          "limit": {
-            "maximum": 4503599627370495,
-            "minimum": 1,
-            "type": "integer",
-            "description": "The configured positive limit in USD cents.",
-            "format": "int64"
-          },
-          "consumed": {
-            "minimum": 0,
-            "type": [
-              "null",
-              "integer"
-            ],
-            "description": "Best-effort recorded spend floored to whole USD cents, or null when unavailable."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Session-wide spending control, present only when a limit is configured."
-      },
       "SessionStatusResource": {
         "enum": [
           "idle",
@@ -85519,10 +85962,6 @@
         ],
         "type": "object",
         "properties": {
-          "spend_control": {
-            "description": "Configured spending limit and best-effort consumption, in USD cents. Unlimited sessions omit this object.",
-            "$ref": "#/components/schemas/SessionSpendControlResource"
-          },
           "metadata": {
             "$ref": "#/components/schemas/SessionResourceMetadataProperty"
           },
@@ -85635,26 +86074,6 @@
         },
         "additionalProperties": false,
         "description": "A page of Agents API resources, with IDs for retrieving additional pages."
-      },
-      "SessionSpendControlParam": {
-        "required": [
-          "limit"
-        ],
-        "type": "object",
-        "properties": {
-          "limit": {
-            "maximum": 4503599627370495,
-            "minimum": 1,
-            "type": [
-              "null",
-              "integer"
-            ],
-            "description": "Positive USD cents, or null to remove the limit.",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Sets the session-wide limit without changing recorded spend."
       },
       "AgentToolConfigParamFunction": {
         "required": [
@@ -86731,9 +87150,6 @@
         ],
         "type": "object",
         "properties": {
-          "spend_control": {
-            "$ref": "#/components/schemas/CreateAgentSessionParamsSpendControl"
-          },
           "metadata": {
             "$ref": "#/components/schemas/CreateAgentSessionParamsMetadataProperty"
           },
@@ -88942,9 +89358,6 @@
       "UpdateAgentSessionParams": {
         "type": "object",
         "properties": {
-          "spend_control": {
-            "$ref": "#/components/schemas/UpdateAgentSessionParamsSpendControl"
-          },
           "agent": {
             "description": "Model settings for subsequent turns. Omitted fields stay unchanged.",
             "$ref": "#/components/schemas/UpdateSessionAgentParam"
@@ -91714,6 +92127,81 @@
         },
         "description": "Startup audio configuration. Only primary WebSockets accept audio.format; WebRTC and SIP negotiate their media format. Voice and format are immutable after startup."
       },
+      "LiveDecisionsSettingsInputParam2": {
+        "required": [
+          "questions",
+          "model"
+        ],
+        "type": "object",
+        "properties": {
+          "questions": {
+            "maxItems": 64,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuestionParam"
+            },
+            "description": "Native Decision API questions evaluated together, in order."
+          },
+          "model": {
+            "minLength": 1,
+            "type": "string"
+          }
+        }
+      },
+      "LiveDecisionsDelegationParam2": {
+        "required": [
+          "type",
+          "decisions"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DecisionsType"
+          },
+          "decisions": {
+            "$ref": "#/components/schemas/LiveDecisionsSettingsInputParam2"
+          }
+        }
+      },
+      "LiveDecisionQuestionsInputParam2": {
+        "required": [
+          "questions"
+        ],
+        "type": "object",
+        "properties": {
+          "questions": {
+            "maxItems": 64,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuestionParam"
+            },
+            "description": "Native Decision API questions evaluated together, in order."
+          }
+        },
+        "description": "Questions evaluated using the current transcript and the session\u0027s shared Decision items."
+      },
+      "LiveDecisionTriggerInputParam2": {
+        "required": [
+          "type",
+          "event_type",
+          "decisions"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DecisionsType"
+          },
+          "event_type": {
+            "$ref": "#/components/schemas/LiveDecisionTriggerInputParam2EventType"
+          },
+          "decisions": {
+            "$ref": "#/components/schemas/LiveDecisionQuestionsInputParam2"
+          }
+        },
+        "additionalProperties": false
+      },
       "LiveSessionCreateParams": {
         "required": [
           "model"
@@ -91745,6 +92233,14 @@
           },
           "delegation": {
             "$ref": "#/components/schemas/LiveSessionCreateParamsDelegation"
+          },
+          "triggers": {
+            "maxItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveDecisionTriggerInputParam2"
+            },
+            "description": "At most one Decisions trigger per transcript event type. Triggers run independently of delegation. On update, omit triggers to keep the current configuration, send a list to replace it, or send an empty list to disable triggers."
           },
           "store": {
             "type": "boolean",
@@ -91824,14 +92320,54 @@
           }
         }
       },
+      "LiveDecisionsSettingsUpdateParam": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "questions": {
+            "maxItems": 64,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuestionParam"
+            },
+            "description": "Native Decision API questions evaluated together, in order."
+          }
+        }
+      },
+      "LiveDecisionsDelegationUpdateParam": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DecisionsType"
+          },
+          "decisions": {
+            "$ref": "#/components/schemas/LiveDecisionsSettingsUpdateParam"
+          }
+        }
+      },
       "LiveSessionUpdateParams": {
         "type": "object",
         "properties": {
           "delegation": {
             "$ref": "#/components/schemas/LiveSessionUpdateParamsDelegation"
+          },
+          "triggers": {
+            "maxItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveDecisionTriggerInputParam2"
+            },
+            "description": "At most one Decisions trigger per transcript event type. Triggers run independently of delegation. On update, omit triggers to keep the current configuration, send a list to replace it, or send an empty list to disable triggers."
           }
         },
-        "description": "Changes to an active Live session. Only delegation backend settings can be updated after startup."
+        "description": "Changes to an active Live session\u0027s delegation settings and transcript triggers."
       },
       "LiveSessionUpdateParam": {
         "required": [
@@ -91852,11 +92388,11 @@
             "$ref": "#/components/schemas/SessionUpdateType"
           },
           "session": {
-            "description": "Sparse delegation updates. Omitted settings retain their values. The delegation type cannot change, including resetting Responses delegation to null or client. Model, frontend instructions, audio, and startup input are immutable.",
+            "description": "Sparse delegation and trigger updates. Omitted settings retain their values. The delegation type cannot change. Model, frontend instructions, audio, and startup input are immutable.",
             "$ref": "#/components/schemas/LiveSessionUpdateParams"
           }
         },
-        "description": "Update the delegation settings of an active Live session. The server acknowledges accepted changes with \u0060session.updated\u0060.",
+        "description": "Update the delegation settings or transcript triggers of an active Live session. The server acknowledges accepted changes with \u0060session.updated\u0060.",
         "example": {
           "type": "session.update",
           "event_id": "evt_update_001",
@@ -92165,6 +92701,220 @@
           }
         }
       },
+      "LiveDecisionCreateParam": {
+        "required": [
+          "event_id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/DecisionCreateType"
+          }
+        },
+        "description": "Evaluate the configured questions using the current conversation and Decision inputs. Reusing an event_id is rejected for the lifetime of the session.",
+        "example": {
+          "type": "decision.create",
+          "event_id": "decision_1"
+        },
+        "x-oaiMeta": {
+          "example": {
+            "type": "decision.create",
+            "event_id": "decision_1"
+          }
+        }
+      },
+      "LiveDecisionInputTextParam": {
+        "required": [
+          "type",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InputTextType"
+          },
+          "text": {
+            "maxLength": 10485760,
+            "type": "string",
+            "description": "The text input to the model."
+          }
+        }
+      },
+      "LiveDetailEnum": {
+        "enum": [
+          "low",
+          "high",
+          "auto",
+          "original"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "LiveDetailEnum",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            },
+            {
+              "value": "auto",
+              "name": "Auto"
+            },
+            {
+              "value": "original",
+              "name": "Original"
+            }
+          ]
+        }
+      },
+      "LiveDecisionInputImageParam": {
+        "required": [
+          "type",
+          "image_url"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InputImageType"
+          },
+          "image_url": {
+            "maxLength": 20971520,
+            "pattern": "^data:",
+            "type": "string",
+            "description": "An inline image encoded as a data URL."
+          },
+          "detail": {
+            "$ref": "#/components/schemas/LiveDecisionInputImageParamDetail"
+          }
+        }
+      },
+      "LiveDecisionInputItemParam": {
+        "required": [
+          "role",
+          "content"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The unique ID of this message item."
+          },
+          "type": {
+            "$ref": "#/components/schemas/MessageType"
+          },
+          "role": {
+            "$ref": "#/components/schemas/UserRole"
+          },
+          "content": {
+            "$ref": "#/components/schemas/LiveDecisionInputItemParamContent"
+          }
+        }
+      },
+      "LiveDecisionItemCreateParam": {
+        "required": [
+          "type",
+          "item"
+        ],
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "maxLength": 512,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional client identifier for correlating this command with a server event\u0027s client_event_id or error.client_event_id."
+          },
+          "type": {
+            "$ref": "#/components/schemas/DecisionItemCreateType"
+          },
+          "item": {
+            "$ref": "#/components/schemas/LiveDecisionInputItemParam"
+          }
+        },
+        "description": "Append an input item for future decisions without starting an evaluation or changing Live voice context.",
+        "example": {
+          "type": "decision.item.create",
+          "event_id": "browser_1",
+          "item": {
+            "type": "message",
+            "role": "user",
+            "content": [
+              {
+                "type": "input_text",
+                "text": "Wikipedia is open."
+              }
+            ]
+          }
+        },
+        "x-oaiMeta": {
+          "example": {
+            "type": "decision.item.create",
+            "event_id": "browser_1",
+            "item": {
+              "type": "message",
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Wikipedia is open."
+                }
+              ]
+            }
+          }
+        }
+      },
+      "LiveDecisionItemDeleteParam": {
+        "required": [
+          "type",
+          "item_id"
+        ],
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "maxLength": 512,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional client identifier for correlating this command with a server event\u0027s client_event_id or error.client_event_id."
+          },
+          "type": {
+            "$ref": "#/components/schemas/DecisionItemDeleteType"
+          },
+          "item_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "description": "Delete an input item from future decisions without starting an evaluation or changing Live voice context.",
+        "example": {
+          "type": "decision.item.delete",
+          "event_id": "remove_browser_1",
+          "item_id": "msg_browser_1"
+        },
+        "x-oaiMeta": {
+          "example": {
+            "type": "decision.item.delete",
+            "event_id": "remove_browser_1",
+            "item_id": "msg_browser_1"
+          }
+        }
+      },
       "LiveResponseItemCreateParam": {
         "required": [
           "type",
@@ -92381,6 +93131,14 @@
           },
           "delegation": {
             "$ref": "#/components/schemas/LiveSessionResourceParamDelegation"
+          },
+          "triggers": {
+            "maxItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveDecisionTriggerInputParam2"
+            },
+            "description": "At most one Decisions trigger per transcript event type. Triggers run independently of delegation. On update, omit triggers to keep the current configuration, send a list to replace it, or send an empty list to disable triggers."
           },
           "store": {
             "type": "boolean",
@@ -93025,7 +93783,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique ID of the delegation. Use this as delegation_id when replying to client-owned work or correlating Responses events."
+            "description": "The unique ID of the delegation. Use this as delegation_id when replying to client-owned work or correlating backend events."
           },
           "type": {
             "$ref": "#/components/schemas/DelegationType"
@@ -93038,7 +93796,7 @@
             "description": "The ID of the Responses API response associated with a Responses delegation. Omitted for client delegations."
           }
         },
-        "description": "Metadata for work delegated by the Live model. Client delegations are handled by your application; Responses delegations run on the configured backend."
+        "description": "Metadata for work delegated by the Live model to your application, Responses, or Decisions."
       },
       "LiveDelegationCreated": {
         "required": [
@@ -93069,7 +93827,7 @@
             "$ref": "#/components/schemas/LiveDelegationItem"
           }
         },
-        "description": "Returned when the Live model delegates work to your application or a Responses backend. Contains delegation metadata and the position on the session timeline where the work was delegated.",
+        "description": "Returned when the Live model delegates work to your application, Responses, or Decisions. Contains delegation metadata and the position on the session timeline where the work was delegated.",
         "example": {
           "type": "session.delegation.created",
           "event_id": "evt_delegation_001",
@@ -93090,6 +93848,260 @@
               "type": "delegation",
               "target": "client"
             }
+          }
+        }
+      },
+      "LiveDecisionCompleted": {
+        "required": [
+          "type",
+          "decision"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DecisionCompletedType"
+          },
+          "decision": {
+            "description": "The native Decision API response, including its model, ordered answers, and token usage.",
+            "$ref": "#/components/schemas/DecisionResponse"
+          }
+        }
+      },
+      "LiveDecisionEvent": {
+        "required": [
+          "type",
+          "event_id",
+          "delegation_id",
+          "trigger_id",
+          "source_event_type",
+          "source_event_id",
+          "event"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DecisionEventType"
+          },
+          "event_id": {
+            "type": "string",
+            "description": "The unique ID of this Live server event."
+          },
+          "delegation_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The Live delegation ID, or null for a transcript trigger."
+          },
+          "trigger_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The Live-assigned ID of this trigger firing, or null for a delegation."
+          },
+          "source_event_type": {
+            "$ref": "#/components/schemas/LiveDecisionEventSourceEventType"
+          },
+          "source_event_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The event_id of the transcript delta that fired this trigger, or null for a delegation."
+          },
+          "event": {
+            "$ref": "#/components/schemas/LiveDecisionCompleted"
+          }
+        },
+        "description": "A Decision API event for a Live delegation or transcript trigger. For a trigger, source_event_id identifies the transcript delta that caused this evaluation.",
+        "example": {
+          "type": "decision.event",
+          "event_id": "evt_decision_1",
+          "delegation_id": "del_abc123",
+          "trigger_id": null,
+          "source_event_type": null,
+          "source_event_id": null,
+          "event": {
+            "type": "decision.completed",
+            "decision": {
+              "model": "gpt-6-luna",
+              "answers": [
+                {
+                  "type": "predicate",
+                  "name": "damaged",
+                  "probability": 0.95
+                }
+              ],
+              "usage": {
+                "input_tokens": 42,
+                "input_tokens_details": {
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 0
+                },
+                "output_tokens": 0,
+                "output_tokens_details": {
+                  "reasoning_tokens": 0
+                },
+                "total_tokens": 42
+              }
+            }
+          }
+        },
+        "x-oaiMeta": {
+          "example": {
+            "type": "decision.event",
+            "event_id": "evt_decision_1",
+            "delegation_id": "del_abc123",
+            "trigger_id": null,
+            "source_event_type": null,
+            "source_event_id": null,
+            "event": {
+              "type": "decision.completed",
+              "decision": {
+                "model": "gpt-6-luna",
+                "answers": [
+                  {
+                    "type": "predicate",
+                    "name": "damaged",
+                    "probability": 0.95
+                  }
+                ],
+                "usage": {
+                  "input_tokens": 42,
+                  "input_tokens_details": {
+                    "cached_tokens": 0,
+                    "cache_write_tokens": 0
+                  },
+                  "output_tokens": 0,
+                  "output_tokens_details": {
+                    "reasoning_tokens": 0
+                  },
+                  "total_tokens": 42
+                }
+              }
+            }
+          }
+        }
+      },
+      "LiveDecisionStoredInputItemParam": {
+        "required": [
+          "id",
+          "role",
+          "content"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the stored Decision input item."
+          },
+          "type": {
+            "$ref": "#/components/schemas/MessageType"
+          },
+          "role": {
+            "$ref": "#/components/schemas/UserRole"
+          },
+          "content": {
+            "$ref": "#/components/schemas/LiveDecisionStoredInputItemParamContent"
+          }
+        }
+      },
+      "LiveDecisionItemCreated": {
+        "required": [
+          "event_id",
+          "type",
+          "item"
+        ],
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "description": "The unique ID of the Live server event."
+          },
+          "client_event_id": {
+            "type": "string",
+            "description": "The event_id of the client command associated with this server event, when supplied."
+          },
+          "type": {
+            "$ref": "#/components/schemas/DecisionItemCreatedType"
+          },
+          "item": {
+            "$ref": "#/components/schemas/LiveDecisionStoredInputItemParam"
+          }
+        },
+        "description": "An input item was appended for future decisions.",
+        "example": {
+          "type": "decision.item.created",
+          "event_id": "evt_item_1",
+          "client_event_id": "browser_1",
+          "item": {
+            "id": "msg_browser_1",
+            "type": "message",
+            "role": "user",
+            "content": [
+              {
+                "type": "input_text",
+                "text": "Wikipedia is open."
+              }
+            ]
+          }
+        },
+        "x-oaiMeta": {
+          "example": {
+            "type": "decision.item.created",
+            "event_id": "evt_item_1",
+            "client_event_id": "browser_1",
+            "item": {
+              "id": "msg_browser_1",
+              "type": "message",
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Wikipedia is open."
+                }
+              ]
+            }
+          }
+        }
+      },
+      "LiveDecisionItemDeleted": {
+        "required": [
+          "event_id",
+          "type",
+          "item_id"
+        ],
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "description": "The unique ID of the Live server event."
+          },
+          "client_event_id": {
+            "type": "string",
+            "description": "The event_id of the client command associated with this server event, when supplied."
+          },
+          "type": {
+            "$ref": "#/components/schemas/DecisionItemDeletedType"
+          },
+          "item_id": {
+            "type": "string"
+          }
+        },
+        "description": "An input item was removed from future decisions.",
+        "example": {
+          "type": "decision.item.deleted",
+          "event_id": "evt_item_deleted_1",
+          "client_event_id": "remove_browser_1",
+          "item_id": "msg_browser_1"
+        },
+        "x-oaiMeta": {
+          "example": {
+            "type": "decision.item.deleted",
+            "event_id": "evt_item_deleted_1",
+            "client_event_id": "remove_browser_1",
+            "item_id": "msg_browser_1"
           }
         }
       },
@@ -93716,6 +94728,15 @@
             "$ref": "#/components/schemas/LiveDelegationCreated"
           },
           {
+            "$ref": "#/components/schemas/LiveDecisionEvent"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionItemCreated"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionItemDeleted"
+          },
+          {
             "$ref": "#/components/schemas/LiveResponseEvent"
           },
           {
@@ -93788,7 +94809,30 @@
               "null",
               "string"
             ],
-            "description": "The Live delegation associated with the nested Responses event. May be null or omitted when the event cannot be correlated with a delegation."
+            "description": "The Live delegation ID, or null for a transcript trigger."
+          },
+          "trigger_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The Live-assigned ID of this trigger firing, or null for a delegation."
+          },
+          "source_event_type": {
+            "$ref": "#/components/schemas/LiveDecisionEventSourceEventType"
+          },
+          "source_event_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The event_id of the transcript delta that fired this trigger, or null for a delegation."
+          },
+          "item": {
+            "$ref": "#/components/schemas/LiveDecisionStoredInputItemParam"
+          },
+          "item_id": {
+            "type": "string"
           },
           "usage": {
             "description": "The cumulative Live audio usage so far.",
@@ -93835,6 +94879,9 @@
             "LiveInputTranscriptDelta": "#/components/schemas/LiveInputTranscriptDelta",
             "LiveOutputTranscriptDelta": "#/components/schemas/LiveOutputTranscriptDelta",
             "LiveDelegationCreated": "#/components/schemas/LiveDelegationCreated",
+            "LiveDecisionEvent": "#/components/schemas/LiveDecisionEvent",
+            "LiveDecisionItemCreated": "#/components/schemas/LiveDecisionItemCreated",
+            "LiveDecisionItemDeleted": "#/components/schemas/LiveDecisionItemDeleted",
             "LiveResponseEvent": "#/components/schemas/LiveResponseEvent",
             "LiveSessionUsageUpdated": "#/components/schemas/LiveSessionUsageUpdated",
             "LiveSessionClosed": "#/components/schemas/LiveSessionClosed",
@@ -99665,7 +100712,6 @@
         "title": "Find action",
         "required": [
           "type",
-          "url",
           "pattern"
         ],
         "type": "object",
@@ -99674,8 +100720,11 @@
             "$ref": "#/components/schemas/FindInPageType"
           },
           "url": {
-            "type": "string",
-            "description": "The URL of the page searched for the pattern.\n",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The URL of the page searched for the pattern, when available.\n",
             "format": "uri"
           },
           "pattern": {
@@ -111408,7 +112457,7 @@
             "example": "voice_1234"
           }
         },
-        "description": "The voice to use when generating the audio. Supported built-in voices are \u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060fable\u0060, \u0060onyx\u0060, \u0060nova\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060, \u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with an \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Previews of the voices are available in the [Text to speech guide](https://developers.openai.com/api/docs/guides/text-to-speech#voice-options). Custom voices must be created from audio samples."
+        "description": "The voice to use when generating the audio. Supported built-in voices are \u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060fable\u0060, \u0060onyx\u0060, \u0060nova\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060, \u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with an \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Previews of the voices are available in the [Text to speech guide](https://developers.openai.com/api/docs/guides/text-to-speech#voice-options). Custom voices must be created from audio samples. Voices created from text prompts are supported only in Live."
       },
       "CreateThreadAndRunRequestModel": {
         "type": "object",
@@ -111697,6 +112746,18 @@
           }
         },
         "description": "The chunking strategy used to chunk the file(s). If not set, will use the \u0060auto\u0060 strategy. Only applicable if \u0060file_ids\u0060 is non-empty."
+      },
+      "CreateVoicePromptRequestModel": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/CreateVoicePromptRequestModelBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/CreateVoicePromptRequestModelWrapper"
+          }
+        ],
+        "description": "The voice creation model to use. Defaults to \u0060auto\u0060."
       },
       "CustomToolCallCaller": {
         "type": "object",
@@ -117024,6 +118085,14 @@
             },
             "description": "The sources used in the search.\n"
           },
+          "url": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The URL opened by the model.\n",
+            "format": "uri"
+          },
           "pattern": {
             "type": "string",
             "description": "The pattern or text to search for within the page.\n"
@@ -118942,6 +120011,17 @@
           }
         },
         "description": "Controls which tool the Responses backend uses when handling a task delegated by the Live model."
+      },
+      "LiveDecisionChoiceParamValue": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          }
+        ]
       },
       "LiveInitialDeveloperMessageItemParamStatus": {
         "type": "object",
@@ -121854,30 +122934,6 @@
         },
         "description": "Desktop provisioning. Omission or null inherits the template setting, or defaults to disabled."
       },
-      "CreateAgentSessionParamsSpendControl": {
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/SessionSpendControlParam"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "properties": {
-          "limit": {
-            "maximum": 4503599627370495,
-            "minimum": 1,
-            "type": [
-              "null",
-              "integer"
-            ],
-            "description": "Positive USD cents, or null to remove the limit.",
-            "format": "int64"
-          }
-        },
-        "description": "Optional spending limit in USD cents. Omission or null creates an unlimited session."
-      },
       "CreateAgentSessionParamsInput": {
         "type": "object",
         "anyOf": [
@@ -122075,30 +123131,6 @@
         },
         "description": "Omit to keep the current tier. Null resets it to auto."
       },
-      "UpdateAgentSessionParamsSpendControl": {
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/SessionSpendControlParam"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "properties": {
-          "limit": {
-            "maximum": 4503599627370495,
-            "minimum": 1,
-            "type": [
-              "null",
-              "integer"
-            ],
-            "description": "Positive USD cents, or null to remove the limit.",
-            "format": "int64"
-          }
-        },
-        "description": "Omit to retain the limit; null or a null limit removes it without resetting spend."
-      },
       "SessionInputParamAgentSessionInputToolResultOutput": {
         "type": "object",
         "anyOf": [
@@ -122276,15 +123308,21 @@
           },
           {
             "$ref": "#/components/schemas/LiveResponsesDelegationParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionsDelegationParam2"
           }
         ],
         "properties": {
           "responses": {
             "description": "Backend model, prompt, and tools used when the Live session delegates a task to Responses.",
             "$ref": "#/components/schemas/LiveResponsesDelegationSettingsInputParam"
+          },
+          "decisions": {
+            "$ref": "#/components/schemas/LiveDecisionsSettingsInputParam2"
           }
         },
-        "description": "Who handles tasks delegated by the Live model. Omitted or null selects your application; use \u0060responses\u0060 to let the API manage a Responses backend."
+        "description": "Who handles tasks delegated by the Live model. Omitted or null selects your application; use \u0060responses\u0060 or \u0060decisions\u0060 to delegate to the corresponding API."
       },
       "LiveSessionUpdateParamsDelegation": {
         "type": [
@@ -122297,15 +123335,53 @@
           },
           {
             "$ref": "#/components/schemas/LiveResponsesDelegationUpdateParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionsDelegationUpdateParam"
           }
         ],
         "properties": {
           "responses": {
             "description": "Responses backend settings to update. Omitted settings keep their existing values.",
             "$ref": "#/components/schemas/LiveResponsesDelegationSettingsUpdateInputParam"
+          },
+          "decisions": {
+            "$ref": "#/components/schemas/LiveDecisionsSettingsUpdateParam"
           }
         },
         "description": "Delegation settings to update. The delegation type must match the current session; omitted settings retain their values."
+      },
+      "LiveDecisionInputImageParamDetail": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/LiveDetailEnumWrapper"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/LiveDetailEnum"
+          }
+        }
+      },
+      "LiveDecisionInputItemParamContent": {
+        "type": "object",
+        "oneOf": [
+          {
+            "maxLength": 10485760,
+            "type": "string",
+            "description": "The text input to the model."
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveDecisionInputItemParamContentOneOf2Item"
+            }
+          }
+        ]
       },
       "LiveSessionResourceParamDelegation": {
         "type": [
@@ -122318,15 +123394,21 @@
           },
           {
             "$ref": "#/components/schemas/LiveResponsesDelegationParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionsDelegationParam2"
           }
         ],
         "properties": {
           "responses": {
             "description": "Backend model, prompt, and tools used when the Live session delegates a task to Responses.",
             "$ref": "#/components/schemas/LiveResponsesDelegationSettingsInputParam"
+          },
+          "decisions": {
+            "$ref": "#/components/schemas/LiveDecisionsSettingsInputParam2"
           }
         },
-        "description": "Who handles tasks delegated by the Live model. Omitted or null selects your application; use \u0060responses\u0060 to let the API manage a Responses backend."
+        "description": "Who handles tasks delegated by the Live model. Omitted or null selects your application; use \u0060responses\u0060 or \u0060decisions\u0060 to delegate to the corresponding API."
       },
       "LiveDelegationItemTarget": {
         "type": "object",
@@ -122336,9 +123418,42 @@
           },
           {
             "$ref": "#/components/schemas/LiveDelegationItemTargetWrapper2"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDelegationItemTargetWrapper3"
           }
         ],
-        "description": "Where the Live model delegated the work: \u0060client\u0060 for your application, or \u0060responses\u0060 for the configured Responses backend."
+        "description": "Where the Live model delegated the work: \u0060client\u0060, \u0060responses\u0060, or \u0060decisions\u0060."
+      },
+      "LiveDecisionEventSourceEventType": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveDecisionEventSourceEventTypeOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionEventSourceEventTypeOneOf2"
+          }
+        ]
+      },
+      "LiveDecisionStoredInputItemParamContent": {
+        "type": "object",
+        "oneOf": [
+          {
+            "maxLength": 10485760,
+            "type": "string",
+            "description": "The text input to the model."
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveDecisionStoredInputItemParamContentOneOf2Item"
+            }
+          }
+        ]
       },
       "LiveSessionClosedReason": {
         "type": "object",
@@ -124332,6 +125447,14 @@
               "$ref": "#/components/schemas/BetaWebSearchActionSearchSourcesItem"
             },
             "description": "The sources used in the search.\n"
+          },
+          "url": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The URL opened by the model.\n",
+            "format": "uri"
           },
           "pattern": {
             "type": "string",
@@ -128176,6 +129299,86 @@
             "InputTextContentParam": "#/components/schemas/InputTextContentParam",
             "InputImageContentParamAutoParam": "#/components/schemas/InputImageContentParamAutoParam",
             "InputFileContentParam": "#/components/schemas/InputFileContentParam"
+          }
+        }
+      },
+      "LiveDecisionInputItemParamContentOneOf2Item": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveDecisionInputTextParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionInputImageParam"
+          }
+        ],
+        "properties": {
+          "text": {
+            "maxLength": 10485760,
+            "type": "string",
+            "description": "The text input to the model."
+          },
+          "image_url": {
+            "maxLength": 20971520,
+            "pattern": "^data:",
+            "type": "string",
+            "description": "An inline image encoded as a data URL."
+          },
+          "detail": {
+            "$ref": "#/components/schemas/LiveDecisionInputImageParamDetail"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "LiveDecisionInputTextParam": "#/components/schemas/LiveDecisionInputTextParam",
+            "LiveDecisionInputImageParam": "#/components/schemas/LiveDecisionInputImageParam"
+          }
+        }
+      },
+      "LiveDecisionStoredInputItemParamContentOneOf2Item": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveDecisionInputTextParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionInputImageParam"
+          }
+        ],
+        "properties": {
+          "text": {
+            "maxLength": 10485760,
+            "type": "string",
+            "description": "The text input to the model."
+          },
+          "image_url": {
+            "maxLength": 20971520,
+            "pattern": "^data:",
+            "type": "string",
+            "description": "An inline image encoded as a data URL."
+          },
+          "detail": {
+            "$ref": "#/components/schemas/LiveDecisionInputImageParamDetail"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "LiveDecisionInputTextParam": "#/components/schemas/LiveDecisionInputTextParam",
+            "LiveDecisionInputImageParam": "#/components/schemas/LiveDecisionInputImageParam"
           }
         }
       },
@@ -134534,7 +135737,7 @@
         ],
         "properties": {
           "voice": {
-            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060fable\u0060, \u0060nova\u0060, \u0060onyx\u0060,\n\u0060sage\u0060, \u0060shimmer\u0060, \u0060marin\u0060, and \u0060cedar\u0060. You may also provide a\ncustom voice object with an \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060.\nCustom voices must be created from audio samples.\n",
+            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060fable\u0060, \u0060nova\u0060, \u0060onyx\u0060,\n\u0060sage\u0060, \u0060shimmer\u0060, \u0060marin\u0060, and \u0060cedar\u0060. You may also provide a\ncustom voice object with an \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060.\nCustom voices must be created from audio samples. Voices created from text\nprompts are supported only in Live.\n",
             "$ref": "#/components/schemas/VoiceIdsOrCustomVoice"
           },
           "format": {
@@ -135858,7 +137061,7 @@
             "$ref": "#/components/schemas/RealtimeAudioFormats"
           },
           "voice": {
-            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with\nan \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed\nduring the session once the model has responded with audio at least once.\nCustom voices must be created from audio samples.\nWe recommend \u0060marin\u0060 and \u0060cedar\u0060 for best quality.\n",
+            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with\nan \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed\nduring the session once the model has responded with audio at least once.\nCustom voices must be created from audio samples. Voices created from text prompts are supported only in Live.\nWe recommend \u0060marin\u0060 and \u0060cedar\u0060 for best quality.\n",
             "default": "alloy",
             "$ref": "#/components/schemas/VoiceIdsOrCustomVoice"
           }
@@ -135895,7 +137098,7 @@
             "$ref": "#/components/schemas/RealtimeAudioFormats"
           },
           "voice": {
-            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with\nan \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed\nduring the session once the model has responded with audio at least once.\nCustom voices must be created from audio samples.\nWe recommend \u0060marin\u0060 and \u0060cedar\u0060 for best quality.\n",
+            "description": "The voice the model uses to respond. Supported built-in voices are\n\u0060alloy\u0060, \u0060ash\u0060, \u0060ballad\u0060, \u0060coral\u0060, \u0060echo\u0060, \u0060sage\u0060, \u0060shimmer\u0060, \u0060verse\u0060,\n\u0060marin\u0060, and \u0060cedar\u0060. You may also provide a custom voice object with\nan \u0060id\u0060, for example \u0060{ \u0022id\u0022: \u0022voice_1234\u0022 }\u0060. Voice cannot be changed\nduring the session once the model has responded with audio at least once.\nCustom voices must be created from audio samples. Voices created from text prompts are supported only in Live.\nWe recommend \u0060marin\u0060 and \u0060cedar\u0060 for best quality.\n",
             "default": "alloy",
             "$ref": "#/components/schemas/VoiceIdsOrCustomVoice"
           },
@@ -137684,6 +138887,17 @@
           }
         }
       },
+      "CreateVoicePromptRequestModelWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/CreateVoicePromptRequestModelWrapperValue"
+          }
+        }
+      },
       "MessagePhaseWrapper": {
         "required": [
           "value"
@@ -138927,6 +140141,17 @@
           }
         }
       },
+      "LiveDetailEnumWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/LiveDetailEnum"
+          }
+        }
+      },
       "LiveDelegationItemTargetWrapper": {
         "required": [
           "value"
@@ -138946,6 +140171,17 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/ResponsesValue"
+          }
+        }
+      },
+      "LiveDelegationItemTargetWrapper3": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/DecisionsValue"
           }
         }
       },
@@ -139800,6 +141036,17 @@
         }
       },
       "CreateTranslationRequestModelBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateVoicePromptRequestModelBranch1": {
         "required": [
           "value"
         ],
@@ -148397,6 +149644,24 @@
           ]
         }
       },
+      "PromptType": {
+        "enum": [
+          "prompt"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Set to \u0060prompt\u0060 to create a voice from a text description.",
+        "x-ms-enum": {
+          "name": "PromptType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "prompt",
+              "name": "Prompt"
+            }
+          ]
+        }
+      },
       "CustomToolCallType": {
         "enum": [
           "custom_tool_call"
@@ -156582,6 +157847,29 @@
           ]
         }
       },
+      "VoiceResourceType": {
+        "enum": [
+          "audio_sample",
+          "prompt"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How the voice was created.",
+        "x-ms-enum": {
+          "name": "VoiceResourceType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "audio_sample",
+              "name": "AudioSample"
+            },
+            {
+              "value": "prompt",
+              "name": "Prompt"
+            }
+          ]
+        }
+      },
       "FindInPageType": {
         "enum": [
           "find_in_page"
@@ -158529,6 +159817,100 @@
           ]
         }
       },
+      "ChoiceType": {
+        "enum": [
+          "choice"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "ChoiceType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "choice",
+              "name": "Choice"
+            }
+          ]
+        }
+      },
+      "PredicateType": {
+        "enum": [
+          "predicate"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "PredicateType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "predicate",
+              "name": "Predicate"
+            }
+          ]
+        }
+      },
+      "ScoreType": {
+        "enum": [
+          "score"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "ScoreType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "score",
+              "name": "Score"
+            }
+          ]
+        }
+      },
+      "DecisionsType": {
+        "enum": [
+          "decisions"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "DecisionsType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "decisions",
+              "name": "Decisions"
+            }
+          ]
+        }
+      },
+      "LiveDecisionTriggerInputParamEventType": {
+        "enum": [
+          "session.input_transcript.delta",
+          "session.output_transcript.delta"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "LiveDecisionTriggerInputParamEventType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "session.input_transcript.delta",
+              "name": "SessionInputTranscriptDelta"
+            },
+            {
+              "value": "session.output_transcript.delta",
+              "name": "SessionOutputTranscriptDelta"
+            }
+          ]
+        }
+      },
       "AwsType": {
         "enum": [
           "aws"
@@ -159433,63 +160815,6 @@
             {
               "value": "assistant",
               "name": "Assistant"
-            }
-          ]
-        }
-      },
-      "PredicateType": {
-        "enum": [
-          "predicate"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The type of the object. Always \u0060predicate\u0060.",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "PredicateType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "predicate",
-              "name": "Predicate"
-            }
-          ]
-        }
-      },
-      "ChoiceType": {
-        "enum": [
-          "choice"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The type of the object. Always \u0060choice\u0060.",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "ChoiceType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "choice",
-              "name": "Choice"
-            }
-          ]
-        }
-      },
-      "ScoreType": {
-        "enum": [
-          "score"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The type of the object. Always \u0060score\u0060.",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "ScoreType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "score",
-              "name": "Score"
             }
           ]
         }
@@ -161130,6 +162455,28 @@
           ]
         }
       },
+      "LiveDecisionTriggerInputParam2EventType": {
+        "enum": [
+          "session.input_transcript.delta",
+          "session.output_transcript.delta"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "LiveDecisionTriggerInputParam2EventType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "session.input_transcript.delta",
+              "name": "SessionInputTranscriptDelta"
+            },
+            {
+              "value": "session.output_transcript.delta",
+              "name": "SessionOutputTranscriptDelta"
+            }
+          ]
+        }
+      },
       "SessionStartType": {
         "enum": [
           "session.start"
@@ -161277,6 +162624,60 @@
             {
               "value": "session.commentary.append",
               "name": "SessionCommentaryAppend"
+            }
+          ]
+        }
+      },
+      "DecisionCreateType": {
+        "enum": [
+          "decision.create"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "DecisionCreateType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "decision.create",
+              "name": "DecisionCreate"
+            }
+          ]
+        }
+      },
+      "DecisionItemCreateType": {
+        "enum": [
+          "decision.item.create"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "DecisionItemCreateType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "decision.item.create",
+              "name": "DecisionItemCreate"
+            }
+          ]
+        }
+      },
+      "DecisionItemDeleteType": {
+        "enum": [
+          "decision.item.delete"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "DecisionItemDeleteType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "decision.item.delete",
+              "name": "DecisionItemDelete"
             }
           ]
         }
@@ -161503,6 +162904,78 @@
             {
               "value": "session.delegation.created",
               "name": "SessionDelegationCreated"
+            }
+          ]
+        }
+      },
+      "DecisionCompletedType": {
+        "enum": [
+          "decision.completed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "DecisionCompletedType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "decision.completed",
+              "name": "DecisionCompleted"
+            }
+          ]
+        }
+      },
+      "DecisionEventType": {
+        "enum": [
+          "decision.event"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "DecisionEventType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "decision.event",
+              "name": "DecisionEvent"
+            }
+          ]
+        }
+      },
+      "DecisionItemCreatedType": {
+        "enum": [
+          "decision.item.created"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "DecisionItemCreatedType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "decision.item.created",
+              "name": "DecisionItemCreated"
+            }
+          ]
+        }
+      },
+      "DecisionItemDeletedType": {
+        "enum": [
+          "decision.item.deleted"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "DecisionItemDeletedType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "decision.item.deleted",
+              "name": "DecisionItemDeleted"
             }
           ]
         }
@@ -163603,6 +165076,42 @@
             {
               "value": "willow",
               "name": "Willow"
+            }
+          ]
+        }
+      },
+      "LiveDecisionEventSourceEventTypeOneOf1": {
+        "enum": [
+          "session.input_transcript.delta"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "LiveDecisionEventSourceEventTypeOneOf1",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "session.input_transcript.delta",
+              "name": "SessionInputTranscriptDelta"
+            }
+          ]
+        }
+      },
+      "LiveDecisionEventSourceEventTypeOneOf2": {
+        "enum": [
+          "session.output_transcript.delta"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "LiveDecisionEventSourceEventTypeOneOf2",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "session.output_transcript.delta",
+              "name": "SessionOutputTranscriptDelta"
             }
           ]
         }
@@ -168336,6 +169845,28 @@
           ]
         }
       },
+      "CreateVoicePromptRequestModelWrapperValue": {
+        "enum": [
+          "auto",
+          "2026-10-08"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "CreateVoicePromptRequestModelWrapperValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "auto",
+              "name": "Auto"
+            },
+            {
+              "value": "2026-10-08",
+              "name": "Value20261008"
+            }
+          ]
+        }
+      },
       "EditImageBodyJsonParamModelWrapperValue": {
         "enum": [
           "gpt-image-1.5",
@@ -169183,6 +170714,24 @@
             {
               "value": "responses",
               "name": "Responses"
+            }
+          ]
+        }
+      },
+      "DecisionsValue": {
+        "enum": [
+          "decisions"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "DecisionsValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "decisions",
+              "name": "Decisions"
             }
           ]
         }
@@ -172819,6 +174368,21 @@
           },
           {
             "type": "object",
+            "key": "LiveDecisionCreateParam",
+            "path": "\u003Cauto\u003E"
+          },
+          {
+            "type": "object",
+            "key": "LiveDecisionItemCreateParam",
+            "path": "\u003Cauto\u003E"
+          },
+          {
+            "type": "object",
+            "key": "LiveDecisionItemDeleteParam",
+            "path": "\u003Cauto\u003E"
+          },
+          {
+            "type": "object",
             "key": "LiveResponseItemCreateParam",
             "path": "\u003Cauto\u003E"
           },
@@ -172918,6 +174482,21 @@
           {
             "type": "object",
             "key": "LiveDelegationCreated",
+            "path": "\u003Cauto\u003E"
+          },
+          {
+            "type": "object",
+            "key": "LiveDecisionEvent",
+            "path": "\u003Cauto\u003E"
+          },
+          {
+            "type": "object",
+            "key": "LiveDecisionItemCreated",
+            "path": "\u003Cauto\u003E"
+          },
+          {
+            "type": "object",
+            "key": "LiveDecisionItemDeleted",
             "path": "\u003Cauto\u003E"
           },
           {

@@ -31,6 +31,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseOutputFormat? OutputFormat { get; set; }
         /// <summary>The quality of the image generated. One of `low`, `medium`, `high`, `xhigh`, or `max`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseQuality? Quality { get; set; }
+        /// <summary>The effective safety identifier used for safety monitoring and abuse detection. This is the non-empty `safety_identifier` from the request, or the deprecated `user` value when `safety_identifier` is omitted, null, or empty.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SafetyIdentifier { get; set; }
+#nullable restore
+#else
+        public string SafetyIdentifier { get; set; }
+#endif
         /// <summary>The image dimensions as a `WIDTHxHEIGHT` string, for example `1536x864`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,6 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Image>(global::Soenneker.OpenAI.OpenApiClient.Models.Image.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "output_format", n => { OutputFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseOutputFormat>(); } },
                 { "quality", n => { Quality = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseQuality>(); } },
+                { "safety_identifier", n => { SafetyIdentifier = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseSize>(global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseSize.CreateFromDiscriminatorValue); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenUsage.CreateFromDiscriminatorValue); } },
             };
@@ -93,6 +102,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Image>("data", Data);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseOutputFormat>("output_format", OutputFormat);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseQuality>("quality", Quality);
+            writer.WriteStringValue("safety_identifier", SafetyIdentifier);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseSize>("size", Size);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenUsage>("usage", Usage);
             writer.WriteAdditionalData(AdditionalData);

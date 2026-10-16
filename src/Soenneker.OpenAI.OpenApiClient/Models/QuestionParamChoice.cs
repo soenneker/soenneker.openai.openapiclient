@@ -37,7 +37,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The type of the object. Always `choice`.</summary>
+        /// <summary>The type property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChoiceType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

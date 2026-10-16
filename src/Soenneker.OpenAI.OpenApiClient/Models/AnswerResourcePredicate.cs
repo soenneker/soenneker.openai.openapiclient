@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The probability property</summary>
         public double? Probability { get; set; }
-        /// <summary>The type of the object. Always `predicate`.</summary>
+        /// <summary>The type property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.PredicateType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
