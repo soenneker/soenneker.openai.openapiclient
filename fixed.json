@@ -6774,10 +6774,10 @@
             {
               "title": "Single string",
               "request": {
-                "curl": "curl https://api.openai.com/v1/moderations \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_API_KEY\u0022 \\\n  -d \u0027{\n    \u0022model\u0022: \u0022omni-moderation-latest\u0022,\n    \u0022input\u0022: \u0022I want to kill them.\u0022\n  }\u0027\n",
-                "python": "from openai import OpenAI\nclient = OpenAI()\n\nmoderation = client.moderations.create(\n    model=\u0022omni-moderation-latest\u0022,\n    input=\u0022I want to kill them.\u0022,\n)\nprint(moderation)\n",
-                "javascript": "import OpenAI from \u0022openai\u0022;\n\nconst openai = new OpenAI();\n\nasync function main() {\n  const moderation = await openai.moderations.create({\n    model: \u0022omni-moderation-latest\u0022,\n    input: \u0022I want to kill them.\u0022,\n  });\n\n  console.log(moderation);\n}\nmain();\n",
-                "csharp": "using System;\nusing System.ClientModel;\n\nusing OpenAI.Moderations;\n\nModerationClient client = new(\n    model: \u0022omni-moderation-latest\u0022,\n    apiKey: Environment.GetEnvironmentVariable(\u0022OPENAI_API_KEY\u0022)\n);\n\nClientResult\u003CModerationResult\u003E moderation = client.ClassifyText(\u0022I want to kill them.\u0022);\n"
+                "curl": "curl https://api.openai.com/v1/moderations \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_API_KEY\u0022 \\\n  -d \u0027{\n    \u0022model\u0022: \u0022omni-moderation-latest\u0022,\n    \u0022input\u0022: \u0022...text to classify goes here...\u0022\n  }\u0027\n",
+                "python": "from openai import OpenAI\nclient = OpenAI()\n\nmoderation = client.moderations.create(\n    model=\u0022omni-moderation-latest\u0022,\n    input=\u0022...text to classify goes here...\u0022,\n)\nprint(moderation)\n",
+                "javascript": "import OpenAI from \u0022openai\u0022;\n\nconst openai = new OpenAI();\n\nasync function main() {\n  const moderation = await openai.moderations.create({\n    model: \u0022omni-moderation-latest\u0022,\n    input: \u0022...text to classify goes here...\u0022,\n  });\n\n  console.log(moderation);\n}\nmain();\n",
+                "csharp": "using System;\nusing System.ClientModel;\n\nusing OpenAI.Moderations;\n\nModerationClient client = new(\n    model: \u0022omni-moderation-latest\u0022,\n    apiKey: Environment.GetEnvironmentVariable(\u0022OPENAI_API_KEY\u0022)\n);\n\nClientResult\u003CModerationResult\u003E moderation = client.ClassifyText(\u0022...text to classify goes here...\u0022);\n"
               },
               "response": "{\n  \u0022id\u0022: \u0022modr-AB8CjOTu2jiq12hp1AQPfeqFWaORR\u0022,\n  \u0022model\u0022: \u0022omni-moderation-latest\u0022,\n  \u0022results\u0022: [\n    {\n      \u0022flagged\u0022: true,\n      \u0022categories\u0022: {\n        \u0022sexual\u0022: false,\n        \u0022hate\u0022: false,\n        \u0022harassment\u0022: true,\n        \u0022self-harm\u0022: false,\n        \u0022sexual/minors\u0022: false,\n        \u0022hate/threatening\u0022: false,\n        \u0022violence/graphic\u0022: false,\n        \u0022self-harm/intent\u0022: false,\n        \u0022self-harm/instructions\u0022: false,\n        \u0022harassment/threatening\u0022: true,\n        \u0022violence\u0022: true,\n        \u0022illicit\u0022: false,\n        \u0022illicit/violent\u0022: false\n      },\n      \u0022category_scores\u0022: {\n        \u0022sexual\u0022: 1.1726012417057063e-05,\n        \u0022hate\u0022: 0.22706663608551025,\n        \u0022harassment\u0022: 0.5215635299682617,\n        \u0022self-harm\u0022: 2.227119921371923e-06,\n        \u0022sexual/minors\u0022: 7.107352217872176e-08,\n        \u0022hate/threatening\u0022: 0.023547329008579254,\n        \u0022violence/graphic\u0022: 3.391829886822961e-05,\n        \u0022self-harm/intent\u0022: 1.646940972932498e-06,\n        \u0022self-harm/instructions\u0022: 1.1198755256458526e-09,\n        \u0022harassment/threatening\u0022: 0.5694745779037476,\n        \u0022violence\u0022: 0.9971134662628174,\n        \u0022illicit\u0022: 0.001,\n        \u0022illicit/violent\u0022: 0.001\n      },\n      \u0022category_applied_input_types\u0022: {\n        \u0022sexual\u0022: [\n          \u0022text\u0022\n        ],\n        \u0022hate\u0022: [\n          \u0022text\u0022\n        ],\n        \u0022harassment\u0022: [\n          \u0022text\u0022\n        ],\n        \u0022self-harm\u0022: [\n          \u0022text\u0022\n        ],\n        \u0022sexual/minors\u0022: [\n          \u0022text\u0022\n        ],\n        \u0022hate/threatening\u0022: [\n          \u0022text\u0022\n        ],\n        \u0022violence/graphic\u0022: [\n          \u0022text\u0022\n        ],\n        \u0022self-harm/intent\u0022: [\n          \u0022text\u0022\n        ],\n        \u0022self-harm/instructions\u0022: [\n          \u0022text\u0022\n        ],\n        \u0022harassment/threatening\u0022: [\n          \u0022text\u0022\n        ],\n        \u0022violence\u0022: [\n          \u0022text\u0022\n        ],\n        \u0022illicit\u0022: [\n          \u0022text\u0022\n        ],\n        \u0022illicit/violent\u0022: [\n          \u0022text\u0022\n        ]\n      }\n    }\n  ]\n}\n"
             },
@@ -83318,7 +83318,8 @@
           "default",
           "flex",
           "priority",
-          "fast"
+          "fast",
+          "ultrafast"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -83328,7 +83329,8 @@
           "Uses the default service tier.",
           "Uses the flex service tier.",
           "Uses the priority service tier.",
-          "Uses the fast service tier."
+          "Uses the fast service tier.",
+          "Uses the ultrafast service tier."
         ],
         "x-ms-enum": {
           "name": "ServiceTierParam",
@@ -83353,6 +83355,10 @@
             {
               "value": "fast",
               "name": "Fast"
+            },
+            {
+              "value": "ultrafast",
+              "name": "Ultrafast"
             }
           ]
         }
@@ -87193,6 +87199,133 @@
         "additionalProperties": false,
         "description": "Parameters for creating a Managed Agents session."
       },
+      "SessionEventAgentSessionTurnReasoningSummaryTextDelta": {
+        "required": [
+          "type",
+          "event_id",
+          "session_id",
+          "turn_id",
+          "item_id",
+          "output_index",
+          "summary_index",
+          "delta"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AgentSessionTurnReasoningSummaryTextDeltaType"
+          },
+          "event_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The unique ID of the event."
+          },
+          "session_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the session associated with the event."
+          },
+          "turn_id": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The ID of the turn associated with the event, when applicable."
+          },
+          "item_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the reasoning item."
+          },
+          "output_index": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The index of the item in the turn output.",
+            "format": "int64"
+          },
+          "summary_index": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The index of the summary content part.",
+            "format": "int64"
+          },
+          "delta": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The summary text that was appended."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Emitted when text is appended to a reasoning summary."
+      },
+      "SessionEventAgentSessionTurnReasoningSummaryPartDone": {
+        "required": [
+          "type",
+          "event_id",
+          "session_id",
+          "turn_id",
+          "item_id",
+          "output_index",
+          "summary_index",
+          "part",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AgentSessionTurnReasoningSummaryPartDoneType"
+          },
+          "event_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The unique ID of the event."
+          },
+          "session_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the session associated with the event."
+          },
+          "turn_id": {
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The ID of the turn associated with the event, when applicable."
+          },
+          "item_id": {
+            "minLength": 0,
+            "type": "string",
+            "description": "The ID of the reasoning item."
+          },
+          "output_index": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The index of the item in the turn output.",
+            "format": "int64"
+          },
+          "summary_index": {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The index of the summary part.",
+            "format": "int64"
+          },
+          "part": {
+            "description": "The completed summary part.",
+            "$ref": "#/components/schemas/SummaryTextResource"
+          },
+          "status": {
+            "$ref": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Emitted when a reasoning summary part is complete."
+      },
       "SessionEventAgentSessionTurnReasoningSummaryTextDone": {
         "required": [
           "type",
@@ -88906,133 +89039,6 @@
         "additionalProperties": false,
         "description": "Emitted when a reasoning summary content part is added."
       },
-      "SessionEventAgentSessionTurnReasoningSummaryPartDone": {
-        "required": [
-          "type",
-          "event_id",
-          "session_id",
-          "turn_id",
-          "item_id",
-          "output_index",
-          "summary_index",
-          "part",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/AgentSessionTurnReasoningSummaryPartDoneType"
-          },
-          "event_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The unique ID of the event."
-          },
-          "session_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The ID of the session associated with the event."
-          },
-          "turn_id": {
-            "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The ID of the turn associated with the event, when applicable."
-          },
-          "item_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The ID of the reasoning item."
-          },
-          "output_index": {
-            "maximum": 4294967295,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The index of the item in the turn output.",
-            "format": "int64"
-          },
-          "summary_index": {
-            "maximum": 4294967295,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The index of the summary part.",
-            "format": "int64"
-          },
-          "part": {
-            "description": "The completed summary part.",
-            "$ref": "#/components/schemas/SummaryTextResource"
-          },
-          "status": {
-            "$ref": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Emitted when a reasoning summary part is complete."
-      },
-      "SessionEventAgentSessionTurnReasoningSummaryTextDelta": {
-        "required": [
-          "type",
-          "event_id",
-          "session_id",
-          "turn_id",
-          "item_id",
-          "output_index",
-          "summary_index",
-          "delta"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/AgentSessionTurnReasoningSummaryTextDeltaType"
-          },
-          "event_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The unique ID of the event."
-          },
-          "session_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The ID of the session associated with the event."
-          },
-          "turn_id": {
-            "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The ID of the turn associated with the event, when applicable."
-          },
-          "item_id": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The ID of the reasoning item."
-          },
-          "output_index": {
-            "maximum": 4294967295,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The index of the item in the turn output.",
-            "format": "int64"
-          },
-          "summary_index": {
-            "maximum": 4294967295,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The index of the summary content part.",
-            "format": "int64"
-          },
-          "delta": {
-            "minLength": 0,
-            "type": "string",
-            "description": "The summary text that was appended."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Emitted when text is appended to a reasoning summary."
-      },
       "SessionEvent": {
         "required": [
           "type"
@@ -89221,6 +89227,8 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
+            "agent.session.turn.reasoning_summary_text.delta": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryTextDelta",
+            "agent.session.turn.reasoning_summary_part.done": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartDone",
             "agent.session.turn.reasoning_summary_text.done": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryTextDone",
             "error": "#/components/schemas/SessionEventError",
             "agent.session.environment.ready": "#/components/schemas/SessionEventAgentSessionEnvironmentReady",
@@ -89252,8 +89260,6 @@
             "agent.session.turn.output_text.delta": "#/components/schemas/SessionEventAgentSessionTurnOutputTextDelta",
             "agent.session.turn.output_text.done": "#/components/schemas/SessionEventAgentSessionTurnOutputTextDone",
             "agent.session.turn.reasoning_summary_part.added": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartAdded",
-            "agent.session.turn.reasoning_summary_part.done": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartDone",
-            "agent.session.turn.reasoning_summary_text.delta": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryTextDelta",
             "SessionEventError": "#/components/schemas/SessionEventError",
             "SessionEventAgentSessionEnvironmentReady": "#/components/schemas/SessionEventAgentSessionEnvironmentReady",
             "SessionEventAgentSessionEnvironmentSuspended": "#/components/schemas/SessionEventAgentSessionEnvironmentSuspended",
@@ -112203,14 +112209,14 @@
             "type": "string",
             "description": "A string of text to classify for moderation.",
             "default": "",
-            "example": "I want to kill them."
+            "example": "...text to classify goes here..."
           },
           {
             "type": "array",
             "items": {
               "type": "string",
               "default": "",
-              "example": "I want to kill them."
+              "example": "...text to classify goes here..."
             },
             "description": "An array of strings to classify for moderation."
           },
@@ -128807,7 +128813,7 @@
           "text": {
             "type": "string",
             "description": "A string of text to classify.",
-            "example": "I want to kill them"
+            "example": "...text to classify goes here..."
           }
         }
       },
@@ -129997,7 +130003,7 @@
           "text": {
             "type": "string",
             "description": "A string of text to classify.",
-            "example": "I want to kill them"
+            "example": "...text to classify goes here..."
           }
         },
         "description": "An object describing text to classify."
@@ -161404,6 +161410,67 @@
           ]
         }
       },
+      "AgentSessionTurnReasoningSummaryTextDeltaType": {
+        "enum": [
+          "agent.session.turn.reasoning_summary_text.delta"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the object. Always \u0060agent.session.turn.reasoning_summary_text.delta\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "AgentSessionTurnReasoningSummaryTextDeltaType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agent.session.turn.reasoning_summary_text.delta",
+              "name": "AgentSessionTurnReasoningSummaryTextDelta"
+            }
+          ]
+        }
+      },
+      "AgentSessionTurnReasoningSummaryPartDoneType": {
+        "enum": [
+          "agent.session.turn.reasoning_summary_part.done"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the object. Always \u0060agent.session.turn.reasoning_summary_part.done\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "AgentSessionTurnReasoningSummaryPartDoneType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agent.session.turn.reasoning_summary_part.done",
+              "name": "AgentSessionTurnReasoningSummaryPartDone"
+            }
+          ]
+        }
+      },
+      "SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus": {
+        "enum": [
+          "incomplete",
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "additionalProperties": false,
+        "description": "Present as \u0060incomplete\u0060 when summary generation was interrupted.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "incomplete",
+              "name": "Incomplete"
+            }
+          ]
+        }
+      },
       "AgentSessionTurnReasoningSummaryTextDoneType": {
         "enum": [
           "agent.session.turn.reasoning_summary_text.done"
@@ -161894,67 +161961,6 @@
             {
               "value": "agent.session.turn.reasoning_summary_part.added",
               "name": "AgentSessionTurnReasoningSummaryPartAdded"
-            }
-          ]
-        }
-      },
-      "AgentSessionTurnReasoningSummaryPartDoneType": {
-        "enum": [
-          "agent.session.turn.reasoning_summary_part.done"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The type of the object. Always \u0060agent.session.turn.reasoning_summary_part.done\u0060.",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "AgentSessionTurnReasoningSummaryPartDoneType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "agent.session.turn.reasoning_summary_part.done",
-              "name": "AgentSessionTurnReasoningSummaryPartDone"
-            }
-          ]
-        }
-      },
-      "SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus": {
-        "enum": [
-          "incomplete",
-          null
-        ],
-        "type": [
-          "null",
-          "string"
-        ],
-        "additionalProperties": false,
-        "description": "Present as \u0060incomplete\u0060 when summary generation was interrupted.",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "incomplete",
-              "name": "Incomplete"
-            }
-          ]
-        }
-      },
-      "AgentSessionTurnReasoningSummaryTextDeltaType": {
-        "enum": [
-          "agent.session.turn.reasoning_summary_text.delta"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The type of the object. Always \u0060agent.session.turn.reasoning_summary_text.delta\u0060.",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "AgentSessionTurnReasoningSummaryTextDeltaType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "agent.session.turn.reasoning_summary_text.delta",
-              "name": "AgentSessionTurnReasoningSummaryTextDelta"
             }
           ]
         }

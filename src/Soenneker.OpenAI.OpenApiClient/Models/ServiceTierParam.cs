@@ -27,5 +27,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         Fast,
         #pragma warning restore CS1591
+        [EnumMember(Value = "ultrafast")]
+        #pragma warning disable CS1591
+        Ultrafast,
+        #pragma warning restore CS1591
     }
 }
