@@ -62873,7 +62873,14 @@
           },
           "input_cache_write_tokens": {
             "type": "integer",
-            "description": "The aggregated number of input tokens written to the cache with a 30-minute retention period."
+            "description": "The aggregated number of input tokens written to the cache across 30-minute and 12-hour retention periods."
+          },
+          "input_cache_write_30m_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of input tokens written to the cache with a 30-minute retention period. May be absent or null for older responses."
           },
           "input_cache_write_12h_tokens": {
             "type": "integer",
@@ -62973,7 +62980,7 @@
         "description": "The aggregated completions usage details of the specific time bucket.",
         "x-oaiMeta": {
           "name": "Completions usage object",
-          "example": "{\n    \u0022object\u0022: \u0022organization.usage.completions.result\u0022,\n    \u0022input_tokens\u0022: 5000,\n    \u0022input_cached_tokens\u0022: 1800,\n    \u0022input_cache_write_tokens\u0022: 150,\n    \u0022input_cache_write_12h_tokens\u0022: 50,\n    \u0022input_uncached_tokens\u0022: 3000,\n    \u0022output_tokens\u0022: 1000,\n    \u0022input_text_tokens\u0022: 2500,\n    \u0022output_text_tokens\u0022: 800,\n    \u0022input_cached_text_tokens\u0022: 1500,\n    \u0022input_audio_tokens\u0022: 300,\n    \u0022input_cached_audio_tokens\u0022: 100,\n    \u0022output_audio_tokens\u0022: 100,\n    \u0022input_image_tokens\u0022: 200,\n    \u0022input_cached_image_tokens\u0022: 200,\n    \u0022output_image_tokens\u0022: 100,\n    \u0022num_model_requests\u0022: 5,\n    \u0022project_id\u0022: \u0022proj_abc\u0022,\n    \u0022user_id\u0022: \u0022user-abc\u0022,\n    \u0022api_key_id\u0022: \u0022key_abc\u0022,\n    \u0022model\u0022: \u0022gpt-6-astra\u0022,\n    \u0022batch\u0022: false,\n    \u0022service_tier\u0022: \u0022default\u0022\n}\n"
+          "example": "{\n    \u0022object\u0022: \u0022organization.usage.completions.result\u0022,\n    \u0022input_tokens\u0022: 5000,\n    \u0022input_cached_tokens\u0022: 1800,\n    \u0022input_cache_write_tokens\u0022: 200,\n    \u0022input_cache_write_30m_tokens\u0022: 150,\n    \u0022input_cache_write_12h_tokens\u0022: 50,\n    \u0022input_uncached_tokens\u0022: 3000,\n    \u0022output_tokens\u0022: 1000,\n    \u0022input_text_tokens\u0022: 2500,\n    \u0022output_text_tokens\u0022: 800,\n    \u0022input_cached_text_tokens\u0022: 1500,\n    \u0022input_audio_tokens\u0022: 300,\n    \u0022input_cached_audio_tokens\u0022: 100,\n    \u0022output_audio_tokens\u0022: 100,\n    \u0022input_image_tokens\u0022: 200,\n    \u0022input_cached_image_tokens\u0022: 200,\n    \u0022output_image_tokens\u0022: 100,\n    \u0022num_model_requests\u0022: 5,\n    \u0022project_id\u0022: \u0022proj_abc\u0022,\n    \u0022user_id\u0022: \u0022user-abc\u0022,\n    \u0022api_key_id\u0022: \u0022key_abc\u0022,\n    \u0022model\u0022: \u0022gpt-6-astra\u0022,\n    \u0022batch\u0022: false,\n    \u0022service_tier\u0022: \u0022default\u0022\n}\n"
         }
       },
       "UsageEmbeddingsResult": {
@@ -73334,6 +73341,13 @@
             "description": "The aggregated number of cached input tokens used across text, audio, and image inputs. For customers subscribed to Scale Tier, this includes Scale Tier tokens."
           },
           "input_cache_write_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of input tokens written to the cache across 30-minute and 12-hour retention periods."
+          },
+          "input_cache_write_30m_tokens": {
             "type": [
               "null",
               "integer"
@@ -117637,7 +117651,14 @@
           },
           "input_cache_write_tokens": {
             "type": "integer",
-            "description": "The aggregated number of input tokens written to the cache with a 30-minute retention period."
+            "description": "The aggregated number of input tokens written to the cache across 30-minute and 12-hour retention periods."
+          },
+          "input_cache_write_30m_tokens": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The aggregated number of input tokens written to the cache with a 30-minute retention period. May be absent or null for older responses."
           },
           "input_cache_write_12h_tokens": {
             "type": "integer",

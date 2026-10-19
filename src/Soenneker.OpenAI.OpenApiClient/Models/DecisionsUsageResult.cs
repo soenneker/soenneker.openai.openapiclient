@@ -46,6 +46,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The aggregated number of input tokens written to the cache with a 12-hour retention period.</summary>
         public int? InputCacheWrite12hTokens { get; set; }
         /// <summary>The aggregated number of input tokens written to the cache with a 30-minute retention period.</summary>
+        public int? InputCacheWrite30mTokens { get; set; }
+        /// <summary>The aggregated number of input tokens written to the cache across 30-minute and 12-hour retention periods.</summary>
         public int? InputCacheWriteTokens { get; set; }
         /// <summary>The aggregated number of uncached image input tokens used.</summary>
         public int? InputImageTokens { get; set; }
@@ -129,6 +131,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "batch", n => { Batch = n.GetBoolValue(); } },
                 { "input_audio_tokens", n => { InputAudioTokens = n.GetIntValue(); } },
                 { "input_cache_write_12h_tokens", n => { InputCacheWrite12hTokens = n.GetIntValue(); } },
+                { "input_cache_write_30m_tokens", n => { InputCacheWrite30mTokens = n.GetIntValue(); } },
                 { "input_cache_write_tokens", n => { InputCacheWriteTokens = n.GetIntValue(); } },
                 { "input_cached_audio_tokens", n => { InputCachedAudioTokens = n.GetIntValue(); } },
                 { "input_cached_image_tokens", n => { InputCachedImageTokens = n.GetIntValue(); } },
@@ -166,6 +169,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("input_cached_text_tokens", InputCachedTextTokens);
             writer.WriteIntValue("input_cached_tokens", InputCachedTokens);
             writer.WriteIntValue("input_cache_write_12h_tokens", InputCacheWrite12hTokens);
+            writer.WriteIntValue("input_cache_write_30m_tokens", InputCacheWrite30mTokens);
             writer.WriteIntValue("input_cache_write_tokens", InputCacheWriteTokens);
             writer.WriteIntValue("input_image_tokens", InputImageTokens);
             writer.WriteIntValue("input_text_tokens", InputTextTokens);
