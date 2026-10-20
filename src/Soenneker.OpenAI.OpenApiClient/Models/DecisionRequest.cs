@@ -44,7 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptions PromptCacheOptions { get; set; }
 #endif
-        /// <summary>Ask 1–200 questions about the input. Each question can be a predicate, choice, or score. Answers come back in the same order.</summary>
+        /// <summary>Ask 1–400 questions about the input. Each question can be a predicate, choice, or score. Answers come back in the same order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParam>? Questions { get; set; }

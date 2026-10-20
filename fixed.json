@@ -72372,6 +72372,20 @@
       },
       "UpdateProjectApiKeyBody": {
         "type": "object",
+        "anyOf": [
+          {
+            "required": [
+              "scopes"
+            ],
+            "type": "object"
+          },
+          {
+            "required": [
+              "expires_in_seconds"
+            ],
+            "type": "object"
+          }
+        ],
         "properties": {
           "expires_in_seconds": {
             "maximum": 31536000,
@@ -77761,13 +77775,13 @@
             "$ref": "#/components/schemas/DecisionInput"
           },
           "questions": {
-            "maxItems": 200,
+            "maxItems": 400,
             "minItems": 1,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/QuestionParam"
             },
-            "description": "Ask 1\u2013200 questions about the input. Each question can be a predicate, choice, or score. Answers come back in the same order."
+            "description": "Ask 1\u2013400 questions about the input. Each question can be a predicate, choice, or score. Answers come back in the same order."
           },
           "safety_identifier": {
             "maxLength": 128,
