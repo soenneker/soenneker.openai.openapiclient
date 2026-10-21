@@ -15027,7 +15027,7 @@
             "request": {
               "curl": "curl \u0022https://api.openai.com/v1/organization/usage/completions?start_time=1730419200\u0026limit=1\u0022 \\\n-H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022 \\\n-H \u0022Content-Type: application/json\u0022\n"
             },
-            "response": "{\n    \u0022object\u0022: \u0022page\u0022,\n    \u0022data\u0022: [\n        {\n            \u0022object\u0022: \u0022bucket\u0022,\n            \u0022start_time\u0022: 1730419200,\n            \u0022end_time\u0022: 1730505600,\n            \u0022results\u0022: [\n                {\n                    \u0022object\u0022: \u0022organization.usage.completions.result\u0022,\n                    \u0022input_tokens\u0022: 1000,\n                    \u0022input_cached_tokens\u0022: 400,\n                    \u0022input_cache_write_tokens\u0022: 75,\n                    \u0022input_cache_write_12h_tokens\u0022: 25,\n                    \u0022input_uncached_tokens\u0022: 500,\n                    \u0022output_tokens\u0022: 500,\n                    \u0022input_text_tokens\u0022: 400,\n                    \u0022output_text_tokens\u0022: 400,\n                    \u0022input_cached_text_tokens\u0022: 300,\n                    \u0022input_audio_tokens\u0022: 50,\n                    \u0022input_cached_audio_tokens\u0022: 50,\n                    \u0022output_audio_tokens\u0022: 50,\n                    \u0022input_image_tokens\u0022: 50,\n                    \u0022input_cached_image_tokens\u0022: 50,\n                    \u0022output_image_tokens\u0022: 50,\n                    \u0022num_model_requests\u0022: 5,\n                    \u0022project_id\u0022: null,\n                    \u0022user_id\u0022: null,\n                    \u0022api_key_id\u0022: null,\n                    \u0022model\u0022: null,\n                    \u0022batch\u0022: null,\n                    \u0022service_tier\u0022: null\n                }\n            ]\n        }\n    ],\n    \u0022has_more\u0022: true,\n    \u0022next_page\u0022: \u0022page_AAAAAGdGxdEiJdKOAAAAAGcqsYA=\u0022\n}\n"
+            "response": "{\n    \u0022object\u0022: \u0022page\u0022,\n    \u0022data\u0022: [\n        {\n            \u0022object\u0022: \u0022bucket\u0022,\n            \u0022start_time\u0022: 1730419200,\n            \u0022end_time\u0022: 1730505600,\n            \u0022results\u0022: [\n                {\n                    \u0022object\u0022: \u0022organization.usage.completions.result\u0022,\n                    \u0022input_tokens\u0022: 1000,\n                    \u0022input_cached_tokens\u0022: 400,\n                    \u0022input_cache_write_tokens\u0022: 100,\n                    \u0022input_cache_write_30m_tokens\u0022: 75,\n                    \u0022input_cache_write_12h_tokens\u0022: 25,\n                    \u0022input_uncached_tokens\u0022: 500,\n                    \u0022output_tokens\u0022: 500,\n                    \u0022input_text_tokens\u0022: 400,\n                    \u0022output_text_tokens\u0022: 400,\n                    \u0022input_cached_text_tokens\u0022: 300,\n                    \u0022input_audio_tokens\u0022: 50,\n                    \u0022input_cached_audio_tokens\u0022: 50,\n                    \u0022output_audio_tokens\u0022: 50,\n                    \u0022input_image_tokens\u0022: 50,\n                    \u0022input_cached_image_tokens\u0022: 50,\n                    \u0022output_image_tokens\u0022: 50,\n                    \u0022num_model_requests\u0022: 5,\n                    \u0022project_id\u0022: null,\n                    \u0022user_id\u0022: null,\n                    \u0022api_key_id\u0022: null,\n                    \u0022model\u0022: null,\n                    \u0022batch\u0022: null,\n                    \u0022service_tier\u0022: null\n                }\n            ]\n        }\n    ],\n    \u0022has_more\u0022: true,\n    \u0022next_page\u0022: \u0022page_AAAAAGdGxdEiJdKOAAAAAGcqsYA=\u0022\n}\n"
           }
         }
       }
@@ -53064,7 +53064,7 @@
             "items": {
               "$ref": "#/components/schemas/LogProbProperties"
             },
-            "description": "The log probabilities of the transcription. These can be enabled by configurating the session with \u0060\u0022include\u0022: [\u0022item.input_audio_transcription.logprobs\u0022]\u0060. Each entry in the array corresponds a log probability of which token would be selected for this chunk of transcription. This can help to identify if it was possible there were multiple valid options for a given chunk of transcription."
+            "description": "The log probabilities of the transcription. These can be enabled by configuring the session with \u0060\u0022include\u0022: [\u0022item.input_audio_transcription.logprobs\u0022]\u0060. Each entry in the array corresponds a log probability of which token would be selected for this chunk of transcription. This can help to identify if it was possible there were multiple valid options for a given chunk of transcription."
           }
         },
         "description": "Returned when the text value of an input audio transcription content part is updated with incremental transcription results.\n",
@@ -53252,7 +53252,7 @@
             "$ref": "#/components/schemas/RealtimeServerEventErrorError"
           }
         },
-        "description": "Returned when an error occurs, which could be a client problem or a server\nproblem. Most errors are recoverable and the session will stay open, we\nrecommend to implementors to monitor and log error messages by default.\n",
+        "description": "Returned when an error occurs, which could be a client problem or a server\nproblem. Most errors are recoverable and the session will stay open, we\nrecommend to implementers to monitor and log error messages by default.\n",
         "x-oaiMeta": {
           "name": "error",
           "group": "realtime",
@@ -65743,6 +65743,9 @@
         "properties": {
           "mode": {
             "$ref": "#/components/schemas/ExplicitValueMode"
+          },
+          "ttl": {
+            "$ref": "#/components/schemas/PromptCacheBreakpointParamTtl"
           }
         },
         "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block."
@@ -100465,6 +100468,9 @@
         "properties": {
           "mode": {
             "$ref": "#/components/schemas/ExplicitValueMode"
+          },
+          "ttl": {
+            "$ref": "#/components/schemas/BetaPromptCacheBreakpointParamTtl"
           }
         },
         "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block."
@@ -119163,6 +119169,9 @@
         "properties": {
           "mode": {
             "$ref": "#/components/schemas/ExplicitValueMode"
+          },
+          "ttl": {
+            "$ref": "#/components/schemas/PromptCacheBreakpointParamTtl"
           }
         }
       },
@@ -119195,6 +119204,9 @@
         "properties": {
           "mode": {
             "$ref": "#/components/schemas/ExplicitValueMode"
+          },
+          "ttl": {
+            "$ref": "#/components/schemas/PromptCacheBreakpointParamTtl"
           }
         }
       },
@@ -119211,6 +119223,9 @@
         "properties": {
           "mode": {
             "$ref": "#/components/schemas/ExplicitValueMode"
+          },
+          "ttl": {
+            "$ref": "#/components/schemas/PromptCacheBreakpointParamTtl"
           }
         }
       },
@@ -125290,6 +125305,9 @@
         "properties": {
           "mode": {
             "$ref": "#/components/schemas/ExplicitValueMode"
+          },
+          "ttl": {
+            "$ref": "#/components/schemas/BetaPromptCacheBreakpointParamTtl"
           }
         }
       },
@@ -125306,6 +125324,9 @@
         "properties": {
           "mode": {
             "$ref": "#/components/schemas/ExplicitValueMode"
+          },
+          "ttl": {
+            "$ref": "#/components/schemas/BetaPromptCacheBreakpointParamTtl"
           }
         }
       },
@@ -125393,6 +125414,9 @@
         "properties": {
           "mode": {
             "$ref": "#/components/schemas/ExplicitValueMode"
+          },
+          "ttl": {
+            "$ref": "#/components/schemas/BetaPromptCacheBreakpointParamTtl"
           }
         }
       },
@@ -158626,6 +158650,29 @@
           ]
         }
       },
+      "PromptCacheBreakpointParamTtl": {
+        "enum": [
+          "30m",
+          "12h"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The minimum lifetime of this cache breakpoint. Defaults to the request TTL.",
+        "x-ms-enum": {
+          "name": "PromptCacheBreakpointParamTtl",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "30m",
+              "name": "Value30M"
+            },
+            {
+              "value": "12h",
+              "name": "Value12H"
+            }
+          ]
+        }
+      },
       "SkillReferenceType": {
         "enum": [
           "skill_reference"
@@ -163947,6 +163994,29 @@
             {
               "value": "multi_agent_call",
               "name": "MultiAgentCall"
+            }
+          ]
+        }
+      },
+      "BetaPromptCacheBreakpointParamTtl": {
+        "enum": [
+          "30m",
+          "12h"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The minimum lifetime of this cache breakpoint. Defaults to the request TTL.",
+        "x-ms-enum": {
+          "name": "BetaPromptCacheBreakpointParamTtl",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "30m",
+              "name": "Value30M"
+            },
+            {
+              "value": "12h",
+              "name": "Value12H"
             }
           ]
         }
