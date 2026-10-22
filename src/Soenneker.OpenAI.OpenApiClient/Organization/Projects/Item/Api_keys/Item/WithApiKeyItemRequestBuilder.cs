@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Ite
         {
         }
         /// <summary>
-        /// Deletes an API key from the project.Returns confirmation of the key deletion, or an error if the key belonged toa service account.
+        /// Deletes an API key from the project, including keys owned by service accounts.Requires permission to write project API keys. Deleting a service-account keydoes not delete the service account or its other keys.Returns confirmation of the key deletion.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyDeleteResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -123,7 +123,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Api_keys.Ite
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKey>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKey.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes an API key from the project.Returns confirmation of the key deletion, or an error if the key belonged toa service account.
+        /// Deletes an API key from the project, including keys owned by service accounts.Requires permission to write project API keys. Deleting a service-account keydoes not delete the service account or its other keys.Returns confirmation of the key deletion.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

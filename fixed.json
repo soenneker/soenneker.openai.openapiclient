@@ -1142,6 +1142,68 @@
         }
       }
     },
+    "/audio/voices/{voiceId}": {
+      "delete": {
+        "tags": [
+          "Audio"
+        ],
+        "summary": "Delete voice",
+        "description": "Deletes a voice created from a text prompt or an audio sample.\n\nRequires voice write permission and access to the voice\u0027s project. Access to voices created from recordings is limited to eligible customers. See the [custom voices guide](https://developers.openai.com/api/docs/guides/custom-voices).\n\nDeleting a voice does not delete its consent recording. Deleting an already deleted voice returns a 404 error.\n",
+        "operationId": "DeleteVoice",
+        "parameters": [
+          {
+            "name": "voiceId",
+            "in": "path",
+            "description": "The ID of the voice to delete.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceDeletedResource"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid voice ID.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The endpoint is unavailable or the voice was not found in the requested project.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-oaiMeta": {
+          "group": "audio",
+          "examples": {
+            "request": {
+              "curl": "curl https://api.openai.com/v1/audio/voices/voice_1234 \\\n  -X DELETE \\\n  -H \u0022Authorization: Bearer $OPENAI_API_KEY\u0022\n"
+            },
+            "response": "{\n  \u0022id\u0022: \u0022voice_1234\u0022,\n  \u0022object\u0022: \u0022audio.voice.deleted\u0022,\n  \u0022deleted\u0022: true\n}\n"
+          }
+        }
+      }
+    },
     "/batches": {
       "post": {
         "tags": [
@@ -10321,7 +10383,7 @@
           "Projects"
         ],
         "summary": "Delete project API key",
-        "description": "Deletes an API key from the project.\n\nReturns confirmation of the key deletion, or an error if the key belonged to\na service account.\n",
+        "description": "Deletes an API key from the project, including keys owned by service accounts.\n\nRequires permission to write project API keys. Deleting a service-account key\ndoes not delete the service account or its other keys.\n\nReturns confirmation of the key deletion.\n",
         "operationId": "DeleteProjectApiKey",
         "parameters": [
           {
@@ -23715,16 +23777,6 @@
           },
           "404": {
             "description": "The project or service account was not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "The service account already has an API key and cannot create another.",
             "content": {
               "application/json": {
                 "schema": {
@@ -64155,6 +64207,33 @@
           "example": "{\n  \u0022object\u0022: \u0022audio.voice_consent\u0022,\n  \u0022id\u0022: \u0022cons_1234\u0022,\n  \u0022name\u0022: \u0022John Doe\u0022,\n  \u0022language\u0022: \u0022en-US\u0022,\n  \u0022created_at\u0022: 1734220800\n}\n"
         }
       },
+      "VoiceDeletedResource": {
+        "required": [
+          "id",
+          "object",
+          "deleted"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The voice identifier.",
+            "example": "voice_1234"
+          },
+          "object": {
+            "$ref": "#/components/schemas/AudioVoiceDeletedObject"
+          },
+          "deleted": {
+            "type": "boolean",
+            "description": "Whether the voice was deleted."
+          }
+        },
+        "additionalProperties": false,
+        "x-oaiMeta": {
+          "name": "The voice deletion object",
+          "example": "{\n  \u0022id\u0022: \u0022voice_1234\u0022,\n  \u0022object\u0022: \u0022audio.voice.deleted\u0022,\n  \u0022deleted\u0022: true\n}\n"
+        }
+      },
       "VoiceIdsOrCustomVoice": {
         "title": "Voice",
         "type": "object",
@@ -70559,6 +70638,12 @@
         ],
         "type": "object",
         "properties": {
+          "acknowledgement_delay_ms": {
+            "maximum": 800,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Milliseconds to wait before requesting an automatic spoken acknowledgement for a delegation. The model may still speak before this delay. Any commentary or thinking appended to the session cancels all pending acknowledgements, including those for other delegations. Defaults to 400 for Decisions sessions and 0 (request immediately) for other sessions. Omission in a session update preserves the current value. Updates apply to subsequent delegations."
+          },
           "type": {
             "$ref": "#/components/schemas/ClientType"
           }
@@ -71428,6 +71513,12 @@
         ],
         "type": "object",
         "properties": {
+          "acknowledgement_delay_ms": {
+            "maximum": 800,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Milliseconds to wait before requesting an automatic spoken acknowledgement for a delegation. The model may still speak before this delay. Any commentary or thinking appended to the session cancels all pending acknowledgements, including those for other delegations. Defaults to 400 for Decisions sessions and 0 (request immediately) for other sessions. Omission in a session update preserves the current value. Updates apply to subsequent delegations."
+          },
           "type": {
             "$ref": "#/components/schemas/ResponsesType"
           },
@@ -71619,6 +71710,12 @@
         ],
         "type": "object",
         "properties": {
+          "acknowledgement_delay_ms": {
+            "maximum": 800,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Milliseconds to wait before requesting an automatic spoken acknowledgement for a delegation. The model may still speak before this delay. Any commentary or thinking appended to the session cancels all pending acknowledgements, including those for other delegations. Defaults to 400. Updates apply to subsequent delegations."
+          },
           "type": {
             "$ref": "#/components/schemas/DecisionsType"
           },
@@ -71644,6 +71741,12 @@
           }
         ],
         "properties": {
+          "acknowledgement_delay_ms": {
+            "maximum": 800,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Milliseconds to wait before requesting an automatic spoken acknowledgement for a delegation. The model may still speak before this delay. Any commentary or thinking appended to the session cancels all pending acknowledgements, including those for other delegations. Defaults to 400 for Decisions sessions and 0 (request immediately) for other sessions. Omission in a session update preserves the current value. Updates apply to subsequent delegations."
+          },
           "responses": {
             "description": "Backend model, prompt, and tools used when the Live session delegates a task to Responses.",
             "$ref": "#/components/schemas/LiveResponsesDelegationSettingsInputParam"
@@ -72068,6 +72171,12 @@
         ],
         "type": "object",
         "properties": {
+          "acknowledgement_delay_ms": {
+            "maximum": 800,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Milliseconds to wait before requesting an automatic spoken acknowledgement for a delegation. The model may still speak before this delay. Any commentary or thinking appended to the session cancels all pending acknowledgements, including those for other delegations. Defaults to 400 for Decisions sessions and 0 (request immediately) for other sessions. Omission in a session update preserves the current value. Updates apply to subsequent delegations."
+          },
           "type": {
             "$ref": "#/components/schemas/ResponsesType"
           },
@@ -77199,6 +77308,140 @@
         "additionalProperties": false,
         "description": "An image provided as a base64 data URL or a publicly accessible HTTP(S) URL. File IDs are not supported."
       },
+      "DecisionInputJson": {
+        "required": [
+          "type",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InputJsonType"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DecisionInputJsonData"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A JSON object or an array of objects rendered as text. Nested values may be any JSON value. Limited to 32 container levels, 10,000 values, and 256 KiB of compact UTF-8 JSON."
+      },
+      "DecisionInputContentParts": {
+        "maxItems": 16384,
+        "minItems": 0,
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/DecisionInputContentPartsItem"
+        }
+      },
+      "DecisionInputContent": {
+        "type": "object",
+        "oneOf": [
+          {
+            "maxLength": 10485760,
+            "minLength": 0,
+            "type": "string"
+          },
+          {
+            "maxItems": 16384,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DecisionInputContentPartsItem"
+            }
+          }
+        ],
+        "description": "A text string or an ordered list of text, image, and JSON parts."
+      },
+      "DecisionInputUserMessage": {
+        "required": [
+          "role",
+          "content"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/UserRole"
+          },
+          "content": {
+            "description": "A text string or an ordered list of text, image, and JSON parts.",
+            "$ref": "#/components/schemas/DecisionInputContent"
+          },
+          "type": {
+            "$ref": "#/components/schemas/MessageType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A user message containing input text, images, or JSON."
+      },
+      "DecisionInputDeveloperContentParts": {
+        "maxItems": 16384,
+        "minItems": 0,
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/DecisionInputText"
+        }
+      },
+      "DecisionInputDeveloperContent": {
+        "type": "object",
+        "oneOf": [
+          {
+            "maxLength": 10485760,
+            "minLength": 0,
+            "type": "string"
+          },
+          {
+            "maxItems": 16384,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DecisionInputText"
+            }
+          }
+        ],
+        "description": "A text string or an ordered list of input text parts."
+      },
+      "DecisionInputDeveloperMessage": {
+        "required": [
+          "role",
+          "content"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/DeveloperRole"
+          },
+          "content": {
+            "description": "A text string or an ordered list of input text parts.",
+            "$ref": "#/components/schemas/DecisionInputDeveloperContent"
+          },
+          "type": {
+            "$ref": "#/components/schemas/MessageType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A developer message containing input text."
+      },
+      "DecisionInputSystemMessage": {
+        "required": [
+          "role",
+          "content"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/SystemRole"
+          },
+          "content": {
+            "description": "A text string or an ordered list of input text parts.",
+            "$ref": "#/components/schemas/DecisionInputDeveloperContent"
+          },
+          "type": {
+            "$ref": "#/components/schemas/MessageType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A system message containing input text."
+      },
       "DecisionInputOutputText": {
         "required": [
           "type",
@@ -77235,15 +77478,15 @@
         },
         "additionalProperties": false
       },
-      "DecisionInputContentParts": {
+      "DecisionInputAssistantContentParts": {
         "maxItems": 16384,
         "minItems": 0,
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/DecisionInputContentPartsItem"
+          "$ref": "#/components/schemas/DecisionInputAssistantContentPartsItem"
         }
       },
-      "DecisionInputContent": {
+      "DecisionInputAssistantContent": {
         "type": "object",
         "oneOf": [
           {
@@ -77256,11 +77499,11 @@
             "minItems": 0,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DecisionInputContentPartsItem"
+              "$ref": "#/components/schemas/DecisionInputAssistantContentPartsItem"
             }
           }
         ],
-        "description": "Text evidence or an ordered list of text and image parts."
+        "description": "A text string or an ordered list of output text and refusal parts."
       },
       "MessagePhaseParam": {
         "enum": [
@@ -77284,7 +77527,7 @@
           ]
         }
       },
-      "DecisionInputMessage": {
+      "DecisionInputAssistantMessage": {
         "required": [
           "role",
           "content"
@@ -77292,21 +77535,71 @@
         "type": "object",
         "properties": {
           "role": {
-            "$ref": "#/components/schemas/DecisionInputMessageRole"
+            "$ref": "#/components/schemas/AssistantRole"
           },
           "content": {
-            "description": "Text evidence or an ordered list of text and image parts.",
-            "$ref": "#/components/schemas/DecisionInputContent"
+            "description": "A text string or an ordered list of output text and refusal parts.",
+            "$ref": "#/components/schemas/DecisionInputAssistantContent"
           },
           "phase": {
-            "$ref": "#/components/schemas/DecisionInputMessagePhase"
+            "$ref": "#/components/schemas/DecisionInputAssistantMessagePhase"
           },
           "type": {
             "$ref": "#/components/schemas/MessageType"
           }
         },
         "additionalProperties": false,
-        "description": "A user message containing input text or images, a developer or system message containing input text, or an assistant message containing output text or refusals. System messages are rendered as developer messages."
+        "description": "An assistant message containing output text or refusals."
+      },
+      "DecisionInputMessage": {
+        "required": [
+          "role"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DecisionInputUserMessage"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputDeveloperMessage"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputSystemMessage"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputAssistantMessage"
+          }
+        ],
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/MessageType"
+          },
+          "phase": {
+            "$ref": "#/components/schemas/DecisionInputAssistantMessagePhase"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "role",
+          "mapping": {
+            "user": "#/components/schemas/DecisionInputUserMessage",
+            "developer": "#/components/schemas/DecisionInputDeveloperMessage",
+            "system": "#/components/schemas/DecisionInputSystemMessage",
+            "assistant": "#/components/schemas/DecisionInputAssistantMessage",
+            "DecisionInputUserMessage": "#/components/schemas/DecisionInputUserMessage",
+            "DecisionInputDeveloperMessage": "#/components/schemas/DecisionInputDeveloperMessage",
+            "DecisionInputSystemMessage": "#/components/schemas/DecisionInputSystemMessage",
+            "DecisionInputAssistantMessage": "#/components/schemas/DecisionInputAssistantMessage"
+          }
+        },
+        "x-oai-discriminator-values": [
+          "user",
+          "developer",
+          "system",
+          "assistant"
+        ]
       },
       "FunctionCallStatusParam": {
         "enum": [
@@ -77549,7 +77842,106 @@
             }
           }
         ],
-        "description": "The input to evaluate for every question. Provide a text string or an ordered array of messages, function calls and outputs, or custom tool calls and outputs. Each tool output must identify a matching call by call ID. User messages and tool outputs can contain text and images; developer and system messages can contain only input text, and assistant messages can contain output text or refusals. Images can be base64 data URLs or publicly accessible HTTP(S) URLs; at most 128 images are allowed per request. Files, audio, and item references are not supported."
+        "description": "The input to evaluate for every question. Provide a text string or an ordered array of messages, function calls and outputs, or custom tool calls and outputs. Each tool output must identify a matching call by call ID."
+      },
+      "DecisionQuestionInputText": {
+        "required": [
+          "type",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InputTextType"
+          },
+          "text": {
+            "maxLength": 10485760,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DecisionQuestionInputImage": {
+        "required": [
+          "image_url",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "image_url": {
+            "maxLength": 1073741824,
+            "minLength": 0,
+            "pattern": "^(data:|https?://)",
+            "type": "string",
+            "description": "A base64-encoded image in a data URL or a publicly accessible HTTP(S) image URL."
+          },
+          "detail": {
+            "$ref": "#/components/schemas/DecisionQuestionInputImageDetail"
+          },
+          "type": {
+            "$ref": "#/components/schemas/InputImageType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "An image provided as a base64 data URL or a publicly accessible HTTP(S) URL. File IDs are not supported."
+      },
+      "DecisionQuestionInputPart": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DecisionQuestionInputText"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionQuestionInputImage"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputJson"
+          }
+        ],
+        "properties": {
+          "text": {
+            "maxLength": 10485760,
+            "minLength": 0,
+            "type": "string"
+          },
+          "image_url": {
+            "maxLength": 1073741824,
+            "minLength": 0,
+            "pattern": "^(data:|https?://)",
+            "type": "string",
+            "description": "A base64-encoded image in a data URL or a publicly accessible HTTP(S) image URL."
+          },
+          "detail": {
+            "$ref": "#/components/schemas/DecisionQuestionInputImageDetail"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DecisionInputJsonData"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": "A text, image, or JSON content part in a question instruction.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "input_text": "#/components/schemas/DecisionQuestionInputText",
+            "input_image": "#/components/schemas/DecisionQuestionInputImage",
+            "input_json": "#/components/schemas/DecisionInputJson",
+            "DecisionQuestionInputText": "#/components/schemas/DecisionQuestionInputText",
+            "DecisionQuestionInputImage": "#/components/schemas/DecisionQuestionInputImage",
+            "DecisionInputJson": "#/components/schemas/DecisionInputJson"
+          }
+        },
+        "x-oai-discriminator-values": [
+          "input_text",
+          "input_image",
+          "input_json"
+        ]
       },
       "QuestionParamPredicate": {
         "required": [
@@ -77567,9 +77959,7 @@
             "type": "string"
           },
           "instructions": {
-            "maxLength": 1048576,
-            "minLength": 0,
-            "type": "string"
+            "$ref": "#/components/schemas/QuestionParamPredicateInstructions"
           }
         },
         "additionalProperties": false,
@@ -77624,9 +78014,7 @@
             "type": "string"
           },
           "instructions": {
-            "maxLength": 1048576,
-            "minLength": 0,
-            "type": "string"
+            "$ref": "#/components/schemas/QuestionParamChoiceInstructions"
           },
           "choices": {
             "maxItems": 255,
@@ -77677,9 +78065,7 @@
             "type": "string"
           },
           "instructions": {
-            "maxLength": 1048576,
-            "minLength": 0,
-            "type": "string"
+            "$ref": "#/components/schemas/QuestionParamScoreInstructions"
           },
           "levels": {
             "maxItems": 10,
@@ -77711,11 +78097,6 @@
         ],
         "properties": {
           "name": {
-            "maxLength": 1048576,
-            "minLength": 0,
-            "type": "string"
-          },
-          "instructions": {
             "maxLength": 1048576,
             "minLength": 0,
             "type": "string"
@@ -77774,7 +78155,7 @@
             "description": "The model to use. Only \u0060gpt-6-luna\u0060 is supported."
           },
           "input": {
-            "description": "The input to evaluate for every question. Provide a text string or an ordered array of messages, function calls and outputs, or custom tool calls and outputs. Each tool output must identify a matching call by call ID. User messages and tool outputs can contain text and images; developer and system messages can contain only input text, and assistant messages can contain output text or refusals. Images can be base64 data URLs or publicly accessible HTTP(S) URLs; at most 128 images are allowed per request. Files, audio, and item references are not supported.",
+            "description": "The input to evaluate for every question. Provide a text string or an ordered array of messages, function calls and outputs, or custom tool calls and outputs. Each tool output must identify a matching call by call ID.",
             "$ref": "#/components/schemas/DecisionInput"
           },
           "questions": {
@@ -92192,6 +92573,12 @@
         ],
         "type": "object",
         "properties": {
+          "acknowledgement_delay_ms": {
+            "maximum": 800,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Milliseconds to wait before requesting an automatic spoken acknowledgement for a delegation. The model may still speak before this delay. Any commentary or thinking appended to the session cancels all pending acknowledgements, including those for other delegations. Defaults to 400. Updates apply to subsequent delegations."
+          },
           "type": {
             "$ref": "#/components/schemas/DecisionsType"
           },
@@ -92380,6 +92767,12 @@
         ],
         "type": "object",
         "properties": {
+          "acknowledgement_delay_ms": {
+            "maximum": 800,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Milliseconds to wait before requesting an automatic spoken acknowledgement for a delegation. The model may still speak before this delay. Any commentary or thinking appended to the session cancels all pending acknowledgements, including those for other delegations. Defaults to 400 for Decisions sessions and 0 (request immediately) for other sessions. Omission in a session update preserves the current value. Updates apply to subsequent delegations."
+          },
           "type": {
             "$ref": "#/components/schemas/DecisionsType"
           },
@@ -121329,6 +121722,34 @@
         },
         "description": "The image detail level, using the selected model\u0027s image profile. Defaults to auto."
       },
+      "DecisionInputJsonData": {
+        "type": "object",
+        "oneOf": [
+          {
+            "propertyNames": {
+              "minLength": 0,
+              "type": "string"
+            },
+            "minProperties": 0,
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/DecisionInputJsonDataOneOf1AdditionalProperties"
+            }
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputJsonDataBranch2"
+          }
+        ],
+        "properties": {
+          "value": {
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DecisionInputJsonDataBranch2ValueItem"
+            }
+          }
+        }
+      },
       "DecisionInputContentPartsItem": {
         "required": [
           "type"
@@ -121342,10 +121763,7 @@
             "$ref": "#/components/schemas/DecisionInputImage"
           },
           {
-            "$ref": "#/components/schemas/DecisionInputOutputText"
-          },
-          {
-            "$ref": "#/components/schemas/DecisionInputRefusal"
+            "$ref": "#/components/schemas/DecisionInputJson"
           }
         ],
         "properties": {
@@ -121364,6 +121782,49 @@
           "detail": {
             "$ref": "#/components/schemas/DecisionInputImageDetail"
           },
+          "data": {
+            "$ref": "#/components/schemas/DecisionInputJsonData"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "input_text": "#/components/schemas/DecisionInputText",
+            "input_image": "#/components/schemas/DecisionInputImage",
+            "input_json": "#/components/schemas/DecisionInputJson",
+            "DecisionInputText": "#/components/schemas/DecisionInputText",
+            "DecisionInputImage": "#/components/schemas/DecisionInputImage",
+            "DecisionInputJson": "#/components/schemas/DecisionInputJson"
+          }
+        },
+        "x-oai-discriminator-values": [
+          "input_text",
+          "input_image",
+          "input_json"
+        ]
+      },
+      "DecisionInputAssistantContentPartsItem": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DecisionInputOutputText"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputRefusal"
+          }
+        ],
+        "properties": {
+          "text": {
+            "maxLength": 10485760,
+            "minLength": 0,
+            "type": "string"
+          },
           "refusal": {
             "maxLength": 10485760,
             "minLength": 0,
@@ -121376,24 +121837,18 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "input_text": "#/components/schemas/DecisionInputText",
-            "input_image": "#/components/schemas/DecisionInputImage",
             "output_text": "#/components/schemas/DecisionInputOutputText",
             "refusal": "#/components/schemas/DecisionInputRefusal",
-            "DecisionInputText": "#/components/schemas/DecisionInputText",
-            "DecisionInputImage": "#/components/schemas/DecisionInputImage",
             "DecisionInputOutputText": "#/components/schemas/DecisionInputOutputText",
             "DecisionInputRefusal": "#/components/schemas/DecisionInputRefusal"
           }
         },
         "x-oai-discriminator-values": [
-          "input_text",
-          "input_image",
           "output_text",
           "refusal"
         ]
       },
-      "DecisionInputMessagePhase": {
+      "DecisionInputAssistantMessagePhase": {
         "type": "object",
         "anyOf": [
           {
@@ -121544,15 +121999,8 @@
           }
         ],
         "properties": {
-          "role": {
-            "$ref": "#/components/schemas/DecisionInputMessageRole"
-          },
-          "content": {
-            "description": "Text evidence or an ordered list of text and image parts.",
-            "$ref": "#/components/schemas/DecisionInputContent"
-          },
           "phase": {
-            "$ref": "#/components/schemas/DecisionInputMessagePhase"
+            "$ref": "#/components/schemas/DecisionInputAssistantMessagePhase"
           },
           "id": {
             "maxLength": 1048576,
@@ -121623,6 +122071,77 @@
           "custom_tool_call_output"
         ],
         "x-oai-default-discriminator-value": "message"
+      },
+      "DecisionQuestionInputImageDetail": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ImageDetailParamWrapper2"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/ImageDetailParam"
+          }
+        },
+        "description": "The image detail level, using the selected model\u0027s image profile. Defaults to auto."
+      },
+      "QuestionParamPredicateInstructions": {
+        "type": "object",
+        "oneOf": [
+          {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          {
+            "maxItems": 16384,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DecisionQuestionInputPart"
+            }
+          }
+        ]
+      },
+      "QuestionParamChoiceInstructions": {
+        "type": "object",
+        "oneOf": [
+          {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          {
+            "maxItems": 16384,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DecisionQuestionInputPart"
+            }
+          }
+        ]
+      },
+      "QuestionParamScoreInstructions": {
+        "type": "object",
+        "oneOf": [
+          {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": "string"
+          },
+          {
+            "maxItems": 16384,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DecisionQuestionInputPart"
+            }
+          }
+        ]
       },
       "CreateEnvironmentParamOpenaiHostedPackages": {
         "type": "object",
@@ -123369,6 +123888,12 @@
           }
         ],
         "properties": {
+          "acknowledgement_delay_ms": {
+            "maximum": 800,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Milliseconds to wait before requesting an automatic spoken acknowledgement for a delegation. The model may still speak before this delay. Any commentary or thinking appended to the session cancels all pending acknowledgements, including those for other delegations. Defaults to 400 for Decisions sessions and 0 (request immediately) for other sessions. Omission in a session update preserves the current value. Updates apply to subsequent delegations."
+          },
           "responses": {
             "description": "Backend model, prompt, and tools used when the Live session delegates a task to Responses.",
             "$ref": "#/components/schemas/LiveResponsesDelegationSettingsInputParam"
@@ -123396,6 +123921,12 @@
           }
         ],
         "properties": {
+          "acknowledgement_delay_ms": {
+            "maximum": 800,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Milliseconds to wait before requesting an automatic spoken acknowledgement for a delegation. The model may still speak before this delay. Any commentary or thinking appended to the session cancels all pending acknowledgements, including those for other delegations. Defaults to 400 for Decisions sessions and 0 (request immediately) for other sessions. Omission in a session update preserves the current value. Updates apply to subsequent delegations."
+          },
           "responses": {
             "description": "Responses backend settings to update. Omitted settings keep their existing values.",
             "$ref": "#/components/schemas/LiveResponsesDelegationSettingsUpdateInputParam"
@@ -123455,6 +123986,12 @@
           }
         ],
         "properties": {
+          "acknowledgement_delay_ms": {
+            "maximum": 800,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Milliseconds to wait before requesting an automatic spoken acknowledgement for a delegation. The model may still speak before this delay. Any commentary or thinking appended to the session cancels all pending acknowledgements, including those for other delegations. Defaults to 400 for Decisions sessions and 0 (request immediately) for other sessions. Omission in a session update preserves the current value. Updates apply to subsequent delegations."
+          },
           "responses": {
             "description": "Backend model, prompt, and tools used when the Live session delegates a task to Responses.",
             "$ref": "#/components/schemas/LiveResponsesDelegationSettingsInputParam"
@@ -129365,6 +129902,18 @@
             "InputFileContentParam": "#/components/schemas/InputFileContentParam"
           }
         }
+      },
+      "DecisionInputJsonDataOneOf1AdditionalProperties": {
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "DecisionInputJsonDataOneOf2ItemAdditionalProperties": {
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "LiveDecisionInputItemParamContentOneOf2Item": {
         "required": [
@@ -139985,6 +140534,17 @@
           }
         }
       },
+      "ImageDetailParamWrapper2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/ImageDetailParam"
+          }
+        }
+      },
       "MessagePhaseResourceWrapper": {
         "required": [
           "value"
@@ -141728,6 +142288,21 @@
             "type": "string",
             "description": "Reference to the completed video to extend.",
             "format": "binary"
+          }
+        }
+      },
+      "DecisionInputJsonDataBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DecisionInputJsonDataBranch2ValueItem"
+            }
           }
         }
       },
@@ -147483,6 +148058,17 @@
           "type": "string"
         },
         "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "DecisionInputJsonDataBranch2ValueItem": {
+        "propertyNames": {
+          "minLength": 0,
+          "type": "string"
+        },
+        "minProperties": 0,
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/DecisionInputJsonDataOneOf2ItemAdditionalProperties"
+        }
       },
       "RunGraderResponseSubRewardsPropertyAdditionalProperties": {
         "type": "object"
@@ -157892,6 +158478,25 @@
           ]
         }
       },
+      "AudioVoiceDeletedObject": {
+        "enum": [
+          "audio.voice.deleted"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The object type, which is always \u0060audio.voice.deleted\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "AudioVoiceDeletedObject",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "audio.voice.deleted",
+              "name": "AudioVoiceDeleted"
+            }
+          ]
+        }
+      },
       "AudioVoiceObject": {
         "enum": [
           "audio.voice"
@@ -160874,34 +161479,20 @@
           ]
         }
       },
-      "DecisionInputMessageRole": {
+      "InputJsonType": {
         "enum": [
-          "user",
-          "developer",
-          "system",
-          "assistant"
+          "input_json"
         ],
         "type": "string",
         "additionalProperties": false,
+        "x-stainless-const": true,
         "x-ms-enum": {
-          "name": "DecisionInputMessageRole",
+          "name": "InputJsonType",
           "modelAsString": false,
           "values": [
             {
-              "value": "user",
-              "name": "User"
-            },
-            {
-              "value": "developer",
-              "name": "Developer"
-            },
-            {
-              "value": "system",
-              "name": "System"
-            },
-            {
-              "value": "assistant",
-              "name": "Assistant"
+              "value": "input_json",
+              "name": "InputJson"
             }
           ]
         }

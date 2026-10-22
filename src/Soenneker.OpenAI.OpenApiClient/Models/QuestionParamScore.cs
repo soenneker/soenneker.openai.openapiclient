@@ -16,10 +16,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The instructions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Instructions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamScoreInstructions? Instructions { get; set; }
 #nullable restore
 #else
-        public string Instructions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamScoreInstructions Instructions { get; set; }
 #endif
         /// <summary>The levels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,7 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "instructions", n => { Instructions = n.GetStringValue(); } },
+                { "instructions", n => { Instructions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamScoreInstructions>(global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamScoreInstructions.CreateFromDiscriminatorValue); } },
                 { "levels", n => { Levels = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ScoreLevelParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ScoreLevelParam.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScoreType>(); } },
@@ -70,7 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("instructions", Instructions);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamScoreInstructions>("instructions", Instructions);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ScoreLevelParam>("levels", Levels);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScoreType>("type", Type);

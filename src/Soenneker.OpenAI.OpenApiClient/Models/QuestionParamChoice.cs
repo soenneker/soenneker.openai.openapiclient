@@ -24,10 +24,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The instructions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Instructions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamChoiceInstructions? Instructions { get; set; }
 #nullable restore
 #else
-        public string Instructions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamChoiceInstructions Instructions { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "choices", n => { Choices = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChoiceOptionParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ChoiceOptionParam.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "instructions", n => { Instructions = n.GetStringValue(); } },
+                { "instructions", n => { Instructions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamChoiceInstructions>(global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamChoiceInstructions.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChoiceType>(); } },
             };
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChoiceOptionParam>("choices", Choices);
-            writer.WriteStringValue("instructions", Instructions);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamChoiceInstructions>("instructions", Instructions);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChoiceType>("type", Type);
         }

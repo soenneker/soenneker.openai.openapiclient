@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// A list of one or many input items to the model, containing different content types.
+    /// A list of one or many input items to the model, containingdifferent content types.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaInputItem : IAdditionalDataHolder, IParsable

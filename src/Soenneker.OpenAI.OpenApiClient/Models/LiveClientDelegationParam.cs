@@ -13,6 +13,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LiveClientDelegationParam : IAdditionalDataHolder, IParsable
     {
+        /// <summary>Milliseconds to wait before requesting an automatic spoken acknowledgement for a delegation. The model may still speak before this delay. Any commentary or thinking appended to the session cancels all pending acknowledgements, including those for other delegations. Defaults to 400 for Decisions sessions and 0 (request immediately) for other sessions. Omission in a session update preserves the current value. Updates apply to subsequent delegations.</summary>
+        public int? AcknowledgementDelayMs { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The delegation owner. Always `client` for tasks handled by your application.</summary>
@@ -42,6 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "acknowledgement_delay_ms", n => { AcknowledgementDelayMs = n.GetIntValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientType>(); } },
             };
         }
@@ -52,6 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("acknowledgement_delay_ms", AcknowledgementDelayMs);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClientType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

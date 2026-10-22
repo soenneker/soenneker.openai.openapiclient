@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.OpenAI.OpenApiClient.Audio.Voices.Item;
 using Soenneker.OpenAI.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Audio.Voices
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VoicesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>Gets an item from the Soenneker.OpenAI.OpenApiClient.audio.voices.item collection</summary>
+        /// <param name="position">The ID of the voice to delete.</param>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Audio.Voices.Item.WithVoiceItemRequestBuilder"/></returns>
+        public global::Soenneker.OpenAI.OpenApiClient.Audio.Voices.Item.WithVoiceItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("voiceId", position);
+                return new global::Soenneker.OpenAI.OpenApiClient.Audio.Voices.Item.WithVoiceItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Audio.Voices.VoicesRequestBuilder"/> and sets the default values.
         /// </summary>
