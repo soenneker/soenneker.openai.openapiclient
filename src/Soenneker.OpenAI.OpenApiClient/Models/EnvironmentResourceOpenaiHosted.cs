@@ -24,10 +24,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The effective CPU and memory tier, or null when unknown or outside the public tiers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper? ContainerSize { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper2? ContainerSize { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper ContainerSize { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper2 ContainerSize { get; set; }
 #endif
         /// <summary>The effective desktop configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,7 +106,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "capability_directories", n => { CapabilityDirectories = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "container_size", n => { ContainerSize = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper.CreateFromDiscriminatorValue); } },
+                { "container_size", n => { ContainerSize = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper2>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper2.CreateFromDiscriminatorValue); } },
                 { "desktop", n => { Desktop = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DesktopResource>(global::Soenneker.OpenAI.OpenApiClient.Models.DesktopResource.CreateFromDiscriminatorValue); } },
                 { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.HostedEnvironmentFileResource>(global::Soenneker.OpenAI.OpenApiClient.Models.HostedEnvironmentFileResource.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -125,7 +125,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("capability_directories", CapabilityDirectories);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper>("container_size", ContainerSize);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper2>("container_size", ContainerSize);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DesktopResource>("desktop", Desktop);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.HostedEnvironmentFileResource>("files", Files);
             writer.WriteStringValue("id", Id);

@@ -16,7 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Set the background of the generated image(s). This parameter is only supported forthe GPT image models. Must be one of `transparent`, `opaque`, or `auto` (defaultvalue). When `auto` is used, the model will automatically determine the bestbackground for the image.`gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08`snapshots, support `opaque` and `transparent` backgrounds. Transparent backgroundsare available for supported GPT Image models. For `gpt-image-2` and`gpt-image-2-2026-04-21`, this support is in preview. When using `transparent`,set the output format to `png` or `webp`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground? Background { get; set; }
-        /// <summary>The image(s) to edit. Must be a supported image file or an array of images.For the GPT image models (`gpt-image-1`, `gpt-image-1-mini`, `gpt-image-1.5`,`gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`,`gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, and`gpt-image-2.5-flare-2026-09-08`), each image should be a `png`, `webp`, or `jpg`file less than 50MB. You can provide up to 16 images. `chatgpt-image-latest`follows the same input constraints as GPT image models.</summary>
+        /// <summary>The image(s) to edit. Must be a supported image file or an array of images.For the GPT image models (`gpt-image-1-mini`, `gpt-image-1.5`,`gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`,`gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, and`gpt-image-2.5-flare-2026-09-08`), each image should be a `png`, `webp`, or `jpg`file less than 50MB. You can provide up to 16 images. `chatgpt-image-latest`follows the same input constraints as GPT image models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage? Image { get; set; }
@@ -40,7 +40,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public byte[] Mask { get; set; }
 #endif
-        /// <summary>The GPT image model to use for image editing (`gpt-image-1`, `gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`, `gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, `gpt-image-2.5-flare-2026-09-08`, or `chatgpt-image-latest`).</summary>
+        /// <summary>The GPT image model to use for image editing(`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,`gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`,`gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`,`gpt-image-2.5-flare-2026-09-08`, or `chatgpt-image-latest`).`gpt-image-1` was shut down on October 23, 2026. Use`gpt-image-2.5-sunburst` or `gpt-image-2.5-flare` instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel? Model { get; set; }

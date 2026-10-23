@@ -8,11 +8,19 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamComputerUse"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamFunction"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamMcp"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamProgrammaticToolCalling"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamToolSearch"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamWebSearch"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAutomations"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamComputerUse"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamFunction"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamMcp"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamProgrammaticToolCalling"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamToolSearch"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamWebSearch"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentToolConfigParam : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAutomations"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAutomations? AgentToolConfigParamAutomations { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAutomations AgentToolConfigParamAutomations { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamComputerUse"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,7 +79,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParam();
-            if("AgentToolConfigParamComputerUse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("AgentToolConfigParamAutomations".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.AgentToolConfigParamAutomations = new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAutomations();
+            }
+            else if("AgentToolConfigParamComputerUse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AgentToolConfigParamComputerUse = new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamComputerUse();
             }
@@ -103,7 +115,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(AgentToolConfigParamComputerUse != null)
+            if(AgentToolConfigParamAutomations != null)
+            {
+                return AgentToolConfigParamAutomations.GetFieldDeserializers();
+            }
+            else if(AgentToolConfigParamComputerUse != null)
             {
                 return AgentToolConfigParamComputerUse.GetFieldDeserializers();
             }
@@ -136,7 +152,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(AgentToolConfigParamComputerUse != null)
+            if(AgentToolConfigParamAutomations != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAutomations>(null, AgentToolConfigParamAutomations);
+            }
+            else if(AgentToolConfigParamComputerUse != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamComputerUse>(null, AgentToolConfigParamComputerUse);
             }

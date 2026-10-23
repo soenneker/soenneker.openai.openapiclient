@@ -24,10 +24,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The amount of search context made available to the model. Defaults to `medium`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchContextSizeParamWrapper2? ContextSize { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchContextSizeParamWrapper? ContextSize { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchContextSizeParamWrapper2 ContextSize { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchContextSizeParamWrapper ContextSize { get; set; }
 #endif
         /// <summary>Approximate location used to localize search results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,10 +40,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The source used for web search results. Defaults to `live`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchModeParamWrapper2? Mode { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchModeParamWrapper? Mode { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchModeParamWrapper2 Mode { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchModeParamWrapper Mode { get; set; }
 #endif
         /// <summary>The tool type. Always `web_search`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchType? Type { get; set; }
@@ -66,9 +66,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allowed_domains", n => { AllowedDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "context_size", n => { ContextSize = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchContextSizeParamWrapper2>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchContextSizeParamWrapper2.CreateFromDiscriminatorValue); } },
+                { "context_size", n => { ContextSize = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchContextSizeParamWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchContextSizeParamWrapper.CreateFromDiscriminatorValue); } },
                 { "location", n => { Location = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchLocationParam>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchLocationParam.CreateFromDiscriminatorValue); } },
-                { "mode", n => { Mode = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchModeParamWrapper2>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchModeParamWrapper2.CreateFromDiscriminatorValue); } },
+                { "mode", n => { Mode = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchModeParamWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchModeParamWrapper.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchType>(); } },
             };
         }
@@ -80,9 +80,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_domains", AllowedDomains);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchContextSizeParamWrapper2>("context_size", ContextSize);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchContextSizeParamWrapper>("context_size", ContextSize);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchLocationParam>("location", Location);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchModeParamWrapper2>("mode", Mode);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchModeParamWrapper>("mode", Mode);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchType>("type", Type);
         }
     }

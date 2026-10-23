@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.OpenAI.OpenApiClient.Agents.Automations;
 using Soenneker.OpenAI.OpenApiClient.Agents.Environments;
 using Soenneker.OpenAI.OpenApiClient.Agents.Item;
 using Soenneker.OpenAI.OpenApiClient.Agents.Sessions;
@@ -20,6 +21,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The automations property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Agents.Automations.AutomationsRequestBuilder Automations
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Agents.Automations.AutomationsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The environments property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Agents.Environments.EnvironmentsRequestBuilder Environments
         {

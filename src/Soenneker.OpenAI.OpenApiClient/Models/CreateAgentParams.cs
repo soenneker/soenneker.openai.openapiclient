@@ -64,10 +64,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The service tier used for model requests. Defaults to `auto`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierParamWrapper? ServiceTier { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierParamWrapper2? ServiceTier { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierParamWrapper ServiceTier { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierParamWrapper2 ServiceTier { get; set; }
 #endif
         /// <summary>Configuration for generated text. Defaults to the `text` format and medium verbosity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,7 +109,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "multi_agent", n => { MultiAgent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigCurrentParam>(global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigCurrentParam.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningParam.CreateFromDiscriminatorValue); } },
-                { "service_tier", n => { ServiceTier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierParamWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierParamWrapper.CreateFromDiscriminatorValue); } },
+                { "service_tier", n => { ServiceTier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierParamWrapper2>(global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierParamWrapper2.CreateFromDiscriminatorValue); } },
                 { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextParam>(global::Soenneker.OpenAI.OpenApiClient.Models.TextParam.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParam>(global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParam.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -127,7 +127,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigCurrentParam>("multi_agent", MultiAgent);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningParam>("reasoning", Reasoning);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierParamWrapper>("service_tier", ServiceTier);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierParamWrapper2>("service_tier", ServiceTier);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextParam>("text", Text);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParam>("tools", Tools);
         }

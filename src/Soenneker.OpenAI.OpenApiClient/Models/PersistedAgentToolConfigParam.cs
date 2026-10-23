@@ -8,11 +8,19 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamComputerUse"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamFunction"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamMcp"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamProgrammaticToolCalling"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamToolSearch"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamWebSearch"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamAutomations"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamComputerUse"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamFunction"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamMcp"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamProgrammaticToolCalling"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamToolSearch"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamWebSearch"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PersistedAgentToolConfigParam : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamAutomations"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamAutomations? PersistedAgentToolConfigParamAutomations { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamAutomations PersistedAgentToolConfigParamAutomations { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamComputerUse"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,7 +79,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParam();
-            if("computer_use".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("automations".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PersistedAgentToolConfigParamAutomations = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamAutomations();
+            }
+            else if("computer_use".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PersistedAgentToolConfigParamComputerUse = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamComputerUse();
             }
@@ -103,7 +115,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(PersistedAgentToolConfigParamComputerUse != null)
+            if(PersistedAgentToolConfigParamAutomations != null)
+            {
+                return PersistedAgentToolConfigParamAutomations.GetFieldDeserializers();
+            }
+            else if(PersistedAgentToolConfigParamComputerUse != null)
             {
                 return PersistedAgentToolConfigParamComputerUse.GetFieldDeserializers();
             }
@@ -136,7 +152,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(PersistedAgentToolConfigParamComputerUse != null)
+            if(PersistedAgentToolConfigParamAutomations != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamAutomations>(null, PersistedAgentToolConfigParamAutomations);
+            }
+            else if(PersistedAgentToolConfigParamComputerUse != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamComputerUse>(null, PersistedAgentToolConfigParamComputerUse);
             }
