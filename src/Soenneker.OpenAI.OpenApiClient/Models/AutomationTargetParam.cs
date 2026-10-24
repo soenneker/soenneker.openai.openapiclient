@@ -39,11 +39,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationTargetParam();
-            if("AutomationTargetParamExistingSession".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("existing_session".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AutomationTargetParamExistingSession = new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationTargetParamExistingSession();
             }
-            else if("AutomationTargetParamNewSession".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("new_session".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AutomationTargetParamNewSession = new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationTargetParamNewSession();
             }

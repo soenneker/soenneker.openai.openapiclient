@@ -9,7 +9,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class BetaCreateResponseBody : global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponseProperties, IParsable
+    public partial class BetaCreateResponseBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Domain-specific access programs to use for this request.</summary>
@@ -20,6 +20,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAccessProgramsParam AccessPrograms { get; set; }
 #endif
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to run the model response in the background.[Learn more](https://developers.openai.com/api/docs/guides/background).</summary>
         public bool? Background { get; set; }
         /// <summary>Context management configuration for this request.</summary>
@@ -66,6 +68,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? MaxOutputTokens { get; set; }
         /// <summary>The maximum number of total calls to built-in tools that can be processed in a response. This maximum number applies across all built-in tool calls, not per individual tool. Any further attempts to call a tool by the model will be ignored.</summary>
         public int? MaxToolCalls { get; set; }
+        /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesMetadata? Metadata { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesMetadata Metadata { get; set; }
+#endif
         /// <summary>Model ID used to generate the response, like `gpt-6-astra`. OpenAIoffers a wide range of models with different capabilities, performancecharacteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models)to browse and compare available models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -108,6 +118,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt Prompt { get; set; }
 #endif
+        /// <summary>Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](https://developers.openai.com/api/docs/guides/prompt-caching).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PromptCacheKey { get; set; }
+#nullable restore
+#else
+        public string PromptCacheKey { get; set; }
+#endif
+        /// <summary>The prompt_cache_options property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options? PromptCacheOptions { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options PromptCacheOptions { get; set; }
+#endif
+        /// <summary>Deprecated. Use `prompt_cache_options.ttl` instead.The retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](https://developers.openai.com/api/docs/guides/prompt-caching#prompt-cache-retention).This field expresses a maximum retention policy, while`prompt_cache_options.ttl` expresses a minimum cache lifetime. The twofields are independent and do not interact.For `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.For older models that support both `in_memory` and `24h`, the default depends on your organization&apos;s data retention policy:  - Organizations without ZDR enabled default to `24h`.  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.</summary>
+        [Obsolete("")]
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheRetention? PromptCacheRetention { get; set; }
         /// <summary>The reasoning property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,6 +144,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoning Reasoning { get; set; }
+#endif
+        /// <summary>A stable identifier used to help detect users of your application that may be violating OpenAI&apos;s usage policies.The IDs should be a string that uniquely identifies each user, with a maximum length of 128 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SafetyIdentifier { get; set; }
+#nullable restore
+#else
+        public string SafetyIdentifier { get; set; }
 #endif
         /// <summary>Specifies the processing type used for serving the request.  - If set to &apos;auto&apos;, then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use &apos;default&apos;.  - If set to &apos;default&apos;, then the request will be processed with the standard pricing and performance for the selected model.  - If set to &apos;[flex](https://developers.openai.com/api/docs/guides/flex-processing)&apos;, then the request will be processed with the Flex Processing service tier.  - To opt-in to [Fast mode](https://developers.openai.com/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.  - If set to &apos;ultrafast&apos;, then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.  - When not set, the default behavior is &apos;auto&apos;.  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierResponses? ServiceTier { get; set; }
@@ -130,6 +167,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions StreamOptions { get; set; }
 #endif
+        /// <summary>What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.We generally recommend altering this or `top_p` but not both.</summary>
+        public double? Temperature { get; set; }
         /// <summary>Configuration options for a text response from the model. Can be plaintext or structured JSON data. Learn more:- [Text inputs and outputs](https://developers.openai.com/api/docs/guides/text)- [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -154,25 +193,47 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool> Tools { get; set; }
 #endif
+        /// <summary>The top_logprobs property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesTopLogprobs? TopLogprobs { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesTopLogprobs TopLogprobs { get; set; }
+#endif
+        /// <summary>An alternative to sampling with temperature, called nucleus sampling,where the model considers the results of the tokens with top_p probabilitymass. So 0.1 means only the tokens comprising the top 10% probability massare considered.We generally recommend altering this or `temperature` but not both.</summary>
+        public double? TopP { get; set; }
         /// <summary>The truncation strategy to use for the model response.- `auto`: If the input to this Response exceeds  the model&apos;s context window size, the model will truncate the  response to fit the context window by dropping items from the beginning of the conversation.- `disabled` (default): If the input size will exceed the context window  size for a model, the request will fail with a 400 error.</summary>
         [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyTruncation? Truncation { get; set; }
+        /// <summary>This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.A stable identifier for your end-users.Used to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).</summary>
+        [Obsolete("")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? User { get; set; }
+#nullable restore
+#else
+        public string User { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody"/> and sets the default values.
         /// </summary>
-        public BetaCreateResponseBody() : base()
+        public BetaCreateResponseBody()
         {
+            AdditionalData = new Dictionary<string, object>();
             Background = false;
             ParallelToolCalls = true;
             Store = true;
             Stream = false;
+            Temperature = 1;
+            TopP = 1;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody();
@@ -181,9 +242,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
                 { "access_programs", n => { AccessPrograms = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAccessProgramsParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAccessProgramsParam.CreateFromDiscriminatorValue); } },
                 { "background", n => { Background = n.GetBoolValue(); } },
@@ -194,31 +255,39 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "max_output_tokens", n => { MaxOutputTokens = n.GetIntValue(); } },
                 { "max_tool_calls", n => { MaxToolCalls = n.GetIntValue(); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesMetadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses.CreateFromDiscriminatorValue); } },
                 { "moderation", n => { Moderation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationParam.CreateFromDiscriminatorValue); } },
                 { "multi_agent", n => { MultiAgent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentParam.CreateFromDiscriminatorValue); } },
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
                 { "previous_response_id", n => { PreviousResponseId = n.GetStringValue(); } },
                 { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_key", n => { PromptCacheKey = n.GetStringValue(); } },
+                { "prompt_cache_options", n => { PromptCacheOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_retention", n => { PromptCacheRetention = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheRetention>(); } },
                 { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoning.CreateFromDiscriminatorValue); } },
+                { "safety_identifier", n => { SafetyIdentifier = n.GetStringValue(); } },
                 { "service_tier", n => { ServiceTier = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierResponses>(); } },
                 { "store", n => { Store = n.GetBoolValue(); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "stream_options", n => { StreamOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions.CreateFromDiscriminatorValue); } },
+                { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTextParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTextParam.CreateFromDiscriminatorValue); } },
                 { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "top_logprobs", n => { TopLogprobs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesTopLogprobs>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesTopLogprobs.CreateFromDiscriminatorValue); } },
+                { "top_p", n => { TopP = n.GetDoubleValue(); } },
                 { "truncation", n => { Truncation = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyTruncation>(); } },
+                { "user", n => { User = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAccessProgramsParam>("access_programs", AccessPrograms);
             writer.WriteBoolValue("background", Background);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContextManagementParam>("context_management", ContextManagement);
@@ -228,21 +297,31 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteIntValue("max_output_tokens", MaxOutputTokens);
             writer.WriteIntValue("max_tool_calls", MaxToolCalls);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses>("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationParam>("moderation", Moderation);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMultiAgentParam>("multi_agent", MultiAgent);
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
             writer.WriteStringValue("previous_response_id", PreviousResponseId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt>("prompt", Prompt);
+            writer.WriteStringValue("prompt_cache_key", PromptCacheKey);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options>("prompt_cache_options", PromptCacheOptions);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheRetention>("prompt_cache_retention", PromptCacheRetention);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaReasoning>("reasoning", Reasoning);
+            writer.WriteStringValue("safety_identifier", SafetyIdentifier);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierResponses>("service_tier", ServiceTier);
             writer.WriteBoolValue("store", Store);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions>("stream_options", StreamOptions);
+            writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTextParam>("text", Text);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam>("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool>("tools", Tools);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateModelResponsePropertiesTopLogprobs>("top_logprobs", TopLogprobs);
+            writer.WriteDoubleValue("top_p", TopP);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyTruncation>("truncation", Truncation);
+            writer.WriteStringValue("user", User);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

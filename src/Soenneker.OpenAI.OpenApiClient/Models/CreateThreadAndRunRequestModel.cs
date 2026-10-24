@@ -8,19 +8,13 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelBranch1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelAnyOf2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelMember1"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateThreadAndRunRequestModel : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelBranch1? CreateThreadAndRunRequestModelBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelBranch1 CreateThreadAndRunRequestModelBranch1 { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelAnyOf2"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelAnyOf2? CreateThreadAndRunRequestModelAnyOf2 { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,13 +23,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelMember1 CreateThreadAndRunRequestModelMember1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelWrapper"/></summary>
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelWrapper? CreateThreadAndRunRequestModelWrapper { get; set; }
+        public string? String { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelWrapper CreateThreadAndRunRequestModelWrapper { get; set; }
+        public string String { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -46,9 +40,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModel();
-            result.CreateThreadAndRunRequestModelBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelBranch1();
-            result.CreateThreadAndRunRequestModelMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelMember1();
-            result.CreateThreadAndRunRequestModelWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelWrapper();
+            if(parseNode.GetStringValue() is string stringValue)
+            {
+                result.String = stringValue;
+            }
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelAnyOf2>() is global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelAnyOf2 createThreadAndRunRequestModelAnyOf2Value)
+            {
+                result.CreateThreadAndRunRequestModelAnyOf2 = createThreadAndRunRequestModelAnyOf2Value;
+            }
+            else {
+                result.CreateThreadAndRunRequestModelMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelMember1();
+            }
             return result;
         }
         /// <summary>
@@ -57,9 +59,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateThreadAndRunRequestModelBranch1 != null || CreateThreadAndRunRequestModelMember1 != null || CreateThreadAndRunRequestModelWrapper != null)
+            if(CreateThreadAndRunRequestModelMember1 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CreateThreadAndRunRequestModelBranch1, CreateThreadAndRunRequestModelMember1, CreateThreadAndRunRequestModelWrapper);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CreateThreadAndRunRequestModelMember1);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -70,7 +72,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelBranch1>(null, CreateThreadAndRunRequestModelBranch1, CreateThreadAndRunRequestModelMember1, CreateThreadAndRunRequestModelWrapper);
+            if(String != null)
+            {
+                writer.WriteStringValue(null, String);
+            }
+            else if(CreateThreadAndRunRequestModelAnyOf2 != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelAnyOf2>(null, CreateThreadAndRunRequestModelAnyOf2);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadAndRunRequestModelMember1>(null, CreateThreadAndRunRequestModelMember1);
+            }
         }
     }
 }

@@ -79,31 +79,31 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParam();
-            if("AgentToolConfigParamAutomations".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("automations".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AgentToolConfigParamAutomations = new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAutomations();
             }
-            else if("AgentToolConfigParamComputerUse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("computer_use".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AgentToolConfigParamComputerUse = new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamComputerUse();
             }
-            else if("AgentToolConfigParamFunction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("function".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AgentToolConfigParamFunction = new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamFunction();
             }
-            else if("AgentToolConfigParamMcp".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("mcp".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AgentToolConfigParamMcp = new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamMcp();
             }
-            else if("AgentToolConfigParamProgrammaticToolCalling".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("programmatic_tool_calling".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AgentToolConfigParamProgrammaticToolCalling = new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamProgrammaticToolCalling();
             }
-            else if("AgentToolConfigParamToolSearch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("tool_search".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AgentToolConfigParamToolSearch = new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamToolSearch();
             }
-            else if("AgentToolConfigParamWebSearch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("web_search".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AgentToolConfigParamWebSearch = new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamWebSearch();
             }

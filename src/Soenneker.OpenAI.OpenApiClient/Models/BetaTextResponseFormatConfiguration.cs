@@ -45,17 +45,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatConfiguration();
-            if("BetaResponseFormatJsonObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("json_object".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BetaResponseFormatJsonObject = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseFormatJsonObject();
             }
-            else if("BetaResponseFormatText".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("text".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BetaResponseFormatText = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseFormatText();
             }
-            else if("BetaTextResponseFormatJsonSchema".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("json_schema".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BetaTextResponseFormatJsonSchema = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatJsonSchema();
             }

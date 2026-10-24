@@ -45,17 +45,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.ModifyAssistantRequestToolsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ModifyAssistantRequestToolsItem();
-            if("AssistantToolsCode".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("code_interpreter".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AssistantToolsCode = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsCode();
             }
-            else if("AssistantToolsFileSearch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("file_search".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AssistantToolsFileSearch = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearch();
             }
-            else if("AssistantToolsFunction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("function".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AssistantToolsFunction = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFunction();
             }

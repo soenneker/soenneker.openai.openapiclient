@@ -95,8 +95,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedSkillParam> Skills { get; set; }
 #endif
-        /// <summary>The type of the object. Always `openai_hosted`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OpenaiHostedType? Type { get; set; }
+        /// <summary>The type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEnvironmentParam"/> and sets the default values.
         /// </summary>
@@ -132,7 +138,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "plugins", n => { Plugins = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.HostedPluginParam>(global::Soenneker.OpenAI.OpenApiClient.Models.HostedPluginParam.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "setup_commands", n => { SetupCommands = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SetupCommandParam>(global::Soenneker.OpenAI.OpenApiClient.Models.SetupCommandParam.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "skills", n => { Skills = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.HostedSkillParam>(global::Soenneker.OpenAI.OpenApiClient.Models.HostedSkillParam.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenaiHostedType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -152,7 +158,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.HostedPluginParam>("plugins", Plugins);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SetupCommandParam>("setup_commands", SetupCommands);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.HostedSkillParam>("skills", Skills);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenaiHostedType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

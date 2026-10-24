@@ -25,8 +25,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The type of the tool. If type is `function`, the function name must be set</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceType? Type { get; set; }
-        /// <summary>`none` means the model will not call any tools and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools before responding to the user.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOptionWrapperValue? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequestToolChoice"/> and sets the default values.
         /// </summary>
@@ -54,7 +52,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "function", n => { Function = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceFunction>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceFunction.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceType>(); } },
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOptionWrapperValue>(); } },
             };
         }
         /// <summary>
@@ -66,7 +63,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceFunction>("function", Function);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsNamedToolChoiceType>("type", Type);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOptionWrapperValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

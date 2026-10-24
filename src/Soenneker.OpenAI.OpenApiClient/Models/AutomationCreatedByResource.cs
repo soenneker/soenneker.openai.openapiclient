@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.AutomationCreatedByResourceAgent = new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationCreatedByResourceAgent();
             }
-            else if("AutomationCreatedByResourceDeveloper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("developer".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AutomationCreatedByResourceDeveloper = new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationCreatedByResourceDeveloper();
             }

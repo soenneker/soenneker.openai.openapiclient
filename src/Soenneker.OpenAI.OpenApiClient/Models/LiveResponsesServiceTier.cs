@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>Service tier for delegated Responses requests.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum LiveResponsesServiceTier
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "auto")]
         #pragma warning disable CS1591

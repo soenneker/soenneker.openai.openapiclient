@@ -37,13 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormat CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormat();
-            if("CustomToolChatCompletionsCustomFormatGrammarFormat".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("grammar".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CustomToolChatCompletionsCustomFormatGrammarFormat = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormat();
             }
-            else if("CustomToolChatCompletionsCustomFormatTextFormat".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("text".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CustomToolChatCompletionsCustomFormatTextFormat = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatTextFormat();
             }

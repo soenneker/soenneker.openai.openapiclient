@@ -109,6 +109,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// </summary>
         public CreateThreadAndRunRequest()
         {
+            ParallelToolCalls = true;
             Temperature = 1;
             TopP = 1;
         }

@@ -8,27 +8,15 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierBranch2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierWrapper"/>
+    /// Composed type wrapper for classes <see cref="double"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierOneOf1"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateFineTuningJobRequestHyperparametersLearningRateMultiplier : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierBranch2? CreateFineTuningJobRequestHyperparametersLearningRateMultiplierBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierBranch2 CreateFineTuningJobRequestHyperparametersLearningRateMultiplierBranch2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierWrapper? CreateFineTuningJobRequestHyperparametersLearningRateMultiplierWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierWrapper CreateFineTuningJobRequestHyperparametersLearningRateMultiplierWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierOneOf1"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierOneOf1? CreateFineTuningJobRequestHyperparametersLearningRateMultiplierOneOf1 { get; set; }
+        /// <summary>Composed type representation for type <see cref="double"/></summary>
+        public double? Double { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,13 +27,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplier();
-            if("CreateFineTuningJobRequestHyperparametersLearningRateMultiplierBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierOneOf1>() is global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierOneOf1 createFineTuningJobRequestHyperparametersLearningRateMultiplierOneOf1Value)
             {
-                result.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierBranch2 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierBranch2();
+                result.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierOneOf1 = createFineTuningJobRequestHyperparametersLearningRateMultiplierOneOf1Value;
             }
-            else if("CreateFineTuningJobRequestHyperparametersLearningRateMultiplierWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetDoubleValue() is double doubleValue)
             {
-                result.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierWrapper();
+                result.Double = doubleValue;
             }
             return result;
         }
@@ -55,14 +43,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateFineTuningJobRequestHyperparametersLearningRateMultiplierBranch2 != null)
-            {
-                return CreateFineTuningJobRequestHyperparametersLearningRateMultiplierBranch2.GetFieldDeserializers();
-            }
-            else if(CreateFineTuningJobRequestHyperparametersLearningRateMultiplierWrapper != null)
-            {
-                return CreateFineTuningJobRequestHyperparametersLearningRateMultiplierWrapper.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -72,13 +52,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateFineTuningJobRequestHyperparametersLearningRateMultiplierBranch2 != null)
+            if(CreateFineTuningJobRequestHyperparametersLearningRateMultiplierOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierBranch2>(null, CreateFineTuningJobRequestHyperparametersLearningRateMultiplierBranch2);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierOneOf1>(null, CreateFineTuningJobRequestHyperparametersLearningRateMultiplierOneOf1);
             }
-            else if(CreateFineTuningJobRequestHyperparametersLearningRateMultiplierWrapper != null)
+            else if(Double != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersLearningRateMultiplierWrapper>(null, CreateFineTuningJobRequestHyperparametersLearningRateMultiplierWrapper);
+                writer.WriteDoubleValue(null, Double);
             }
         }
     }

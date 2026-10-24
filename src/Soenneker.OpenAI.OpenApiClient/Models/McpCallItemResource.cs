@@ -16,18 +16,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The arguments passed to the MCP tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceArguments? Arguments { get; set; }
+        public UntypedNode? Arguments { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceArguments Arguments { get; set; }
+        public UntypedNode Arguments { get; set; }
 #endif
         /// <summary>The error returned by the MCP tool, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceError? Error { get; set; }
+        public UntypedNode? Error { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceError Error { get; set; }
+        public UntypedNode Error { get; set; }
 #endif
         /// <summary>The ID of the MCP call item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,10 +48,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The output returned by the MCP tool, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceOutput? Output { get; set; }
+        public UntypedNode? Output { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceOutput Output { get; set; }
+        public UntypedNode Output { get; set; }
 #endif
         /// <summary>The label of the MCP server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -91,11 +91,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceArguments>(global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceArguments.CreateFromDiscriminatorValue); } },
-                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceError>(global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceError.CreateFromDiscriminatorValue); } },
+                { "arguments", n => { Arguments = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceOutput>(global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceOutput.CreateFromDiscriminatorValue); } },
+                { "output", n => { Output = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "server_label", n => { ServerLabel = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallStatusResource>(); } },
                 { "turn_id", n => { TurnId = n.GetStringValue(); } },
@@ -109,11 +109,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceArguments>("arguments", Arguments);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceError>("error", Error);
+            writer.WriteObjectValue<UntypedNode>("arguments", Arguments);
+            writer.WriteObjectValue<UntypedNode>("error", Error);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResourceOutput>("output", Output);
+            writer.WriteObjectValue<UntypedNode>("output", Output);
             writer.WriteStringValue("server_label", ServerLabel);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallStatusResource>("status", Status);
             writer.WriteStringValue("turn_id", TurnId);

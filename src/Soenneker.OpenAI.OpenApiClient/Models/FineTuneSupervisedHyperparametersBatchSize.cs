@@ -8,27 +8,15 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeBranch2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeOneOf1"/>, <see cref="int"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FineTuneSupervisedHyperparametersBatchSize : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeBranch2? FineTuneSupervisedHyperparametersBatchSizeBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeBranch2 FineTuneSupervisedHyperparametersBatchSizeBranch2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeWrapper? FineTuneSupervisedHyperparametersBatchSizeWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeWrapper FineTuneSupervisedHyperparametersBatchSizeWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeOneOf1"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeOneOf1? FineTuneSupervisedHyperparametersBatchSizeOneOf1 { get; set; }
+        /// <summary>Composed type representation for type <see cref="int"/></summary>
+        public int? Integer { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,13 +27,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSize();
-            if("FineTuneSupervisedHyperparametersBatchSizeBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeOneOf1>() is global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeOneOf1 fineTuneSupervisedHyperparametersBatchSizeOneOf1Value)
             {
-                result.FineTuneSupervisedHyperparametersBatchSizeBranch2 = new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeBranch2();
+                result.FineTuneSupervisedHyperparametersBatchSizeOneOf1 = fineTuneSupervisedHyperparametersBatchSizeOneOf1Value;
             }
-            else if("FineTuneSupervisedHyperparametersBatchSizeWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetIntValue() is int integerValue)
             {
-                result.FineTuneSupervisedHyperparametersBatchSizeWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeWrapper();
+                result.Integer = integerValue;
             }
             return result;
         }
@@ -55,14 +43,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(FineTuneSupervisedHyperparametersBatchSizeBranch2 != null)
-            {
-                return FineTuneSupervisedHyperparametersBatchSizeBranch2.GetFieldDeserializers();
-            }
-            else if(FineTuneSupervisedHyperparametersBatchSizeWrapper != null)
-            {
-                return FineTuneSupervisedHyperparametersBatchSizeWrapper.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -72,13 +52,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(FineTuneSupervisedHyperparametersBatchSizeBranch2 != null)
+            if(FineTuneSupervisedHyperparametersBatchSizeOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeBranch2>(null, FineTuneSupervisedHyperparametersBatchSizeBranch2);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeOneOf1>(null, FineTuneSupervisedHyperparametersBatchSizeOneOf1);
             }
-            else if(FineTuneSupervisedHyperparametersBatchSizeWrapper != null)
+            else if(Integer != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparametersBatchSizeWrapper>(null, FineTuneSupervisedHyperparametersBatchSizeWrapper);
+                writer.WriteIntValue(null, Integer);
             }
         }
     }

@@ -14,13 +14,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class UpdateSessionReasoningParam : IParsable
     {
         /// <summary>Omit to keep the current effort. Null selects the model&apos;s default effort.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParamWrapper2? Effort { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParamWrapper2 Effort { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParam? Effort { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,7 +33,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "effort", n => { Effort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParamWrapper2>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParamWrapper2.CreateFromDiscriminatorValue); } },
+                { "effort", n => { Effort = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParam>(); } },
             };
         }
         /// <summary>
@@ -49,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParamWrapper2>("effort", Effort);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParam>("effort", Effort);
         }
     }
 }

@@ -18,10 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The voice used for Live speech, as a built-in voice name or a custom voice object containing its ID. Defaults to `marin` and cannot change after startup.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialSessionAudioOutputParamVoice? Voice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveCustomVoiceParam? Voice { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialSessionAudioOutputParamVoice Voice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveCustomVoiceParam Voice { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialSessionAudioOutputParam"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "voice", n => { Voice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialSessionAudioOutputParamVoice>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialSessionAudioOutputParamVoice.CreateFromDiscriminatorValue); } },
+                { "voice", n => { Voice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveCustomVoiceParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveCustomVoiceParam.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialSessionAudioOutputParamVoice>("voice", Voice);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveCustomVoiceParam>("voice", Voice);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

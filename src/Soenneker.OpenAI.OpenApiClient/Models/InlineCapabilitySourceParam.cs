@@ -25,8 +25,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The media type of the inline skill payload. Must be `application/zip`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ApplicationZipMediaType? MediaType { get; set; }
-        /// <summary>The type of the inline skill source. Must be `base64`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Base64Type? Type { get; set; }
+        /// <summary>The type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InlineCapabilitySourceParam"/> and sets the default values.
         /// </summary>
@@ -54,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "data", n => { Data = n.GetStringValue(); } },
                 { "media_type", n => { MediaType = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplicationZipMediaType>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Base64Type>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -66,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("data", Data);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApplicationZipMediaType>("media_type", MediaType);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Base64Type>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

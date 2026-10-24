@@ -14,14 +14,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponsesWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponsesWrapper? BetaModelIdsResponsesWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponsesWrapper BetaModelIdsResponsesWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponsesAnyOf2"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponsesAnyOf2? BetaModelIdsResponsesAnyOf2 { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsShared"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,8 +24,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsShared BetaModelIdsShared { get; set; }
 #endif
-        /// <summary>The value property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponsesWrapperValue? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses"/> and sets the default values.
         /// </summary>
@@ -48,12 +40,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses();
-            if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponsesWrapperValue>() is global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponsesWrapperValue valueValue)
+            if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponsesAnyOf2>() is global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponsesAnyOf2 betaModelIdsResponsesAnyOf2Value)
             {
-                result.Value = valueValue;
+                result.BetaModelIdsResponsesAnyOf2 = betaModelIdsResponsesAnyOf2Value;
             }
             else {
-                result.BetaModelIdsResponsesWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponsesWrapper();
                 result.BetaModelIdsShared = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsShared();
             }
             return result;
@@ -64,9 +55,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(BetaModelIdsResponsesWrapper != null || BetaModelIdsShared != null)
+            if(BetaModelIdsShared != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BetaModelIdsResponsesWrapper, BetaModelIdsShared);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BetaModelIdsShared);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -77,12 +68,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(Value != null)
+            if(BetaModelIdsResponsesAnyOf2 != null)
             {
-                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponsesWrapperValue>(null, Value);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponsesAnyOf2>(null, BetaModelIdsResponsesAnyOf2);
             }
             else {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponsesWrapper>(null, BetaModelIdsResponsesWrapper, BetaModelIdsShared);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsShared>(null, BetaModelIdsShared);
             }
             writer.WriteAdditionalData(AdditionalData);
         }

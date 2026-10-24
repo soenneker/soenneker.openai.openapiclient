@@ -16,21 +16,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The effort property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningEffortWrapper? Effort { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningEffortWrapper Effort { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningEffort? Effort { get; set; }
         /// <summary>The summary property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningSummaryWrapper? Summary { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningSummaryWrapper Summary { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningSummary? Summary { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationReasoningInputParam"/> and sets the default values.
         /// </summary>
@@ -56,8 +44,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "effort", n => { Effort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningEffortWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningEffortWrapper.CreateFromDiscriminatorValue); } },
-                { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningSummaryWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningSummaryWrapper.CreateFromDiscriminatorValue); } },
+                { "effort", n => { Effort = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningEffort>(); } },
+                { "summary", n => { Summary = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningSummary>(); } },
             };
         }
         /// <summary>
@@ -67,8 +55,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningEffortWrapper>("effort", Effort);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningSummaryWrapper>("summary", Summary);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningEffort>("effort", Effort);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveReasoningSummary>("summary", Summary);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

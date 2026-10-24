@@ -22,13 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.TextFormatParam Format { get; set; }
 #endif
         /// <summary>The amount of text the model should produce. Defaults to `medium`, matching Responses.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityParamWrapper? Verbosity { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityParamWrapper Verbosity { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityParam? Verbosity { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -48,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextFormatParam>(global::Soenneker.OpenAI.OpenApiClient.Models.TextFormatParam.CreateFromDiscriminatorValue); } },
-                { "verbosity", n => { Verbosity = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityParamWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityParamWrapper.CreateFromDiscriminatorValue); } },
+                { "verbosity", n => { Verbosity = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityParam>(); } },
             };
         }
         /// <summary>
@@ -59,7 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextFormatParam>("format", Format);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityParamWrapper>("verbosity", Verbosity);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VerbosityParam>("verbosity", Verbosity);
         }
     }
 }

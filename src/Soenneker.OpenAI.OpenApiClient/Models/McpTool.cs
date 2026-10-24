@@ -23,13 +23,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller?> AllowedCallers { get; set; }
 #endif
-        /// <summary>List of allowed tool names or a filter object.</summary>
+        /// <summary>The allowed_tools property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolAllowedTools? AllowedTools { get; set; }
+        public UntypedNode? AllowedTools { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolAllowedTools AllowedTools { get; set; }
+        public UntypedNode AllowedTools { get; set; }
 #endif
         /// <summary>An OAuth access token that can be used with a remote MCP server, eitherwith a custom MCP server URL or a service connector. Your applicationmust handle the OAuth authorization flow and provide the token here.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -120,7 +120,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allowed_callers", n => { AllowedCallers = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller>()?.AsList(); } },
-                { "allowed_tools", n => { AllowedTools = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolAllowedTools>(global::Soenneker.OpenAI.OpenApiClient.Models.McpToolAllowedTools.CreateFromDiscriminatorValue); } },
+                { "allowed_tools", n => { AllowedTools = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "authorization", n => { Authorization = n.GetStringValue(); } },
                 { "connector_id", n => { ConnectorId = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolConnectorId>(); } },
                 { "defer_loading", n => { DeferLoading = n.GetBoolValue(); } },
@@ -141,7 +141,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller>("allowed_callers", AllowedCallers);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolAllowedTools>("allowed_tools", AllowedTools);
+            writer.WriteObjectValue<UntypedNode>("allowed_tools", AllowedTools);
             writer.WriteStringValue("authorization", Authorization);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolConnectorId>("connector_id", ConnectorId);
             writer.WriteBoolValue("defer_loading", DeferLoading);

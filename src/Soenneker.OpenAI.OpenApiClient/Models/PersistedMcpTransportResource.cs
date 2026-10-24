@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.PersistedMcpTransportResourceHttp = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResourceHttp();
             }
-            else if("PersistedMcpTransportResourceStdio".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("stdio".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PersistedMcpTransportResourceStdio = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResourceStdio();
             }

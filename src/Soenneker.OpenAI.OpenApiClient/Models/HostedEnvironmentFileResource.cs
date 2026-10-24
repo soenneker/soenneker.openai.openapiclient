@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.HostedEnvironmentFileResourceFileId = new global::Soenneker.OpenAI.OpenApiClient.Models.HostedEnvironmentFileResourceFileId();
             }
-            else if("HostedEnvironmentFileResourceInline".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("inline".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.HostedEnvironmentFileResourceInline = new global::Soenneker.OpenAI.OpenApiClient.Models.HostedEnvironmentFileResourceInline();
             }

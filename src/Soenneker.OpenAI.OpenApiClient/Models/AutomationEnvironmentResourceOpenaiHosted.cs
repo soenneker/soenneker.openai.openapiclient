@@ -22,13 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<string> CapabilityDirectories { get; set; }
 #endif
         /// <summary>The configured container size, or null to use the creation default.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper? ContainerSize { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper ContainerSize { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResource? ContainerSize { get; set; }
         /// <summary>Desktop overrides, or null to inherit the template or creation default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -114,7 +108,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "capability_directories", n => { CapabilityDirectories = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "container_size", n => { ContainerSize = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper.CreateFromDiscriminatorValue); } },
+                { "container_size", n => { ContainerSize = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResource>(); } },
                 { "desktop", n => { Desktop = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DesktopResource>(global::Soenneker.OpenAI.OpenApiClient.Models.DesktopResource.CreateFromDiscriminatorValue); } },
                 { "environment_id", n => { EnvironmentId = n.GetStringValue(); } },
                 { "environment_template_id", n => { EnvironmentTemplateId = n.GetStringValue(); } },
@@ -134,7 +128,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("capability_directories", CapabilityDirectories);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResourceWrapper>("container_size", ContainerSize);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResource>("container_size", ContainerSize);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DesktopResource>("desktop", Desktop);
             writer.WriteStringValue("environment_id", EnvironmentId);
             writer.WriteStringValue("environment_template_id", EnvironmentTemplateId);

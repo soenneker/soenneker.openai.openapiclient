@@ -26,10 +26,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironment? Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam? Environment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironment Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam Environment { get; set; }
 #endif
         /// <summary>The type of the shell tool. Always `shell`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ShellType? Type { get; set; }
@@ -59,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allowed_callers", n => { AllowedCallers = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller>()?.AsList(); } },
-                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironment>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironment.CreateFromDiscriminatorValue); } },
+                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ShellType>(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller>("allowed_callers", AllowedCallers);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironment>("environment", Environment);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam>("environment", Environment);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ShellType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

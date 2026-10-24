@@ -7,11 +7,10 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// Represents a container created with /v1/containers.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class ContainerReferenceResource : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -23,8 +22,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string ContainerId { get; set; }
 #endif
-        /// <summary>References a container created with the /v1/containers endpoint</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceType? Type { get; set; }
+        /// <summary>The type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceResource"/> and sets the default values.
         /// </summary>
@@ -51,7 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "container_id", n => { ContainerId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("container_id", ContainerId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentArrayWrapper"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem"/>, List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EvalItemContent : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentArrayWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentArrayWrapper? EvalItemContentArrayWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentArrayWrapper EvalItemContentArrayWrapper { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem? EvalItemContentItem { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem? EvalItemContentEvalItemContentItem { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem EvalItemContentItem { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem EvalItemContentEvalItemContentItem { get; set; }
+#endif
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem>? EvalItemContentItem { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem> EvalItemContentItem { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,9 +39,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContent();
-            if("EvalItemContentArrayWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem> evalItemContentItemValue)
             {
-                result.EvalItemContentArrayWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentArrayWrapper();
+                result.EvalItemContentItem = evalItemContentItemValue;
             }
             return result;
         }
@@ -51,13 +51,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(EvalItemContentArrayWrapper != null)
+            if(EvalItemContentEvalItemContentItem != null)
             {
-                return EvalItemContentArrayWrapper.GetFieldDeserializers();
-            }
-            else if(EvalItemContentItem != null)
-            {
-                return EvalItemContentItem.GetFieldDeserializers();
+                return EvalItemContentEvalItemContentItem.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -68,13 +64,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(EvalItemContentArrayWrapper != null)
+            if(EvalItemContentEvalItemContentItem != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentArrayWrapper>(null, EvalItemContentArrayWrapper);
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem>(null, EvalItemContentEvalItemContentItem);
             }
             else if(EvalItemContentItem != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem>(null, EvalItemContentItem);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem>(null, EvalItemContentItem);
             }
         }
     }

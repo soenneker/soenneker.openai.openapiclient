@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.QuestionParamPredicate = new global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamPredicate();
             }
-            else if("QuestionParamScore".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("score".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.QuestionParamScore = new global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamScore();
             }

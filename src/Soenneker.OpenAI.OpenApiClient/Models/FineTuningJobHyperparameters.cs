@@ -15,13 +15,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Number of examples in each batch. A larger batch size means that model parametersare updated less frequently, but with lower variance.</summary>
+        /// <summary>The batch_size property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersBatchSize? BatchSize { get; set; }
+        public UntypedNode? BatchSize { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersBatchSize BatchSize { get; set; }
+        public UntypedNode BatchSize { get; set; }
 #endif
         /// <summary>Scaling factor for the learning rate. A smaller learning rate may be useful to avoidoverfitting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "batch_size", n => { BatchSize = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersBatchSize>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersBatchSize.CreateFromDiscriminatorValue); } },
+                { "batch_size", n => { BatchSize = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "learning_rate_multiplier", n => { LearningRateMultiplier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplier>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplier.CreateFromDiscriminatorValue); } },
                 { "n_epochs", n => { NEpochs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersNEpochs>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersNEpochs.CreateFromDiscriminatorValue); } },
             };
@@ -76,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersBatchSize>("batch_size", BatchSize);
+            writer.WriteObjectValue<UntypedNode>("batch_size", BatchSize);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplier>("learning_rate_multiplier", LearningRateMultiplier);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersNEpochs>("n_epochs", NEpochs);
             writer.WriteAdditionalData(AdditionalData);

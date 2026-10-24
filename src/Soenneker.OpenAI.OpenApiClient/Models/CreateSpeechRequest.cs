@@ -45,10 +45,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The voice to use when generating the audio. Supported built-in voices are `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`, `verse`, `marin`, and `cedar`. You may also provide a custom voice object with an `id`, for example `{ &quot;id&quot;: &quot;voice_1234&quot; }`. Previews of the voices are available in the [Text to speech guide](https://developers.openai.com/api/docs/guides/text-to-speech#voice-options). Custom voices must be created from audio samples. Voices created from text prompts are supported only in Live.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoice? Voice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoiceAnyOf2? Voice { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoice Voice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoiceAnyOf2 Voice { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest"/> and sets the default values.
@@ -81,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "response_format", n => { ResponseFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestResponseFormat>(); } },
                 { "speed", n => { Speed = n.GetDoubleValue(); } },
                 { "stream_format", n => { StreamFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestStreamFormat>(); } },
-                { "voice", n => { Voice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoice>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoice.CreateFromDiscriminatorValue); } },
+                { "voice", n => { Voice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoiceAnyOf2>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoiceAnyOf2.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -97,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestResponseFormat>("response_format", ResponseFormat);
             writer.WriteDoubleValue("speed", Speed);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestStreamFormat>("stream_format", StreamFormat);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoice>("voice", Voice);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoiceAnyOf2>("voice", Voice);
         }
     }
 }

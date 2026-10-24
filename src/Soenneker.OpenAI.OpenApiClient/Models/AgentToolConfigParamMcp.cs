@@ -22,13 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<string> AllowedTools { get; set; }
 #endif
         /// <summary>Selects where outbound MCP HTTP connections originate. Omitted or `service` uses the Managed Agents service network; `environment` uses the session&apos;s selected environment.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpConnectionOriginParamWrapper? ConnectionOrigin { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpConnectionOriginParamWrapper ConnectionOrigin { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpConnectionOriginParam? ConnectionOrigin { get; set; }
         /// <summary>The attached vault credential used to authenticate this MCP server. Optional when exactly one attached credential matches the server URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allowed_tools", n => { AllowedTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "connection_origin", n => { ConnectionOrigin = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpConnectionOriginParamWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.McpConnectionOriginParamWrapper.CreateFromDiscriminatorValue); } },
+                { "connection_origin", n => { ConnectionOrigin = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpConnectionOriginParam>(); } },
                 { "credential_id", n => { CredentialId = n.GetStringValue(); } },
                 { "request_metadata", n => { RequestMetadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamMcpRequestMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamMcpRequestMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "required", n => { Required = n.GetBoolValue(); } },
@@ -108,7 +102,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_tools", AllowedTools);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpConnectionOriginParamWrapper>("connection_origin", ConnectionOrigin);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpConnectionOriginParam>("connection_origin", ConnectionOrigin);
             writer.WriteStringValue("credential_id", CredentialId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamMcpRequestMetadataProperty>("request_metadata", RequestMetadata);
             writer.WriteBoolValue("required", Required);

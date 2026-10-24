@@ -25,8 +25,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The type of the content part.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.TextType? Type { get; set; }
-        /// <summary>`auto` is the default value</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AutoValue? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption"/> and sets the default values.
         /// </summary>
@@ -54,7 +52,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "json_schema", n => { JsonSchema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaJsonSchema>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaJsonSchema.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextType>(); } },
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoValue>(); } },
             };
         }
         /// <summary>
@@ -66,7 +63,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonSchemaJsonSchema>("json_schema", JsonSchema);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextType>("type", Type);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

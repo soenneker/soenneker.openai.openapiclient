@@ -7,12 +7,13 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// Who handles tasks delegated by the Live model. Omitted or null selects your application; use `responses` or `decisions` to delegate to the corresponding API.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class LiveDecisionsDelegationParam : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
-        /// <summary>Milliseconds to wait before requesting an automatic spoken acknowledgement for a delegation. The model may still speak before this delay. Any commentary or thinking appended to the session cancels all pending acknowledgements, including those for other delegations. Defaults to 400. Updates apply to subsequent delegations.</summary>
+        /// <summary>Milliseconds to wait before requesting an automatic spoken acknowledgement for a delegation. The model may still speak before this delay. Any commentary or thinking appended to the session cancels all pending acknowledgements, including those for other delegations. Defaults to 400 for Decisions sessions and 0 (request immediately) for other sessions. Omission in a session update preserves the current value. Updates apply to subsequent delegations.</summary>
         public int? AcknowledgementDelayMs { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -24,8 +25,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsSettingsInputParam Decisions { get; set; }
 #endif
+        /// <summary>Backend model, prompt, and tools used when the Live session delegates a task to Responses.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParam? Responses { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParam Responses { get; set; }
+#endif
         /// <summary>The type property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionsType? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam"/> and sets the default values.
         /// </summary>
@@ -53,7 +68,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "acknowledgement_delay_ms", n => { AcknowledgementDelayMs = n.GetIntValue(); } },
                 { "decisions", n => { Decisions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsSettingsInputParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsSettingsInputParam.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionsType>(); } },
+                { "responses", n => { Responses = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParam.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -65,7 +81,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("acknowledgement_delay_ms", AcknowledgementDelayMs);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsSettingsInputParam>("decisions", Decisions);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionsType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParam>("responses", Responses);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

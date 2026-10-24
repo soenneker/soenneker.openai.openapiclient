@@ -20,13 +20,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set the background of the generated image. One of `transparent`, `opaque`,or `auto`. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, includingtheir `2026-09-08` snapshots, support `opaque` and `transparent`backgrounds. Transparent backgrounds are available for supported GPT Imagemodels. For `gpt-image-2` and `gpt-image-2-2026-04-21`, this support is inpreview. When using `transparent`, set the output format to `png` or `webp`.Default: `auto`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolBackground? Background { get; set; }
         /// <summary>The input_fidelity property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper2? InputFidelity { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper2 InputFidelity { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity? InputFidelity { get; set; }
         /// <summary>Optional mask for inpainting. Contains `image_url`(string, optional) and `file_id` (string, optional).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,7 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "action", n => { Action = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenActionEnum>(); } },
                 { "background", n => { Background = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolBackground>(); } },
-                { "input_fidelity", n => { InputFidelity = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper2>(global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper2.CreateFromDiscriminatorValue); } },
+                { "input_fidelity", n => { InputFidelity = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity>(); } },
                 { "input_image_mask", n => { InputImageMask = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolInputImageMask>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolInputImageMask.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolModel>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolModel.CreateFromDiscriminatorValue); } },
                 { "moderation", n => { Moderation = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolModeration>(); } },
@@ -113,7 +107,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenActionEnum>("action", Action);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolBackground>("background", Background);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelityWrapper2>("input_fidelity", InputFidelity);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity>("input_fidelity", InputFidelity);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolInputImageMask>("input_image_mask", InputImageMask);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolModel>("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolModeration>("moderation", Moderation);

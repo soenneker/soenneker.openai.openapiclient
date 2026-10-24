@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionFunctionCallOption"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCallWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionFunctionCallOption"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCallOneOf1"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateChatCompletionRequestAllOf2FunctionCall : IComposedTypeWrapper, IParsable
@@ -21,14 +21,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionFunctionCallOption ChatCompletionFunctionCallOption { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCallWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCallWrapper? CreateChatCompletionRequestAllOf2FunctionCallWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCallWrapper CreateChatCompletionRequestAllOf2FunctionCallWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCallOneOf1"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCallOneOf1? CreateChatCompletionRequestAllOf2FunctionCallOneOf1 { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -43,9 +37,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.ChatCompletionFunctionCallOption = new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionFunctionCallOption();
             }
-            else if("CreateChatCompletionRequestAllOf2FunctionCallWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCallOneOf1>() is global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCallOneOf1 createChatCompletionRequestAllOf2FunctionCallOneOf1Value)
             {
-                result.CreateChatCompletionRequestAllOf2FunctionCallWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCallWrapper();
+                result.CreateChatCompletionRequestAllOf2FunctionCallOneOf1 = createChatCompletionRequestAllOf2FunctionCallOneOf1Value;
             }
             return result;
         }
@@ -58,10 +52,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ChatCompletionFunctionCallOption != null)
             {
                 return ChatCompletionFunctionCallOption.GetFieldDeserializers();
-            }
-            else if(CreateChatCompletionRequestAllOf2FunctionCallWrapper != null)
-            {
-                return CreateChatCompletionRequestAllOf2FunctionCallWrapper.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -76,9 +66,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionFunctionCallOption>(null, ChatCompletionFunctionCallOption);
             }
-            else if(CreateChatCompletionRequestAllOf2FunctionCallWrapper != null)
+            else if(CreateChatCompletionRequestAllOf2FunctionCallOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCallWrapper>(null, CreateChatCompletionRequestAllOf2FunctionCallWrapper);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2FunctionCallOneOf1>(null, CreateChatCompletionRequestAllOf2FunctionCallOneOf1);
             }
         }
     }

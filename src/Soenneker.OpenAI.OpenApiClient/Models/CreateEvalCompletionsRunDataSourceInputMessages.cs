@@ -37,13 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessages CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessages();
-            if("CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("item_reference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages();
             }
-            else if("CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("template".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesTemplateInputMessages();
             }

@@ -22,13 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The status of the reasoning item.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OutputItemStatusResourceWrapper? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OutputItemStatusResourceWrapper Status { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OutputItemStatusResource? Status { get; set; }
         /// <summary>The reasoning summaries produced by the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputItemStatusResourceWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.OutputItemStatusResourceWrapper.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputItemStatusResource>(); } },
                 { "summary", n => { Summary = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextResource>(global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextResource.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "turn_id", n => { TurnId = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningType>(); } },
@@ -80,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputItemStatusResourceWrapper>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputItemStatusResource>("status", Status);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextResource>("summary", Summary);
             writer.WriteStringValue("turn_id", TurnId);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningType>("type", Type);

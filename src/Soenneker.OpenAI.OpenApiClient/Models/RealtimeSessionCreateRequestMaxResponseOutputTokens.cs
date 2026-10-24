@@ -8,27 +8,15 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensBranch1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensOneOf2"/>, <see cref="int"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RealtimeSessionCreateRequestMaxResponseOutputTokens : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensBranch1? RealtimeSessionCreateRequestMaxResponseOutputTokensBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensBranch1 RealtimeSessionCreateRequestMaxResponseOutputTokensBranch1 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensWrapper? RealtimeSessionCreateRequestMaxResponseOutputTokensWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensWrapper RealtimeSessionCreateRequestMaxResponseOutputTokensWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="int"/></summary>
+        public int? Integer { get; set; }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensOneOf2"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensOneOf2? RealtimeSessionCreateRequestMaxResponseOutputTokensOneOf2 { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,13 +27,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokens();
-            if("RealtimeSessionCreateRequestMaxResponseOutputTokensBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensOneOf2>() is global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensOneOf2 realtimeSessionCreateRequestMaxResponseOutputTokensOneOf2Value)
             {
-                result.RealtimeSessionCreateRequestMaxResponseOutputTokensBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensBranch1();
+                result.RealtimeSessionCreateRequestMaxResponseOutputTokensOneOf2 = realtimeSessionCreateRequestMaxResponseOutputTokensOneOf2Value;
             }
-            else if("RealtimeSessionCreateRequestMaxResponseOutputTokensWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetIntValue() is int integerValue)
             {
-                result.RealtimeSessionCreateRequestMaxResponseOutputTokensWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensWrapper();
+                result.Integer = integerValue;
             }
             return result;
         }
@@ -55,14 +43,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(RealtimeSessionCreateRequestMaxResponseOutputTokensBranch1 != null)
-            {
-                return RealtimeSessionCreateRequestMaxResponseOutputTokensBranch1.GetFieldDeserializers();
-            }
-            else if(RealtimeSessionCreateRequestMaxResponseOutputTokensWrapper != null)
-            {
-                return RealtimeSessionCreateRequestMaxResponseOutputTokensWrapper.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -72,13 +52,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(RealtimeSessionCreateRequestMaxResponseOutputTokensBranch1 != null)
+            if(RealtimeSessionCreateRequestMaxResponseOutputTokensOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensBranch1>(null, RealtimeSessionCreateRequestMaxResponseOutputTokensBranch1);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensOneOf2>(null, RealtimeSessionCreateRequestMaxResponseOutputTokensOneOf2);
             }
-            else if(RealtimeSessionCreateRequestMaxResponseOutputTokensWrapper != null)
+            else if(Integer != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestMaxResponseOutputTokensWrapper>(null, RealtimeSessionCreateRequestMaxResponseOutputTokensWrapper);
+                writer.WriteIntValue(null, Integer);
             }
         }
     }

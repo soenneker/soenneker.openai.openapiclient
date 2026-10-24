@@ -70,8 +70,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutputOutput Output { get; set; }
 #endif
-        /// <summary>The status of the item. One of `in_progress`, `completed`, or`incomplete`. Populated when items are returned via API.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutputStatus? Status { get; set; }
+        /// <summary>The status property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutputResourceStatus? Status { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutputResourceStatus Status { get; set; }
+#endif
         /// <summary>The type of the function tool call output. Always `function_call_output`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallOutputType? Type { get; set; }
         /// <summary>
@@ -106,7 +112,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "namespace", n => { Namespace = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutputOutput>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutputOutput.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutputStatus>(); } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutputResourceStatus>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutputResourceStatus.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallOutputType>(); } },
             };
         }
@@ -124,7 +130,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("namespace", Namespace);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutputOutput>("output", Output);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutputStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionToolCallOutputResourceStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

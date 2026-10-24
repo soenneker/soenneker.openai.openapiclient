@@ -118,13 +118,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string PromptCacheKey { get; set; }
 #endif
-        /// <summary>Options for prompt caching. Supported for `gpt-5.6` and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with `prompt_cache_breakpoint`. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set `mode` to `explicit` to disable the implicit breakpoint. The `ttl` defaults to `30m`, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.</summary>
+        /// <summary>The prompt_cache_options property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheOptionsParam? PromptCacheOptions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBodyPromptCacheOptions? PromptCacheOptions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheOptionsParam PromptCacheOptions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBodyPromptCacheOptions PromptCacheOptions { get; set; }
 #endif
         /// <summary>Deprecated. Use `prompt_cache_options.ttl` instead.The retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](https://developers.openai.com/api/docs/guides/prompt-caching#prompt-cache-retention).This field expresses a maximum retention policy, while`prompt_cache_options.ttl` expresses a minimum cache lifetime. The twofields are independent and do not interact.For `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.For older models that support both `in_memory` and `24h`, the default depends on your organization&apos;s data retention policy:  - Organizations without ZDR enabled default to `24h`.  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.</summary>
         [Obsolete("")]
@@ -185,8 +185,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.Tool> Tools { get; set; }
 #endif
-        /// <summary>An integer between 0 and 20 specifying the maximum number of most likelytokens to return at each token position, each with an associated logprobability. In some cases, the number of returned tokens may be fewer thanrequested.</summary>
-        public int? TopLogprobs { get; set; }
+        /// <summary>The top_logprobs property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponsePropertiesTopLogprobs? TopLogprobs { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponsePropertiesTopLogprobs TopLogprobs { get; set; }
+#endif
         /// <summary>An alternative to sampling with temperature, called nucleus sampling,where the model considers the results of the tokens with top_p probabilitymass. So 0.1 means only the tokens comprising the top 10% probability massare considered.We generally recommend altering this or `temperature` but not both.</summary>
         public double? TopP { get; set; }
         /// <summary>The truncation strategy to use for the model response.- `auto`: If the input to this Response exceeds  the model&apos;s context window size, the model will truncate the  response to fit the context window by dropping items from the beginning of the conversation.- `disabled` (default): If the input size will exceed the context window  size for a model, the request will fail with a 400 error.</summary>
@@ -248,7 +254,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "previous_response_id", n => { PreviousResponseId = n.GetStringValue(); } },
                 { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Prompt>(global::Soenneker.OpenAI.OpenApiClient.Models.Prompt.CreateFromDiscriminatorValue); } },
                 { "prompt_cache_key", n => { PromptCacheKey = n.GetStringValue(); } },
-                { "prompt_cache_options", n => { PromptCacheOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheOptionsParam>(global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheOptionsParam.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_options", n => { PromptCacheOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBodyPromptCacheOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBodyPromptCacheOptions.CreateFromDiscriminatorValue); } },
                 { "prompt_cache_retention", n => { PromptCacheRetention = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponsePropertiesPromptCacheRetention>(); } },
                 { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning.CreateFromDiscriminatorValue); } },
                 { "safety_identifier", n => { SafetyIdentifier = n.GetStringValue(); } },
@@ -260,7 +266,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam.CreateFromDiscriminatorValue); } },
                 { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceParam.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Tool>(global::Soenneker.OpenAI.OpenApiClient.Models.Tool.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "top_logprobs", n => { TopLogprobs = n.GetIntValue(); } },
+                { "top_logprobs", n => { TopLogprobs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponsePropertiesTopLogprobs>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponsePropertiesTopLogprobs.CreateFromDiscriminatorValue); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },
                 { "truncation", n => { Truncation = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBodyTruncation>(); } },
                 { "user", n => { User = n.GetStringValue(); } },
@@ -289,7 +295,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("previous_response_id", PreviousResponseId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Prompt>("prompt", Prompt);
             writer.WriteStringValue("prompt_cache_key", PromptCacheKey);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheOptionsParam>("prompt_cache_options", PromptCacheOptions);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBodyPromptCacheOptions>("prompt_cache_options", PromptCacheOptions);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponsePropertiesPromptCacheRetention>("prompt_cache_retention", PromptCacheRetention);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning>("reasoning", Reasoning);
             writer.WriteStringValue("safety_identifier", SafetyIdentifier);
@@ -301,7 +307,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam>("text", Text);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceParam>("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Tool>("tools", Tools);
-            writer.WriteIntValue("top_logprobs", TopLogprobs);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModelResponsePropertiesTopLogprobs>("top_logprobs", TopLogprobs);
             writer.WriteDoubleValue("top_p", TopP);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBodyTruncation>("truncation", Truncation);
             writer.WriteStringValue("user", User);

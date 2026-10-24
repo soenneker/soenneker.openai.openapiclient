@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.RotateVaultCredentialAuthParamMcpOAuth = new global::Soenneker.OpenAI.OpenApiClient.Models.RotateVaultCredentialAuthParamMcpOAuth();
             }
-            else if("RotateVaultCredentialAuthParamStaticBearer".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("static_bearer".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RotateVaultCredentialAuthParamStaticBearer = new global::Soenneker.OpenAI.OpenApiClient.Models.RotateVaultCredentialAuthParamStaticBearer();
             }

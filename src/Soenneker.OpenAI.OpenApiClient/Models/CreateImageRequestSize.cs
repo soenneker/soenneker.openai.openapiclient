@@ -8,19 +8,13 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeBranch1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeAnyOf2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeMember1"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateImageRequestSize : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeBranch1? CreateImageRequestSizeBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeBranch1 CreateImageRequestSizeBranch1 { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeAnyOf2"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeAnyOf2? CreateImageRequestSizeAnyOf2 { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,13 +23,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeMember1 CreateImageRequestSizeMember1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeWrapper"/></summary>
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeWrapper? CreateImageRequestSizeWrapper { get; set; }
+        public string? String { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeWrapper CreateImageRequestSizeWrapper { get; set; }
+        public string String { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -46,9 +40,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSize();
-            result.CreateImageRequestSizeBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeBranch1();
-            result.CreateImageRequestSizeMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeMember1();
-            result.CreateImageRequestSizeWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeWrapper();
+            if(parseNode.GetStringValue() is string stringValue)
+            {
+                result.String = stringValue;
+            }
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeAnyOf2>() is global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeAnyOf2 createImageRequestSizeAnyOf2Value)
+            {
+                result.CreateImageRequestSizeAnyOf2 = createImageRequestSizeAnyOf2Value;
+            }
+            else {
+                result.CreateImageRequestSizeMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeMember1();
+            }
             return result;
         }
         /// <summary>
@@ -57,9 +59,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateImageRequestSizeBranch1 != null || CreateImageRequestSizeMember1 != null || CreateImageRequestSizeWrapper != null)
+            if(CreateImageRequestSizeMember1 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CreateImageRequestSizeBranch1, CreateImageRequestSizeMember1, CreateImageRequestSizeWrapper);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CreateImageRequestSizeMember1);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -70,7 +72,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeBranch1>(null, CreateImageRequestSizeBranch1, CreateImageRequestSizeMember1, CreateImageRequestSizeWrapper);
+            if(String != null)
+            {
+                writer.WriteStringValue(null, String);
+            }
+            else if(CreateImageRequestSizeAnyOf2 != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeAnyOf2>(null, CreateImageRequestSizeAnyOf2);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSizeMember1>(null, CreateImageRequestSizeMember1);
+            }
         }
     }
 }

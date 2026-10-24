@@ -11,7 +11,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// A single content item: input text, output text, input image, or input audio.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class EvalItemContentItem : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
+    public partial class EvalItemContentItem : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -22,30 +22,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public string Detail { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalContentItem"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalContentItem? EvalContentItem { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalContentItem EvalContentItem { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentOutputText"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentOutputText? EvalItemContentOutputText { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentOutputText EvalItemContentOutputText { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemInputImage"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemInputImage? EvalItemInputImage { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemInputImage EvalItemInputImage { get; set; }
 #endif
         /// <summary>The URL of the image input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,26 +34,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The input_audio property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio? Input_audio { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio? InputAudio { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio Input_audio { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputAudio"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudio? InputAudio { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudio InputAudio { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent? InputTextContent { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent InputTextContent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio InputAudio { get; set; }
 #endif
         /// <summary>Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request&apos;s `prompt_cache_options.ttl`; the boundary is not rounded to a token block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -97,14 +57,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The type of the input item. Always `input_text`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType? Type { get; set; }
-        /// <summary>A text input to the model.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Value { get; set; }
-#nullable restore
-#else
-        public string Value { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem"/> and sets the default values.
         /// </summary>
@@ -120,49 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem();
-            if("EvalContentItem".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.EvalContentItem = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalContentItem();
-            }
-            else if("EvalItemContentOutputText".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.EvalItemContentOutputText = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentOutputText();
-            }
-            else if("EvalItemInputImage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.EvalItemInputImage = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemInputImage();
-            }
-            else if("InputAudio".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.InputAudio = new global::Soenneker.OpenAI.OpenApiClient.Models.InputAudio();
-            }
-            else if("InputTextContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.InputTextContent = new global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent();
-            }
-            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType>() is global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType typeValue)
-            {
-                result.Type = typeValue;
-            }
-            else if(parseNode.GetStringValue() is string detailValue)
-            {
-                result.Detail = detailValue;
-            }
-            else if(parseNode.GetStringValue() is string imageUrlValue)
-            {
-                result.ImageUrl = imageUrlValue;
-            }
-            else if(parseNode.GetStringValue() is string textValue)
-            {
-                result.Text = textValue;
-            }
-            else if(parseNode.GetStringValue() is string valueValue)
-            {
-                result.Value = valueValue;
-            }
-            return result;
+            return new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -170,35 +80,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(EvalContentItem != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return EvalContentItem.GetFieldDeserializers();
-            }
-            else if(EvalItemContentOutputText != null)
-            {
-                return EvalItemContentOutputText.GetFieldDeserializers();
-            }
-            else if(EvalItemInputImage != null)
-            {
-                return EvalItemInputImage.GetFieldDeserializers();
-            }
-            else if(Input_audio != null)
-            {
-                return Input_audio.GetFieldDeserializers();
-            }
-            else if(InputAudio != null)
-            {
-                return InputAudio.GetFieldDeserializers();
-            }
-            else if(InputTextContent != null)
-            {
-                return InputTextContent.GetFieldDeserializers();
-            }
-            else if(PromptCacheBreakpoint != null)
-            {
-                return PromptCacheBreakpoint.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "detail", n => { Detail = n.GetStringValue(); } },
+                { "image_url", n => { ImageUrl = n.GetStringValue(); } },
+                { "input_audio", n => { InputAudio = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio>(global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_breakpoint", n => { PromptCacheBreakpoint = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>(global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig.CreateFromDiscriminatorValue); } },
+                { "text", n => { Text = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType>(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -207,54 +97,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(EvalContentItem != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalContentItem>(null, EvalContentItem);
-            }
-            else if(EvalItemContentOutputText != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentOutputText>(null, EvalItemContentOutputText);
-            }
-            else if(EvalItemInputImage != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemInputImage>(null, EvalItemInputImage);
-            }
-            else if(Input_audio != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio>(null, Input_audio);
-            }
-            else if(InputAudio != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudio>(null, InputAudio);
-            }
-            else if(InputTextContent != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent>(null, InputTextContent);
-            }
-            else if(PromptCacheBreakpoint != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>(null, PromptCacheBreakpoint);
-            }
-            else if(Type != null)
-            {
-                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType>(null, Type);
-            }
-            else if(Detail != null)
-            {
-                writer.WriteStringValue(null, Detail);
-            }
-            else if(ImageUrl != null)
-            {
-                writer.WriteStringValue(null, ImageUrl);
-            }
-            else if(Text != null)
-            {
-                writer.WriteStringValue(null, Text);
-            }
-            else if(Value != null)
-            {
-                writer.WriteStringValue(null, Value);
-            }
+            writer.WriteStringValue("detail", Detail);
+            writer.WriteStringValue("image_url", ImageUrl);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio>("input_audio", InputAudio);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>("prompt_cache_breakpoint", PromptCacheBreakpoint);
+            writer.WriteStringValue("text", Text);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

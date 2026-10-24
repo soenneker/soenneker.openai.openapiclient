@@ -39,11 +39,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationResource();
-            if("AutomationResourceOnce".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("once".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AutomationResourceOnce = new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationResourceOnce();
             }
-            else if("AutomationResourcePeriodic".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("periodic".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AutomationResourcePeriodic = new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationResourcePeriodic();
             }

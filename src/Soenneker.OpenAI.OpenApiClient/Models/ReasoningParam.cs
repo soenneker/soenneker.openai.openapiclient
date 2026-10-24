@@ -14,21 +14,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class ReasoningParam : IParsable
     {
         /// <summary>The amount of reasoning effort the model should use. Omission lets the model select it.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParamWrapper? Effort { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParamWrapper Effort { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParam? Effort { get; set; }
         /// <summary>Controls whether the response includes a reasoning summary.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryParamWrapper? Summary { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryParamWrapper Summary { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryParam? Summary { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -47,8 +35,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "effort", n => { Effort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParamWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParamWrapper.CreateFromDiscriminatorValue); } },
-                { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryParamWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryParamWrapper.CreateFromDiscriminatorValue); } },
+                { "effort", n => { Effort = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParam>(); } },
+                { "summary", n => { Summary = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryParam>(); } },
             };
         }
         /// <summary>
@@ -58,8 +46,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParamWrapper>("effort", Effort);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryParamWrapper>("summary", Summary);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortParam>("effort", Effort);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryParam>("summary", Summary);
         }
     }
 }

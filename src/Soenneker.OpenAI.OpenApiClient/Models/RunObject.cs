@@ -159,6 +159,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public RunObject()
         {
             AdditionalData = new Dictionary<string, object>();
+            ParallelToolCalls = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

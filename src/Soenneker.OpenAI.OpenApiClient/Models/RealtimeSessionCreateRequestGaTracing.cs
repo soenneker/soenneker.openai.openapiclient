@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingTracingConfiguration"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingOneOf1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingTracingConfiguration"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RealtimeSessionCreateRequestGaTracing : IComposedTypeWrapper, IParsable
@@ -21,6 +21,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingMember1 RealtimeSessionCreateRequestGaTracingMember1 { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingOneOf1"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingOneOf1? RealtimeSessionCreateRequestGaTracingOneOf1 { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingTracingConfiguration"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,14 +30,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingTracingConfiguration RealtimeSessionCreateRequestGaTracingTracingConfiguration { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingWrapper? RealtimeSessionCreateRequestGaTracingWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingWrapper RealtimeSessionCreateRequestGaTracingWrapper { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,13 +41,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracing();
-            if("RealtimeSessionCreateRequestGaTracingTracingConfiguration".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingOneOf1>() is global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingOneOf1 realtimeSessionCreateRequestGaTracingOneOf1Value)
+            {
+                result.RealtimeSessionCreateRequestGaTracingOneOf1 = realtimeSessionCreateRequestGaTracingOneOf1Value;
+            }
+            else if("RealtimeSessionCreateRequestGaTracingTracingConfiguration".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RealtimeSessionCreateRequestGaTracingTracingConfiguration = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingTracingConfiguration();
-            }
-            else if("RealtimeSessionCreateRequestGaTracingWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.RealtimeSessionCreateRequestGaTracingWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingWrapper();
             }
             return result;
         }
@@ -71,10 +65,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 return RealtimeSessionCreateRequestGaTracingTracingConfiguration.GetFieldDeserializers();
             }
-            else if(RealtimeSessionCreateRequestGaTracingWrapper != null)
-            {
-                return RealtimeSessionCreateRequestGaTracingWrapper.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -88,13 +78,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingMember1>(null, RealtimeSessionCreateRequestGaTracingMember1);
             }
+            else if(RealtimeSessionCreateRequestGaTracingOneOf1 != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingOneOf1>(null, RealtimeSessionCreateRequestGaTracingOneOf1);
+            }
             else if(RealtimeSessionCreateRequestGaTracingTracingConfiguration != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingTracingConfiguration>(null, RealtimeSessionCreateRequestGaTracingTracingConfiguration);
-            }
-            else if(RealtimeSessionCreateRequestGaTracingWrapper != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaTracingWrapper>(null, RealtimeSessionCreateRequestGaTracingWrapper);
             }
         }
     }

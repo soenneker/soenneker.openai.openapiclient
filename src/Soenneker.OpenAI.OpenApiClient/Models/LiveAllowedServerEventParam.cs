@@ -7,28 +7,20 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>
-    /// A Live server event selector for the WebRTC frontend data channel.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class LiveAllowedServerEventParam : IParsable
+    #pragma warning disable CS1591
+    public partial class LiveAllowedServerEventParam : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>The nested Responses event type. Required when type is &apos;response.event&apos;; forbidden for other event types.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ResponseEvent { get; set; }
-#nullable restore
-#else
-        public string ResponseEvent { get; set; }
-#endif
-        /// <summary>The outer Live server event type. Use &apos;response.event&apos; for Responses events.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedServerEventParam"/> and sets the default values.
+        /// </summary>
+        public LiveAllowedServerEventParam()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -47,8 +39,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "response_event", n => { ResponseEvent = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,8 +48,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("response_event", ResponseEvent);
-            writer.WriteStringValue("type", Type);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

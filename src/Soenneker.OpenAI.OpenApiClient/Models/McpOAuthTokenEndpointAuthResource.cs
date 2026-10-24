@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.McpOAuthTokenEndpointAuthResourceClientSecretPost = new global::Soenneker.OpenAI.OpenApiClient.Models.McpOAuthTokenEndpointAuthResourceClientSecretPost();
             }
-            else if("McpOAuthTokenEndpointAuthResourceNone".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("none".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.McpOAuthTokenEndpointAuthResourceNone = new global::Soenneker.OpenAI.OpenApiClient.Models.McpOAuthTokenEndpointAuthResourceNone();
             }

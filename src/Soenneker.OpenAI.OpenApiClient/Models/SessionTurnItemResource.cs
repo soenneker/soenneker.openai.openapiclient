@@ -159,47 +159,47 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.SessionTurnItemResource();
-            if("AgentMessageItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("agent_message".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AgentMessageItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.AgentMessageItemResource();
             }
-            else if("BrowserAuthenticationRequestItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("computer_use_approval_request".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BrowserAuthenticationRequestItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationRequestItemResource();
             }
-            else if("CloseSubagentCallItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("close_subagent_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CloseSubagentCallItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.CloseSubagentCallItemResource();
             }
-            else if("CommandExecutionItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("command_execution".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CommandExecutionItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.CommandExecutionItemResource();
             }
-            else if("ComputerUseApprovalRequestResultItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("computer_use_approval_request_result".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ComputerUseApprovalRequestResultItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalRequestResultItemResource();
             }
-            else if("ComputerUseCallItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("computer_use_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ComputerUseCallItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseCallItemResource();
             }
-            else if("CreateSubagentCallItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("create_subagent_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateSubagentCallItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateSubagentCallItemResource();
             }
-            else if("FunctionCallItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("function_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.FunctionCallItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallItemResource();
             }
-            else if("FunctionCallOutputItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("function_call_output".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.FunctionCallOutputItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallOutputItemResource();
             }
-            else if("InterruptSubagentCallItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("interrupt_subagent_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InterruptSubagentCallItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.InterruptSubagentCallItemResource();
             }
-            else if("McpCallItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("mcp_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.McpCallItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.McpCallItemResource();
             }
@@ -211,19 +211,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.ReasoningItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningItemResource();
             }
-            else if("ResumeSubagentCallItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("resume_subagent_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ResumeSubagentCallItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.ResumeSubagentCallItemResource();
             }
-            else if("SendSubagentInputCallItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("send_subagent_input_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SendSubagentInputCallItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.SendSubagentInputCallItemResource();
             }
-            else if("WaitForSubagentsCallItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("wait_for_subagents_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WaitForSubagentsCallItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.WaitForSubagentsCallItemResource();
             }
-            else if("WebSearchCallItemResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("web_search_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WebSearchCallItemResource = new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchCallItemResource();
             }

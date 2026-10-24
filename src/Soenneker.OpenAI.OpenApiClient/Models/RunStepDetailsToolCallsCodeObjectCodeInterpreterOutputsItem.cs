@@ -37,13 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem();
-            if("RunStepDetailsToolCallsCodeOutputImageObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("image".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RunStepDetailsToolCallsCodeOutputImageObject = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputImageObject();
             }
-            else if("RunStepDetailsToolCallsCodeOutputLogsObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("logs".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RunStepDetailsToolCallsCodeOutputLogsObject = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeOutputLogsObject();
             }

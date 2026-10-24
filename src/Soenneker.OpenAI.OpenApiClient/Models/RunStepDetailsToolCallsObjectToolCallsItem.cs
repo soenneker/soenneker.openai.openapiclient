@@ -45,17 +45,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem();
-            if("RunStepDetailsToolCallsCodeObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("code_interpreter".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RunStepDetailsToolCallsCodeObject = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObject();
             }
-            else if("RunStepDetailsToolCallsFileSearchObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("file_search".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RunStepDetailsToolCallsFileSearchObject = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchObject();
             }
-            else if("RunStepDetailsToolCallsFunctionObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("function".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RunStepDetailsToolCallsFunctionObject = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFunctionObject();
             }

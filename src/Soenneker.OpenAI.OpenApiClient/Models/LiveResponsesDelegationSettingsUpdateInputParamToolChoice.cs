@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedToolsChoiceParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveSpecificApplyPatchParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnumWrapper2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedToolsChoiceParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveSpecificApplyPatchParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnum"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LiveResponsesDelegationSettingsUpdateInputParamToolChoice : IComposedTypeWrapper, IParsable
@@ -29,14 +29,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.LiveSpecificApplyPatchParam LiveSpecificApplyPatchParam { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnumWrapper2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnumWrapper2? LiveToolChoiceEnumWrapper2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnumWrapper2 LiveToolChoiceEnumWrapper2 { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnum"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnum? LiveToolChoiceEnum { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -55,9 +49,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.LiveSpecificApplyPatchParam = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveSpecificApplyPatchParam();
             }
-            else if("LiveToolChoiceEnumWrapper2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnum>() is global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnum liveToolChoiceEnumValue)
             {
-                result.LiveToolChoiceEnumWrapper2 = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnumWrapper2();
+                result.LiveToolChoiceEnum = liveToolChoiceEnumValue;
             }
             return result;
         }
@@ -74,10 +68,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(LiveSpecificApplyPatchParam != null)
             {
                 return LiveSpecificApplyPatchParam.GetFieldDeserializers();
-            }
-            else if(LiveToolChoiceEnumWrapper2 != null)
-            {
-                return LiveToolChoiceEnumWrapper2.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -96,9 +86,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveSpecificApplyPatchParam>(null, LiveSpecificApplyPatchParam);
             }
-            else if(LiveToolChoiceEnumWrapper2 != null)
+            else if(LiveToolChoiceEnum != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnumWrapper2>(null, LiveToolChoiceEnumWrapper2);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceEnum>(null, LiveToolChoiceEnum);
             }
         }
     }

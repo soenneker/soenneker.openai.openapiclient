@@ -95,15 +95,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.PersistedAgentToolResourceMcp = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceMcp();
             }
-            else if("PersistedAgentToolResourceProgrammaticToolCalling".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("programmatic_tool_calling".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PersistedAgentToolResourceProgrammaticToolCalling = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceProgrammaticToolCalling();
             }
-            else if("PersistedAgentToolResourceToolSearch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("tool_search".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PersistedAgentToolResourceToolSearch = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceToolSearch();
             }
-            else if("PersistedAgentToolResourceWebSearch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("web_search".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PersistedAgentToolResourceWebSearch = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceWebSearch();
             }

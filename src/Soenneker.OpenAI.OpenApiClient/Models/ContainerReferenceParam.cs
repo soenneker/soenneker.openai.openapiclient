@@ -22,8 +22,40 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string ContainerId { get; set; }
 #endif
-        /// <summary>References a container created with the /v1/containers endpoint</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceType? Type { get; set; }
+        /// <summary>An optional list of uploaded files to make available to your code.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? FileIds { get; set; }
+#nullable restore
+#else
+        public List<string> FileIds { get; set; }
+#endif
+        /// <summary>The memory_limit property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerMemoryLimit? MemoryLimit { get; set; }
+        /// <summary>Network access policy for the container.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerAutoParamNetworkPolicy? NetworkPolicy { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerAutoParamNetworkPolicy NetworkPolicy { get; set; }
+#endif
+        /// <summary>An optional list of skills referenced by id or inline data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerAutoParamSkillsItem>? Skills { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerAutoParamSkillsItem> Skills { get; set; }
+#endif
+        /// <summary>The type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam"/> and sets the default values.
         /// </summary>
@@ -50,7 +82,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "container_id", n => { ContainerId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceType>(); } },
+                { "file_ids", n => { FileIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "memory_limit", n => { MemoryLimit = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerMemoryLimit>(); } },
+                { "network_policy", n => { NetworkPolicy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerAutoParamNetworkPolicy>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerAutoParamNetworkPolicy.CreateFromDiscriminatorValue); } },
+                { "skills", n => { Skills = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerAutoParamSkillsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerAutoParamSkillsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -61,7 +97,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("container_id", ContainerId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceType>("type", Type);
+            writer.WriteCollectionOfPrimitiveValues<string>("file_ids", FileIds);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerMemoryLimit>("memory_limit", MemoryLimit);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerAutoParamNetworkPolicy>("network_policy", NetworkPolicy);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerAutoParamSkillsItem>("skills", Skills);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

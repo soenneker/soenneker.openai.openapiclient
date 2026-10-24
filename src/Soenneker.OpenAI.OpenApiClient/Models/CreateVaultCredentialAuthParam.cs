@@ -47,15 +47,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVaultCredentialAuthParam();
-            if("CreateVaultCredentialAuthParamEnvironmentVariable".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("environment_variable".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateVaultCredentialAuthParamEnvironmentVariable = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVaultCredentialAuthParamEnvironmentVariable();
             }
-            else if("CreateVaultCredentialAuthParamMcpOAuth".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("mcp_oauth".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateVaultCredentialAuthParamMcpOAuth = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVaultCredentialAuthParamMcpOAuth();
             }
-            else if("CreateVaultCredentialAuthParamStaticBearer".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("static_bearer".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateVaultCredentialAuthParamStaticBearer = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVaultCredentialAuthParamStaticBearer();
             }

@@ -24,13 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<string> FileIds { get; set; }
 #endif
         /// <summary>The memory_limit property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerMemoryLimitWrapper2? MemoryLimit { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerMemoryLimitWrapper2 MemoryLimit { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerMemoryLimit? MemoryLimit { get; set; }
         /// <summary>Network access policy for the container.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "file_ids", n => { FileIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "memory_limit", n => { MemoryLimit = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerMemoryLimitWrapper2>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerMemoryLimitWrapper2.CreateFromDiscriminatorValue); } },
+                { "memory_limit", n => { MemoryLimit = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerMemoryLimit>(); } },
                 { "network_policy", n => { NetworkPolicy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAutoCodeInterpreterToolParamNetworkPolicy>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAutoCodeInterpreterToolParamNetworkPolicy.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoType>(); } },
             };
@@ -80,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("file_ids", FileIds);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerMemoryLimitWrapper2>("memory_limit", MemoryLimit);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerMemoryLimit>("memory_limit", MemoryLimit);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAutoCodeInterpreterToolParamNetworkPolicy>("network_policy", NetworkPolicy);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

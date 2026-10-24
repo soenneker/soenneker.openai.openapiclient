@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>The output format used for generation.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum BetaImageOutputFormat
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "png")]
         #pragma warning disable CS1591

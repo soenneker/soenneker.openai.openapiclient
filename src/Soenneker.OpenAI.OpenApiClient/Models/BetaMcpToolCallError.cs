@@ -19,10 +19,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolExecutionErrorContent? Content { get; set; }
+        public UntypedNode? Content { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolExecutionErrorContent Content { get; set; }
+        public UntypedNode Content { get; set; }
 #endif
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "code", n => { Code = n.GetIntValue(); } },
-                { "content", n => { Content = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolExecutionErrorContent>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolExecutionErrorContent.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -79,7 +79,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("code", Code);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolExecutionErrorContent>("content", Content);
+            writer.WriteObjectValue<UntypedNode>("content", Content);
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);

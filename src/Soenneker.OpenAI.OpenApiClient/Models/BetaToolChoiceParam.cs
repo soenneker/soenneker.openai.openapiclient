@@ -71,14 +71,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceMcp BetaToolChoiceMcp { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptionsWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptionsWrapper? BetaToolChoiceOptionsWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptionsWrapper BetaToolChoiceOptionsWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptions"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptions? BetaToolChoiceOptions { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceTypes"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,8 +109,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Allowed tool configuration type. Always `allowed_tools`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType? Type { get; set; }
-        /// <summary>Controls which (if any) tool is called by the model.`none` means the model will not call any tool and instead generates a message.`auto` means the model can pick between generating a message or calling one ormore tools.`required` means the model must call one or more tools.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptions? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam"/> and sets the default values.
         /// </summary>
@@ -162,9 +154,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.BetaToolChoiceMcp = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceMcp();
             }
-            else if("BetaToolChoiceOptionsWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptions>() is global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptions betaToolChoiceOptionsValue)
             {
-                result.BetaToolChoiceOptionsWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptionsWrapper();
+                result.BetaToolChoiceOptions = betaToolChoiceOptionsValue;
             }
             else if("BetaToolChoiceTypes".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -177,10 +169,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType>() is global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType typeValue)
             {
                 result.Type = typeValue;
-            }
-            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptions>() is global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptions valueValue)
-            {
-                result.Value = valueValue;
             }
             else if(parseNode.GetStringValue() is string nameValue)
             {
@@ -230,10 +218,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 return BetaToolChoiceMcp.GetFieldDeserializers();
             }
-            else if(BetaToolChoiceOptionsWrapper != null)
-            {
-                return BetaToolChoiceOptionsWrapper.GetFieldDeserializers();
-            }
             else if(BetaToolChoiceTypes != null)
             {
                 return BetaToolChoiceTypes.GetFieldDeserializers();
@@ -275,9 +259,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceMcp>(null, BetaToolChoiceMcp);
             }
-            else if(BetaToolChoiceOptionsWrapper != null)
+            else if(BetaToolChoiceOptions != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptionsWrapper>(null, BetaToolChoiceOptionsWrapper);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptions>(null, BetaToolChoiceOptions);
             }
             else if(BetaToolChoiceTypes != null)
             {
@@ -290,10 +274,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(Type != null)
             {
                 writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType>(null, Type);
-            }
-            else if(Value != null)
-            {
-                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceOptions>(null, Value);
             }
             else if(Name != null)
             {

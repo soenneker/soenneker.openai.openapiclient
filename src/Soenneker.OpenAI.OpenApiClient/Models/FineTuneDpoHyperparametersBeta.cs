@@ -8,27 +8,15 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaBranch2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaWrapper"/>
+    /// Composed type wrapper for classes <see cref="double"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaOneOf1"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FineTuneDpoHyperparametersBeta : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaBranch2? FineTuneDpoHyperparametersBetaBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaBranch2 FineTuneDpoHyperparametersBetaBranch2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaWrapper? FineTuneDpoHyperparametersBetaWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaWrapper FineTuneDpoHyperparametersBetaWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="double"/></summary>
+        public double? Double { get; set; }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaOneOf1"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaOneOf1? FineTuneDpoHyperparametersBetaOneOf1 { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,13 +27,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBeta();
-            if("FineTuneDpoHyperparametersBetaBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaOneOf1>() is global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaOneOf1 fineTuneDpoHyperparametersBetaOneOf1Value)
             {
-                result.FineTuneDpoHyperparametersBetaBranch2 = new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaBranch2();
+                result.FineTuneDpoHyperparametersBetaOneOf1 = fineTuneDpoHyperparametersBetaOneOf1Value;
             }
-            else if("FineTuneDpoHyperparametersBetaWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetDoubleValue() is double doubleValue)
             {
-                result.FineTuneDpoHyperparametersBetaWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaWrapper();
+                result.Double = doubleValue;
             }
             return result;
         }
@@ -55,14 +43,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(FineTuneDpoHyperparametersBetaBranch2 != null)
-            {
-                return FineTuneDpoHyperparametersBetaBranch2.GetFieldDeserializers();
-            }
-            else if(FineTuneDpoHyperparametersBetaWrapper != null)
-            {
-                return FineTuneDpoHyperparametersBetaWrapper.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -72,13 +52,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(FineTuneDpoHyperparametersBetaBranch2 != null)
+            if(FineTuneDpoHyperparametersBetaOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaBranch2>(null, FineTuneDpoHyperparametersBetaBranch2);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaOneOf1>(null, FineTuneDpoHyperparametersBetaOneOf1);
             }
-            else if(FineTuneDpoHyperparametersBetaWrapper != null)
+            else if(Double != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBetaWrapper>(null, FineTuneDpoHyperparametersBetaWrapper);
+                writer.WriteDoubleValue(null, Double);
             }
         }
     }

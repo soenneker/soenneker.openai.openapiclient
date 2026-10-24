@@ -15,13 +15,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The mode property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceValueEnumWrapper? Mode { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceValueEnumWrapper Mode { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceValueEnum? Mode { get; set; }
         /// <summary>The tools that the delegated Responses model may call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "mode", n => { Mode = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceValueEnumWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceValueEnumWrapper.CreateFromDiscriminatorValue); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceValueEnum>(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedToolsChoiceParamToolsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedToolsChoiceParamToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType>(); } },
             };
@@ -69,7 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceValueEnumWrapper>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveToolChoiceValueEnum>("mode", Mode);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedToolsChoiceParamToolsItem>("tools", Tools);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

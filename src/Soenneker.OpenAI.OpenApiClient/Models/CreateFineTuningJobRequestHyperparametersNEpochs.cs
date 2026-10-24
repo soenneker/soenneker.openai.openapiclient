@@ -8,27 +8,15 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsBranch2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsOneOf1"/>, <see cref="int"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateFineTuningJobRequestHyperparametersNEpochs : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsBranch2? CreateFineTuningJobRequestHyperparametersNEpochsBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsBranch2 CreateFineTuningJobRequestHyperparametersNEpochsBranch2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsWrapper? CreateFineTuningJobRequestHyperparametersNEpochsWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsWrapper CreateFineTuningJobRequestHyperparametersNEpochsWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsOneOf1"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsOneOf1? CreateFineTuningJobRequestHyperparametersNEpochsOneOf1 { get; set; }
+        /// <summary>Composed type representation for type <see cref="int"/></summary>
+        public int? Integer { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,13 +27,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochs();
-            if("CreateFineTuningJobRequestHyperparametersNEpochsBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsOneOf1>() is global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsOneOf1 createFineTuningJobRequestHyperparametersNEpochsOneOf1Value)
             {
-                result.CreateFineTuningJobRequestHyperparametersNEpochsBranch2 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsBranch2();
+                result.CreateFineTuningJobRequestHyperparametersNEpochsOneOf1 = createFineTuningJobRequestHyperparametersNEpochsOneOf1Value;
             }
-            else if("CreateFineTuningJobRequestHyperparametersNEpochsWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetIntValue() is int integerValue)
             {
-                result.CreateFineTuningJobRequestHyperparametersNEpochsWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsWrapper();
+                result.Integer = integerValue;
             }
             return result;
         }
@@ -55,14 +43,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateFineTuningJobRequestHyperparametersNEpochsBranch2 != null)
-            {
-                return CreateFineTuningJobRequestHyperparametersNEpochsBranch2.GetFieldDeserializers();
-            }
-            else if(CreateFineTuningJobRequestHyperparametersNEpochsWrapper != null)
-            {
-                return CreateFineTuningJobRequestHyperparametersNEpochsWrapper.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -72,13 +52,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateFineTuningJobRequestHyperparametersNEpochsBranch2 != null)
+            if(CreateFineTuningJobRequestHyperparametersNEpochsOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsBranch2>(null, CreateFineTuningJobRequestHyperparametersNEpochsBranch2);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsOneOf1>(null, CreateFineTuningJobRequestHyperparametersNEpochsOneOf1);
             }
-            else if(CreateFineTuningJobRequestHyperparametersNEpochsWrapper != null)
+            else if(Integer != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparametersNEpochsWrapper>(null, CreateFineTuningJobRequestHyperparametersNEpochsWrapper);
+                writer.WriteIntValue(null, Integer);
             }
         }
     }

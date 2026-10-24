@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalMcpToolApprovalFilter"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalMcpToolApprovalFilter"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalOneOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class McpToolRequireApproval : IComposedTypeWrapper, IParsable
@@ -21,14 +21,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalMcpToolApprovalFilter McpToolRequireApprovalMcpToolApprovalFilter { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalWrapper? McpToolRequireApprovalWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalWrapper McpToolRequireApprovalWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalOneOf2"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalOneOf2? McpToolRequireApprovalOneOf2 { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -43,9 +37,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.McpToolRequireApprovalMcpToolApprovalFilter = new global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalMcpToolApprovalFilter();
             }
-            else if("McpToolRequireApprovalWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalOneOf2>() is global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalOneOf2 mcpToolRequireApprovalOneOf2Value)
             {
-                result.McpToolRequireApprovalWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalWrapper();
+                result.McpToolRequireApprovalOneOf2 = mcpToolRequireApprovalOneOf2Value;
             }
             return result;
         }
@@ -58,10 +52,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(McpToolRequireApprovalMcpToolApprovalFilter != null)
             {
                 return McpToolRequireApprovalMcpToolApprovalFilter.GetFieldDeserializers();
-            }
-            else if(McpToolRequireApprovalWrapper != null)
-            {
-                return McpToolRequireApprovalWrapper.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -76,9 +66,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalMcpToolApprovalFilter>(null, McpToolRequireApprovalMcpToolApprovalFilter);
             }
-            else if(McpToolRequireApprovalWrapper != null)
+            else if(McpToolRequireApprovalOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalWrapper>(null, McpToolRequireApprovalWrapper);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpToolRequireApprovalOneOf2>(null, McpToolRequireApprovalOneOf2);
             }
         }
     }

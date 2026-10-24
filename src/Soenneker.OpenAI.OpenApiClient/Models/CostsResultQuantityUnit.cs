@@ -8,19 +8,13 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitBranch1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitAnyOf2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitMember1"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CostsResultQuantityUnit : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitBranch1? CostsResultQuantityUnitBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitBranch1 CostsResultQuantityUnitBranch1 { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitAnyOf2"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitAnyOf2? CostsResultQuantityUnitAnyOf2 { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,13 +23,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitMember1 CostsResultQuantityUnitMember1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitWrapper"/></summary>
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitWrapper? CostsResultQuantityUnitWrapper { get; set; }
+        public string? String { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitWrapper CostsResultQuantityUnitWrapper { get; set; }
+        public string String { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -46,9 +40,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnit();
-            result.CostsResultQuantityUnitBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitBranch1();
-            result.CostsResultQuantityUnitMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitMember1();
-            result.CostsResultQuantityUnitWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitWrapper();
+            if(parseNode.GetStringValue() is string stringValue)
+            {
+                result.String = stringValue;
+            }
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitAnyOf2>() is global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitAnyOf2 costsResultQuantityUnitAnyOf2Value)
+            {
+                result.CostsResultQuantityUnitAnyOf2 = costsResultQuantityUnitAnyOf2Value;
+            }
+            else {
+                result.CostsResultQuantityUnitMember1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitMember1();
+            }
             return result;
         }
         /// <summary>
@@ -57,9 +59,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CostsResultQuantityUnitBranch1 != null || CostsResultQuantityUnitMember1 != null || CostsResultQuantityUnitWrapper != null)
+            if(CostsResultQuantityUnitMember1 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CostsResultQuantityUnitBranch1, CostsResultQuantityUnitMember1, CostsResultQuantityUnitWrapper);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CostsResultQuantityUnitMember1);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -70,7 +72,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitBranch1>(null, CostsResultQuantityUnitBranch1, CostsResultQuantityUnitMember1, CostsResultQuantityUnitWrapper);
+            if(String != null)
+            {
+                writer.WriteStringValue(null, String);
+            }
+            else if(CostsResultQuantityUnitAnyOf2 != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitAnyOf2>(null, CostsResultQuantityUnitAnyOf2);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CostsResultQuantityUnitMember1>(null, CostsResultQuantityUnitMember1);
+            }
         }
     }
 }

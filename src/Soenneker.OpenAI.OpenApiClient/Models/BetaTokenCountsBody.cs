@@ -22,13 +22,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam Conversation { get; set; }
 #endif
-        /// <summary>Text, image, or file inputs to the model, used to generate a response</summary>
+        /// <summary>The input property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaTokenCountsBodyInput? Input { get; set; }
+        public UntypedNode? Input { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaTokenCountsBodyInput Input { get; set; }
+        public UntypedNode Input { get; set; }
 #endif
         /// <summary>A system (or developer) message inserted into the model&apos;s context.When used along with `previous_response_id`, the instructions from a previous response will not be carried over to the next response. This makes it simple to swap out system (or developer) messages in new responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -125,7 +125,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "conversation", n => { Conversation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam.CreateFromDiscriminatorValue); } },
-                { "input", n => { Input = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTokenCountsBodyInput>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaTokenCountsBodyInput.CreateFromDiscriminatorValue); } },
+                { "input", n => { Input = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
@@ -146,7 +146,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam>("conversation", Conversation);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTokenCountsBodyInput>("input", Input);
+            writer.WriteObjectValue<UntypedNode>("input", Input);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteStringValue("model", Model);
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);

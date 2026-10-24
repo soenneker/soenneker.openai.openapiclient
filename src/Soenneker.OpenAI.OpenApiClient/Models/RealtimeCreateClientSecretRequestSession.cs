@@ -37,13 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestSession CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestSession();
-            if("RealtimeSessionCreateRequestGa".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("realtime".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RealtimeSessionCreateRequestGa = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGa();
             }
-            else if("RealtimeTranscriptionSessionCreateRequestGa".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("transcription".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RealtimeTranscriptionSessionCreateRequestGa = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestGa();
             }

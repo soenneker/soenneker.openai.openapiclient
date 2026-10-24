@@ -60,13 +60,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3IncompleteDetails IncompleteDetails { get; set; }
 #endif
-        /// <summary>A system (or developer) message inserted into the model&apos;s context.When using along with `previous_response_id`, the instructions from a previousresponse will not be carried over to the next response. This makes it simpleto swap out system (or developer) messages in new responses.</summary>
+        /// <summary>The instructions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3Instructions? Instructions { get; set; }
+        public UntypedNode? Instructions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3Instructions Instructions { get; set; }
+        public UntypedNode Instructions { get; set; }
 #endif
         /// <summary>An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](https://developers.openai.com/api/docs/guides/reasoning).</summary>
         public int? MaxOutputTokens { get; set; }
@@ -265,7 +265,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseError>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseError.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "incomplete_details", n => { IncompleteDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3IncompleteDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3IncompleteDetails.CreateFromDiscriminatorValue); } },
-                { "instructions", n => { Instructions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3Instructions>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3Instructions.CreateFromDiscriminatorValue); } },
+                { "instructions", n => { Instructions = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "max_output_tokens", n => { MaxOutputTokens = n.GetIntValue(); } },
                 { "max_tool_calls", n => { MaxToolCalls = n.GetIntValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueMetadata.CreateFromDiscriminatorValue); } },
@@ -311,7 +311,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseError>("error", Error);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3IncompleteDetails>("incomplete_details", IncompleteDetails);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3Instructions>("instructions", Instructions);
+            writer.WriteObjectValue<UntypedNode>("instructions", Instructions);
             writer.WriteIntValue("max_output_tokens", MaxOutputTokens);
             writer.WriteIntValue("max_tool_calls", MaxToolCalls);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueMetadata>("metadata", Metadata);

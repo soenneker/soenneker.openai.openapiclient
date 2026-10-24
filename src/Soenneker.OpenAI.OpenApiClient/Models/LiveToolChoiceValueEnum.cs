@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>How to select a tool from the allowed set.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum LiveToolChoiceValueEnum
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "none")]
         #pragma warning disable CS1591

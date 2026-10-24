@@ -37,13 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy();
-            if("CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyAutoChunkingStrategy".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("auto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyAutoChunkingStrategy = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyAutoChunkingStrategy();
             }
-            else if("CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategy".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("static".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategy = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategy();
             }

@@ -78,8 +78,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallOutputOutput Output { get; set; }
 #endif
-        /// <summary>The status of the item. One of `in_progress`, `completed`, or`incomplete`. Populated when items are returned via API.</summary>
+        /// <summary>The status property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallOutputResourceStatus? Status { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallOutputResourceStatus Status { get; set; }
+#endif
         /// <summary>The type of the function tool call output. Always `function_call_output`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallOutputType? Type { get; set; }
         /// <summary>
@@ -115,7 +121,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "namespace", n => { Namespace = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallOutputOutput>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallOutputOutput.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallOutputResourceStatus>(); } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallOutputResourceStatus>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallOutputResourceStatus.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallOutputType>(); } },
             };
         }
@@ -134,7 +140,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("namespace", Namespace);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallOutputOutput>("output", Output);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallOutputResourceStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionToolCallOutputResourceStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

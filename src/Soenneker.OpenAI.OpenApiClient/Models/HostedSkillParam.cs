@@ -39,11 +39,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.HostedSkillParam();
-            if("HostedSkillParamInline".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("inline".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.HostedSkillParamInline = new global::Soenneker.OpenAI.OpenApiClient.Models.HostedSkillParamInline();
             }
-            else if("HostedSkillParamSkillReference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("skill_reference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.HostedSkillParamSkillReference = new global::Soenneker.OpenAI.OpenApiClient.Models.HostedSkillParamSkillReference();
             }

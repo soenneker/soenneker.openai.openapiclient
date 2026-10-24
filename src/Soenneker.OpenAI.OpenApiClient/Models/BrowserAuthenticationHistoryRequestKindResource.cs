@@ -46,8 +46,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Reason { get; set; }
 #endif
-        /// <summary>The type of the object. Always `browser_authentication`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationType? Type { get; set; }
+        /// <summary>The type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationHistoryRequestKindResource"/> and sets the default values.
         /// </summary>
@@ -77,7 +83,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "fields", n => { Fields = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationFieldResource>(global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationFieldResource.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "options", n => { Options = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationOptionResource>(global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationOptionResource.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -91,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationFieldResource>("fields", Fields);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationOptionResource>("options", Options);
             writer.WriteStringValue("reason", Reason);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

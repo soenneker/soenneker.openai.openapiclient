@@ -8,27 +8,15 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesBranch2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesOneOf1"/>, <see cref="int"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FineTuneReinforcementHyperparametersEvalSamples : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesBranch2? FineTuneReinforcementHyperparametersEvalSamplesBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesBranch2 FineTuneReinforcementHyperparametersEvalSamplesBranch2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesWrapper? FineTuneReinforcementHyperparametersEvalSamplesWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesWrapper FineTuneReinforcementHyperparametersEvalSamplesWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesOneOf1"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesOneOf1? FineTuneReinforcementHyperparametersEvalSamplesOneOf1 { get; set; }
+        /// <summary>Composed type representation for type <see cref="int"/></summary>
+        public int? Integer { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,13 +27,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamples();
-            if("FineTuneReinforcementHyperparametersEvalSamplesBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesOneOf1>() is global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesOneOf1 fineTuneReinforcementHyperparametersEvalSamplesOneOf1Value)
             {
-                result.FineTuneReinforcementHyperparametersEvalSamplesBranch2 = new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesBranch2();
+                result.FineTuneReinforcementHyperparametersEvalSamplesOneOf1 = fineTuneReinforcementHyperparametersEvalSamplesOneOf1Value;
             }
-            else if("FineTuneReinforcementHyperparametersEvalSamplesWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetIntValue() is int integerValue)
             {
-                result.FineTuneReinforcementHyperparametersEvalSamplesWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesWrapper();
+                result.Integer = integerValue;
             }
             return result;
         }
@@ -55,14 +43,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(FineTuneReinforcementHyperparametersEvalSamplesBranch2 != null)
-            {
-                return FineTuneReinforcementHyperparametersEvalSamplesBranch2.GetFieldDeserializers();
-            }
-            else if(FineTuneReinforcementHyperparametersEvalSamplesWrapper != null)
-            {
-                return FineTuneReinforcementHyperparametersEvalSamplesWrapper.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -72,13 +52,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(FineTuneReinforcementHyperparametersEvalSamplesBranch2 != null)
+            if(FineTuneReinforcementHyperparametersEvalSamplesOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesBranch2>(null, FineTuneReinforcementHyperparametersEvalSamplesBranch2);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesOneOf1>(null, FineTuneReinforcementHyperparametersEvalSamplesOneOf1);
             }
-            else if(FineTuneReinforcementHyperparametersEvalSamplesWrapper != null)
+            else if(Integer != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamplesWrapper>(null, FineTuneReinforcementHyperparametersEvalSamplesWrapper);
+                writer.WriteIntValue(null, Integer);
             }
         }
     }

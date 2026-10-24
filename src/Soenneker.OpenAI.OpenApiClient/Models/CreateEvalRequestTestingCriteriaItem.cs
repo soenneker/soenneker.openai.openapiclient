@@ -61,25 +61,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestTestingCriteriaItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestTestingCriteriaItem();
-            if("CreateEvalLabelModelGrader".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("label_model".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateEvalLabelModelGrader = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLabelModelGrader();
             }
-            else if("EvalGraderPython".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("python".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EvalGraderPython = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPython();
             }
-            else if("EvalGraderScoreModel".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("score_model".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EvalGraderScoreModel = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModel();
             }
-            else if("EvalGraderStringCheck".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("string_check".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EvalGraderStringCheck = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheck();
             }
-            else if("EvalGraderTextSimilarity".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("text_similarity".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EvalGraderTextSimilarity = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity();
             }

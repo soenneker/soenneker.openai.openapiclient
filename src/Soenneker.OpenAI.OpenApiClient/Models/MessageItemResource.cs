@@ -30,13 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The phase of an assistant message. Null for user messages.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseResourceWrapper? Phase { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseResourceWrapper Phase { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseResource? Phase { get; set; }
         /// <summary>The role of the message author.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.SessionMessageRoleResource? Role { get; set; }
         /// <summary>The status of the message. User messages are always `completed`.</summary>
@@ -71,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentResource>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentResource.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "phase", n => { Phase = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseResourceWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseResourceWrapper.CreateFromDiscriminatorValue); } },
+                { "phase", n => { Phase = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseResource>(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionMessageRoleResource>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputItemStatusResource>(); } },
                 { "turn_id", n => { TurnId = n.GetStringValue(); } },
@@ -87,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentResource>("content", Content);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseResourceWrapper>("phase", Phase);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessagePhaseResource>("phase", Phase);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionMessageRoleResource>("role", Role);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputItemStatusResource>("status", Status);
             writer.WriteStringValue("turn_id", TurnId);

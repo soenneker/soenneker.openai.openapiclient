@@ -44,13 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationReasoningInputParam Reasoning { get; set; }
 #endif
         /// <summary>The service_tier property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesServiceTierWrapper2? ServiceTier { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesServiceTierWrapper2 ServiceTier { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesServiceTier? ServiceTier { get; set; }
         /// <summary>The text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -105,7 +99,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
                 { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationReasoningInputParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationReasoningInputParam.CreateFromDiscriminatorValue); } },
-                { "service_tier", n => { ServiceTier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesServiceTierWrapper2>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesServiceTierWrapper2.CreateFromDiscriminatorValue); } },
+                { "service_tier", n => { ServiceTier = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesServiceTier>(); } },
                 { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationTextInputParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationTextInputParam.CreateFromDiscriminatorValue); } },
                 { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsUpdateInputParamToolChoice>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsUpdateInputParamToolChoice.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsUpdateInputParamToolsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsUpdateInputParamToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -123,7 +117,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("model", Model);
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationReasoningInputParam>("reasoning", Reasoning);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesServiceTierWrapper2>("service_tier", ServiceTier);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesServiceTier>("service_tier", ServiceTier);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationTextInputParam>("text", Text);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsUpdateInputParamToolChoice>("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsUpdateInputParamToolsItem>("tools", Tools);

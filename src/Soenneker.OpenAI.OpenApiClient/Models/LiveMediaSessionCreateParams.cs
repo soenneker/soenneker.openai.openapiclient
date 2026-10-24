@@ -29,13 +29,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientConfigParam Client { get; set; }
 #endif
-        /// <summary>Who handles tasks delegated by the Live model. Omitted or null selects your application; use `responses` or `decisions` to delegate to the corresponding API.</summary>
+        /// <summary>The delegation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Delegation? Delegation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam? Delegation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Delegation Delegation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam Delegation { get; set; }
 #endif
         /// <summary>Ordered text-only history supplied before startup. Supports developer, user, and assistant messages with one text part each; at most 128 messages and a configured rendered-token limit (8,192 by default).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -91,7 +91,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "audio", n => { Audio = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveMediaSessionAudioParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveMediaSessionAudioParam.CreateFromDiscriminatorValue); } },
                 { "client", n => { Client = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientConfigParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientConfigParam.CreateFromDiscriminatorValue); } },
-                { "delegation", n => { Delegation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Delegation>(global::Soenneker.OpenAI.OpenApiClient.Models.Delegation.CreateFromDiscriminatorValue); } },
+                { "delegation", n => { Delegation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam.CreateFromDiscriminatorValue); } },
                 { "input", n => { Input = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialItem>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsLive>(global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsLive.CreateFromDiscriminatorValue); } },
@@ -108,7 +108,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveMediaSessionAudioParam>("audio", Audio);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientConfigParam>("client", Client);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Delegation>("delegation", Delegation);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam>("delegation", Delegation);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialItem>("input", Input);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModelIdsLive>("model", Model);

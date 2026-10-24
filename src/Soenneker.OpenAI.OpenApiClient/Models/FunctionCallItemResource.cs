@@ -16,10 +16,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The arguments to pass to the function.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallItemResourceArguments? Arguments { get; set; }
+        public UntypedNode? Arguments { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallItemResourceArguments Arguments { get; set; }
+        public UntypedNode Arguments { get; set; }
 #endif
         /// <summary>The ID used to submit the function result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,7 +75,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallItemResourceArguments>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallItemResourceArguments.CreateFromDiscriminatorValue); } },
+                { "arguments", n => { Arguments = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -91,7 +91,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionCallItemResourceArguments>("arguments", Arguments);
+            writer.WriteObjectValue<UntypedNode>("arguments", Arguments);
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);

@@ -16,13 +16,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The verbosity property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveTextVerbosityWrapper? Verbosity { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveTextVerbosityWrapper Verbosity { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveTextVerbosity? Verbosity { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationTextInputParam"/> and sets the default values.
         /// </summary>
@@ -48,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "verbosity", n => { Verbosity = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveTextVerbosityWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveTextVerbosityWrapper.CreateFromDiscriminatorValue); } },
+                { "verbosity", n => { Verbosity = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveTextVerbosity>(); } },
             };
         }
         /// <summary>
@@ -58,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveTextVerbosityWrapper>("verbosity", Verbosity);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveTextVerbosity>("verbosity", Verbosity);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

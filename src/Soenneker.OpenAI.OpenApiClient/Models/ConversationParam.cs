@@ -23,14 +23,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The unique ID of the conversation.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Value { get; set; }
-#nullable restore
-#else
-        public string Value { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ConversationParam"/> and sets the default values.
         /// </summary>
@@ -57,7 +49,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -68,7 +59,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

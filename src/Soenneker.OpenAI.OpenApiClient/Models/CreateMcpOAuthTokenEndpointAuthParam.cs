@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.CreateMcpOAuthTokenEndpointAuthParamClientSecretPost = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateMcpOAuthTokenEndpointAuthParamClientSecretPost();
             }
-            else if("CreateMcpOAuthTokenEndpointAuthParamNone".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("none".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateMcpOAuthTokenEndpointAuthParamNone = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateMcpOAuthTokenEndpointAuthParamNone();
             }

@@ -47,15 +47,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParam();
-            if("EnvironmentParamNone".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("none".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EnvironmentParamNone = new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamNone();
             }
-            else if("EnvironmentParamOpenaiHosted".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("openai_hosted".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EnvironmentParamOpenaiHosted = new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamOpenaiHosted();
             }
-            else if("EnvironmentParamSelfHosted".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("self_hosted".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EnvironmentParamSelfHosted = new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamSelfHosted();
             }

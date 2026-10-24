@@ -53,21 +53,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectContentItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectContentItem();
-            if("MessageContentImageFileObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("image_file".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MessageContentImageFileObject = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject();
             }
-            else if("MessageContentImageUrlObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("image_url".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MessageContentImageUrlObject = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageUrlObject();
             }
-            else if("MessageContentRefusalObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("refusal".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MessageContentRefusalObject = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentRefusalObject();
             }
-            else if("MessageContentTextObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("text".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MessageContentTextObject = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObject();
             }

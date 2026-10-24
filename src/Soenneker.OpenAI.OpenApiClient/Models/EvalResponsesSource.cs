@@ -44,13 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Model { get; set; }
 #endif
         /// <summary>The reasoning_effort property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortWrapper? ReasoningEffort { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortWrapper ReasoningEffort { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? ReasoningEffort { get; set; }
         /// <summary>Sampling temperature. This is a query parameter used to select responses.</summary>
         public double? Temperature { get; set; }
         /// <summary>List of tool names. This is a query parameter used to select responses.</summary>
@@ -103,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "instructions_search", n => { InstructionsSearch = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "reasoning_effort", n => { ReasoningEffort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortWrapper.CreateFromDiscriminatorValue); } },
+                { "reasoning_effort", n => { ReasoningEffort = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "tools", n => { Tools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },
@@ -123,7 +117,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("instructions_search", InstructionsSearch);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortWrapper>("reasoning_effort", ReasoningEffort);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("reasoning_effort", ReasoningEffort);
             writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteCollectionOfPrimitiveValues<string>("tools", Tools);
             writer.WriteDoubleValue("top_p", TopP);

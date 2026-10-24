@@ -17,10 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The instructions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Instructions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionPredicateQuestionParamInstructions? Instructions { get; set; }
 #nullable restore
 #else
-        public string Instructions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionPredicateQuestionParamInstructions Instructions { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,7 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "instructions", n => { Instructions = n.GetStringValue(); } },
+                { "instructions", n => { Instructions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionPredicateQuestionParamInstructions>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionPredicateQuestionParamInstructions.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PredicateType>(); } },
             };
@@ -69,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("instructions", Instructions);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionPredicateQuestionParamInstructions>("instructions", Instructions);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PredicateType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

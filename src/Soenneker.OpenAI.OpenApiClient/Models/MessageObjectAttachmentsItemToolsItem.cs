@@ -37,13 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsItemToolsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsItemToolsItem();
-            if("AssistantToolsCode".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("code_interpreter".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AssistantToolsCode = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsCode();
             }
-            else if("AssistantToolsFileSearchTypeOnly".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("file_search".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AssistantToolsFileSearchTypeOnly = new global::Soenneker.OpenAI.OpenApiClient.Models.AssistantToolsFileSearchTypeOnly();
             }

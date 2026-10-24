@@ -37,13 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ToolsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2ToolsItem();
-            if("ChatCompletionTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("function".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ChatCompletionTool = new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionTool();
             }
-            else if("CustomToolChatCompletions".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("custom".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CustomToolChatCompletions = new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletions();
             }

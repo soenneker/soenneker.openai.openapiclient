@@ -14,30 +14,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The value property</summary>
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Value { get; set; }
+        public string? String { get; set; }
 #nullable restore
 #else
-        public string Value { get; set; }
+        public string String { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedBranch1? VoiceIdsSharedBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedBranch1 VoiceIdsSharedBranch1 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedWrapper? VoiceIdsSharedWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedWrapper VoiceIdsSharedWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedAnyOf2"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedAnyOf2? VoiceIdsSharedAnyOf2 { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsShared"/> and sets the default values.
         /// </summary>
@@ -54,13 +40,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsShared();
-            if(parseNode.GetStringValue() is string valueValue)
+            if(parseNode.GetStringValue() is string stringValue)
             {
-                result.Value = valueValue;
+                result.String = stringValue;
             }
-            else {
-                result.VoiceIdsSharedBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedBranch1();
-                result.VoiceIdsSharedWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedWrapper();
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedAnyOf2>() is global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedAnyOf2 voiceIdsSharedAnyOf2Value)
+            {
+                result.VoiceIdsSharedAnyOf2 = voiceIdsSharedAnyOf2Value;
             }
             return result;
         }
@@ -70,10 +56,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(VoiceIdsSharedBranch1 != null || VoiceIdsSharedWrapper != null)
-            {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(VoiceIdsSharedBranch1, VoiceIdsSharedWrapper);
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -83,12 +65,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(Value != null)
+            if(String != null)
             {
-                writer.WriteStringValue(null, Value);
+                writer.WriteStringValue(null, String);
             }
-            else {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedBranch1>(null, VoiceIdsSharedBranch1, VoiceIdsSharedWrapper);
+            else if(VoiceIdsSharedAnyOf2 != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedAnyOf2>(null, VoiceIdsSharedAnyOf2);
             }
             writer.WriteAdditionalData(AdditionalData);
         }

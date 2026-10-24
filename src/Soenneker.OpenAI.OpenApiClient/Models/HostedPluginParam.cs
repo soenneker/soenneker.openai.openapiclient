@@ -39,8 +39,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.InlineCapabilitySourceParam Source { get; set; }
 #endif
-        /// <summary>Defines an inline skill for this request.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InlineType? Type { get; set; }
+        /// <summary>The type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.HostedPluginParam"/> and sets the default values.
         /// </summary>
@@ -69,7 +75,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineCapabilitySourceParam>(global::Soenneker.OpenAI.OpenApiClient.Models.InlineCapabilitySourceParam.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -82,7 +88,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineCapabilitySourceParam>("source", Source);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InlineType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -89,14 +89,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMcp ToolChoiceMcp { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptionsWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptionsWrapper? ToolChoiceOptionsWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptionsWrapper ToolChoiceOptionsWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions? ToolChoiceOptions { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceTypes"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,8 +109,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>Allowed tool configuration type. Always `allowed_tools`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType? Type { get; set; }
-        /// <summary>Controls which (if any) tool is called by the model.`none` means the model will not call any tool and instead generates a message.`auto` means the model can pick between generating a message or calling one ormore tools.`required` means the model must call one or more tools.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceParam"/> and sets the default values.
         /// </summary>
@@ -166,9 +158,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.ToolChoiceMcp = new global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMcp();
             }
-            else if("ToolChoiceOptionsWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions>() is global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions toolChoiceOptionsValue)
             {
-                result.ToolChoiceOptionsWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptionsWrapper();
+                result.ToolChoiceOptions = toolChoiceOptionsValue;
             }
             else if("ToolChoiceTypes".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -177,10 +169,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType>() is global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType typeValue)
             {
                 result.Type = typeValue;
-            }
-            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions>() is global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions valueValue)
-            {
-                result.Value = valueValue;
             }
             else if(parseNode.GetStringValue() is string nameValue)
             {
@@ -230,10 +218,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 return ToolChoiceMcp.GetFieldDeserializers();
             }
-            else if(ToolChoiceOptionsWrapper != null)
-            {
-                return ToolChoiceOptionsWrapper.GetFieldDeserializers();
-            }
             else if(ToolChoiceTypes != null)
             {
                 return ToolChoiceTypes.GetFieldDeserializers();
@@ -279,9 +263,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMcp>(null, ToolChoiceMcp);
             }
-            else if(ToolChoiceOptionsWrapper != null)
+            else if(ToolChoiceOptions != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptionsWrapper>(null, ToolChoiceOptionsWrapper);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions>(null, ToolChoiceOptions);
             }
             else if(ToolChoiceTypes != null)
             {
@@ -290,10 +274,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(Type != null)
             {
                 writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AllowedToolsType>(null, Type);
-            }
-            else if(Value != null)
-            {
-                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions>(null, Value);
             }
             else if(Name != null)
             {

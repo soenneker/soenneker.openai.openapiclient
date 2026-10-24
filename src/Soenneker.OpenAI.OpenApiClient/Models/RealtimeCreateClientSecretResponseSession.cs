@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.RealtimeSessionCreateResponseGa = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGa();
             }
-            else if("RealtimeTranscriptionSessionCreateResponseGa".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("transcription".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RealtimeTranscriptionSessionCreateResponseGa = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGa();
             }

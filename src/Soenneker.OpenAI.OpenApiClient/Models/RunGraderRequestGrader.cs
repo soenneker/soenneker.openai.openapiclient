@@ -61,25 +61,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestGrader CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestGrader();
-            if("GraderMulti".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("multi".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GraderMulti = new global::Soenneker.OpenAI.OpenApiClient.Models.GraderMulti();
             }
-            else if("GraderPython".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("python".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GraderPython = new global::Soenneker.OpenAI.OpenApiClient.Models.GraderPython();
             }
-            else if("GraderScoreModel".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("score_model".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GraderScoreModel = new global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModel();
             }
-            else if("GraderStringCheck".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("string_check".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GraderStringCheck = new global::Soenneker.OpenAI.OpenApiClient.Models.GraderStringCheck();
             }
-            else if("GraderTextSimilarity".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("text_similarity".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GraderTextSimilarity = new global::Soenneker.OpenAI.OpenApiClient.Models.GraderTextSimilarity();
             }

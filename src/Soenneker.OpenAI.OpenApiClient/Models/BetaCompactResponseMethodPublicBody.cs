@@ -14,13 +14,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Text, image, or file inputs to the model, used to generate a response</summary>
+        /// <summary>The input property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBodyInput? Input { get; set; }
+        public UntypedNode? Input { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBodyInput Input { get; set; }
+        public UntypedNode Input { get; set; }
 #endif
         /// <summary>A system (or developer) message inserted into the model&apos;s context.When used along with `previous_response_id`, the instructions from a previous response will not be carried over to the next response. This makes it simple to swap out system (or developer) messages in new responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,21 +63,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam PromptCacheOptions { get; set; }
 #endif
         /// <summary>The prompt_cache_retention property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnumWrapper? PromptCacheRetention { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnumWrapper PromptCacheRetention { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnum? PromptCacheRetention { get; set; }
         /// <summary>The service_tier property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierEnumWrapper? ServiceTier { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierEnumWrapper ServiceTier { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierEnum? ServiceTier { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBody"/> and sets the default values.
         /// </summary>
@@ -103,14 +91,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "input", n => { Input = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBodyInput>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBodyInput.CreateFromDiscriminatorValue); } },
+                { "input", n => { Input = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction.CreateFromDiscriminatorValue); } },
                 { "previous_response_id", n => { PreviousResponseId = n.GetStringValue(); } },
                 { "prompt_cache_key", n => { PromptCacheKey = n.GetStringValue(); } },
                 { "prompt_cache_options", n => { PromptCacheOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam.CreateFromDiscriminatorValue); } },
-                { "prompt_cache_retention", n => { PromptCacheRetention = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnumWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnumWrapper.CreateFromDiscriminatorValue); } },
-                { "service_tier", n => { ServiceTier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierEnumWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierEnumWrapper.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_retention", n => { PromptCacheRetention = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnum>(); } },
+                { "service_tier", n => { ServiceTier = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierEnum>(); } },
             };
         }
         /// <summary>
@@ -120,14 +108,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBodyInput>("input", Input);
+            writer.WriteObjectValue<UntypedNode>("input", Input);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction>("model", Model);
             writer.WriteStringValue("previous_response_id", PreviousResponseId);
             writer.WriteStringValue("prompt_cache_key", PromptCacheKey);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam>("prompt_cache_options", PromptCacheOptions);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnumWrapper>("prompt_cache_retention", PromptCacheRetention);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierEnumWrapper>("service_tier", ServiceTier);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnum>("prompt_cache_retention", PromptCacheRetention);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierEnum>("service_tier", ServiceTier);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

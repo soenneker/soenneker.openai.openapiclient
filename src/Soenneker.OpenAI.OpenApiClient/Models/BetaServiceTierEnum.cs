@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>Specifies the processing type used for serving the request.   - If set to &apos;auto&apos;, then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use &apos;default&apos;.   - If set to &apos;default&apos;, then the request will be processed with the standard pricing and performance for the selected model.   - If set to &apos;[flex](https://developers.openai.com/api/docs/guides/flex-processing)&apos;, then the request will be processed with the Flex Processing service tier.   - To opt-in to [Fast mode](https://developers.openai.com/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. For models with a dedicated Fast tier, either value resolves to `service_tier=fast`; for other models, either value resolves to `service_tier=priority`.   - When not set, the default behavior is &apos;auto&apos;.  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum BetaServiceTierEnum
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "auto")]
         #pragma warning disable CS1591

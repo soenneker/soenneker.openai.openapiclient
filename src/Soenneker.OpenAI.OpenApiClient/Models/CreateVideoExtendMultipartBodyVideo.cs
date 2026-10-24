@@ -8,18 +8,18 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideoBranch2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoReferenceInputParam"/>
+    /// Composed type wrapper for classes <see cref="byte"/> array, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoReferenceInputParam"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateVideoExtendMultipartBodyVideo : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideoBranch2"/></summary>
+        /// <summary>Composed type representation for type <see cref="byte"/> array</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideoBranch2? CreateVideoExtendMultipartBodyVideoBranch2 { get; set; }
+        public byte[]? Binary { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideoBranch2 CreateVideoExtendMultipartBodyVideoBranch2 { get; set; }
+        public byte[] Binary { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VideoReferenceInputParam"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,13 +39,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideo();
-            if("CreateVideoExtendMultipartBodyVideoBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CreateVideoExtendMultipartBodyVideoBranch2 = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideoBranch2();
-            }
-            else if("VideoReferenceInputParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("VideoReferenceInputParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VideoReferenceInputParam = new global::Soenneker.OpenAI.OpenApiClient.Models.VideoReferenceInputParam();
+            }
+            else if(parseNode.GetByteArrayValue() is byte[] binaryValue)
+            {
+                result.Binary = binaryValue;
             }
             return result;
         }
@@ -55,11 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateVideoExtendMultipartBodyVideoBranch2 != null)
-            {
-                return CreateVideoExtendMultipartBodyVideoBranch2.GetFieldDeserializers();
-            }
-            else if(VideoReferenceInputParam != null)
+            if(VideoReferenceInputParam != null)
             {
                 return VideoReferenceInputParam.GetFieldDeserializers();
             }
@@ -72,13 +68,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateVideoExtendMultipartBodyVideoBranch2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideoBranch2>(null, CreateVideoExtendMultipartBodyVideoBranch2);
-            }
-            else if(VideoReferenceInputParam != null)
+            if(VideoReferenceInputParam != null)
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoReferenceInputParam>(null, VideoReferenceInputParam);
+            }
+            else if(Binary != null)
+            {
+                writer.WriteByteArrayValue(null, Binary);
             }
         }
     }

@@ -34,13 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The role of the messages author, in this case `assistant`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantRole? Role { get; set; }
         /// <summary>The status property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialMessageStatusWrapper3? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialMessageStatusWrapper3 Status { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialMessageStatus? Status { get; set; }
         /// <summary>The type of the message input. Always `message`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.MessageType? Type { get; set; }
         /// <summary>
@@ -71,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantRole>(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialMessageStatusWrapper3>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialMessageStatusWrapper3.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialMessageStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageType>(); } },
             };
         }
@@ -85,7 +79,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItem>("content", Content);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantRole>("role", Role);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialMessageStatusWrapper3>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialMessageStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

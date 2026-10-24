@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>How much reasoning effort the delegated Responses model should use. Supported values depend on the backend model.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum LiveReasoningEffort
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "none")]
         #pragma warning disable CS1591

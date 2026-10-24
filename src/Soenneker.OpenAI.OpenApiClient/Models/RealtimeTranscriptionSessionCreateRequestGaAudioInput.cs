@@ -38,13 +38,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription Transcription { get; set; }
 #endif
-        /// <summary>Configuration for turn detection, ether Server VAD or Semantic VAD. This can be set to `null` to turn off, in which case the client must manually trigger model response.Server VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech.Semantic VAD is more advanced and uses a turn detection model (in conjunction with VAD) to semantically estimate whether the user has finished speaking, then dynamically sets a timeout based on this probability. For example, if user audio trails off with &quot;uhhm&quot;, the model will score a low probability of turn end and wait longer for the user to continue speaking. This can be useful for more natural conversations, but may have a higher latency.For `gpt-realtime-whisper` transcription sessions, turn detection must beset to `null`; VAD is not supported.</summary>
+        /// <summary>The turn_detection property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetection? TurnDetection { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad? TurnDetection { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetection TurnDetection { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad TurnDetection { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestGaAudioInput"/> and sets the default values.
@@ -74,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats.CreateFromDiscriminatorValue); } },
                 { "noise_reduction", n => { NoiseReduction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestGaAudioInputNoiseReduction>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestGaAudioInputNoiseReduction.CreateFromDiscriminatorValue); } },
                 { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription.CreateFromDiscriminatorValue); } },
-                { "turn_detection", n => { TurnDetection = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetection>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetection.CreateFromDiscriminatorValue); } },
+                { "turn_detection", n => { TurnDetection = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -87,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats>("format", Format);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestGaAudioInputNoiseReduction>("noise_reduction", NoiseReduction);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscription>("transcription", Transcription);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetection>("turn_detection", TurnDetection);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad>("turn_detection", TurnDetection);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

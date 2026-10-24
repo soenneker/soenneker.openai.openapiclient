@@ -58,10 +58,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallEnvironment? Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceResource? Environment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallEnvironment Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceResource Environment { get; set; }
 #endif
         /// <summary>The unique ID of the shell tool call. Populated when this item is returned via API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -105,7 +105,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "caller", n => { Caller = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolCallCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolCallCaller.CreateFromDiscriminatorValue); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
-                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallEnvironment>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallEnvironment.CreateFromDiscriminatorValue); } },
+                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceResource>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceResource.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ShellCallType>(); } },
@@ -123,7 +123,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolCallCaller>("caller", Caller);
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("created_by", CreatedBy);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallEnvironment>("environment", Environment);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceResource>("environment", Environment);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ShellCallType>("type", Type);

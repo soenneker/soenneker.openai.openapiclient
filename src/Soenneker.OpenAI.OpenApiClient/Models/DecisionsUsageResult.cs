@@ -24,13 +24,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string ApiKeyId { get; set; }
 #endif
         /// <summary>The api_source property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionsUsageApiSourceWrapper? ApiSource { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionsUsageApiSourceWrapper ApiSource { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionsUsageApiSource? ApiSource { get; set; }
         /// <summary>When `group_by=batch`, this field tells whether the grouped usage result is batch or not.</summary>
         public bool? Batch { get; set; }
         /// <summary>The aggregated number of uncached audio input tokens used.</summary>
@@ -127,7 +121,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "api_key_id", n => { ApiKeyId = n.GetStringValue(); } },
-                { "api_source", n => { ApiSource = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionsUsageApiSourceWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.DecisionsUsageApiSourceWrapper.CreateFromDiscriminatorValue); } },
+                { "api_source", n => { ApiSource = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionsUsageApiSource>(); } },
                 { "batch", n => { Batch = n.GetBoolValue(); } },
                 { "input_audio_tokens", n => { InputAudioTokens = n.GetIntValue(); } },
                 { "input_cache_write_12h_tokens", n => { InputCacheWrite12hTokens = n.GetIntValue(); } },
@@ -161,7 +155,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_id", ApiKeyId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionsUsageApiSourceWrapper>("api_source", ApiSource);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionsUsageApiSource>("api_source", ApiSource);
             writer.WriteBoolValue("batch", Batch);
             writer.WriteIntValue("input_audio_tokens", InputAudioTokens);
             writer.WriteIntValue("input_cached_audio_tokens", InputCachedAudioTokens);

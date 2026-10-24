@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolContainerBranch1"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CodeInterpreterToolContainer : IComposedTypeWrapper, IParsable
@@ -21,13 +21,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam AutoCodeInterpreterToolParam { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolContainerBranch1"/></summary>
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolContainerBranch1? CodeInterpreterToolContainerBranch1 { get; set; }
+        public string? String { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolContainerBranch1 CodeInterpreterToolContainerBranch1 { get; set; }
+        public string String { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -43,9 +43,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.AutoCodeInterpreterToolParam = new global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam();
             }
-            else if("CodeInterpreterToolContainerBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetStringValue() is string stringValue)
             {
-                result.CodeInterpreterToolContainerBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolContainerBranch1();
+                result.String = stringValue;
             }
             return result;
         }
@@ -58,10 +58,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(AutoCodeInterpreterToolParam != null)
             {
                 return AutoCodeInterpreterToolParam.GetFieldDeserializers();
-            }
-            else if(CodeInterpreterToolContainerBranch1 != null)
-            {
-                return CodeInterpreterToolContainerBranch1.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -76,9 +72,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutoCodeInterpreterToolParam>(null, AutoCodeInterpreterToolParam);
             }
-            else if(CodeInterpreterToolContainerBranch1 != null)
+            else if(String != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterToolContainerBranch1>(null, CodeInterpreterToolContainerBranch1);
+                writer.WriteStringValue(null, String);
             }
         }
     }

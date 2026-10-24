@@ -37,13 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaToolsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateRequestGaToolsItem();
-            if("McpTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("mcp".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.McpTool = new global::Soenneker.OpenAI.OpenApiClient.Models.McpTool();
             }
-            else if("RealtimeFunctionTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("function".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RealtimeFunctionTool = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeFunctionTool();
             }

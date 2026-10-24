@@ -14,21 +14,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class ReasoningResource : IParsable
     {
         /// <summary>The requested reasoning effort, or `null` when the model selects its own default.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortResourceWrapper? Effort { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortResourceWrapper Effort { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortResource? Effort { get; set; }
         /// <summary>The requested reasoning summary format, or `null` when summaries are disabled.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryResourceWrapper? Summary { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryResourceWrapper Summary { get; set; }
-#endif
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryResource? Summary { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -47,8 +35,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "effort", n => { Effort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortResourceWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortResourceWrapper.CreateFromDiscriminatorValue); } },
-                { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryResourceWrapper>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryResourceWrapper.CreateFromDiscriminatorValue); } },
+                { "effort", n => { Effort = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortResource>(); } },
+                { "summary", n => { Summary = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryResource>(); } },
             };
         }
         /// <summary>
@@ -58,8 +46,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortResourceWrapper>("effort", Effort);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryResourceWrapper>("summary", Summary);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffortResource>("effort", Effort);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummaryResource>("summary", Summary);
         }
     }
 }

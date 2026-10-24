@@ -54,8 +54,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage Output { get; set; }
 #endif
-        /// <summary>The status of the message input. One of `in_progress`, `completed`, or`incomplete`. Populated when input items are returned via API.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputStatus? Status { get; set; }
+        /// <summary>The status property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResourceStatus? Status { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResourceStatus Status { get; set; }
+#endif
         /// <summary>The type of the computer tool call output. Always `computer_call_output`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputType? Type { get; set; }
         /// <summary>
@@ -88,7 +94,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputStatus>(); } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResourceStatus>(global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResourceStatus.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputType>(); } },
             };
         }
@@ -104,7 +110,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotImage>("output", Output);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerToolCallOutputResourceStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

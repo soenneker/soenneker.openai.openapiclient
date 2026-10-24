@@ -37,13 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequestChunkingStrategy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVectorStoreRequestChunkingStrategy();
-            if("AutoChunkingStrategyRequestParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("auto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AutoChunkingStrategyRequestParam = new global::Soenneker.OpenAI.OpenApiClient.Models.AutoChunkingStrategyRequestParam();
             }
-            else if("StaticChunkingStrategyRequestParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("static".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.StaticChunkingStrategyRequestParam = new global::Soenneker.OpenAI.OpenApiClient.Models.StaticChunkingStrategyRequestParam();
             }

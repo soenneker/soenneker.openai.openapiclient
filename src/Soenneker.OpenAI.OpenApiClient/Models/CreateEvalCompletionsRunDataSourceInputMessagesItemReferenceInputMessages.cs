@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string ItemReference { get; set; }
 #endif
-        /// <summary>The type of item to reference. Always `item_reference`.</summary>
+        /// <summary>The type of input messages. Always `item_reference`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ItemReferenceType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSourceInputMessagesItemReferenceInputMessages"/> and sets the default values.

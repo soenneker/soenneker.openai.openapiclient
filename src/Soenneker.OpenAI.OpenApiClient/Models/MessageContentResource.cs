@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.MessageContentResourceInputText = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentResourceInputText();
             }
-            else if("MessageContentResourceOutputText".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("output_text".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MessageContentResourceOutputText = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentResourceOutputText();
             }

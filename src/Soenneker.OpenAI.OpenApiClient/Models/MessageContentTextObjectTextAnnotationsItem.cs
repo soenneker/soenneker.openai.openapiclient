@@ -37,13 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObjectTextAnnotationsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextObjectTextAnnotationsItem();
-            if("MessageContentTextAnnotationsFileCitationObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("file_citation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MessageContentTextAnnotationsFileCitationObject = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject();
             }
-            else if("MessageContentTextAnnotationsFilePathObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("file_path".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MessageContentTextAnnotationsFilePathObject = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFilePathObject();
             }

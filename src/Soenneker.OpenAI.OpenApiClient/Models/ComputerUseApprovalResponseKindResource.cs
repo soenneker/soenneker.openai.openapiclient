@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource = new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource();
             }
-            else if("ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("submit".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource = new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResource();
             }

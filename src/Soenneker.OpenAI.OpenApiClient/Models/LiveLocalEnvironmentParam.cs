@@ -14,16 +14,48 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>An optional list of skills.</summary>
+        /// <summary>The ID of the referenced container.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.LiveLocalSkillParam>? Skills { get; set; }
+        public string? ContainerId { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.LiveLocalSkillParam> Skills { get; set; }
+        public string ContainerId { get; set; }
 #endif
-        /// <summary>Use a local computer environment.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalType? Type { get; set; }
+        /// <summary>An optional list of uploaded files to make available to your code.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? FileIds { get; set; }
+#nullable restore
+#else
+        public List<string> FileIds { get; set; }
+#endif
+        /// <summary>The memory_limit property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveContainerMemoryLimit? MemoryLimit { get; set; }
+        /// <summary>The network_policy property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellNetworkPolicyAllowlistParam? NetworkPolicy { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellNetworkPolicyAllowlistParam NetworkPolicy { get; set; }
+#endif
+        /// <summary>An optional list of skills referenced by id or inline data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellContainerAutoParamSkillsItem>? Skills { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellContainerAutoParamSkillsItem> Skills { get; set; }
+#endif
+        /// <summary>The type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveLocalEnvironmentParam"/> and sets the default values.
         /// </summary>
@@ -49,8 +81,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "skills", n => { Skills = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveLocalSkillParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveLocalSkillParam.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalType>(); } },
+                { "container_id", n => { ContainerId = n.GetStringValue(); } },
+                { "file_ids", n => { FileIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "memory_limit", n => { MemoryLimit = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveContainerMemoryLimit>(); } },
+                { "network_policy", n => { NetworkPolicy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellNetworkPolicyAllowlistParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellNetworkPolicyAllowlistParam.CreateFromDiscriminatorValue); } },
+                { "skills", n => { Skills = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellContainerAutoParamSkillsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellContainerAutoParamSkillsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -60,8 +96,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveLocalSkillParam>("skills", Skills);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalType>("type", Type);
+            writer.WriteStringValue("container_id", ContainerId);
+            writer.WriteCollectionOfPrimitiveValues<string>("file_ids", FileIds);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveContainerMemoryLimit>("memory_limit", MemoryLimit);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellNetworkPolicyAllowlistParam>("network_policy", NetworkPolicy);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveHostedShellContainerAutoParamSkillsItem>("skills", Skills);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

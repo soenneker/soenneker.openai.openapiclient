@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceFunction"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMcp"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptionsWrapper4"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceFunction"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMcp"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RealtimeSessionCreateRequestGaToolChoice : IComposedTypeWrapper, IParsable
@@ -29,14 +29,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMcp ToolChoiceMcp { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptionsWrapper4"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptionsWrapper4? ToolChoiceOptionsWrapper4 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptionsWrapper4 ToolChoiceOptionsWrapper4 { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions? ToolChoiceOptions { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -55,9 +49,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.ToolChoiceMcp = new global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMcp();
             }
-            else if("ToolChoiceOptionsWrapper4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions>() is global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions toolChoiceOptionsValue)
             {
-                result.ToolChoiceOptionsWrapper4 = new global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptionsWrapper4();
+                result.ToolChoiceOptions = toolChoiceOptionsValue;
             }
             return result;
         }
@@ -74,10 +68,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if(ToolChoiceMcp != null)
             {
                 return ToolChoiceMcp.GetFieldDeserializers();
-            }
-            else if(ToolChoiceOptionsWrapper4 != null)
-            {
-                return ToolChoiceOptionsWrapper4.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -96,9 +86,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMcp>(null, ToolChoiceMcp);
             }
-            else if(ToolChoiceOptionsWrapper4 != null)
+            else if(ToolChoiceOptions != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptionsWrapper4>(null, ToolChoiceOptionsWrapper4);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions>(null, ToolChoiceOptions);
             }
         }
     }

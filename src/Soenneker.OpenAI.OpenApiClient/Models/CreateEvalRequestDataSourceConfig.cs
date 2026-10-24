@@ -45,17 +45,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestDataSourceConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestDataSourceConfig();
-            if("CreateEvalCustomDataSourceConfig".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("custom".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateEvalCustomDataSourceConfig = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig();
             }
-            else if("CreateEvalLogsDataSourceConfig".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("logs".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateEvalLogsDataSourceConfig = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalLogsDataSourceConfig();
             }
-            else if("CreateEvalStoredCompletionsDataSourceConfig".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("stored_completions".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateEvalStoredCompletionsDataSourceConfig = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalStoredCompletionsDataSourceConfig();
             }

@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.PersistedMcpTransportConfigParamHttp = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportConfigParamHttp();
             }
-            else if("PersistedMcpTransportConfigParamStdio".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("stdio".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PersistedMcpTransportConfigParamStdio = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportConfigParamStdio();
             }

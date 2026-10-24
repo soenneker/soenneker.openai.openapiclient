@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalMcpToolApprovalFilter"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalMcpToolApprovalFilter"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalOneOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaMcpToolRequireApproval : IComposedTypeWrapper, IParsable
@@ -21,14 +21,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalMcpToolApprovalFilter BetaMcpToolRequireApprovalMcpToolApprovalFilter { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalWrapper? BetaMcpToolRequireApprovalWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalWrapper BetaMcpToolRequireApprovalWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalOneOf2"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalOneOf2? BetaMcpToolRequireApprovalOneOf2 { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -43,9 +37,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.BetaMcpToolRequireApprovalMcpToolApprovalFilter = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalMcpToolApprovalFilter();
             }
-            else if("BetaMcpToolRequireApprovalWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalOneOf2>() is global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalOneOf2 betaMcpToolRequireApprovalOneOf2Value)
             {
-                result.BetaMcpToolRequireApprovalWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalWrapper();
+                result.BetaMcpToolRequireApprovalOneOf2 = betaMcpToolRequireApprovalOneOf2Value;
             }
             return result;
         }
@@ -58,10 +52,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(BetaMcpToolRequireApprovalMcpToolApprovalFilter != null)
             {
                 return BetaMcpToolRequireApprovalMcpToolApprovalFilter.GetFieldDeserializers();
-            }
-            else if(BetaMcpToolRequireApprovalWrapper != null)
-            {
-                return BetaMcpToolRequireApprovalWrapper.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -76,9 +66,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalMcpToolApprovalFilter>(null, BetaMcpToolRequireApprovalMcpToolApprovalFilter);
             }
-            else if(BetaMcpToolRequireApprovalWrapper != null)
+            else if(BetaMcpToolRequireApprovalOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalWrapper>(null, BetaMcpToolRequireApprovalWrapper);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalOneOf2>(null, BetaMcpToolRequireApprovalOneOf2);
             }
         }
     }

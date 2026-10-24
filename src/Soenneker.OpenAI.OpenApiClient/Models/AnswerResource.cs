@@ -55,19 +55,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResource();
-            if("AnswerResourceChoice".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("choice".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AnswerResourceChoice = new global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourceChoice();
             }
-            else if("AnswerResourcePredicate".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("predicate".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AnswerResourcePredicate = new global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourcePredicate();
             }
-            else if("AnswerResourceRefusal".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("refusal".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AnswerResourceRefusal = new global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourceRefusal();
             }
-            else if("AnswerResourceScore".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("score".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AnswerResourceScore = new global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourceScore();
             }

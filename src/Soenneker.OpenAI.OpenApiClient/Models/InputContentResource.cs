@@ -39,11 +39,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.InputContentResource();
-            if("InputContentResourceInputImage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("input_image".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InputContentResourceInputImage = new global::Soenneker.OpenAI.OpenApiClient.Models.InputContentResourceInputImage();
             }
-            else if("InputContentResourceInputText".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("input_text".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InputContentResourceInputText = new global::Soenneker.OpenAI.OpenApiClient.Models.InputContentResourceInputText();
             }

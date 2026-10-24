@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.HostedTemplateFileResourceFileId = new global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateFileResourceFileId();
             }
-            else if("HostedTemplateFileResourceInline".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("inline".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.HostedTemplateFileResourceInline = new global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateFileResourceInline();
             }

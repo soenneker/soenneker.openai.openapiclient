@@ -37,13 +37,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectStepDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectStepDetails();
-            if("RunStepDetailsMessageCreationObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("message_creation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RunStepDetailsMessageCreationObject = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsMessageCreationObject();
             }
-            else if("RunStepDetailsToolCallsObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("tool_calls".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RunStepDetailsToolCallsObject = new global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject();
             }

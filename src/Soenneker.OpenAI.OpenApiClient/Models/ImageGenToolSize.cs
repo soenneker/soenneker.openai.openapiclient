@@ -8,26 +8,20 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeBranch1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeAnyOf2"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ImageGenToolSize : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeBranch1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeAnyOf2"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeAnyOf2? ImageGenToolSizeAnyOf2 { get; set; }
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeBranch1? ImageGenToolSizeBranch1 { get; set; }
+        public string? String { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeBranch1 ImageGenToolSizeBranch1 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeWrapper? ImageGenToolSizeWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeWrapper ImageGenToolSizeWrapper { get; set; }
+        public string String { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,8 +32,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSize();
-            result.ImageGenToolSizeBranch1 = new global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeBranch1();
-            result.ImageGenToolSizeWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeWrapper();
+            if(parseNode.GetStringValue() is string stringValue)
+            {
+                result.String = stringValue;
+            }
+            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeAnyOf2>() is global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeAnyOf2 imageGenToolSizeAnyOf2Value)
+            {
+                result.ImageGenToolSizeAnyOf2 = imageGenToolSizeAnyOf2Value;
+            }
             return result;
         }
         /// <summary>
@@ -48,10 +48,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ImageGenToolSizeBranch1 != null || ImageGenToolSizeWrapper != null)
-            {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ImageGenToolSizeBranch1, ImageGenToolSizeWrapper);
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -61,7 +57,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeBranch1>(null, ImageGenToolSizeBranch1, ImageGenToolSizeWrapper);
+            if(String != null)
+            {
+                writer.WriteStringValue(null, String);
+            }
+            else if(ImageGenToolSizeAnyOf2 != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolSizeAnyOf2>(null, ImageGenToolSizeAnyOf2);
+            }
         }
     }
 }

@@ -8,26 +8,20 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsBranch2"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsOneOf1"/>, List&lt;string&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LiveDataChannelConfigParamAllowedClientEvents : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsBranch2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsOneOf1"/></summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsOneOf1? LiveDataChannelConfigParamAllowedClientEventsOneOf1 { get; set; }
+        /// <summary>Composed type representation for type List&lt;string&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsBranch2? LiveDataChannelConfigParamAllowedClientEventsBranch2 { get; set; }
+        public List<string>? String { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsBranch2 LiveDataChannelConfigParamAllowedClientEventsBranch2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsWrapper? LiveDataChannelConfigParamAllowedClientEventsWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsWrapper LiveDataChannelConfigParamAllowedClientEventsWrapper { get; set; }
+        public List<string> String { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +33,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEvents();
-            if("LiveDataChannelConfigParamAllowedClientEventsBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsOneOf1>() is global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsOneOf1 liveDataChannelConfigParamAllowedClientEventsOneOf1Value)
             {
-                result.LiveDataChannelConfigParamAllowedClientEventsBranch2 = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsBranch2();
+                result.LiveDataChannelConfigParamAllowedClientEventsOneOf1 = liveDataChannelConfigParamAllowedClientEventsOneOf1Value;
             }
-            else if("LiveDataChannelConfigParamAllowedClientEventsWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
             {
-                result.LiveDataChannelConfigParamAllowedClientEventsWrapper = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsWrapper();
+                result.String = stringValue;
             }
             return result;
         }
@@ -55,14 +49,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(LiveDataChannelConfigParamAllowedClientEventsBranch2 != null)
-            {
-                return LiveDataChannelConfigParamAllowedClientEventsBranch2.GetFieldDeserializers();
-            }
-            else if(LiveDataChannelConfigParamAllowedClientEventsWrapper != null)
-            {
-                return LiveDataChannelConfigParamAllowedClientEventsWrapper.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -72,13 +58,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(LiveDataChannelConfigParamAllowedClientEventsBranch2 != null)
+            if(LiveDataChannelConfigParamAllowedClientEventsOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsBranch2>(null, LiveDataChannelConfigParamAllowedClientEventsBranch2);
+                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsOneOf1>(null, LiveDataChannelConfigParamAllowedClientEventsOneOf1);
             }
-            else if(LiveDataChannelConfigParamAllowedClientEventsWrapper != null)
+            else if(String != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEventsWrapper>(null, LiveDataChannelConfigParamAllowedClientEventsWrapper);
+                writer.WriteCollectionOfPrimitiveValues<string>(null, String);
             }
         }
     }

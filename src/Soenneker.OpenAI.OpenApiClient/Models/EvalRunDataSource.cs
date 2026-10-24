@@ -45,17 +45,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunDataSource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunDataSource();
-            if("CreateEvalCompletionsRunDataSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("completions".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateEvalCompletionsRunDataSource = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCompletionsRunDataSource();
             }
-            else if("CreateEvalJsonlRunDataSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("jsonl".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateEvalJsonlRunDataSource = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalJsonlRunDataSource();
             }
-            else if("CreateEvalResponsesRunDataSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("responses".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateEvalResponsesRunDataSource = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource();
             }
