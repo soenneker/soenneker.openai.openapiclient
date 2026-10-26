@@ -22978,7 +22978,7 @@
             "request": {
               "curl": "curl \u0022https://api.openai.com/v1/organization/external_storage?limit=20\u0026order=desc\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022 \\\n  -H \u0022Content-Type: application/json\u0022\n"
             },
-            "response": "{\n  \u0022object\u0022: \u0022list\u0022,\n  \u0022data\u0022: [\n    {\n      \u0022object\u0022: \u0022organization.external_storage\u0022,\n      \u0022id\u0022: \u0022extstorage_abc123\u0022,\n      \u0022project_id\u0022: \u0022proj_abc123\u0022,\n      \u0022provider\u0022: {\n        \u0022type\u0022: \u0022aws\u0022,\n        \u0022account_id\u0022: \u0022123456789012\u0022,\n        \u0022region\u0022: \u0022us-east-1\u0022,\n        \u0022bucket\u0022: \u0022customer-logs\u0022,\n        \u0022role_arn\u0022: \u0022arn:aws:iam::123456789012:role/OpenAIExternalStorageRole\u0022,\n        \u0022external_id\u0022: \u0022proj_abc123\u0022\n      },\n      \u0022geography\u0022: \u0022US\u0022,\n      \u0022status\u0022: \u0022validated\u0022,\n      \u0022created_at\u0022: 1711471533\n    },\n    {\n      \u0022object\u0022: \u0022organization.external_storage\u0022,\n      \u0022id\u0022: \u0022extstorage_azure123\u0022,\n      \u0022project_id\u0022: \u0022proj_azure123\u0022,\n      \u0022provider\u0022: {\n        \u0022type\u0022: \u0022azure\u0022,\n        \u0022tenant_id\u0022: \u002211111111-1111-1111-1111-111111111111\u0022,\n        \u0022subscription_id\u0022: \u002222222222-2222-2222-2222-222222222222\u0022,\n        \u0022resource_group\u0022: \u0022customer-rg\u0022,\n        \u0022account_name\u0022: \u0022customerstorage\u0022,\n        \u0022container\u0022: \u0022openai-data\u0022,\n        \u0022region\u0022: \u0022eastus\u0022\n      },\n      \u0022geography\u0022: \u0022US\u0022,\n      \u0022status\u0022: \u0022validated\u0022,\n      \u0022created_at\u0022: 1711471500\n    },\n    {\n      \u0022object\u0022: \u0022organization.external_storage\u0022,\n      \u0022id\u0022: \u0022extstorage_gcp123\u0022,\n      \u0022project_id\u0022: \u0022proj_gcp123\u0022,\n      \u0022provider\u0022: {\n        \u0022type\u0022: \u0022gcp\u0022,\n        \u0022bucket\u0022: \u0022customer-gcp-retention\u0022,\n        \u0022workload_identity_project_number\u0022: \u0022123456789012\u0022,\n        \u0022workload_identity_pool_id\u0022: \u0022customer-pool\u0022,\n        \u0022workload_identity_provider_id\u0022: \u0022customer-provider\u0022,\n        \u0022region\u0022: \u0022us-central1\u0022,\n        \u0022audience\u0022: \u0022proj_gcp123\u0022\n      },\n      \u0022geography\u0022: \u0022US\u0022,\n      \u0022status\u0022: \u0022validated\u0022,\n      \u0022created_at\u0022: 1711471400\n    }\n  ],\n  \u0022first_id\u0022: \u0022extstorage_abc123\u0022,\n  \u0022last_id\u0022: \u0022extstorage_gcp123\u0022,\n  \u0022has_more\u0022: false\n}\n"
+            "response": "{\n  \u0022object\u0022: \u0022list\u0022,\n  \u0022data\u0022: [\n    {\n      \u0022object\u0022: \u0022organization.external_storage\u0022,\n      \u0022id\u0022: \u0022extstorage_abc123\u0022,\n      \u0022project_id\u0022: \u0022proj_abc123\u0022,\n      \u0022provider\u0022: {\n        \u0022type\u0022: \u0022aws\u0022,\n        \u0022account_id\u0022: \u0022123456789012\u0022,\n        \u0022region\u0022: \u0022us-east-1\u0022,\n        \u0022bucket\u0022: \u0022customer-logs\u0022,\n        \u0022role_arn\u0022: \u0022arn:aws:iam::123456789012:role/OpenAIExternalStorageRole\u0022,\n        \u0022external_id\u0022: \u0022proj_abc123\u0022\n      },\n      \u0022geography\u0022: \u0022US\u0022,\n      \u0022status\u0022: \u0022validated\u0022,\n      \u0022created_at\u0022: 1711471533\n    },\n    {\n      \u0022object\u0022: \u0022organization.external_storage\u0022,\n      \u0022id\u0022: \u0022extstorage_azure123\u0022,\n      \u0022project_id\u0022: \u0022proj_azure123\u0022,\n      \u0022provider\u0022: {\n        \u0022type\u0022: \u0022azure\u0022,\n        \u0022tenant_id\u0022: \u002211111111-1111-1111-1111-111111111111\u0022,\n        \u0022subscription_id\u0022: \u002222222222-2222-2222-2222-222222222222\u0022,\n        \u0022resource_group\u0022: \u0022customer-rg\u0022,\n        \u0022account_name\u0022: \u0022customerstorage\u0022,\n        \u0022container\u0022: \u0022openai-data\u0022,\n        \u0022region\u0022: \u0022eastus\u0022\n      },\n      \u0022geography\u0022: \u0022US\u0022,\n      \u0022status\u0022: \u0022validated\u0022,\n      \u0022created_at\u0022: 1711471500\n    },\n    {\n      \u0022object\u0022: \u0022organization.external_storage\u0022,\n      \u0022id\u0022: \u0022extstorage_gcp123\u0022,\n      \u0022project_id\u0022: \u0022proj_gcp123\u0022,\n      \u0022provider\u0022: {\n        \u0022type\u0022: \u0022gcp\u0022,\n        \u0022bucket\u0022: \u0022customer-gcp-retention\u0022,\n        \u0022workload_identity_project_number\u0022: \u0022123456789012\u0022,\n        \u0022workload_identity_pool_id\u0022: \u0022customer-pool\u0022,\n        \u0022workload_identity_provider_id\u0022: \u0022customer-provider\u0022,\n        \u0022region\u0022: \u0022us-central1\u0022,\n        \u0022audience\u0022: \u0022proj_gcp123\u0022\n      },\n      \u0022geography\u0022: \u0022US\u0022,\n      \u0022status\u0022: \u0022validated\u0022,\n      \u0022created_at\u0022: 1711471400\n    },\n    {\n      \u0022object\u0022: \u0022organization.external_storage\u0022,\n      \u0022id\u0022: \u0022extstorage_oci123\u0022,\n      \u0022project_id\u0022: \u0022proj_oci123\u0022,\n      \u0022provider\u0022: {\n        \u0022type\u0022: \u0022oci\u0022,\n        \u0022tenancy_ocid\u0022: \u0022ocid1.tenancy.oc1..example\u0022,\n        \u0022region\u0022: \u0022us-ashburn-1\u0022,\n        \u0022bucket\u0022: \u0022customer-oci-retention\u0022\n      },\n      \u0022geography\u0022: \u0022US\u0022,\n      \u0022status\u0022: \u0022validated\u0022,\n      \u0022created_at\u0022: 1711471300\n    }\n  ],\n  \u0022first_id\u0022: \u0022extstorage_abc123\u0022,\n  \u0022last_id\u0022: \u0022extstorage_oci123\u0022,\n  \u0022has_more\u0022: false\n}\n"
           }
         }
       },
@@ -23076,6 +23076,13 @@
                 "curl": "curl -X POST https://api.openai.com/v1/organization/external_storage \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022 \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -d \u0027{\n    \u0022project_id\u0022: \u0022proj_gcp123\u0022,\n    \u0022provider\u0022: {\n      \u0022type\u0022: \u0022gcp\u0022,\n      \u0022bucket\u0022: \u0022customer-gcp-retention\u0022,\n      \u0022workload_identity_project_number\u0022: \u0022123456789012\u0022,\n      \u0022workload_identity_pool_id\u0022: \u0022customer-pool\u0022,\n      \u0022workload_identity_provider_id\u0022: \u0022customer-provider\u0022\n    }\n  }\u0027\n"
               },
               "response": "{\n  \u0022object\u0022: \u0022organization.external_storage\u0022,\n  \u0022id\u0022: \u0022extstorage_gcp123\u0022,\n  \u0022project_id\u0022: \u0022proj_gcp123\u0022,\n  \u0022provider\u0022: {\n    \u0022type\u0022: \u0022gcp\u0022,\n    \u0022bucket\u0022: \u0022customer-gcp-retention\u0022,\n    \u0022workload_identity_project_number\u0022: \u0022123456789012\u0022,\n    \u0022workload_identity_pool_id\u0022: \u0022customer-pool\u0022,\n    \u0022workload_identity_provider_id\u0022: \u0022customer-provider\u0022,\n    \u0022region\u0022: \u0022us-central1\u0022,\n    \u0022audience\u0022: \u0022proj_gcp123\u0022\n  },\n  \u0022geography\u0022: \u0022US\u0022,\n  \u0022status\u0022: \u0022pending\u0022,\n  \u0022created_at\u0022: 1711471400\n}\n"
+            },
+            {
+              "title": "OCI Object Storage",
+              "request": {
+                "curl": "curl -X POST https://api.openai.com/v1/organization/external_storage \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022 \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -d \u0027{\n    \u0022project_id\u0022: \u0022proj_oci123\u0022,\n    \u0022provider\u0022: {\n      \u0022type\u0022: \u0022oci\u0022,\n      \u0022tenancy_ocid\u0022: \u0022ocid1.tenancy.oc1..example\u0022,\n      \u0022region\u0022: \u0022us-ashburn-1\u0022,\n      \u0022bucket\u0022: \u0022customer-oci-retention\u0022\n    }\n  }\u0027\n"
+              },
+              "response": "{\n  \u0022object\u0022: \u0022organization.external_storage\u0022,\n  \u0022id\u0022: \u0022extstorage_oci123\u0022,\n  \u0022project_id\u0022: \u0022proj_oci123\u0022,\n  \u0022provider\u0022: {\n    \u0022type\u0022: \u0022oci\u0022,\n    \u0022tenancy_ocid\u0022: \u0022ocid1.tenancy.oc1..example\u0022,\n    \u0022region\u0022: \u0022us-ashburn-1\u0022,\n    \u0022bucket\u0022: \u0022customer-oci-retention\u0022\n  },\n  \u0022geography\u0022: \u0022US\u0022,\n  \u0022status\u0022: \u0022pending\u0022,\n  \u0022created_at\u0022: 1711471300\n}\n"
             }
           ]
         }
@@ -34625,6 +34632,15 @@
         ],
         "type": "string",
         "x-openai-enum-deprecations": {
+          "gpt-5": {
+            "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5-mini": {
+            "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5-nano": {
+            "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
           "gpt-4.1": {
             "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           },
@@ -36853,7 +36869,7 @@
             "$ref": "#/components/schemas/ChatCompletionRequestMessageContentPartAudioInputAudio"
           },
           "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
+            "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
             "$ref": "#/components/schemas/PromptCacheBreakpointParam"
           }
         },
@@ -36874,7 +36890,7 @@
             "$ref": "#/components/schemas/ChatCompletionRequestMessageContentPartFileFile"
           },
           "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
+            "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
             "$ref": "#/components/schemas/PromptCacheBreakpointParam"
           }
         },
@@ -36895,7 +36911,7 @@
             "$ref": "#/components/schemas/ChatCompletionRequestMessageContentPartImageImageUrl"
           },
           "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
+            "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
             "$ref": "#/components/schemas/PromptCacheBreakpointParam"
           }
         },
@@ -36934,7 +36950,7 @@
             "description": "The text content."
           },
           "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
+            "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
             "$ref": "#/components/schemas/PromptCacheBreakpointParam"
           }
         },
@@ -36977,7 +36993,7 @@
             "description": "The text content."
           },
           "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
+            "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
             "$ref": "#/components/schemas/PromptCacheBreakpointParam"
           }
         },
@@ -37020,7 +37036,7 @@
             "description": "The text content."
           },
           "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
+            "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
             "$ref": "#/components/schemas/PromptCacheBreakpointParam"
           }
         },
@@ -64431,7 +64447,7 @@
             "$ref": "#/components/schemas/PromptCacheBreakpointParamTtl"
           }
         },
-        "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block."
+        "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block."
       },
       "ModerationMode": {
         "enum": [
@@ -64768,9 +64784,12 @@
         "properties": {
           "mode": {
             "$ref": "#/components/schemas/ExplicitValueMode"
+          },
+          "ttl": {
+            "$ref": "#/components/schemas/PromptCacheBreakpointConfigTtl"
           }
         },
-        "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block."
+        "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block."
       },
       "InputTextContent": {
         "title": "Input text",
@@ -64788,7 +64807,7 @@
             "description": "The text input to the model."
           },
           "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
+            "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
             "$ref": "#/components/schemas/PromptCacheBreakpointConfig"
           }
         },
@@ -65149,7 +65168,7 @@
             "$ref": "#/components/schemas/ImageDetail"
           },
           "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
+            "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
             "$ref": "#/components/schemas/PromptCacheBreakpointConfig"
           }
         },
@@ -65188,7 +65207,7 @@
             "$ref": "#/components/schemas/ImageDetail"
           },
           "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
+            "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
             "$ref": "#/components/schemas/PromptCacheBreakpointConfig"
           }
         },
@@ -65246,7 +65265,7 @@
             "description": "The content of the file to be sent to the model.\n"
           },
           "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
+            "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
             "$ref": "#/components/schemas/PromptCacheBreakpointConfig"
           },
           "file_url": {
@@ -95563,7 +95582,7 @@
             "description": "The content of the file to be sent to the model.\n"
           },
           "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
+            "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
             "$ref": "#/components/schemas/BetaPromptCacheBreakpointConfig"
           },
           "file_url": {
@@ -95613,9 +95632,12 @@
         "properties": {
           "mode": {
             "$ref": "#/components/schemas/ExplicitValueMode"
+          },
+          "ttl": {
+            "$ref": "#/components/schemas/BetaPromptCacheBreakpointConfigTtl"
           }
         },
-        "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block."
+        "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block."
       },
       "BetaInputImageContent": {
         "title": "Input image",
@@ -95648,7 +95670,7 @@
             "$ref": "#/components/schemas/BetaImageDetail"
           },
           "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
+            "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
             "$ref": "#/components/schemas/BetaPromptCacheBreakpointConfig"
           }
         },
@@ -95701,7 +95723,7 @@
             "description": "The text input to the model."
           },
           "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
+            "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
             "$ref": "#/components/schemas/BetaPromptCacheBreakpointConfig"
           }
         },
@@ -97736,7 +97758,7 @@
             "$ref": "#/components/schemas/BetaPromptCacheBreakpointParamTtl"
           }
         },
-        "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block."
+        "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block."
       },
       "BetaDetailEnum": {
         "enum": [
@@ -100783,7 +100805,7 @@
             "$ref": "#/components/schemas/BetaImageDetail"
           },
           "prompt_cache_breakpoint": {
-            "description": "Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
+            "description": "Marks the exact end of a reusable prompt prefix. When \u0060ttl\u0060 is omitted, the breakpoint inherits the request\u0027s \u0060prompt_cache_options.ttl\u0060; the boundary is not rounded to a token block.",
             "$ref": "#/components/schemas/BetaPromptCacheBreakpointConfig"
           }
         },
@@ -140273,6 +140295,7 @@
         "enum": [
           "gpt-6-astra",
           "gpt-6.1-sol",
+          "gpt-6.1-terra",
           "gpt-6-sol",
           "gpt-6-luna",
           "gpt-5.6-sol",
@@ -140367,6 +140390,12 @@
             "message": "Announced shutdown date: 2027-04-01. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           },
           "gpt-5.1": {
+            "message": "Announced shutdown date: 2027-04-01. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5.1-2025-11-13": {
+            "message": "Announced shutdown date: 2027-04-01. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5.4-nano-2026-03-17": {
             "message": "Announced shutdown date: 2027-04-01. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           },
           "gpt-4.1-2025-04-14": {
@@ -140588,6 +140617,10 @@
             {
               "value": "gpt-6.1-sol",
               "name": "Gpt61Sol"
+            },
+            {
+              "value": "gpt-6.1-terra",
+              "name": "Gpt61Terra"
             },
             {
               "value": "gpt-6-sol",
@@ -147167,6 +147200,28 @@
           ]
         }
       },
+      "PromptCacheBreakpointConfigTtl": {
+        "enum": [
+          "30m",
+          "12h"
+        ],
+        "type": "string",
+        "description": "The minimum lifetime of this cache breakpoint. Defaults to the request TTL.",
+        "x-ms-enum": {
+          "name": "PromptCacheBreakpointConfigTtl",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "30m",
+              "name": "Value30M"
+            },
+            {
+              "value": "12h",
+              "name": "Value12H"
+            }
+          ]
+        }
+      },
       "InputTextType": {
         "enum": [
           "input_text"
@@ -152263,6 +152318,28 @@
           ]
         }
       },
+      "BetaPromptCacheBreakpointConfigTtl": {
+        "enum": [
+          "30m",
+          "12h"
+        ],
+        "type": "string",
+        "description": "The minimum lifetime of this cache breakpoint. Defaults to the request TTL.",
+        "x-ms-enum": {
+          "name": "BetaPromptCacheBreakpointConfigTtl",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "30m",
+              "name": "Value30M"
+            },
+            {
+              "value": "12h",
+              "name": "Value12H"
+            }
+          ]
+        }
+      },
       "BetaLocalShellToolCallOutputStatus": {
         "enum": [
           "in_progress",
@@ -152912,6 +152989,7 @@
         "enum": [
           "gpt-6-astra",
           "gpt-6.1-sol",
+          "gpt-6.1-terra",
           "gpt-6-sol",
           "gpt-6-luna",
           "gpt-5.6-sol",
@@ -153006,6 +153084,12 @@
             "message": "Announced shutdown date: 2027-04-01. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           },
           "gpt-5.1": {
+            "message": "Announced shutdown date: 2027-04-01. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5.1-2025-11-13": {
+            "message": "Announced shutdown date: 2027-04-01. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5.4-nano-2026-03-17": {
             "message": "Announced shutdown date: 2027-04-01. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           },
           "gpt-4.1-2025-04-14": {
@@ -153227,6 +153311,10 @@
             {
               "value": "gpt-6.1-sol",
               "name": "Gpt61Sol"
+            },
+            {
+              "value": "gpt-6.1-terra",
+              "name": "Gpt61Terra"
             },
             {
               "value": "gpt-6-sol",
@@ -153914,6 +154002,11 @@
           "gpt-realtime-whisper"
         ],
         "type": "string",
+        "x-openai-enum-deprecations": {
+          "gpt-4o-mini-transcribe-2025-12-15": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          }
+        },
         "x-ms-enum": {
           "name": "AudioTranscriptionModelAnyOf2",
           "modelAsString": false,
@@ -153965,6 +154058,11 @@
           "gpt-realtime-whisper"
         ],
         "type": "string",
+        "x-openai-enum-deprecations": {
+          "gpt-4o-mini-transcribe-2025-12-15": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          }
+        },
         "x-ms-enum": {
           "name": "AudioTranscriptionResponseModelAnyOf2",
           "modelAsString": false,
@@ -154533,6 +154631,11 @@
           "gpt-4o-mini-tts-2025-12-15"
         ],
         "type": "string",
+        "x-openai-enum-deprecations": {
+          "gpt-4o-mini-tts": {
+            "message": "Announced shutdown date: 2027-01-06. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          }
+        },
         "x-ms-enum": {
           "name": "CreateSpeechRequestModelAnyOf2",
           "modelAsString": false,
@@ -154624,6 +154727,17 @@
           "gpt-3.5-turbo-16k-0613"
         ],
         "type": "string",
+        "x-openai-enum-deprecations": {
+          "gpt-5": {
+            "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5-mini": {
+            "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5-nano": {
+            "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          }
+        },
         "x-ms-enum": {
           "name": "CreateThreadAndRunRequestModelAnyOf2",
           "modelAsString": false,
@@ -154793,6 +154907,11 @@
           "gpt-4o-transcribe-diarize"
         ],
         "type": "string",
+        "x-openai-enum-deprecations": {
+          "gpt-4o-mini-transcribe-2025-12-15": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          }
+        },
         "x-stainless-const": true,
         "x-ms-enum": {
           "name": "CreateTranscriptionRequestModelAnyOf2",
@@ -155738,6 +155857,17 @@
           "gpt-audio-mini-2025-12-15"
         ],
         "type": "string",
+        "x-openai-enum-deprecations": {
+          "gpt-realtime-2025-08-28": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-realtime-mini-2025-12-15": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-audio-mini-2025-12-15": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          }
+        },
         "x-ms-enum": {
           "name": "RealtimeSessionModelAnyOf2",
           "modelAsString": false,
@@ -155902,6 +156032,17 @@
           "gpt-audio-mini-2025-12-15"
         ],
         "type": "string",
+        "x-openai-enum-deprecations": {
+          "gpt-realtime-2025-08-28": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-realtime-mini-2025-12-15": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-audio-mini-2025-12-15": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          }
+        },
         "x-ms-enum": {
           "name": "RealtimeSessionCreateRequestGaModelAnyOf2",
           "modelAsString": false,
@@ -156079,6 +156220,17 @@
           "gpt-audio-mini-2025-12-15"
         ],
         "type": "string",
+        "x-openai-enum-deprecations": {
+          "gpt-realtime-2025-08-28": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-realtime-mini-2025-12-15": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-audio-mini-2025-12-15": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          }
+        },
         "x-ms-enum": {
           "name": "RealtimeSessionCreateResponseGaModelAnyOf2",
           "modelAsString": false,

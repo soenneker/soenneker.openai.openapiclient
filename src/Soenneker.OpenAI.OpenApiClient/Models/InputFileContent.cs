@@ -49,7 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string FileUrl { get; set; }
 #endif
-        /// <summary>Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request&apos;s `prompt_cache_options.ttl`; the boundary is not rounded to a token block.</summary>
+        /// <summary>Marks the exact end of a reusable prompt prefix. When `ttl` is omitted, the breakpoint inherits the request&apos;s `prompt_cache_options.ttl`; the boundary is not rounded to a token block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig? PromptCacheBreakpoint { get; set; }

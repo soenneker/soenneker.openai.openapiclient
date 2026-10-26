@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request&apos;s `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
+    /// Marks the exact end of a reusable prompt prefix. When `ttl` is omitted, the breakpoint inherits the request&apos;s `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaPromptCacheBreakpointConfig : IAdditionalDataHolder, IParsable
@@ -17,6 +17,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The breakpoint mode. Always `explicit`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ExplicitValueMode? Mode { get; set; }
+        /// <summary>The minimum lifetime of this cache breakpoint. Defaults to the request TTL.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfigTtl? Ttl { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig"/> and sets the default values.
         /// </summary>
@@ -43,6 +45,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExplicitValueMode>(); } },
+                { "ttl", n => { Ttl = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfigTtl>(); } },
             };
         }
         /// <summary>
@@ -53,6 +56,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExplicitValueMode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfigTtl>("ttl", Ttl);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
