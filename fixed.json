@@ -29848,6 +29848,28 @@
               "minLength": 0,
               "type": "string"
             }
+          },
+          {
+            "name": "metadata",
+            "in": "query",
+            "description": "Exact string matches supplied as \u0060metadata[key]=value\u0060. All supplied pairs must match. Up to 16 pairs, with keys from 1 to 64 characters and values up to 512 characters. New sessions and metadata updates may take time to appear in filtered results.",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "propertyNames": {
+                "maxLength": 64,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxProperties": 16,
+              "minProperties": 0,
+              "type": "object",
+              "additionalProperties": {
+                "maxLength": 512,
+                "minLength": 0,
+                "type": "string"
+              }
+            }
           }
         ],
         "responses": {
@@ -51507,7 +51529,7 @@
         "x-oaiMeta": {
           "name": "response.create",
           "group": "realtime",
-          "example": "// Trigger a response with the default Conversation and no special parameters\n{\n  \u0022type\u0022: \u0022response.create\u0022,\n}\n\n// Trigger an out-of-band response that does not write to the default Conversation\n{\n  \u0022type\u0022: \u0022response.create\u0022,\n  \u0022response\u0022: {\n    \u0022instructions\u0022: \u0022Provide a concise answer.\u0022,\n    \u0022tools\u0022: [], // clear any session tools\n    \u0022conversation\u0022: \u0022none\u0022,\n    \u0022output_modalities\u0022: [\u0022text\u0022],\n    \u0022metadata\u0022: {\n      \u0022response_purpose\u0022: \u0022summarization\u0022\n    },\n    \u0022input\u0022: [\n      {\n        \u0022type\u0022: \u0022item_reference\u0022,\n        \u0022id\u0022: \u0022item_12345\u0022\n      },\n      {\n        \u0022type\u0022: \u0022message\u0022,\n        \u0022role\u0022: \u0022user\u0022,\n        \u0022content\u0022: [\n          {\n            \u0022type\u0022: \u0022input_text\u0022,\n            \u0022text\u0022: \u0022Summarize the above message in one sentence.\u0022\n          }\n        ]\n      }\n    ]\n  }\n}\n"
+          "example": "// Trigger a response with the default Conversation and no special parameters\n{\n  \u0022type\u0022: \u0022response.create\u0022\n}\n\n// Trigger an out-of-band response that does not write to the default Conversation\n{\n  \u0022type\u0022: \u0022response.create\u0022,\n  \u0022response\u0022: {\n    \u0022instructions\u0022: \u0022Provide a concise answer.\u0022,\n    \u0022tools\u0022: [], // clear any session tools\n    \u0022conversation\u0022: \u0022none\u0022,\n    \u0022output_modalities\u0022: [\u0022text\u0022],\n    \u0022metadata\u0022: {\n      \u0022response_purpose\u0022: \u0022summarization\u0022\n    },\n    \u0022input\u0022: [\n      {\n        \u0022type\u0022: \u0022item_reference\u0022,\n        \u0022id\u0022: \u0022item_12345\u0022\n      },\n      {\n        \u0022type\u0022: \u0022message\u0022,\n        \u0022role\u0022: \u0022user\u0022,\n        \u0022content\u0022: [\n          {\n            \u0022type\u0022: \u0022input_text\u0022,\n            \u0022text\u0022: \u0022Summarize the above message in one sentence.\u0022\n          }\n        ]\n      }\n    ]\n  }\n}\n"
         }
       },
       "RealtimeClientEventSessionUpdate": {
@@ -52835,7 +52857,7 @@
         "x-oaiMeta": {
           "name": "conversation.item.retrieved",
           "group": "realtime",
-          "example": "{\n  \u0022type\u0022: \u0022conversation.item.retrieved\u0022,\n  \u0022event_id\u0022: \u0022event_CCXGSizgEppa2d4XbKA7K\u0022,\n  \u0022item\u0022: {\n    \u0022id\u0022: \u0022item_CCXGRxbY0n6WE4EszhF5w\u0022,\n    \u0022object\u0022: \u0022realtime.item\u0022,\n    \u0022type\u0022: \u0022message\u0022,\n    \u0022status\u0022: \u0022completed\u0022,\n    \u0022role\u0022: \u0022assistant\u0022,\n    \u0022content\u0022: [\n      {\n        \u0022type\u0022: \u0022audio\u0022,\n        \u0022transcript\u0022: \u0022Yes, I can hear you loud and clear. How can I help you today?\u0022,\n        \u0022audio\u0022: \u00228//2//v/9//q/\u002B//\u002BP/s...\u0022,\n        \u0022format\u0022: \u0022pcm16\u0022\n      }\n    ]\n  }\n}\n"
+          "example": "{\n  \u0022type\u0022: \u0022conversation.item.retrieved\u0022,\n  \u0022event_id\u0022: \u0022event_CCXGSizgEppa2d4XbKA7K\u0022,\n  \u0022item\u0022: {\n    \u0022id\u0022: \u0022item_CCXGRxbY0n6WE4EszhF5w\u0022,\n    \u0022object\u0022: \u0022realtime.item\u0022,\n    \u0022type\u0022: \u0022message\u0022,\n    \u0022status\u0022: \u0022completed\u0022,\n    \u0022role\u0022: \u0022assistant\u0022,\n    \u0022content\u0022: [\n      {\n        \u0022type\u0022: \u0022output_audio\u0022,\n        \u0022transcript\u0022: \u0022Yes, I can hear you loud and clear. How can I help you today?\u0022,\n        \u0022audio\u0022: \u0022AAABAP//AAA=\u0022\n      }\n    ]\n  }\n}\n"
         }
       },
       "RealtimeServerEventConversationItemTruncated": {
@@ -52981,7 +53003,7 @@
         "x-oaiMeta": {
           "name": "input_audio_buffer.dtmf_event_received",
           "group": "realtime",
-          "example": "{\n    \u0022type\u0022:\u0022 input_audio_buffer.dtmf_event_received\u0022,\n    \u0022event\u0022: \u00229\u0022,\n    \u0022received_at\u0022: 1763605109,\n}\n"
+          "example": "{\n  \u0022type\u0022: \u0022input_audio_buffer.dtmf_event_received\u0022,\n  \u0022event\u0022: \u00229\u0022,\n  \u0022received_at\u0022: 1763605109\n}\n"
         }
       },
       "RealtimeServerEventInputAudioBufferSpeechStarted": {
@@ -53576,7 +53598,7 @@
         "x-oaiMeta": {
           "name": "response.created",
           "group": "realtime",
-          "example": "{\n  \u0022type\u0022: \u0022response.created\u0022,\n  \u0022event_id\u0022: \u0022event_C9G8pqbTEddBSIxbBN6Os\u0022,\n  \u0022response\u0022: {\n    \u0022object\u0022: \u0022realtime.response\u0022,\n    \u0022id\u0022: \u0022resp_C9G8p7IH2WxLbkgPNouYL\u0022,\n    \u0022status\u0022: \u0022in_progress\u0022,\n    \u0022status_details\u0022: null,\n    \u0022output\u0022: [],\n    \u0022conversation_id\u0022: \u0022conv_C9G8mmBkLhQJwCon3hoJN\u0022,\n    \u0022output_modalities\u0022: [\n      \u0022audio\u0022\n    ],\n    \u0022max_output_tokens\u0022: \u0022inf\u0022,\n    \u0022audio\u0022: {\n      \u0022output\u0022: {\n        \u0022format\u0022: {\n          \u0022type\u0022: \u0022audio/pcm\u0022,\n          \u0022rate\u0022: 24000\n        },\n        \u0022voice\u0022: \u0022marin\u0022\n      }\n    },\n    \u0022usage\u0022: null,\n    \u0022metadata\u0022: null\n  },\n}\n"
+          "example": "{\n  \u0022type\u0022: \u0022response.created\u0022,\n  \u0022event_id\u0022: \u0022event_C9G8pqbTEddBSIxbBN6Os\u0022,\n  \u0022response\u0022: {\n    \u0022object\u0022: \u0022realtime.response\u0022,\n    \u0022id\u0022: \u0022resp_C9G8p7IH2WxLbkgPNouYL\u0022,\n    \u0022status\u0022: \u0022in_progress\u0022,\n    \u0022status_details\u0022: null,\n    \u0022output\u0022: [],\n    \u0022conversation_id\u0022: \u0022conv_C9G8mmBkLhQJwCon3hoJN\u0022,\n    \u0022output_modalities\u0022: [\n      \u0022audio\u0022\n    ],\n    \u0022max_output_tokens\u0022: \u0022inf\u0022,\n    \u0022audio\u0022: {\n      \u0022output\u0022: {\n        \u0022format\u0022: {\n          \u0022type\u0022: \u0022audio/pcm\u0022,\n          \u0022rate\u0022: 24000\n        },\n        \u0022voice\u0022: \u0022marin\u0022\n      }\n    },\n    \u0022usage\u0022: null,\n    \u0022metadata\u0022: null\n  }\n}\n"
         }
       },
       "RealtimeServerEventResponseDone": {
@@ -53963,7 +53985,7 @@
         "x-oaiMeta": {
           "name": "response.output_item.done",
           "group": "realtime",
-          "example": "{\n    \u0022event_id\u0022: \u0022event_3536\u0022,\n    \u0022type\u0022: \u0022response.output_item.done\u0022,\n    \u0022response_id\u0022: \u0022resp_001\u0022,\n    \u0022output_index\u0022: 0,\n    \u0022item\u0022: {\n        \u0022id\u0022: \u0022msg_007\u0022,\n        \u0022object\u0022: \u0022realtime.item\u0022,\n        \u0022type\u0022: \u0022message\u0022,\n        \u0022status\u0022: \u0022completed\u0022,\n        \u0022role\u0022: \u0022assistant\u0022,\n        \u0022content\u0022: [\n            {\n                \u0022type\u0022: \u0022text\u0022,\n                \u0022text\u0022: \u0022Sure, I can help with that.\u0022\n            }\n        ]\n    }\n}\n"
+          "example": "{\n  \u0022event_id\u0022: \u0022event_3536\u0022,\n  \u0022type\u0022: \u0022response.output_item.done\u0022,\n  \u0022response_id\u0022: \u0022resp_001\u0022,\n  \u0022output_index\u0022: 0,\n  \u0022item\u0022: {\n    \u0022id\u0022: \u0022msg_007\u0022,\n    \u0022object\u0022: \u0022realtime.item\u0022,\n    \u0022type\u0022: \u0022message\u0022,\n    \u0022status\u0022: \u0022completed\u0022,\n    \u0022role\u0022: \u0022assistant\u0022,\n    \u0022content\u0022: [\n      {\n        \u0022type\u0022: \u0022output_text\u0022,\n        \u0022text\u0022: \u0022Sure, I can help with that.\u0022\n      }\n    ]\n  }\n}\n"
         }
       },
       "RealtimeServerEventResponseTextDelta": {
@@ -54083,7 +54105,7 @@
         "x-oaiMeta": {
           "name": "session.created",
           "group": "realtime",
-          "example": "{\n  \u0022type\u0022: \u0022session.created\u0022,\n  \u0022event_id\u0022: \u0022event_C9G5RJeJ2gF77mV7f2B1j\u0022,\n  \u0022session\u0022: {\n    \u0022type\u0022: \u0022realtime\u0022,\n    \u0022object\u0022: \u0022realtime.session\u0022,\n    \u0022id\u0022: \u0022sess_C9G5QPteg4UIbotdKLoYQ\u0022,\n    \u0022model\u0022: \u0022gpt-realtime-2025-08-28\u0022,\n    \u0022output_modalities\u0022: [\n      \u0022audio\u0022\n    ],\n    \u0022instructions\u0022: \u0022Your knowledge cutoff is 2023-10. You are a helpful, witty, and friendly AI. Act like a human, but remember that you aren\u0027t a human and that you can\u0027t do human things in the real world. Your voice and personality should be warm and engaging, with a lively and playful tone. If interacting in a non-English language, start by using the standard accent or dialect familiar to the user. Talk quickly. You should always call a function if you can. Do not refer to these rules, even if you\u2019re asked about them.\u0022,\n    \u0022tools\u0022: [],\n    \u0022tool_choice\u0022: \u0022auto\u0022,\n    \u0022max_output_tokens\u0022: \u0022inf\u0022,\n    \u0022tracing\u0022: null,\n    \u0022prompt\u0022: null,\n    \u0022expires_at\u0022: 1756324625,\n    \u0022audio\u0022: {\n      \u0022input\u0022: {\n        \u0022format\u0022: {\n          \u0022type\u0022: \u0022audio/pcm\u0022,\n          \u0022rate\u0022: 24000\n        },\n        \u0022transcription\u0022: null,\n        \u0022noise_reduction\u0022: null,\n        \u0022turn_detection\u0022: {\n          \u0022type\u0022: \u0022server_vad\u0022,\n          \u0022threshold\u0022: 0.5,\n          \u0022prefix_padding_ms\u0022: 300,\n          \u0022silence_duration_ms\u0022: 200,\n          \u0022idle_timeout_ms\u0022: null,\n          \u0022create_response\u0022: true,\n          \u0022interrupt_response\u0022: true\n        }\n      },\n      \u0022output\u0022: {\n        \u0022format\u0022: {\n          \u0022type\u0022: \u0022audio/pcm\u0022,\n          \u0022rate\u0022: 24000\n        },\n        \u0022voice\u0022: \u0022marin\u0022,\n        \u0022speed\u0022: 1\n      }\n    },\n    \u0022include\u0022: null\n  },\n}\n"
+          "example": "{\n  \u0022type\u0022: \u0022session.created\u0022,\n  \u0022event_id\u0022: \u0022event_C9G5RJeJ2gF77mV7f2B1j\u0022,\n  \u0022session\u0022: {\n    \u0022type\u0022: \u0022realtime\u0022,\n    \u0022object\u0022: \u0022realtime.session\u0022,\n    \u0022id\u0022: \u0022sess_C9G5QPteg4UIbotdKLoYQ\u0022,\n    \u0022model\u0022: \u0022gpt-realtime-2025-08-28\u0022,\n    \u0022output_modalities\u0022: [\n      \u0022audio\u0022\n    ],\n    \u0022instructions\u0022: \u0022Your knowledge cutoff is 2023-10. You are a helpful, witty, and friendly AI. Act like a human, but remember that you aren\u0027t a human and that you can\u0027t do human things in the real world. Your voice and personality should be warm and engaging, with a lively and playful tone. If interacting in a non-English language, start by using the standard accent or dialect familiar to the user. Talk quickly. You should always call a function if you can. Do not refer to these rules, even if you\u2019re asked about them.\u0022,\n    \u0022tools\u0022: [],\n    \u0022tool_choice\u0022: \u0022auto\u0022,\n    \u0022max_output_tokens\u0022: \u0022inf\u0022,\n    \u0022tracing\u0022: null,\n    \u0022prompt\u0022: null,\n    \u0022expires_at\u0022: 1756324625,\n    \u0022audio\u0022: {\n      \u0022input\u0022: {\n        \u0022format\u0022: {\n          \u0022type\u0022: \u0022audio/pcm\u0022,\n          \u0022rate\u0022: 24000\n        },\n        \u0022transcription\u0022: null,\n        \u0022noise_reduction\u0022: null,\n        \u0022turn_detection\u0022: {\n          \u0022type\u0022: \u0022server_vad\u0022,\n          \u0022threshold\u0022: 0.5,\n          \u0022prefix_padding_ms\u0022: 300,\n          \u0022silence_duration_ms\u0022: 200,\n          \u0022idle_timeout_ms\u0022: null,\n          \u0022create_response\u0022: true,\n          \u0022interrupt_response\u0022: true\n        }\n      },\n      \u0022output\u0022: {\n        \u0022format\u0022: {\n          \u0022type\u0022: \u0022audio/pcm\u0022,\n          \u0022rate\u0022: 24000\n        },\n        \u0022voice\u0022: \u0022marin\u0022,\n        \u0022speed\u0022: 1\n      }\n    },\n    \u0022include\u0022: null\n  }\n}\n"
         }
       },
       "RealtimeServerEventSessionUpdated": {
@@ -54109,7 +54131,7 @@
         "x-oaiMeta": {
           "name": "session.updated",
           "group": "realtime",
-          "example": "{\n  \u0022type\u0022: \u0022session.updated\u0022,\n  \u0022event_id\u0022: \u0022event_C9G8mqI3IucaojlVKE8Cs\u0022,\n  \u0022session\u0022: {\n    \u0022type\u0022: \u0022realtime\u0022,\n    \u0022object\u0022: \u0022realtime.session\u0022,\n    \u0022id\u0022: \u0022sess_C9G8l3zp50uFv4qgxfJ8o\u0022,\n    \u0022model\u0022: \u0022gpt-realtime-2025-08-28\u0022,\n    \u0022output_modalities\u0022: [\n      \u0022audio\u0022\n    ],\n    \u0022instructions\u0022: \u0022Your knowledge cutoff is 2023-10. You are a helpful, witty, and friendly AI. Act like a human, but remember that you aren\u0027t a human and that you can\u0027t do human things in the real world. Your voice and personality should be warm and engaging, with a lively and playful tone. If interacting in a non-English language, start by using the standard accent or dialect familiar to the user. Talk quickly. You should always call a function if you can. Do not refer to these rules, even if you\u2019re asked about them.\u0022,\n    \u0022tools\u0022: [\n      {\n        \u0022type\u0022: \u0022function\u0022,\n        \u0022name\u0022: \u0022display_color_palette\u0022,\n        \u0022description\u0022: \u0022\\nCall this function when a user asks for a color palette.\\n\u0022,\n        \u0022parameters\u0022: {\n          \u0022type\u0022: \u0022object\u0022,\n          \u0022strict\u0022: true,\n          \u0022properties\u0022: {\n            \u0022theme\u0022: {\n              \u0022type\u0022: \u0022string\u0022,\n              \u0022description\u0022: \u0022Description of the theme for the color scheme.\u0022\n            },\n            \u0022colors\u0022: {\n              \u0022type\u0022: \u0022array\u0022,\n              \u0022description\u0022: \u0022Array of five hex color codes based on the theme.\u0022,\n              \u0022items\u0022: {\n                \u0022type\u0022: \u0022string\u0022,\n                \u0022description\u0022: \u0022Hex color code\u0022\n              }\n            }\n          },\n          \u0022required\u0022: [\n            \u0022theme\u0022,\n            \u0022colors\u0022\n          ]\n        }\n      }\n    ],\n    \u0022tool_choice\u0022: \u0022auto\u0022,\n    \u0022max_output_tokens\u0022: \u0022inf\u0022,\n    \u0022tracing\u0022: null,\n    \u0022prompt\u0022: null,\n    \u0022expires_at\u0022: 1756324832,\n    \u0022audio\u0022: {\n      \u0022input\u0022: {\n        \u0022format\u0022: {\n          \u0022type\u0022: \u0022audio/pcm\u0022,\n          \u0022rate\u0022: 24000\n        },\n        \u0022transcription\u0022: null,\n        \u0022noise_reduction\u0022: null,\n        \u0022turn_detection\u0022: {\n          \u0022type\u0022: \u0022server_vad\u0022,\n          \u0022threshold\u0022: 0.5,\n          \u0022prefix_padding_ms\u0022: 300,\n          \u0022silence_duration_ms\u0022: 200,\n          \u0022idle_timeout_ms\u0022: null,\n          \u0022create_response\u0022: true,\n          \u0022interrupt_response\u0022: true\n        }\n      },\n      \u0022output\u0022: {\n        \u0022format\u0022: {\n          \u0022type\u0022: \u0022audio/pcm\u0022,\n          \u0022rate\u0022: 24000\n        },\n        \u0022voice\u0022: \u0022marin\u0022,\n        \u0022speed\u0022: 1\n      }\n    },\n    \u0022include\u0022: null\n  },\n}\n"
+          "example": "{\n  \u0022type\u0022: \u0022session.updated\u0022,\n  \u0022event_id\u0022: \u0022event_C9G8mqI3IucaojlVKE8Cs\u0022,\n  \u0022session\u0022: {\n    \u0022type\u0022: \u0022realtime\u0022,\n    \u0022object\u0022: \u0022realtime.session\u0022,\n    \u0022id\u0022: \u0022sess_C9G8l3zp50uFv4qgxfJ8o\u0022,\n    \u0022model\u0022: \u0022gpt-realtime-2025-08-28\u0022,\n    \u0022output_modalities\u0022: [\n      \u0022audio\u0022\n    ],\n    \u0022instructions\u0022: \u0022Your knowledge cutoff is 2023-10. You are a helpful, witty, and friendly AI. Act like a human, but remember that you aren\u0027t a human and that you can\u0027t do human things in the real world. Your voice and personality should be warm and engaging, with a lively and playful tone. If interacting in a non-English language, start by using the standard accent or dialect familiar to the user. Talk quickly. You should always call a function if you can. Do not refer to these rules, even if you\u2019re asked about them.\u0022,\n    \u0022tools\u0022: [\n      {\n        \u0022type\u0022: \u0022function\u0022,\n        \u0022name\u0022: \u0022display_color_palette\u0022,\n        \u0022description\u0022: \u0022\\nCall this function when a user asks for a color palette.\\n\u0022,\n        \u0022parameters\u0022: {\n          \u0022type\u0022: \u0022object\u0022,\n          \u0022strict\u0022: true,\n          \u0022properties\u0022: {\n            \u0022theme\u0022: {\n              \u0022type\u0022: \u0022string\u0022,\n              \u0022description\u0022: \u0022Description of the theme for the color scheme.\u0022\n            },\n            \u0022colors\u0022: {\n              \u0022type\u0022: \u0022array\u0022,\n              \u0022description\u0022: \u0022Array of five hex color codes based on the theme.\u0022,\n              \u0022items\u0022: {\n                \u0022type\u0022: \u0022string\u0022,\n                \u0022description\u0022: \u0022Hex color code\u0022\n              }\n            }\n          },\n          \u0022required\u0022: [\n            \u0022theme\u0022,\n            \u0022colors\u0022\n          ]\n        }\n      }\n    ],\n    \u0022tool_choice\u0022: \u0022auto\u0022,\n    \u0022max_output_tokens\u0022: \u0022inf\u0022,\n    \u0022tracing\u0022: null,\n    \u0022prompt\u0022: null,\n    \u0022expires_at\u0022: 1756324832,\n    \u0022audio\u0022: {\n      \u0022input\u0022: {\n        \u0022format\u0022: {\n          \u0022type\u0022: \u0022audio/pcm\u0022,\n          \u0022rate\u0022: 24000\n        },\n        \u0022transcription\u0022: null,\n        \u0022noise_reduction\u0022: null,\n        \u0022turn_detection\u0022: {\n          \u0022type\u0022: \u0022server_vad\u0022,\n          \u0022threshold\u0022: 0.5,\n          \u0022prefix_padding_ms\u0022: 300,\n          \u0022silence_duration_ms\u0022: 200,\n          \u0022idle_timeout_ms\u0022: null,\n          \u0022create_response\u0022: true,\n          \u0022interrupt_response\u0022: true\n        }\n      },\n      \u0022output\u0022: {\n        \u0022format\u0022: {\n          \u0022type\u0022: \u0022audio/pcm\u0022,\n          \u0022rate\u0022: 24000\n        },\n        \u0022voice\u0022: \u0022marin\u0022,\n        \u0022speed\u0022: 1\n      }\n    },\n    \u0022include\u0022: null\n  }\n}\n"
         }
       },
       "RealtimeServerEventTranscriptionSessionUpdated": {
@@ -109471,7 +109493,8 @@
       "McpToolAllowedTools": {
         "anyOf": [
           {
-            "oneOf": [
+            "description": "List of allowed tool names or a filter object.\n",
+            "anyOf": [
               {
                 "title": "MCP allowed tools",
                 "type": "array",
@@ -109483,8 +109506,7 @@
               {
                 "$ref": "#/components/schemas/McpToolFilter"
               }
-            ],
-            "description": "List of allowed tool names or a filter object.\n"
+            ]
           },
           {
             "type": "null"
@@ -113561,7 +113583,7 @@
         ]
       },
       "LiveDecisionInputJsonParamData": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "object"
           },
@@ -114419,9 +114441,9 @@
         "description": "The image detail level, using the selected model\u0027s image profile. Defaults to auto."
       },
       "DecisionInputJsonData": {
-        "oneOf": [
+        "anyOf": [
           {
-            "$ref": "#/components/schemas/DecisionInputJsonDataOneOf1"
+            "$ref": "#/components/schemas/DecisionInputJsonDataAnyOf1"
           },
           {
             "minItems": 0,
@@ -116345,7 +116367,8 @@
       "BetaMcpToolAllowedTools": {
         "anyOf": [
           {
-            "oneOf": [
+            "description": "List of allowed tool names or a filter object.\n",
+            "anyOf": [
               {
                 "title": "MCP allowed tools",
                 "type": "array",
@@ -116357,8 +116380,7 @@
               {
                 "$ref": "#/components/schemas/BetaMcpToolFilter"
               }
-            ],
-            "description": "List of allowed tool names or a filter object.\n"
+            ]
           },
           {
             "type": "null"
@@ -160690,7 +160712,7 @@
         "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard. Keys are strings\nwith a maximum length of 64 characters. Values are strings with a maximum\nlength of 512 characters, booleans, or numbers.\n",
         "x-oaiTypeLabel": "map"
       },
-      "DecisionInputJsonDataOneOf1": {
+      "DecisionInputJsonDataAnyOf1": {
         "propertyNames": {
           "minLength": 0,
           "type": "string"

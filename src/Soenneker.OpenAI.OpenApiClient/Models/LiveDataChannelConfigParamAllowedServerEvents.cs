@@ -37,7 +37,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.LiveDataChannelConfigParamAllowedServerEventsOneOf1 = liveDataChannelConfigParamAllowedServerEventsOneOf1Value;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedServerEventParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedServerEventParam.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedServerEventParam> liveAllowedServerEventParamValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedServerEventParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedServerEventParam.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedServerEventParam> liveAllowedServerEventParamValue)
             {
                 result.LiveAllowedServerEventParam = liveAllowedServerEventParamValue;
             }

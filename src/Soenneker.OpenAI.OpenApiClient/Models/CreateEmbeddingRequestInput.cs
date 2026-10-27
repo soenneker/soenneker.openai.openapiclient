@@ -59,15 +59,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.CreateEmbeddingRequestInputString = createEmbeddingRequestInputStringValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingRequestInputMember1>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingRequestInputMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingRequestInputMember1> createEmbeddingRequestInputMember1Value)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingRequestInputMember1>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingRequestInputMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEmbeddingRequestInputMember1> createEmbeddingRequestInputMember1Value)
             {
                 result.CreateEmbeddingRequestInputMember1 = createEmbeddingRequestInputMember1Value;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<int?>()?.AsList() is List<int?> integerValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<int?>()?.AsList() is List<int?> integerValue)
             {
                 result.Integer = integerValue;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
             {
                 result.String = stringValue;
             }

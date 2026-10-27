@@ -35,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SessionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agents/sessions{?after*,agent_id*,limit*,order*}", pathParameters)
+        public SessionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agents/sessions{?after*,agent_id*,limit*,metadata*,order*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SessionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agents/sessions{?after*,agent_id*,limit*,order*}", rawUrl)
+        public SessionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agents/sessions{?after*,agent_id*,limit*,metadata*,order*}", rawUrl)
         {
         }
         /// <summary>
@@ -199,6 +199,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions
             /// <summary>The maximum number of resources to return, between 1 and 100. Defaults to 20.</summary>
             [QueryParameter("limit")]
             public long? Limit { get; set; }
+            /// <summary>Exact string matches supplied as `metadata[key]=value`. All supplied pairs must match. Up to 16 pairs, with keys from 1 to 64 characters and values up to 512 characters. New sessions and metadata updates may take time to appear in filtered results.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("metadata")]
+            public string? Metadata { get; set; }
+#nullable restore
+#else
+            [QueryParameter("metadata")]
+            public string Metadata { get; set; }
+#endif
             /// <summary>The order in which resources are returned. Defaults to `desc`.</summary>
             [QueryParameter("order")]
             public global::Soenneker.OpenAI.OpenApiClient.Models.ListOrderParam? Order { get; set; }

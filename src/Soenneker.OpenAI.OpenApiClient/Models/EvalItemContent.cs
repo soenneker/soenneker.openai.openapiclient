@@ -39,7 +39,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContent();
-            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem> evalItemContentItemValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem> evalItemContentItemValue)
             {
                 result.EvalItemContentItem = evalItemContentItemValue;
             }

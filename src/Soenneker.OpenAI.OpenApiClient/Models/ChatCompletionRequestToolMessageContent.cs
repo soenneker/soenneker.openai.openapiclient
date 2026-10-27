@@ -43,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.String = stringValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestToolMessageContentPart>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestToolMessageContentPart.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestToolMessageContentPart> chatCompletionRequestToolMessageContentPartValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestToolMessageContentPart>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestToolMessageContentPart.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestToolMessageContentPart> chatCompletionRequestToolMessageContentPartValue)
             {
                 result.ChatCompletionRequestToolMessageContentPart = chatCompletionRequestToolMessageContentPartValue;
             }

@@ -55,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.String = stringValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilterValueOneOf4Item>(global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilterValueOneOf4Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilterValueOneOf4Item> comparisonFilterValueOneOf4ItemValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilterValueOneOf4Item>(global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilterValueOneOf4Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilterValueOneOf4Item> comparisonFilterValueOneOf4ItemValue)
             {
                 result.ComparisonFilterValueOneOf4Item = comparisonFilterValueOneOf4ItemValue;
             }

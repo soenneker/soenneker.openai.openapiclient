@@ -178,7 +178,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.ServerLabel = serverLabelValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceAllowedToolsItemProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceAllowedToolsItemProperty.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceAllowedToolsItemProperty> toolsValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceAllowedToolsItemProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceAllowedToolsItemProperty.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceAllowedToolsItemProperty> toolsValue)
             {
                 result.Tools = toolsValue;
             }

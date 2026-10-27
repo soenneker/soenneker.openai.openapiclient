@@ -42,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.CreateImageEditRequestImageBinary = createImageEditRequestImageBinaryValue;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<byte[]>()?.AsList() is List<byte[]> binaryValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<byte[]>()?.AsList() is List<byte[]> binaryValue)
             {
                 result.Binary = binaryValue;
             }
