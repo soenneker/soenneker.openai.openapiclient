@@ -13,6 +13,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentResource : IParsable
     {
+        /// <summary>The effective context compaction settings.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionResource? Compaction { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionResource Compaction { get; set; }
+#endif
         /// <summary>The Unix timestamp, in seconds, when the agent was created.</summary>
         public long? CreatedAt { get; set; }
         /// <summary>The ID of the reusable agent.</summary>
@@ -111,6 +119,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "compaction", n => { Compaction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionResource>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactionResource.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
@@ -133,6 +142,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionResource>("compaction", Compaction);
             writer.WriteLongValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("instructions", Instructions);

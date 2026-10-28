@@ -26,6 +26,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The input_fidelity property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity? InputFidelity { get; set; }
+        /// <summary>A transparent PNG overlaid on the first image to guide the edit. Must match that image&apos;s dimensions after orientation and contain transparent pixels. Supports GPT Image 2.5 and 2.6. Cannot be combined with mask.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? Markup { get; set; }
+#nullable restore
+#else
+        public byte[] Markup { get; set; }
+#endif
         /// <summary>An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where `image` should be edited. If there are multiple images provided, the mask will be applied on the first image. Must be a valid PNG file, less than 4MB, and have the same dimensions as `image`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -122,6 +130,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "background", n => { Background = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground>(); } },
                 { "image", n => { Image = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage.CreateFromDiscriminatorValue); } },
                 { "input_fidelity", n => { InputFidelity = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity>(); } },
+                { "markup", n => { Markup = n.GetByteArrayValue(); } },
                 { "mask", n => { Mask = n.GetByteArrayValue(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel.CreateFromDiscriminatorValue); } },
                 { "n", n => { N = n.GetIntValue(); } },
@@ -147,6 +156,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground>("background", Background);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage>("image", Image);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity>("input_fidelity", InputFidelity);
+            writer.WriteByteArrayValue("markup", Markup);
             writer.WriteByteArrayValue("mask", Mask);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel>("model", Model);
             writer.WriteIntValue("n", N);

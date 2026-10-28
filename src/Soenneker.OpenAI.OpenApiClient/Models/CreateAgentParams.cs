@@ -13,6 +13,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateAgentParams : IParsable
     {
+        /// <summary>Context compaction settings. Omission or null enables background compaction.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam? Compaction { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam Compaction { get; set; }
+#endif
         /// <summary>Additional instructions appended to the agent&apos;s default base instructions. Omit or set to null to add no custom instructions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,6 +105,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "compaction", n => { Compaction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
@@ -115,6 +124,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam>("compaction", Compaction);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("model", Model);

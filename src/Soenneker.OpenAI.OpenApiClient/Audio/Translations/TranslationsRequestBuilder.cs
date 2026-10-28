@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Audio.Translations
         {
         }
         /// <summary>
-        /// Translates audio into English.
+        /// Translates audio into English.This endpoint supports only `whisper-1`. The endpoint and model are deprecatedand scheduled to shut down on February 26, 2027. Migrate to`/v1/realtime/translations`, which requires a separate integration. See the[deprecation schedule](https://developers.openai.com/api/docs/deprecations)for details.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranslation200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -47,6 +47,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Audio.Translations
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 503 status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranslation200Response?> PostAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -71,11 +72,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Audio.Translations
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranslation200Response>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.CreateTranslation200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Translates audio into English.
+        /// Translates audio into English.This endpoint supports only `whisper-1`. The endpoint and model are deprecatedand scheduled to shut down on February 26, 2027. Migrate to`/v1/realtime/translations`, which requires a separate integration. See the[deprecation schedule](https://developers.openai.com/api/docs/deprecations)for details.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -97,6 +99,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Audio.Translations
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Audio.Translations.TranslationsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Audio.Translations.TranslationsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.OpenAI.OpenApiClient.Audio.Translations.TranslationsRequestBuilder(rawUrl, RequestAdapter);

@@ -13,6 +13,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateAgentParams : IParsable
     {
+        /// <summary>Context compaction settings. Omit to keep the current settings. A supplied object replaces the settings; null or an empty object enables background compaction.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam? Compaction { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam Compaction { get; set; }
+#endif
         /// <summary>Additional instructions appended to the agent&apos;s default base instructions. Omit to leave unchanged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,6 +105,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "compaction", n => { Compaction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentParamsMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentParamsMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
@@ -115,6 +124,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam>("compaction", Compaction);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentParamsMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("model", Model);

@@ -34,7 +34,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Audio.Speech
         {
         }
         /// <summary>
-        /// Generates audio from the input text.Returns the audio file content, or a stream of audio events.
+        /// Generates audio from the input text.Returns the audio file content, or a stream of audio events.The `tts-1`, `tts-1-hd`, `gpt-4o-mini-tts`, `gpt-4o-mini-tts-2025-03-20`, and`gpt-4o-mini-tts-2025-12-15` models are deprecated and scheduled to shut downon January 6, 2027. These examples use the existing Speech API; for newintegrations, migrate to `gpt-realtime-2.1-mini` through the[Realtime API](https://developers.openai.com/api/docs/guides/realtime). See the[deprecation schedule](https://developers.openai.com/api/docs/deprecations) for migration details.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
@@ -67,7 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Audio.Speech
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Generates audio from the input text.Returns the audio file content, or a stream of audio events.
+        /// Generates audio from the input text.Returns the audio file content, or a stream of audio events.The `tts-1`, `tts-1-hd`, `gpt-4o-mini-tts`, `gpt-4o-mini-tts-2025-03-20`, and`gpt-4o-mini-tts-2025-12-15` models are deprecated and scheduled to shut downon January 6, 2027. These examples use the existing Speech API; for newintegrations, migrate to `gpt-realtime-2.1-mini` through the[Realtime API](https://developers.openai.com/api/docs/guides/realtime). See the[deprecation schedule](https://developers.openai.com/api/docs/deprecations) for migration details.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

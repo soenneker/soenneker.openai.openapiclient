@@ -21,7 +21,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Text { get; set; }
 #endif
-        /// <summary>The type of the input item. Always `input_text`.</summary>
+        /// <summary>The type property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

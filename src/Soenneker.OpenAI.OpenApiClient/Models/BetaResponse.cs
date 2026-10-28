@@ -205,6 +205,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool> Tools { get; set; }
 #endif
+        /// <summary>Usage reported by hosted tools, separate from base model `usage`. The fieldcan be omitted when tool usage is unavailable. When present, tool familieswith no recorded usage have zero counts.`image_gen` sums available token counts across image generation calls.Calls with missing or incomplete usage records may be skipped. Outputtoken details and cached input counts can be omitted. An omitted cachecount means cache usage is unknown.`web_search.num_requests` counts billable searches. Discounted searchesand actions such as opening a page are excluded. Use billing records toreconcile final charges.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseToolUsage? ToolUsage { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseToolUsage ToolUsage { get; set; }
+#endif
         /// <summary>An integer between 0 and 20 specifying the maximum number of most likelytokens to return at each token position, each with an associated logprobability. In some cases, the number of returned tokens may be fewer thanrequested.</summary>
         public int? TopLogprobs { get; set; }
         /// <summary>An alternative to sampling with temperature, called nucleus sampling,where the model considers the results of the tokens with top_p probabilitymass. So 0.1 means only the tokens comprising the top 10% probability massare considered.We generally recommend altering this or `temperature` but not both.</summary>
@@ -288,6 +296,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTextParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTextParam.CreateFromDiscriminatorValue); } },
                 { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam.CreateFromDiscriminatorValue); } },
+                { "tool_usage", n => { ToolUsage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseToolUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseToolUsage.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "top_logprobs", n => { TopLogprobs = n.GetIntValue(); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },
@@ -335,6 +344,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTextParam>("text", Text);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolChoiceParam>("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTool>("tools", Tools);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseToolUsage>("tool_usage", ToolUsage);
             writer.WriteIntValue("top_logprobs", TopLogprobs);
             writer.WriteDoubleValue("top_p", TopP);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTruncation>("truncation", Truncation);

@@ -310,7 +310,7 @@
           "Audio"
         ],
         "summary": "Create speech",
-        "description": "Generates audio from the input text.\n\nReturns the audio file content, or a stream of audio events.\n",
+        "description": "Generates audio from the input text.\n\nReturns the audio file content, or a stream of audio events.\n\nThe \u0060tts-1\u0060, \u0060tts-1-hd\u0060, \u0060gpt-4o-mini-tts\u0060, \u0060gpt-4o-mini-tts-2025-03-20\u0060, and\n\u0060gpt-4o-mini-tts-2025-12-15\u0060 models are deprecated and scheduled to shut down\non January 6, 2027. These examples use the existing Speech API; for new\nintegrations, migrate to \u0060gpt-realtime-2.1-mini\u0060 through the\n[Realtime API](https://developers.openai.com/api/docs/guides/realtime). See the\n[deprecation schedule](https://developers.openai.com/api/docs/deprecations) for migration details.\n",
         "operationId": "CreateSpeech",
         "requestBody": {
           "content": {
@@ -635,7 +635,7 @@
           "Audio"
         ],
         "summary": "Create translation",
-        "description": "Translates audio into English.",
+        "description": "Translates audio into English.\n\nThis endpoint supports only \u0060whisper-1\u0060. The endpoint and model are deprecated\nand scheduled to shut down on February 26, 2027. Migrate to\n\u0060/v1/realtime/translations\u0060, which requires a separate integration. See the\n[deprecation schedule](https://developers.openai.com/api/docs/deprecations)\nfor details.\n",
         "operationId": "CreateTranslation",
         "requestBody": {
           "content": {
@@ -737,6 +737,7 @@
             "$ref": "#/components/responses/InferenceServiceUnavailable"
           }
         },
+        "deprecated": true,
         "x-oaiMeta": {
           "group": "audio",
           "examples": {
@@ -22540,6 +22541,198 @@
         }
       }
     },
+    "/organization/external_keys": {
+      "post": {
+        "summary": "Add an external key config for an organization",
+        "description": "Add an external key config for an organization",
+        "operationId": "Addanexternalkeyconfigforanorganization",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/V1OrganizationExternalKeysPostRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalKeyResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "List the external key configs registered on the user\u0027s organization",
+        "description": "List the external key configs registered on the user\u0027s organization",
+        "operationId": "ListtheexternalkeyconfigsregisteredontheuserSorganization",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/OrderEnum"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "schema": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          {
+            "name": "purpose",
+            "in": "query",
+            "description": "Filter by key purpose. When omitted, returns keys of all purposes.",
+            "schema": {
+              "$ref": "#/components/schemas/ExternalKeyPurpose"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListExternalKeysResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/organization/external_keys/{externalKeyId}": {
+      "get": {
+        "summary": "Retrieve an external key registration",
+        "description": "Retrieve a stored external key registration for the user\u0027s organization.",
+        "operationId": "Retrieveanexternalkeyregistration",
+        "parameters": [
+          {
+            "name": "externalKeyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalKeyResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Delete an external key config for the user\u0027s organization",
+        "description": "Delete an external key config for the user\u0027s organization",
+        "operationId": "DeleteanexternalkeyconfigfortheuserSorganization",
+        "parameters": [
+          {
+            "name": "externalKeyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalKeyResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/organization/external_keys/{externalKeyId}/validate": {
+      "post": {
+        "summary": "Validate an external key config for the user\u0027s organization",
+        "description": "Validate an external key config for the user\u0027s organization",
+        "operationId": "ValidateanexternalkeyconfigfortheuserSorganization",
+        "parameters": [
+          {
+            "name": "externalKeyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateExternalKeyResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/live/sessions/{sessionId}/content": {
       "get": {
         "tags": [
@@ -34663,6 +34856,15 @@
           "gpt-5-nano": {
             "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           },
+          "gpt-5-2025-08-07": {
+            "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5-mini-2025-08-07": {
+            "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5-nano-2025-08-07": {
+            "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
           "gpt-4.1": {
             "message": "Announced shutdown date: 2027-01-14. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           },
@@ -39417,6 +39619,11 @@
             "description": "An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where \u0060image\u0060 should be edited. If there are multiple images provided, the mask will be applied on the first image. Must be a valid PNG file, less than 4MB, and have the same dimensions as \u0060image\u0060.",
             "format": "binary"
           },
+          "markup": {
+            "type": "string",
+            "description": "A transparent PNG overlaid on the first image to guide the edit. Must match that image\u0027s dimensions after orientation and contain transparent pixels. Supports GPT Image 2.5 and 2.6. Cannot be combined with mask.",
+            "format": "binary"
+          },
           "background": {
             "$ref": "#/components/schemas/CreateImageEditRequestBackground"
           },
@@ -41303,6 +41510,10 @@
           },
           "mask": {
             "description": "Reference an input image by either URL or uploaded file ID.\nProvide exactly one of \u0060image_url\u0060 or \u0060file_id\u0060.\n",
+            "$ref": "#/components/schemas/ImageRefParam"
+          },
+          "markup": {
+            "description": "A transparent PNG overlaid on the first image, referenced by file ID, HTTPS URL, or base64 data URL. Must match that image\u0027s dimensions after orientation and contain transparent pixels. Supports GPT Image 2.5 and 2.6. Cannot be combined with mask.",
             "$ref": "#/components/schemas/ImageRefParam"
           },
           "prompt": {
@@ -45936,6 +46147,9 @@
             "$ref": "#/components/schemas/LiveOutputAudioFixturePlayParam"
           },
           {
+            "$ref": "#/components/schemas/LiveTransportDtmfSendParam"
+          },
+          {
             "$ref": "#/components/schemas/LiveInstructionsAppendParam"
           },
           {
@@ -45976,6 +46190,7 @@
             "LiveInputAudioMuteParam": "#/components/schemas/LiveInputAudioMuteParam",
             "LiveInputAudioUnmuteParam": "#/components/schemas/LiveInputAudioUnmuteParam",
             "LiveOutputAudioFixturePlayParam": "#/components/schemas/LiveOutputAudioFixturePlayParam",
+            "LiveTransportDtmfSendParam": "#/components/schemas/LiveTransportDtmfSendParam",
             "LiveInstructionsAppendParam": "#/components/schemas/LiveInstructionsAppendParam",
             "LiveThinkingAppendParam": "#/components/schemas/LiveThinkingAppendParam",
             "LiveCommentaryAppendParam": "#/components/schemas/LiveCommentaryAppendParam",
@@ -46025,6 +46240,12 @@
           },
           {
             "$ref": "#/components/schemas/LiveTransportFailed"
+          },
+          {
+            "$ref": "#/components/schemas/LiveTransportDtmfReceived"
+          },
+          {
+            "$ref": "#/components/schemas/LiveTransportDtmfSent"
           },
           {
             "$ref": "#/components/schemas/LiveSessionStarted"
@@ -46099,6 +46320,8 @@
             "LiveTransportRinging": "#/components/schemas/LiveTransportRinging",
             "LiveTransportAnswered": "#/components/schemas/LiveTransportAnswered",
             "LiveTransportFailed": "#/components/schemas/LiveTransportFailed",
+            "LiveTransportDtmfReceived": "#/components/schemas/LiveTransportDtmfReceived",
+            "LiveTransportDtmfSent": "#/components/schemas/LiveTransportDtmfSent",
             "LiveSessionStarted": "#/components/schemas/LiveSessionStarted",
             "LiveSessionUpdated": "#/components/schemas/LiveSessionUpdated",
             "LiveInputAudioMuted": "#/components/schemas/LiveInputAudioMuted",
@@ -51584,6 +51807,31 @@
           "example": "{\n  \u0022type\u0022: \u0022transcription_session.update\u0022,\n  \u0022session\u0022: {\n    \u0022input_audio_format\u0022: \u0022pcm16\u0022,\n    \u0022input_audio_transcription\u0022: {\n      \u0022model\u0022: \u0022gpt-4o-transcribe\u0022,\n      \u0022prompt\u0022: \u0022\u0022,\n      \u0022language\u0022: \u0022\u0022\n    },\n    \u0022turn_detection\u0022: {\n      \u0022type\u0022: \u0022server_vad\u0022,\n      \u0022threshold\u0022: 0.5,\n      \u0022prefix_padding_ms\u0022: 300,\n      \u0022silence_duration_ms\u0022: 500,\n      \u0022create_response\u0022: true,\n    },\n    \u0022input_audio_noise_reduction\u0022: {\n      \u0022type\u0022: \u0022near_field\u0022\n    },\n    \u0022include\u0022: [\n      \u0022item.input_audio_transcription.logprobs\u0022,\n    ]\n  }\n}\n"
         }
       },
+      "RealtimeConnectDocumentationParams": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "call_id": {
+            "type": "string"
+          },
+          "intent": {
+            "$ref": "#/components/schemas/RealtimeConnectDocumentationParamsIntent"
+          }
+        }
+      },
+      "RealtimeConnectParams": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "call_id": {
+            "type": "string"
+          }
+        }
+      },
       "RealtimeConversationItem": {
         "required": [
           "type"
@@ -52271,12 +52519,483 @@
           "input": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RealtimeConversationItem"
+              "$ref": "#/components/schemas/RealtimeResponseInputItem"
             },
             "description": "Input items to include in the prompt for the model. Using this field\ncreates a new context for this Response instead of using the default\nconversation. An empty array \u0060[]\u0060 will clear the context for this Response.\nNote that this can include references to items that previously appeared in the session\nusing their id.\n"
           }
         },
         "description": "Create a new Realtime response with these parameters"
+      },
+      "RealtimeResponseInputAudio": {
+        "title": "Realtime response input audio",
+        "required": [
+          "type",
+          "audio"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InputAudioType"
+          },
+          "audio": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Base64 audio bytes in the session input audio format."
+          },
+          "transcript": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional text to associate with the input audio."
+          }
+        },
+        "additionalProperties": false
+      },
+      "RealtimeResponseInputFunctionCall": {
+        "title": "Realtime response input function call",
+        "required": [
+          "type",
+          "call_id",
+          "name",
+          "arguments"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "maxLength": 32,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_-]\u002B$",
+            "type": [
+              "null",
+              "string"
+            ],
+            "not": {
+              "enum": [
+                "root"
+              ],
+              "x-ms-enum": {
+                "name": "Id",
+                "modelAsString": false,
+                "values": [
+                  {
+                    "value": "root",
+                    "name": "Root"
+                  }
+                ]
+              }
+            }
+          },
+          "type": {
+            "$ref": "#/components/schemas/FunctionCallType"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RealtimeResponseInputFunctionCallStatus"
+          },
+          "call_id": {
+            "maxLength": 32,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_-]\u002B$",
+            "type": "string",
+            "not": {
+              "enum": [
+                "root"
+              ],
+              "x-ms-enum": {
+                "name": "CallId",
+                "modelAsString": false,
+                "values": [
+                  {
+                    "value": "root",
+                    "name": "Root"
+                  }
+                ]
+              }
+            }
+          },
+          "name": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_-]\u002B$",
+            "type": "string"
+          },
+          "arguments": {
+            "maxLength": 1048576,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A function call supplied as input to a Realtime response."
+      },
+      "RealtimeResponseInputFunctionCallOutput": {
+        "title": "Realtime response input function call output",
+        "required": [
+          "type",
+          "call_id",
+          "output"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "maxLength": 32,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_-]\u002B$",
+            "type": [
+              "null",
+              "string"
+            ],
+            "not": {
+              "enum": [
+                "root"
+              ],
+              "x-ms-enum": {
+                "name": "Id",
+                "modelAsString": false,
+                "values": [
+                  {
+                    "value": "root",
+                    "name": "Root"
+                  }
+                ]
+              }
+            }
+          },
+          "type": {
+            "$ref": "#/components/schemas/FunctionCallOutputType"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RealtimeResponseInputFunctionCallOutputStatus"
+          },
+          "call_id": {
+            "maxLength": 32,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_-]\u002B$",
+            "type": "string",
+            "not": {
+              "enum": [
+                "root"
+              ],
+              "x-ms-enum": {
+                "name": "CallId",
+                "modelAsString": false,
+                "values": [
+                  {
+                    "value": "root",
+                    "name": "Root"
+                  }
+                ]
+              }
+            }
+          },
+          "output": {
+            "maxLength": 1048576,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The result of a function call supplied as input to a Realtime response."
+      },
+      "RealtimeResponseInputImage": {
+        "title": "Realtime response input image",
+        "required": [
+          "type",
+          "image_url"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InputImageType"
+          },
+          "image_url": {
+            "pattern": "^data:image/[^;,]\u002B;base64,.\u002B",
+            "type": "string",
+            "description": "A base64 data URL with an image MIME type; use PNG or JPEG.",
+            "format": "uri"
+          },
+          "detail": {
+            "$ref": "#/components/schemas/RealtimeResponseInputImageDetail"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RealtimeResponseInputItem": {
+        "title": "Realtime response input item",
+        "required": [
+          "type"
+        ],
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/RealtimeResponseInputMessage"
+          },
+          {
+            "$ref": "#/components/schemas/RealtimeResponseInputFunctionCall"
+          },
+          {
+            "$ref": "#/components/schemas/RealtimeResponseInputFunctionCallOutput"
+          },
+          {
+            "$ref": "#/components/schemas/RealtimeResponseItemReference"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": "An existing item reference or a new message or function call item for a Realtime response.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "message": "#/components/schemas/RealtimeResponseInputMessage",
+            "function_call": "#/components/schemas/RealtimeResponseInputFunctionCall",
+            "function_call_output": "#/components/schemas/RealtimeResponseInputFunctionCallOutput",
+            "item_reference": "#/components/schemas/RealtimeResponseItemReference"
+          }
+        }
+      },
+      "RealtimeResponseInputMessage": {
+        "title": "Realtime response input message",
+        "required": [
+          "type",
+          "role"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/RealtimeResponseInputMessageSystem"
+          },
+          {
+            "$ref": "#/components/schemas/RealtimeResponseInputMessageDeveloper"
+          },
+          {
+            "$ref": "#/components/schemas/RealtimeResponseInputMessageUser"
+          },
+          {
+            "$ref": "#/components/schemas/RealtimeResponseInputMessageAssistant"
+          }
+        ],
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/MessageType"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "description": "A message supplied as input to a Realtime response. The role determines the allowed content.",
+        "discriminator": {
+          "propertyName": "role",
+          "mapping": {
+            "system": "#/components/schemas/RealtimeResponseInputMessageSystem",
+            "developer": "#/components/schemas/RealtimeResponseInputMessageDeveloper",
+            "user": "#/components/schemas/RealtimeResponseInputMessageUser",
+            "assistant": "#/components/schemas/RealtimeResponseInputMessageAssistant"
+          }
+        }
+      },
+      "RealtimeResponseInputMessageAssistant": {
+        "title": "Realtime response input assistant message",
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RealtimeResponseInputMessageFields"
+          }
+        ],
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/AssistantRole"
+          },
+          "content": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RealtimeResponseInputMessageAssistantAllOf2ContentItem"
+            }
+          }
+        }
+      },
+      "RealtimeResponseInputMessageDeveloper": {
+        "title": "Realtime response input developer message",
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RealtimeResponseInputMessageFields"
+          }
+        ],
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/DeveloperRole"
+          },
+          "content": {
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RealtimeResponseInputText"
+            }
+          }
+        }
+      },
+      "RealtimeResponseInputMessageFields": {
+        "title": "Realtime response input message fields",
+        "required": [
+          "type",
+          "role",
+          "content"
+        ],
+        "type": "object",
+        "not": {
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "enum": [
+                "root"
+              ],
+              "x-ms-enum": {
+                "name": "Id",
+                "modelAsString": false,
+                "values": [
+                  {
+                    "value": "root",
+                    "name": "Root"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "properties": {
+          "id": {
+            "maxLength": 32,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_-]\u002B$",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "An optional client ID. The value \u0060root\u0060 is reserved."
+          },
+          "type": {
+            "$ref": "#/components/schemas/MessageType"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RealtimeResponseInputMessageFieldsStatus"
+          },
+          "role": {
+            "type": "string"
+          },
+          "content": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "description": "Fallback array item schema"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "RealtimeResponseInputMessageSystem": {
+        "title": "Realtime response input system message",
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RealtimeResponseInputMessageFields"
+          }
+        ],
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/SystemRole"
+          },
+          "content": {
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RealtimeResponseInputText"
+            }
+          }
+        }
+      },
+      "RealtimeResponseInputMessageUser": {
+        "title": "Realtime response input user message",
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RealtimeResponseInputMessageFields"
+          }
+        ],
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/UserRole"
+          },
+          "content": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RealtimeResponseInputMessageUserAllOf2ContentItem"
+            }
+          }
+        }
+      },
+      "RealtimeResponseInputText": {
+        "title": "Realtime response input text",
+        "required": [
+          "type",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InputTextType"
+          },
+          "text": {
+            "maxLength": 256000,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RealtimeResponseItemReference": {
+        "required": [
+          "type",
+          "id"
+        ],
+        "type": "object",
+        "not": {
+          "properties": {
+            "id": {
+              "enum": [
+                "root"
+              ],
+              "x-ms-enum": {
+                "name": "Id",
+                "modelAsString": false,
+                "values": [
+                  {
+                    "value": "root",
+                    "name": "Root"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ItemReferenceType"
+          },
+          "id": {
+            "maxLength": 32,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_-]\u002B$",
+            "type": "string",
+            "description": "The ID of an existing item in the same Realtime session."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Reference an existing item in this Realtime session as response.create input.\nItem references are only accepted in the response input array, not as new\nconversation items.\n"
       },
       "RealtimeServerEvent": {
         "required": [
@@ -54849,6 +55568,17 @@
           "example": "{\n  \u0022value\u0022: \u0022ek_68af296e8e408191a1120ab6383263c2\u0022,\n  \u0022expires_at\u0022: 1756310470,\n  \u0022session\u0022: {\n    \u0022id\u0022: \u0022sess_C9CiUVUzUzYIssh3ELY1d\u0022,\n    \u0022type\u0022: \u0022translation\u0022,\n    \u0022expires_at\u0022: 1756310470,\n    \u0022model\u0022: \u0022gpt-realtime-translate\u0022,\n    \u0022audio\u0022: {\n      \u0022input\u0022: {\n        \u0022transcription\u0022: null,\n        \u0022noise_reduction\u0022: null\n      },\n      \u0022output\u0022: {\n        \u0022language\u0022: \u0022es\u0022\n      }\n    }\n  }\n}\n"
         }
       },
+      "RealtimeTranslationConnectParams": {
+        "required": [
+          "model"
+        ],
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          }
+        }
+      },
       "RealtimeTranslationServerEvent": {
         "required": [
           "type"
@@ -55499,6 +56229,10 @@
           "usage": {
             "$ref": "#/components/schemas/ResponseValueAllOf3Usage"
           },
+          "tool_usage": {
+            "description": "Usage reported by hosted tools, separate from base model \u0060usage\u0060. The field\ncan be omitted when tool usage is unavailable. When present, tool families\nwith no recorded usage have zero counts.\n\n\u0060image_gen\u0060 sums available token counts across image generation calls.\nCalls with missing or incomplete usage records may be skipped. Output\ntoken details and cached input counts can be omitted. An omitted cache\ncount means cache usage is unknown.\n\n\u0060web_search.num_requests\u0060 counts billable searches. Discounted searches\nand actions such as opening a page are excluded. Use billing records to\nreconcile final charges.\n",
+            "$ref": "#/components/schemas/ResponseToolUsage"
+          },
           "prompt_cache_options": {
             "description": "The prompt-caching options that were applied to the response. Supported for \u0060gpt-5.6\u0060 and later models.",
             "$ref": "#/components/schemas/PromptCacheOptions"
@@ -55583,6 +56317,24 @@
               "reasoning_tokens": 0
             },
             "total_tokens": 380
+          },
+          "tool_usage": {
+            "image_gen": {
+              "input_tokens": 0,
+              "input_tokens_details": {
+                "text_tokens": 0,
+                "image_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "text_tokens": 0,
+                "image_tokens": 0
+              },
+              "total_tokens": 0
+            },
+            "web_search": {
+              "num_requests": 0
+            }
           },
           "user": null,
           "metadata": {}
@@ -66493,7 +67245,7 @@
           "low"
         ],
         "type": "string",
-        "description": "Control how much effort the model will exert to match the style and features, especially facial features, of input images. Supports \u0060high\u0060 and \u0060low\u0060 on \u0060gpt-image-1\u0060 and \u0060gpt-image-1.5\u0060; \u0060gpt-image-1-mini\u0060 supports only \u0060low\u0060. For \u0060gpt-image-2\u0060, omit this parameter. Defaults to \u0060low\u0060 on supported models.",
+        "description": "Control how much effort the model will exert to match the style and features, especially facial features, of input images. Supports \u0060high\u0060 and \u0060low\u0060 on \u0060gpt-image-1.5\u0060; \u0060gpt-image-1-mini\u0060 supports only \u0060low\u0060. For \u0060gpt-image-2\u0060, omit this parameter. Defaults to \u0060low\u0060 on supported models.",
         "x-ms-enum": {
           "name": "InputFidelity",
           "modelAsString": false,
@@ -69059,6 +69811,11 @@
           }
         }
       },
+      "Markup": {
+        "type": "string",
+        "description": "A transparent PNG overlaid on the first image to guide the edit. Must match that image\u0027s dimensions after orientation and contain transparent pixels. Supports GPT Image 2.5 and 2.6. Cannot be combined with mask.",
+        "format": "binary"
+      },
       "ImageGenOutputTokensDetails": {
         "title": "Image generation output token details",
         "required": [
@@ -71184,6 +71941,93 @@
           }
         }
       },
+      "CachedUsageDetails": {
+        "required": [
+          "cached_text_tokens",
+          "cached_image_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "cached_text_tokens": {
+            "type": "integer"
+          },
+          "cached_image_tokens": {
+            "type": "integer"
+          }
+        }
+      },
+      "ImageGenToolUsage": {
+        "title": "Image generation tool usage",
+        "required": [
+          "input_tokens",
+          "total_tokens",
+          "output_tokens",
+          "input_tokens_details"
+        ],
+        "type": "object",
+        "properties": {
+          "input_tokens": {
+            "type": "integer",
+            "description": "The number of tokens (images and text) in the input prompt."
+          },
+          "total_tokens": {
+            "type": "integer",
+            "description": "The total number of tokens (images and text) used for the image generation."
+          },
+          "output_tokens": {
+            "type": "integer",
+            "description": "The number of output tokens generated by the model."
+          },
+          "output_tokens_details": {
+            "description": "The output token details for the image generation.",
+            "$ref": "#/components/schemas/ImageGenOutputTokensDetails"
+          },
+          "input_tokens_details": {
+            "description": "The input tokens detailed information for the image generation.",
+            "$ref": "#/components/schemas/ImageGenInputUsageDetails"
+          },
+          "cached_tokens": {
+            "type": "integer"
+          },
+          "cached_tokens_details": {
+            "$ref": "#/components/schemas/CachedUsageDetails"
+          }
+        },
+        "description": "Token usage for image generation tool calls in a response."
+      },
+      "WebSearchUsage": {
+        "title": "Web search usage",
+        "required": [
+          "num_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "num_requests": {
+            "type": "integer",
+            "description": "The number of billable web search requests issued."
+          }
+        },
+        "description": "Usage details for web search requests that ran while generating the response."
+      },
+      "ResponseToolUsage": {
+        "title": "Response tool usage",
+        "required": [
+          "image_gen",
+          "web_search"
+        ],
+        "type": "object",
+        "properties": {
+          "image_gen": {
+            "description": "Aggregated usage statistics for image generation tool calls.",
+            "$ref": "#/components/schemas/ImageGenToolUsage"
+          },
+          "web_search": {
+            "description": "Aggregated billable usage statistics for web search tool calls.",
+            "$ref": "#/components/schemas/WebSearchUsage"
+          }
+        },
+        "description": "Aggregated usage details for billable tools that ran while generating the response."
+      },
       "PromptCacheOptions": {
         "title": "Prompt cache options",
         "required": [
@@ -71836,6 +72680,356 @@
               "string"
             ],
             "description": "A generated explanation, temporarily available for eligible zero data retention alerts. Omitted when unavailable."
+          }
+        }
+      },
+      "OrderEnum": {
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "OrderEnum",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "asc",
+              "name": "Asc"
+            },
+            {
+              "value": "desc",
+              "name": "Desc"
+            }
+          ]
+        }
+      },
+      "ExternalKeyPurpose": {
+        "enum": [
+          "ekm",
+          "psp_decryption"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ExternalKeyPurpose",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ekm",
+              "name": "Ekm"
+            },
+            {
+              "value": "psp_decryption",
+              "name": "PspDecryption"
+            }
+          ]
+        }
+      },
+      "ExternalKeyResource": {
+        "required": [
+          "object",
+          "id",
+          "type",
+          "name",
+          "api_project_ids",
+          "workspace_id",
+          "created_at"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "purpose": {
+            "$ref": "#/components/schemas/ExternalKeyPurpose"
+          },
+          "name": {
+            "type": "string"
+          },
+          "api_project_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "workspace_id": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "integer"
+          },
+          "role_arn": {
+            "type": "string"
+          },
+          "external_id": {
+            "type": "string"
+          },
+          "kms_arn": {
+            "type": "string"
+          },
+          "workload_identity_project_number": {
+            "type": "string"
+          },
+          "workload_identity_pool_id": {
+            "type": "string"
+          },
+          "workload_identity_provider_id": {
+            "type": "string"
+          },
+          "audience": {
+            "type": "string"
+          },
+          "kms_project_id": {
+            "type": "string"
+          },
+          "kms_key_ring_name": {
+            "type": "string"
+          },
+          "kms_key_name": {
+            "type": "string"
+          },
+          "kms_key_location": {
+            "type": "string"
+          },
+          "kms_key_version": {
+            "type": "string"
+          },
+          "tenant_id": {
+            "type": "string"
+          },
+          "vault_uri": {
+            "type": "string"
+          },
+          "key_name": {
+            "type": "string"
+          },
+          "key_version": {
+            "type": "string"
+          }
+        }
+      },
+      "ListExternalKeysResource": {
+        "required": [
+          "object",
+          "data",
+          "first_id",
+          "last_id",
+          "has_more"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/ListObject"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalKeyResource"
+            }
+          },
+          "first_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "last_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "has_more": {
+            "type": "boolean"
+          }
+        }
+      },
+      "AwsExternalKeyParams": {
+        "required": [
+          "name",
+          "type",
+          "role_arn",
+          "kms_arn",
+          "external_id"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "A friendly name to identify this config"
+          },
+          "type": {
+            "$ref": "#/components/schemas/AwsType"
+          },
+          "role_arn": {
+            "pattern": "^arn:aws:iam::\\d{12}:role/.\u002B$",
+            "type": "string",
+            "description": "The Role ARN that OpenAI will assume to call your KMS"
+          },
+          "kms_arn": {
+            "type": "string",
+            "description": "The Key Management System ARN for the master key you manage"
+          },
+          "external_id": {
+            "type": "string",
+            "description": "The ExternalID that OpenAI will pass in the AssumeRole call for the customer\u0027s AWS account. This must be the OpenAI organization ID or an API project ID that belongs to the organization."
+          },
+          "purpose": {
+            "$ref": "#/components/schemas/ExternalKeyPurpose"
+          }
+        }
+      },
+      "GcpExternalKeyParams": {
+        "required": [
+          "name",
+          "type",
+          "workload_identity_project_number",
+          "workload_identity_pool_id",
+          "workload_identity_provider_id",
+          "kms_project_id",
+          "kms_key_ring_name",
+          "kms_key_name",
+          "kms_key_location",
+          "audience"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "A friendly name to identify this config"
+          },
+          "type": {
+            "$ref": "#/components/schemas/GcpType"
+          },
+          "workload_identity_project_number": {
+            "pattern": "^[0-9]{1,19}$",
+            "type": "string",
+            "description": "The numeric GCP project number where you registered OpenAI\u0027s workload identity"
+          },
+          "workload_identity_pool_id": {
+            "type": "string",
+            "description": "The pool containing the Workload Identity provider that you registered for OpenAI"
+          },
+          "workload_identity_provider_id": {
+            "type": "string",
+            "description": "The Workload Identity provider that you registered for OpenAI"
+          },
+          "kms_project_id": {
+            "type": "string",
+            "description": "The string GCP project name where your KMS resides"
+          },
+          "kms_key_ring_name": {
+            "type": "string",
+            "description": "The Key Management System key ring for the master key you manage"
+          },
+          "kms_key_name": {
+            "type": "string",
+            "description": "The name of the Key Management System master key you manage"
+          },
+          "kms_key_location": {
+            "type": "string",
+            "description": "The region where your Key Management System master key is located"
+          },
+          "audience": {
+            "type": "string",
+            "description": "The aud field in the identity token OpenAI will pass in the call to the customer\u0027s GCP STS. This must be the OpenAI organization ID or an API project ID that belongs to the organization."
+          },
+          "purpose": {
+            "$ref": "#/components/schemas/ExternalKeyPurpose"
+          },
+          "kms_key_version": {
+            "pattern": "^[1-9][0-9]*$",
+            "type": "string",
+            "description": "An exact CryptoKeyVersion number. Required for PSP decryption; not accepted for EKM."
+          }
+        }
+      },
+      "AzureExternalKeyParams": {
+        "required": [
+          "name",
+          "type",
+          "tenant_id",
+          "vault_uri",
+          "key_name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "A friendly name to identify this config"
+          },
+          "type": {
+            "$ref": "#/components/schemas/AzureType"
+          },
+          "tenant_id": {
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+            "type": "string",
+            "description": "Your Azure tenant UUID"
+          },
+          "vault_uri": {
+            "pattern": "^https://.\u002B\\.vault\\.azure\\.net/?$",
+            "type": "string",
+            "description": "The URI of the Azure vault containing the master key you manage"
+          },
+          "key_name": {
+            "maxLength": 127,
+            "pattern": "^org-[0-9a-zA-Z-]*--[0-9a-zA-Z-]*$",
+            "type": "string",
+            "description": "The name of the Azure Key Vault master key that you manage"
+          },
+          "purpose": {
+            "$ref": "#/components/schemas/ExternalKeyPurpose"
+          },
+          "key_version": {
+            "pattern": "^[0-9a-fA-F]{32}$",
+            "type": "string",
+            "description": "An exact Azure Key Vault key version. Required for PSP decryption; not accepted for EKM."
+          }
+        }
+      },
+      "V1OrganizationExternalKeysPostRequest": {
+        "required": [
+          "type"
+        ],
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AwsExternalKeyParams"
+          },
+          {
+            "$ref": "#/components/schemas/GcpExternalKeyParams"
+          },
+          {
+            "$ref": "#/components/schemas/AzureExternalKeyParams"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "AwsExternalKeyParams": "#/components/schemas/AwsExternalKeyParams",
+            "GcpExternalKeyParams": "#/components/schemas/GcpExternalKeyParams",
+            "AzureExternalKeyParams": "#/components/schemas/AzureExternalKeyParams"
+          }
+        }
+      },
+      "ValidateExternalKeyResource": {
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
           }
         }
       },
@@ -72900,27 +74094,6 @@
             },
             "description": "The provenance results that apply to the uploaded file. Image results include C2PA and SynthID; audio results include SynthID."
           }
-        }
-      },
-      "OrderEnum": {
-        "enum": [
-          "asc",
-          "desc"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "OrderEnum",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "asc",
-              "name": "Asc"
-            },
-            {
-              "value": "desc",
-              "name": "Desc"
-            }
-          ]
         }
       },
       "VideoModel": {
@@ -77416,6 +78589,20 @@
         "additionalProperties": false,
         "description": "The resolved configuration for creating and coordinating subagents."
       },
+      "CompactionResource": {
+        "required": [
+          "async"
+        ],
+        "type": "object",
+        "properties": {
+          "async": {
+            "type": "boolean",
+            "description": "Whether context is compacted in the background. Defaults to true."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The effective settings for compacting the agent\u0027s context."
+      },
       "AutomationAgentConfigResource": {
         "required": [
           "model",
@@ -77465,6 +78652,10 @@
           "multi_agent": {
             "description": "The configuration for creating and coordinating subagents.",
             "$ref": "#/components/schemas/MultiAgentConfigResource"
+          },
+          "compaction": {
+            "description": "The effective context compaction settings.",
+            "$ref": "#/components/schemas/CompactionResource"
           }
         },
         "additionalProperties": false,
@@ -78803,6 +79994,20 @@
         "additionalProperties": false,
         "description": "Explicit configuration for creating and coordinating subagents."
       },
+      "CompactionParam": {
+        "type": "object",
+        "properties": {
+          "async": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether to compact context in the background. Omission or null defaults to true. Set to false to use blocking compaction. Background compaction may increase token usage."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Settings for compacting the agent\u0027s context."
+      },
       "AgentToolConfigParamFunction": {
         "required": [
           "type",
@@ -79328,6 +80533,9 @@
           },
           "multi_agent": {
             "$ref": "#/components/schemas/SessionAgentConfigParamMultiAgent"
+          },
+          "compaction": {
+            "$ref": "#/components/schemas/SessionAgentConfigParamCompaction"
           },
           "tools": {
             "maxItems": 16384,
@@ -83848,6 +85056,10 @@
           "multi_agent": {
             "description": "The resolved configuration for creating and coordinating subagents.",
             "$ref": "#/components/schemas/MultiAgentConfigResource"
+          },
+          "compaction": {
+            "description": "The effective context compaction settings.",
+            "$ref": "#/components/schemas/CompactionResource"
           }
         },
         "additionalProperties": false,
@@ -84311,6 +85523,9 @@
           },
           "multi_agent": {
             "$ref": "#/components/schemas/CreateAgentParamsMultiAgent"
+          },
+          "compaction": {
+            "$ref": "#/components/schemas/CreateAgentParamsCompaction"
           }
         },
         "additionalProperties": false,
@@ -84345,6 +85560,9 @@
           },
           "multi_agent": {
             "$ref": "#/components/schemas/UpdateAgentParamsMultiAgent"
+          },
+          "compaction": {
+            "$ref": "#/components/schemas/UpdateAgentParamsCompaction"
           },
           "metadata": {
             "$ref": "#/components/schemas/UpdateAgentParamsMetadataProperty"
@@ -85073,6 +86291,10 @@
           "multi_agent": {
             "description": "Configuration for creating and coordinating subagents.",
             "$ref": "#/components/schemas/MultiAgentConfigResource"
+          },
+          "compaction": {
+            "description": "The effective context compaction settings.",
+            "$ref": "#/components/schemas/CompactionResource"
           }
         },
         "additionalProperties": false,
@@ -92740,7 +93962,7 @@
           }
         }
       },
-      "LiveTransportDtmfSend": {
+      "LiveTransportDtmfSent": {
         "required": [
           "type",
           "event_id",
@@ -92749,7 +93971,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/TransportDtmfSendType"
+            "$ref": "#/components/schemas/TransportDtmfSentType"
           },
           "event_id": {
             "type": "string"
@@ -92767,13 +93989,13 @@
         },
         "description": "A SIP DTMF keypress successfully sent to the SIP trunk. Delivered only to sideband observers; this is not a client command.",
         "example": {
-          "type": "transport.dtmf.send",
+          "type": "transport.dtmf.sent",
           "event_id": "event_dtmf_2",
           "event": "#"
         },
         "x-oaiMeta": {
           "example": {
-            "type": "transport.dtmf.send",
+            "type": "transport.dtmf.sent",
             "event_id": "event_dtmf_2",
             "event": "#"
           }
@@ -92993,7 +94215,7 @@
             "$ref": "#/components/schemas/LiveTransportDtmfReceived"
           },
           {
-            "$ref": "#/components/schemas/LiveTransportDtmfSend"
+            "$ref": "#/components/schemas/LiveTransportDtmfSent"
           },
           {
             "$ref": "#/components/schemas/LiveTransportRinging"
@@ -93037,10 +94259,50 @@
             "LiveErrorEvent": "#/components/schemas/LiveErrorEvent",
             "LiveInfoEvent": "#/components/schemas/LiveInfoEvent",
             "LiveTransportDtmfReceived": "#/components/schemas/LiveTransportDtmfReceived",
-            "LiveTransportDtmfSend": "#/components/schemas/LiveTransportDtmfSend",
+            "LiveTransportDtmfSent": "#/components/schemas/LiveTransportDtmfSent",
             "LiveTransportRinging": "#/components/schemas/LiveTransportRinging",
             "LiveTransportAnswered": "#/components/schemas/LiveTransportAnswered",
             "LiveTransportFailed": "#/components/schemas/LiveTransportFailed"
+          }
+        }
+      },
+      "LiveTransportDtmfSendParam": {
+        "required": [
+          "type",
+          "event"
+        ],
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "maxLength": 512,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional client identifier for correlating this command with a server event\u0027s client_event_id or error.client_event_id."
+          },
+          "type": {
+            "$ref": "#/components/schemas/TransportDtmfSendType"
+          },
+          "event": {
+            "maxLength": 1,
+            "minLength": 1,
+            "pattern": "^[0-9A-D*#]$",
+            "type": "string",
+            "description": "The DTMF key to send: one of \u00600\u0060\u2013\u00609\u0060, \u0060A\u0060\u2013\u0060D\u0060, \u0060*\u0060, or \u0060#\u0060."
+          }
+        },
+        "description": "Send one DTMF keypress to the SIP trunk through a Live sideband connection. This command is supported only for SIP calls. A successful send emits \u0060transport.dtmf.sent\u0060 on sideband. If you provide \u0060event_id\u0060, the success notification includes it as \u0060client_event_id\u0060; a failure includes it as \u0060error.client_event_id\u0060. Send separate events for multiple keypresses.",
+        "example": {
+          "type": "transport.dtmf.send",
+          "event_id": "evt_dtmf_001",
+          "event": "#"
+        },
+        "x-oaiMeta": {
+          "example": {
+            "type": "transport.dtmf.send",
+            "event_id": "evt_dtmf_001",
+            "event": "#"
           }
         }
       },
@@ -94545,7 +95807,7 @@
           "low"
         ],
         "type": "string",
-        "description": "Control how much effort the model will exert to match the style and features, especially facial features, of input images. Supports \u0060high\u0060 and \u0060low\u0060 on \u0060gpt-image-1\u0060 and \u0060gpt-image-1.5\u0060; \u0060gpt-image-1-mini\u0060 supports only \u0060low\u0060. For \u0060gpt-image-2\u0060, omit this parameter. Defaults to \u0060low\u0060 on supported models.",
+        "description": "Control how much effort the model will exert to match the style and features, especially facial features, of input images. Supports \u0060high\u0060 and \u0060low\u0060 on \u0060gpt-image-1.5\u0060; \u0060gpt-image-1-mini\u0060 supports only \u0060low\u0060. For \u0060gpt-image-2\u0060, omit this parameter. Defaults to \u0060low\u0060 on supported models.",
         "x-ms-enum": {
           "name": "BetaInputFidelity",
           "modelAsString": false,
@@ -101787,6 +103049,10 @@
           "usage": {
             "$ref": "#/components/schemas/BetaResponseAllOf3Usage"
           },
+          "tool_usage": {
+            "description": "Usage reported by hosted tools, separate from base model \u0060usage\u0060. The field\ncan be omitted when tool usage is unavailable. When present, tool families\nwith no recorded usage have zero counts.\n\n\u0060image_gen\u0060 sums available token counts across image generation calls.\nCalls with missing or incomplete usage records may be skipped. Output\ntoken details and cached input counts can be omitted. An omitted cache\ncount means cache usage is unknown.\n\n\u0060web_search.num_requests\u0060 counts billable searches. Discounted searches\nand actions such as opening a page are excluded. Use billing records to\nreconcile final charges.\n",
+            "$ref": "#/components/schemas/BetaResponseToolUsage"
+          },
           "prompt_cache_options": {
             "description": "The prompt-caching options that were applied to the response. Supported for \u0060gpt-5.6\u0060 and later models.",
             "$ref": "#/components/schemas/BetaPromptCacheOptions"
@@ -101871,6 +103137,24 @@
               "reasoning_tokens": 0
             },
             "total_tokens": 380
+          },
+          "tool_usage": {
+            "image_gen": {
+              "input_tokens": 0,
+              "input_tokens_details": {
+                "text_tokens": 0,
+                "image_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "text_tokens": 0,
+                "image_tokens": 0
+              },
+              "total_tokens": 0
+            },
+            "web_search": {
+              "num_requests": 0
+            }
           },
           "user": null,
           "metadata": {}
@@ -102158,6 +103442,131 @@
           }
         },
         "description": "The prompt-caching options that were applied to the response. Supported for \u0060gpt-5.6\u0060 and later models."
+      },
+      "BetaResponseToolUsage": {
+        "title": "Response tool usage",
+        "required": [
+          "image_gen",
+          "web_search"
+        ],
+        "type": "object",
+        "properties": {
+          "image_gen": {
+            "description": "Aggregated usage statistics for image generation tool calls.",
+            "$ref": "#/components/schemas/BetaImageGenToolUsage"
+          },
+          "web_search": {
+            "description": "Aggregated billable usage statistics for web search tool calls.",
+            "$ref": "#/components/schemas/BetaWebSearchUsage"
+          }
+        },
+        "description": "Aggregated usage details for billable tools that ran while generating the response."
+      },
+      "BetaWebSearchUsage": {
+        "title": "Web search usage",
+        "required": [
+          "num_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "num_requests": {
+            "type": "integer",
+            "description": "The number of billable web search requests issued."
+          }
+        },
+        "description": "Usage details for web search requests that ran while generating the response."
+      },
+      "BetaImageGenToolUsage": {
+        "title": "Image generation tool usage",
+        "required": [
+          "input_tokens",
+          "total_tokens",
+          "output_tokens",
+          "input_tokens_details"
+        ],
+        "type": "object",
+        "properties": {
+          "input_tokens": {
+            "type": "integer",
+            "description": "The number of tokens (images and text) in the input prompt."
+          },
+          "total_tokens": {
+            "type": "integer",
+            "description": "The total number of tokens (images and text) used for the image generation."
+          },
+          "output_tokens": {
+            "type": "integer",
+            "description": "The number of output tokens generated by the model."
+          },
+          "output_tokens_details": {
+            "description": "The output token details for the image generation.",
+            "$ref": "#/components/schemas/BetaImageGenOutputTokensDetails"
+          },
+          "input_tokens_details": {
+            "description": "The input tokens detailed information for the image generation.",
+            "$ref": "#/components/schemas/BetaImageGenInputUsageDetails"
+          },
+          "cached_tokens": {
+            "type": "integer"
+          },
+          "cached_tokens_details": {
+            "$ref": "#/components/schemas/BetaCachedUsageDetails"
+          }
+        },
+        "description": "Token usage for image generation tool calls in a response."
+      },
+      "BetaCachedUsageDetails": {
+        "required": [
+          "cached_text_tokens",
+          "cached_image_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "cached_text_tokens": {
+            "type": "integer"
+          },
+          "cached_image_tokens": {
+            "type": "integer"
+          }
+        }
+      },
+      "BetaImageGenInputUsageDetails": {
+        "title": "Input usage details",
+        "required": [
+          "text_tokens",
+          "image_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "text_tokens": {
+            "type": "integer",
+            "description": "The number of text tokens in the input prompt."
+          },
+          "image_tokens": {
+            "type": "integer",
+            "description": "The number of image tokens in the input prompt."
+          }
+        },
+        "description": "The input tokens detailed information for the image generation."
+      },
+      "BetaImageGenOutputTokensDetails": {
+        "title": "Image generation output token details",
+        "required": [
+          "image_tokens",
+          "text_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "image_tokens": {
+            "type": "integer",
+            "description": "The number of image output tokens generated by the model."
+          },
+          "text_tokens": {
+            "type": "integer",
+            "description": "The number of text output tokens generated by the model."
+          }
+        },
+        "description": "The output token details for the image generation."
       },
       "BetaOutputItem": {
         "required": [
@@ -110221,6 +111630,68 @@
         ],
         "description": "Controls which conversation the response is added to. Currently supports\n\u0060auto\u0060 and \u0060none\u0060, with \u0060auto\u0060 as the default value. The \u0060auto\u0060 value\nmeans that the contents of the response will be added to the default\nconversation. Set this to \u0060none\u0060 to create an out-of-band response which\nwill not add items to default conversation.\n"
       },
+      "RealtimeResponseInputMessageAssistantAllOf2": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/AssistantRole"
+          },
+          "content": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RealtimeResponseInputMessageAssistantAllOf2ContentItem"
+            }
+          }
+        }
+      },
+      "RealtimeResponseInputMessageDeveloperAllOf2": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/DeveloperRole"
+          },
+          "content": {
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RealtimeResponseInputText"
+            }
+          }
+        }
+      },
+      "RealtimeResponseInputMessageSystemAllOf2": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/SystemRole"
+          },
+          "content": {
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RealtimeResponseInputText"
+            }
+          }
+        }
+      },
+      "RealtimeResponseInputMessageUserAllOf2": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/UserRole"
+          },
+          "content": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RealtimeResponseInputMessageUserAllOf2ContentItem"
+            }
+          }
+        }
+      },
       "RealtimeServerEventConversationItemInputAudioTranscriptionCompletedUsage": {
         "type": "object",
         "oneOf": [
@@ -110705,6 +112176,10 @@
           },
           "usage": {
             "$ref": "#/components/schemas/ResponseValueAllOf3Usage"
+          },
+          "tool_usage": {
+            "description": "Usage reported by hosted tools, separate from base model \u0060usage\u0060. The field\ncan be omitted when tool usage is unavailable. When present, tool families\nwith no recorded usage have zero counts.\n\n\u0060image_gen\u0060 sums available token counts across image generation calls.\nCalls with missing or incomplete usage records may be skipped. Output\ntoken details and cached input counts can be omitted. An omitted cache\ncount means cache usage is unknown.\n\n\u0060web_search.num_requests\u0060 counts billable searches. Discounted searches\nand actions such as opening a page are excluded. Use billing records to\nreconcile final charges.\n",
+            "$ref": "#/components/schemas/ResponseToolUsage"
           },
           "prompt_cache_options": {
             "description": "The prompt-caching options that were applied to the response. Supported for \u0060gpt-5.6\u0060 and later models.",
@@ -114932,6 +116407,17 @@
         ],
         "description": "Configuration for creating and coordinating subagents."
       },
+      "SessionAgentConfigParamCompaction": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/CompactionParam"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Context compaction settings. Omit to keep the current settings. A supplied object replaces the settings; null or an empty object enables background compaction."
+      },
       "EnvironmentParamOpenaiHostedPackages": {
         "anyOf": [
           {
@@ -115203,6 +116689,17 @@
         ],
         "description": "Configuration for creating and coordinating subagents. Subagent tools are disabled by default."
       },
+      "CreateAgentParamsCompaction": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/CompactionParam"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Context compaction settings. Omission or null enables background compaction."
+      },
       "UpdateAgentParamsReasoning": {
         "anyOf": [
           {
@@ -115246,6 +116743,17 @@
           }
         ],
         "description": "Configuration for creating and coordinating subagents."
+      },
+      "UpdateAgentParamsCompaction": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/CompactionParam"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Context compaction settings. Omit to keep the current settings. A supplied object replaces the settings; null or an empty object enables background compaction."
       },
       "CreateEnvironmentTemplateParamsPackages": {
         "anyOf": [
@@ -117950,6 +119458,10 @@
           "usage": {
             "$ref": "#/components/schemas/BetaResponseAllOf3Usage"
           },
+          "tool_usage": {
+            "description": "Usage reported by hosted tools, separate from base model \u0060usage\u0060. The field\ncan be omitted when tool usage is unavailable. When present, tool families\nwith no recorded usage have zero counts.\n\n\u0060image_gen\u0060 sums available token counts across image generation calls.\nCalls with missing or incomplete usage records may be skipped. Output\ntoken details and cached input counts can be omitted. An omitted cache\ncount means cache usage is unknown.\n\n\u0060web_search.num_requests\u0060 counts billable searches. Discounted searches\nand actions such as opening a page are excluded. Use billing records to\nreconcile final charges.\n",
+            "$ref": "#/components/schemas/BetaResponseToolUsage"
+          },
           "prompt_cache_options": {
             "description": "The prompt-caching options that were applied to the response. Supported for \u0060gpt-5.6\u0060 and later models.",
             "$ref": "#/components/schemas/BetaPromptCacheOptions"
@@ -119868,6 +121380,35 @@
         },
         "additionalProperties": false,
         "description": "Specify which of the MCP server\u0027s tools require approval. Can be\n\u0060always\u0060, \u0060never\u0060, or a filter object associated with tools\nthat require approval.\n"
+      },
+      "RealtimeResponseInputMessageUserAllOf2ContentItem": {
+        "required": [
+          "type"
+        ],
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/RealtimeResponseInputText"
+          },
+          {
+            "$ref": "#/components/schemas/RealtimeResponseInputAudio"
+          },
+          {
+            "$ref": "#/components/schemas/RealtimeResponseInputImage"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "input_text": "#/components/schemas/RealtimeResponseInputText",
+            "input_audio": "#/components/schemas/RealtimeResponseInputAudio",
+            "input_image": "#/components/schemas/RealtimeResponseInputImage"
+          }
+        }
       },
       "RealtimeSessionTracingTracingConfiguration": {
         "title": "Tracing Configuration",
@@ -126550,6 +128091,24 @@
             "$ref": "#/components/schemas/CreateThreadRequestToolResourcesFileSearchVectorStoresItemMetadata"
           }
         }
+      },
+      "RealtimeResponseInputMessageAssistantAllOf2ContentItem": {
+        "title": "Realtime response input assistant text",
+        "required": [
+          "type",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/OutputTextType"
+          },
+          "text": {
+            "maxLength": 256000,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
       },
       "RealtimeTruncationRetentionRatioTruncationTokenLimits": {
         "type": "object",
@@ -142883,6 +144442,28 @@
           ]
         }
       },
+      "RealtimeConnectDocumentationParamsIntent": {
+        "enum": [
+          "realtime",
+          "transcription"
+        ],
+        "type": "string",
+        "description": "Selects the session type. Set \u0060transcription\u0060 and omit \u0060model\u0060 for a transcription session. If omitted, the session type from a client secret applies when present; otherwise the intent is \u0060realtime\u0060.\n",
+        "x-ms-enum": {
+          "name": "RealtimeConnectDocumentationParamsIntent",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "realtime",
+              "name": "Realtime"
+            },
+            {
+              "value": "transcription",
+              "name": "Transcription"
+            }
+          ]
+        }
+      },
       "RealtimeItemObject": {
         "enum": [
           "realtime.item"
@@ -143243,6 +144824,146 @@
             {
               "value": "audio",
               "name": "Audio"
+            }
+          ]
+        }
+      },
+      "RealtimeResponseInputFunctionCallStatus": {
+        "enum": [
+          "completed",
+          "incomplete",
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "x-ms-enum": {
+          "name": "RealtimeResponseInputFunctionCallStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "completed",
+              "name": "Completed"
+            },
+            {
+              "value": "incomplete",
+              "name": "Incomplete"
+            }
+          ]
+        }
+      },
+      "RealtimeResponseInputFunctionCallOutputStatus": {
+        "enum": [
+          "completed",
+          "incomplete",
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "x-ms-enum": {
+          "name": "RealtimeResponseInputFunctionCallOutputStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "completed",
+              "name": "Completed"
+            },
+            {
+              "value": "incomplete",
+              "name": "Incomplete"
+            }
+          ]
+        }
+      },
+      "RealtimeResponseInputImageDetail": {
+        "enum": [
+          "low",
+          "high",
+          "auto",
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "x-ms-enum": {
+          "name": "RealtimeResponseInputImageDetail",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            },
+            {
+              "value": "auto",
+              "name": "Auto"
+            }
+          ]
+        }
+      },
+      "RealtimeResponseInputMessageFieldsStatus": {
+        "enum": [
+          "completed",
+          "incomplete",
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "description": "Optional input status. Omission or null defaults to completed.",
+        "x-ms-enum": {
+          "name": "RealtimeResponseInputMessageFieldsStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "completed",
+              "name": "Completed"
+            },
+            {
+              "value": "incomplete",
+              "name": "Incomplete"
+            }
+          ]
+        }
+      },
+      "InputTextType": {
+        "enum": [
+          "input_text"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "InputTextType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "input_text",
+              "name": "InputText"
+            }
+          ]
+        }
+      },
+      "ItemReferenceType": {
+        "enum": [
+          "item_reference"
+        ],
+        "type": "string",
+        "description": "The type of this item. Always \u0060item_reference\u0060.",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "ItemReferenceType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "item_reference",
+              "name": "ItemReference"
             }
           ]
         }
@@ -147240,24 +148961,6 @@
             {
               "value": "12h",
               "name": "Value12H"
-            }
-          ]
-        }
-      },
-      "InputTextType": {
-        "enum": [
-          "input_text"
-        ],
-        "type": "string",
-        "description": "The type of the input item. Always \u0060input_text\u0060.",
-        "x-stainless-const": true,
-        "x-ms-enum": {
-          "name": "InputTextType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "input_text",
-              "name": "InputText"
             }
           ]
         }
@@ -151708,19 +153411,19 @@
           ]
         }
       },
-      "TransportDtmfSendType": {
+      "TransportDtmfSentType": {
         "enum": [
-          "transport.dtmf.send"
+          "transport.dtmf.sent"
         ],
         "type": "string",
         "x-stainless-const": true,
         "x-ms-enum": {
-          "name": "TransportDtmfSendType",
+          "name": "TransportDtmfSentType",
           "modelAsString": false,
           "values": [
             {
-              "value": "transport.dtmf.send",
-              "name": "TransportDtmfSend"
+              "value": "transport.dtmf.sent",
+              "name": "TransportDtmfSent"
             }
           ]
         }
@@ -151789,6 +153492,23 @@
             {
               "value": "transport.failed",
               "name": "TransportFailed"
+            }
+          ]
+        }
+      },
+      "TransportDtmfSendType": {
+        "enum": [
+          "transport.dtmf.send"
+        ],
+        "type": "string",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "TransportDtmfSendType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "transport.dtmf.send",
+              "name": "TransportDtmfSend"
             }
           ]
         }
@@ -154027,6 +155747,18 @@
         "x-openai-enum-deprecations": {
           "gpt-4o-mini-transcribe-2025-12-15": {
             "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "whisper-1": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-transcribe": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-mini-transcribe": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-transcribe-diarize": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           }
         },
         "x-ms-enum": {
@@ -154082,6 +155814,18 @@
         "type": "string",
         "x-openai-enum-deprecations": {
           "gpt-4o-mini-transcribe-2025-12-15": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "whisper-1": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-transcribe": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-mini-transcribe": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-transcribe-diarize": {
             "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           }
         },
@@ -154656,6 +156400,15 @@
         "x-openai-enum-deprecations": {
           "gpt-4o-mini-tts": {
             "message": "Announced shutdown date: 2027-01-06. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "tts-1": {
+            "message": "Announced shutdown date: 2027-01-06. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "tts-1-hd": {
+            "message": "Announced shutdown date: 2027-01-06. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-mini-tts-2025-12-15": {
+            "message": "Announced shutdown date: 2027-01-06. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           }
         },
         "x-ms-enum": {
@@ -154757,6 +156510,15 @@
             "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           },
           "gpt-5-nano": {
+            "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5-2025-08-07": {
+            "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5-mini-2025-08-07": {
+            "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-5-nano-2025-08-07": {
             "message": "Announced shutdown date: 2026-12-11. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           }
         },
@@ -154931,6 +156693,18 @@
         "type": "string",
         "x-openai-enum-deprecations": {
           "gpt-4o-mini-transcribe-2025-12-15": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "whisper-1": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-transcribe": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-mini-transcribe": {
+            "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-4o-transcribe-diarize": {
             "message": "Announced shutdown date: 2027-02-26. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           }
         },
@@ -155888,6 +157662,15 @@
           },
           "gpt-audio-mini-2025-12-15": {
             "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-realtime": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-realtime-mini": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-audio-mini": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           }
         },
         "x-ms-enum": {
@@ -156062,6 +157845,15 @@
             "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           },
           "gpt-audio-mini-2025-12-15": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-realtime": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-realtime-mini": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-audio-mini": {
             "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           }
         },
@@ -156250,6 +158042,15 @@
             "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           },
           "gpt-audio-mini-2025-12-15": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-realtime": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-realtime-mini": {
+            "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
+          },
+          "gpt-audio-mini": {
             "message": "Announced shutdown date: 2027-01-20. See https://developers.openai.com/api/docs/deprecations for details and recommended replacements."
           }
         },
@@ -157417,23 +159218,6 @@
             {
               "value": "template",
               "name": "Template"
-            }
-          ]
-        }
-      },
-      "ItemReferenceType": {
-        "enum": [
-          "item_reference"
-        ],
-        "type": "string",
-        "description": "The type of input messages. Always \u0060item_reference\u0060.",
-        "x-ms-enum": {
-          "name": "ItemReferenceType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "item_reference",
-              "name": "ItemReference"
             }
           ]
         }

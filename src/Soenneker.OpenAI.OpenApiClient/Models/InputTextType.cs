@@ -3,9 +3,10 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The type of the input item. Always `input_text`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public enum InputTextType
+    #pragma warning restore CS1591
     {
         [EnumMember(Value = "input_text")]
         #pragma warning disable CS1591

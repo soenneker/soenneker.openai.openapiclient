@@ -23,7 +23,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Text { get; set; }
 #endif
-        /// <summary>The type of the input item. Always `input_text`.</summary>
+        /// <summary>The type property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UserMessageInputText"/> and sets the default values.
