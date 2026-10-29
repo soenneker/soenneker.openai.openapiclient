@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// A configuration update that applies to subsequent responses until it isreplaced by another configuration update.
+    /// A configuration update for subsequent responses. Each setting stays in effectuntil a later update replaces that setting.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ResponseConfigurationUpdate : IAdditionalDataHolder, IParsable
@@ -30,6 +30,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateReasoning Reasoning { get; set; }
+#endif
+        /// <summary>The text output configuration for subsequent responses.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateText? Text { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateText Text { get; set; }
 #endif
         /// <summary>The item type. Always `configuration_update`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ConfigurationUpdateType? Type { get; set; }
@@ -60,6 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateReasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateReasoning.CreateFromDiscriminatorValue); } },
+                { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateText>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateText.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ConfigurationUpdateType>(); } },
             };
         }
@@ -72,6 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateReasoning>("reasoning", Reasoning);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateText>("text", Text);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ConfigurationUpdateType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

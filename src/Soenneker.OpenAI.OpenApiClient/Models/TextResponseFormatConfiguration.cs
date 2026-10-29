@@ -47,15 +47,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatConfiguration();
-            if("json_object".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ResponseFormatJsonObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ResponseFormatJsonObject = new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatJsonObject();
             }
-            else if("text".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ResponseFormatText".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ResponseFormatText = new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseFormatText();
             }
-            else if("json_schema".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("TextResponseFormatJsonSchema".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.TextResponseFormatJsonSchema = new global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatJsonSchema();
             }

@@ -56685,9 +56685,12 @@
           },
           "reasoning": {
             "$ref": "#/components/schemas/ResponseConfigurationUpdateReasoning"
+          },
+          "text": {
+            "$ref": "#/components/schemas/ResponseConfigurationUpdateText"
           }
         },
-        "description": "A configuration update that applies to subsequent responses until it is\nreplaced by another configuration update.\n"
+        "description": "A configuration update for subsequent responses. Each setting stays in effect\nuntil a later update replaces that setting.\n"
       },
       "ResponseConfigurationUpdateItemParam": {
         "required": [
@@ -56708,9 +56711,12 @@
           },
           "reasoning": {
             "$ref": "#/components/schemas/ResponseConfigurationUpdateItemParamReasoning"
+          },
+          "text": {
+            "$ref": "#/components/schemas/ResponseConfigurationUpdateItemParamText"
           }
         },
-        "description": "An update to the conversation\u0027s response configuration. The configuration\nremains in effect for subsequent responses until it is replaced by another\nconfiguration update.\n"
+        "description": "An update to the conversation\u0027s response configuration. Supply reasoning,\ntext, or both. Each setting stays in effect until a later update replaces it.\n"
       },
       "ResponseContentPartAddedEvent": {
         "required": [
@@ -61150,6 +61156,9 @@
         "additionalProperties": false
       },
       "TextResponseFormatConfiguration": {
+        "required": [
+          "type"
+        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ResponseFormatText"
@@ -61161,13 +61170,18 @@
             "$ref": "#/components/schemas/ResponseFormatJsonObject"
           }
         ],
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
         "description": "An object specifying the format that the model must output.\n\nConfiguring \u0060{ \u0022type\u0022: \u0022json_schema\u0022 }\u0060 enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs).\n\nThe default format is \u0060{ \u0022type\u0022: \u0022text\u0022 }\u0060 with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to \u0060{ \u0022type\u0022: \u0022json_object\u0022 }\u0060 enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using \u0060json_schema\u0060\nis preferred for models that support it.\n",
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "text": "#/components/schemas/ResponseFormatText",
-            "json_schema": "#/components/schemas/TextResponseFormatJsonSchema",
-            "json_object": "#/components/schemas/ResponseFormatJsonObject"
+            "ResponseFormatText": "#/components/schemas/ResponseFormatText",
+            "TextResponseFormatJsonSchema": "#/components/schemas/TextResponseFormatJsonSchema",
+            "ResponseFormatJsonObject": "#/components/schemas/ResponseFormatJsonObject"
           }
         }
       },
@@ -78603,6 +78617,20 @@
         "additionalProperties": false,
         "description": "The effective settings for compacting the agent\u0027s context."
       },
+      "ExperimentalConfigResource": {
+        "required": [
+          "time_awareness"
+        ],
+        "type": "object",
+        "properties": {
+          "time_awareness": {
+            "type": "boolean",
+            "description": "Whether the model receives periodic current-time reminders."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The effective experimental settings for an agent."
+      },
       "AutomationAgentConfigResource": {
         "required": [
           "model",
@@ -78656,6 +78684,10 @@
           "compaction": {
             "description": "The effective context compaction settings.",
             "$ref": "#/components/schemas/CompactionResource"
+          },
+          "experimental": {
+            "description": "The effective experimental settings for the agent.",
+            "$ref": "#/components/schemas/ExperimentalConfigResource"
           }
         },
         "additionalProperties": false,
@@ -79726,6 +79758,17 @@
         "additionalProperties": false,
         "description": "An API error response."
       },
+      "ExperimentalConfigOverridesParam": {
+        "type": "object",
+        "properties": {
+          "time_awareness": {
+            "type": "boolean",
+            "description": "Whether to give the model periodic current-time reminders. Omit to keep the current setting."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Experimental settings to update. Omitted settings keep their current values."
+      },
       "ReasoningEffortParam": {
         "enum": [
           "none",
@@ -80507,6 +80550,10 @@
       "SessionAgentConfigParam": {
         "type": "object",
         "properties": {
+          "experimental": {
+            "description": "Experimental settings to merge by key. Omitted settings keep their current values.",
+            "$ref": "#/components/schemas/ExperimentalConfigOverridesParam"
+          },
           "model": {
             "maxLength": 1048576,
             "minLength": 0,
@@ -80551,7 +80598,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Agent configuration for a session. Omitted fields inherit from \u0060agent_id\u0060 when supplied. Supplied objects and arrays replace the whole field; null resets nullable fields."
+        "description": "Agent configuration for a session. Omitted fields inherit from \u0060agent_id\u0060 when supplied. Supplied objects and arrays replace the whole field, except experimental settings, which merge by key. Null resets nullable fields."
       },
       "EnvironmentParamNone": {
         "required": [
@@ -85060,6 +85107,10 @@
           "compaction": {
             "description": "The effective context compaction settings.",
             "$ref": "#/components/schemas/CompactionResource"
+          },
+          "experimental": {
+            "description": "The effective experimental settings for the agent.",
+            "$ref": "#/components/schemas/ExperimentalConfigResource"
           }
         },
         "additionalProperties": false,
@@ -85110,6 +85161,18 @@
         },
         "additionalProperties": false,
         "description": "A page of Agents API resources, with IDs for retrieving additional pages."
+      },
+      "ExperimentalConfigParam": {
+        "type": "object",
+        "properties": {
+          "time_awareness": {
+            "type": "boolean",
+            "description": "Whether to give the model periodic current-time reminders. Defaults to false.",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "description": "Experimental agent settings. These features may change."
       },
       "PersistedAgentToolConfigParamFunction": {
         "required": [
@@ -85473,6 +85536,13 @@
         ],
         "type": "object",
         "properties": {
+          "experimental": {
+            "description": "Experimental agent settings. All experimental features default to disabled.",
+            "default": {
+              "time_awareness": false
+            },
+            "$ref": "#/components/schemas/ExperimentalConfigParam"
+          },
           "metadata": {
             "$ref": "#/components/schemas/CreateAgentParamsMetadataProperty"
           },
@@ -85534,6 +85604,10 @@
       "UpdateAgentParams": {
         "type": "object",
         "properties": {
+          "experimental": {
+            "description": "Experimental settings to merge by key. Omitted settings keep their current values.",
+            "$ref": "#/components/schemas/ExperimentalConfigOverridesParam"
+          },
           "model": {
             "maxLength": 1048576,
             "minLength": 0,
@@ -86295,6 +86369,10 @@
           "compaction": {
             "description": "The effective context compaction settings.",
             "$ref": "#/components/schemas/CompactionResource"
+          },
+          "experimental": {
+            "description": "The effective experimental settings for the agent.",
+            "$ref": "#/components/schemas/ExperimentalConfigResource"
           }
         },
         "additionalProperties": false,
@@ -94853,6 +94931,9 @@
         }
       },
       "BetaTextResponseFormatConfiguration": {
+        "required": [
+          "type"
+        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/BetaResponseFormatText"
@@ -94864,13 +94945,18 @@
             "$ref": "#/components/schemas/BetaResponseFormatJsonObject"
           }
         ],
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
         "description": "An object specifying the format that the model must output.\n\nConfiguring \u0060{ \u0022type\u0022: \u0022json_schema\u0022 }\u0060 enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs).\n\nThe default format is \u0060{ \u0022type\u0022: \u0022text\u0022 }\u0060 with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to \u0060{ \u0022type\u0022: \u0022json_object\u0022 }\u0060 enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using \u0060json_schema\u0060\nis preferred for models that support it.\n",
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "text": "#/components/schemas/BetaResponseFormatText",
-            "json_schema": "#/components/schemas/BetaTextResponseFormatJsonSchema",
-            "json_object": "#/components/schemas/BetaResponseFormatJsonObject"
+            "BetaResponseFormatText": "#/components/schemas/BetaResponseFormatText",
+            "BetaTextResponseFormatJsonSchema": "#/components/schemas/BetaTextResponseFormatJsonSchema",
+            "BetaResponseFormatJsonObject": "#/components/schemas/BetaResponseFormatJsonObject"
           }
         }
       },
@@ -98354,9 +98440,12 @@
           },
           "reasoning": {
             "$ref": "#/components/schemas/BetaResponseConfigurationUpdateItemParamReasoning"
+          },
+          "text": {
+            "$ref": "#/components/schemas/BetaResponseConfigurationUpdateItemParamText"
           }
         },
-        "description": "An update to the conversation\u0027s response configuration. The configuration\nremains in effect for subsequent responses until it is replaced by another\nconfiguration update.\n"
+        "description": "An update to the conversation\u0027s response configuration. Supply reasoning,\ntext, or both. Each setting stays in effect until a later update replaces it.\n"
       },
       "BetaAdditionalToolsItemParam": {
         "required": [
@@ -101698,9 +101787,12 @@
           },
           "reasoning": {
             "$ref": "#/components/schemas/BetaResponseConfigurationUpdateReasoning"
+          },
+          "text": {
+            "$ref": "#/components/schemas/BetaResponseConfigurationUpdateText"
           }
         },
-        "description": "A configuration update that applies to subsequent responses until it is\nreplaced by another configuration update.\n"
+        "description": "A configuration update for subsequent responses. Each setting stays in effect\nuntil a later update replaces that setting.\n"
       },
       "BetaAdditionalTools": {
         "required": [
@@ -112209,6 +112301,58 @@
           }
         }
       },
+      "ResponseConfigurationUpdateTextFormat": {
+        "required": [
+          "type"
+        ],
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ResponseFormatText"
+          },
+          {
+            "$ref": "#/components/schemas/TextResponseFormatJsonSchema"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": "Use a JSON schema for structured output or text to return to plain text.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "ResponseFormatText": "#/components/schemas/ResponseFormatText",
+            "TextResponseFormatJsonSchema": "#/components/schemas/TextResponseFormatJsonSchema"
+          }
+        }
+      },
+      "ResponseConfigurationUpdateItemParamTextFormat": {
+        "required": [
+          "type"
+        ],
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ResponseFormatText"
+          },
+          {
+            "$ref": "#/components/schemas/TextResponseFormatJsonSchema"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": "Use a JSON schema for structured output or text to return to plain text.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "ResponseFormatText": "#/components/schemas/ResponseFormatText",
+            "TextResponseFormatJsonSchema": "#/components/schemas/TextResponseFormatJsonSchema"
+          }
+        }
+      },
       "ResponseOutputTextAnnotationAddedEventAnnotation": {
         "anyOf": [
           {
@@ -118395,6 +118539,32 @@
           }
         ]
       },
+      "BetaResponseConfigurationUpdateItemParamTextFormat": {
+        "required": [
+          "type"
+        ],
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BetaResponseFormatText"
+          },
+          {
+            "$ref": "#/components/schemas/BetaTextResponseFormatJsonSchema"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": "Use a JSON schema for structured output or text to return to plain text.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "BetaResponseFormatText": "#/components/schemas/BetaResponseFormatText",
+            "BetaTextResponseFormatJsonSchema": "#/components/schemas/BetaTextResponseFormatJsonSchema"
+          }
+        }
+      },
       "BetaAdditionalToolsItemParamAgent": {
         "anyOf": [
           {
@@ -119095,6 +119265,32 @@
             "type": "null"
           }
         ]
+      },
+      "BetaResponseConfigurationUpdateTextFormat": {
+        "required": [
+          "type"
+        ],
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BetaResponseFormatText"
+          },
+          {
+            "$ref": "#/components/schemas/BetaTextResponseFormatJsonSchema"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": "Use a JSON schema for structured output or text to return to plain text.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "BetaResponseFormatText": "#/components/schemas/BetaResponseFormatText",
+            "BetaTextResponseFormatJsonSchema": "#/components/schemas/BetaTextResponseFormatJsonSchema"
+          }
+        }
       },
       "BetaAgentMessageContentItem": {
         "required": [
@@ -125710,6 +125906,18 @@
         },
         "description": "The reasoning configuration applied by this update."
       },
+      "ResponseConfigurationUpdateText": {
+        "required": [
+          "format"
+        ],
+        "type": "object",
+        "properties": {
+          "format": {
+            "$ref": "#/components/schemas/ResponseConfigurationUpdateTextFormat"
+          }
+        },
+        "description": "The text output configuration for subsequent responses."
+      },
       "ResponseConfigurationUpdateItemParamReasoning": {
         "type": "object",
         "properties": {
@@ -125719,6 +125927,18 @@
           }
         },
         "description": "Updates to reasoning configuration. Only effort is supported."
+      },
+      "ResponseConfigurationUpdateItemParamText": {
+        "required": [
+          "format"
+        ],
+        "type": "object",
+        "properties": {
+          "format": {
+            "$ref": "#/components/schemas/ResponseConfigurationUpdateItemParamTextFormat"
+          }
+        },
+        "description": "The text output configuration for subsequent responses."
       },
       "ResponseFormatJsonSchemaJsonSchema": {
         "title": "JSON schema",
@@ -127719,6 +127939,18 @@
         },
         "description": "Updates to reasoning configuration. Only effort is supported."
       },
+      "BetaResponseConfigurationUpdateItemParamText": {
+        "required": [
+          "format"
+        ],
+        "type": "object",
+        "properties": {
+          "format": {
+            "$ref": "#/components/schemas/BetaResponseConfigurationUpdateItemParamTextFormat"
+          }
+        },
+        "description": "The text output configuration for subsequent responses."
+      },
       "BetaToolSearchOutputFunctionToolParamOutputSchema": {
         "type": [
           "null",
@@ -127780,6 +128012,18 @@
           }
         },
         "description": "The reasoning configuration applied by this update."
+      },
+      "BetaResponseConfigurationUpdateText": {
+        "required": [
+          "format"
+        ],
+        "type": "object",
+        "properties": {
+          "format": {
+            "$ref": "#/components/schemas/BetaResponseConfigurationUpdateTextFormat"
+          }
+        },
+        "description": "The text output configuration for subsequent responses."
       },
       "BetaResponseUsageInputTokensDetails": {
         "required": [

@@ -23,6 +23,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #endif
         /// <summary>The Unix timestamp, in seconds, when the agent was created.</summary>
         public long? CreatedAt { get; set; }
+        /// <summary>The effective experimental settings for the agent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigResource? Experimental { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigResource Experimental { get; set; }
+#endif
         /// <summary>The ID of the reusable agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -121,6 +129,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "compaction", n => { Compaction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionResource>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactionResource.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetLongValue(); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigResource>(global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigResource.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AgentResourceMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.AgentResourceMetadataProperty.CreateFromDiscriminatorValue); } },
@@ -144,6 +153,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionResource>("compaction", Compaction);
             writer.WriteLongValue("created_at", CreatedAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigResource>("experimental", Experimental);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AgentResourceMetadataProperty>("metadata", Metadata);

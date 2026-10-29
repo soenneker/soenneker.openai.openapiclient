@@ -21,6 +21,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam Compaction { get; set; }
 #endif
+        /// <summary>Experimental agent settings. All experimental features default to disabled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigParam? Experimental { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigParam Experimental { get; set; }
+#endif
         /// <summary>Additional instructions appended to the agent&apos;s default base instructions. Omit or set to null to add no custom instructions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -106,6 +114,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "compaction", n => { Compaction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam.CreateFromDiscriminatorValue); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigParam.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
@@ -125,6 +134,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam>("compaction", Compaction);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigParam>("experimental", Experimental);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("model", Model);

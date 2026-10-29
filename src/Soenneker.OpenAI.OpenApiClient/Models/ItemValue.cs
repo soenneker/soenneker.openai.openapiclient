@@ -275,6 +275,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent> Summary { get; set; }
 #endif
+        /// <summary>The text output configuration for subsequent responses.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateItemParamText? Text { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateItemParamText Text { get; set; }
+#endif
         /// <summary>The loaded tool definitions returned by the tool search output.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -356,6 +364,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "size", n => { Size = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageStatus>(); } },
                 { "summary", n => { Summary = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent>(global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateItemParamText>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateItemParamText.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchOutputTool>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchOutputTool.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -407,6 +416,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<UntypedNode>("size", Size);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageStatus>("status", Status);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent>("summary", Summary);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateItemParamText>("text", Text);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchOutputTool>("tools", Tools);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);

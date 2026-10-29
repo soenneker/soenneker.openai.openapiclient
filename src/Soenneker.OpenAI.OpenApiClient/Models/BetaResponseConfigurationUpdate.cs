@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// A configuration update that applies to subsequent responses until it isreplaced by another configuration update.
+    /// A configuration update for subsequent responses. Each setting stays in effectuntil a later update replaces that setting.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaResponseConfigurationUpdate : IAdditionalDataHolder, IParsable
@@ -38,6 +38,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdateReasoning Reasoning { get; set; }
+#endif
+        /// <summary>The text output configuration for subsequent responses.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdateText? Text { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdateText Text { get; set; }
 #endif
         /// <summary>The item type. Always `configuration_update`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ConfigurationUpdateType? Type { get; set; }
@@ -69,6 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdateReasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdateReasoning.CreateFromDiscriminatorValue); } },
+                { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdateText>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdateText.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ConfigurationUpdateType>(); } },
             };
         }
@@ -82,6 +91,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>("agent", Agent);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdateReasoning>("reasoning", Reasoning);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseConfigurationUpdateText>("text", Text);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ConfigurationUpdateType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

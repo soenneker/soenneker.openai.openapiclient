@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Agent configuration for a session. Omitted fields inherit from `agent_id` when supplied. Supplied objects and arrays replace the whole field; null resets nullable fields.
+    /// Agent configuration for a session. Omitted fields inherit from `agent_id` when supplied. Supplied objects and arrays replace the whole field, except experimental settings, which merge by key. Null resets nullable fields.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SessionAgentConfigParam : IParsable
@@ -20,6 +20,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam Compaction { get; set; }
+#endif
+        /// <summary>Experimental settings to merge by key. Omitted settings keep their current values.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigOverridesParam? Experimental { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigOverridesParam Experimental { get; set; }
 #endif
         /// <summary>Additional instructions appended to the agent&apos;s default base instructions. Omit to leave unchanged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -90,6 +98,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "compaction", n => { Compaction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam.CreateFromDiscriminatorValue); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigOverridesParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigOverridesParam.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "multi_agent", n => { MultiAgent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigCurrentParam>(global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigCurrentParam.CreateFromDiscriminatorValue); } },
@@ -107,6 +116,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam>("compaction", Compaction);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigOverridesParam>("experimental", Experimental);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteStringValue("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigCurrentParam>("multi_agent", MultiAgent);

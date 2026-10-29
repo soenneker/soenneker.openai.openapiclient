@@ -21,6 +21,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionResource Compaction { get; set; }
 #endif
+        /// <summary>The effective experimental settings for the agent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigResource? Experimental { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigResource Experimental { get; set; }
+#endif
         /// <summary>Custom instructions, or null when absent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,6 +98,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "compaction", n => { Compaction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionResource>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactionResource.CreateFromDiscriminatorValue); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigResource>(global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigResource.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "multi_agent", n => { MultiAgent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigResource>(global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigResource.CreateFromDiscriminatorValue); } },
@@ -107,6 +116,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionResource>("compaction", Compaction);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigResource>("experimental", Experimental);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteStringValue("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigResource>("multi_agent", MultiAgent);
