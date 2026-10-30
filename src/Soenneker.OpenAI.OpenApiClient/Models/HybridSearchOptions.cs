@@ -17,17 +17,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("embedding_weight") is { } nullNodeEmbeddingWeight && nullNodeEmbeddingWeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmbeddingWeight = null;
-            if (parseNode.GetChildNode("text_weight") is { } nullNodeTextWeight && nullNodeTextWeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextWeight = null;
+            if (parseNode.GetChildNode("embedding_weight") is null) { _explicitNullValueEmbeddingWeight = default!; _explicitNullProperties?.Remove("embedding_weight"); }
+            else if (parseNode.GetChildNode("embedding_weight") is { } nullNodeEmbeddingWeight && nullNodeEmbeddingWeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmbeddingWeight = null;
+            if (parseNode.GetChildNode("text_weight") is null) { _explicitNullValueTextWeight = default!; _explicitNullProperties?.Remove("text_weight"); }
+            else if (parseNode.GetChildNode("text_weight") is { } nullNodeTextWeight && nullNodeTextWeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextWeight = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The weight of the embedding in the reciprocal ranking fusion.</summary>
-        public double? EmbeddingWeight { get => _explicitNullValueEmbeddingWeight; set { _explicitNullValueEmbeddingWeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("embedding_weight"); else _explicitNullProperties?.Remove("embedding_weight"); } }
+        public double? EmbeddingWeight { get => _explicitNullValueEmbeddingWeight; set { _explicitNullValueEmbeddingWeight = value; AdditionalData?.Remove("embedding_weight"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("embedding_weight"); else _explicitNullProperties?.Remove("embedding_weight"); } }
         private double? _explicitNullValueEmbeddingWeight = default!;
         /// <summary>The weight of the text in the reciprocal ranking fusion.</summary>
-        public double? TextWeight { get => _explicitNullValueTextWeight; set { _explicitNullValueTextWeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_weight"); else _explicitNullProperties?.Remove("text_weight"); } }
+        public double? TextWeight { get => _explicitNullValueTextWeight; set { _explicitNullValueTextWeight = value; AdditionalData?.Remove("text_weight"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_weight"); else _explicitNullProperties?.Remove("text_weight"); } }
         private double? _explicitNullValueTextWeight = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.HybridSearchOptions"/> and sets the default values.

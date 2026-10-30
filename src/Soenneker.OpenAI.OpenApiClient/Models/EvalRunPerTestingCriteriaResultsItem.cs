@@ -17,27 +17,30 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("failed") is { } nullNodeFailed && nullNodeFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Failed = null;
-            if (parseNode.GetChildNode("passed") is { } nullNodePassed && nullNodePassed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Passed = null;
-            if (parseNode.GetChildNode("testing_criteria") is { } nullNodeTestingCriteria && nullNodeTestingCriteria.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestingCriteria = null;
+            if (parseNode.GetChildNode("failed") is null) { _explicitNullValueFailed = default!; _explicitNullProperties?.Remove("failed"); }
+            else if (parseNode.GetChildNode("failed") is { } nullNodeFailed && nullNodeFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Failed = null;
+            if (parseNode.GetChildNode("passed") is null) { _explicitNullValuePassed = default!; _explicitNullProperties?.Remove("passed"); }
+            else if (parseNode.GetChildNode("passed") is { } nullNodePassed && nullNodePassed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Passed = null;
+            if (parseNode.GetChildNode("testing_criteria") is null) { _explicitNullValueTestingCriteria = default!; _explicitNullProperties?.Remove("testing_criteria"); }
+            else if (parseNode.GetChildNode("testing_criteria") is { } nullNodeTestingCriteria && nullNodeTestingCriteria.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestingCriteria = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of tests failed for this criteria.</summary>
-        public int? Failed { get => _explicitNullValueFailed; set { _explicitNullValueFailed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed"); else _explicitNullProperties?.Remove("failed"); } }
+        public int? Failed { get => _explicitNullValueFailed; set { _explicitNullValueFailed = value; AdditionalData?.Remove("failed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed"); else _explicitNullProperties?.Remove("failed"); } }
         private int? _explicitNullValueFailed = default!;
         /// <summary>Number of tests passed for this criteria.</summary>
-        public int? Passed { get => _explicitNullValuePassed; set { _explicitNullValuePassed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("passed"); else _explicitNullProperties?.Remove("passed"); } }
+        public int? Passed { get => _explicitNullValuePassed; set { _explicitNullValuePassed = value; AdditionalData?.Remove("passed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("passed"); else _explicitNullProperties?.Remove("passed"); } }
         private int? _explicitNullValuePassed = default!;
         /// <summary>A description of the testing criteria.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TestingCriteria { get => _explicitNullValueTestingCriteria; set { _explicitNullValueTestingCriteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("testing_criteria"); else _explicitNullProperties?.Remove("testing_criteria"); } }
+        public string? TestingCriteria { get => _explicitNullValueTestingCriteria; set { _explicitNullValueTestingCriteria = value; AdditionalData?.Remove("testing_criteria"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("testing_criteria"); else _explicitNullProperties?.Remove("testing_criteria"); } }
         private string? _explicitNullValueTestingCriteria = default!;
 #nullable restore
 #else
-        public string TestingCriteria { get => _explicitNullValueTestingCriteria; set { _explicitNullValueTestingCriteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("testing_criteria"); else _explicitNullProperties?.Remove("testing_criteria"); } }
+        public string TestingCriteria { get => _explicitNullValueTestingCriteria; set { _explicitNullValueTestingCriteria = value; AdditionalData?.Remove("testing_criteria"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("testing_criteria"); else _explicitNullProperties?.Remove("testing_criteria"); } }
         private string _explicitNullValueTestingCriteria = default!;
 #endif
         /// <summary>

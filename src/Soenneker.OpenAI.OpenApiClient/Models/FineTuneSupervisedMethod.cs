@@ -18,7 +18,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("hyperparameters") is { } nullNodeHyperparameters && nullNodeHyperparameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hyperparameters = null;
+            if (parseNode.GetChildNode("hyperparameters") is null) { _explicitNullValueHyperparameters = default!; _explicitNullProperties?.Remove("hyperparameters"); }
+            else if (parseNode.GetChildNode("hyperparameters") is { } nullNodeHyperparameters && nullNodeHyperparameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hyperparameters = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The hyperparameters used for the fine-tuning job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparameters? Hyperparameters { get => _explicitNullValueHyperparameters; set { _explicitNullValueHyperparameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hyperparameters"); else _explicitNullProperties?.Remove("hyperparameters"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparameters? Hyperparameters { get => _explicitNullValueHyperparameters; set { _explicitNullValueHyperparameters = value; AdditionalData?.Remove("hyperparameters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hyperparameters"); else _explicitNullProperties?.Remove("hyperparameters"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparameters? _explicitNullValueHyperparameters = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparameters Hyperparameters { get => _explicitNullValueHyperparameters; set { _explicitNullValueHyperparameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hyperparameters"); else _explicitNullProperties?.Remove("hyperparameters"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparameters Hyperparameters { get => _explicitNullValueHyperparameters; set { _explicitNullValueHyperparameters = value; AdditionalData?.Remove("hyperparameters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hyperparameters"); else _explicitNullProperties?.Remove("hyperparameters"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedHyperparameters _explicitNullValueHyperparameters = default!;
 #endif
         /// <summary>

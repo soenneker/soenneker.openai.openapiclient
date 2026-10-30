@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModels"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequestModelMember1"/>, <see cref="string"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequestModelMember1"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateRunRequestModel : IComposedTypeWrapper, IParsable
@@ -18,8 +18,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModels"/></summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModels? AssistantSupportedModels { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequestModelMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,16 +47,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.String = stringValue;
             }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString unionEnumValue0 && ("gpt-5".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-5-mini".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-5-nano".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-5-2025-08-07".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-5-mini-2025-08-07".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-5-nano-2025-08-07".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4.1".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4.1-mini".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4.1-nano".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4.1-2025-04-14".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4.1-mini-2025-04-14".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4.1-nano-2025-04-14".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "o3-mini".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "o3-mini-2025-01-31".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "o1".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "o1-2024-12-17".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4o".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4o-2024-11-20".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4o-2024-08-06".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4o-2024-05-13".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4o-mini".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4o-mini-2024-07-18".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4.5-preview".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4.5-preview-2025-02-27".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4-turbo".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4-turbo-2024-04-09".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4-0125-preview".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4-turbo-preview".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4-1106-preview".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4-vision-preview".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4-0314".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4-0613".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4-32k".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4-32k-0314".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-4-32k-0613".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-3.5-turbo".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-3.5-turbo-16k".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-3.5-turbo-0613".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-3.5-turbo-1106".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-3.5-turbo-0125".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "gpt-3.5-turbo-16k-0613".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase)) && parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModels>() is global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModels assistantSupportedModelsValue)
-            {
-                result.AssistantSupportedModels = assistantSupportedModelsValue;
-            }
             else {
                 
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            if (result.AssistantSupportedModels == null && result.CreateRunRequestModelMember1 == null && result.String == null) result.UnrecognizedValue = unionPayload;
+            if (result.CreateRunRequestModelMember1 == null && result.String == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
         /// <summary>
@@ -67,6 +61,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(CreateRunRequestModelMember1 != null)
             {
                 return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CreateRunRequestModelMember1);
@@ -80,17 +76,16 @@ return result;
         public virtual void Serialize(ISerializationWriter writer)
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (AssistantSupportedModels == null && CreateRunRequestModelMember1 == null && String == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (CreateRunRequestModelMember1 != null && AssistantSupportedModels == null && String == null) { if (CreateRunRequestModelMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateRunRequestModelMember1); return; }
+            if (CreateRunRequestModelMember1 == null && String == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            int selectedUnionBranches = 0;
+            if (CreateRunRequestModelMember1 != null) selectedUnionBranches++;
+            if (String != null) selectedUnionBranches++;
+            if (CreateRunRequestModelMember1 != null && selectedUnionBranches == 1) { if (CreateRunRequestModelMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateRunRequestModelMember1); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(String != null)
             {
                 writer.WriteStringValue(null, String);
-            }
-            else if(AssistantSupportedModels != null)
-            {
-                writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantSupportedModels>(null, AssistantSupportedModels);
             }
             else {
                 if (CreateRunRequestModelMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;

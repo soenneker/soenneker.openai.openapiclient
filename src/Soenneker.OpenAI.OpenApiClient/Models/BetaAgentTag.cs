@@ -17,7 +17,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agent_name") is { } nullNodeAgentName && nullNodeAgentName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentName = null;
+            if (parseNode.GetChildNode("agent_name") is null) { _explicitNullValueAgentName = default!; _explicitNullProperties?.Remove("agent_name"); }
+            else if (parseNode.GetChildNode("agent_name") is { } nullNodeAgentName && nullNodeAgentName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The canonical name of the agent that produced this item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentName { get => _explicitNullValueAgentName; set { _explicitNullValueAgentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_name"); else _explicitNullProperties?.Remove("agent_name"); } }
+        public string? AgentName { get => _explicitNullValueAgentName; set { _explicitNullValueAgentName = value; AdditionalData?.Remove("agent_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_name"); else _explicitNullProperties?.Remove("agent_name"); } }
         private string? _explicitNullValueAgentName = default!;
 #nullable restore
 #else
-        public string AgentName { get => _explicitNullValueAgentName; set { _explicitNullValueAgentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_name"); else _explicitNullProperties?.Remove("agent_name"); } }
+        public string AgentName { get => _explicitNullValueAgentName; set { _explicitNullValueAgentName = value; AdditionalData?.Remove("agent_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_name"); else _explicitNullProperties?.Remove("agent_name"); } }
         private string _explicitNullValueAgentName = default!;
 #endif
         /// <summary>

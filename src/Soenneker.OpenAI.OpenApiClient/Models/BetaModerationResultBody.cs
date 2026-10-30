@@ -18,12 +18,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("categories") is { } nullNodeCategories && nullNodeCategories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Categories = null;
-            if (parseNode.GetChildNode("category_applied_input_types") is { } nullNodeCategoryAppliedInputTypes && nullNodeCategoryAppliedInputTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CategoryAppliedInputTypes = null;
-            if (parseNode.GetChildNode("category_scores") is { } nullNodeCategoryScores && nullNodeCategoryScores.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CategoryScores = null;
-            if (parseNode.GetChildNode("flagged") is { } nullNodeFlagged && nullNodeFlagged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Flagged = null;
-            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("categories") is null) { _explicitNullValueCategories = default!; _explicitNullProperties?.Remove("categories"); }
+            else if (parseNode.GetChildNode("categories") is { } nullNodeCategories && nullNodeCategories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Categories = null;
+            if (parseNode.GetChildNode("category_applied_input_types") is null) { _explicitNullValueCategoryAppliedInputTypes = default!; _explicitNullProperties?.Remove("category_applied_input_types"); }
+            else if (parseNode.GetChildNode("category_applied_input_types") is { } nullNodeCategoryAppliedInputTypes && nullNodeCategoryAppliedInputTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CategoryAppliedInputTypes = null;
+            if (parseNode.GetChildNode("category_scores") is null) { _explicitNullValueCategoryScores = default!; _explicitNullProperties?.Remove("category_scores"); }
+            else if (parseNode.GetChildNode("category_scores") is { } nullNodeCategoryScores && nullNodeCategoryScores.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CategoryScores = null;
+            if (parseNode.GetChildNode("flagged") is null) { _explicitNullValueFlagged = default!; _explicitNullProperties?.Remove("flagged"); }
+            else if (parseNode.GetChildNode("flagged") is { } nullNodeFlagged && nullNodeFlagged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Flagged = null;
+            if (parseNode.GetChildNode("model") is null) { _explicitNullValueModel = default!; _explicitNullProperties?.Remove("model"); }
+            else if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,48 +37,48 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>A dictionary of moderation categories to booleans, True if the input is flagged under this category.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoriesProperty? Categories { get => _explicitNullValueCategories; set { _explicitNullValueCategories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("categories"); else _explicitNullProperties?.Remove("categories"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoriesProperty? Categories { get => _explicitNullValueCategories; set { _explicitNullValueCategories = value; AdditionalData?.Remove("categories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("categories"); else _explicitNullProperties?.Remove("categories"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoriesProperty? _explicitNullValueCategories = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoriesProperty Categories { get => _explicitNullValueCategories; set { _explicitNullValueCategories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("categories"); else _explicitNullProperties?.Remove("categories"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoriesProperty Categories { get => _explicitNullValueCategories; set { _explicitNullValueCategories = value; AdditionalData?.Remove("categories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("categories"); else _explicitNullProperties?.Remove("categories"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoriesProperty _explicitNullValueCategories = default!;
 #endif
         /// <summary>Which modalities of input are reflected by the score for each category.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryAppliedInputTypesProperty? CategoryAppliedInputTypes { get => _explicitNullValueCategoryAppliedInputTypes; set { _explicitNullValueCategoryAppliedInputTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category_applied_input_types"); else _explicitNullProperties?.Remove("category_applied_input_types"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryAppliedInputTypesProperty? CategoryAppliedInputTypes { get => _explicitNullValueCategoryAppliedInputTypes; set { _explicitNullValueCategoryAppliedInputTypes = value; AdditionalData?.Remove("category_applied_input_types"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category_applied_input_types"); else _explicitNullProperties?.Remove("category_applied_input_types"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryAppliedInputTypesProperty? _explicitNullValueCategoryAppliedInputTypes = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryAppliedInputTypesProperty CategoryAppliedInputTypes { get => _explicitNullValueCategoryAppliedInputTypes; set { _explicitNullValueCategoryAppliedInputTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category_applied_input_types"); else _explicitNullProperties?.Remove("category_applied_input_types"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryAppliedInputTypesProperty CategoryAppliedInputTypes { get => _explicitNullValueCategoryAppliedInputTypes; set { _explicitNullValueCategoryAppliedInputTypes = value; AdditionalData?.Remove("category_applied_input_types"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category_applied_input_types"); else _explicitNullProperties?.Remove("category_applied_input_types"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryAppliedInputTypesProperty _explicitNullValueCategoryAppliedInputTypes = default!;
 #endif
         /// <summary>A dictionary of moderation categories to scores.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryScoresProperty? CategoryScores { get => _explicitNullValueCategoryScores; set { _explicitNullValueCategoryScores = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category_scores"); else _explicitNullProperties?.Remove("category_scores"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryScoresProperty? CategoryScores { get => _explicitNullValueCategoryScores; set { _explicitNullValueCategoryScores = value; AdditionalData?.Remove("category_scores"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category_scores"); else _explicitNullProperties?.Remove("category_scores"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryScoresProperty? _explicitNullValueCategoryScores = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryScoresProperty CategoryScores { get => _explicitNullValueCategoryScores; set { _explicitNullValueCategoryScores = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category_scores"); else _explicitNullProperties?.Remove("category_scores"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryScoresProperty CategoryScores { get => _explicitNullValueCategoryScores; set { _explicitNullValueCategoryScores = value; AdditionalData?.Remove("category_scores"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category_scores"); else _explicitNullProperties?.Remove("category_scores"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryScoresProperty _explicitNullValueCategoryScores = default!;
 #endif
         /// <summary>A boolean indicating whether the content was flagged by any category.</summary>
-        public bool? Flagged { get => _explicitNullValueFlagged; set { _explicitNullValueFlagged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flagged"); else _explicitNullProperties?.Remove("flagged"); } }
+        public bool? Flagged { get => _explicitNullValueFlagged; set { _explicitNullValueFlagged = value; AdditionalData?.Remove("flagged"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flagged"); else _explicitNullProperties?.Remove("flagged"); } }
         private bool? _explicitNullValueFlagged = default!;
         /// <summary>The moderation model that produced this result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
         private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
         private string _explicitNullValueModel = default!;
 #endif
         /// <summary>The object type, which was always `moderation_result` for successful moderation results.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ModerationResultType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModerationResultType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ModerationResultType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBody"/> and sets the default values.
@@ -104,7 +110,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "category_scores", n => { CategoryScores = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryScoresProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModerationResultBodyCategoryScoresProperty.CreateFromDiscriminatorValue); } },
                 { "flagged", n => { Flagged = n.GetBoolValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModerationResultType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ModerationResultType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

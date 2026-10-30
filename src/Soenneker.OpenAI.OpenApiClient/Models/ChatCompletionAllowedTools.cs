@@ -18,23 +18,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
-            if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
+            if (parseNode.GetChildNode("mode") is null) { _explicitNullValueMode = default!; _explicitNullProperties?.Remove("mode"); }
+            else if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("tools") is null) { _explicitNullValueTools = default!; _explicitNullProperties?.Remove("tools"); }
+            else if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Constrains the tools available to the model to a pre-defined set.`auto` allows the model to pick from among the allowed tools and generate amessage.`required` requires the model to call one or more of the allowed tools.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsMode? _explicitNullValueMode = default!;
         /// <summary>A list of tool definitions that the model should be allowed to call.For the Chat Completions API, the list of tool definitions might look like:```json[  { &quot;type&quot;: &quot;function&quot;, &quot;function&quot;: { &quot;name&quot;: &quot;get_weather&quot; } },  { &quot;type&quot;: &quot;function&quot;, &quot;function&quot;: { &quot;name&quot;: &quot;get_time&quot; } }]```</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty>? Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty>? Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; AdditionalData?.Remove("tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty>? _explicitNullValueTools = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty> Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty> Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; AdditionalData?.Remove("tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty> _explicitNullValueTools = default!;
 #endif
         /// <summary>
@@ -62,7 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsMode>(); } },
+                { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }

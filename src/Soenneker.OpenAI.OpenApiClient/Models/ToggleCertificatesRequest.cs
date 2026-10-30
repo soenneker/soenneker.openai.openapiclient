@@ -17,7 +17,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("certificate_ids") is { } nullNodeCertificateIds && nullNodeCertificateIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertificateIds = null;
+            if (parseNode.GetChildNode("certificate_ids") is null) { _explicitNullValueCertificateIds = default!; _explicitNullProperties?.Remove("certificate_ids"); }
+            else if (parseNode.GetChildNode("certificate_ids") is { } nullNodeCertificateIds && nullNodeCertificateIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertificateIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The certificate_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CertificateIds { get => _explicitNullValueCertificateIds; set { _explicitNullValueCertificateIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate_ids"); else _explicitNullProperties?.Remove("certificate_ids"); } }
+        public List<string>? CertificateIds { get => _explicitNullValueCertificateIds; set { _explicitNullValueCertificateIds = value; AdditionalData?.Remove("certificate_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate_ids"); else _explicitNullProperties?.Remove("certificate_ids"); } }
         private List<string>? _explicitNullValueCertificateIds = default!;
 #nullable restore
 #else
-        public List<string> CertificateIds { get => _explicitNullValueCertificateIds; set { _explicitNullValueCertificateIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate_ids"); else _explicitNullProperties?.Remove("certificate_ids"); } }
+        public List<string> CertificateIds { get => _explicitNullValueCertificateIds; set { _explicitNullValueCertificateIds = value; AdditionalData?.Remove("certificate_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate_ids"); else _explicitNullProperties?.Remove("certificate_ids"); } }
         private List<string> _explicitNullValueCertificateIds = default!;
 #endif
         /// <summary>

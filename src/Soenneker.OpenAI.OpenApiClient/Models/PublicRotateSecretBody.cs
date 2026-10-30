@@ -17,13 +17,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("keep_old_secret_active_for_24_hours") is { } nullNodeKeepOldSecretActiveFor24Hours && nullNodeKeepOldSecretActiveFor24Hours.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeepOldSecretActiveFor24Hours = null;
+            if (parseNode.GetChildNode("keep_old_secret_active_for_24_hours") is null) { _explicitNullValueKeepOldSecretActiveFor24Hours = default!; _explicitNullProperties?.Remove("keep_old_secret_active_for_24_hours"); }
+            else if (parseNode.GetChildNode("keep_old_secret_active_for_24_hours") is { } nullNodeKeepOldSecretActiveFor24Hours && nullNodeKeepOldSecretActiveFor24Hours.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeepOldSecretActiveFor24Hours = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to keep the previous signing secret valid for 24 hours after rotation. Defaults to false, which invalidates the previous secret immediately.</summary>
-        public bool? KeepOldSecretActiveFor24Hours { get => _explicitNullValueKeepOldSecretActiveFor24Hours; set { _explicitNullValueKeepOldSecretActiveFor24Hours = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keep_old_secret_active_for_24_hours"); else _explicitNullProperties?.Remove("keep_old_secret_active_for_24_hours"); } }
+        public bool? KeepOldSecretActiveFor24Hours { get => _explicitNullValueKeepOldSecretActiveFor24Hours; set { _explicitNullValueKeepOldSecretActiveFor24Hours = value; AdditionalData?.Remove("keep_old_secret_active_for_24_hours"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keep_old_secret_active_for_24_hours"); else _explicitNullProperties?.Remove("keep_old_secret_active_for_24_hours"); } }
         private bool? _explicitNullValueKeepOldSecretActiveFor24Hours = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PublicRotateSecretBody"/> and sets the default values.

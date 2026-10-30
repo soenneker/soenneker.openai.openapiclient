@@ -18,29 +18,34 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("max_completions_tokens") is { } nullNodeMaxCompletionsTokens && nullNodeMaxCompletionsTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxCompletionsTokens = null;
-            if (parseNode.GetChildNode("reasoning_effort") is { } nullNodeReasoningEffort && nullNodeReasoningEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasoningEffort = null;
-            if (parseNode.GetChildNode("seed") is { } nullNodeSeed && nullNodeSeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seed = null;
-            if (parseNode.GetChildNode("temperature") is { } nullNodeTemperature && nullNodeTemperature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Temperature = null;
-            if (parseNode.GetChildNode("top_p") is { } nullNodeTopP && nullNodeTopP.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopP = null;
+            if (parseNode.GetChildNode("max_completions_tokens") is null) { _explicitNullValueMaxCompletionsTokens = default!; _explicitNullProperties?.Remove("max_completions_tokens"); }
+            else if (parseNode.GetChildNode("max_completions_tokens") is { } nullNodeMaxCompletionsTokens && nullNodeMaxCompletionsTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxCompletionsTokens = null;
+            if (parseNode.GetChildNode("reasoning_effort") is null) { _explicitNullValueReasoningEffort = default!; _explicitNullProperties?.Remove("reasoning_effort"); }
+            else if (parseNode.GetChildNode("reasoning_effort") is { } nullNodeReasoningEffort && nullNodeReasoningEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasoningEffort = null;
+            if (parseNode.GetChildNode("seed") is null) { _explicitNullValueSeed = default!; _explicitNullProperties?.Remove("seed"); }
+            else if (parseNode.GetChildNode("seed") is { } nullNodeSeed && nullNodeSeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seed = null;
+            if (parseNode.GetChildNode("temperature") is null) { _explicitNullValueTemperature = default!; _explicitNullProperties?.Remove("temperature"); }
+            else if (parseNode.GetChildNode("temperature") is { } nullNodeTemperature && nullNodeTemperature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Temperature = null;
+            if (parseNode.GetChildNode("top_p") is null) { _explicitNullValueTopP = default!; _explicitNullProperties?.Remove("top_p"); }
+            else if (parseNode.GetChildNode("top_p") is { } nullNodeTopP && nullNodeTopP.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopP = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum number of tokens the grader model may generate in its response.</summary>
-        public int? MaxCompletionsTokens { get => _explicitNullValueMaxCompletionsTokens; set { _explicitNullValueMaxCompletionsTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_completions_tokens"); else _explicitNullProperties?.Remove("max_completions_tokens"); } }
+        public int? MaxCompletionsTokens { get => _explicitNullValueMaxCompletionsTokens; set { _explicitNullValueMaxCompletionsTokens = value; AdditionalData?.Remove("max_completions_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_completions_tokens"); else _explicitNullProperties?.Remove("max_completions_tokens"); } }
         private int? _explicitNullValueMaxCompletionsTokens = default!;
         /// <summary>Constrains effort on reasoning for reasoning models. Currently supportedvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.Reducing reasoning effort can result in faster responses and fewer tokensused on reasoning in a response. Not all reasoning models support everyvalue. See the[reasoning guide](https://developers.openai.com/api/docs/guides/reasoning)for model-specific support.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? ReasoningEffort { get => _explicitNullValueReasoningEffort; set { _explicitNullValueReasoningEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_effort"); else _explicitNullProperties?.Remove("reasoning_effort"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? ReasoningEffort { get => _explicitNullValueReasoningEffort; set { _explicitNullValueReasoningEffort = value; AdditionalData?.Remove("reasoning_effort"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_effort"); else _explicitNullProperties?.Remove("reasoning_effort"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? _explicitNullValueReasoningEffort = default!;
         /// <summary>A seed value to initialize the randomness, during sampling.</summary>
-        public int? Seed { get => _explicitNullValueSeed; set { _explicitNullValueSeed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed"); else _explicitNullProperties?.Remove("seed"); } }
+        public int? Seed { get => _explicitNullValueSeed; set { _explicitNullValueSeed = value; AdditionalData?.Remove("seed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed"); else _explicitNullProperties?.Remove("seed"); } }
         private int? _explicitNullValueSeed = default!;
         /// <summary>A higher temperature increases randomness in the outputs.</summary>
-        public double? Temperature { get => _explicitNullValueTemperature; set { _explicitNullValueTemperature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temperature"); else _explicitNullProperties?.Remove("temperature"); } }
+        public double? Temperature { get => _explicitNullValueTemperature; set { _explicitNullValueTemperature = value; AdditionalData?.Remove("temperature"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temperature"); else _explicitNullProperties?.Remove("temperature"); } }
         private double? _explicitNullValueTemperature = default!;
         /// <summary>An alternative to temperature for nucleus sampling; 1.0 includes all tokens.</summary>
-        public double? TopP { get => _explicitNullValueTopP; set { _explicitNullValueTopP = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_p"); else _explicitNullProperties?.Remove("top_p"); } }
+        public double? TopP { get => _explicitNullValueTopP; set { _explicitNullValueTopP = value; AdditionalData?.Remove("top_p"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_p"); else _explicitNullProperties?.Remove("top_p"); } }
         private double? _explicitNullValueTopP = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.GraderScoreModelSamplingParams"/> and sets the default values.
@@ -69,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "max_completions_tokens", n => { MaxCompletionsTokens = n.GetIntValue(); } },
-                { "reasoning_effort", n => { ReasoningEffort = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(); } },
+                { "reasoning_effort", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueReasoningEffort = default; _explicitNullProperties?.Remove("reasoning_effort"); AdditionalData["reasoning_effort"] = unknown; } else { ReasoningEffort = parsed; AdditionalData.Remove("reasoning_effort"); } } },
                 { "seed", n => { Seed = n.GetIntValue(); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },

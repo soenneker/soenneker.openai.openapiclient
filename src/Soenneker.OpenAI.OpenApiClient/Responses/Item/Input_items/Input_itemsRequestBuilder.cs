@@ -74,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_items
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Responses.Item.Input_items.Input_itemsRequestBuilder.Input_itemsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.openai.com/v1", "/responses/{responseId}/input_items", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

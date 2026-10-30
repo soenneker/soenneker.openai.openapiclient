@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("always") is { } nullNodeAlways && nullNodeAlways.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Always = null;
-            if (parseNode.GetChildNode("never") is { } nullNodeNever && nullNodeNever.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Never = null;
+            if (parseNode.GetChildNode("always") is null) { _explicitNullValueAlways = default!; _explicitNullProperties?.Remove("always"); }
+            else if (parseNode.GetChildNode("always") is { } nullNodeAlways && nullNodeAlways.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Always = null;
+            if (parseNode.GetChildNode("never") is null) { _explicitNullValueNever = default!; _explicitNullProperties?.Remove("never"); }
+            else if (parseNode.GetChildNode("never") is { } nullNodeNever && nullNodeNever.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Never = null;
         }
 
         /// <summary>A filter object to specify which tools are allowed.</summary>

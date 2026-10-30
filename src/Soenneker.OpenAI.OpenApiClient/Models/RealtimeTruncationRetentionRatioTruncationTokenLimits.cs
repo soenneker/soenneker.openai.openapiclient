@@ -18,13 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("post_instructions") is { } nullNodePostInstructions && nullNodePostInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostInstructions = null;
+            if (parseNode.GetChildNode("post_instructions") is null) { _explicitNullValuePostInstructions = default!; _explicitNullProperties?.Remove("post_instructions"); }
+            else if (parseNode.GetChildNode("post_instructions") is { } nullNodePostInstructions && nullNodePostInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostInstructions = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Maximum tokens allowed in the conversation after instructions (which including tool definitions). For example, setting this to 5,000 would mean that truncation would occur when the conversation exceeds 5,000 tokens after instructions. This cannot be higher than the model&apos;s context window size minus the maximum output tokens.</summary>
-        public int? PostInstructions { get => _explicitNullValuePostInstructions; set { _explicitNullValuePostInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("post_instructions"); else _explicitNullProperties?.Remove("post_instructions"); } }
+        public int? PostInstructions { get => _explicitNullValuePostInstructions; set { _explicitNullValuePostInstructions = value; AdditionalData?.Remove("post_instructions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("post_instructions"); else _explicitNullProperties?.Remove("post_instructions"); } }
         private int? _explicitNullValuePostInstructions = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncationTokenLimits"/> and sets the default values.

@@ -48,7 +48,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            if (result.RealtimeSessionCreateResponseGaTracingOneOf1 == null && result.RealtimeSessionCreateResponseGaTracingTracingConfiguration == null && unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) result.RealtimeSessionCreateResponseGaTracingTracingConfiguration = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracingTracingConfiguration(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && ((!shapeMembers1.ContainsKey("workflow_name") || (((shapeMembers1["workflow_name"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("group_id") || (((shapeMembers1["group_id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("metadata") || (((shapeMembers1["metadata"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.RealtimeSessionCreateResponseGaTracingOneOf1 == null && result.RealtimeSessionCreateResponseGaTracingTracingConfiguration == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.RealtimeSessionCreateResponseGaTracingTracingConfiguration = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracingTracingConfiguration(), parseNode);
             if (result.RealtimeSessionCreateResponseGaTracingOneOf1 == null && result.RealtimeSessionCreateResponseGaTracingTracingConfiguration == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -58,6 +62,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(RealtimeSessionCreateResponseGaTracingTracingConfiguration != null)
             {
                 return RealtimeSessionCreateResponseGaTracingTracingConfiguration.GetFieldDeserializers();
@@ -72,7 +78,10 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (RealtimeSessionCreateResponseGaTracingOneOf1 == null && RealtimeSessionCreateResponseGaTracingTracingConfiguration == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (RealtimeSessionCreateResponseGaTracingTracingConfiguration != null && RealtimeSessionCreateResponseGaTracingOneOf1 == null) { if (RealtimeSessionCreateResponseGaTracingTracingConfiguration is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RealtimeSessionCreateResponseGaTracingTracingConfiguration); return; }
+            int selectedUnionBranches = 0;
+            if (RealtimeSessionCreateResponseGaTracingOneOf1 != null) selectedUnionBranches++;
+            if (RealtimeSessionCreateResponseGaTracingTracingConfiguration != null) selectedUnionBranches++;
+            if (RealtimeSessionCreateResponseGaTracingTracingConfiguration != null && selectedUnionBranches == 1) { if (RealtimeSessionCreateResponseGaTracingTracingConfiguration is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RealtimeSessionCreateResponseGaTracingTracingConfiguration); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(RealtimeSessionCreateResponseGaTracingOneOf1 != null)

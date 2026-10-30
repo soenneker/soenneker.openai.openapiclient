@@ -17,8 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("categories") is { } nullNodeCategories && nullNodeCategories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Categories = null;
-            if (parseNode.GetChildNode("moderation_stage") is { } nullNodeModerationStage && nullNodeModerationStage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModerationStage = null;
+            if (parseNode.GetChildNode("categories") is null) { _explicitNullValueCategories = default!; _explicitNullProperties?.Remove("categories"); }
+            else if (parseNode.GetChildNode("categories") is { } nullNodeCategories && nullNodeCategories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Categories = null;
+            if (parseNode.GetChildNode("moderation_stage") is null) { _explicitNullValueModerationStage = default!; _explicitNullProperties?.Remove("moderation_stage"); }
+            else if (parseNode.GetChildNode("moderation_stage") is { } nullNodeModerationStage && nullNodeModerationStage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModerationStage = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Public moderation categories. New category values may be added over time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Categories { get => _explicitNullValueCategories; set { _explicitNullValueCategories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("categories"); else _explicitNullProperties?.Remove("categories"); } }
+        public List<string>? Categories { get => _explicitNullValueCategories; set { _explicitNullValueCategories = value; AdditionalData?.Remove("categories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("categories"); else _explicitNullProperties?.Remove("categories"); } }
         private List<string>? _explicitNullValueCategories = default!;
 #nullable restore
 #else
-        public List<string> Categories { get => _explicitNullValueCategories; set { _explicitNullValueCategories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("categories"); else _explicitNullProperties?.Remove("categories"); } }
+        public List<string> Categories { get => _explicitNullValueCategories; set { _explicitNullValueCategories = value; AdditionalData?.Remove("categories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("categories"); else _explicitNullProperties?.Remove("categories"); } }
         private List<string> _explicitNullValueCategories = default!;
 #endif
         /// <summary>The stage where moderation blocked the image generation call.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallModerationDetailsModerationStage? ModerationStage { get => _explicitNullValueModerationStage; set { _explicitNullValueModerationStage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moderation_stage"); else _explicitNullProperties?.Remove("moderation_stage"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallModerationDetailsModerationStage? ModerationStage { get => _explicitNullValueModerationStage; set { _explicitNullValueModerationStage = value; AdditionalData?.Remove("moderation_stage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moderation_stage"); else _explicitNullProperties?.Remove("moderation_stage"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallModerationDetailsModerationStage? _explicitNullValueModerationStage = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallModerationDetails"/> and sets the default values.
@@ -62,7 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "moderation_stage", n => { ModerationStage = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallModerationDetailsModerationStage>(); } },
+                { "moderation_stage", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallModerationDetailsModerationStage>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueModerationStage = default; _explicitNullProperties?.Remove("moderation_stage"); AdditionalData["moderation_stage"] = unknown; } else { ModerationStage = parsed; AdditionalData.Remove("moderation_stage"); } } },
             };
         }
         /// <summary>

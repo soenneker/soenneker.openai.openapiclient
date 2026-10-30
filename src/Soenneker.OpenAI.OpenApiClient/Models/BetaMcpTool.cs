@@ -18,18 +18,30 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allowed_callers") is { } nullNodeAllowedCallers && nullNodeAllowedCallers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedCallers = null;
-            if (parseNode.GetChildNode("allowed_tools") is { } nullNodeAllowedTools && nullNodeAllowedTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedTools = null;
-            if (parseNode.GetChildNode("authorization") is { } nullNodeAuthorization && nullNodeAuthorization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Authorization = null;
-            if (parseNode.GetChildNode("connector_id") is { } nullNodeConnectorId && nullNodeConnectorId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectorId = null;
-            if (parseNode.GetChildNode("defer_loading") is { } nullNodeDeferLoading && nullNodeDeferLoading.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeferLoading = null;
-            if (parseNode.GetChildNode("headers") is { } nullNodeHeaders && nullNodeHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Headers = null;
-            if (parseNode.GetChildNode("require_approval") is { } nullNodeRequireApproval && nullNodeRequireApproval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireApproval = null;
-            if (parseNode.GetChildNode("server_description") is { } nullNodeServerDescription && nullNodeServerDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerDescription = null;
-            if (parseNode.GetChildNode("server_label") is { } nullNodeServerLabel && nullNodeServerLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerLabel = null;
-            if (parseNode.GetChildNode("server_url") is { } nullNodeServerUrl && nullNodeServerUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerUrl = null;
-            if (parseNode.GetChildNode("tunnel_id") is { } nullNodeTunnelId && nullNodeTunnelId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TunnelId = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("allowed_callers") is null) { _explicitNullValueAllowedCallers = default!; _explicitNullProperties?.Remove("allowed_callers"); }
+            else if (parseNode.GetChildNode("allowed_callers") is { } nullNodeAllowedCallers && nullNodeAllowedCallers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedCallers = null;
+            if (parseNode.GetChildNode("allowed_tools") is null) { _explicitNullValueAllowedTools = default!; _explicitNullProperties?.Remove("allowed_tools"); }
+            else if (parseNode.GetChildNode("allowed_tools") is { } nullNodeAllowedTools && nullNodeAllowedTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedTools = null;
+            if (parseNode.GetChildNode("authorization") is null) { _explicitNullValueAuthorization = default!; _explicitNullProperties?.Remove("authorization"); }
+            else if (parseNode.GetChildNode("authorization") is { } nullNodeAuthorization && nullNodeAuthorization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Authorization = null;
+            if (parseNode.GetChildNode("connector_id") is null) { _explicitNullValueConnectorId = default!; _explicitNullProperties?.Remove("connector_id"); }
+            else if (parseNode.GetChildNode("connector_id") is { } nullNodeConnectorId && nullNodeConnectorId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectorId = null;
+            if (parseNode.GetChildNode("defer_loading") is null) { _explicitNullValueDeferLoading = default!; _explicitNullProperties?.Remove("defer_loading"); }
+            else if (parseNode.GetChildNode("defer_loading") is { } nullNodeDeferLoading && nullNodeDeferLoading.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeferLoading = null;
+            if (parseNode.GetChildNode("headers") is null) { _explicitNullValueHeaders = default!; _explicitNullProperties?.Remove("headers"); }
+            else if (parseNode.GetChildNode("headers") is { } nullNodeHeaders && nullNodeHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Headers = null;
+            if (parseNode.GetChildNode("require_approval") is null) { _explicitNullValueRequireApproval = default!; _explicitNullProperties?.Remove("require_approval"); }
+            else if (parseNode.GetChildNode("require_approval") is { } nullNodeRequireApproval && nullNodeRequireApproval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireApproval = null;
+            if (parseNode.GetChildNode("server_description") is null) { _explicitNullValueServerDescription = default!; _explicitNullProperties?.Remove("server_description"); }
+            else if (parseNode.GetChildNode("server_description") is { } nullNodeServerDescription && nullNodeServerDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerDescription = null;
+            if (parseNode.GetChildNode("server_label") is null) { _explicitNullValueServerLabel = default!; _explicitNullProperties?.Remove("server_label"); }
+            else if (parseNode.GetChildNode("server_label") is { } nullNodeServerLabel && nullNodeServerLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerLabel = null;
+            if (parseNode.GetChildNode("server_url") is null) { _explicitNullValueServerUrl = default!; _explicitNullProperties?.Remove("server_url"); }
+            else if (parseNode.GetChildNode("server_url") is { } nullNodeServerUrl && nullNodeServerUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerUrl = null;
+            if (parseNode.GetChildNode("tunnel_id") is null) { _explicitNullValueTunnelId = default!; _explicitNullProperties?.Remove("tunnel_id"); }
+            else if (parseNode.GetChildNode("tunnel_id") is { } nullNodeTunnelId && nullNodeTunnelId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TunnelId = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -37,102 +49,102 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The tool invocation context(s).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller?>? AllowedCallers { get => _explicitNullValueAllowedCallers; set { _explicitNullValueAllowedCallers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_callers"); else _explicitNullProperties?.Remove("allowed_callers"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller?>? AllowedCallers { get => _explicitNullValueAllowedCallers; set { _explicitNullValueAllowedCallers = value; AdditionalData?.Remove("allowed_callers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_callers"); else _explicitNullProperties?.Remove("allowed_callers"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller?>? _explicitNullValueAllowedCallers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller?> AllowedCallers { get => _explicitNullValueAllowedCallers; set { _explicitNullValueAllowedCallers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_callers"); else _explicitNullProperties?.Remove("allowed_callers"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller?> AllowedCallers { get => _explicitNullValueAllowedCallers; set { _explicitNullValueAllowedCallers = value; AdditionalData?.Remove("allowed_callers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_callers"); else _explicitNullProperties?.Remove("allowed_callers"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller?> _explicitNullValueAllowedCallers = default!;
 #endif
         /// <summary>The allowed_tools property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? AllowedTools { get => _explicitNullValueAllowedTools; set { _explicitNullValueAllowedTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_tools"); else _explicitNullProperties?.Remove("allowed_tools"); } }
+        public UntypedNode? AllowedTools { get => _explicitNullValueAllowedTools; set { _explicitNullValueAllowedTools = value; AdditionalData?.Remove("allowed_tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_tools"); else _explicitNullProperties?.Remove("allowed_tools"); } }
         private UntypedNode? _explicitNullValueAllowedTools = default!;
 #nullable restore
 #else
-        public UntypedNode AllowedTools { get => _explicitNullValueAllowedTools; set { _explicitNullValueAllowedTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_tools"); else _explicitNullProperties?.Remove("allowed_tools"); } }
+        public UntypedNode AllowedTools { get => _explicitNullValueAllowedTools; set { _explicitNullValueAllowedTools = value; AdditionalData?.Remove("allowed_tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_tools"); else _explicitNullProperties?.Remove("allowed_tools"); } }
         private UntypedNode _explicitNullValueAllowedTools = default!;
 #endif
         /// <summary>An OAuth access token that can be used with a remote MCP server, eitherwith a custom MCP server URL or a service connector. Your applicationmust handle the OAuth authorization flow and provide the token here.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Authorization { get => _explicitNullValueAuthorization; set { _explicitNullValueAuthorization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorization"); else _explicitNullProperties?.Remove("authorization"); } }
+        public string? Authorization { get => _explicitNullValueAuthorization; set { _explicitNullValueAuthorization = value; AdditionalData?.Remove("authorization"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorization"); else _explicitNullProperties?.Remove("authorization"); } }
         private string? _explicitNullValueAuthorization = default!;
 #nullable restore
 #else
-        public string Authorization { get => _explicitNullValueAuthorization; set { _explicitNullValueAuthorization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorization"); else _explicitNullProperties?.Remove("authorization"); } }
+        public string Authorization { get => _explicitNullValueAuthorization; set { _explicitNullValueAuthorization = value; AdditionalData?.Remove("authorization"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorization"); else _explicitNullProperties?.Remove("authorization"); } }
         private string _explicitNullValueAuthorization = default!;
 #endif
         /// <summary>Identifier for service connectors, like those available in ChatGPT. One of`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn moreabout service connectors [here](https://developers.openai.com/api/docs/guides/tools-connectors-mcp#connectors).This field is deprecated for models released after September 1, 2026.Use `server_url` to connect to a remote MCP server, or `tunnel_id` toconnect through a Secure MCP Tunnel.Currently supported `connector_id` values are:- Dropbox: `connector_dropbox`- Gmail: `connector_gmail`- Google Calendar: `connector_googlecalendar`- Google Drive: `connector_googledrive`- Microsoft Teams: `connector_microsoftteams`- Outlook Calendar: `connector_outlookcalendar`- Outlook Email: `connector_outlookemail`- SharePoint: `connector_sharepoint`</summary>
         [Obsolete("")]
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolConnectorId? ConnectorId { get => _explicitNullValueConnectorId; set { _explicitNullValueConnectorId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connector_id"); else _explicitNullProperties?.Remove("connector_id"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolConnectorId? ConnectorId { get => _explicitNullValueConnectorId; set { _explicitNullValueConnectorId = value; AdditionalData?.Remove("connector_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connector_id"); else _explicitNullProperties?.Remove("connector_id"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolConnectorId? _explicitNullValueConnectorId = default!;
         /// <summary>Whether this MCP tool is deferred and discovered via tool search.</summary>
-        public bool? DeferLoading { get => _explicitNullValueDeferLoading; set { _explicitNullValueDeferLoading = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defer_loading"); else _explicitNullProperties?.Remove("defer_loading"); } }
+        public bool? DeferLoading { get => _explicitNullValueDeferLoading; set { _explicitNullValueDeferLoading = value; AdditionalData?.Remove("defer_loading"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defer_loading"); else _explicitNullProperties?.Remove("defer_loading"); } }
         private bool? _explicitNullValueDeferLoading = default!;
         /// <summary>Optional HTTP headers to send to the MCP server. Use for authenticationor other purposes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolHeadersProperty? Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolHeadersProperty? Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; AdditionalData?.Remove("headers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolHeadersProperty? _explicitNullValueHeaders = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolHeadersProperty Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolHeadersProperty Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; AdditionalData?.Remove("headers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolHeadersProperty _explicitNullValueHeaders = default!;
 #endif
         /// <summary>Specify which of the MCP server&apos;s tools require approval.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApproval? RequireApproval { get => _explicitNullValueRequireApproval; set { _explicitNullValueRequireApproval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_approval"); else _explicitNullProperties?.Remove("require_approval"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApproval? RequireApproval { get => _explicitNullValueRequireApproval; set { _explicitNullValueRequireApproval = value; AdditionalData?.Remove("require_approval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_approval"); else _explicitNullProperties?.Remove("require_approval"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApproval? _explicitNullValueRequireApproval = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApproval RequireApproval { get => _explicitNullValueRequireApproval; set { _explicitNullValueRequireApproval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_approval"); else _explicitNullProperties?.Remove("require_approval"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApproval RequireApproval { get => _explicitNullValueRequireApproval; set { _explicitNullValueRequireApproval = value; AdditionalData?.Remove("require_approval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_approval"); else _explicitNullProperties?.Remove("require_approval"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApproval _explicitNullValueRequireApproval = default!;
 #endif
         /// <summary>Optional description of the MCP server, used to provide more context.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServerDescription { get => _explicitNullValueServerDescription; set { _explicitNullValueServerDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_description"); else _explicitNullProperties?.Remove("server_description"); } }
+        public string? ServerDescription { get => _explicitNullValueServerDescription; set { _explicitNullValueServerDescription = value; AdditionalData?.Remove("server_description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_description"); else _explicitNullProperties?.Remove("server_description"); } }
         private string? _explicitNullValueServerDescription = default!;
 #nullable restore
 #else
-        public string ServerDescription { get => _explicitNullValueServerDescription; set { _explicitNullValueServerDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_description"); else _explicitNullProperties?.Remove("server_description"); } }
+        public string ServerDescription { get => _explicitNullValueServerDescription; set { _explicitNullValueServerDescription = value; AdditionalData?.Remove("server_description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_description"); else _explicitNullProperties?.Remove("server_description"); } }
         private string _explicitNullValueServerDescription = default!;
 #endif
         /// <summary>A label for this MCP server, used to identify it in tool calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServerLabel { get => _explicitNullValueServerLabel; set { _explicitNullValueServerLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_label"); else _explicitNullProperties?.Remove("server_label"); } }
+        public string? ServerLabel { get => _explicitNullValueServerLabel; set { _explicitNullValueServerLabel = value; AdditionalData?.Remove("server_label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_label"); else _explicitNullProperties?.Remove("server_label"); } }
         private string? _explicitNullValueServerLabel = default!;
 #nullable restore
 #else
-        public string ServerLabel { get => _explicitNullValueServerLabel; set { _explicitNullValueServerLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_label"); else _explicitNullProperties?.Remove("server_label"); } }
+        public string ServerLabel { get => _explicitNullValueServerLabel; set { _explicitNullValueServerLabel = value; AdditionalData?.Remove("server_label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_label"); else _explicitNullProperties?.Remove("server_label"); } }
         private string _explicitNullValueServerLabel = default!;
 #endif
         /// <summary>The URL for the MCP server. One of `server_url`, `connector_id`, or`tunnel_id` must be provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServerUrl { get => _explicitNullValueServerUrl; set { _explicitNullValueServerUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_url"); else _explicitNullProperties?.Remove("server_url"); } }
+        public string? ServerUrl { get => _explicitNullValueServerUrl; set { _explicitNullValueServerUrl = value; AdditionalData?.Remove("server_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_url"); else _explicitNullProperties?.Remove("server_url"); } }
         private string? _explicitNullValueServerUrl = default!;
 #nullable restore
 #else
-        public string ServerUrl { get => _explicitNullValueServerUrl; set { _explicitNullValueServerUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_url"); else _explicitNullProperties?.Remove("server_url"); } }
+        public string ServerUrl { get => _explicitNullValueServerUrl; set { _explicitNullValueServerUrl = value; AdditionalData?.Remove("server_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_url"); else _explicitNullProperties?.Remove("server_url"); } }
         private string _explicitNullValueServerUrl = default!;
 #endif
         /// <summary>The Secure MCP Tunnel ID to use instead of a direct server URL. One of`server_url`, `connector_id`, or `tunnel_id` must be provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TunnelId { get => _explicitNullValueTunnelId; set { _explicitNullValueTunnelId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tunnel_id"); else _explicitNullProperties?.Remove("tunnel_id"); } }
+        public string? TunnelId { get => _explicitNullValueTunnelId; set { _explicitNullValueTunnelId = value; AdditionalData?.Remove("tunnel_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tunnel_id"); else _explicitNullProperties?.Remove("tunnel_id"); } }
         private string? _explicitNullValueTunnelId = default!;
 #nullable restore
 #else
-        public string TunnelId { get => _explicitNullValueTunnelId; set { _explicitNullValueTunnelId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tunnel_id"); else _explicitNullProperties?.Remove("tunnel_id"); } }
+        public string TunnelId { get => _explicitNullValueTunnelId; set { _explicitNullValueTunnelId = value; AdditionalData?.Remove("tunnel_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tunnel_id"); else _explicitNullProperties?.Remove("tunnel_id"); } }
         private string _explicitNullValueTunnelId = default!;
 #endif
         /// <summary>The type of the MCP tool. Always `mcp`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.McpType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpTool"/> and sets the default values.
@@ -162,7 +174,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "allowed_callers", n => { AllowedCallers = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>()?.AsList(); } },
                 { "allowed_tools", n => { AllowedTools = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "authorization", n => { Authorization = n.GetStringValue(); } },
-                { "connector_id", n => { ConnectorId = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolConnectorId>(); } },
+                { "connector_id", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolConnectorId>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueConnectorId = default; _explicitNullProperties?.Remove("connector_id"); AdditionalData["connector_id"] = unknown; } else { ConnectorId = parsed; AdditionalData.Remove("connector_id"); } } },
                 { "defer_loading", n => { DeferLoading = n.GetBoolValue(); } },
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolHeadersProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolHeadersProperty.CreateFromDiscriminatorValue); } },
                 { "require_approval", n => { RequireApproval = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApproval>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApproval.CreateFromDiscriminatorValue); } },
@@ -170,7 +182,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "server_label", n => { ServerLabel = n.GetStringValue(); } },
                 { "server_url", n => { ServerUrl = n.GetStringValue(); } },
                 { "tunnel_id", n => { TunnelId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

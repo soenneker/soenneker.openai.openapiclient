@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allowed_client_events") is { } nullNodeAllowedClientEvents && nullNodeAllowedClientEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedClientEvents = null;
-            if (parseNode.GetChildNode("allowed_server_events") is { } nullNodeAllowedServerEvents && nullNodeAllowedServerEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedServerEvents = null;
+            if (parseNode.GetChildNode("allowed_client_events") is null) { _explicitNullValueAllowedClientEvents = default!; _explicitNullProperties?.Remove("allowed_client_events"); }
+            else if (parseNode.GetChildNode("allowed_client_events") is { } nullNodeAllowedClientEvents && nullNodeAllowedClientEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedClientEvents = null;
+            if (parseNode.GetChildNode("allowed_server_events") is null) { _explicitNullValueAllowedServerEvents = default!; _explicitNullProperties?.Remove("allowed_server_events"); }
+            else if (parseNode.GetChildNode("allowed_server_events") is { } nullNodeAllowedServerEvents && nullNodeAllowedServerEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedServerEvents = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Client event types that the frontend data channel may send. Use &apos;all&apos; to allow every client event; an empty array allows none. Omission preserves the existing allow-all behavior.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEvents? AllowedClientEvents { get => _explicitNullValueAllowedClientEvents; set { _explicitNullValueAllowedClientEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_client_events"); else _explicitNullProperties?.Remove("allowed_client_events"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEvents? AllowedClientEvents { get => _explicitNullValueAllowedClientEvents; set { _explicitNullValueAllowedClientEvents = value; AdditionalData?.Remove("allowed_client_events"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_client_events"); else _explicitNullProperties?.Remove("allowed_client_events"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEvents? _explicitNullValueAllowedClientEvents = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEvents AllowedClientEvents { get => _explicitNullValueAllowedClientEvents; set { _explicitNullValueAllowedClientEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_client_events"); else _explicitNullProperties?.Remove("allowed_client_events"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEvents AllowedClientEvents { get => _explicitNullValueAllowedClientEvents; set { _explicitNullValueAllowedClientEvents = value; AdditionalData?.Remove("allowed_client_events"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_client_events"); else _explicitNullProperties?.Remove("allowed_client_events"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedClientEvents _explicitNullValueAllowedClientEvents = default!;
 #endif
         /// <summary>Server events that may be sent to the frontend data channel. Use &apos;all&apos; to allow every server event; an empty array allows none. Omission preserves the existing allow-all behavior. Responses events use an object with type &apos;response.event&apos; and a response_event selector.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedServerEvents? AllowedServerEvents { get => _explicitNullValueAllowedServerEvents; set { _explicitNullValueAllowedServerEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_server_events"); else _explicitNullProperties?.Remove("allowed_server_events"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedServerEvents? AllowedServerEvents { get => _explicitNullValueAllowedServerEvents; set { _explicitNullValueAllowedServerEvents = value; AdditionalData?.Remove("allowed_server_events"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_server_events"); else _explicitNullProperties?.Remove("allowed_server_events"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedServerEvents? _explicitNullValueAllowedServerEvents = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedServerEvents AllowedServerEvents { get => _explicitNullValueAllowedServerEvents; set { _explicitNullValueAllowedServerEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_server_events"); else _explicitNullProperties?.Remove("allowed_server_events"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedServerEvents AllowedServerEvents { get => _explicitNullValueAllowedServerEvents; set { _explicitNullValueAllowedServerEvents = value; AdditionalData?.Remove("allowed_server_events"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_server_events"); else _explicitNullProperties?.Remove("allowed_server_events"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParamAllowedServerEvents _explicitNullValueAllowedServerEvents = default!;
 #endif
         /// <summary>

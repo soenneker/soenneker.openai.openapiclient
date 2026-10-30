@@ -18,7 +18,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("voice") is { } nullNodeVoice && nullNodeVoice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voice = null;
+            if (parseNode.GetChildNode("voice") is null) { _explicitNullValueVoice = default!; _explicitNullProperties?.Remove("voice"); }
+            else if (parseNode.GetChildNode("voice") is { } nullNodeVoice && nullNodeVoice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voice = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,12 +27,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The voice used for Live speech, as a built-in voice name or a custom voice object containing its ID. Defaults to `marin` and cannot change after startup.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveCustomVoiceParam? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveCustomVoiceParam? _explicitNullValueVoice = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialSessionAudioOutputParamVoice? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; AdditionalData?.Remove("voice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialSessionAudioOutputParamVoice? _explicitNullValueVoice = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveCustomVoiceParam Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveCustomVoiceParam _explicitNullValueVoice = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialSessionAudioOutputParamVoice Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; AdditionalData?.Remove("voice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialSessionAudioOutputParamVoice _explicitNullValueVoice = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialSessionAudioOutputParam"/> and sets the default values.
@@ -58,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "voice", n => { Voice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveCustomVoiceParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveCustomVoiceParam.CreateFromDiscriminatorValue); } },
+                { "voice", n => { Voice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialSessionAudioOutputParamVoice>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialSessionAudioOutputParamVoice.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveCustomVoiceParam>("voice", Voice);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialSessionAudioOutputParamVoice>("voice", Voice);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -18,13 +18,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
-            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
-            if (parseNode.GetChildNode("permissions_added") is { } nullNodePermissionsAdded && nullNodePermissionsAdded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PermissionsAdded = null;
-            if (parseNode.GetChildNode("permissions_removed") is { } nullNodePermissionsRemoved && nullNodePermissionsRemoved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PermissionsRemoved = null;
-            if (parseNode.GetChildNode("resource_id") is { } nullNodeResourceId && nullNodeResourceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceId = null;
-            if (parseNode.GetChildNode("resource_type") is { } nullNodeResourceType && nullNodeResourceType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceType = null;
-            if (parseNode.GetChildNode("role_name") is { } nullNodeRoleName && nullNodeRoleName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleName = null;
+            if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
+            else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("metadata") is null) { _explicitNullValueMetadata = default!; _explicitNullProperties?.Remove("metadata"); }
+            else if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("permissions_added") is null) { _explicitNullValuePermissionsAdded = default!; _explicitNullProperties?.Remove("permissions_added"); }
+            else if (parseNode.GetChildNode("permissions_added") is { } nullNodePermissionsAdded && nullNodePermissionsAdded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PermissionsAdded = null;
+            if (parseNode.GetChildNode("permissions_removed") is null) { _explicitNullValuePermissionsRemoved = default!; _explicitNullProperties?.Remove("permissions_removed"); }
+            else if (parseNode.GetChildNode("permissions_removed") is { } nullNodePermissionsRemoved && nullNodePermissionsRemoved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PermissionsRemoved = null;
+            if (parseNode.GetChildNode("resource_id") is null) { _explicitNullValueResourceId = default!; _explicitNullProperties?.Remove("resource_id"); }
+            else if (parseNode.GetChildNode("resource_id") is { } nullNodeResourceId && nullNodeResourceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceId = null;
+            if (parseNode.GetChildNode("resource_type") is null) { _explicitNullValueResourceType = default!; _explicitNullProperties?.Remove("resource_type"); }
+            else if (parseNode.GetChildNode("resource_type") is { } nullNodeResourceType && nullNodeResourceType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceType = null;
+            if (parseNode.GetChildNode("role_name") is null) { _explicitNullValueRoleName = default!; _explicitNullProperties?.Remove("role_name"); }
+            else if (parseNode.GetChildNode("role_name") is { } nullNodeRoleName && nullNodeRoleName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,71 +39,71 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The updated role description, when provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Additional metadata stored on the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequestedMetadataProperty? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequestedMetadataProperty? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequestedMetadataProperty? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequestedMetadataProperty Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequestedMetadataProperty Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdatedChangesRequestedMetadataProperty _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The permissions added to the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PermissionsAdded { get => _explicitNullValuePermissionsAdded; set { _explicitNullValuePermissionsAdded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions_added"); else _explicitNullProperties?.Remove("permissions_added"); } }
+        public List<string>? PermissionsAdded { get => _explicitNullValuePermissionsAdded; set { _explicitNullValuePermissionsAdded = value; AdditionalData?.Remove("permissions_added"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions_added"); else _explicitNullProperties?.Remove("permissions_added"); } }
         private List<string>? _explicitNullValuePermissionsAdded = default!;
 #nullable restore
 #else
-        public List<string> PermissionsAdded { get => _explicitNullValuePermissionsAdded; set { _explicitNullValuePermissionsAdded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions_added"); else _explicitNullProperties?.Remove("permissions_added"); } }
+        public List<string> PermissionsAdded { get => _explicitNullValuePermissionsAdded; set { _explicitNullValuePermissionsAdded = value; AdditionalData?.Remove("permissions_added"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions_added"); else _explicitNullProperties?.Remove("permissions_added"); } }
         private List<string> _explicitNullValuePermissionsAdded = default!;
 #endif
         /// <summary>The permissions removed from the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PermissionsRemoved { get => _explicitNullValuePermissionsRemoved; set { _explicitNullValuePermissionsRemoved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions_removed"); else _explicitNullProperties?.Remove("permissions_removed"); } }
+        public List<string>? PermissionsRemoved { get => _explicitNullValuePermissionsRemoved; set { _explicitNullValuePermissionsRemoved = value; AdditionalData?.Remove("permissions_removed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions_removed"); else _explicitNullProperties?.Remove("permissions_removed"); } }
         private List<string>? _explicitNullValuePermissionsRemoved = default!;
 #nullable restore
 #else
-        public List<string> PermissionsRemoved { get => _explicitNullValuePermissionsRemoved; set { _explicitNullValuePermissionsRemoved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions_removed"); else _explicitNullProperties?.Remove("permissions_removed"); } }
+        public List<string> PermissionsRemoved { get => _explicitNullValuePermissionsRemoved; set { _explicitNullValuePermissionsRemoved = value; AdditionalData?.Remove("permissions_removed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions_removed"); else _explicitNullProperties?.Remove("permissions_removed"); } }
         private List<string> _explicitNullValuePermissionsRemoved = default!;
 #endif
         /// <summary>The resource the role is scoped to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResourceId { get => _explicitNullValueResourceId; set { _explicitNullValueResourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_id"); else _explicitNullProperties?.Remove("resource_id"); } }
+        public string? ResourceId { get => _explicitNullValueResourceId; set { _explicitNullValueResourceId = value; AdditionalData?.Remove("resource_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_id"); else _explicitNullProperties?.Remove("resource_id"); } }
         private string? _explicitNullValueResourceId = default!;
 #nullable restore
 #else
-        public string ResourceId { get => _explicitNullValueResourceId; set { _explicitNullValueResourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_id"); else _explicitNullProperties?.Remove("resource_id"); } }
+        public string ResourceId { get => _explicitNullValueResourceId; set { _explicitNullValueResourceId = value; AdditionalData?.Remove("resource_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_id"); else _explicitNullProperties?.Remove("resource_id"); } }
         private string _explicitNullValueResourceId = default!;
 #endif
         /// <summary>The type of resource the role belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResourceType { get => _explicitNullValueResourceType; set { _explicitNullValueResourceType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_type"); else _explicitNullProperties?.Remove("resource_type"); } }
+        public string? ResourceType { get => _explicitNullValueResourceType; set { _explicitNullValueResourceType = value; AdditionalData?.Remove("resource_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_type"); else _explicitNullProperties?.Remove("resource_type"); } }
         private string? _explicitNullValueResourceType = default!;
 #nullable restore
 #else
-        public string ResourceType { get => _explicitNullValueResourceType; set { _explicitNullValueResourceType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_type"); else _explicitNullProperties?.Remove("resource_type"); } }
+        public string ResourceType { get => _explicitNullValueResourceType; set { _explicitNullValueResourceType = value; AdditionalData?.Remove("resource_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_type"); else _explicitNullProperties?.Remove("resource_type"); } }
         private string _explicitNullValueResourceType = default!;
 #endif
         /// <summary>The updated role name, when provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RoleName { get => _explicitNullValueRoleName; set { _explicitNullValueRoleName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_name"); else _explicitNullProperties?.Remove("role_name"); } }
+        public string? RoleName { get => _explicitNullValueRoleName; set { _explicitNullValueRoleName = value; AdditionalData?.Remove("role_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_name"); else _explicitNullProperties?.Remove("role_name"); } }
         private string? _explicitNullValueRoleName = default!;
 #nullable restore
 #else
-        public string RoleName { get => _explicitNullValueRoleName; set { _explicitNullValueRoleName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_name"); else _explicitNullProperties?.Remove("role_name"); } }
+        public string RoleName { get => _explicitNullValueRoleName; set { _explicitNullValueRoleName = value; AdditionalData?.Remove("role_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_name"); else _explicitNullProperties?.Remove("role_name"); } }
         private string _explicitNullValueRoleName = default!;
 #endif
         /// <summary>

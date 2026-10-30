@@ -18,23 +18,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("format") is { } nullNodeFormat && nullNodeFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Format = null;
-            if (parseNode.GetChildNode("voice") is { } nullNodeVoice && nullNodeVoice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voice = null;
+            if (parseNode.GetChildNode("format") is null) { _explicitNullValueFormat = default!; _explicitNullProperties?.Remove("format"); }
+            else if (parseNode.GetChildNode("format") is { } nullNodeFormat && nullNodeFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Format = null;
+            if (parseNode.GetChildNode("voice") is null) { _explicitNullValueVoice = default!; _explicitNullProperties?.Remove("voice"); }
+            else if (parseNode.GetChildNode("voice") is { } nullNodeVoice && nullNodeVoice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voice = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies the output audio format. Must be one of `wav`, `mp3`, `flac`,`opus`, or `pcm16`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2AudioFormat? Format { get => _explicitNullValueFormat; set { _explicitNullValueFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("format"); else _explicitNullProperties?.Remove("format"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2AudioFormat? Format { get => _explicitNullValueFormat; set { _explicitNullValueFormat = value; AdditionalData?.Remove("format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("format"); else _explicitNullProperties?.Remove("format"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2AudioFormat? _explicitNullValueFormat = default!;
         /// <summary>The voice the model uses to respond. Supported built-in voices are`alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `nova`, `onyx`,`sage`, `shimmer`, `marin`, and `cedar`. You may also provide acustom voice object with an `id`, for example `{ &quot;id&quot;: &quot;voice_1234&quot; }`.Custom voices must be created from audio samples. Voices created from textprompts are supported only in Live.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; AdditionalData?.Remove("voice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice? _explicitNullValueVoice = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; AdditionalData?.Remove("voice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice _explicitNullValueVoice = default!;
 #endif
         /// <summary>
@@ -64,7 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "format", n => { Format = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2AudioFormat>(); } },
+                { "format", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2AudioFormat>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFormat = default; _explicitNullProperties?.Remove("format"); AdditionalData["format"] = unknown; } else { Format = parsed; AdditionalData.Remove("format"); } } },
                 { "voice", n => { Voice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice>(global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsOrCustomVoice.CreateFromDiscriminatorValue); } },
             };
         }

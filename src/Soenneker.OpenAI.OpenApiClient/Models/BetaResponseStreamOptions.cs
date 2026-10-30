@@ -18,13 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("include_obfuscation") is { } nullNodeIncludeObfuscation && nullNodeIncludeObfuscation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeObfuscation = null;
+            if (parseNode.GetChildNode("include_obfuscation") is null) { _explicitNullValueIncludeObfuscation = default!; _explicitNullProperties?.Remove("include_obfuscation"); }
+            else if (parseNode.GetChildNode("include_obfuscation") is { } nullNodeIncludeObfuscation && nullNodeIncludeObfuscation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeObfuscation = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When true, stream obfuscation will be enabled. Stream obfuscation addsrandom characters to an `obfuscation` field on streaming delta events tonormalize payload sizes as a mitigation to certain side-channel attacks.These obfuscation fields are included by default, but add a small amountof overhead to the data stream. You can set `include_obfuscation` tofalse to optimize for bandwidth if you trust the network links betweenyour application and the OpenAI API.</summary>
-        public bool? IncludeObfuscation { get => _explicitNullValueIncludeObfuscation; set { _explicitNullValueIncludeObfuscation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_obfuscation"); else _explicitNullProperties?.Remove("include_obfuscation"); } }
+        public bool? IncludeObfuscation { get => _explicitNullValueIncludeObfuscation; set { _explicitNullValueIncludeObfuscation = value; AdditionalData?.Remove("include_obfuscation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_obfuscation"); else _explicitNullProperties?.Remove("include_obfuscation"); } }
         private bool? _explicitNullValueIncludeObfuscation = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseStreamOptions"/> and sets the default values.

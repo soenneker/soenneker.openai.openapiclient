@@ -17,8 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("vector_store_ids") is { } nullNodeVectorStoreIds && nullNodeVectorStoreIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VectorStoreIds = null;
-            if (parseNode.GetChildNode("vector_stores") is { } nullNodeVectorStores && nullNodeVectorStores.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VectorStores = null;
+            if (parseNode.GetChildNode("vector_store_ids") is null) { _explicitNullValueVectorStoreIds = default!; _explicitNullProperties?.Remove("vector_store_ids"); }
+            else if (parseNode.GetChildNode("vector_store_ids") is { } nullNodeVectorStoreIds && nullNodeVectorStoreIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VectorStoreIds = null;
+            if (parseNode.GetChildNode("vector_stores") is null) { _explicitNullValueVectorStores = default!; _explicitNullProperties?.Remove("vector_stores"); }
+            else if (parseNode.GetChildNode("vector_stores") is { } nullNodeVectorStores && nullNodeVectorStores.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VectorStores = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The [vector store](https://developers.openai.com/api/reference/resources/vector_stores) attached to this assistant. There can be a maximum of 1 vector store attached to the assistant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? VectorStoreIds { get => _explicitNullValueVectorStoreIds; set { _explicitNullValueVectorStoreIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_store_ids"); else _explicitNullProperties?.Remove("vector_store_ids"); } }
+        public List<string>? VectorStoreIds { get => _explicitNullValueVectorStoreIds; set { _explicitNullValueVectorStoreIds = value; AdditionalData?.Remove("vector_store_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_store_ids"); else _explicitNullProperties?.Remove("vector_store_ids"); } }
         private List<string>? _explicitNullValueVectorStoreIds = default!;
 #nullable restore
 #else
-        public List<string> VectorStoreIds { get => _explicitNullValueVectorStoreIds; set { _explicitNullValueVectorStoreIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_store_ids"); else _explicitNullProperties?.Remove("vector_store_ids"); } }
+        public List<string> VectorStoreIds { get => _explicitNullValueVectorStoreIds; set { _explicitNullValueVectorStoreIds = value; AdditionalData?.Remove("vector_store_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_store_ids"); else _explicitNullProperties?.Remove("vector_store_ids"); } }
         private List<string> _explicitNullValueVectorStoreIds = default!;
 #endif
         /// <summary>A helper to create a [vector store](https://developers.openai.com/api/reference/resources/vector_stores) with file_ids and attach it to this assistant. There can be a maximum of 1 vector store attached to the assistant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestToolResourcesFileSearchVectorStoresItem>? VectorStores { get => _explicitNullValueVectorStores; set { _explicitNullValueVectorStores = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_stores"); else _explicitNullProperties?.Remove("vector_stores"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestToolResourcesFileSearchVectorStoresItem>? VectorStores { get => _explicitNullValueVectorStores; set { _explicitNullValueVectorStores = value; AdditionalData?.Remove("vector_stores"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_stores"); else _explicitNullProperties?.Remove("vector_stores"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestToolResourcesFileSearchVectorStoresItem>? _explicitNullValueVectorStores = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestToolResourcesFileSearchVectorStoresItem> VectorStores { get => _explicitNullValueVectorStores; set { _explicitNullValueVectorStores = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_stores"); else _explicitNullProperties?.Remove("vector_stores"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestToolResourcesFileSearchVectorStoresItem> VectorStores { get => _explicitNullValueVectorStores; set { _explicitNullValueVectorStores = value; AdditionalData?.Remove("vector_stores"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_stores"); else _explicitNullProperties?.Remove("vector_stores"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestToolResourcesFileSearchVectorStoresItem> _explicitNullValueVectorStores = default!;
 #endif
         /// <summary>

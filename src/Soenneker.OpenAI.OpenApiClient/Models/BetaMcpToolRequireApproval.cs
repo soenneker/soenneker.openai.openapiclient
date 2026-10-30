@@ -48,7 +48,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            if (result.BetaMcpToolRequireApprovalMcpToolApprovalFilter == null && result.BetaMcpToolRequireApprovalOneOf2 == null && unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) result.BetaMcpToolRequireApprovalMcpToolApprovalFilter = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalMcpToolApprovalFilter(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && ((!shapeMembers1.ContainsKey("always") || (((shapeMembers1["always"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (shapeMembers1["always"] is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject2 || (shapeObject2.GetValue() is var shapeMembers3 && ((!shapeMembers3.ContainsKey("tool_names") || (((shapeMembers3["tool_names"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)))) && (!shapeMembers3.ContainsKey("read_only") || (((shapeMembers3["read_only"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean)))) && global::System.Linq.Enumerable.All(shapeMembers3.Keys, key => key == "tool_names" || key == "read_only")))))) && (!shapeMembers1.ContainsKey("never") || (((shapeMembers1["never"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (shapeMembers1["never"] is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject8 || (shapeObject8.GetValue() is var shapeMembers9 && ((!shapeMembers9.ContainsKey("tool_names") || (((shapeMembers9["tool_names"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)))) && (!shapeMembers9.ContainsKey("read_only") || (((shapeMembers9["read_only"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean)))) && global::System.Linq.Enumerable.All(shapeMembers9.Keys, key => key == "tool_names" || key == "read_only")))))) && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "always" || key == "never"))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.BetaMcpToolRequireApprovalMcpToolApprovalFilter == null && result.BetaMcpToolRequireApprovalOneOf2 == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.BetaMcpToolRequireApprovalMcpToolApprovalFilter = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaMcpToolRequireApprovalMcpToolApprovalFilter(), parseNode);
             if (result.BetaMcpToolRequireApprovalMcpToolApprovalFilter == null && result.BetaMcpToolRequireApprovalOneOf2 == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -58,6 +62,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(BetaMcpToolRequireApprovalMcpToolApprovalFilter != null)
             {
                 return BetaMcpToolRequireApprovalMcpToolApprovalFilter.GetFieldDeserializers();
@@ -72,7 +78,10 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (BetaMcpToolRequireApprovalMcpToolApprovalFilter == null && BetaMcpToolRequireApprovalOneOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (BetaMcpToolRequireApprovalMcpToolApprovalFilter != null && BetaMcpToolRequireApprovalOneOf2 == null) { if (BetaMcpToolRequireApprovalMcpToolApprovalFilter is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaMcpToolRequireApprovalMcpToolApprovalFilter); return; }
+            int selectedUnionBranches = 0;
+            if (BetaMcpToolRequireApprovalMcpToolApprovalFilter != null) selectedUnionBranches++;
+            if (BetaMcpToolRequireApprovalOneOf2 != null) selectedUnionBranches++;
+            if (BetaMcpToolRequireApprovalMcpToolApprovalFilter != null && selectedUnionBranches == 1) { if (BetaMcpToolRequireApprovalMcpToolApprovalFilter is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaMcpToolRequireApprovalMcpToolApprovalFilter); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(BetaMcpToolRequireApprovalMcpToolApprovalFilter != null)

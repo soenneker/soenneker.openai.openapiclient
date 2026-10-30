@@ -17,7 +17,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("remote_url") is { } nullNodeRemoteUrl && nullNodeRemoteUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemoteUrl = null;
+            if (parseNode.GetChildNode("remote_url") is null) { _explicitNullValueRemoteUrl = default!; _explicitNullProperties?.Remove("remote_url"); }
+            else if (parseNode.GetChildNode("remote_url") is { } nullNodeRemoteUrl && nullNodeRemoteUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemoteUrl = null;
         }
 
         /// <summary>The URL used to connect the self-hosted environment.</summary>

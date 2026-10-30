@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("tool_calls") is { } nullNodeToolCalls && nullNodeToolCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolCalls = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("tool_calls") is null) { _explicitNullValueToolCalls = default!; _explicitNullProperties?.Remove("tool_calls"); }
+            else if (parseNode.GetChildNode("tool_calls") is { } nullNodeToolCalls && nullNodeToolCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolCalls = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>An array of tool calls the run step was involved in. These can be associated with one of three types of tools: `code_interpreter`, `file_search`, or `function`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem>? ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem>? ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; AdditionalData?.Remove("tool_calls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem>? _explicitNullValueToolCalls = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem> ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem> ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; AdditionalData?.Remove("tool_calls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem> _explicitNullValueToolCalls = default!;
 #endif
         /// <summary>Always `tool_calls`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallsType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallsType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallsType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObject"/> and sets the default values.
@@ -63,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsObjectToolCallsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallsType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolCallsType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

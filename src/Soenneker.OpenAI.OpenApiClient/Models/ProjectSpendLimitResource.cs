@@ -18,11 +18,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
-            if (parseNode.GetChildNode("enforcement") is { } nullNodeEnforcement && nullNodeEnforcement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enforcement = null;
-            if (parseNode.GetChildNode("interval") is { } nullNodeInterval && nullNodeInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interval = null;
-            if (parseNode.GetChildNode("object") is { } nullNodeObject && nullNodeObject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Object = null;
-            if (parseNode.GetChildNode("threshold_amount") is { } nullNodeThresholdAmount && nullNodeThresholdAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThresholdAmount = null;
+            if (parseNode.GetChildNode("currency") is null) { _explicitNullValueCurrency = default!; _explicitNullProperties?.Remove("currency"); }
+            else if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
+            if (parseNode.GetChildNode("enforcement") is null) { _explicitNullValueEnforcement = default!; _explicitNullProperties?.Remove("enforcement"); }
+            else if (parseNode.GetChildNode("enforcement") is { } nullNodeEnforcement && nullNodeEnforcement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enforcement = null;
+            if (parseNode.GetChildNode("interval") is null) { _explicitNullValueInterval = default!; _explicitNullProperties?.Remove("interval"); }
+            else if (parseNode.GetChildNode("interval") is { } nullNodeInterval && nullNodeInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interval = null;
+            if (parseNode.GetChildNode("object") is null) { _explicitNullValueObject = default!; _explicitNullProperties?.Remove("object"); }
+            else if (parseNode.GetChildNode("object") is { } nullNodeObject && nullNodeObject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Object = null;
+            if (parseNode.GetChildNode("threshold_amount") is null) { _explicitNullValueThresholdAmount = default!; _explicitNullProperties?.Remove("threshold_amount"); }
+            else if (parseNode.GetChildNode("threshold_amount") is { } nullNodeThresholdAmount && nullNodeThresholdAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThresholdAmount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,38 +35,38 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The currency for the threshold amount. Currently, only `USD` is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitCurrency? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitCurrency? _explicitNullValueCurrency = default!;
+        public string? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; AdditionalData?.Remove("currency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        private string? _explicitNullValueCurrency = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitCurrency Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitCurrency _explicitNullValueCurrency = default!;
+        public string Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; AdditionalData?.Remove("currency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        private string _explicitNullValueCurrency = default!;
 #endif
         /// <summary>The current enforcement state of the hard spend limit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcement? Enforcement { get => _explicitNullValueEnforcement; set { _explicitNullValueEnforcement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforcement"); else _explicitNullProperties?.Remove("enforcement"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcement? Enforcement { get => _explicitNullValueEnforcement; set { _explicitNullValueEnforcement = value; AdditionalData?.Remove("enforcement"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforcement"); else _explicitNullProperties?.Remove("enforcement"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcement? _explicitNullValueEnforcement = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcement Enforcement { get => _explicitNullValueEnforcement; set { _explicitNullValueEnforcement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforcement"); else _explicitNullProperties?.Remove("enforcement"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcement Enforcement { get => _explicitNullValueEnforcement; set { _explicitNullValueEnforcement = value; AdditionalData?.Remove("enforcement"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforcement"); else _explicitNullProperties?.Remove("enforcement"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcement _explicitNullValueEnforcement = default!;
 #endif
         /// <summary>The time interval for evaluating spend against the threshold. Currently, only `month` is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitInterval? Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitInterval? _explicitNullValueInterval = default!;
+        public string? Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; AdditionalData?.Remove("interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
+        private string? _explicitNullValueInterval = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitInterval Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitInterval _explicitNullValueInterval = default!;
+        public string Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; AdditionalData?.Remove("interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
+        private string _explicitNullValueInterval = default!;
 #endif
         /// <summary>The object type, which is always `project.spend_limit`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendLimitObject? Object { get => _explicitNullValueObject; set { _explicitNullValueObject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object"); else _explicitNullProperties?.Remove("object"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendLimitObject? Object { get => _explicitNullValueObject; set { _explicitNullValueObject = value; AdditionalData?.Remove("object"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object"); else _explicitNullProperties?.Remove("object"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendLimitObject? _explicitNullValueObject = default!;
         /// <summary>The hard spend limit amount, in cents.</summary>
-        public int? ThresholdAmount { get => _explicitNullValueThresholdAmount; set { _explicitNullValueThresholdAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threshold_amount"); else _explicitNullProperties?.Remove("threshold_amount"); } }
+        public int? ThresholdAmount { get => _explicitNullValueThresholdAmount; set { _explicitNullValueThresholdAmount = value; AdditionalData?.Remove("threshold_amount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threshold_amount"); else _explicitNullProperties?.Remove("threshold_amount"); } }
         private int? _explicitNullValueThresholdAmount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendLimitResource"/> and sets the default values.
@@ -88,10 +93,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "currency", n => { Currency = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitCurrency>(global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitCurrency.CreateFromDiscriminatorValue); } },
+                { "currency", n => { Currency = n.GetStringValue(); } },
                 { "enforcement", n => { Enforcement = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcement>(global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcement.CreateFromDiscriminatorValue); } },
-                { "interval", n => { Interval = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitInterval>(global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitInterval.CreateFromDiscriminatorValue); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendLimitObject>(); } },
+                { "interval", n => { Interval = n.GetStringValue(); } },
+                { "object", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendLimitObject>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueObject = default; _explicitNullProperties?.Remove("object"); AdditionalData["object"] = unknown; } else { Object = parsed; AdditionalData.Remove("object"); } } },
                 { "threshold_amount", n => { ThresholdAmount = n.GetIntValue(); } },
             };
         }
@@ -102,9 +107,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitCurrency>("currency", Currency);
+            writer.WriteStringValue("currency", Currency);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitEnforcement>("enforcement", Enforcement);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SpendLimitInterval>("interval", Interval);
+            writer.WriteStringValue("interval", Interval);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectSpendLimitObject>("object", Object);
             writer.WriteIntValue("threshold_amount", ThresholdAmount);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

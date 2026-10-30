@@ -17,9 +17,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("chunking_strategy") is { } nullNodeChunkingStrategy && nullNodeChunkingStrategy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChunkingStrategy = null;
-            if (parseNode.GetChildNode("file_ids") is { } nullNodeFileIds && nullNodeFileIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileIds = null;
-            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("chunking_strategy") is null) { _explicitNullValueChunkingStrategy = default!; _explicitNullProperties?.Remove("chunking_strategy"); }
+            else if (parseNode.GetChildNode("chunking_strategy") is { } nullNodeChunkingStrategy && nullNodeChunkingStrategy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChunkingStrategy = null;
+            if (parseNode.GetChildNode("file_ids") is null) { _explicitNullValueFileIds = default!; _explicitNullProperties?.Remove("file_ids"); }
+            else if (parseNode.GetChildNode("file_ids") is { } nullNodeFileIds && nullNodeFileIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileIds = null;
+            if (parseNode.GetChildNode("metadata") is null) { _explicitNullValueMetadata = default!; _explicitNullProperties?.Remove("metadata"); }
+            else if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The chunking strategy used to chunk the file(s). If not set, will use the `auto` strategy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy? ChunkingStrategy { get => _explicitNullValueChunkingStrategy; set { _explicitNullValueChunkingStrategy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chunking_strategy"); else _explicitNullProperties?.Remove("chunking_strategy"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy? ChunkingStrategy { get => _explicitNullValueChunkingStrategy; set { _explicitNullValueChunkingStrategy = value; AdditionalData?.Remove("chunking_strategy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chunking_strategy"); else _explicitNullProperties?.Remove("chunking_strategy"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy? _explicitNullValueChunkingStrategy = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy ChunkingStrategy { get => _explicitNullValueChunkingStrategy; set { _explicitNullValueChunkingStrategy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chunking_strategy"); else _explicitNullProperties?.Remove("chunking_strategy"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy ChunkingStrategy { get => _explicitNullValueChunkingStrategy; set { _explicitNullValueChunkingStrategy = value; AdditionalData?.Remove("chunking_strategy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chunking_strategy"); else _explicitNullProperties?.Remove("chunking_strategy"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy _explicitNullValueChunkingStrategy = default!;
 #endif
         /// <summary>A list of [file](https://developers.openai.com/api/reference/resources/files) IDs to add to the vector store. For vector stores created before Nov 2025, there can be a maximum of 10,000 files in a vector store. For vector stores created starting in Nov 2025, the limit is 100,000,000 files.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? FileIds { get => _explicitNullValueFileIds; set { _explicitNullValueFileIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_ids"); else _explicitNullProperties?.Remove("file_ids"); } }
+        public List<string>? FileIds { get => _explicitNullValueFileIds; set { _explicitNullValueFileIds = value; AdditionalData?.Remove("file_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_ids"); else _explicitNullProperties?.Remove("file_ids"); } }
         private List<string>? _explicitNullValueFileIds = default!;
 #nullable restore
 #else
-        public List<string> FileIds { get => _explicitNullValueFileIds; set { _explicitNullValueFileIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_ids"); else _explicitNullProperties?.Remove("file_ids"); } }
+        public List<string> FileIds { get => _explicitNullValueFileIds; set { _explicitNullValueFileIds = value; AdditionalData?.Remove("file_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_ids"); else _explicitNullProperties?.Remove("file_ids"); } }
         private List<string> _explicitNullValueFileIds = default!;
 #endif
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>

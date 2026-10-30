@@ -18,13 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cached_tokens") is { } nullNodeCachedTokens && nullNodeCachedTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedTokens = null;
+            if (parseNode.GetChildNode("cached_tokens") is null) { _explicitNullValueCachedTokens = default!; _explicitNullProperties?.Remove("cached_tokens"); }
+            else if (parseNode.GetChildNode("cached_tokens") is { } nullNodeCachedTokens && nullNodeCachedTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedTokens = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of tokens that were retrieved from the cache. [More onprompt caching](https://developers.openai.com/api/docs/guides/prompt-caching).</summary>
-        public int? CachedTokens { get => _explicitNullValueCachedTokens; set { _explicitNullValueCachedTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_tokens"); else _explicitNullProperties?.Remove("cached_tokens"); } }
+        public int? CachedTokens { get => _explicitNullValueCachedTokens; set { _explicitNullValueCachedTokens = value; AdditionalData?.Remove("cached_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_tokens"); else _explicitNullProperties?.Remove("cached_tokens"); } }
         private int? _explicitNullValueCachedTokens = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BatchUsageInputTokensDetails"/> and sets the default values.

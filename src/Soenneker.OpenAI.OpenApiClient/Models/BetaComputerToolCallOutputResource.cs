@@ -17,24 +17,32 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("acknowledged_safety_checks") is { } nullNodeAcknowledgedSafetyChecks && nullNodeAcknowledgedSafetyChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcknowledgedSafetyChecks = null;
-            if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
-            if (parseNode.GetChildNode("call_id") is { } nullNodeCallId && nullNodeCallId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallId = null;
-            if (parseNode.GetChildNode("created_by") is { } nullNodeCreatedBy && nullNodeCreatedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedBy = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("output") is { } nullNodeOutput && nullNodeOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Output = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("acknowledged_safety_checks") is null) { _explicitNullValueAcknowledgedSafetyChecks = default!; _explicitNullProperties?.Remove("acknowledged_safety_checks"); }
+            else if (parseNode.GetChildNode("acknowledged_safety_checks") is { } nullNodeAcknowledgedSafetyChecks && nullNodeAcknowledgedSafetyChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcknowledgedSafetyChecks = null;
+            if (parseNode.GetChildNode("agent") is null) { _explicitNullValueAgent = default!; _explicitNullProperties?.Remove("agent"); }
+            else if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
+            if (parseNode.GetChildNode("call_id") is null) { _explicitNullValueCallId = default!; _explicitNullProperties?.Remove("call_id"); }
+            else if (parseNode.GetChildNode("call_id") is { } nullNodeCallId && nullNodeCallId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallId = null;
+            if (parseNode.GetChildNode("created_by") is null) { _explicitNullValueCreatedBy = default!; _explicitNullProperties?.Remove("created_by"); }
+            else if (parseNode.GetChildNode("created_by") is { } nullNodeCreatedBy && nullNodeCreatedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedBy = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("output") is null) { _explicitNullValueOutput = default!; _explicitNullProperties?.Remove("output"); }
+            else if (parseNode.GetChildNode("output") is { } nullNodeOutput && nullNodeOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Output = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>The safety checks reported by the API that have been acknowledged by thedeveloper.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerCallSafetyCheckParam>? AcknowledgedSafetyChecks { get => _explicitNullValueAcknowledgedSafetyChecks; set { _explicitNullValueAcknowledgedSafetyChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acknowledged_safety_checks"); else _explicitNullProperties?.Remove("acknowledged_safety_checks"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerCallSafetyCheckParam>? AcknowledgedSafetyChecks { get => _explicitNullValueAcknowledgedSafetyChecks; set { _explicitNullValueAcknowledgedSafetyChecks = value; AdditionalData?.Remove("acknowledged_safety_checks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acknowledged_safety_checks"); else _explicitNullProperties?.Remove("acknowledged_safety_checks"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerCallSafetyCheckParam>? _explicitNullValueAcknowledgedSafetyChecks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerCallSafetyCheckParam> AcknowledgedSafetyChecks { get => _explicitNullValueAcknowledgedSafetyChecks; set { _explicitNullValueAcknowledgedSafetyChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acknowledged_safety_checks"); else _explicitNullProperties?.Remove("acknowledged_safety_checks"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerCallSafetyCheckParam> AcknowledgedSafetyChecks { get => _explicitNullValueAcknowledgedSafetyChecks; set { _explicitNullValueAcknowledgedSafetyChecks = value; AdditionalData?.Remove("acknowledged_safety_checks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acknowledged_safety_checks"); else _explicitNullProperties?.Remove("acknowledged_safety_checks"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerCallSafetyCheckParam> _explicitNullValueAcknowledgedSafetyChecks = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -42,65 +50,65 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The agent that produced this item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag? _explicitNullValueAgent = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag _explicitNullValueAgent = default!;
 #endif
         /// <summary>The ID of the computer tool call that produced the output.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallId { get => _explicitNullValueCallId; set { _explicitNullValueCallId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_id"); else _explicitNullProperties?.Remove("call_id"); } }
+        public string? CallId { get => _explicitNullValueCallId; set { _explicitNullValueCallId = value; AdditionalData?.Remove("call_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_id"); else _explicitNullProperties?.Remove("call_id"); } }
         private string? _explicitNullValueCallId = default!;
 #nullable restore
 #else
-        public string CallId { get => _explicitNullValueCallId; set { _explicitNullValueCallId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_id"); else _explicitNullProperties?.Remove("call_id"); } }
+        public string CallId { get => _explicitNullValueCallId; set { _explicitNullValueCallId = value; AdditionalData?.Remove("call_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("call_id"); else _explicitNullProperties?.Remove("call_id"); } }
         private string _explicitNullValueCallId = default!;
 #endif
         /// <summary>The identifier of the actor that created the item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedBy { get => _explicitNullValueCreatedBy; set { _explicitNullValueCreatedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_by"); else _explicitNullProperties?.Remove("created_by"); } }
+        public string? CreatedBy { get => _explicitNullValueCreatedBy; set { _explicitNullValueCreatedBy = value; AdditionalData?.Remove("created_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_by"); else _explicitNullProperties?.Remove("created_by"); } }
         private string? _explicitNullValueCreatedBy = default!;
 #nullable restore
 #else
-        public string CreatedBy { get => _explicitNullValueCreatedBy; set { _explicitNullValueCreatedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_by"); else _explicitNullProperties?.Remove("created_by"); } }
+        public string CreatedBy { get => _explicitNullValueCreatedBy; set { _explicitNullValueCreatedBy = value; AdditionalData?.Remove("created_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_by"); else _explicitNullProperties?.Remove("created_by"); } }
         private string _explicitNullValueCreatedBy = default!;
 #endif
         /// <summary>The ID of the computer tool call output.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>A computer screenshot image used with the computer use tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerScreenshotImage? Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerScreenshotImage? Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; AdditionalData?.Remove("output"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerScreenshotImage? _explicitNullValueOutput = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerScreenshotImage Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerScreenshotImage Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; AdditionalData?.Remove("output"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerScreenshotImage _explicitNullValueOutput = default!;
 #endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallOutputResourceStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallOutputResourceStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallOutputResourceStatus? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallOutputResourceStatus Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallOutputResourceStatus Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallOutputResourceStatus _explicitNullValueStatus = default!;
 #endif
         /// <summary>The type of the computer tool call output. Always `computer_call_output`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallOutputResource"/> and sets the default values.
@@ -134,7 +142,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerScreenshotImage>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerScreenshotImage.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallOutputResourceStatus>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerToolCallOutputResourceStatus.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerCallOutputType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

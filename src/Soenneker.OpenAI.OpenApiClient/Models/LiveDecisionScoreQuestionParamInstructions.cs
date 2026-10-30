@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="string"/>, List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionScoreQuestionParamInstructionsOneOf2Item&gt;
+    /// Composed type wrapper for classes <see cref="string"/>, List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionChoiceQuestionParamInstructionsOneOf2Item&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LiveDecisionScoreQuestionParamInstructions : IComposedTypeWrapper, IParsable
@@ -18,13 +18,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-        /// <summary>Composed type representation for type List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionScoreQuestionParamInstructionsOneOf2Item&gt;</summary>
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionChoiceQuestionParamInstructionsOneOf2Item&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionScoreQuestionParamInstructionsOneOf2Item>? LiveDecisionScoreQuestionParamInstructionsOneOf2Item { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionChoiceQuestionParamInstructionsOneOf2Item>? LiveDecisionChoiceQuestionParamInstructionsOneOf2Item { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionScoreQuestionParamInstructionsOneOf2Item> LiveDecisionScoreQuestionParamInstructionsOneOf2Item { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionChoiceQuestionParamInstructionsOneOf2Item> LiveDecisionChoiceQuestionParamInstructionsOneOf2Item { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,13 +48,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.String = stringValue;
             }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionScoreQuestionParamInstructionsOneOf2Item>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionScoreQuestionParamInstructionsOneOf2Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionScoreQuestionParamInstructionsOneOf2Item> liveDecisionScoreQuestionParamInstructionsOneOf2ItemValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => item is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) && parseNode.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionChoiceQuestionParamInstructionsOneOf2Item>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionChoiceQuestionParamInstructionsOneOf2Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionChoiceQuestionParamInstructionsOneOf2Item> liveDecisionChoiceQuestionParamInstructionsOneOf2ItemValue)
             {
-                result.LiveDecisionScoreQuestionParamInstructionsOneOf2Item = liveDecisionScoreQuestionParamInstructionsOneOf2ItemValue;
+                result.LiveDecisionChoiceQuestionParamInstructionsOneOf2Item = liveDecisionChoiceQuestionParamInstructionsOneOf2ItemValue;
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            if (result.LiveDecisionScoreQuestionParamInstructionsOneOf2Item == null && result.String == null) result.UnrecognizedValue = unionPayload;
+            if (result.LiveDecisionChoiceQuestionParamInstructionsOneOf2Item == null && result.String == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
         /// <summary>
@@ -63,6 +63,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -72,16 +74,16 @@ return result;
         public virtual void Serialize(ISerializationWriter writer)
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (LiveDecisionScoreQuestionParamInstructionsOneOf2Item == null && String == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (LiveDecisionChoiceQuestionParamInstructionsOneOf2Item == null && String == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(String != null)
             {
                 writer.WriteStringValue(null, String);
             }
-            else if(LiveDecisionScoreQuestionParamInstructionsOneOf2Item != null)
+            else if(LiveDecisionChoiceQuestionParamInstructionsOneOf2Item != null)
             {
-                writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionScoreQuestionParamInstructionsOneOf2Item>(null, LiveDecisionScoreQuestionParamInstructionsOneOf2Item);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionChoiceQuestionParamInstructionsOneOf2Item>(null, LiveDecisionChoiceQuestionParamInstructionsOneOf2Item);
             }
         }
     }

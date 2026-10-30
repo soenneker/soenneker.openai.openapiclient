@@ -17,9 +17,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("hybrid_search") is { } nullNodeHybridSearch && nullNodeHybridSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HybridSearch = null;
-            if (parseNode.GetChildNode("ranker") is { } nullNodeRanker && nullNodeRanker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ranker = null;
-            if (parseNode.GetChildNode("score_threshold") is { } nullNodeScoreThreshold && nullNodeScoreThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScoreThreshold = null;
+            if (parseNode.GetChildNode("hybrid_search") is null) { _explicitNullValueHybridSearch = default!; _explicitNullProperties?.Remove("hybrid_search"); }
+            else if (parseNode.GetChildNode("hybrid_search") is { } nullNodeHybridSearch && nullNodeHybridSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HybridSearch = null;
+            if (parseNode.GetChildNode("ranker") is null) { _explicitNullValueRanker = default!; _explicitNullProperties?.Remove("ranker"); }
+            else if (parseNode.GetChildNode("ranker") is { } nullNodeRanker && nullNodeRanker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ranker = null;
+            if (parseNode.GetChildNode("score_threshold") is null) { _explicitNullValueScoreThreshold = default!; _explicitNullProperties?.Remove("score_threshold"); }
+            else if (parseNode.GetChildNode("score_threshold") is { } nullNodeScoreThreshold && nullNodeScoreThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScoreThreshold = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,18 +30,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Weights that control how reciprocal rank fusion balances semantic embedding matches versus sparse keyword matches when hybrid search is enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions? HybridSearch { get => _explicitNullValueHybridSearch; set { _explicitNullValueHybridSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hybrid_search"); else _explicitNullProperties?.Remove("hybrid_search"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions? HybridSearch { get => _explicitNullValueHybridSearch; set { _explicitNullValueHybridSearch = value; AdditionalData?.Remove("hybrid_search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hybrid_search"); else _explicitNullProperties?.Remove("hybrid_search"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions? _explicitNullValueHybridSearch = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions HybridSearch { get => _explicitNullValueHybridSearch; set { _explicitNullValueHybridSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hybrid_search"); else _explicitNullProperties?.Remove("hybrid_search"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions HybridSearch { get => _explicitNullValueHybridSearch; set { _explicitNullValueHybridSearch = value; AdditionalData?.Remove("hybrid_search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hybrid_search"); else _explicitNullProperties?.Remove("hybrid_search"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions _explicitNullValueHybridSearch = default!;
 #endif
         /// <summary>The ranker to use for the file search.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankerVersionType? Ranker { get => _explicitNullValueRanker; set { _explicitNullValueRanker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ranker"); else _explicitNullProperties?.Remove("ranker"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankerVersionType? Ranker { get => _explicitNullValueRanker; set { _explicitNullValueRanker = value; AdditionalData?.Remove("ranker"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ranker"); else _explicitNullProperties?.Remove("ranker"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankerVersionType? _explicitNullValueRanker = default!;
         /// <summary>The score threshold for the file search, a number between 0 and 1. Numbers closer to 1 will attempt to return only the most relevant results, but may return fewer results.</summary>
-        public double? ScoreThreshold { get => _explicitNullValueScoreThreshold; set { _explicitNullValueScoreThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("score_threshold"); else _explicitNullProperties?.Remove("score_threshold"); } }
+        public double? ScoreThreshold { get => _explicitNullValueScoreThreshold; set { _explicitNullValueScoreThreshold = value; AdditionalData?.Remove("score_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("score_threshold"); else _explicitNullProperties?.Remove("score_threshold"); } }
         private double? _explicitNullValueScoreThreshold = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankingOptions"/> and sets the default values.
@@ -66,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "hybrid_search", n => { HybridSearch = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions.CreateFromDiscriminatorValue); } },
-                { "ranker", n => { Ranker = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankerVersionType>(); } },
+                { "ranker", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankerVersionType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRanker = default; _explicitNullProperties?.Remove("ranker"); AdditionalData["ranker"] = unknown; } else { Ranker = parsed; AdditionalData.Remove("ranker"); } } },
                 { "score_threshold", n => { ScoreThreshold = n.GetDoubleValue(); } },
             };
         }

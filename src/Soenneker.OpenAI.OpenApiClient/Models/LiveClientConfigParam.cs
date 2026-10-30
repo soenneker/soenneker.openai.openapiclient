@@ -18,7 +18,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("data_channel") is { } nullNodeDataChannel && nullNodeDataChannel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataChannel = null;
+            if (parseNode.GetChildNode("data_channel") is null) { _explicitNullValueDataChannel = default!; _explicitNullProperties?.Remove("data_channel"); }
+            else if (parseNode.GetChildNode("data_channel") is { } nullNodeDataChannel && nullNodeDataChannel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataChannel = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Client and server event permissions for the WebRTC frontend data channel.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParam? DataChannel { get => _explicitNullValueDataChannel; set { _explicitNullValueDataChannel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_channel"); else _explicitNullProperties?.Remove("data_channel"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParam? DataChannel { get => _explicitNullValueDataChannel; set { _explicitNullValueDataChannel = value; AdditionalData?.Remove("data_channel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_channel"); else _explicitNullProperties?.Remove("data_channel"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParam? _explicitNullValueDataChannel = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParam DataChannel { get => _explicitNullValueDataChannel; set { _explicitNullValueDataChannel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_channel"); else _explicitNullProperties?.Remove("data_channel"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParam DataChannel { get => _explicitNullValueDataChannel; set { _explicitNullValueDataChannel = value; AdditionalData?.Remove("data_channel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_channel"); else _explicitNullProperties?.Remove("data_channel"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.LiveDataChannelConfigParam _explicitNullValueDataChannel = default!;
 #endif
         /// <summary>

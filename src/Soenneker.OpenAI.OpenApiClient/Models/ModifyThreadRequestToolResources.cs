@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("code_interpreter") is { } nullNodeCodeInterpreter && nullNodeCodeInterpreter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeInterpreter = null;
-            if (parseNode.GetChildNode("file_search") is { } nullNodeFileSearch && nullNodeFileSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileSearch = null;
+            if (parseNode.GetChildNode("code_interpreter") is null) { _explicitNullValueCodeInterpreter = default!; _explicitNullProperties?.Remove("code_interpreter"); }
+            else if (parseNode.GetChildNode("code_interpreter") is { } nullNodeCodeInterpreter && nullNodeCodeInterpreter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeInterpreter = null;
+            if (parseNode.GetChildNode("file_search") is null) { _explicitNullValueFileSearch = default!; _explicitNullProperties?.Remove("file_search"); }
+            else if (parseNode.GetChildNode("file_search") is { } nullNodeFileSearch && nullNodeFileSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileSearch = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The code_interpreter property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ModifyThreadRequestToolResourcesCodeInterpreter? CodeInterpreter { get => _explicitNullValueCodeInterpreter; set { _explicitNullValueCodeInterpreter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_interpreter"); else _explicitNullProperties?.Remove("code_interpreter"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModifyThreadRequestToolResourcesCodeInterpreter? CodeInterpreter { get => _explicitNullValueCodeInterpreter; set { _explicitNullValueCodeInterpreter = value; AdditionalData?.Remove("code_interpreter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_interpreter"); else _explicitNullProperties?.Remove("code_interpreter"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ModifyThreadRequestToolResourcesCodeInterpreter? _explicitNullValueCodeInterpreter = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ModifyThreadRequestToolResourcesCodeInterpreter CodeInterpreter { get => _explicitNullValueCodeInterpreter; set { _explicitNullValueCodeInterpreter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_interpreter"); else _explicitNullProperties?.Remove("code_interpreter"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModifyThreadRequestToolResourcesCodeInterpreter CodeInterpreter { get => _explicitNullValueCodeInterpreter; set { _explicitNullValueCodeInterpreter = value; AdditionalData?.Remove("code_interpreter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_interpreter"); else _explicitNullProperties?.Remove("code_interpreter"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ModifyThreadRequestToolResourcesCodeInterpreter _explicitNullValueCodeInterpreter = default!;
 #endif
         /// <summary>The file_search property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ModifyThreadRequestToolResourcesFileSearch? FileSearch { get => _explicitNullValueFileSearch; set { _explicitNullValueFileSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_search"); else _explicitNullProperties?.Remove("file_search"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModifyThreadRequestToolResourcesFileSearch? FileSearch { get => _explicitNullValueFileSearch; set { _explicitNullValueFileSearch = value; AdditionalData?.Remove("file_search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_search"); else _explicitNullProperties?.Remove("file_search"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ModifyThreadRequestToolResourcesFileSearch? _explicitNullValueFileSearch = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ModifyThreadRequestToolResourcesFileSearch FileSearch { get => _explicitNullValueFileSearch; set { _explicitNullValueFileSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_search"); else _explicitNullProperties?.Remove("file_search"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ModifyThreadRequestToolResourcesFileSearch FileSearch { get => _explicitNullValueFileSearch; set { _explicitNullValueFileSearch = value; AdditionalData?.Remove("file_search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_search"); else _explicitNullProperties?.Remove("file_search"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ModifyThreadRequestToolResourcesFileSearch _explicitNullValueFileSearch = default!;
 #endif
         /// <summary>

@@ -18,10 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("batch_size") is { } nullNodeBatchSize && nullNodeBatchSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BatchSize = null;
-            if (parseNode.GetChildNode("beta") is { } nullNodeBeta && nullNodeBeta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Beta = null;
-            if (parseNode.GetChildNode("learning_rate_multiplier") is { } nullNodeLearningRateMultiplier && nullNodeLearningRateMultiplier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LearningRateMultiplier = null;
-            if (parseNode.GetChildNode("n_epochs") is { } nullNodeNEpochs && nullNodeNEpochs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NEpochs = null;
+            if (parseNode.GetChildNode("batch_size") is null) { _explicitNullValueBatchSize = default!; _explicitNullProperties?.Remove("batch_size"); }
+            else if (parseNode.GetChildNode("batch_size") is { } nullNodeBatchSize && nullNodeBatchSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BatchSize = null;
+            if (parseNode.GetChildNode("beta") is null) { _explicitNullValueBeta = default!; _explicitNullProperties?.Remove("beta"); }
+            else if (parseNode.GetChildNode("beta") is { } nullNodeBeta && nullNodeBeta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Beta = null;
+            if (parseNode.GetChildNode("learning_rate_multiplier") is null) { _explicitNullValueLearningRateMultiplier = default!; _explicitNullProperties?.Remove("learning_rate_multiplier"); }
+            else if (parseNode.GetChildNode("learning_rate_multiplier") is { } nullNodeLearningRateMultiplier && nullNodeLearningRateMultiplier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LearningRateMultiplier = null;
+            if (parseNode.GetChildNode("n_epochs") is null) { _explicitNullValueNEpochs = default!; _explicitNullProperties?.Remove("n_epochs"); }
+            else if (parseNode.GetChildNode("n_epochs") is { } nullNodeNEpochs && nullNodeNEpochs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NEpochs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,41 +33,41 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Number of examples in each batch. A larger batch size means that model parameters are updated less frequently, but with lower variance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBatchSize? BatchSize { get => _explicitNullValueBatchSize; set { _explicitNullValueBatchSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("batch_size"); else _explicitNullProperties?.Remove("batch_size"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBatchSize? BatchSize { get => _explicitNullValueBatchSize; set { _explicitNullValueBatchSize = value; AdditionalData?.Remove("batch_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("batch_size"); else _explicitNullProperties?.Remove("batch_size"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBatchSize? _explicitNullValueBatchSize = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBatchSize BatchSize { get => _explicitNullValueBatchSize; set { _explicitNullValueBatchSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("batch_size"); else _explicitNullProperties?.Remove("batch_size"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBatchSize BatchSize { get => _explicitNullValueBatchSize; set { _explicitNullValueBatchSize = value; AdditionalData?.Remove("batch_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("batch_size"); else _explicitNullProperties?.Remove("batch_size"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBatchSize _explicitNullValueBatchSize = default!;
 #endif
         /// <summary>The beta value for the DPO method. A higher beta value will increase the weight of the penalty between the policy and reference model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBeta? Beta { get => _explicitNullValueBeta; set { _explicitNullValueBeta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beta"); else _explicitNullProperties?.Remove("beta"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBeta? Beta { get => _explicitNullValueBeta; set { _explicitNullValueBeta = value; AdditionalData?.Remove("beta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beta"); else _explicitNullProperties?.Remove("beta"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBeta? _explicitNullValueBeta = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBeta Beta { get => _explicitNullValueBeta; set { _explicitNullValueBeta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beta"); else _explicitNullProperties?.Remove("beta"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBeta Beta { get => _explicitNullValueBeta; set { _explicitNullValueBeta = value; AdditionalData?.Remove("beta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beta"); else _explicitNullProperties?.Remove("beta"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersBeta _explicitNullValueBeta = default!;
 #endif
         /// <summary>Scaling factor for the learning rate. A smaller learning rate may be useful to avoid overfitting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersLearningRateMultiplier? LearningRateMultiplier { get => _explicitNullValueLearningRateMultiplier; set { _explicitNullValueLearningRateMultiplier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("learning_rate_multiplier"); else _explicitNullProperties?.Remove("learning_rate_multiplier"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersLearningRateMultiplier? LearningRateMultiplier { get => _explicitNullValueLearningRateMultiplier; set { _explicitNullValueLearningRateMultiplier = value; AdditionalData?.Remove("learning_rate_multiplier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("learning_rate_multiplier"); else _explicitNullProperties?.Remove("learning_rate_multiplier"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersLearningRateMultiplier? _explicitNullValueLearningRateMultiplier = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersLearningRateMultiplier LearningRateMultiplier { get => _explicitNullValueLearningRateMultiplier; set { _explicitNullValueLearningRateMultiplier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("learning_rate_multiplier"); else _explicitNullProperties?.Remove("learning_rate_multiplier"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersLearningRateMultiplier LearningRateMultiplier { get => _explicitNullValueLearningRateMultiplier; set { _explicitNullValueLearningRateMultiplier = value; AdditionalData?.Remove("learning_rate_multiplier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("learning_rate_multiplier"); else _explicitNullProperties?.Remove("learning_rate_multiplier"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersLearningRateMultiplier _explicitNullValueLearningRateMultiplier = default!;
 #endif
         /// <summary>The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersNEpochs? NEpochs { get => _explicitNullValueNEpochs; set { _explicitNullValueNEpochs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("n_epochs"); else _explicitNullProperties?.Remove("n_epochs"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersNEpochs? NEpochs { get => _explicitNullValueNEpochs; set { _explicitNullValueNEpochs = value; AdditionalData?.Remove("n_epochs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("n_epochs"); else _explicitNullProperties?.Remove("n_epochs"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersNEpochs? _explicitNullValueNEpochs = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersNEpochs NEpochs { get => _explicitNullValueNEpochs; set { _explicitNullValueNEpochs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("n_epochs"); else _explicitNullProperties?.Remove("n_epochs"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersNEpochs NEpochs { get => _explicitNullValueNEpochs; set { _explicitNullValueNEpochs = value; AdditionalData?.Remove("n_epochs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("n_epochs"); else _explicitNullProperties?.Remove("n_epochs"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoHyperparametersNEpochs _explicitNullValueNEpochs = default!;
 #endif
         /// <summary>

@@ -89,7 +89,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits.Rate_limitsRequestBuilder.Rate_limitsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.openai.com/v1", "/organization/projects/{projectId}/rate_limits", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

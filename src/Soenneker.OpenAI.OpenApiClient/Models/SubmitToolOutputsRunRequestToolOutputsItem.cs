@@ -17,8 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("output") is { } nullNodeOutput && nullNodeOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Output = null;
-            if (parseNode.GetChildNode("tool_call_id") is { } nullNodeToolCallId && nullNodeToolCallId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolCallId = null;
+            if (parseNode.GetChildNode("output") is null) { _explicitNullValueOutput = default!; _explicitNullProperties?.Remove("output"); }
+            else if (parseNode.GetChildNode("output") is { } nullNodeOutput && nullNodeOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Output = null;
+            if (parseNode.GetChildNode("tool_call_id") is null) { _explicitNullValueToolCallId = default!; _explicitNullProperties?.Remove("tool_call_id"); }
+            else if (parseNode.GetChildNode("tool_call_id") is { } nullNodeToolCallId && nullNodeToolCallId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolCallId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The output of the tool call to be submitted to continue the run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
+        public string? Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; AdditionalData?.Remove("output"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
         private string? _explicitNullValueOutput = default!;
 #nullable restore
 #else
-        public string Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
+        public string Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; AdditionalData?.Remove("output"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
         private string _explicitNullValueOutput = default!;
 #endif
         /// <summary>The ID of the tool call in the `required_action` object within the run object the output is being submitted for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToolCallId { get => _explicitNullValueToolCallId; set { _explicitNullValueToolCallId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_call_id"); else _explicitNullProperties?.Remove("tool_call_id"); } }
+        public string? ToolCallId { get => _explicitNullValueToolCallId; set { _explicitNullValueToolCallId = value; AdditionalData?.Remove("tool_call_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_call_id"); else _explicitNullProperties?.Remove("tool_call_id"); } }
         private string? _explicitNullValueToolCallId = default!;
 #nullable restore
 #else
-        public string ToolCallId { get => _explicitNullValueToolCallId; set { _explicitNullValueToolCallId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_call_id"); else _explicitNullProperties?.Remove("tool_call_id"); } }
+        public string ToolCallId { get => _explicitNullValueToolCallId; set { _explicitNullValueToolCallId = value; AdditionalData?.Remove("tool_call_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_call_id"); else _explicitNullProperties?.Remove("tool_call_id"); } }
         private string _explicitNullValueToolCallId = default!;
 #endif
         /// <summary>

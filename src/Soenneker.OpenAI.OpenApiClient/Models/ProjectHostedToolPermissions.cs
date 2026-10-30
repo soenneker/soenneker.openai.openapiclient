@@ -18,11 +18,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("code_interpreter") is { } nullNodeCodeInterpreter && nullNodeCodeInterpreter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeInterpreter = null;
-            if (parseNode.GetChildNode("file_search") is { } nullNodeFileSearch && nullNodeFileSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileSearch = null;
-            if (parseNode.GetChildNode("image_generation") is { } nullNodeImageGeneration && nullNodeImageGeneration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageGeneration = null;
-            if (parseNode.GetChildNode("mcp") is { } nullNodeMcp && nullNodeMcp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mcp = null;
-            if (parseNode.GetChildNode("web_search") is { } nullNodeWebSearch && nullNodeWebSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebSearch = null;
+            if (parseNode.GetChildNode("code_interpreter") is null) { _explicitNullValueCodeInterpreter = default!; _explicitNullProperties?.Remove("code_interpreter"); }
+            else if (parseNode.GetChildNode("code_interpreter") is { } nullNodeCodeInterpreter && nullNodeCodeInterpreter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeInterpreter = null;
+            if (parseNode.GetChildNode("file_search") is null) { _explicitNullValueFileSearch = default!; _explicitNullProperties?.Remove("file_search"); }
+            else if (parseNode.GetChildNode("file_search") is { } nullNodeFileSearch && nullNodeFileSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileSearch = null;
+            if (parseNode.GetChildNode("image_generation") is null) { _explicitNullValueImageGeneration = default!; _explicitNullProperties?.Remove("image_generation"); }
+            else if (parseNode.GetChildNode("image_generation") is { } nullNodeImageGeneration && nullNodeImageGeneration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageGeneration = null;
+            if (parseNode.GetChildNode("mcp") is null) { _explicitNullValueMcp = default!; _explicitNullProperties?.Remove("mcp"); }
+            else if (parseNode.GetChildNode("mcp") is { } nullNodeMcp && nullNodeMcp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mcp = null;
+            if (parseNode.GetChildNode("web_search") is null) { _explicitNullValueWebSearch = default!; _explicitNullProperties?.Remove("web_search"); }
+            else if (parseNode.GetChildNode("web_search") is { } nullNodeWebSearch && nullNodeWebSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebSearch = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,51 +35,51 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Permission state for a single hosted tool on a project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? CodeInterpreter { get => _explicitNullValueCodeInterpreter; set { _explicitNullValueCodeInterpreter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_interpreter"); else _explicitNullProperties?.Remove("code_interpreter"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? CodeInterpreter { get => _explicitNullValueCodeInterpreter; set { _explicitNullValueCodeInterpreter = value; AdditionalData?.Remove("code_interpreter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_interpreter"); else _explicitNullProperties?.Remove("code_interpreter"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? _explicitNullValueCodeInterpreter = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission CodeInterpreter { get => _explicitNullValueCodeInterpreter; set { _explicitNullValueCodeInterpreter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_interpreter"); else _explicitNullProperties?.Remove("code_interpreter"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission CodeInterpreter { get => _explicitNullValueCodeInterpreter; set { _explicitNullValueCodeInterpreter = value; AdditionalData?.Remove("code_interpreter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_interpreter"); else _explicitNullProperties?.Remove("code_interpreter"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission _explicitNullValueCodeInterpreter = default!;
 #endif
         /// <summary>Permission state for a single hosted tool on a project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? FileSearch { get => _explicitNullValueFileSearch; set { _explicitNullValueFileSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_search"); else _explicitNullProperties?.Remove("file_search"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? FileSearch { get => _explicitNullValueFileSearch; set { _explicitNullValueFileSearch = value; AdditionalData?.Remove("file_search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_search"); else _explicitNullProperties?.Remove("file_search"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? _explicitNullValueFileSearch = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission FileSearch { get => _explicitNullValueFileSearch; set { _explicitNullValueFileSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_search"); else _explicitNullProperties?.Remove("file_search"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission FileSearch { get => _explicitNullValueFileSearch; set { _explicitNullValueFileSearch = value; AdditionalData?.Remove("file_search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_search"); else _explicitNullProperties?.Remove("file_search"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission _explicitNullValueFileSearch = default!;
 #endif
         /// <summary>Permission state for a single hosted tool on a project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? ImageGeneration { get => _explicitNullValueImageGeneration; set { _explicitNullValueImageGeneration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_generation"); else _explicitNullProperties?.Remove("image_generation"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? ImageGeneration { get => _explicitNullValueImageGeneration; set { _explicitNullValueImageGeneration = value; AdditionalData?.Remove("image_generation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_generation"); else _explicitNullProperties?.Remove("image_generation"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? _explicitNullValueImageGeneration = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission ImageGeneration { get => _explicitNullValueImageGeneration; set { _explicitNullValueImageGeneration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_generation"); else _explicitNullProperties?.Remove("image_generation"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission ImageGeneration { get => _explicitNullValueImageGeneration; set { _explicitNullValueImageGeneration = value; AdditionalData?.Remove("image_generation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_generation"); else _explicitNullProperties?.Remove("image_generation"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission _explicitNullValueImageGeneration = default!;
 #endif
         /// <summary>Permission state for a single hosted tool on a project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? Mcp { get => _explicitNullValueMcp; set { _explicitNullValueMcp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp"); else _explicitNullProperties?.Remove("mcp"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? Mcp { get => _explicitNullValueMcp; set { _explicitNullValueMcp = value; AdditionalData?.Remove("mcp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp"); else _explicitNullProperties?.Remove("mcp"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? _explicitNullValueMcp = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission Mcp { get => _explicitNullValueMcp; set { _explicitNullValueMcp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp"); else _explicitNullProperties?.Remove("mcp"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission Mcp { get => _explicitNullValueMcp; set { _explicitNullValueMcp = value; AdditionalData?.Remove("mcp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp"); else _explicitNullProperties?.Remove("mcp"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission _explicitNullValueMcp = default!;
 #endif
         /// <summary>Permission state for a single hosted tool on a project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? WebSearch { get => _explicitNullValueWebSearch; set { _explicitNullValueWebSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_search"); else _explicitNullProperties?.Remove("web_search"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? WebSearch { get => _explicitNullValueWebSearch; set { _explicitNullValueWebSearch = value; AdditionalData?.Remove("web_search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_search"); else _explicitNullProperties?.Remove("web_search"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission? _explicitNullValueWebSearch = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission WebSearch { get => _explicitNullValueWebSearch; set { _explicitNullValueWebSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_search"); else _explicitNullProperties?.Remove("web_search"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission WebSearch { get => _explicitNullValueWebSearch; set { _explicitNullValueWebSearch = value; AdditionalData?.Remove("web_search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_search"); else _explicitNullProperties?.Remove("web_search"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.HostedToolPermission _explicitNullValueWebSearch = default!;
 #endif
         /// <summary>

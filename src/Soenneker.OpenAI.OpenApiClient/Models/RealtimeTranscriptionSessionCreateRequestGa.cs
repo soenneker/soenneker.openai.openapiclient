@@ -18,9 +18,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("audio") is { } nullNodeAudio && nullNodeAudio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Audio = null;
-            if (parseNode.GetChildNode("include") is { } nullNodeInclude && nullNodeInclude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Include = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("audio") is null) { _explicitNullValueAudio = default!; _explicitNullProperties?.Remove("audio"); }
+            else if (parseNode.GetChildNode("audio") is { } nullNodeAudio && nullNodeAudio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Audio = null;
+            if (parseNode.GetChildNode("include") is null) { _explicitNullValueInclude = default!; _explicitNullProperties?.Remove("include"); }
+            else if (parseNode.GetChildNode("include") is { } nullNodeInclude && nullNodeInclude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Include = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,25 +31,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration for input and output audio.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestGaAudio? Audio { get => _explicitNullValueAudio; set { _explicitNullValueAudio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio"); else _explicitNullProperties?.Remove("audio"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestGaAudio? Audio { get => _explicitNullValueAudio; set { _explicitNullValueAudio = value; AdditionalData?.Remove("audio"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio"); else _explicitNullProperties?.Remove("audio"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestGaAudio? _explicitNullValueAudio = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestGaAudio Audio { get => _explicitNullValueAudio; set { _explicitNullValueAudio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio"); else _explicitNullProperties?.Remove("audio"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestGaAudio Audio { get => _explicitNullValueAudio; set { _explicitNullValueAudio = value; AdditionalData?.Remove("audio"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio"); else _explicitNullProperties?.Remove("audio"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestGaAudio _explicitNullValueAudio = default!;
 #endif
         /// <summary>Additional fields to include in server outputs.`item.input_audio_transcription.logprobs`: Include logprobs for input audio transcription.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?>? Include { get => _explicitNullValueInclude; set { _explicitNullValueInclude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include"); else _explicitNullProperties?.Remove("include"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?>? Include { get => _explicitNullValueInclude; set { _explicitNullValueInclude = value; AdditionalData?.Remove("include"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include"); else _explicitNullProperties?.Remove("include"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?>? _explicitNullValueInclude = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?> Include { get => _explicitNullValueInclude; set { _explicitNullValueInclude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include"); else _explicitNullProperties?.Remove("include"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?> Include { get => _explicitNullValueInclude; set { _explicitNullValueInclude = value; AdditionalData?.Remove("include"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include"); else _explicitNullProperties?.Remove("include"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?> _explicitNullValueInclude = default!;
 #endif
         /// <summary>The type of session to create. Always `transcription` for transcription sessions.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestGa"/> and sets the default values.
@@ -75,7 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "audio", n => { Audio = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestGaAudio>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateRequestGaAudio.CreateFromDiscriminatorValue); } },
                 { "include", n => { Include = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem>()?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranscriptionType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

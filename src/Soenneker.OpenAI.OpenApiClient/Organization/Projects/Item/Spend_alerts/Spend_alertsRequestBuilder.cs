@@ -120,7 +120,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts.Spend_alertsRequestBuilder.Spend_alertsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.openai.com/v1", "/organization/projects/{projectId}/spend_alerts", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -141,7 +141,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.openai.com/v1", "/organization/projects/{projectId}/spend_alerts", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

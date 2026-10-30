@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("session") is { } nullNodeSession && nullNodeSession.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Session = null;
-            if (parseNode.GetChildNode("transport") is { } nullNodeTransport && nullNodeTransport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transport = null;
+            if (parseNode.GetChildNode("session") is null) { _explicitNullValueSession = default!; _explicitNullProperties?.Remove("session"); }
+            else if (parseNode.GetChildNode("session") is { } nullNodeSession && nullNodeSession.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Session = null;
+            if (parseNode.GetChildNode("transport") is null) { _explicitNullValueTransport = default!; _explicitNullProperties?.Remove("transport"); }
+            else if (parseNode.GetChildNode("transport") is { } nullNodeTransport && nullNodeTransport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transport = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The newly created Live session. Use its ID for session controls and sideband connections.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveCreateResponseSession? Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveCreateResponseSession? Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; AdditionalData?.Remove("session"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.LiveCreateResponseSession? _explicitNullValueSession = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveCreateResponseSession Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveCreateResponseSession Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; AdditionalData?.Remove("session"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.LiveCreateResponseSession _explicitNullValueSession = default!;
 #endif
         /// <summary>WebRTC transport carrying the offer SDP in a creation request or answer SDP in its response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveWebRtcTransport? Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveWebRtcTransport? Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; AdditionalData?.Remove("transport"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.LiveWebRtcTransport? _explicitNullValueTransport = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveWebRtcTransport Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveWebRtcTransport Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; AdditionalData?.Remove("transport"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.LiveWebRtcTransport _explicitNullValueTransport = default!;
 #endif
         /// <summary>

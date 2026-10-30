@@ -18,10 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("identity_provider_id") is { } nullNodeIdentityProviderId && nullNodeIdentityProviderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentityProviderId = null;
-            if (parseNode.GetChildNode("project_id") is { } nullNodeProjectId && nullNodeProjectId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectId = null;
-            if (parseNode.GetChildNode("service_account_id") is { } nullNodeServiceAccountId && nullNodeServiceAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAccountId = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("identity_provider_id") is null) { _explicitNullValueIdentityProviderId = default!; _explicitNullProperties?.Remove("identity_provider_id"); }
+            else if (parseNode.GetChildNode("identity_provider_id") is { } nullNodeIdentityProviderId && nullNodeIdentityProviderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentityProviderId = null;
+            if (parseNode.GetChildNode("project_id") is null) { _explicitNullValueProjectId = default!; _explicitNullProperties?.Remove("project_id"); }
+            else if (parseNode.GetChildNode("project_id") is { } nullNodeProjectId && nullNodeProjectId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectId = null;
+            if (parseNode.GetChildNode("service_account_id") is null) { _explicitNullValueServiceAccountId = default!; _explicitNullProperties?.Remove("service_account_id"); }
+            else if (parseNode.GetChildNode("service_account_id") is { } nullNodeServiceAccountId && nullNodeServiceAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAccountId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,41 +33,41 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The workload identity provider mapping ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>The workload identity provider ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdentityProviderId { get => _explicitNullValueIdentityProviderId; set { _explicitNullValueIdentityProviderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_provider_id"); else _explicitNullProperties?.Remove("identity_provider_id"); } }
+        public string? IdentityProviderId { get => _explicitNullValueIdentityProviderId; set { _explicitNullValueIdentityProviderId = value; AdditionalData?.Remove("identity_provider_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_provider_id"); else _explicitNullProperties?.Remove("identity_provider_id"); } }
         private string? _explicitNullValueIdentityProviderId = default!;
 #nullable restore
 #else
-        public string IdentityProviderId { get => _explicitNullValueIdentityProviderId; set { _explicitNullValueIdentityProviderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_provider_id"); else _explicitNullProperties?.Remove("identity_provider_id"); } }
+        public string IdentityProviderId { get => _explicitNullValueIdentityProviderId; set { _explicitNullValueIdentityProviderId = value; AdditionalData?.Remove("identity_provider_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_provider_id"); else _explicitNullProperties?.Remove("identity_provider_id"); } }
         private string _explicitNullValueIdentityProviderId = default!;
 #endif
         /// <summary>The project ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProjectId { get => _explicitNullValueProjectId; set { _explicitNullValueProjectId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_id"); else _explicitNullProperties?.Remove("project_id"); } }
+        public string? ProjectId { get => _explicitNullValueProjectId; set { _explicitNullValueProjectId = value; AdditionalData?.Remove("project_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_id"); else _explicitNullProperties?.Remove("project_id"); } }
         private string? _explicitNullValueProjectId = default!;
 #nullable restore
 #else
-        public string ProjectId { get => _explicitNullValueProjectId; set { _explicitNullValueProjectId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_id"); else _explicitNullProperties?.Remove("project_id"); } }
+        public string ProjectId { get => _explicitNullValueProjectId; set { _explicitNullValueProjectId = value; AdditionalData?.Remove("project_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_id"); else _explicitNullProperties?.Remove("project_id"); } }
         private string _explicitNullValueProjectId = default!;
 #endif
         /// <summary>The mapped service account ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServiceAccountId { get => _explicitNullValueServiceAccountId; set { _explicitNullValueServiceAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account_id"); else _explicitNullProperties?.Remove("service_account_id"); } }
+        public string? ServiceAccountId { get => _explicitNullValueServiceAccountId; set { _explicitNullValueServiceAccountId = value; AdditionalData?.Remove("service_account_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account_id"); else _explicitNullProperties?.Remove("service_account_id"); } }
         private string? _explicitNullValueServiceAccountId = default!;
 #nullable restore
 #else
-        public string ServiceAccountId { get => _explicitNullValueServiceAccountId; set { _explicitNullValueServiceAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account_id"); else _explicitNullProperties?.Remove("service_account_id"); } }
+        public string ServiceAccountId { get => _explicitNullValueServiceAccountId; set { _explicitNullValueServiceAccountId = value; AdditionalData?.Remove("service_account_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account_id"); else _explicitNullProperties?.Remove("service_account_id"); } }
         private string _explicitNullValueServiceAccountId = default!;
 #endif
         /// <summary>

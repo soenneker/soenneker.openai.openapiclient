@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("image_gen") is { } nullNodeImageGen && nullNodeImageGen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageGen = null;
-            if (parseNode.GetChildNode("web_search") is { } nullNodeWebSearch && nullNodeWebSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebSearch = null;
+            if (parseNode.GetChildNode("image_gen") is null) { _explicitNullValueImageGen = default!; _explicitNullProperties?.Remove("image_gen"); }
+            else if (parseNode.GetChildNode("image_gen") is { } nullNodeImageGen && nullNodeImageGen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageGen = null;
+            if (parseNode.GetChildNode("web_search") is null) { _explicitNullValueWebSearch = default!; _explicitNullProperties?.Remove("web_search"); }
+            else if (parseNode.GetChildNode("web_search") is { } nullNodeWebSearch && nullNodeWebSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebSearch = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Aggregated usage statistics for image generation tool calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolUsage? ImageGen { get => _explicitNullValueImageGen; set { _explicitNullValueImageGen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_gen"); else _explicitNullProperties?.Remove("image_gen"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolUsage? ImageGen { get => _explicitNullValueImageGen; set { _explicitNullValueImageGen = value; AdditionalData?.Remove("image_gen"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_gen"); else _explicitNullProperties?.Remove("image_gen"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolUsage? _explicitNullValueImageGen = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolUsage ImageGen { get => _explicitNullValueImageGen; set { _explicitNullValueImageGen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_gen"); else _explicitNullProperties?.Remove("image_gen"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolUsage ImageGen { get => _explicitNullValueImageGen; set { _explicitNullValueImageGen = value; AdditionalData?.Remove("image_gen"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_gen"); else _explicitNullProperties?.Remove("image_gen"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolUsage _explicitNullValueImageGen = default!;
 #endif
         /// <summary>Aggregated billable usage statistics for web search tool calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchUsage? WebSearch { get => _explicitNullValueWebSearch; set { _explicitNullValueWebSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_search"); else _explicitNullProperties?.Remove("web_search"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchUsage? WebSearch { get => _explicitNullValueWebSearch; set { _explicitNullValueWebSearch = value; AdditionalData?.Remove("web_search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_search"); else _explicitNullProperties?.Remove("web_search"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchUsage? _explicitNullValueWebSearch = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchUsage WebSearch { get => _explicitNullValueWebSearch; set { _explicitNullValueWebSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_search"); else _explicitNullProperties?.Remove("web_search"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchUsage WebSearch { get => _explicitNullValueWebSearch; set { _explicitNullValueWebSearch = value; AdditionalData?.Remove("web_search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_search"); else _explicitNullProperties?.Remove("web_search"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchUsage _explicitNullValueWebSearch = default!;
 #endif
         /// <summary>

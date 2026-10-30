@@ -17,9 +17,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("service_account") is { } nullNodeServiceAccount && nullNodeServiceAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAccount = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
-            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+            if (parseNode.GetChildNode("service_account") is null) { _explicitNullValueServiceAccount = default!; _explicitNullProperties?.Remove("service_account"); }
+            else if (parseNode.GetChildNode("service_account") is { } nullNodeServiceAccount && nullNodeServiceAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAccount = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("user") is null) { _explicitNullValueUser = default!; _explicitNullProperties?.Remove("user"); }
+            else if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,24 +30,24 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The service account that owns a project API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerServiceAccount? ServiceAccount { get => _explicitNullValueServiceAccount; set { _explicitNullValueServiceAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account"); else _explicitNullProperties?.Remove("service_account"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerServiceAccount? ServiceAccount { get => _explicitNullValueServiceAccount; set { _explicitNullValueServiceAccount = value; AdditionalData?.Remove("service_account"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account"); else _explicitNullProperties?.Remove("service_account"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerServiceAccount? _explicitNullValueServiceAccount = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerServiceAccount ServiceAccount { get => _explicitNullValueServiceAccount; set { _explicitNullValueServiceAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account"); else _explicitNullProperties?.Remove("service_account"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerServiceAccount ServiceAccount { get => _explicitNullValueServiceAccount; set { _explicitNullValueServiceAccount = value; AdditionalData?.Remove("service_account"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account"); else _explicitNullProperties?.Remove("service_account"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerServiceAccount _explicitNullValueServiceAccount = default!;
 #endif
         /// <summary>`user` or `service_account`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerType? _explicitNullValueType = default!;
         /// <summary>The user that owns a project API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerUser? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerUser? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; AdditionalData?.Remove("user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerUser? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerUser User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerUser User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; AdditionalData?.Remove("user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerUser _explicitNullValueUser = default!;
 #endif
         /// <summary>
@@ -73,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "service_account", n => { ServiceAccount = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerServiceAccount>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerServiceAccount.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
                 { "user", n => { User = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerUser>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectApiKeyOwnerUser.CreateFromDiscriminatorValue); } },
             };
         }

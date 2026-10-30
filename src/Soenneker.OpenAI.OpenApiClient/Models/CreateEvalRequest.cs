@@ -17,10 +17,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("data_source_config") is { } nullNodeDataSourceConfig && nullNodeDataSourceConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataSourceConfig = null;
-            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("testing_criteria") is { } nullNodeTestingCriteria && nullNodeTestingCriteria.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestingCriteria = null;
+            if (parseNode.GetChildNode("data_source_config") is null) { _explicitNullValueDataSourceConfig = default!; _explicitNullProperties?.Remove("data_source_config"); }
+            else if (parseNode.GetChildNode("data_source_config") is { } nullNodeDataSourceConfig && nullNodeDataSourceConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataSourceConfig = null;
+            if (parseNode.GetChildNode("metadata") is null) { _explicitNullValueMetadata = default!; _explicitNullProperties?.Remove("metadata"); }
+            else if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("testing_criteria") is null) { _explicitNullValueTestingCriteria = default!; _explicitNullProperties?.Remove("testing_criteria"); }
+            else if (parseNode.GetChildNode("testing_criteria") is { } nullNodeTestingCriteria && nullNodeTestingCriteria.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestingCriteria = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The configuration for the data source used for the evaluation runs. Dictates the schema of the data used in the evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestDataSourceConfig? DataSourceConfig { get => _explicitNullValueDataSourceConfig; set { _explicitNullValueDataSourceConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source_config"); else _explicitNullProperties?.Remove("data_source_config"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestDataSourceConfig? DataSourceConfig { get => _explicitNullValueDataSourceConfig; set { _explicitNullValueDataSourceConfig = value; AdditionalData?.Remove("data_source_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source_config"); else _explicitNullProperties?.Remove("data_source_config"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestDataSourceConfig? _explicitNullValueDataSourceConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestDataSourceConfig DataSourceConfig { get => _explicitNullValueDataSourceConfig; set { _explicitNullValueDataSourceConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source_config"); else _explicitNullProperties?.Remove("data_source_config"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestDataSourceConfig DataSourceConfig { get => _explicitNullValueDataSourceConfig; set { _explicitNullValueDataSourceConfig = value; AdditionalData?.Remove("data_source_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source_config"); else _explicitNullProperties?.Remove("data_source_config"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestDataSourceConfig _explicitNullValueDataSourceConfig = default!;
 #endif
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The name of the evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>A list of graders for all eval runs in this group. Graders can reference variables in the data source using double curly braces notation, like `{{item.variable_name}}`. To reference the model&apos;s output, use the `sample` namespace (ie, `{{sample.output_text}}`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestTestingCriteriaItem>? TestingCriteria { get => _explicitNullValueTestingCriteria; set { _explicitNullValueTestingCriteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("testing_criteria"); else _explicitNullProperties?.Remove("testing_criteria"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestTestingCriteriaItem>? TestingCriteria { get => _explicitNullValueTestingCriteria; set { _explicitNullValueTestingCriteria = value; AdditionalData?.Remove("testing_criteria"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("testing_criteria"); else _explicitNullProperties?.Remove("testing_criteria"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestTestingCriteriaItem>? _explicitNullValueTestingCriteria = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestTestingCriteriaItem> TestingCriteria { get => _explicitNullValueTestingCriteria; set { _explicitNullValueTestingCriteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("testing_criteria"); else _explicitNullProperties?.Remove("testing_criteria"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestTestingCriteriaItem> TestingCriteria { get => _explicitNullValueTestingCriteria; set { _explicitNullValueTestingCriteria = value; AdditionalData?.Remove("testing_criteria"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("testing_criteria"); else _explicitNullProperties?.Remove("testing_criteria"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalRequestTestingCriteriaItem> _explicitNullValueTestingCriteria = default!;
 #endif
         /// <summary>

@@ -11,7 +11,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceFunction"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMcp"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceOptions"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class RealtimeSessionCreateResponseGaToolChoice : IComposedTypeWrapper, IParsable
+    public partial class RealtimeBetaResponseCreateParamsToolChoice : IComposedTypeWrapper, IParsable
     , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
         // Preserve ambiguous union payloads without inventing a discriminator.
         /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
@@ -39,13 +39,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolChoice"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeBetaResponseCreateParamsToolChoice"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolChoice CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeBetaResponseCreateParamsToolChoice CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolChoice();
+            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeBetaResponseCreateParamsToolChoice();
             if("ToolChoiceFunction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
@@ -60,10 +60,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("function".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("name") != null))();
-            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("mcp".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("server_label") != null))();
-            if (result.ToolChoiceFunction == null && result.ToolChoiceMcp == null && result.ToolChoiceOptions == null && matchesUnionBranch0 && !matchesUnionBranch1) result.ToolChoiceFunction = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceFunction(), parseNode);
-            if (result.ToolChoiceFunction == null && result.ToolChoiceMcp == null && result.ToolChoiceOptions == null && matchesUnionBranch1 && !matchesUnionBranch0) result.ToolChoiceMcp = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMcp(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("type") && shapeMembers1.ContainsKey("name") && (!shapeMembers1.ContainsKey("type") || (((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "function".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("name") || (((shapeMembers1["name"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("type") && shapeMembers1.ContainsKey("server_label") && (!shapeMembers1.ContainsKey("type") || (((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "mcp".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("server_label") || (((shapeMembers1["server_label"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("name") || ((((shapeMembers1["name"] == null || shapeMembers1["name"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || (shapeMembers1["name"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            if (matchesUnionBranch1) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.ToolChoiceFunction == null && result.ToolChoiceMcp == null && result.ToolChoiceOptions == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.ToolChoiceFunction = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceFunction(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.ToolChoiceMcp = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceMcp(), parseNode);
             if (result.ToolChoiceFunction == null && result.ToolChoiceMcp == null && result.ToolChoiceOptions == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -73,6 +77,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(ToolChoiceFunction != null)
             {
                 return ToolChoiceFunction.GetFieldDeserializers();
@@ -91,8 +97,12 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (ToolChoiceFunction == null && ToolChoiceMcp == null && ToolChoiceOptions == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (ToolChoiceFunction != null && ToolChoiceMcp == null && ToolChoiceOptions == null) { if (ToolChoiceFunction is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ToolChoiceFunction); return; }
-            if (ToolChoiceMcp != null && ToolChoiceFunction == null && ToolChoiceOptions == null) { if (ToolChoiceMcp is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ToolChoiceMcp); return; }
+            int selectedUnionBranches = 0;
+            if (ToolChoiceFunction != null) selectedUnionBranches++;
+            if (ToolChoiceMcp != null) selectedUnionBranches++;
+            if (ToolChoiceOptions != null) selectedUnionBranches++;
+            if (ToolChoiceFunction != null && selectedUnionBranches == 1) { if (ToolChoiceFunction is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ToolChoiceFunction); return; }
+            if (ToolChoiceMcp != null && selectedUnionBranches == 1) { if (ToolChoiceMcp is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ToolChoiceMcp); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ToolChoiceFunction != null)

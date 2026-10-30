@@ -18,13 +18,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("audio") is { } nullNodeAudio && nullNodeAudio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Audio = null;
-            if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
-            if (parseNode.GetChildNode("function_call") is { } nullNodeFunctionCall && nullNodeFunctionCall.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FunctionCall = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("refusal") is { } nullNodeRefusal && nullNodeRefusal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Refusal = null;
-            if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
-            if (parseNode.GetChildNode("tool_calls") is { } nullNodeToolCalls && nullNodeToolCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolCalls = null;
+            if (parseNode.GetChildNode("audio") is null) { _explicitNullValueAudio = default!; _explicitNullProperties?.Remove("audio"); }
+            else if (parseNode.GetChildNode("audio") is { } nullNodeAudio && nullNodeAudio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Audio = null;
+            if (parseNode.GetChildNode("content") is null) { _explicitNullValueContent = default!; _explicitNullProperties?.Remove("content"); }
+            else if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
+            if (parseNode.GetChildNode("function_call") is null) { _explicitNullValueFunctionCall = default!; _explicitNullProperties?.Remove("function_call"); }
+            else if (parseNode.GetChildNode("function_call") is { } nullNodeFunctionCall && nullNodeFunctionCall.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FunctionCall = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("refusal") is null) { _explicitNullValueRefusal = default!; _explicitNullProperties?.Remove("refusal"); }
+            else if (parseNode.GetChildNode("refusal") is { } nullNodeRefusal && nullNodeRefusal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Refusal = null;
+            if (parseNode.GetChildNode("role") is null) { _explicitNullValueRole = default!; _explicitNullProperties?.Remove("role"); }
+            else if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
+            if (parseNode.GetChildNode("tool_calls") is null) { _explicitNullValueToolCalls = default!; _explicitNullProperties?.Remove("tool_calls"); }
+            else if (parseNode.GetChildNode("tool_calls") is { } nullNodeToolCalls && nullNodeToolCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolCalls = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,64 +39,64 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Data about a previous audio response from the model.[Learn more](https://developers.openai.com/api/docs/guides/audio).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageAudio? Audio { get => _explicitNullValueAudio; set { _explicitNullValueAudio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio"); else _explicitNullProperties?.Remove("audio"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageAudio? Audio { get => _explicitNullValueAudio; set { _explicitNullValueAudio = value; AdditionalData?.Remove("audio"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio"); else _explicitNullProperties?.Remove("audio"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageAudio? _explicitNullValueAudio = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageAudio Audio { get => _explicitNullValueAudio; set { _explicitNullValueAudio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio"); else _explicitNullProperties?.Remove("audio"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageAudio Audio { get => _explicitNullValueAudio; set { _explicitNullValueAudio = value; AdditionalData?.Remove("audio"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio"); else _explicitNullProperties?.Remove("audio"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageAudio _explicitNullValueAudio = default!;
 #endif
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        public UntypedNode? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
         private UntypedNode? _explicitNullValueContent = default!;
 #nullable restore
 #else
-        public UntypedNode Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        public UntypedNode Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
         private UntypedNode _explicitNullValueContent = default!;
 #endif
         /// <summary>Deprecated and replaced by `tool_calls`. The name and arguments of a function that should be called, as generated by the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageFunctionCall? FunctionCall { get => _explicitNullValueFunctionCall; set { _explicitNullValueFunctionCall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function_call"); else _explicitNullProperties?.Remove("function_call"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageFunctionCall? FunctionCall { get => _explicitNullValueFunctionCall; set { _explicitNullValueFunctionCall = value; AdditionalData?.Remove("function_call"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function_call"); else _explicitNullProperties?.Remove("function_call"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageFunctionCall? _explicitNullValueFunctionCall = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageFunctionCall FunctionCall { get => _explicitNullValueFunctionCall; set { _explicitNullValueFunctionCall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function_call"); else _explicitNullProperties?.Remove("function_call"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageFunctionCall FunctionCall { get => _explicitNullValueFunctionCall; set { _explicitNullValueFunctionCall = value; AdditionalData?.Remove("function_call"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function_call"); else _explicitNullProperties?.Remove("function_call"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageFunctionCall _explicitNullValueFunctionCall = default!;
 #endif
         /// <summary>An optional name for the participant. Provides the model information to differentiate between participants of the same role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The refusal message by the assistant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Refusal { get => _explicitNullValueRefusal; set { _explicitNullValueRefusal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refusal"); else _explicitNullProperties?.Remove("refusal"); } }
+        public string? Refusal { get => _explicitNullValueRefusal; set { _explicitNullValueRefusal = value; AdditionalData?.Remove("refusal"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refusal"); else _explicitNullProperties?.Remove("refusal"); } }
         private string? _explicitNullValueRefusal = default!;
 #nullable restore
 #else
-        public string Refusal { get => _explicitNullValueRefusal; set { _explicitNullValueRefusal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refusal"); else _explicitNullProperties?.Remove("refusal"); } }
+        public string Refusal { get => _explicitNullValueRefusal; set { _explicitNullValueRefusal = value; AdditionalData?.Remove("refusal"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refusal"); else _explicitNullProperties?.Remove("refusal"); } }
         private string _explicitNullValueRefusal = default!;
 #endif
         /// <summary>The role of the messages author, in this case `assistant`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantRole? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantRole? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; AdditionalData?.Remove("role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.AssistantRole? _explicitNullValueRole = default!;
         /// <summary>The tool calls generated by the model, such as function calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem>? ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem>? ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; AdditionalData?.Remove("tool_calls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem>? _explicitNullValueToolCalls = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem> ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem> ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; AdditionalData?.Remove("tool_calls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem> _explicitNullValueToolCalls = default!;
 #endif
         /// <summary>
@@ -122,7 +129,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "function_call", n => { FunctionCall = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageFunctionCall>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionRequestAssistantMessageFunctionCall.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "refusal", n => { Refusal = n.GetStringValue(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantRole>(); } },
+                { "role", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantRole>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRole = default; _explicitNullProperties?.Remove("role"); AdditionalData["role"] = unknown; } else { Role = parsed; AdditionalData.Remove("role"); } } },
                 { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }

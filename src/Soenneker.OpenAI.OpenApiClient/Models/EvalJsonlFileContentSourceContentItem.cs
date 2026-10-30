@@ -17,8 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("item") is { } nullNodeItem && nullNodeItem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Item = null;
-            if (parseNode.GetChildNode("sample") is { } nullNodeSample && nullNodeSample.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sample = null;
+            if (parseNode.GetChildNode("item") is null) { _explicitNullValueItem = default!; _explicitNullProperties?.Remove("item"); }
+            else if (parseNode.GetChildNode("item") is { } nullNodeItem && nullNodeItem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Item = null;
+            if (parseNode.GetChildNode("sample") is null) { _explicitNullValueSample = default!; _explicitNullProperties?.Remove("sample"); }
+            else if (parseNode.GetChildNode("sample") is { } nullNodeSample && nullNodeSample.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sample = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The item property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItemItemProperty? Item { get => _explicitNullValueItem; set { _explicitNullValueItem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("item"); else _explicitNullProperties?.Remove("item"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItemItemProperty? Item { get => _explicitNullValueItem; set { _explicitNullValueItem = value; AdditionalData?.Remove("item"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("item"); else _explicitNullProperties?.Remove("item"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItemItemProperty? _explicitNullValueItem = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItemItemProperty Item { get => _explicitNullValueItem; set { _explicitNullValueItem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("item"); else _explicitNullProperties?.Remove("item"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItemItemProperty Item { get => _explicitNullValueItem; set { _explicitNullValueItem = value; AdditionalData?.Remove("item"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("item"); else _explicitNullProperties?.Remove("item"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItemItemProperty _explicitNullValueItem = default!;
 #endif
         /// <summary>The sample property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItemSampleProperty? Sample { get => _explicitNullValueSample; set { _explicitNullValueSample = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sample"); else _explicitNullProperties?.Remove("sample"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItemSampleProperty? Sample { get => _explicitNullValueSample; set { _explicitNullValueSample = value; AdditionalData?.Remove("sample"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sample"); else _explicitNullProperties?.Remove("sample"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItemSampleProperty? _explicitNullValueSample = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItemSampleProperty Sample { get => _explicitNullValueSample; set { _explicitNullValueSample = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sample"); else _explicitNullProperties?.Remove("sample"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItemSampleProperty Sample { get => _explicitNullValueSample; set { _explicitNullValueSample = value; AdditionalData?.Remove("sample"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sample"); else _explicitNullProperties?.Remove("sample"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.EvalJsonlFileContentSourceContentItemSampleProperty _explicitNullValueSample = default!;
 #endif
         /// <summary>

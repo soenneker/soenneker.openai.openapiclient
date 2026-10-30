@@ -17,11 +17,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bucket") is { } nullNodeBucket && nullNodeBucket.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bucket = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
-            if (parseNode.GetChildNode("workload_identity_pool_id") is { } nullNodeWorkloadIdentityPoolId && nullNodeWorkloadIdentityPoolId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityPoolId = null;
-            if (parseNode.GetChildNode("workload_identity_project_number") is { } nullNodeWorkloadIdentityProjectNumber && nullNodeWorkloadIdentityProjectNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProjectNumber = null;
-            if (parseNode.GetChildNode("workload_identity_provider_id") is { } nullNodeWorkloadIdentityProviderId && nullNodeWorkloadIdentityProviderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProviderId = null;
+            if (parseNode.GetChildNode("bucket") is null) { _explicitNullValueBucket = default!; _explicitNullProperties?.Remove("bucket"); }
+            else if (parseNode.GetChildNode("bucket") is { } nullNodeBucket && nullNodeBucket.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bucket = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("workload_identity_pool_id") is null) { _explicitNullValueWorkloadIdentityPoolId = default!; _explicitNullProperties?.Remove("workload_identity_pool_id"); }
+            else if (parseNode.GetChildNode("workload_identity_pool_id") is { } nullNodeWorkloadIdentityPoolId && nullNodeWorkloadIdentityPoolId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityPoolId = null;
+            if (parseNode.GetChildNode("workload_identity_project_number") is null) { _explicitNullValueWorkloadIdentityProjectNumber = default!; _explicitNullProperties?.Remove("workload_identity_project_number"); }
+            else if (parseNode.GetChildNode("workload_identity_project_number") is { } nullNodeWorkloadIdentityProjectNumber && nullNodeWorkloadIdentityProjectNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProjectNumber = null;
+            if (parseNode.GetChildNode("workload_identity_provider_id") is null) { _explicitNullValueWorkloadIdentityProviderId = default!; _explicitNullProperties?.Remove("workload_identity_provider_id"); }
+            else if (parseNode.GetChildNode("workload_identity_provider_id") is { } nullNodeWorkloadIdentityProviderId && nullNodeWorkloadIdentityProviderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProviderId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,44 +34,44 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The bucket property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Bucket { get => _explicitNullValueBucket; set { _explicitNullValueBucket = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket"); else _explicitNullProperties?.Remove("bucket"); } }
+        public string? Bucket { get => _explicitNullValueBucket; set { _explicitNullValueBucket = value; AdditionalData?.Remove("bucket"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket"); else _explicitNullProperties?.Remove("bucket"); } }
         private string? _explicitNullValueBucket = default!;
 #nullable restore
 #else
-        public string Bucket { get => _explicitNullValueBucket; set { _explicitNullValueBucket = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket"); else _explicitNullProperties?.Remove("bucket"); } }
+        public string Bucket { get => _explicitNullValueBucket; set { _explicitNullValueBucket = value; AdditionalData?.Remove("bucket"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bucket"); else _explicitNullProperties?.Remove("bucket"); } }
         private string _explicitNullValueBucket = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GcpType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GcpType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.GcpType? _explicitNullValueType = default!;
         /// <summary>The workload_identity_pool_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkloadIdentityPoolId { get => _explicitNullValueWorkloadIdentityPoolId; set { _explicitNullValueWorkloadIdentityPoolId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_pool_id"); else _explicitNullProperties?.Remove("workload_identity_pool_id"); } }
+        public string? WorkloadIdentityPoolId { get => _explicitNullValueWorkloadIdentityPoolId; set { _explicitNullValueWorkloadIdentityPoolId = value; AdditionalData?.Remove("workload_identity_pool_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_pool_id"); else _explicitNullProperties?.Remove("workload_identity_pool_id"); } }
         private string? _explicitNullValueWorkloadIdentityPoolId = default!;
 #nullable restore
 #else
-        public string WorkloadIdentityPoolId { get => _explicitNullValueWorkloadIdentityPoolId; set { _explicitNullValueWorkloadIdentityPoolId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_pool_id"); else _explicitNullProperties?.Remove("workload_identity_pool_id"); } }
+        public string WorkloadIdentityPoolId { get => _explicitNullValueWorkloadIdentityPoolId; set { _explicitNullValueWorkloadIdentityPoolId = value; AdditionalData?.Remove("workload_identity_pool_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_pool_id"); else _explicitNullProperties?.Remove("workload_identity_pool_id"); } }
         private string _explicitNullValueWorkloadIdentityPoolId = default!;
 #endif
         /// <summary>The workload_identity_project_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkloadIdentityProjectNumber { get => _explicitNullValueWorkloadIdentityProjectNumber; set { _explicitNullValueWorkloadIdentityProjectNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_project_number"); else _explicitNullProperties?.Remove("workload_identity_project_number"); } }
+        public string? WorkloadIdentityProjectNumber { get => _explicitNullValueWorkloadIdentityProjectNumber; set { _explicitNullValueWorkloadIdentityProjectNumber = value; AdditionalData?.Remove("workload_identity_project_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_project_number"); else _explicitNullProperties?.Remove("workload_identity_project_number"); } }
         private string? _explicitNullValueWorkloadIdentityProjectNumber = default!;
 #nullable restore
 #else
-        public string WorkloadIdentityProjectNumber { get => _explicitNullValueWorkloadIdentityProjectNumber; set { _explicitNullValueWorkloadIdentityProjectNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_project_number"); else _explicitNullProperties?.Remove("workload_identity_project_number"); } }
+        public string WorkloadIdentityProjectNumber { get => _explicitNullValueWorkloadIdentityProjectNumber; set { _explicitNullValueWorkloadIdentityProjectNumber = value; AdditionalData?.Remove("workload_identity_project_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_project_number"); else _explicitNullProperties?.Remove("workload_identity_project_number"); } }
         private string _explicitNullValueWorkloadIdentityProjectNumber = default!;
 #endif
         /// <summary>The workload_identity_provider_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkloadIdentityProviderId { get => _explicitNullValueWorkloadIdentityProviderId; set { _explicitNullValueWorkloadIdentityProviderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider_id"); else _explicitNullProperties?.Remove("workload_identity_provider_id"); } }
+        public string? WorkloadIdentityProviderId { get => _explicitNullValueWorkloadIdentityProviderId; set { _explicitNullValueWorkloadIdentityProviderId = value; AdditionalData?.Remove("workload_identity_provider_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider_id"); else _explicitNullProperties?.Remove("workload_identity_provider_id"); } }
         private string? _explicitNullValueWorkloadIdentityProviderId = default!;
 #nullable restore
 #else
-        public string WorkloadIdentityProviderId { get => _explicitNullValueWorkloadIdentityProviderId; set { _explicitNullValueWorkloadIdentityProviderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider_id"); else _explicitNullProperties?.Remove("workload_identity_provider_id"); } }
+        public string WorkloadIdentityProviderId { get => _explicitNullValueWorkloadIdentityProviderId; set { _explicitNullValueWorkloadIdentityProviderId = value; AdditionalData?.Remove("workload_identity_provider_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider_id"); else _explicitNullProperties?.Remove("workload_identity_provider_id"); } }
         private string _explicitNullValueWorkloadIdentityProviderId = default!;
 #endif
         /// <summary>
@@ -95,7 +100,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "bucket", n => { Bucket = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GcpType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GcpType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
                 { "workload_identity_pool_id", n => { WorkloadIdentityPoolId = n.GetStringValue(); } },
                 { "workload_identity_project_number", n => { WorkloadIdentityProjectNumber = n.GetStringValue(); } },
                 { "workload_identity_provider_id", n => { WorkloadIdentityProviderId = n.GetStringValue(); } },

@@ -35365,7 +35365,9 @@
         "type": "object",
         "properties": {
           "model": {
-            "$ref": "#/components/schemas/AudioTranscriptionModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The model to use for transcription. Current options are \u0060whisper-1\u0060, \u0060gpt-transcribe\u0060, \u0060gpt-live-transcribe\u0060, \u0060gpt-4o-mini-transcribe\u0060, \u0060gpt-4o-mini-transcribe-2025-12-15\u0060, \u0060gpt-4o-transcribe\u0060, \u0060gpt-4o-transcribe-diarize\u0060, and \u0060gpt-realtime-whisper\u0060. Use \u0060gpt-4o-transcribe-diarize\u0060 when you need diarization with speaker labels.\n"
           },
           "language": {
             "type": "string",
@@ -35399,7 +35401,9 @@
         "type": "object",
         "properties": {
           "model": {
-            "$ref": "#/components/schemas/AudioTranscriptionResponseModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The model used for transcription. Current options are \u0060whisper-1\u0060, \u0060gpt-transcribe\u0060, \u0060gpt-live-transcribe\u0060, \u0060gpt-4o-mini-transcribe\u0060, \u0060gpt-4o-mini-transcribe-2025-12-15\u0060, \u0060gpt-4o-transcribe\u0060, \u0060gpt-4o-transcribe-diarize\u0060, and \u0060gpt-realtime-whisper\u0060.\n"
           },
           "language": {
             "type": [
@@ -38274,7 +38278,7 @@
         "oneOf": [
           {
             "title": "Input content types",
-            "$ref": "#/components/schemas/InputContent"
+            "$ref": "#/components/schemas/FunctionAndCustomToolCallOutput"
           },
           {
             "title": "Output content types",
@@ -38530,7 +38534,11 @@
         "type": "object",
         "properties": {
           "model": {
-            "$ref": "#/components/schemas/CreateAssistantRequestModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "ID of the model to use. You can use the [List models](https://developers.openai.com/api/reference/resources/models/methods/list) API to see all of your available models, or see our [Model overview](https://developers.openai.com/api/docs/models) for descriptions of them.\n",
+            "example": "gpt-4.1",
+            "x-oaiTypeLabel": "string"
           },
           "name": {
             "maxLength": 256,
@@ -38563,7 +38571,7 @@
             "maxItems": 128,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CreateAssistantRequestToolsItem"
+              "$ref": "#/components/schemas/AssistantObjectToolsItem"
             },
             "description": "A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types \u0060code_interpreter\u0060, \u0060file_search\u0060, or \u0060function\u0060.\n",
             "default": []
@@ -38597,7 +38605,7 @@
             "example": 1
           },
           "response_format": {
-            "$ref": "#/components/schemas/CreateAssistantRequestResponseFormat"
+            "$ref": "#/components/schemas/AssistantObjectResponseFormat"
           }
         },
         "additionalProperties": false
@@ -39033,7 +39041,10 @@
         "type": "object",
         "properties": {
           "model": {
-            "$ref": "#/components/schemas/CreateCompletionRequestModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "ID of the model to use. You can use the [List models](https://developers.openai.com/api/reference/resources/models/methods/list) API to see all of your available models, or see our [Model overview](https://developers.openai.com/api/docs/models) for descriptions of them.\n",
+            "x-oaiTypeLabel": "string"
           },
           "prompt": {
             "$ref": "#/components/schemas/CreateCompletionRequestPrompt"
@@ -39243,7 +39254,7 @@
           "skills": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CreateContainerBodySkillsItem"
+              "$ref": "#/components/schemas/ContainerAutoParamSkillsItem"
             },
             "description": "An optional list of skills referenced by id or inline data."
           },
@@ -39251,7 +39262,7 @@
             "$ref": "#/components/schemas/CreateContainerBodyMemoryLimit"
           },
           "network_policy": {
-            "$ref": "#/components/schemas/CreateContainerBodyNetworkPolicy"
+            "$ref": "#/components/schemas/AutoCodeInterpreterToolParamNetworkPolicy"
           }
         }
       },
@@ -39280,7 +39291,11 @@
             "$ref": "#/components/schemas/CreateEmbeddingRequestInput"
           },
           "model": {
-            "$ref": "#/components/schemas/CreateEmbeddingRequestModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "ID of the model to use. You can use the [List models](https://developers.openai.com/api/reference/resources/models/methods/list) API to see all of your available models, or see our [Model overview](https://developers.openai.com/api/docs/models) for descriptions of them.\n",
+            "example": "text-embedding-3-small",
+            "x-oaiTypeLabel": "string"
           },
           "encoding_format": {
             "$ref": "#/components/schemas/CreateEmbeddingRequestEncodingFormat"
@@ -39641,7 +39656,11 @@
         "type": "object",
         "properties": {
           "model": {
-            "$ref": "#/components/schemas/CreateFineTuningJobRequestModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The name of the model to fine-tune. You can select one of the\n[supported models](https://developers.openai.com/api/docs/guides/model-optimization#fine-tuning-methods).\n",
+            "example": "gpt-4o-mini",
+            "x-oaiTypeLabel": "string"
           },
           "training_file": {
             "type": "string",
@@ -39762,7 +39781,11 @@
             "$ref": "#/components/schemas/CreateImageEditRequestBackground"
           },
           "model": {
-            "$ref": "#/components/schemas/CreateImageEditRequestModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The GPT image model to use for image editing\n(\u0060gpt-image-1-mini\u0060, \u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, or \u0060chatgpt-image-latest\u0060).\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
+            "example": "gpt-image-1.5",
+            "x-oaiTypeLabel": "string"
           },
           "n": {
             "maximum": 10,
@@ -39841,7 +39864,11 @@
             "example": "A cute baby sea otter"
           },
           "model": {
-            "$ref": "#/components/schemas/CreateImageRequestModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The GPT image model to use for image generation. Specify a model explicitly.\nSupported models include \u0060gpt-image-1-mini\u0060, \u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, and \u0060chatgpt-image-latest\u0060.\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
+            "example": "gpt-image-2.5-flare",
+            "x-oaiTypeLabel": "string"
           },
           "n": {
             "maximum": 10,
@@ -40062,7 +40089,11 @@
             "$ref": "#/components/schemas/CreateModerationRequestInput"
           },
           "model": {
-            "$ref": "#/components/schemas/CreateModerationRequestModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The content moderation model you would like to use. Learn more in\n[the moderation guide](https://developers.openai.com/api/docs/guides/moderation), and learn about\navailable models [here](https://developers.openai.com/api/docs/guides/moderation).\n",
+            "example": "omni-moderation-2024-09-26",
+            "x-oaiTypeLabel": "string"
           }
         }
       },
@@ -40338,7 +40369,7 @@
               "array"
             ],
             "items": {
-              "$ref": "#/components/schemas/CreateRunRequestToolsItem"
+              "$ref": "#/components/schemas/AssistantObjectToolsItem"
             },
             "description": "Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis."
           },
@@ -40402,7 +40433,7 @@
             "default": true
           },
           "response_format": {
-            "$ref": "#/components/schemas/CreateRunRequestResponseFormat"
+            "$ref": "#/components/schemas/AssistantObjectResponseFormat"
           }
         },
         "additionalProperties": false
@@ -40416,7 +40447,10 @@
         "type": "object",
         "properties": {
           "model": {
-            "$ref": "#/components/schemas/CreateSpeechRequestModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "One of the available [TTS models](https://developers.openai.com/api/docs/guides/text-to-speech): \u0060tts-1\u0060, \u0060tts-1-hd\u0060, \u0060gpt-4o-mini-tts\u0060, or \u0060gpt-4o-mini-tts-2025-12-15\u0060.\n",
+            "x-oaiTypeLabel": "string"
           },
           "input": {
             "maxLength": 4096,
@@ -40506,7 +40540,7 @@
             "$ref": "#/components/schemas/CreateThreadRequest"
           },
           "model": {
-            "$ref": "#/components/schemas/CreateThreadAndRunRequestModel"
+            "$ref": "#/components/schemas/CreateRunRequestModel"
           },
           "instructions": {
             "type": [
@@ -40522,7 +40556,7 @@
               "array"
             ],
             "items": {
-              "$ref": "#/components/schemas/CreateThreadAndRunRequestToolsItem"
+              "$ref": "#/components/schemas/AssistantObjectToolsItem"
             },
             "description": "Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis."
           },
@@ -40589,7 +40623,7 @@
             "default": true
           },
           "response_format": {
-            "$ref": "#/components/schemas/CreateThreadAndRunRequestResponseFormat"
+            "$ref": "#/components/schemas/AssistantObjectResponseFormat"
           }
         },
         "additionalProperties": false
@@ -40628,7 +40662,11 @@
             "x-oaiTypeLabel": "file"
           },
           "model": {
-            "$ref": "#/components/schemas/CreateTranscriptionRequestModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "ID of the model to use. The options are \u0060gpt-transcribe\u0060, \u0060gpt-4o-transcribe\u0060, \u0060gpt-4o-mini-transcribe\u0060, \u0060gpt-4o-mini-transcribe-2025-12-15\u0060, \u0060whisper-1\u0060 (which is powered by our open source Whisper V2 model), and \u0060gpt-4o-transcribe-diarize\u0060.\n",
+            "example": "gpt-4o-transcribe",
+            "x-oaiTypeLabel": "string"
           },
           "language": {
             "type": "string",
@@ -40866,7 +40904,11 @@
             "x-oaiTypeLabel": "file"
           },
           "model": {
-            "$ref": "#/components/schemas/CreateTranslationRequestModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "ID of the model to use. Only \u0060whisper-1\u0060 (which is powered by our open source Whisper V2 model) is currently available.\n",
+            "example": "whisper-1",
+            "x-oaiTypeLabel": "string"
           },
           "prompt": {
             "type": "string",
@@ -41138,7 +41180,9 @@
             "description": "Optional text for the voice to speak during creation. If omitted, a script is generated from the prompt. Must not be blank after trimming whitespace; scripts that are too short are rejected."
           },
           "model": {
-            "$ref": "#/components/schemas/CreateVoicePromptRequestModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The voice creation model to use. Defaults to \u0060auto\u0060."
           }
         },
         "additionalProperties": false,
@@ -41659,7 +41703,7 @@
             "$ref": "#/components/schemas/EditImageBodyJsonParamInputFidelity"
           },
           "size": {
-            "$ref": "#/components/schemas/EditImageBodyJsonParamSize"
+            "$ref": "#/components/schemas/CreateImageRequestSize"
           },
           "safety_identifier": {
             "maxLength": 128,
@@ -43405,7 +43449,7 @@
             "description": "The unique ID of the function tool call generated by the model.\n"
           },
           "caller": {
-            "$ref": "#/components/schemas/FunctionToolCallCaller"
+            "$ref": "#/components/schemas/CustomToolCallCaller"
           },
           "namespace": {
             "type": "string",
@@ -43457,7 +43501,7 @@
             "description": "The namespace of the tool that produced the output.\n"
           },
           "caller": {
-            "$ref": "#/components/schemas/FunctionToolCallOutputCaller"
+            "$ref": "#/components/schemas/CustomToolCallOutputCaller"
           },
           "output": {
             "$ref": "#/components/schemas/FunctionToolCallOutputOutput"
@@ -43497,7 +43541,7 @@
             "description": "The namespace of the tool that produced the output.\n"
           },
           "caller": {
-            "$ref": "#/components/schemas/FunctionToolCallOutputCaller"
+            "$ref": "#/components/schemas/CustomToolCallOutputCaller"
           },
           "output": {
             "$ref": "#/components/schemas/FunctionToolCallOutputOutput"
@@ -43534,7 +43578,7 @@
             "description": "The unique ID of the function tool call generated by the model.\n"
           },
           "caller": {
-            "$ref": "#/components/schemas/FunctionToolCallCaller"
+            "$ref": "#/components/schemas/CustomToolCallCaller"
           },
           "namespace": {
             "type": "string",
@@ -44190,7 +44234,9 @@
             "format": "unixtime"
           },
           "size": {
-            "$ref": "#/components/schemas/ImageEditCompletedEventSize"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The image dimensions as a \u0060WIDTHxHEIGHT\u0060 string, for example \u00601536x864\u0060."
           },
           "quality": {
             "$ref": "#/components/schemas/ImageEditCompletedEventQuality"
@@ -44239,7 +44285,9 @@
             "format": "unixtime"
           },
           "size": {
-            "$ref": "#/components/schemas/ImageEditPartialImageEventSize"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The image dimensions as a \u0060WIDTHxHEIGHT\u0060 string, for example \u00601536x864\u0060."
           },
           "quality": {
             "$ref": "#/components/schemas/ImageEditPartialImageEventQuality"
@@ -44312,7 +44360,9 @@
             "format": "unixtime"
           },
           "size": {
-            "$ref": "#/components/schemas/ImageGenCompletedEventSize"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The image dimensions as a \u0060WIDTHxHEIGHT\u0060 string, for example \u00601536x864\u0060."
           },
           "quality": {
             "$ref": "#/components/schemas/ImageGenCompletedEventQuality"
@@ -44361,7 +44411,9 @@
             "format": "unixtime"
           },
           "size": {
-            "$ref": "#/components/schemas/ImageGenPartialImageEventSize"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The image dimensions as a \u0060WIDTHxHEIGHT\u0060 string, for example \u00601536x864\u0060."
           },
           "quality": {
             "$ref": "#/components/schemas/ImageGenPartialImageEventQuality"
@@ -44412,13 +44464,16 @@
             "$ref": "#/components/schemas/ImageGenerationType"
           },
           "model": {
-            "$ref": "#/components/schemas/ImageGenToolModel"
+            "type": "string",
+            "x-client-inline-scalar": true
           },
           "quality": {
             "$ref": "#/components/schemas/ImageGenToolQuality"
           },
           "size": {
-            "$ref": "#/components/schemas/ImageGenToolSize"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The size of the generated images. For \u0060gpt-image-2\u0060, \u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060, \u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060, and \u0060gpt-image-2.5-flare-2026-09-08\u0060, arbitrary resolutions are supported as \u0060WIDTHxHEIGHT\u0060 strings, for example \u00601536x864\u0060. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above \u00602560x1440\u0060 are experimental, and the maximum supported resolution is \u00603840x2160\u0060. The requested size must also satisfy the model\u0027s current pixel and edge limits. The standard sizes \u00601024x1024\u0060, \u00601536x1024\u0060, and \u00601024x1536\u0060 are supported by the GPT image models; \u0060auto\u0060 is supported for models that allow automatic sizing."
           },
           "output_format": {
             "$ref": "#/components/schemas/ImageGenToolOutputFormat"
@@ -44437,7 +44492,7 @@
             "$ref": "#/components/schemas/ImageGenToolBackground"
           },
           "input_fidelity": {
-            "$ref": "#/components/schemas/ImageGenToolInputFidelity"
+            "$ref": "#/components/schemas/CreateImageEditRequestInputFidelity"
           },
           "input_image_mask": {
             "$ref": "#/components/schemas/ImageGenToolInputImageMask"
@@ -44526,7 +44581,9 @@
             "$ref": "#/components/schemas/ImagesResponseOutputFormat"
           },
           "size": {
-            "$ref": "#/components/schemas/ImagesResponseSize"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The image dimensions as a \u0060WIDTHxHEIGHT\u0060 string, for example \u00601536x864\u0060."
           },
           "quality": {
             "$ref": "#/components/schemas/ImagesResponseQuality"
@@ -44670,7 +44727,7 @@
             "title": "Input item content list",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/InputContent"
+              "$ref": "#/components/schemas/FunctionAndCustomToolCallOutput"
             },
             "description": "A list of one or many input items to the model, containing different content \ntypes.\n"
           }
@@ -44681,7 +44738,7 @@
         "title": "Input item content list",
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/InputContent"
+          "$ref": "#/components/schemas/FunctionAndCustomToolCallOutput"
         },
         "description": "A list of one or many input items to the model, containing different content \ntypes.\n"
       },
@@ -44707,7 +44764,7 @@
             "title": "Input item content list",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/InputContent"
+              "$ref": "#/components/schemas/FunctionAndCustomToolCallOutput"
             },
             "description": "A list of one or many input items to the model, containing different content \ntypes.\n"
           },
@@ -47447,22 +47504,16 @@
         }
       },
       "ModelIds": {
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/ModelIdsShared"
-          },
-          {
-            "$ref": "#/components/schemas/ModelIdsResponses"
-          }
-        ]
+        "type": "string",
+        "x-client-inline-scalar": true,
+        "example": "gpt-6-astra"
       },
       "ModelIdsCompaction": {
         "anyOf": [
           {
-            "$ref": "#/components/schemas/ModelIdsResponses"
-          },
-          {
-            "type": "string"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "example": "gpt-6-astra"
           },
           {
             "type": "null"
@@ -47484,25 +47535,13 @@
         "example": "gpt-live-1"
       },
       "ModelIdsResponses": {
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/ModelIdsShared"
-          },
-          {
-            "$ref": "#/components/schemas/ModelIdsResponsesAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "example": "gpt-6-astra"
       },
       "ModelIdsShared": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/ModelIdsSharedAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "example": "gpt-6-astra"
       },
       "ModelResponseProperties": {
@@ -47577,7 +47616,9 @@
         "type": "object",
         "properties": {
           "model": {
-            "$ref": "#/components/schemas/ModifyAssistantRequestModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "ID of the model to use. You can use the [List models](https://developers.openai.com/api/reference/resources/models/methods/list) API to see all of your available models, or see our [Model overview](https://developers.openai.com/api/docs/models) for descriptions of them.\n"
           },
           "reasoning_effort": {
             "$ref": "#/components/schemas/ReasoningEffort"
@@ -47610,7 +47651,7 @@
             "maxItems": 128,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ModifyAssistantRequestToolsItem"
+              "$ref": "#/components/schemas/AssistantObjectToolsItem"
             },
             "description": "A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types \u0060code_interpreter\u0060, \u0060file_search\u0060, or \u0060function\u0060.\n",
             "default": []
@@ -47644,7 +47685,7 @@
             "example": 1
           },
           "response_format": {
-            "$ref": "#/components/schemas/ModifyAssistantRequestResponseFormat"
+            "$ref": "#/components/schemas/AssistantObjectResponseFormat"
           }
         },
         "additionalProperties": false
@@ -48251,7 +48292,7 @@
             "description": "The content of the output message.\n"
           },
           "phase": {
-            "$ref": "#/components/schemas/OutputMessagePhase"
+            "$ref": "#/components/schemas/EasyInputMessagePhase"
           },
           "status": {
             "$ref": "#/components/schemas/OutputMessageStatus"
@@ -52588,7 +52629,7 @@
             "description": "Tools available to the model."
           },
           "tool_choice": {
-            "$ref": "#/components/schemas/RealtimeResponseCreateParamsToolChoice"
+            "$ref": "#/components/schemas/RealtimeBetaResponseCreateParamsToolChoice"
           },
           "parallel_tool_calls": {
             "type": "boolean",
@@ -54929,7 +54970,7 @@
             "$ref": "#/components/schemas/SessionUpdatedType"
           },
           "session": {
-            "$ref": "#/components/schemas/RealtimeServerEventSessionUpdatedSession"
+            "$ref": "#/components/schemas/RealtimeServerEventSessionCreatedSession"
           }
         },
         "description": "Returned when a session is updated with a \u0060session.update\u0060 event, unless\nthere is an error.\n",
@@ -54984,7 +55025,9 @@
             "description": "The set of modalities the model can respond with. To disable audio,\nset this to [\u0022text\u0022].\n"
           },
           "model": {
-            "$ref": "#/components/schemas/RealtimeSessionModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The Realtime model used for this session.\n"
           },
           "instructions": {
             "type": "string",
@@ -55162,7 +55205,9 @@
             ]
           },
           "model": {
-            "$ref": "#/components/schemas/RealtimeSessionCreateRequestGaModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The Realtime model used for this session.\n"
           },
           "instructions": {
             "type": "string",
@@ -55184,12 +55229,12 @@
           "tools": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RealtimeSessionCreateRequestGaToolsItem"
+              "$ref": "#/components/schemas/RealtimeResponseCreateParamsToolsItem"
             },
             "description": "Tools available to the model."
           },
           "tool_choice": {
-            "$ref": "#/components/schemas/RealtimeSessionCreateRequestGaToolChoice"
+            "$ref": "#/components/schemas/RealtimeBetaResponseCreateParamsToolChoice"
           },
           "parallel_tool_calls": {
             "type": "boolean",
@@ -55317,7 +55362,9 @@
             ]
           },
           "model": {
-            "$ref": "#/components/schemas/RealtimeSessionCreateResponseGaModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The Realtime model used for this session.\n"
           },
           "instructions": {
             "type": "string",
@@ -55342,12 +55389,12 @@
           "tools": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RealtimeSessionCreateResponseGaToolsItem"
+              "$ref": "#/components/schemas/RealtimeResponseCreateParamsToolsItem"
             },
             "description": "Tools available to the model."
           },
           "tool_choice": {
-            "$ref": "#/components/schemas/RealtimeSessionCreateResponseGaToolChoice"
+            "$ref": "#/components/schemas/RealtimeBetaResponseCreateParamsToolChoice"
           },
           "reasoning": {
             "description": "Configuration for reasoning-capable Realtime models such as \u0060gpt-realtime-2\u0060.\n",
@@ -56284,7 +56331,7 @@
             "description": "An array of content items generated by the model.\n\n- The length and order of items in the \u0060output\u0060 array is dependent\n  on the model\u0027s response.\n- Rather than accessing the first item in the \u0060output\u0060 array and\n  assuming it\u0027s an \u0060assistant\u0060 message with the content generated by\n  the model, you might consider using the \u0060output_text\u0060 property where\n  supported in SDKs.\n"
           },
           "reasoning": {
-            "$ref": "#/components/schemas/ResponseValueAllOf3Reasoning"
+            "$ref": "#/components/schemas/CreateResponseBodyAllOf3Reasoning"
           },
           "instructions": {
             "$ref": "#/components/schemas/ResponseValueAllOf3Instructions"
@@ -58572,15 +58619,9 @@
         }
       },
       "ResponseSteerErrorCode": {
+        "type": "string",
+        "x-client-inline-scalar": true,
         "title": "ResponseSteerErrorCode",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/ResponseSteerErrorCodeAnyOf1"
-          },
-          {
-            "type": "string"
-          }
-        ],
         "description": "A machine-readable steering error code. Clients should handle unknown\nvalues because additional codes may be introduced. Known values include:\n- \u0060response_not_found\u0060: The target response is not available on this connection.\n- \u0060invalid_input\u0060: The event or input failed validation.\n- \u0060steering_not_supported\u0060: The model or response execution mode does not support steering.\n- \u0060too_many_pending_steers\u0060: Too much steering input is pending for the response.\n- \u0060response_already_completed\u0060: The response completed and is no longer accepting steering input.\n- \u0060response_not_active\u0060: The response is no longer accepting steering input.\n- \u0060successor_creation_failed\u0060: The successor response could not be created.\n"
       },
       "ResponseSteerEvent": {
@@ -58740,15 +58781,9 @@
         }
       },
       "ResponseSteerPendingReason": {
+        "type": "string",
+        "x-client-inline-scalar": true,
         "title": "ResponseSteerPendingReason",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/ResponseSteerPendingReasonAnyOf1"
-          },
-          {
-            "type": "string"
-          }
-        ],
         "description": "An extensible enum describing why accepted steering input is still queued.\nClients should handle unknown values because additional reasons may be\nintroduced. Known values include:\n- \u0060waiting_for_required_input\u0060: The response is waiting for the tool results or approval decisions identified by \u0060required_input\u0060.\n"
       },
       "ResponseSteerRequiredInput": {
@@ -60103,7 +60138,7 @@
         "type": "object",
         "properties": {
           "grader": {
-            "$ref": "#/components/schemas/RunGraderRequestGrader"
+            "$ref": "#/components/schemas/FineTuneReinforcementMethodGrader"
           },
           "item": {
             "$ref": "#/components/schemas/RunGraderRequestItemProperty"
@@ -60252,7 +60287,7 @@
             "maxItems": 20,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RunObjectToolsItem"
+              "$ref": "#/components/schemas/AssistantObjectToolsItem"
             },
             "description": "The list of tools that the [assistant](https://developers.openai.com/api/docs/assistants/migration) used for this run.",
             "default": []
@@ -60305,7 +60340,7 @@
             "default": true
           },
           "response_format": {
-            "$ref": "#/components/schemas/RunObjectResponseFormat"
+            "$ref": "#/components/schemas/AssistantObjectResponseFormat"
           }
         },
         "description": "Represents an execution run on a [thread](https://developers.openai.com/api/docs/assistants/migration).",
@@ -63130,7 +63165,7 @@
         "type": "object",
         "properties": {
           "grader": {
-            "$ref": "#/components/schemas/ValidateGraderRequestGrader"
+            "$ref": "#/components/schemas/FineTuneReinforcementMethodGrader"
           }
         }
       },
@@ -63139,7 +63174,7 @@
         "type": "object",
         "properties": {
           "grader": {
-            "$ref": "#/components/schemas/ValidateGraderResponseGrader"
+            "$ref": "#/components/schemas/FineTuneReinforcementMethodGrader"
           }
         }
       },
@@ -63677,7 +63712,9 @@
         "title": "Voice",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/VoiceIdsShared"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "example": "ash"
           },
           {
             "$ref": "#/components/schemas/VoiceIdsOrCustomVoiceAnyOf2"
@@ -63686,14 +63723,8 @@
         "description": "A built-in voice name or a custom voice reference.\n"
       },
       "VoiceIdsShared": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/VoiceIdsSharedAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "example": "ash"
       },
       "VoiceResource": {
@@ -65085,14 +65116,8 @@
         }
       },
       "MisalignmentErrorType": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/MisalignmentErrorTypeAnyOf2"
-          }
-        ]
+        "type": "string",
+        "x-client-inline-scalar": true
       },
       "MisalignmentSteer": {
         "required": [
@@ -65110,10 +65135,11 @@
         "type": "object",
         "properties": {
           "review_target": {
-            "$ref": "#/components/schemas/MisalignmentErrorDetailsResourceReviewTarget"
+            "$ref": "#/components/schemas/BetaMisalignmentErrorDetailsResourceReviewTarget"
           },
           "error_type": {
-            "$ref": "#/components/schemas/MisalignmentErrorType"
+            "type": "string",
+            "x-client-inline-scalar": true
           },
           "detailed_explanation": {
             "type": "string",
@@ -66476,7 +66502,7 @@
             "$ref": "#/components/schemas/ImageGenToolCallError"
           },
           "size": {
-            "$ref": "#/components/schemas/ImageGenToolCallSize"
+            "$ref": "#/components/schemas/BetaImageGenToolCallSize"
           },
           "quality": {
             "$ref": "#/components/schemas/ImageGenToolCallQuality"
@@ -67296,7 +67322,7 @@
             "$ref": "#/components/schemas/ContainerAutoParamMemoryLimit"
           },
           "network_policy": {
-            "$ref": "#/components/schemas/ContainerAutoParamNetworkPolicy"
+            "$ref": "#/components/schemas/AutoCodeInterpreterToolParamNetworkPolicy"
           },
           "skills": {
             "maxItems": 200,
@@ -68131,7 +68157,7 @@
             "description": "The unique ID of the shell tool call generated by the model."
           },
           "caller": {
-            "$ref": "#/components/schemas/FunctionShellCallCaller"
+            "$ref": "#/components/schemas/ApplyPatchToolCallCaller"
           },
           "action": {
             "description": "The shell commands and limits that describe how to run the tool call.",
@@ -68259,7 +68285,7 @@
             "description": "The unique ID of the shell tool call generated by the model."
           },
           "caller": {
-            "$ref": "#/components/schemas/FunctionShellCallOutputCaller"
+            "$ref": "#/components/schemas/ApplyPatchToolCallCaller"
           },
           "status": {
             "description": "The status of the shell call output. One of \u0060in_progress\u0060, \u0060completed\u0060, or \u0060incomplete\u0060.",
@@ -68453,7 +68479,7 @@
             "description": "The unique ID of the apply patch tool call generated by the model."
           },
           "caller": {
-            "$ref": "#/components/schemas/ApplyPatchToolCallOutputCaller"
+            "$ref": "#/components/schemas/ApplyPatchToolCallCaller"
           },
           "status": {
             "description": "The status of the apply patch tool call output. One of \u0060completed\u0060 or \u0060failed\u0060.",
@@ -68680,7 +68706,7 @@
             "description": "The text input to the model."
           },
           "prompt_cache_breakpoint": {
-            "$ref": "#/components/schemas/InputTextContentParamPromptCacheBreakpoint"
+            "$ref": "#/components/schemas/InputFileContentParamPromptCacheBreakpoint"
           }
         },
         "description": "A text input to the model."
@@ -68716,7 +68742,7 @@
             "$ref": "#/components/schemas/InputImageContentParamAutoParamDetail"
           },
           "prompt_cache_breakpoint": {
-            "$ref": "#/components/schemas/InputImageContentParamAutoParamPromptCacheBreakpoint"
+            "$ref": "#/components/schemas/InputFileContentParamPromptCacheBreakpoint"
           }
         },
         "description": "An image input to the model. Learn about [image inputs](https://developers.openai.com/api/docs/guides/images-vision)"
@@ -68849,7 +68875,7 @@
             "description": "The namespace of the tool that produced the output."
           },
           "caller": {
-            "$ref": "#/components/schemas/FunctionCallOutputItemParamCaller"
+            "$ref": "#/components/schemas/ApplyPatchToolCallItemParamCaller"
           },
           "status": {
             "$ref": "#/components/schemas/FunctionCallOutputItemParamStatus"
@@ -69273,7 +69299,7 @@
             "description": "The unique ID of the shell tool call generated by the model."
           },
           "caller": {
-            "$ref": "#/components/schemas/FunctionShellCallItemParamCaller"
+            "$ref": "#/components/schemas/ApplyPatchToolCallItemParamCaller"
           },
           "type": {
             "$ref": "#/components/schemas/ShellCallType"
@@ -69391,7 +69417,7 @@
             "description": "The unique ID of the shell tool call generated by the model."
           },
           "caller": {
-            "$ref": "#/components/schemas/FunctionShellCallOutputItemParamCaller"
+            "$ref": "#/components/schemas/ApplyPatchToolCallItemParamCaller"
           },
           "type": {
             "$ref": "#/components/schemas/ShellCallOutputType"
@@ -69622,7 +69648,7 @@
             "description": "The unique ID of the apply patch tool call generated by the model."
           },
           "caller": {
-            "$ref": "#/components/schemas/ApplyPatchToolCallOutputItemParamCaller"
+            "$ref": "#/components/schemas/ApplyPatchToolCallItemParamCaller"
           },
           "status": {
             "description": "The status of the apply patch tool call output. One of \u0060completed\u0060 or \u0060failed\u0060.",
@@ -71179,7 +71205,7 @@
             "$ref": "#/components/schemas/MessageType"
           },
           "status": {
-            "$ref": "#/components/schemas/LiveInitialDeveloperMessageItemParamStatus"
+            "$ref": "#/components/schemas/LiveInitialAssistantMessageItemParamStatus"
           },
           "role": {
             "$ref": "#/components/schemas/DeveloperRole"
@@ -71214,7 +71240,7 @@
             "$ref": "#/components/schemas/MessageType"
           },
           "status": {
-            "$ref": "#/components/schemas/LiveInitialUserMessageItemParamStatus"
+            "$ref": "#/components/schemas/LiveInitialAssistantMessageItemParamStatus"
           },
           "role": {
             "$ref": "#/components/schemas/UserRole"
@@ -71424,23 +71450,23 @@
             "description": "Maximum number of output tokens for each delegated response."
           },
           "service_tier": {
-            "$ref": "#/components/schemas/LiveResponsesDelegationSettingsUpdateInputParamServiceTier"
+            "$ref": "#/components/schemas/LiveResponsesDelegationSettingsInputParamServiceTier"
           },
           "reasoning": {
-            "$ref": "#/components/schemas/LiveResponsesDelegationSettingsUpdateInputParamReasoning"
+            "$ref": "#/components/schemas/LiveResponsesDelegationSettingsInputParamReasoning"
           },
           "text": {
-            "$ref": "#/components/schemas/LiveResponsesDelegationSettingsUpdateInputParamText"
+            "$ref": "#/components/schemas/LiveResponsesDelegationSettingsInputParamText"
           },
           "tools": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LiveResponsesDelegationSettingsUpdateInputParamToolsItem"
+              "$ref": "#/components/schemas/LiveResponsesDelegationSettingsInputParamToolsItem"
             },
             "description": "Tools available to the Responses backend while it handles tasks delegated by the Live model."
           },
           "tool_choice": {
-            "$ref": "#/components/schemas/LiveResponsesDelegationSettingsUpdateInputParamToolChoice"
+            "$ref": "#/components/schemas/LiveResponsesDelegationSettingsInputParamToolChoice"
           },
           "parallel_tool_calls": {
             "type": [
@@ -71845,14 +71871,8 @@
         "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details."
       },
       "ReasoningModeEnum": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/ReasoningModeEnumAnyOf2"
-          }
-        ]
+        "type": "string",
+        "x-client-inline-scalar": true
       },
       "ConversationParam2": {
         "title": "Conversation object",
@@ -73606,34 +73626,16 @@
         }
       },
       "SpendLimitCurrency": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/SpendLimitCurrencyAnyOf2"
-          }
-        ]
+        "type": "string",
+        "x-client-inline-scalar": true
       },
       "SpendLimitInterval": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/SpendLimitIntervalAnyOf2"
-          }
-        ]
+        "type": "string",
+        "x-client-inline-scalar": true
       },
       "SpendLimitEnforcementStatus": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/SpendLimitEnforcementStatusAnyOf2"
-          }
-        ]
+        "type": "string",
+        "x-client-inline-scalar": true
       },
       "SpendLimitEnforcement": {
         "required": [
@@ -74041,14 +74043,8 @@
         }
       },
       "VideoModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/VideoModelAnyOf2"
-          }
-        ]
+        "type": "string",
+        "x-client-inline-scalar": true
       },
       "VideoStatus": {
         "enum": [
@@ -74625,14 +74621,8 @@
         }
       },
       "PersonalityEnum": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/PersonalityEnumAnyOf2"
-          }
-        ]
+        "type": "string",
+        "x-client-inline-scalar": true
       },
       "TokenCountsBody": {
         "type": "object",
@@ -74645,7 +74635,7 @@
             "description": "Model ID used to generate the response, like \u0060gpt-4o\u0060 or \u0060o3\u0060. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models) to browse and compare available models."
           },
           "input": {
-            "$ref": "#/components/schemas/TokenCountsBodyInput"
+            "$ref": "#/components/schemas/CompactResponseMethodPublicBodyInput"
           },
           "previous_response_id": {
             "type": [
@@ -74688,7 +74678,7 @@
             "$ref": "#/components/schemas/PersonalityEnum"
           },
           "conversation": {
-            "$ref": "#/components/schemas/TokenCountsBodyConversation"
+            "$ref": "#/components/schemas/CreateResponseBodyAllOf3Conversation"
           },
           "tool_choice": {
             "$ref": "#/components/schemas/TokenCountsBodyToolChoice"
@@ -74787,7 +74777,7 @@
         "properties": {
           "model": {
             "description": "Model ID used to generate the response, like \u0060gpt-6-astra\u0060. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models) to browse and compare available models.",
-            "$ref": "#/components/schemas/ModelIdsCompaction"
+            "$ref": "#/components/schemas/BetaModelIdsCompaction"
           },
           "input": {
             "$ref": "#/components/schemas/CompactResponseMethodPublicBodyInput"
@@ -75252,7 +75242,7 @@
         "type": "object",
         "properties": {
           "files": {
-            "$ref": "#/components/schemas/CreateSkillVersionBodyFiles"
+            "$ref": "#/components/schemas/CreateSkillBodyFiles"
           },
           "default": {
             "type": "boolean",
@@ -76978,7 +76968,7 @@
             "type": "string"
           },
           "status": {
-            "$ref": "#/components/schemas/DecisionInputFunctionCallStatus"
+            "$ref": "#/components/schemas/DecisionInputCustomToolCallOutputStatus"
           },
           "type": {
             "$ref": "#/components/schemas/FunctionCallType"
@@ -77038,7 +77028,7 @@
             "$ref": "#/components/schemas/DecisionInputToolOutputContent"
           },
           "status": {
-            "$ref": "#/components/schemas/DecisionInputFunctionCallOutputStatus"
+            "$ref": "#/components/schemas/DecisionInputCustomToolCallOutputStatus"
           },
           "type": {
             "$ref": "#/components/schemas/FunctionCallOutputType"
@@ -77089,7 +77079,7 @@
             "type": "string"
           },
           "status": {
-            "$ref": "#/components/schemas/DecisionInputCustomToolCallStatus"
+            "$ref": "#/components/schemas/DecisionInputCustomToolCallOutputStatus"
           },
           "type": {
             "$ref": "#/components/schemas/CustomToolCallType"
@@ -77182,7 +77172,7 @@
             "description": "A base64-encoded image in a data URL or a publicly accessible HTTP(S) image URL."
           },
           "detail": {
-            "$ref": "#/components/schemas/DecisionQuestionInputImageDetail"
+            "$ref": "#/components/schemas/DecisionInputImageDetail"
           },
           "type": {
             "$ref": "#/components/schemas/InputImageType"
@@ -77234,7 +77224,7 @@
             "type": "string"
           },
           "instructions": {
-            "$ref": "#/components/schemas/QuestionParamPredicateInstructions"
+            "$ref": "#/components/schemas/QuestionParamChoiceInstructions"
           }
         },
         "additionalProperties": false,
@@ -77339,7 +77329,7 @@
             "type": "string"
           },
           "instructions": {
-            "$ref": "#/components/schemas/QuestionParamScoreInstructions"
+            "$ref": "#/components/schemas/QuestionParamChoiceInstructions"
           },
           "levels": {
             "maxItems": 10,
@@ -80949,7 +80939,7 @@
             "$ref": "#/components/schemas/OpenaiHostedType"
           },
           "packages": {
-            "$ref": "#/components/schemas/EnvironmentParamOpenaiHostedPackages"
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHostedPackages"
           },
           "setup_commands": {
             "maxItems": 16,
@@ -80964,10 +80954,10 @@
             "description": "Ordered, confidential setup commands. Command bodies are never returned."
           },
           "network": {
-            "$ref": "#/components/schemas/EnvironmentParamOpenaiHostedNetwork"
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHostedNetwork"
           },
           "desktop": {
-            "$ref": "#/components/schemas/EnvironmentParamOpenaiHostedDesktop"
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHostedDesktop"
           },
           "env": {
             "$ref": "#/components/schemas/EnvironmentParamOpenaiHostedEnvProperty"
@@ -84730,7 +84720,7 @@
             "description": "Allowed search domains, or \u0060null\u0060 when the search is unrestricted."
           },
           "location": {
-            "$ref": "#/components/schemas/PersistedAgentToolResourceWebSearchLocation"
+            "$ref": "#/components/schemas/AgentToolResourceWebSearchLocation"
           }
         },
         "additionalProperties": false,
@@ -85205,10 +85195,10 @@
             "$ref": "#/components/schemas/WebSearchType"
           },
           "mode": {
-            "$ref": "#/components/schemas/PersistedAgentToolConfigParamWebSearchMode"
+            "$ref": "#/components/schemas/AgentToolConfigParamWebSearchMode"
           },
           "context_size": {
-            "$ref": "#/components/schemas/PersistedAgentToolConfigParamWebSearchContextSize"
+            "$ref": "#/components/schemas/AgentToolConfigParamWebSearchContextSize"
           },
           "allowed_domains": {
             "maxItems": 16384,
@@ -85225,7 +85215,7 @@
             "description": "Domains the search may include."
           },
           "location": {
-            "$ref": "#/components/schemas/PersistedAgentToolConfigParamWebSearchLocation"
+            "$ref": "#/components/schemas/AgentToolConfigParamWebSearchLocation"
           }
         },
         "additionalProperties": false,
@@ -85394,13 +85384,13 @@
             "description": "The model to use for the agent. The requested model name is preserved."
           },
           "reasoning": {
-            "$ref": "#/components/schemas/UpdateAgentParamsReasoning"
+            "$ref": "#/components/schemas/SessionAgentConfigParamReasoning"
           },
           "text": {
-            "$ref": "#/components/schemas/UpdateAgentParamsText"
+            "$ref": "#/components/schemas/SessionAgentConfigParamText"
           },
           "service_tier": {
-            "$ref": "#/components/schemas/UpdateAgentParamsServiceTier"
+            "$ref": "#/components/schemas/SessionAgentConfigParamServiceTier"
           },
           "instructions": {
             "maxLength": 1048576,
@@ -85412,10 +85402,10 @@
             "description": "Additional instructions appended to the agent\u0027s default base instructions. Omit to leave unchanged."
           },
           "multi_agent": {
-            "$ref": "#/components/schemas/UpdateAgentParamsMultiAgent"
+            "$ref": "#/components/schemas/SessionAgentConfigParamMultiAgent"
           },
           "compaction": {
-            "$ref": "#/components/schemas/UpdateAgentParamsCompaction"
+            "$ref": "#/components/schemas/SessionAgentConfigParamCompaction"
           },
           "metadata": {
             "$ref": "#/components/schemas/UpdateAgentParamsMetadataProperty"
@@ -85615,7 +85605,7 @@
         "type": "object",
         "properties": {
           "packages": {
-            "$ref": "#/components/schemas/CreateEnvironmentTemplateParamsPackages"
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHostedPackages"
           },
           "setup_commands": {
             "maxItems": 16,
@@ -85630,10 +85620,10 @@
             "description": "Ordered, confidential setup commands. Command bodies are never returned."
           },
           "network": {
-            "$ref": "#/components/schemas/CreateEnvironmentTemplateParamsNetwork"
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHostedNetwork"
           },
           "desktop": {
-            "$ref": "#/components/schemas/CreateEnvironmentTemplateParamsDesktop"
+            "$ref": "#/components/schemas/CreateEnvironmentParamOpenaiHostedDesktop"
           },
           "env": {
             "$ref": "#/components/schemas/CreateEnvironmentTemplateParamsEnvProperty"
@@ -87286,7 +87276,7 @@
             "$ref": "#/components/schemas/TurnResource"
           },
           "usage": {
-            "$ref": "#/components/schemas/SessionEventAgentSessionTurnCompletedUsage"
+            "$ref": "#/components/schemas/SessionEventAgentSessionTurnCancelledUsage"
           }
         },
         "additionalProperties": false,
@@ -87326,7 +87316,7 @@
             "$ref": "#/components/schemas/TurnResource"
           },
           "usage": {
-            "$ref": "#/components/schemas/SessionEventAgentSessionTurnFailedUsage"
+            "$ref": "#/components/schemas/SessionEventAgentSessionTurnCancelledUsage"
           }
         },
         "additionalProperties": false,
@@ -90907,7 +90897,7 @@
             "$ref": "#/components/schemas/LiveInitialSessionAudioParam"
           },
           "delegation": {
-            "$ref": "#/components/schemas/LiveSessionCreateParamsDelegation"
+            "$ref": "#/components/schemas/Delegation"
           },
           "triggers": {
             "maxItems": 2,
@@ -91444,7 +91434,7 @@
             "description": "A base64-encoded image data URL or a publicly accessible HTTP(S) image URL."
           },
           "detail": {
-            "$ref": "#/components/schemas/LiveDecisionUserInputImageParamDetail"
+            "$ref": "#/components/schemas/LiveDecisionInputImageParamDetail"
           }
         }
       },
@@ -91519,7 +91509,7 @@
             "$ref": "#/components/schemas/SystemRole"
           },
           "content": {
-            "$ref": "#/components/schemas/LiveDecisionSystemMessageParamContent"
+            "$ref": "#/components/schemas/LiveDecisionDeveloperMessageParamContent"
           }
         }
       },
@@ -91655,7 +91645,7 @@
             "description": "The unique ID of the function tool call generated by the model."
           },
           "status": {
-            "$ref": "#/components/schemas/LiveDecisionFunctionCallParamStatus"
+            "$ref": "#/components/schemas/LiveDecisionCustomToolCallOutputParamStatus"
           },
           "type": {
             "$ref": "#/components/schemas/FunctionCallType"
@@ -91704,7 +91694,7 @@
             "description": "The unique ID of the function tool call generated by the model."
           },
           "status": {
-            "$ref": "#/components/schemas/LiveDecisionFunctionCallOutputParamStatus"
+            "$ref": "#/components/schemas/LiveDecisionCustomToolCallOutputParamStatus"
           },
           "type": {
             "$ref": "#/components/schemas/FunctionCallOutputType"
@@ -91737,7 +91727,7 @@
             "description": "The unique ID of the function tool call generated by the model."
           },
           "status": {
-            "$ref": "#/components/schemas/LiveDecisionCustomToolCallParamStatus"
+            "$ref": "#/components/schemas/LiveDecisionCustomToolCallOutputParamStatus"
           },
           "type": {
             "$ref": "#/components/schemas/CustomToolCallType"
@@ -92141,7 +92131,7 @@
             "$ref": "#/components/schemas/LiveInitialSessionAudioParam"
           },
           "delegation": {
-            "$ref": "#/components/schemas/LiveSessionResourceParamDelegation"
+            "$ref": "#/components/schemas/Delegation"
           },
           "triggers": {
             "maxItems": 2,
@@ -93035,7 +93025,7 @@
             "$ref": "#/components/schemas/DeveloperRole"
           },
           "content": {
-            "$ref": "#/components/schemas/LiveDecisionStoredDeveloperMessageParamContent"
+            "$ref": "#/components/schemas/LiveDecisionDeveloperMessageParamContent"
           }
         }
       },
@@ -93057,7 +93047,7 @@
             "$ref": "#/components/schemas/SystemRole"
           },
           "content": {
-            "$ref": "#/components/schemas/LiveDecisionStoredSystemMessageParamContent"
+            "$ref": "#/components/schemas/LiveDecisionDeveloperMessageParamContent"
           }
         }
       },
@@ -93082,7 +93072,7 @@
             "$ref": "#/components/schemas/LiveDecisionStoredAssistantMessageParamContent"
           },
           "phase": {
-            "$ref": "#/components/schemas/LiveDecisionStoredAssistantMessageParamPhase"
+            "$ref": "#/components/schemas/LiveDecisionAssistantMessageParamPhase"
           }
         }
       },
@@ -93106,7 +93096,7 @@
             "description": "The unique ID of the function tool call generated by the model."
           },
           "status": {
-            "$ref": "#/components/schemas/LiveDecisionStoredFunctionCallParamStatus"
+            "$ref": "#/components/schemas/LiveDecisionCustomToolCallOutputParamStatus"
           },
           "type": {
             "$ref": "#/components/schemas/FunctionCallType"
@@ -93152,7 +93142,7 @@
             "description": "The unique ID of the function tool call generated by the model."
           },
           "status": {
-            "$ref": "#/components/schemas/LiveDecisionStoredFunctionCallOutputParamStatus"
+            "$ref": "#/components/schemas/LiveDecisionCustomToolCallOutputParamStatus"
           },
           "type": {
             "$ref": "#/components/schemas/FunctionCallOutputType"
@@ -93182,7 +93172,7 @@
             "description": "The unique ID of the function tool call generated by the model."
           },
           "status": {
-            "$ref": "#/components/schemas/LiveDecisionStoredCustomToolCallParamStatus"
+            "$ref": "#/components/schemas/LiveDecisionCustomToolCallOutputParamStatus"
           },
           "type": {
             "$ref": "#/components/schemas/CustomToolCallType"
@@ -93229,7 +93219,7 @@
             "description": "The unique ID of the function tool call generated by the model."
           },
           "status": {
-            "$ref": "#/components/schemas/LiveDecisionStoredCustomToolCallOutputParamStatus"
+            "$ref": "#/components/schemas/LiveDecisionCustomToolCallOutputParamStatus"
           },
           "type": {
             "$ref": "#/components/schemas/CustomToolCallOutputType"
@@ -94213,7 +94203,7 @@
             "description": "Model ID used to generate the response, like \u0060gpt-4o\u0060 or \u0060o3\u0060. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models) to browse and compare available models."
           },
           "input": {
-            "$ref": "#/components/schemas/BetaTokenCountsBodyInput"
+            "$ref": "#/components/schemas/BetaCompactResponseMethodPublicBodyInput"
           },
           "previous_response_id": {
             "type": [
@@ -94256,7 +94246,7 @@
             "$ref": "#/components/schemas/BetaPersonalityEnum"
           },
           "conversation": {
-            "$ref": "#/components/schemas/BetaTokenCountsBodyConversation"
+            "$ref": "#/components/schemas/BetaCreateResponseBodyAllOf3Conversation"
           },
           "tool_choice": {
             "$ref": "#/components/schemas/BetaTokenCountsBodyToolChoice"
@@ -94495,14 +94485,8 @@
         "description": "The conversation that this response belongs to."
       },
       "BetaPersonalityEnum": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/BetaPersonalityEnumAnyOf2"
-          }
-        ]
+        "type": "string",
+        "x-client-inline-scalar": true
       },
       "BetaTruncationEnum": {
         "enum": [
@@ -94600,14 +94584,8 @@
         }
       },
       "BetaReasoningModeEnum": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/BetaReasoningModeEnumAnyOf2"
-          }
-        ]
+        "type": "string",
+        "x-client-inline-scalar": true
       },
       "BetaResponseTextParam": {
         "type": "object",
@@ -95321,7 +95299,7 @@
             "$ref": "#/components/schemas/BetaContainerAutoParamMemoryLimit"
           },
           "network_policy": {
-            "$ref": "#/components/schemas/BetaContainerAutoParamNetworkPolicy"
+            "$ref": "#/components/schemas/BetaAutoCodeInterpreterToolParamNetworkPolicy"
           },
           "skills": {
             "maxItems": 200,
@@ -95524,13 +95502,16 @@
             "$ref": "#/components/schemas/ImageGenerationType"
           },
           "model": {
-            "$ref": "#/components/schemas/BetaImageGenToolModel"
+            "type": "string",
+            "x-client-inline-scalar": true
           },
           "quality": {
             "$ref": "#/components/schemas/BetaImageGenToolQuality"
           },
           "size": {
-            "$ref": "#/components/schemas/BetaImageGenToolSize"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The size of the generated images. For \u0060gpt-image-2\u0060, \u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060, \u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060, and \u0060gpt-image-2.5-flare-2026-09-08\u0060, arbitrary resolutions are supported as \u0060WIDTHxHEIGHT\u0060 strings, for example \u00601536x864\u0060. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above \u00602560x1440\u0060 are experimental, and the maximum supported resolution is \u00603840x2160\u0060. The requested size must also satisfy the model\u0027s current pixel and edge limits. The standard sizes \u00601024x1024\u0060, \u00601536x1024\u0060, and \u00601024x1536\u0060 are supported by the GPT image models; \u0060auto\u0060 is supported for models that allow automatic sizing."
           },
           "output_format": {
             "$ref": "#/components/schemas/BetaImageGenToolOutputFormat"
@@ -96172,7 +96153,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaProgramOutputItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": "string",
@@ -96245,7 +96226,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaProgramItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": "string",
@@ -96281,7 +96262,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaItemReferenceParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "type": {
             "$ref": "#/components/schemas/BetaItemReferenceParamType"
@@ -96301,7 +96282,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaCompactionTriggerItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": [
@@ -96462,7 +96443,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaCustomToolCallAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/CustomToolCallType"
@@ -96565,7 +96546,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaCustomToolCallOutputAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/CustomToolCallOutputType"
@@ -96840,7 +96821,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaMcpToolCallAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/McpCallType"
@@ -97003,7 +96984,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaMcpApprovalResponseAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/McpApprovalResponseType"
@@ -97045,7 +97026,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaMcpApprovalRequestAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/McpApprovalRequestType"
@@ -97080,7 +97061,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaMcpListToolsAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/McpListToolsType"
@@ -97148,7 +97129,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaApplyPatchToolCallOutputItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ApplyPatchCallOutputType"
@@ -97168,7 +97149,7 @@
             "description": "The unique ID of the apply patch tool call generated by the model."
           },
           "caller": {
-            "$ref": "#/components/schemas/BetaApplyPatchToolCallOutputItemParamCaller"
+            "$ref": "#/components/schemas/BetaApplyPatchToolCallItemParamCaller"
           },
           "status": {
             "description": "The status of the apply patch tool call output. One of \u0060completed\u0060 or \u0060failed\u0060.",
@@ -97219,7 +97200,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaApplyPatchToolCallItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ApplyPatchCallType"
@@ -97377,7 +97358,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaFunctionShellCallOutputItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": [
@@ -97394,7 +97375,7 @@
             "description": "The unique ID of the shell tool call generated by the model."
           },
           "caller": {
-            "$ref": "#/components/schemas/BetaFunctionShellCallOutputItemParamCaller"
+            "$ref": "#/components/schemas/BetaApplyPatchToolCallItemParamCaller"
           },
           "type": {
             "$ref": "#/components/schemas/ShellCallOutputType"
@@ -97533,7 +97514,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaFunctionShellCallItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": [
@@ -97550,7 +97531,7 @@
             "description": "The unique ID of the shell tool call generated by the model."
           },
           "caller": {
-            "$ref": "#/components/schemas/BetaFunctionShellCallItemParamCaller"
+            "$ref": "#/components/schemas/BetaApplyPatchToolCallItemParamCaller"
           },
           "type": {
             "$ref": "#/components/schemas/ShellCallType"
@@ -97610,7 +97591,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaLocalShellToolCallOutputAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/LocalShellCallOutputType"
@@ -97641,7 +97622,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaLocalShellToolCallAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/LocalShellCallType"
@@ -97965,7 +97946,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaCompactionSummaryItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": [
@@ -97996,7 +97977,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaReasoningItemAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ReasoningType"
@@ -98075,7 +98056,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseConfigurationUpdateItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": [
@@ -98139,7 +98120,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaToolSearchOutputItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": [
@@ -98376,7 +98357,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaToolSearchCallItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": [
@@ -98420,7 +98401,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaMultiAgentCallOutputItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": [
@@ -98630,7 +98611,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaMultiAgentCallItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": [
@@ -98671,7 +98652,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaAgentMessageItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": [
@@ -98754,7 +98735,7 @@
             "$ref": "#/components/schemas/BetaInputImageContentParamAutoParamDetail"
           },
           "prompt_cache_breakpoint": {
-            "$ref": "#/components/schemas/BetaInputImageContentParamAutoParamPromptCacheBreakpoint"
+            "$ref": "#/components/schemas/BetaInputFileContentParamPromptCacheBreakpoint"
           }
         },
         "description": "An image input to the model. Learn about [image inputs](https://developers.openai.com/api/docs/guides/images-vision)"
@@ -98823,7 +98804,7 @@
             "description": "The text input to the model."
           },
           "prompt_cache_breakpoint": {
-            "$ref": "#/components/schemas/BetaInputTextContentParamPromptCacheBreakpoint"
+            "$ref": "#/components/schemas/BetaInputFileContentParamPromptCacheBreakpoint"
           }
         },
         "description": "A text input to the model."
@@ -98837,7 +98818,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaFunctionCallOutputItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": [
@@ -98882,7 +98863,7 @@
             "description": "The namespace of the tool that produced the output."
           },
           "caller": {
-            "$ref": "#/components/schemas/BetaFunctionCallOutputItemParamCaller"
+            "$ref": "#/components/schemas/BetaApplyPatchToolCallItemParamCaller"
           },
           "status": {
             "$ref": "#/components/schemas/BetaFunctionCallOutputItemParamStatus"
@@ -98978,7 +98959,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaFunctionToolCallAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "id": {
             "type": "string",
@@ -98992,7 +98973,7 @@
             "description": "The unique ID of the function tool call generated by the model.\n"
           },
           "caller": {
-            "$ref": "#/components/schemas/BetaFunctionToolCallCaller"
+            "$ref": "#/components/schemas/BetaCustomToolCallCaller"
           },
           "namespace": {
             "type": "string",
@@ -99026,7 +99007,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaWebSearchToolCallAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "id": {
             "type": "string",
@@ -99173,7 +99154,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaComputerCallOutputItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": [
@@ -99272,7 +99253,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaComputerToolCallAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ComputerCallType"
@@ -99673,7 +99654,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaFileSearchToolCallAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "id": {
             "type": "string",
@@ -99727,7 +99708,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaOutputMessageAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "id": {
             "type": "string",
@@ -99747,7 +99728,7 @@
             "description": "The content of the output message.\n"
           },
           "phase": {
-            "$ref": "#/components/schemas/BetaOutputMessagePhase"
+            "$ref": "#/components/schemas/BetaEasyInputMessagePhase"
           },
           "status": {
             "$ref": "#/components/schemas/BetaOutputMessageStatus"
@@ -100058,7 +100039,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaInputMessageAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/MessageType"
@@ -100073,7 +100054,7 @@
             "title": "Input item content list",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BetaInputContent"
+              "$ref": "#/components/schemas/BetaFunctionAndCustomToolCallOutput"
             },
             "description": "A list of one or many input items to the model, containing different content \ntypes.\n"
           }
@@ -100084,7 +100065,7 @@
         "title": "Input item content list",
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/BetaInputContent"
+          "$ref": "#/components/schemas/BetaFunctionAndCustomToolCallOutput"
         },
         "description": "A list of one or many input items to the model, containing different content \ntypes.\n"
       },
@@ -100290,10 +100271,9 @@
       "BetaModelIdsCompaction": {
         "anyOf": [
           {
-            "$ref": "#/components/schemas/BetaModelIdsResponses"
-          },
-          {
-            "type": "string"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "example": "gpt-6-astra"
           },
           {
             "type": "null"
@@ -100302,25 +100282,13 @@
         "description": "Model ID used to generate the response, like \u0060gpt-6-astra\u0060. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models) to browse and compare available models."
       },
       "BetaModelIdsResponses": {
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/BetaModelIdsShared"
-          },
-          {
-            "$ref": "#/components/schemas/BetaModelIdsResponsesAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "example": "gpt-6-astra"
       },
       "BetaModelIdsShared": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/BetaModelIdsSharedAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "example": "gpt-6-astra"
       },
       "BetaErrorResponse": {
@@ -100373,7 +100341,8 @@
             "$ref": "#/components/schemas/BetaMisalignmentErrorDetailsResourceReviewTarget"
           },
           "error_type": {
-            "$ref": "#/components/schemas/BetaMisalignmentErrorType"
+            "type": "string",
+            "x-client-inline-scalar": true
           },
           "detailed_explanation": {
             "type": "string",
@@ -100397,14 +100366,8 @@
         }
       },
       "BetaMisalignmentErrorType": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/BetaMisalignmentErrorTypeAnyOf2"
-          }
-        ]
+        "type": "string",
+        "x-client-inline-scalar": true
       },
       "BetaResponseItemList": {
         "required": [
@@ -100600,7 +100563,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaCustomToolCallOutputAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/CustomToolCallOutputType"
@@ -100668,7 +100631,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaCustomToolCallAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/CustomToolCallType"
@@ -100748,7 +100711,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaMcpApprovalResponseResourceAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/McpApprovalResponseType"
@@ -100801,7 +100764,7 @@
             "description": "The unique ID of the apply patch tool call generated by the model."
           },
           "caller": {
-            "$ref": "#/components/schemas/BetaApplyPatchToolCallOutputCaller"
+            "$ref": "#/components/schemas/BetaApplyPatchToolCallCaller"
           },
           "status": {
             "description": "The status of the apply patch tool call output. One of \u0060completed\u0060 or \u0060failed\u0060.",
@@ -100998,7 +100961,7 @@
             "description": "The unique ID of the shell tool call generated by the model."
           },
           "caller": {
-            "$ref": "#/components/schemas/BetaFunctionShellCallOutputCaller"
+            "$ref": "#/components/schemas/BetaApplyPatchToolCallCaller"
           },
           "status": {
             "description": "The status of the shell call output. One of \u0060in_progress\u0060, \u0060completed\u0060, or \u0060incomplete\u0060.",
@@ -101137,7 +101100,7 @@
             "description": "The unique ID of the shell tool call generated by the model."
           },
           "caller": {
-            "$ref": "#/components/schemas/BetaFunctionShellCallCaller"
+            "$ref": "#/components/schemas/BetaApplyPatchToolCallCaller"
           },
           "action": {
             "description": "The shell commands and limits that describe how to run the tool call.",
@@ -101816,7 +101779,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaFunctionToolCallOutputAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "id": {
             "type": "string",
@@ -101838,7 +101801,7 @@
             "description": "The namespace of the tool that produced the output.\n"
           },
           "caller": {
-            "$ref": "#/components/schemas/BetaFunctionToolCallOutputCaller"
+            "$ref": "#/components/schemas/BetaCustomToolCallOutputCaller"
           },
           "output": {
             "$ref": "#/components/schemas/BetaFunctionToolCallOutputOutput"
@@ -101861,7 +101824,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaFunctionToolCallOutputAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "id": {
             "type": "string",
@@ -101883,7 +101846,7 @@
             "description": "The namespace of the tool that produced the output.\n"
           },
           "caller": {
-            "$ref": "#/components/schemas/BetaFunctionToolCallOutputCaller"
+            "$ref": "#/components/schemas/BetaCustomToolCallOutputCaller"
           },
           "output": {
             "$ref": "#/components/schemas/BetaFunctionToolCallOutputOutput"
@@ -101906,7 +101869,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaFunctionToolCallAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "id": {
             "type": "string",
@@ -101920,7 +101883,7 @@
             "description": "The unique ID of the function tool call generated by the model.\n"
           },
           "caller": {
-            "$ref": "#/components/schemas/BetaFunctionToolCallCaller"
+            "$ref": "#/components/schemas/BetaCustomToolCallCaller"
           },
           "namespace": {
             "type": "string",
@@ -101958,7 +101921,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaComputerToolCallOutputAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ComputerCallOutputType"
@@ -102027,7 +101990,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaComputerToolCallOutputAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ComputerCallOutputType"
@@ -102067,7 +102030,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaInputMessageAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "$ref": "#/components/schemas/MessageType"
@@ -102082,7 +102045,7 @@
             "title": "Input item content list",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BetaInputContent"
+              "$ref": "#/components/schemas/BetaFunctionAndCustomToolCallOutput"
             },
             "description": "A list of one or many input items to the model, containing different content \ntypes.\n"
           },
@@ -102376,7 +102339,7 @@
           "content": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BetaMessageContentItem"
+              "$ref": "#/components/schemas/BetaAgentMessageContentItem"
             },
             "description": "The content of the message"
           },
@@ -102445,7 +102408,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCustomToolCallInputDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCustomToolCallInputDoneType"
@@ -102486,7 +102449,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCustomToolCallInputDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCustomToolCallInputDeltaType"
@@ -102525,7 +102488,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseQueuedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseQueuedType"
@@ -102720,7 +102683,7 @@
             "description": "An array of content items generated by the model.\n\n- The length and order of items in the \u0060output\u0060 array is dependent\n  on the model\u0027s response.\n- Rather than accessing the first item in the \u0060output\u0060 array and\n  assuming it\u0027s an \u0060assistant\u0060 message with the content generated by\n  the model, you might consider using the \u0060output_text\u0060 property where\n  supported in SDKs.\n"
           },
           "reasoning": {
-            "$ref": "#/components/schemas/BetaResponseAllOf3Reasoning"
+            "$ref": "#/components/schemas/BetaCreateResponseBodyAllOf3Reasoning"
           },
           "instructions": {
             "$ref": "#/components/schemas/BetaResponseAllOf3Instructions"
@@ -103807,7 +103770,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseOutputTextAnnotationAddedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseOutputTextAnnotationAddedType"
@@ -103854,7 +103817,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpListToolsInProgressEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpListToolsInProgressType"
@@ -103890,7 +103853,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpListToolsFailedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpListToolsFailedType"
@@ -103926,7 +103889,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpListToolsCompletedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpListToolsCompletedType"
@@ -103962,7 +103925,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpCallInProgressEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpCallInProgressType"
@@ -103998,7 +103961,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpCallFailedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpCallFailedType"
@@ -104034,7 +103997,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpCallCompletedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpCallCompletedType"
@@ -104071,7 +104034,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpCallArgumentsDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpCallArgumentsDoneType"
@@ -104112,7 +104075,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpCallArgumentsDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpCallArgumentsDeltaType"
@@ -104154,7 +104117,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseImageGenCallPartialImageEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseImageGenerationCallPartialImageType"
@@ -104214,7 +104177,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseImageGenCallInProgressEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseImageGenerationCallInProgressType"
@@ -104250,7 +104213,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseImageGenCallGeneratingEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseImageGenerationCallGeneratingType"
@@ -104286,7 +104249,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseImageGenCallCompletedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseImageGenerationCallCompletedType"
@@ -104323,7 +104286,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseReasoningTextDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseReasoningTextDoneType"
@@ -104368,7 +104331,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseReasoningTextDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseReasoningTextDeltaType"
@@ -104413,7 +104376,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseReasoningSummaryTextDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseReasoningSummaryTextDoneType"
@@ -104458,7 +104421,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseReasoningSummaryTextDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseReasoningSummaryTextDeltaType"
@@ -104503,7 +104466,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseReasoningSummaryPartDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseReasoningSummaryPartDoneType"
@@ -104550,7 +104513,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseReasoningSummaryPartAddedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseReasoningSummaryPartAddedType"
@@ -104595,7 +104558,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseTextDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseOutputTextDoneType"
@@ -104673,7 +104636,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseTextDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseOutputTextDeltaType"
@@ -104725,7 +104688,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseRefusalDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseRefusalDoneType"
@@ -104770,7 +104733,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseRefusalDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseRefusalDeltaType"
@@ -104813,7 +104776,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseOutputItemDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseOutputItemDoneType"
@@ -104848,7 +104811,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseOutputItemAddedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseOutputItemAddedType"
@@ -104882,7 +104845,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseInProgressEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseInProgressType"
@@ -105131,7 +105094,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseFunctionCallArgumentsDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseFunctionCallArgumentsDoneType"
@@ -105171,7 +105134,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseFunctionCallArgumentsDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseFunctionCallArgumentsDeltaType"
@@ -105210,7 +105173,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseFileSearchCallSearchingEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseFileSearchCallSearchingType"
@@ -105245,7 +105208,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseFileSearchCallInProgressEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseFileSearchCallInProgressType"
@@ -105280,7 +105243,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseFileSearchCallCompletedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseFileSearchCallCompletedType"
@@ -105316,7 +105279,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseErrorEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ErrorType"
@@ -105360,7 +105323,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCreatedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCreatedType"
@@ -105393,7 +105356,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseContentPartDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseContentPartDoneType"
@@ -105459,7 +105422,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseContentPartAddedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseContentPartAddedType"
@@ -105501,7 +105464,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCompletedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCompletedType"
@@ -105564,7 +105527,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCodeInterpreterCallInterpretingEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCodeInterpreterCallInterpretingType"
@@ -105599,7 +105562,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCodeInterpreterCallInProgressEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCodeInterpreterCallInProgressType"
@@ -105634,7 +105597,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCodeInterpreterCallCompletedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCodeInterpreterCallCompletedType"
@@ -105670,7 +105633,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCodeInterpreterCallCodeDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCodeInterpreterCallCodeDoneType"
@@ -105710,7 +105673,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCodeInterpreterCallCodeDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCodeInterpreterCallCodeDeltaType"
@@ -105748,7 +105711,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseAudioTranscriptDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseAudioTranscriptDoneType"
@@ -105775,7 +105738,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseAudioTranscriptDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseAudioTranscriptDeltaType"
@@ -105805,7 +105768,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseAudioDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseAudioDoneType"
@@ -105861,7 +105824,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseIncompleteEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseIncompleteType"
@@ -105891,7 +105854,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseFailedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseFailedType"
@@ -105922,7 +105885,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseWebSearchCallCompletedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseWebSearchCallCompletedType"
@@ -105957,7 +105920,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseWebSearchCallSearchingEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseWebSearchCallSearchingType"
@@ -105992,7 +105955,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseWebSearchCallInProgressEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseWebSearchCallInProgressType"
@@ -106053,15 +106016,9 @@
         }
       },
       "BetaResponseSteerErrorCode": {
+        "type": "string",
+        "x-client-inline-scalar": true,
         "title": "ResponseSteerErrorCode",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/BetaResponseSteerErrorCodeAnyOf1"
-          },
-          {
-            "type": "string"
-          }
-        ],
         "description": "A machine-readable steering error code. Clients should handle unknown\nvalues because additional codes may be introduced. Known values include:\n- \u0060response_not_found\u0060: The target response is not available on this connection.\n- \u0060invalid_input\u0060: The event or input failed validation.\n- \u0060steering_not_supported\u0060: The model or response execution mode does not support steering.\n- \u0060too_many_pending_steers\u0060: Too much steering input is pending for the response.\n- \u0060response_already_completed\u0060: The response completed and is no longer accepting steering input.\n- \u0060response_not_active\u0060: The response is no longer accepting steering input.\n- \u0060successor_creation_failed\u0060: The successor response could not be created.\n"
       },
       "BetaResponseSteerInput": {
@@ -106120,7 +106077,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaUserMessageItemParamAgent"
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
           },
           "id": {
             "type": [
@@ -106233,15 +106190,9 @@
         }
       },
       "BetaResponseSteerPendingReason": {
+        "type": "string",
+        "x-client-inline-scalar": true,
         "title": "ResponseSteerPendingReason",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/BetaResponseSteerPendingReasonAnyOf1"
-          },
-          {
-            "type": "string"
-          }
-        ],
         "description": "An extensible enum describing why accepted steering input is still queued.\nClients should handle unknown values because additional reasons may be\nintroduced. Known values include:\n- \u0060waiting_for_required_input\u0060: The response is waiting for the tool results or approval decisions identified by \u0060required_input\u0060.\n"
       },
       "BetaResponseSteerAcceptedEvent": {
@@ -106366,7 +106317,7 @@
         "oneOf": [
           {
             "title": "Input content types",
-            "$ref": "#/components/schemas/BetaInputContent"
+            "$ref": "#/components/schemas/BetaFunctionAndCustomToolCallOutput"
           },
           {
             "title": "Output content types",
@@ -106718,7 +106669,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseWsErrorAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ErrorType"
@@ -107983,25 +107934,13 @@
         ]
       },
       "AudioTranscriptionModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/AudioTranscriptionModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The model to use for transcription. Current options are \u0060whisper-1\u0060, \u0060gpt-transcribe\u0060, \u0060gpt-live-transcribe\u0060, \u0060gpt-4o-mini-transcribe\u0060, \u0060gpt-4o-mini-transcribe-2025-12-15\u0060, \u0060gpt-4o-transcribe\u0060, \u0060gpt-4o-transcribe-diarize\u0060, and \u0060gpt-realtime-whisper\u0060. Use \u0060gpt-4o-transcribe-diarize\u0060 when you need diarization with speaker labels.\n"
       },
       "AudioTranscriptionResponseModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/AudioTranscriptionResponseModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The model used for transcription. Current options are \u0060whisper-1\u0060, \u0060gpt-transcribe\u0060, \u0060gpt-live-transcribe\u0060, \u0060gpt-4o-mini-transcribe\u0060, \u0060gpt-4o-mini-transcribe-2025-12-15\u0060, \u0060gpt-4o-transcribe\u0060, \u0060gpt-4o-transcribe-diarize\u0060, and \u0060gpt-realtime-whisper\u0060.\n"
       },
       "AuditLogActorComposed": {
@@ -108215,7 +108154,7 @@
           {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ComparisonFilterValueOneOf4Item"
+              "$ref": "#/components/schemas/BetaComparisonFilterValueOneOf4Item"
             }
           }
         ],
@@ -108261,23 +108200,14 @@
             "type": "string"
           },
           {
-            "$ref": "#/components/schemas/CostsResultQuantityUnitAnyOf2"
-          },
-          {
             "type": "null"
           }
         ],
         "description": "The unit of the \u0060quantity\u0060 value. If no single supported unit applies to the result, this field is \u0060null\u0060."
       },
       "CreateAssistantRequestModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/AssistantSupportedModels"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "ID of the model to use. You can use the [List models](https://developers.openai.com/api/reference/resources/models/methods/list) API to see all of your available models, or see our [Model overview](https://developers.openai.com/api/docs/models) for descriptions of them.\n",
         "example": "gpt-4.1",
         "x-oaiTypeLabel": "string"
@@ -108560,14 +108490,8 @@
         ]
       },
       "CreateCompletionRequestModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/CreateCompletionRequestModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "ID of the model to use. You can use the [List models](https://developers.openai.com/api/reference/resources/models/methods/list) API to see all of your available models, or see our [Model overview](https://developers.openai.com/api/docs/models) for descriptions of them.\n",
         "x-oaiTypeLabel": "string"
       },
@@ -108699,14 +108623,8 @@
         "example": "The quick brown fox jumped over the lazy dog"
       },
       "CreateEmbeddingRequestModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/CreateEmbeddingRequestModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "ID of the model to use. You can use the [List models](https://developers.openai.com/api/reference/resources/models/methods/list) API to see all of your available models, or see our [Model overview](https://developers.openai.com/api/docs/models) for descriptions of them.\n",
         "example": "text-embedding-3-small",
         "x-oaiTypeLabel": "string"
@@ -108923,14 +108841,8 @@
         }
       },
       "CreateFineTuningJobRequestModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/CreateFineTuningJobRequestModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The name of the model to fine-tune. You can select one of the\n[supported models](https://developers.openai.com/api/docs/guides/model-optimization#fine-tuning-methods).\n",
         "example": "gpt-4o-mini",
         "x-oaiTypeLabel": "string"
@@ -109009,14 +108921,8 @@
         "description": "The image(s) to edit. Must be a supported image file or an array of images.\n\nFor the GPT image models (\u0060gpt-image-1-mini\u0060, \u0060gpt-image-1.5\u0060,\n\u0060gpt-image-2\u0060, \u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060, and\n\u0060gpt-image-2.5-flare-2026-09-08\u0060), each image should be a \u0060png\u0060, \u0060webp\u0060, or \u0060jpg\u0060\nfile less than 50MB. You can provide up to 16 images. \u0060chatgpt-image-latest\u0060\nfollows the same input constraints as GPT image models.\n"
       },
       "CreateImageEditRequestModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/CreateImageEditRequestModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The GPT image model to use for image editing\n(\u0060gpt-image-1-mini\u0060, \u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, or \u0060chatgpt-image-latest\u0060).\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
         "example": "gpt-image-1.5",
         "x-oaiTypeLabel": "string"
@@ -109025,9 +108931,6 @@
         "anyOf": [
           {
             "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/CreateImageEditRequestSizeAnyOf2"
           },
           {
             "type": "null"
@@ -109047,14 +108950,8 @@
         ]
       },
       "CreateImageRequestModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/CreateImageRequestModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The GPT image model to use for image generation. Specify a model explicitly.\nSupported models include \u0060gpt-image-1-mini\u0060, \u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, and \u0060chatgpt-image-latest\u0060.\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
         "example": "gpt-image-2.5-flare",
         "x-oaiTypeLabel": "string"
@@ -109063,9 +108960,6 @@
         "anyOf": [
           {
             "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/CreateImageRequestSizeAnyOf2"
           },
           {
             "type": "null"
@@ -109078,9 +108972,6 @@
         "anyOf": [
           {
             "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/CreateImageVariationRequestModelAnyOf2"
           },
           {
             "type": "null"
@@ -109168,14 +109059,8 @@
         "description": "Input (or inputs) to classify. Can be a single string, an array of strings, or\nan array of multi-modal input objects similar to other models.\n"
       },
       "CreateModerationRequestModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/CreateModerationRequestModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The content moderation model you would like to use. Learn more in\n[the moderation guide](https://developers.openai.com/api/docs/guides/moderation), and learn about\navailable models [here](https://developers.openai.com/api/docs/guides/moderation).\n",
         "example": "omni-moderation-2024-09-26",
         "x-oaiTypeLabel": "string"
@@ -109281,9 +109166,6 @@
             "type": "string"
           },
           {
-            "$ref": "#/components/schemas/AssistantSupportedModels"
-          },
-          {
             "type": "null"
           }
         ],
@@ -109350,14 +109232,8 @@
         ]
       },
       "CreateSpeechRequestModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/CreateSpeechRequestModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "One of the available [TTS models](https://developers.openai.com/api/docs/guides/text-to-speech): \u0060tts-1\u0060, \u0060tts-1-hd\u0060, \u0060gpt-4o-mini-tts\u0060, or \u0060gpt-4o-mini-tts-2025-12-15\u0060.\n",
         "x-oaiTypeLabel": "string"
       },
@@ -109365,14 +109241,9 @@
         "title": "Voice",
         "anyOf": [
           {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/VoiceIdsShared"
-              },
-              {
-                "$ref": "#/components/schemas/CreateSpeechRequestVoiceAnyOf1AnyOf2"
-              }
-            ]
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "example": "ash"
           },
           {
             "$ref": "#/components/schemas/CreateSpeechRequestVoiceAnyOf2"
@@ -109384,9 +109255,6 @@
         "anyOf": [
           {
             "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/CreateThreadAndRunRequestModelAnyOf2"
           },
           {
             "type": "null"
@@ -109488,14 +109356,8 @@
         }
       },
       "CreateTranscriptionRequestModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/CreateTranscriptionRequestModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "ID of the model to use. The options are \u0060gpt-transcribe\u0060, \u0060gpt-4o-transcribe\u0060, \u0060gpt-4o-mini-transcribe\u0060, \u0060gpt-4o-mini-transcribe-2025-12-15\u0060, \u0060whisper-1\u0060 (which is powered by our open source Whisper V2 model), and \u0060gpt-4o-transcribe-diarize\u0060.\n",
         "example": "gpt-4o-transcribe",
         "x-oaiTypeLabel": "string"
@@ -109555,14 +109417,8 @@
         "description": "Token usage statistics for the request."
       },
       "CreateTranslationRequestModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/CreateTranslationRequestModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "ID of the model to use. Only \u0060whisper-1\u0060 (which is powered by our open source Whisper V2 model) is currently available.\n",
         "example": "whisper-1",
         "x-oaiTypeLabel": "string"
@@ -109586,14 +109442,8 @@
         }
       },
       "CreateVoicePromptRequestModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/CreateVoicePromptRequestModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The voice creation model to use. Defaults to \u0060auto\u0060."
       },
       "CustomToolCallCaller": {
@@ -109705,7 +109555,7 @@
             "title": "Input item content list",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/InputContent"
+              "$ref": "#/components/schemas/FunctionAndCustomToolCallOutput"
             },
             "description": "A list of one or many input items to the model, containing different content \ntypes.\n"
           }
@@ -109728,9 +109578,6 @@
             "type": "string"
           },
           {
-            "$ref": "#/components/schemas/EditImageBodyJsonParamModelAnyOf2"
-          },
-          {
             "type": "null"
           }
         ],
@@ -109742,9 +109589,6 @@
         "anyOf": [
           {
             "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/EditImageBodyJsonParamSizeAnyOf2"
           },
           {
             "type": "null"
@@ -110311,68 +110155,32 @@
         }
       },
       "ImageEditCompletedEventSize": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/ImageEditCompletedEventSizeAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The image dimensions as a \u0060WIDTHxHEIGHT\u0060 string, for example \u00601536x864\u0060."
       },
       "ImageEditPartialImageEventSize": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/ImageEditPartialImageEventSizeAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The image dimensions as a \u0060WIDTHxHEIGHT\u0060 string, for example \u00601536x864\u0060."
       },
       "ImageGenCompletedEventSize": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/ImageGenCompletedEventSizeAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The image dimensions as a \u0060WIDTHxHEIGHT\u0060 string, for example \u00601536x864\u0060."
       },
       "ImageGenPartialImageEventSize": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/ImageGenPartialImageEventSizeAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The image dimensions as a \u0060WIDTHxHEIGHT\u0060 string, for example \u00601536x864\u0060."
       },
       "ImageGenToolModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/ImageGenToolModelAnyOf2"
-          }
-        ]
+        "type": "string",
+        "x-client-inline-scalar": true
       },
       "ImageGenToolSize": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/ImageGenToolSizeAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The size of the generated images. For \u0060gpt-image-2\u0060, \u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060, \u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060, and \u0060gpt-image-2.5-flare-2026-09-08\u0060, arbitrary resolutions are supported as \u0060WIDTHxHEIGHT\u0060 strings, for example \u00601536x864\u0060. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above \u00602560x1440\u0060 are experimental, and the maximum supported resolution is \u00603840x2160\u0060. The requested size must also satisfy the model\u0027s current pixel and edge limits. The standard sizes \u00601024x1024\u0060, \u00601536x1024\u0060, and \u00601024x1536\u0060 are supported by the GPT image models; \u0060auto\u0060 is supported for models that allow automatic sizing."
       },
       "ImageGenToolInputFidelity": {
@@ -110386,14 +110194,8 @@
         ]
       },
       "ImagesResponseSize": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/ImagesResponseSizeAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The image dimensions as a \u0060WIDTHxHEIGHT\u0060 string, for example \u00601536x864\u0060."
       },
       "InputMessageResourceAllOf2": {
@@ -110696,14 +110498,8 @@
         }
       },
       "ModifyAssistantRequestModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/AssistantSupportedModels"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "ID of the model to use. You can use the [List models](https://developers.openai.com/api/reference/resources/models/methods/list) API to see all of your available models, or see our [Model overview](https://developers.openai.com/api/docs/models) for descriptions of them.\n"
       },
       "ModifyAssistantRequestToolsItem": {
@@ -110969,7 +110765,9 @@
             ]
           },
           "model": {
-            "$ref": "#/components/schemas/RealtimeSessionCreateRequestGaModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The Realtime model used for this session.\n"
           },
           "instructions": {
             "type": "string",
@@ -110991,12 +110789,12 @@
           "tools": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RealtimeSessionCreateRequestGaToolsItem"
+              "$ref": "#/components/schemas/RealtimeResponseCreateParamsToolsItem"
             },
             "description": "Tools available to the model."
           },
           "tool_choice": {
-            "$ref": "#/components/schemas/RealtimeSessionCreateRequestGaToolChoice"
+            "$ref": "#/components/schemas/RealtimeBetaResponseCreateParamsToolChoice"
           },
           "parallel_tool_calls": {
             "type": "boolean",
@@ -111281,14 +111079,8 @@
         }
       },
       "RealtimeSessionModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/RealtimeSessionModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The Realtime model used for this session.\n"
       },
       "RealtimeSessionInputAudioTranscription": {
@@ -111361,14 +111153,8 @@
         "description": "Maximum number of output tokens for a single assistant response,\ninclusive of tool calls. Provide an integer between 1 and 4096 to\nlimit output tokens, or \u0060inf\u0060 for the maximum available tokens for a\ngiven model. Defaults to \u0060inf\u0060.\n"
       },
       "RealtimeSessionCreateRequestGaModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/RealtimeSessionCreateRequestGaModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The Realtime model used for this session.\n"
       },
       "RealtimeSessionCreateRequestGaTracing": {
@@ -111452,14 +111238,8 @@
         "description": "Maximum number of output tokens for a single assistant response,\ninclusive of tool calls. Provide an integer between 1 and 4096 to\nlimit output tokens, or \u0060inf\u0060 for the maximum available tokens for a\ngiven model. Defaults to \u0060inf\u0060.\n"
       },
       "RealtimeSessionCreateResponseGaModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/RealtimeSessionCreateResponseGaModelAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The Realtime model used for this session.\n"
       },
       "RealtimeSessionCreateResponseGaAudioInputTranscription": {
@@ -111700,7 +111480,7 @@
             "description": "An array of content items generated by the model.\n\n- The length and order of items in the \u0060output\u0060 array is dependent\n  on the model\u0027s response.\n- Rather than accessing the first item in the \u0060output\u0060 array and\n  assuming it\u0027s an \u0060assistant\u0060 message with the content generated by\n  the model, you might consider using the \u0060output_text\u0060 property where\n  supported in SDKs.\n"
           },
           "reasoning": {
-            "$ref": "#/components/schemas/ResponseValueAllOf3Reasoning"
+            "$ref": "#/components/schemas/CreateResponseBodyAllOf3Reasoning"
           },
           "instructions": {
             "$ref": "#/components/schemas/ResponseValueAllOf3Instructions"
@@ -113434,36 +113214,18 @@
         }
       },
       "WebhookLiveCallIncomingDataSipMediaSecurity": {
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/WebhookLiveCallIncomingDataSipMediaSecurityAnyOf1"
-          },
-          {
-            "type": "string"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "Media protection selected on the SIP leg during SDP negotiation. \u0060srtp\u0060\nindicates SRTP; \u0060rtp\u0060 indicates unencrypted RTP. Omitted when unknown.\nThis does not describe SIP signaling security or confirm that media has\nflowed. Clients should handle unrecognized values as unknown.\n"
       },
       "WebhookLiveTransportIncomingDataSipMediaSecurity": {
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/WebhookLiveTransportIncomingDataSipMediaSecurityAnyOf1"
-          },
-          {
-            "type": "string"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "Media protection selected on the SIP leg during SDP negotiation. \u0060srtp\u0060\nindicates SRTP; \u0060rtp\u0060 indicates unencrypted RTP. Omitted when unknown.\nThis does not describe SIP signaling security or confirm that media has\nflowed. Clients should handle unrecognized values as unknown.\n"
       },
       "WebhookRealtimeCallIncomingDataSipMediaSecurity": {
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/WebhookRealtimeCallIncomingDataSipMediaSecurityAnyOf1"
-          },
-          {
-            "type": "string"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "Media protection selected on the SIP leg during SDP negotiation. \u0060srtp\u0060\nindicates SRTP; \u0060rtp\u0060 indicates unencrypted RTP. Omitted when unknown.\nThis does not describe SIP signaling security or confirm that media has\nflowed. Clients should handle unrecognized values as unknown.\n"
       },
       "MisalignmentErrorDetailsResourceReviewTarget": {
@@ -113575,14 +113337,8 @@
       "ImageGenToolCallSize": {
         "anyOf": [
           {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/components/schemas/ImageGenToolCallSizeAnyOf1AnyOf2"
-              }
-            ],
+            "type": "string",
+            "x-client-inline-scalar": true,
             "description": "The image dimensions as a \u0060WIDTHxHEIGHT\u0060 string, for example \u00601536x864\u0060."
           },
           {
@@ -114151,14 +113907,8 @@
       "LiveInitialSessionAudioOutputParamVoice": {
         "oneOf": [
           {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/components/schemas/LiveInitialSessionAudioOutputParamVoiceOneOf1AnyOf2"
-              }
-            ]
+            "type": "string",
+            "x-client-inline-scalar": true
           },
           {
             "$ref": "#/components/schemas/LiveCustomVoiceParam"
@@ -114568,7 +114318,7 @@
             "minItems": 1,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LiveDecisionPredicateQuestionParamInstructionsOneOf2Item"
+              "$ref": "#/components/schemas/LiveDecisionChoiceQuestionParamInstructionsOneOf2Item"
             }
           }
         ]
@@ -114582,7 +114332,7 @@
             "minItems": 1,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LiveDecisionScoreQuestionParamInstructionsOneOf2Item"
+              "$ref": "#/components/schemas/LiveDecisionChoiceQuestionParamInstructionsOneOf2Item"
             }
           }
         ]
@@ -115177,9 +114927,6 @@
         "anyOf": [
           {
             "type": "string"
-          },
-          {
-            "type": "integer"
           },
           {
             "type": "boolean"
@@ -115890,21 +115637,9 @@
         "description": "The function result, if the call succeeded."
       },
       "McpCallItemResourceOutput": {
-        "anyOf": [
-          {},
-          {
-            "type": "null"
-          }
-        ],
         "description": "The output returned by the MCP tool, if any."
       },
       "McpCallItemResourceError": {
-        "anyOf": [
-          {},
-          {
-            "type": "null"
-          }
-        ],
         "description": "The error returned by the MCP tool, if any."
       },
       "ComputerUseCallItemResourceOutput": {
@@ -116432,7 +116167,7 @@
           {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LiveDecisionUserMessageParamContentOneOf2Item"
+              "$ref": "#/components/schemas/LiveDecisionStoredUserMessageParamContentOneOf2Item"
             }
           }
         ]
@@ -116523,7 +116258,7 @@
           {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LiveDecisionFunctionCallOutputParamOutputOneOf2Item"
+              "$ref": "#/components/schemas/LiveDecisionCustomToolCallOutputParamOutputOneOf2Item"
             }
           }
         ]
@@ -116730,7 +116465,7 @@
           {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LiveDecisionStoredAssistantMessageParamContentOneOf2Item"
+              "$ref": "#/components/schemas/LiveDecisionAssistantMessageParamContentOneOf2Item"
             }
           }
         ]
@@ -116776,7 +116511,7 @@
           {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LiveDecisionStoredFunctionCallOutputParamOutputOneOf2Item"
+              "$ref": "#/components/schemas/LiveDecisionCustomToolCallOutputParamOutputOneOf2Item"
             }
           }
         ]
@@ -116811,7 +116546,7 @@
           {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LiveDecisionStoredCustomToolCallOutputParamOutputOneOf2Item"
+              "$ref": "#/components/schemas/LiveDecisionCustomToolCallOutputParamOutputOneOf2Item"
             }
           }
         ]
@@ -116883,7 +116618,7 @@
           {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/UserMessageItemParamContentOneOf1Item"
+              "$ref": "#/components/schemas/FunctionCallOutputItemParamOutputOneOf2Item"
             }
           },
           {
@@ -117098,24 +116833,12 @@
         }
       },
       "BetaImageGenToolModel": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/BetaImageGenToolModelAnyOf2"
-          }
-        ]
+        "type": "string",
+        "x-client-inline-scalar": true
       },
       "BetaImageGenToolSize": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/BetaImageGenToolSizeAnyOf2"
-          }
-        ],
+        "type": "string",
+        "x-client-inline-scalar": true,
         "description": "The size of the generated images. For \u0060gpt-image-2\u0060, \u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060, \u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060, and \u0060gpt-image-2.5-flare-2026-09-08\u0060, arbitrary resolutions are supported as \u0060WIDTHxHEIGHT\u0060 strings, for example \u00601536x864\u0060. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above \u00602560x1440\u0060 are experimental, and the maximum supported resolution is \u00603840x2160\u0060. The requested size must also satisfy the model\u0027s current pixel and edge limits. The standard sizes \u00601024x1024\u0060, \u00601536x1024\u0060, and \u00601024x1536\u0060 are supported by the GPT image models; \u0060auto\u0060 is supported for models that allow automatic sizing."
       },
       "BetaImageGenToolInputFidelity": {
@@ -117602,14 +117325,8 @@
       "BetaImageGenToolCallSize": {
         "anyOf": [
           {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/components/schemas/BetaImageGenToolCallSizeAnyOf1AnyOf2"
-              }
-            ],
+            "type": "string",
+            "x-client-inline-scalar": true,
             "description": "The image dimensions as a \u0060WIDTHxHEIGHT\u0060 string, for example \u00601536x864\u0060."
           },
           {
@@ -118095,7 +117812,7 @@
             "title": "Input item content list",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BetaInputContent"
+              "$ref": "#/components/schemas/BetaFunctionAndCustomToolCallOutput"
             },
             "description": "A list of one or many input items to the model, containing different content \ntypes.\n"
           }
@@ -118703,7 +118420,7 @@
             "description": "An array of content items generated by the model.\n\n- The length and order of items in the \u0060output\u0060 array is dependent\n  on the model\u0027s response.\n- Rather than accessing the first item in the \u0060output\u0060 array and\n  assuming it\u0027s an \u0060assistant\u0060 message with the content generated by\n  the model, you might consider using the \u0060output_text\u0060 property where\n  supported in SDKs.\n"
           },
           "reasoning": {
-            "$ref": "#/components/schemas/BetaResponseAllOf3Reasoning"
+            "$ref": "#/components/schemas/BetaCreateResponseBodyAllOf3Reasoning"
           },
           "instructions": {
             "$ref": "#/components/schemas/BetaResponseAllOf3Instructions"
@@ -119380,7 +119097,7 @@
           {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BetaUserMessageItemParamContentOneOf1Item"
+              "$ref": "#/components/schemas/BetaFunctionCallOutputItemParamOutputOneOf2Item"
             }
           },
           {
@@ -120885,22 +120602,8 @@
           }
         }
       },
-      "DecisionInputJsonDataOneOf1AdditionalProperties": {
-        "anyOf": [
-          {},
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "DecisionInputJsonDataOneOf2ItemAdditionalProperties": {
-        "anyOf": [
-          {},
-          {
-            "type": "null"
-          }
-        ]
-      },
+      "DecisionInputJsonDataOneOf1AdditionalProperties": {},
+      "DecisionInputJsonDataOneOf2ItemAdditionalProperties": {},
       "LiveDecisionUserMessageParamContentOneOf2Item": {
         "oneOf": [
           {
@@ -123456,7 +123159,7 @@
             "$ref": "#/components/schemas/EvalRunOutputItemSampleUsage"
           },
           "error": {
-            "$ref": "#/components/schemas/EvalRunOutputItemSampleError"
+            "$ref": "#/components/schemas/EvalRunError"
           },
           "temperature": {
             "type": "number",
@@ -123940,7 +123643,7 @@
           "tools": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MessageObjectAttachmentsItemToolsItem"
+              "$ref": "#/components/schemas/CreateMessageRequestAttachmentsItemToolsItem"
             },
             "description": "The tools to add this file to."
           }
@@ -124837,7 +124540,7 @@
         "type": "object",
         "properties": {
           "format": {
-            "$ref": "#/components/schemas/ResponseConfigurationUpdateTextFormat"
+            "$ref": "#/components/schemas/ResponseConfigurationUpdateItemParamTextFormat"
           }
         },
         "description": "The text output configuration for subsequent responses."
@@ -125842,7 +125545,9 @@
             "description": "The \u0060live_...\u0060 ID of the pending SIP session. Pass this value unchanged\nto Live call controls and sideband connections. The corresponding\n\u0060realtime.call.incoming\u0060 event uses a separate \u0060rtc_...\u0060 call ID.\n"
           },
           "sip_media_security": {
-            "$ref": "#/components/schemas/WebhookLiveCallIncomingDataSipMediaSecurity"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "Media protection selected on the SIP leg during SDP negotiation. \u0060srtp\u0060\nindicates SRTP; \u0060rtp\u0060 indicates unencrypted RTP. Omitted when unknown.\nThis does not describe SIP signaling security or confirm that media has\nflowed. Clients should handle unrecognized values as unknown.\n"
           },
           "sip_headers": {
             "type": "array",
@@ -125870,7 +125575,9 @@
             "description": "The \u0060live_...\u0060 ID of the pending SIP session. Forward this value\nunchanged when accepting or rejecting the call through the Live API.\n"
           },
           "sip_media_security": {
-            "$ref": "#/components/schemas/WebhookLiveTransportIncomingDataSipMediaSecurity"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "Media protection selected on the SIP leg during SDP negotiation. \u0060srtp\u0060\nindicates SRTP; \u0060rtp\u0060 indicates unencrypted RTP. Omitted when unknown.\nThis does not describe SIP signaling security or confirm that media has\nflowed. Clients should handle unrecognized values as unknown.\n"
           },
           "sip_headers": {
             "type": "array",
@@ -125894,7 +125601,9 @@
             "description": "The ID of the pending SIP call. Pass this value unchanged when\naccepting or rejecting the call through the Realtime API. For the\nLive API, use the \u0060session_id\u0060 from \u0060live.transport.incoming\u0060 instead.\n"
           },
           "sip_media_security": {
-            "$ref": "#/components/schemas/WebhookRealtimeCallIncomingDataSipMediaSecurity"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "Media protection selected on the SIP leg during SDP negotiation. \u0060srtp\u0060\nindicates SRTP; \u0060rtp\u0060 indicates unencrypted RTP. Omitted when unknown.\nThis does not describe SIP signaling security or confirm that media has\nflowed. Clients should handle unrecognized values as unknown.\n"
           },
           "sip_headers": {
             "type": "array",
@@ -126944,7 +126653,7 @@
         "type": "object",
         "properties": {
           "format": {
-            "$ref": "#/components/schemas/BetaResponseConfigurationUpdateTextFormat"
+            "$ref": "#/components/schemas/BetaResponseConfigurationUpdateItemParamTextFormat"
           }
         },
         "description": "The text output configuration for subsequent responses."
@@ -127481,7 +127190,7 @@
         "type": "object",
         "properties": {
           "provider": {
-            "$ref": "#/components/schemas/Provider"
+            "$ref": "#/components/schemas/ExternalStorageResponseProvider"
           },
           "geography": {
             "type": "string",
@@ -128637,7 +128346,9 @@
             "$ref": "#/components/schemas/RealtimeAudioFormats"
           },
           "voice": {
-            "$ref": "#/components/schemas/VoiceIdsShared"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "example": "ash"
           },
           "speed": {
             "type": "number"
@@ -132301,7 +132012,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseAudioDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseAudioDoneType"
@@ -132328,7 +132039,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseAudioTranscriptDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseAudioTranscriptDeltaType"
@@ -132358,7 +132069,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseAudioTranscriptDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseAudioTranscriptDoneType"
@@ -132386,7 +132097,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCodeInterpreterCallCodeDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCodeInterpreterCallCodeDeltaType"
@@ -132426,7 +132137,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCodeInterpreterCallCodeDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCodeInterpreterCallCodeDoneType"
@@ -132465,7 +132176,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCodeInterpreterCallCompletedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCodeInterpreterCallCompletedType"
@@ -132500,7 +132211,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCodeInterpreterCallInProgressEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCodeInterpreterCallInProgressType"
@@ -132535,7 +132246,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCodeInterpreterCallInterpretingEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCodeInterpreterCallInterpretingType"
@@ -132605,7 +132316,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCompletedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCompletedType"
@@ -132638,7 +132349,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseContentPartAddedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseContentPartAddedType"
@@ -132683,7 +132394,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseContentPartDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseContentPartDoneType"
@@ -132725,7 +132436,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCreatedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCreatedType"
@@ -132756,7 +132467,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseFileSearchCallCompletedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseFileSearchCallCompletedType"
@@ -132791,7 +132502,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseFileSearchCallInProgressEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseFileSearchCallInProgressType"
@@ -132826,7 +132537,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseFileSearchCallSearchingEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseFileSearchCallSearchingType"
@@ -132862,7 +132573,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseFunctionCallArgumentsDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseFunctionCallArgumentsDeltaType"
@@ -132902,7 +132613,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseFunctionCallArgumentsDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseFunctionCallArgumentsDoneType"
@@ -133162,7 +132873,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseInProgressEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseInProgressType"
@@ -133192,7 +132903,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseFailedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseFailedType"
@@ -133222,7 +132933,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseIncompleteEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseIncompleteType"
@@ -133253,7 +132964,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseOutputItemAddedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseOutputItemAddedType"
@@ -133288,7 +132999,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseOutputItemDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseOutputItemDoneType"
@@ -133325,7 +133036,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseReasoningSummaryPartAddedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseReasoningSummaryPartAddedType"
@@ -133369,7 +133080,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseReasoningSummaryPartDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseReasoningSummaryPartDoneType"
@@ -133416,7 +133127,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseReasoningSummaryTextDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseReasoningSummaryTextDeltaType"
@@ -133461,7 +133172,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseReasoningSummaryTextDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseReasoningSummaryTextDoneType"
@@ -133506,7 +133217,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseReasoningTextDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseReasoningTextDeltaType"
@@ -133551,7 +133262,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseReasoningTextDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseReasoningTextDoneType"
@@ -133596,7 +133307,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseRefusalDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseRefusalDeltaType"
@@ -133641,7 +133352,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseRefusalDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseRefusalDoneType"
@@ -133687,7 +133398,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseTextDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseOutputTextDeltaType"
@@ -133740,7 +133451,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseTextDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseOutputTextDoneType"
@@ -133790,7 +133501,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseWebSearchCallCompletedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseWebSearchCallCompletedType"
@@ -133825,7 +133536,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseWebSearchCallInProgressEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseWebSearchCallInProgressType"
@@ -133860,7 +133571,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseWebSearchCallSearchingEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseWebSearchCallSearchingType"
@@ -133895,7 +133606,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseImageGenCallCompletedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseImageGenerationCallCompletedType"
@@ -133930,7 +133641,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseImageGenCallGeneratingEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseImageGenerationCallGeneratingType"
@@ -133965,7 +133676,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseImageGenCallInProgressEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseImageGenerationCallInProgressType"
@@ -134002,7 +133713,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseImageGenCallPartialImageEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseImageGenerationCallPartialImageType"
@@ -134062,7 +133773,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpCallArgumentsDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpCallArgumentsDeltaType"
@@ -134102,7 +133813,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpCallArgumentsDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpCallArgumentsDoneType"
@@ -134141,7 +133852,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpCallCompletedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpCallCompletedType"
@@ -134176,7 +133887,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpCallFailedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpCallFailedType"
@@ -134211,7 +133922,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpCallInProgressEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpCallInProgressType"
@@ -134246,7 +133957,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpListToolsCompletedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpListToolsCompletedType"
@@ -134281,7 +133992,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpListToolsFailedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpListToolsFailedType"
@@ -134316,7 +134027,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseMcpListToolsInProgressEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseMcpListToolsInProgressType"
@@ -134354,7 +134065,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseOutputTextAnnotationAddedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseOutputTextAnnotationAddedType"
@@ -134399,7 +134110,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseQueuedEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseQueuedType"
@@ -134431,7 +134142,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCustomToolCallInputDeltaEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCustomToolCallInputDeltaType"
@@ -134471,7 +134182,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaResponseCustomToolCallInputDoneEventAgent"
+            "$ref": "#/components/schemas/BetaResponseAudioDeltaEventAgent"
           },
           "type": {
             "$ref": "#/components/schemas/ResponseCustomToolCallInputDoneType"
@@ -134519,7 +134230,9 @@
         "type": "object",
         "properties": {
           "model": {
-            "$ref": "#/components/schemas/AudioTranscriptionResponseModel"
+            "type": "string",
+            "x-client-inline-scalar": true,
+            "description": "The model used for transcription. Current options are \u0060whisper-1\u0060, \u0060gpt-transcribe\u0060, \u0060gpt-live-transcribe\u0060, \u0060gpt-4o-mini-transcribe\u0060, \u0060gpt-4o-mini-transcribe-2025-12-15\u0060, \u0060gpt-4o-transcribe\u0060, \u0060gpt-4o-transcribe-diarize\u0060, and \u0060gpt-realtime-whisper\u0060.\n"
           },
           "language": {
             "type": [
@@ -157422,12 +157135,12 @@
         }
       },
       "RealtimeTurnDetectionRealtimeTurnDetectionServerVadType": {
-        "const": null,
         "enum": [
           "server_vad"
         ],
         "type": "string",
         "description": "Type of turn detection, \u0060server_vad\u0060 to turn on simple Server VAD.\n",
+        "x-client-original-const": "server_vad",
         "x-ms-enum": {
           "name": "RealtimeTurnDetectionRealtimeTurnDetectionServerVadType",
           "modelAsString": false,
@@ -157440,12 +157153,12 @@
         }
       },
       "SemanticVadType": {
-        "const": null,
         "enum": [
           "semantic_vad"
         ],
         "type": "string",
         "description": "Type of turn detection, \u0060semantic_vad\u0060 to turn on Semantic VAD.\n",
+        "x-client-original-const": "semantic_vad",
         "x-ms-enum": {
           "name": "SemanticVadType",
           "modelAsString": false,
@@ -161669,7 +161382,7 @@
             "title": "Input item content list",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/InputContent"
+              "$ref": "#/components/schemas/FunctionAndCustomToolCallOutput"
             },
             "description": "A list of one or many input items to the model, containing different content \ntypes.\n"
           }
@@ -162860,7 +162573,7 @@
         "type": "object",
         "properties": {
           "agent": {
-            "$ref": "#/components/schemas/BetaInputMessageAgent"
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCallAgent"
           },
           "type": {
             "enum": [
@@ -162890,7 +162603,7 @@
             "title": "Input item content list",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BetaInputContent"
+              "$ref": "#/components/schemas/BetaFunctionAndCustomToolCallOutput"
             },
             "description": "A list of one or many input items to the model, containing different content \ntypes.\n"
           }
@@ -163044,7 +162757,7 @@
             }
           },
           "content": {
-            "$ref": "#/components/schemas/LiveDecisionSystemMessageParamContent"
+            "$ref": "#/components/schemas/LiveDecisionDeveloperMessageParamContent"
           }
         },
         "required": [
@@ -163160,7 +162873,7 @@
             }
           },
           "content": {
-            "$ref": "#/components/schemas/LiveDecisionStoredDeveloperMessageParamContent"
+            "$ref": "#/components/schemas/LiveDecisionDeveloperMessageParamContent"
           }
         },
         "required": [
@@ -163197,7 +162910,7 @@
             }
           },
           "content": {
-            "$ref": "#/components/schemas/LiveDecisionStoredSystemMessageParamContent"
+            "$ref": "#/components/schemas/LiveDecisionDeveloperMessageParamContent"
           }
         },
         "required": [
@@ -163237,7 +162950,7 @@
             "$ref": "#/components/schemas/LiveDecisionStoredAssistantMessageParamContent"
           },
           "phase": {
-            "$ref": "#/components/schemas/LiveDecisionStoredAssistantMessageParamPhase"
+            "$ref": "#/components/schemas/LiveDecisionAssistantMessageParamPhase"
           }
         },
         "required": [
@@ -163316,7 +163029,7 @@
         "maxProperties": 16,
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/VectorStoreFileAttributesAnyOf1AdditionalProperties"
+          "$ref": "#/components/schemas/BetaVectorStoreFileAttributesAnyOf1AdditionalProperties"
         },
         "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard. Keys are strings\nwith a maximum length of 64 characters. Values are strings with a maximum\nlength of 512 characters, booleans, or numbers.\n",
         "x-oaiTypeLabel": "map"

@@ -17,10 +17,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("external_key_id") is { } nullNodeExternalKeyId && nullNodeExternalKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalKeyId = null;
-            if (parseNode.GetChildNode("geography") is { } nullNodeGeography && nullNodeGeography.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Geography = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("residency") is { } nullNodeResidency && nullNodeResidency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Residency = null;
+            if (parseNode.GetChildNode("external_key_id") is null) { _explicitNullValueExternalKeyId = default!; _explicitNullProperties?.Remove("external_key_id"); }
+            else if (parseNode.GetChildNode("external_key_id") is { } nullNodeExternalKeyId && nullNodeExternalKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalKeyId = null;
+            if (parseNode.GetChildNode("geography") is null) { _explicitNullValueGeography = default!; _explicitNullProperties?.Remove("geography"); }
+            else if (parseNode.GetChildNode("geography") is { } nullNodeGeography && nullNodeGeography.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Geography = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("residency") is null) { _explicitNullValueResidency = default!; _explicitNullProperties?.Remove("residency"); }
+            else if (parseNode.GetChildNode("residency") is { } nullNodeResidency && nullNodeResidency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Residency = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,36 +32,36 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>External key ID to associate with the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExternalKeyId { get => _explicitNullValueExternalKeyId; set { _explicitNullValueExternalKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_key_id"); else _explicitNullProperties?.Remove("external_key_id"); } }
+        public string? ExternalKeyId { get => _explicitNullValueExternalKeyId; set { _explicitNullValueExternalKeyId = value; AdditionalData?.Remove("external_key_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_key_id"); else _explicitNullProperties?.Remove("external_key_id"); } }
         private string? _explicitNullValueExternalKeyId = default!;
 #nullable restore
 #else
-        public string ExternalKeyId { get => _explicitNullValueExternalKeyId; set { _explicitNullValueExternalKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_key_id"); else _explicitNullProperties?.Remove("external_key_id"); } }
+        public string ExternalKeyId { get => _explicitNullValueExternalKeyId; set { _explicitNullValueExternalKeyId = value; AdditionalData?.Remove("external_key_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_key_id"); else _explicitNullProperties?.Remove("external_key_id"); } }
         private string _explicitNullValueExternalKeyId = default!;
 #endif
         /// <summary>Create the project with the specified data residency region. Your organization must have access to Data residency functionality in order to use. See [data residency controls](https://developers.openai.com/api/docs/guides/your-data#data-residency-controls) to review the functionality and limitations of setting this field.Deprecated: use `residency` instead. Do not provide both `geography` and `residency`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Geography { get => _explicitNullValueGeography; set { _explicitNullValueGeography = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("geography"); else _explicitNullProperties?.Remove("geography"); } }
+        public string? Geography { get => _explicitNullValueGeography; set { _explicitNullValueGeography = value; AdditionalData?.Remove("geography"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("geography"); else _explicitNullProperties?.Remove("geography"); } }
         private string? _explicitNullValueGeography = default!;
 #nullable restore
 #else
-        public string Geography { get => _explicitNullValueGeography; set { _explicitNullValueGeography = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("geography"); else _explicitNullProperties?.Remove("geography"); } }
+        public string Geography { get => _explicitNullValueGeography; set { _explicitNullValueGeography = value; AdditionalData?.Remove("geography"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("geography"); else _explicitNullProperties?.Remove("geography"); } }
         private string _explicitNullValueGeography = default!;
 #endif
         /// <summary>The friendly name of the project, this name appears in reports.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Create the project with the specified residency configuration. Your organization must have access to the requested residency configuration in order to use it. See [data residency controls](https://developers.openai.com/api/docs/guides/your-data#data-residency-controls) to review the functionality and limitations of setting this field.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicProjectResidency? Residency { get => _explicitNullValueResidency; set { _explicitNullValueResidency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("residency"); else _explicitNullProperties?.Remove("residency"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PublicProjectResidency? Residency { get => _explicitNullValueResidency; set { _explicitNullValueResidency = value; AdditionalData?.Remove("residency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("residency"); else _explicitNullProperties?.Remove("residency"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.PublicProjectResidency? _explicitNullValueResidency = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectCreateRequest"/> and sets the default values.
@@ -87,7 +91,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "external_key_id", n => { ExternalKeyId = n.GetStringValue(); } },
                 { "geography", n => { Geography = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "residency", n => { Residency = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicProjectResidency>(); } },
+                { "residency", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PublicProjectResidency>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueResidency = default; _explicitNullProperties?.Remove("residency"); AdditionalData["residency"] = unknown; } else { Residency = parsed; AdditionalData.Remove("residency"); } } },
             };
         }
         /// <summary>

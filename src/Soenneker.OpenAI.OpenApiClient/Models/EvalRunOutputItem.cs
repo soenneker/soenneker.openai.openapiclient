@@ -18,97 +18,107 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("datasource_item") is { } nullNodeDatasourceItem && nullNodeDatasourceItem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasourceItem = null;
-            if (parseNode.GetChildNode("datasource_item_id") is { } nullNodeDatasourceItemId && nullNodeDatasourceItemId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasourceItemId = null;
-            if (parseNode.GetChildNode("eval_id") is { } nullNodeEvalId && nullNodeEvalId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvalId = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("object") is { } nullNodeObject && nullNodeObject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Object = null;
-            if (parseNode.GetChildNode("results") is { } nullNodeResults && nullNodeResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Results = null;
-            if (parseNode.GetChildNode("run_id") is { } nullNodeRunId && nullNodeRunId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunId = null;
-            if (parseNode.GetChildNode("sample") is { } nullNodeSample && nullNodeSample.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sample = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
+            else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("datasource_item") is null) { _explicitNullValueDatasourceItem = default!; _explicitNullProperties?.Remove("datasource_item"); }
+            else if (parseNode.GetChildNode("datasource_item") is { } nullNodeDatasourceItem && nullNodeDatasourceItem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasourceItem = null;
+            if (parseNode.GetChildNode("datasource_item_id") is null) { _explicitNullValueDatasourceItemId = default!; _explicitNullProperties?.Remove("datasource_item_id"); }
+            else if (parseNode.GetChildNode("datasource_item_id") is { } nullNodeDatasourceItemId && nullNodeDatasourceItemId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatasourceItemId = null;
+            if (parseNode.GetChildNode("eval_id") is null) { _explicitNullValueEvalId = default!; _explicitNullProperties?.Remove("eval_id"); }
+            else if (parseNode.GetChildNode("eval_id") is { } nullNodeEvalId && nullNodeEvalId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvalId = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("object") is null) { _explicitNullValueObject = default!; _explicitNullProperties?.Remove("object"); }
+            else if (parseNode.GetChildNode("object") is { } nullNodeObject && nullNodeObject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Object = null;
+            if (parseNode.GetChildNode("results") is null) { _explicitNullValueResults = default!; _explicitNullProperties?.Remove("results"); }
+            else if (parseNode.GetChildNode("results") is { } nullNodeResults && nullNodeResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Results = null;
+            if (parseNode.GetChildNode("run_id") is null) { _explicitNullValueRunId = default!; _explicitNullProperties?.Remove("run_id"); }
+            else if (parseNode.GetChildNode("run_id") is { } nullNodeRunId && nullNodeRunId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunId = null;
+            if (parseNode.GetChildNode("sample") is null) { _explicitNullValueSample = default!; _explicitNullProperties?.Remove("sample"); }
+            else if (parseNode.GetChildNode("sample") is { } nullNodeSample && nullNodeSample.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sample = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Unix timestamp (in seconds) when the evaluation run was created.</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private int? _explicitNullValueCreatedAt = default!;
         /// <summary>Details of the input data source item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemDatasourceItemProperty? DatasourceItem { get => _explicitNullValueDatasourceItem; set { _explicitNullValueDatasourceItem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datasource_item"); else _explicitNullProperties?.Remove("datasource_item"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemDatasourceItemProperty? DatasourceItem { get => _explicitNullValueDatasourceItem; set { _explicitNullValueDatasourceItem = value; AdditionalData?.Remove("datasource_item"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datasource_item"); else _explicitNullProperties?.Remove("datasource_item"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemDatasourceItemProperty? _explicitNullValueDatasourceItem = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemDatasourceItemProperty DatasourceItem { get => _explicitNullValueDatasourceItem; set { _explicitNullValueDatasourceItem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datasource_item"); else _explicitNullProperties?.Remove("datasource_item"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemDatasourceItemProperty DatasourceItem { get => _explicitNullValueDatasourceItem; set { _explicitNullValueDatasourceItem = value; AdditionalData?.Remove("datasource_item"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datasource_item"); else _explicitNullProperties?.Remove("datasource_item"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemDatasourceItemProperty _explicitNullValueDatasourceItem = default!;
 #endif
         /// <summary>The identifier for the data source item.</summary>
-        public int? DatasourceItemId { get => _explicitNullValueDatasourceItemId; set { _explicitNullValueDatasourceItemId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datasource_item_id"); else _explicitNullProperties?.Remove("datasource_item_id"); } }
+        public int? DatasourceItemId { get => _explicitNullValueDatasourceItemId; set { _explicitNullValueDatasourceItemId = value; AdditionalData?.Remove("datasource_item_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datasource_item_id"); else _explicitNullProperties?.Remove("datasource_item_id"); } }
         private int? _explicitNullValueDatasourceItemId = default!;
         /// <summary>The identifier of the evaluation group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EvalId { get => _explicitNullValueEvalId; set { _explicitNullValueEvalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eval_id"); else _explicitNullProperties?.Remove("eval_id"); } }
+        public string? EvalId { get => _explicitNullValueEvalId; set { _explicitNullValueEvalId = value; AdditionalData?.Remove("eval_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eval_id"); else _explicitNullProperties?.Remove("eval_id"); } }
         private string? _explicitNullValueEvalId = default!;
 #nullable restore
 #else
-        public string EvalId { get => _explicitNullValueEvalId; set { _explicitNullValueEvalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eval_id"); else _explicitNullProperties?.Remove("eval_id"); } }
+        public string EvalId { get => _explicitNullValueEvalId; set { _explicitNullValueEvalId = value; AdditionalData?.Remove("eval_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eval_id"); else _explicitNullProperties?.Remove("eval_id"); } }
         private string _explicitNullValueEvalId = default!;
 #endif
         /// <summary>Unique identifier for the evaluation run output item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>The type of the object. Always &quot;eval.run.output_item&quot;.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemObject? Object { get => _explicitNullValueObject; set { _explicitNullValueObject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object"); else _explicitNullProperties?.Remove("object"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemObject? Object { get => _explicitNullValueObject; set { _explicitNullValueObject = value; AdditionalData?.Remove("object"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object"); else _explicitNullProperties?.Remove("object"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemObject? _explicitNullValueObject = default!;
         /// <summary>A list of grader results for this output item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult>? Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult>? Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; AdditionalData?.Remove("results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult>? _explicitNullValueResults = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult> Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult> Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; AdditionalData?.Remove("results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult> _explicitNullValueResults = default!;
 #endif
         /// <summary>The identifier of the evaluation run associated with this output item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunId { get => _explicitNullValueRunId; set { _explicitNullValueRunId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_id"); else _explicitNullProperties?.Remove("run_id"); } }
+        public string? RunId { get => _explicitNullValueRunId; set { _explicitNullValueRunId = value; AdditionalData?.Remove("run_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_id"); else _explicitNullProperties?.Remove("run_id"); } }
         private string? _explicitNullValueRunId = default!;
 #nullable restore
 #else
-        public string RunId { get => _explicitNullValueRunId; set { _explicitNullValueRunId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_id"); else _explicitNullProperties?.Remove("run_id"); } }
+        public string RunId { get => _explicitNullValueRunId; set { _explicitNullValueRunId = value; AdditionalData?.Remove("run_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_id"); else _explicitNullProperties?.Remove("run_id"); } }
         private string _explicitNullValueRunId = default!;
 #endif
         /// <summary>A sample containing the input and output of the evaluation run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample? Sample { get => _explicitNullValueSample; set { _explicitNullValueSample = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sample"); else _explicitNullProperties?.Remove("sample"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample? Sample { get => _explicitNullValueSample; set { _explicitNullValueSample = value; AdditionalData?.Remove("sample"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sample"); else _explicitNullProperties?.Remove("sample"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample? _explicitNullValueSample = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample Sample { get => _explicitNullValueSample; set { _explicitNullValueSample = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sample"); else _explicitNullProperties?.Remove("sample"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample Sample { get => _explicitNullValueSample; set { _explicitNullValueSample = value; AdditionalData?.Remove("sample"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sample"); else _explicitNullProperties?.Remove("sample"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample _explicitNullValueSample = default!;
 #endif
         /// <summary>The status of the evaluation run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>
@@ -141,7 +151,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "datasource_item_id", n => { DatasourceItemId = n.GetIntValue(); } },
                 { "eval_id", n => { EvalId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemObject>(); } },
+                { "object", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemObject>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueObject = default; _explicitNullProperties?.Remove("object"); AdditionalData["object"] = unknown; } else { Object = parsed; AdditionalData.Remove("object"); } } },
                 { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemResult.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "run_id", n => { RunId = n.GetStringValue(); } },
                 { "sample", n => { Sample = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunOutputItemSample.CreateFromDiscriminatorValue); } },

@@ -18,12 +18,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("keys") is { } nullNodeKeys && nullNodeKeys.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Keys = null;
-            if (parseNode.GetChildNode("scroll_x") is { } nullNodeScrollX && nullNodeScrollX.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScrollX = null;
-            if (parseNode.GetChildNode("scroll_y") is { } nullNodeScrollY && nullNodeScrollY.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScrollY = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
-            if (parseNode.GetChildNode("x") is { } nullNodeX && nullNodeX.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) X = null;
-            if (parseNode.GetChildNode("y") is { } nullNodeY && nullNodeY.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Y = null;
+            if (parseNode.GetChildNode("keys") is null) { _explicitNullValueKeys = default!; _explicitNullProperties?.Remove("keys"); }
+            else if (parseNode.GetChildNode("keys") is { } nullNodeKeys && nullNodeKeys.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Keys = null;
+            if (parseNode.GetChildNode("scroll_x") is null) { _explicitNullValueScrollX = default!; _explicitNullProperties?.Remove("scroll_x"); }
+            else if (parseNode.GetChildNode("scroll_x") is { } nullNodeScrollX && nullNodeScrollX.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScrollX = null;
+            if (parseNode.GetChildNode("scroll_y") is null) { _explicitNullValueScrollY = default!; _explicitNullProperties?.Remove("scroll_y"); }
+            else if (parseNode.GetChildNode("scroll_y") is { } nullNodeScrollY && nullNodeScrollY.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScrollY = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("x") is null) { _explicitNullValueX = default!; _explicitNullProperties?.Remove("x"); }
+            else if (parseNode.GetChildNode("x") is { } nullNodeX && nullNodeX.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) X = null;
+            if (parseNode.GetChildNode("y") is null) { _explicitNullValueY = default!; _explicitNullProperties?.Remove("y"); }
+            else if (parseNode.GetChildNode("y") is { } nullNodeY && nullNodeY.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Y = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,27 +37,27 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The keys being held while scrolling.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Keys { get => _explicitNullValueKeys; set { _explicitNullValueKeys = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keys"); else _explicitNullProperties?.Remove("keys"); } }
+        public List<string>? Keys { get => _explicitNullValueKeys; set { _explicitNullValueKeys = value; AdditionalData?.Remove("keys"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keys"); else _explicitNullProperties?.Remove("keys"); } }
         private List<string>? _explicitNullValueKeys = default!;
 #nullable restore
 #else
-        public List<string> Keys { get => _explicitNullValueKeys; set { _explicitNullValueKeys = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keys"); else _explicitNullProperties?.Remove("keys"); } }
+        public List<string> Keys { get => _explicitNullValueKeys; set { _explicitNullValueKeys = value; AdditionalData?.Remove("keys"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keys"); else _explicitNullProperties?.Remove("keys"); } }
         private List<string> _explicitNullValueKeys = default!;
 #endif
         /// <summary>The horizontal scroll distance.</summary>
-        public int? ScrollX { get => _explicitNullValueScrollX; set { _explicitNullValueScrollX = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scroll_x"); else _explicitNullProperties?.Remove("scroll_x"); } }
+        public int? ScrollX { get => _explicitNullValueScrollX; set { _explicitNullValueScrollX = value; AdditionalData?.Remove("scroll_x"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scroll_x"); else _explicitNullProperties?.Remove("scroll_x"); } }
         private int? _explicitNullValueScrollX = default!;
         /// <summary>The vertical scroll distance.</summary>
-        public int? ScrollY { get => _explicitNullValueScrollY; set { _explicitNullValueScrollY = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scroll_y"); else _explicitNullProperties?.Remove("scroll_y"); } }
+        public int? ScrollY { get => _explicitNullValueScrollY; set { _explicitNullValueScrollY = value; AdditionalData?.Remove("scroll_y"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scroll_y"); else _explicitNullProperties?.Remove("scroll_y"); } }
         private int? _explicitNullValueScrollY = default!;
         /// <summary>Specifies the event type. For a scroll action, this property is always set to `scroll`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ScrollType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ScrollType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ScrollType? _explicitNullValueType = default!;
         /// <summary>The x-coordinate where the scroll occurred.</summary>
-        public int? X { get => _explicitNullValueX; set { _explicitNullValueX = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("x"); else _explicitNullProperties?.Remove("x"); } }
+        public int? X { get => _explicitNullValueX; set { _explicitNullValueX = value; AdditionalData?.Remove("x"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("x"); else _explicitNullProperties?.Remove("x"); } }
         private int? _explicitNullValueX = default!;
         /// <summary>The y-coordinate where the scroll occurred.</summary>
-        public int? Y { get => _explicitNullValueY; set { _explicitNullValueY = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("y"); else _explicitNullProperties?.Remove("y"); } }
+        public int? Y { get => _explicitNullValueY; set { _explicitNullValueY = value; AdditionalData?.Remove("y"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("y"); else _explicitNullProperties?.Remove("y"); } }
         private int? _explicitNullValueY = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParam"/> and sets the default values.
@@ -81,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "keys", n => { Keys = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "scroll_x", n => { ScrollX = n.GetIntValue(); } },
                 { "scroll_y", n => { ScrollY = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
                 { "x", n => { X = n.GetIntValue(); } },
                 { "y", n => { Y = n.GetIntValue(); } },
             };

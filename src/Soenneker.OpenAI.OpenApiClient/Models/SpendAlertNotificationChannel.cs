@@ -18,9 +18,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("recipients") is { } nullNodeRecipients && nullNodeRecipients.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Recipients = null;
-            if (parseNode.GetChildNode("subject_prefix") is { } nullNodeSubjectPrefix && nullNodeSubjectPrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectPrefix = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("recipients") is null) { _explicitNullValueRecipients = default!; _explicitNullProperties?.Remove("recipients"); }
+            else if (parseNode.GetChildNode("recipients") is { } nullNodeRecipients && nullNodeRecipients.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Recipients = null;
+            if (parseNode.GetChildNode("subject_prefix") is null) { _explicitNullValueSubjectPrefix = default!; _explicitNullProperties?.Remove("subject_prefix"); }
+            else if (parseNode.GetChildNode("subject_prefix") is { } nullNodeSubjectPrefix && nullNodeSubjectPrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectPrefix = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,25 +31,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Email addresses that receive the spend alert notification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Recipients { get => _explicitNullValueRecipients; set { _explicitNullValueRecipients = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipients"); else _explicitNullProperties?.Remove("recipients"); } }
+        public List<string>? Recipients { get => _explicitNullValueRecipients; set { _explicitNullValueRecipients = value; AdditionalData?.Remove("recipients"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipients"); else _explicitNullProperties?.Remove("recipients"); } }
         private List<string>? _explicitNullValueRecipients = default!;
 #nullable restore
 #else
-        public List<string> Recipients { get => _explicitNullValueRecipients; set { _explicitNullValueRecipients = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipients"); else _explicitNullProperties?.Remove("recipients"); } }
+        public List<string> Recipients { get => _explicitNullValueRecipients; set { _explicitNullValueRecipients = value; AdditionalData?.Remove("recipients"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipients"); else _explicitNullProperties?.Remove("recipients"); } }
         private List<string> _explicitNullValueRecipients = default!;
 #endif
         /// <summary>Optional subject prefix for alert emails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubjectPrefix { get => _explicitNullValueSubjectPrefix; set { _explicitNullValueSubjectPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_prefix"); else _explicitNullProperties?.Remove("subject_prefix"); } }
+        public string? SubjectPrefix { get => _explicitNullValueSubjectPrefix; set { _explicitNullValueSubjectPrefix = value; AdditionalData?.Remove("subject_prefix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_prefix"); else _explicitNullProperties?.Remove("subject_prefix"); } }
         private string? _explicitNullValueSubjectPrefix = default!;
 #nullable restore
 #else
-        public string SubjectPrefix { get => _explicitNullValueSubjectPrefix; set { _explicitNullValueSubjectPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_prefix"); else _explicitNullProperties?.Remove("subject_prefix"); } }
+        public string SubjectPrefix { get => _explicitNullValueSubjectPrefix; set { _explicitNullValueSubjectPrefix = value; AdditionalData?.Remove("subject_prefix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_prefix"); else _explicitNullProperties?.Remove("subject_prefix"); } }
         private string _explicitNullValueSubjectPrefix = default!;
 #endif
         /// <summary>The notification channel type. Currently only `email` is supported.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EmailType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EmailType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.EmailType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SpendAlertNotificationChannel"/> and sets the default values.
@@ -75,7 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "recipients", n => { Recipients = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "subject_prefix", n => { SubjectPrefix = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EmailType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EmailType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

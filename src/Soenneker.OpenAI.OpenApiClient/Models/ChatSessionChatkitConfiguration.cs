@@ -18,9 +18,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("automatic_thread_titling") is { } nullNodeAutomaticThreadTitling && nullNodeAutomaticThreadTitling.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutomaticThreadTitling = null;
-            if (parseNode.GetChildNode("file_upload") is { } nullNodeFileUpload && nullNodeFileUpload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileUpload = null;
-            if (parseNode.GetChildNode("history") is { } nullNodeHistory && nullNodeHistory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) History = null;
+            if (parseNode.GetChildNode("automatic_thread_titling") is null) { _explicitNullValueAutomaticThreadTitling = default!; _explicitNullProperties?.Remove("automatic_thread_titling"); }
+            else if (parseNode.GetChildNode("automatic_thread_titling") is { } nullNodeAutomaticThreadTitling && nullNodeAutomaticThreadTitling.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutomaticThreadTitling = null;
+            if (parseNode.GetChildNode("file_upload") is null) { _explicitNullValueFileUpload = default!; _explicitNullProperties?.Remove("file_upload"); }
+            else if (parseNode.GetChildNode("file_upload") is { } nullNodeFileUpload && nullNodeFileUpload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileUpload = null;
+            if (parseNode.GetChildNode("history") is null) { _explicitNullValueHistory = default!; _explicitNullProperties?.Remove("history"); }
+            else if (parseNode.GetChildNode("history") is { } nullNodeHistory && nullNodeHistory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) History = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Automatic thread titling preferences.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionAutomaticThreadTitling? AutomaticThreadTitling { get => _explicitNullValueAutomaticThreadTitling; set { _explicitNullValueAutomaticThreadTitling = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automatic_thread_titling"); else _explicitNullProperties?.Remove("automatic_thread_titling"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionAutomaticThreadTitling? AutomaticThreadTitling { get => _explicitNullValueAutomaticThreadTitling; set { _explicitNullValueAutomaticThreadTitling = value; AdditionalData?.Remove("automatic_thread_titling"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automatic_thread_titling"); else _explicitNullProperties?.Remove("automatic_thread_titling"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionAutomaticThreadTitling? _explicitNullValueAutomaticThreadTitling = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionAutomaticThreadTitling AutomaticThreadTitling { get => _explicitNullValueAutomaticThreadTitling; set { _explicitNullValueAutomaticThreadTitling = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automatic_thread_titling"); else _explicitNullProperties?.Remove("automatic_thread_titling"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionAutomaticThreadTitling AutomaticThreadTitling { get => _explicitNullValueAutomaticThreadTitling; set { _explicitNullValueAutomaticThreadTitling = value; AdditionalData?.Remove("automatic_thread_titling"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automatic_thread_titling"); else _explicitNullProperties?.Remove("automatic_thread_titling"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionAutomaticThreadTitling _explicitNullValueAutomaticThreadTitling = default!;
 #endif
         /// <summary>Upload settings for the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload? FileUpload { get => _explicitNullValueFileUpload; set { _explicitNullValueFileUpload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_upload"); else _explicitNullProperties?.Remove("file_upload"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload? FileUpload { get => _explicitNullValueFileUpload; set { _explicitNullValueFileUpload = value; AdditionalData?.Remove("file_upload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_upload"); else _explicitNullProperties?.Remove("file_upload"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload? _explicitNullValueFileUpload = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload FileUpload { get => _explicitNullValueFileUpload; set { _explicitNullValueFileUpload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_upload"); else _explicitNullProperties?.Remove("file_upload"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload FileUpload { get => _explicitNullValueFileUpload; set { _explicitNullValueFileUpload = value; AdditionalData?.Remove("file_upload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_upload"); else _explicitNullProperties?.Remove("file_upload"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionFileUpload _explicitNullValueFileUpload = default!;
 #endif
         /// <summary>History retention configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistory? History { get => _explicitNullValueHistory; set { _explicitNullValueHistory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history"); else _explicitNullProperties?.Remove("history"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistory? History { get => _explicitNullValueHistory; set { _explicitNullValueHistory = value; AdditionalData?.Remove("history"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history"); else _explicitNullProperties?.Remove("history"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistory? _explicitNullValueHistory = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistory History { get => _explicitNullValueHistory; set { _explicitNullValueHistory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history"); else _explicitNullProperties?.Remove("history"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistory History { get => _explicitNullValueHistory; set { _explicitNullValueHistory = value; AdditionalData?.Remove("history"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history"); else _explicitNullProperties?.Remove("history"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionHistory _explicitNullValueHistory = default!;
 #endif
         /// <summary>

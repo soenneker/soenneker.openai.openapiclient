@@ -18,72 +18,79 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("detail") is { } nullNodeDetail && nullNodeDetail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Detail = null;
-            if (parseNode.GetChildNode("file_data") is { } nullNodeFileData && nullNodeFileData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileData = null;
-            if (parseNode.GetChildNode("file_id") is { } nullNodeFileId && nullNodeFileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileId = null;
-            if (parseNode.GetChildNode("filename") is { } nullNodeFilename && nullNodeFilename.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filename = null;
-            if (parseNode.GetChildNode("file_url") is { } nullNodeFileUrl && nullNodeFileUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileUrl = null;
-            if (parseNode.GetChildNode("prompt_cache_breakpoint") is { } nullNodePromptCacheBreakpoint && nullNodePromptCacheBreakpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptCacheBreakpoint = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("detail") is null) { _explicitNullValueDetail = default!; _explicitNullProperties?.Remove("detail"); }
+            else if (parseNode.GetChildNode("detail") is { } nullNodeDetail && nullNodeDetail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Detail = null;
+            if (parseNode.GetChildNode("file_data") is null) { _explicitNullValueFileData = default!; _explicitNullProperties?.Remove("file_data"); }
+            else if (parseNode.GetChildNode("file_data") is { } nullNodeFileData && nullNodeFileData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileData = null;
+            if (parseNode.GetChildNode("file_id") is null) { _explicitNullValueFileId = default!; _explicitNullProperties?.Remove("file_id"); }
+            else if (parseNode.GetChildNode("file_id") is { } nullNodeFileId && nullNodeFileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileId = null;
+            if (parseNode.GetChildNode("filename") is null) { _explicitNullValueFilename = default!; _explicitNullProperties?.Remove("filename"); }
+            else if (parseNode.GetChildNode("filename") is { } nullNodeFilename && nullNodeFilename.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filename = null;
+            if (parseNode.GetChildNode("file_url") is null) { _explicitNullValueFileUrl = default!; _explicitNullProperties?.Remove("file_url"); }
+            else if (parseNode.GetChildNode("file_url") is { } nullNodeFileUrl && nullNodeFileUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileUrl = null;
+            if (parseNode.GetChildNode("prompt_cache_breakpoint") is null) { _explicitNullValuePromptCacheBreakpoint = default!; _explicitNullProperties?.Remove("prompt_cache_breakpoint"); }
+            else if (parseNode.GetChildNode("prompt_cache_breakpoint") is { } nullNodePromptCacheBreakpoint && nullNodePromptCacheBreakpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptCacheBreakpoint = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The detail level of the file to be sent to the model. Use `auto` to let the system select the detail level; for GPT-5.6 and later models, `auto` uses high-quality rendering, which may increase input token usage. Use `low` for lower-cost rendering, or `high` to render the file at higher quality. Defaults to `auto`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileInputDetail? Detail { get => _explicitNullValueDetail; set { _explicitNullValueDetail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detail"); else _explicitNullProperties?.Remove("detail"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileInputDetail? Detail { get => _explicitNullValueDetail; set { _explicitNullValueDetail = value; AdditionalData?.Remove("detail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detail"); else _explicitNullProperties?.Remove("detail"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileInputDetail? _explicitNullValueDetail = default!;
         /// <summary>The content of the file to be sent to the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FileData { get => _explicitNullValueFileData; set { _explicitNullValueFileData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_data"); else _explicitNullProperties?.Remove("file_data"); } }
+        public string? FileData { get => _explicitNullValueFileData; set { _explicitNullValueFileData = value; AdditionalData?.Remove("file_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_data"); else _explicitNullProperties?.Remove("file_data"); } }
         private string? _explicitNullValueFileData = default!;
 #nullable restore
 #else
-        public string FileData { get => _explicitNullValueFileData; set { _explicitNullValueFileData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_data"); else _explicitNullProperties?.Remove("file_data"); } }
+        public string FileData { get => _explicitNullValueFileData; set { _explicitNullValueFileData = value; AdditionalData?.Remove("file_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_data"); else _explicitNullProperties?.Remove("file_data"); } }
         private string _explicitNullValueFileData = default!;
 #endif
         /// <summary>The ID of the file to be sent to the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FileId { get => _explicitNullValueFileId; set { _explicitNullValueFileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_id"); else _explicitNullProperties?.Remove("file_id"); } }
+        public string? FileId { get => _explicitNullValueFileId; set { _explicitNullValueFileId = value; AdditionalData?.Remove("file_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_id"); else _explicitNullProperties?.Remove("file_id"); } }
         private string? _explicitNullValueFileId = default!;
 #nullable restore
 #else
-        public string FileId { get => _explicitNullValueFileId; set { _explicitNullValueFileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_id"); else _explicitNullProperties?.Remove("file_id"); } }
+        public string FileId { get => _explicitNullValueFileId; set { _explicitNullValueFileId = value; AdditionalData?.Remove("file_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_id"); else _explicitNullProperties?.Remove("file_id"); } }
         private string _explicitNullValueFileId = default!;
 #endif
         /// <summary>The name of the file to be sent to the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
+        public string? Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; AdditionalData?.Remove("filename"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
         private string? _explicitNullValueFilename = default!;
 #nullable restore
 #else
-        public string Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
+        public string Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; AdditionalData?.Remove("filename"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
         private string _explicitNullValueFilename = default!;
 #endif
         /// <summary>The URL of the file to be sent to the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FileUrl { get => _explicitNullValueFileUrl; set { _explicitNullValueFileUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_url"); else _explicitNullProperties?.Remove("file_url"); } }
+        public string? FileUrl { get => _explicitNullValueFileUrl; set { _explicitNullValueFileUrl = value; AdditionalData?.Remove("file_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_url"); else _explicitNullProperties?.Remove("file_url"); } }
         private string? _explicitNullValueFileUrl = default!;
 #nullable restore
 #else
-        public string FileUrl { get => _explicitNullValueFileUrl; set { _explicitNullValueFileUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_url"); else _explicitNullProperties?.Remove("file_url"); } }
+        public string FileUrl { get => _explicitNullValueFileUrl; set { _explicitNullValueFileUrl = value; AdditionalData?.Remove("file_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_url"); else _explicitNullProperties?.Remove("file_url"); } }
         private string _explicitNullValueFileUrl = default!;
 #endif
         /// <summary>Marks the exact end of a reusable prompt prefix. When `ttl` is omitted, the breakpoint inherits the request&apos;s `prompt_cache_options.ttl`; the boundary is not rounded to a token block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig? PromptCacheBreakpoint { get => _explicitNullValuePromptCacheBreakpoint; set { _explicitNullValuePromptCacheBreakpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_breakpoint"); else _explicitNullProperties?.Remove("prompt_cache_breakpoint"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig? PromptCacheBreakpoint { get => _explicitNullValuePromptCacheBreakpoint; set { _explicitNullValuePromptCacheBreakpoint = value; AdditionalData?.Remove("prompt_cache_breakpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_breakpoint"); else _explicitNullProperties?.Remove("prompt_cache_breakpoint"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig? _explicitNullValuePromptCacheBreakpoint = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig PromptCacheBreakpoint { get => _explicitNullValuePromptCacheBreakpoint; set { _explicitNullValuePromptCacheBreakpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_breakpoint"); else _explicitNullProperties?.Remove("prompt_cache_breakpoint"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig PromptCacheBreakpoint { get => _explicitNullValuePromptCacheBreakpoint; set { _explicitNullValuePromptCacheBreakpoint = value; AdditionalData?.Remove("prompt_cache_breakpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_breakpoint"); else _explicitNullProperties?.Remove("prompt_cache_breakpoint"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig _explicitNullValuePromptCacheBreakpoint = default!;
 #endif
         /// <summary>The type of the input item. Always `input_file`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFileType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFileType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.InputFileType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputFileContent"/> and sets the default values.
@@ -110,13 +117,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "detail", n => { Detail = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileInputDetail>(); } },
+                { "detail", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileInputDetail>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDetail = default; _explicitNullProperties?.Remove("detail"); AdditionalData["detail"] = unknown; } else { Detail = parsed; AdditionalData.Remove("detail"); } } },
                 { "file_data", n => { FileData = n.GetStringValue(); } },
                 { "file_id", n => { FileId = n.GetStringValue(); } },
                 { "file_url", n => { FileUrl = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "prompt_cache_breakpoint", n => { PromptCacheBreakpoint = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheBreakpointConfig.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

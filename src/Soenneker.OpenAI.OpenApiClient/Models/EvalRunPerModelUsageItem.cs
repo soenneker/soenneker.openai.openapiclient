@@ -17,40 +17,46 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cached_tokens") is { } nullNodeCachedTokens && nullNodeCachedTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedTokens = null;
-            if (parseNode.GetChildNode("completion_tokens") is { } nullNodeCompletionTokens && nullNodeCompletionTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletionTokens = null;
-            if (parseNode.GetChildNode("invocation_count") is { } nullNodeInvocationCount && nullNodeInvocationCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvocationCount = null;
-            if (parseNode.GetChildNode("model_name") is { } nullNodeModelName && nullNodeModelName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelName = null;
-            if (parseNode.GetChildNode("prompt_tokens") is { } nullNodePromptTokens && nullNodePromptTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptTokens = null;
-            if (parseNode.GetChildNode("total_tokens") is { } nullNodeTotalTokens && nullNodeTotalTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalTokens = null;
+            if (parseNode.GetChildNode("cached_tokens") is null) { _explicitNullValueCachedTokens = default!; _explicitNullProperties?.Remove("cached_tokens"); }
+            else if (parseNode.GetChildNode("cached_tokens") is { } nullNodeCachedTokens && nullNodeCachedTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedTokens = null;
+            if (parseNode.GetChildNode("completion_tokens") is null) { _explicitNullValueCompletionTokens = default!; _explicitNullProperties?.Remove("completion_tokens"); }
+            else if (parseNode.GetChildNode("completion_tokens") is { } nullNodeCompletionTokens && nullNodeCompletionTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletionTokens = null;
+            if (parseNode.GetChildNode("invocation_count") is null) { _explicitNullValueInvocationCount = default!; _explicitNullProperties?.Remove("invocation_count"); }
+            else if (parseNode.GetChildNode("invocation_count") is { } nullNodeInvocationCount && nullNodeInvocationCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvocationCount = null;
+            if (parseNode.GetChildNode("model_name") is null) { _explicitNullValueModelName = default!; _explicitNullProperties?.Remove("model_name"); }
+            else if (parseNode.GetChildNode("model_name") is { } nullNodeModelName && nullNodeModelName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelName = null;
+            if (parseNode.GetChildNode("prompt_tokens") is null) { _explicitNullValuePromptTokens = default!; _explicitNullProperties?.Remove("prompt_tokens"); }
+            else if (parseNode.GetChildNode("prompt_tokens") is { } nullNodePromptTokens && nullNodePromptTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptTokens = null;
+            if (parseNode.GetChildNode("total_tokens") is null) { _explicitNullValueTotalTokens = default!; _explicitNullProperties?.Remove("total_tokens"); }
+            else if (parseNode.GetChildNode("total_tokens") is { } nullNodeTotalTokens && nullNodeTotalTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalTokens = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of tokens retrieved from cache.</summary>
-        public int? CachedTokens { get => _explicitNullValueCachedTokens; set { _explicitNullValueCachedTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_tokens"); else _explicitNullProperties?.Remove("cached_tokens"); } }
+        public int? CachedTokens { get => _explicitNullValueCachedTokens; set { _explicitNullValueCachedTokens = value; AdditionalData?.Remove("cached_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_tokens"); else _explicitNullProperties?.Remove("cached_tokens"); } }
         private int? _explicitNullValueCachedTokens = default!;
         /// <summary>The number of completion tokens generated.</summary>
-        public int? CompletionTokens { get => _explicitNullValueCompletionTokens; set { _explicitNullValueCompletionTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completion_tokens"); else _explicitNullProperties?.Remove("completion_tokens"); } }
+        public int? CompletionTokens { get => _explicitNullValueCompletionTokens; set { _explicitNullValueCompletionTokens = value; AdditionalData?.Remove("completion_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completion_tokens"); else _explicitNullProperties?.Remove("completion_tokens"); } }
         private int? _explicitNullValueCompletionTokens = default!;
         /// <summary>The number of invocations.</summary>
-        public int? InvocationCount { get => _explicitNullValueInvocationCount; set { _explicitNullValueInvocationCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invocation_count"); else _explicitNullProperties?.Remove("invocation_count"); } }
+        public int? InvocationCount { get => _explicitNullValueInvocationCount; set { _explicitNullValueInvocationCount = value; AdditionalData?.Remove("invocation_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invocation_count"); else _explicitNullProperties?.Remove("invocation_count"); } }
         private int? _explicitNullValueInvocationCount = default!;
         /// <summary>The name of the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ModelName { get => _explicitNullValueModelName; set { _explicitNullValueModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_name"); else _explicitNullProperties?.Remove("model_name"); } }
+        public string? ModelName { get => _explicitNullValueModelName; set { _explicitNullValueModelName = value; AdditionalData?.Remove("model_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_name"); else _explicitNullProperties?.Remove("model_name"); } }
         private string? _explicitNullValueModelName = default!;
 #nullable restore
 #else
-        public string ModelName { get => _explicitNullValueModelName; set { _explicitNullValueModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_name"); else _explicitNullProperties?.Remove("model_name"); } }
+        public string ModelName { get => _explicitNullValueModelName; set { _explicitNullValueModelName = value; AdditionalData?.Remove("model_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_name"); else _explicitNullProperties?.Remove("model_name"); } }
         private string _explicitNullValueModelName = default!;
 #endif
         /// <summary>The number of prompt tokens used.</summary>
-        public int? PromptTokens { get => _explicitNullValuePromptTokens; set { _explicitNullValuePromptTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_tokens"); else _explicitNullProperties?.Remove("prompt_tokens"); } }
+        public int? PromptTokens { get => _explicitNullValuePromptTokens; set { _explicitNullValuePromptTokens = value; AdditionalData?.Remove("prompt_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_tokens"); else _explicitNullProperties?.Remove("prompt_tokens"); } }
         private int? _explicitNullValuePromptTokens = default!;
         /// <summary>The total number of tokens used.</summary>
-        public int? TotalTokens { get => _explicitNullValueTotalTokens; set { _explicitNullValueTotalTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_tokens"); else _explicitNullProperties?.Remove("total_tokens"); } }
+        public int? TotalTokens { get => _explicitNullValueTotalTokens; set { _explicitNullValueTotalTokens = value; AdditionalData?.Remove("total_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_tokens"); else _explicitNullProperties?.Remove("total_tokens"); } }
         private int? _explicitNullValueTotalTokens = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunPerModelUsageItem"/> and sets the default values.

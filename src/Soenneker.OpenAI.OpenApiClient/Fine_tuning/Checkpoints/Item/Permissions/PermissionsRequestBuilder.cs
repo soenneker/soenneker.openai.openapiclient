@@ -118,7 +118,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.Permission
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.Permissions.PermissionsRequestBuilder.PermissionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.openai.com/v1", "/fine_tuning/checkpoints/{fineTunedModelCheckpoint}/permissions", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -139,7 +139,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Fine_tuning.Checkpoints.Item.Permission
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.openai.com/v1", "/fine_tuning/checkpoints/{fineTunedModelCheckpoint}/permissions", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

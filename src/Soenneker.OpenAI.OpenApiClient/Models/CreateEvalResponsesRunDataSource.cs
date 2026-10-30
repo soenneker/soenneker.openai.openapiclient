@@ -18,11 +18,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("input_messages") is { } nullNodeInputMessages && nullNodeInputMessages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputMessages = null;
-            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
-            if (parseNode.GetChildNode("sampling_params") is { } nullNodeSamplingParams && nullNodeSamplingParams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SamplingParams = null;
-            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("input_messages") is null) { _explicitNullValueInputMessages = default!; _explicitNullProperties?.Remove("input_messages"); }
+            else if (parseNode.GetChildNode("input_messages") is { } nullNodeInputMessages && nullNodeInputMessages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputMessages = null;
+            if (parseNode.GetChildNode("model") is null) { _explicitNullValueModel = default!; _explicitNullProperties?.Remove("model"); }
+            else if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("sampling_params") is null) { _explicitNullValueSamplingParams = default!; _explicitNullProperties?.Remove("sampling_params"); }
+            else if (parseNode.GetChildNode("sampling_params") is { } nullNodeSamplingParams && nullNodeSamplingParams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SamplingParams = null;
+            if (parseNode.GetChildNode("source") is null) { _explicitNullValueSource = default!; _explicitNullProperties?.Remove("source"); }
+            else if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,45 +35,45 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Used when sampling from a model. Dictates the structure of the messages passed into the model. Can either be a reference to a prebuilt trajectory (ie, `item.input_trajectory`), or a template with variable references to the `item` namespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessages? InputMessages { get => _explicitNullValueInputMessages; set { _explicitNullValueInputMessages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_messages"); else _explicitNullProperties?.Remove("input_messages"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessages? InputMessages { get => _explicitNullValueInputMessages; set { _explicitNullValueInputMessages = value; AdditionalData?.Remove("input_messages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_messages"); else _explicitNullProperties?.Remove("input_messages"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessages? _explicitNullValueInputMessages = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessages InputMessages { get => _explicitNullValueInputMessages; set { _explicitNullValueInputMessages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_messages"); else _explicitNullProperties?.Remove("input_messages"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessages InputMessages { get => _explicitNullValueInputMessages; set { _explicitNullValueInputMessages = value; AdditionalData?.Remove("input_messages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_messages"); else _explicitNullProperties?.Remove("input_messages"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceInputMessages _explicitNullValueInputMessages = default!;
 #endif
         /// <summary>The name of the model to use for generating completions (e.g. &quot;o3-mini&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
         private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
         private string _explicitNullValueModel = default!;
 #endif
         /// <summary>The sampling_params property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSamplingParams? SamplingParams { get => _explicitNullValueSamplingParams; set { _explicitNullValueSamplingParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sampling_params"); else _explicitNullProperties?.Remove("sampling_params"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSamplingParams? SamplingParams { get => _explicitNullValueSamplingParams; set { _explicitNullValueSamplingParams = value; AdditionalData?.Remove("sampling_params"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sampling_params"); else _explicitNullProperties?.Remove("sampling_params"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSamplingParams? _explicitNullValueSamplingParams = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSamplingParams SamplingParams { get => _explicitNullValueSamplingParams; set { _explicitNullValueSamplingParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sampling_params"); else _explicitNullProperties?.Remove("sampling_params"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSamplingParams SamplingParams { get => _explicitNullValueSamplingParams; set { _explicitNullValueSamplingParams = value; AdditionalData?.Remove("sampling_params"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sampling_params"); else _explicitNullProperties?.Remove("sampling_params"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSamplingParams _explicitNullValueSamplingParams = default!;
 #endif
         /// <summary>Determines what populates the `item` namespace in this run&apos;s data source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSource? _explicitNullValueSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSource _explicitNullValueSource = default!;
 #endif
         /// <summary>The type of run data source. Always `responses`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponsesType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponsesType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ResponsesType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSource"/> and sets the default values.
@@ -99,7 +104,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "sampling_params", n => { SamplingParams = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSamplingParams>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSamplingParams.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSource>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalResponsesRunDataSourceSource.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponsesType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponsesType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

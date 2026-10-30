@@ -11,17 +11,38 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// Text, image, or file output of the function call.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class BetaFunctionAndCustomToolCallOutput : IAdditionalDataHolder, IParsable
-    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
-        // Track explicitly assigned nulls separately from absent properties.
-        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
-
-        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
-        {
-        }
+    public partial class BetaFunctionAndCustomToolCallOutput : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
+    {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputFileContent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputFileContent? BetaInputFileContent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputFileContent BetaInputFileContent { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContent? BetaInputImageContent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContent BetaInputImageContent { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputTextContent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputTextContent? BetaInputTextContent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputTextContent BetaInputTextContent { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionAndCustomToolCallOutput"/> and sets the default values.
         /// </summary>
@@ -37,7 +58,35 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionAndCustomToolCallOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionAndCustomToolCallOutput(), parseNode);
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionAndCustomToolCallOutput();
+            if("BetaInputFileContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("BetaInputImageContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("BetaInputTextContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("type") && shapeMembers1.ContainsKey("text") && (!shapeMembers1.ContainsKey("type") || (((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "input_text".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("text") || (((shapeMembers1["text"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("prompt_cache_breakpoint") || (((shapeMembers1["prompt_cache_breakpoint"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (shapeMembers1["prompt_cache_breakpoint"] is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject7 || (shapeObject7.GetValue() is var shapeMembers8 && (shapeMembers8.ContainsKey("mode") && (!shapeMembers8.ContainsKey("mode") || (((shapeMembers8["mode"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers8["mode"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal9 && "explicit".Equals(literal9.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers8.ContainsKey("ttl") || (((shapeMembers8["ttl"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers8["ttl"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal12 && "30m".Equals(literal12.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers8["ttl"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal13 && "12h".Equals(literal13.GetValue(), global::System.StringComparison.Ordinal)))))))))))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("type") && shapeMembers1.ContainsKey("detail") && (!shapeMembers1.ContainsKey("type") || (((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "input_image".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("image_url") || ((((shapeMembers1["image_url"] == null || shapeMembers1["image_url"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || (shapeMembers1["image_url"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("file_id") || ((((shapeMembers1["file_id"] == null || shapeMembers1["file_id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || (shapeMembers1["file_id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("detail") || (((shapeMembers1["detail"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["detail"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal9 && "low".Equals(literal9.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["detail"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal10 && "high".Equals(literal10.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["detail"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal11 && "auto".Equals(literal11.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["detail"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal12 && "original".Equals(literal12.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("prompt_cache_breakpoint") || (((shapeMembers1["prompt_cache_breakpoint"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (shapeMembers1["prompt_cache_breakpoint"] is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject15 || (shapeObject15.GetValue() is var shapeMembers16 && (shapeMembers16.ContainsKey("mode") && (!shapeMembers16.ContainsKey("mode") || (((shapeMembers16["mode"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers16["mode"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal17 && "explicit".Equals(literal17.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers16.ContainsKey("ttl") || (((shapeMembers16["ttl"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers16["ttl"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal20 && "30m".Equals(literal20.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers16["ttl"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal21 && "12h".Equals(literal21.GetValue(), global::System.StringComparison.Ordinal)))))))))))))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("type") && (!shapeMembers1.ContainsKey("type") || (((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "input_file".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("file_id") || ((((shapeMembers1["file_id"] == null || shapeMembers1["file_id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || (shapeMembers1["file_id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("filename") || (((shapeMembers1["filename"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("file_data") || (((shapeMembers1["file_data"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("prompt_cache_breakpoint") || (((shapeMembers1["prompt_cache_breakpoint"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (shapeMembers1["prompt_cache_breakpoint"] is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject11 || (shapeObject11.GetValue() is var shapeMembers12 && (shapeMembers12.ContainsKey("mode") && (!shapeMembers12.ContainsKey("mode") || (((shapeMembers12["mode"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers12["mode"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal13 && "explicit".Equals(literal13.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers12.ContainsKey("ttl") || (((shapeMembers12["ttl"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers12["ttl"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal16 && "30m".Equals(literal16.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers12["ttl"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal17 && "12h".Equals(literal17.GetValue(), global::System.StringComparison.Ordinal)))))))))) && (!shapeMembers1.ContainsKey("file_url") || (((shapeMembers1["file_url"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("detail") || (((shapeMembers1["detail"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["detail"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal22 && "auto".Equals(literal22.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["detail"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal23 && "low".Equals(literal23.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["detail"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal24 && "high".Equals(literal24.GetValue(), global::System.StringComparison.Ordinal))))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            if (matchesUnionBranch1) matchingUnionBranches++;
+            if (matchesUnionBranch2) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.BetaInputFileContent == null && result.BetaInputImageContent == null && result.BetaInputTextContent == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.BetaInputTextContent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputTextContent(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.BetaInputImageContent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContent(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch2 && matchingUnionBranches == 1) result.BetaInputFileContent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputFileContent(), parseNode);
+            if (result.BetaInputFileContent == null && result.BetaInputImageContent == null && result.BetaInputTextContent == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,9 +94,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
+            if(BetaInputFileContent != null)
             {
-            };
+                return BetaInputFileContent.GetFieldDeserializers();
+            }
+            else if(BetaInputImageContent != null)
+            {
+                return BetaInputImageContent.GetFieldDeserializers();
+            }
+            else if(BetaInputTextContent != null)
+            {
+                return BetaInputTextContent.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -55,9 +116,33 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (BetaInputFileContent == null && BetaInputImageContent == null && BetaInputTextContent == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            int selectedUnionBranches = 0;
+            if (BetaInputFileContent != null) selectedUnionBranches++;
+            if (BetaInputImageContent != null) selectedUnionBranches++;
+            if (BetaInputTextContent != null) selectedUnionBranches++;
+            if (BetaInputFileContent != null && selectedUnionBranches == 1) { if (BetaInputFileContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaInputFileContent); return; }
+            if (BetaInputImageContent != null && selectedUnionBranches == 1) { if (BetaInputImageContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaInputImageContent); return; }
+            if (BetaInputTextContent != null && selectedUnionBranches == 1) { if (BetaInputTextContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaInputTextContent); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
-            writer.WriteAdditionalData(AdditionalData);
+            if(BetaInputFileContent != null)
+            {
+                if (BetaInputFileContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputFileContent>(null, BetaInputFileContent);
+            }
+            else if(BetaInputImageContent != null)
+            {
+                if (BetaInputImageContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputImageContent>(null, BetaInputImageContent);
+            }
+            else if(BetaInputTextContent != null)
+            {
+                if (BetaInputTextContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputTextContent>(null, BetaInputTextContent);
+            }
+            
         }
     }
 }

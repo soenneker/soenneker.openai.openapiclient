@@ -60,9 +60,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("allowed_tools".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("tools") != null))();
-            if (result.LiveAllowedToolsChoiceParam == null && result.LiveSpecificApplyPatchParam == null && result.LiveToolChoiceEnum == null && matchesUnionBranch0) result.LiveAllowedToolsChoiceParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedToolsChoiceParam(), parseNode);
-            if (result.LiveAllowedToolsChoiceParam == null && result.LiveSpecificApplyPatchParam == null && result.LiveToolChoiceEnum == null && unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) result.LiveAllowedToolsChoiceParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedToolsChoiceParam(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("type") && shapeMembers1.ContainsKey("tools") && (!shapeMembers1.ContainsKey("type") || (((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "allowed_tools".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("tools") || (((shapeMembers1["tools"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)))) && (!shapeMembers1.ContainsKey("mode") || (((((shapeMembers1["mode"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["mode"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal9 && "none".Equals(literal9.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["mode"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal10 && "auto".Equals(literal10.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["mode"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal11 && "required".Equals(literal11.GetValue(), global::System.StringComparison.Ordinal)))) || ((((shapeMembers1["mode"] == null || shapeMembers1["mode"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull))))))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.LiveAllowedToolsChoiceParam == null && result.LiveSpecificApplyPatchParam == null && result.LiveToolChoiceEnum == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.LiveAllowedToolsChoiceParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.LiveAllowedToolsChoiceParam(), parseNode);
             if (result.LiveAllowedToolsChoiceParam == null && result.LiveSpecificApplyPatchParam == null && result.LiveToolChoiceEnum == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -72,6 +74,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(LiveAllowedToolsChoiceParam != null)
             {
                 return LiveAllowedToolsChoiceParam.GetFieldDeserializers();
@@ -90,8 +94,12 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (LiveAllowedToolsChoiceParam == null && LiveSpecificApplyPatchParam == null && LiveToolChoiceEnum == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (LiveAllowedToolsChoiceParam != null && LiveSpecificApplyPatchParam == null && LiveToolChoiceEnum == null) { if (LiveAllowedToolsChoiceParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, LiveAllowedToolsChoiceParam); return; }
-            if (LiveSpecificApplyPatchParam != null && LiveAllowedToolsChoiceParam == null && LiveToolChoiceEnum == null) { if (LiveSpecificApplyPatchParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, LiveSpecificApplyPatchParam); return; }
+            int selectedUnionBranches = 0;
+            if (LiveAllowedToolsChoiceParam != null) selectedUnionBranches++;
+            if (LiveSpecificApplyPatchParam != null) selectedUnionBranches++;
+            if (LiveToolChoiceEnum != null) selectedUnionBranches++;
+            if (LiveAllowedToolsChoiceParam != null && selectedUnionBranches == 1) { if (LiveAllowedToolsChoiceParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, LiveAllowedToolsChoiceParam); return; }
+            if (LiveSpecificApplyPatchParam != null && selectedUnionBranches == 1) { if (LiveSpecificApplyPatchParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, LiveSpecificApplyPatchParam); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(LiveAllowedToolsChoiceParam != null)

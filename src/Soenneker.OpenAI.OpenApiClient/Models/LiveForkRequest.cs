@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("session") is { } nullNodeSession && nullNodeSession.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Session = null;
-            if (parseNode.GetChildNode("transport") is { } nullNodeTransport && nullNodeTransport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transport = null;
+            if (parseNode.GetChildNode("session") is null) { _explicitNullValueSession = default!; _explicitNullProperties?.Remove("session"); }
+            else if (parseNode.GetChildNode("session") is { } nullNodeSession && nullNodeSession.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Session = null;
+            if (parseNode.GetChildNode("transport") is null) { _explicitNullValueTransport = default!; _explicitNullProperties?.Remove("transport"); }
+            else if (parseNode.GetChildNode("transport") is { } nullNodeTransport && nullNodeTransport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transport = null;
         }
 
         /// <summary>Optional configuration overrides for the new Live session. Omit this object or send an empty object to inherit the stored session&apos;s settings.</summary>

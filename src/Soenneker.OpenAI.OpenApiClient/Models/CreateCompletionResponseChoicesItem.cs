@@ -17,38 +17,42 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("finish_reason") is { } nullNodeFinishReason && nullNodeFinishReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FinishReason = null;
-            if (parseNode.GetChildNode("index") is { } nullNodeIndex && nullNodeIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Index = null;
-            if (parseNode.GetChildNode("logprobs") is { } nullNodeLogprobs && nullNodeLogprobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Logprobs = null;
-            if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
+            if (parseNode.GetChildNode("finish_reason") is null) { _explicitNullValueFinishReason = default!; _explicitNullProperties?.Remove("finish_reason"); }
+            else if (parseNode.GetChildNode("finish_reason") is { } nullNodeFinishReason && nullNodeFinishReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FinishReason = null;
+            if (parseNode.GetChildNode("index") is null) { _explicitNullValueIndex = default!; _explicitNullProperties?.Remove("index"); }
+            else if (parseNode.GetChildNode("index") is { } nullNodeIndex && nullNodeIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Index = null;
+            if (parseNode.GetChildNode("logprobs") is null) { _explicitNullValueLogprobs = default!; _explicitNullProperties?.Remove("logprobs"); }
+            else if (parseNode.GetChildNode("logprobs") is { } nullNodeLogprobs && nullNodeLogprobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Logprobs = null;
+            if (parseNode.GetChildNode("text") is null) { _explicitNullValueText = default!; _explicitNullProperties?.Remove("text"); }
+            else if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence,`length` if the maximum number of tokens specified in the request was reached,or `content_filter` if content was omitted due to a flag from our content filters. The value is null while a streamed completion is unfinished.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemFinishReason? FinishReason { get => _explicitNullValueFinishReason; set { _explicitNullValueFinishReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("finish_reason"); else _explicitNullProperties?.Remove("finish_reason"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemFinishReason? FinishReason { get => _explicitNullValueFinishReason; set { _explicitNullValueFinishReason = value; AdditionalData?.Remove("finish_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("finish_reason"); else _explicitNullProperties?.Remove("finish_reason"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemFinishReason? _explicitNullValueFinishReason = default!;
         /// <summary>The index property</summary>
-        public int? Index { get => _explicitNullValueIndex; set { _explicitNullValueIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index"); else _explicitNullProperties?.Remove("index"); } }
+        public int? Index { get => _explicitNullValueIndex; set { _explicitNullValueIndex = value; AdditionalData?.Remove("index"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index"); else _explicitNullProperties?.Remove("index"); } }
         private int? _explicitNullValueIndex = default!;
         /// <summary>The logprobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs? Logprobs { get => _explicitNullValueLogprobs; set { _explicitNullValueLogprobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logprobs"); else _explicitNullProperties?.Remove("logprobs"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs? Logprobs { get => _explicitNullValueLogprobs; set { _explicitNullValueLogprobs = value; AdditionalData?.Remove("logprobs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logprobs"); else _explicitNullProperties?.Remove("logprobs"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs? _explicitNullValueLogprobs = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs Logprobs { get => _explicitNullValueLogprobs; set { _explicitNullValueLogprobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logprobs"); else _explicitNullProperties?.Remove("logprobs"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs Logprobs { get => _explicitNullValueLogprobs; set { _explicitNullValueLogprobs = value; AdditionalData?.Remove("logprobs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logprobs"); else _explicitNullProperties?.Remove("logprobs"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs _explicitNullValueLogprobs = default!;
 #endif
         /// <summary>The text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; AdditionalData?.Remove("text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
         private string? _explicitNullValueText = default!;
 #nullable restore
 #else
-        public string Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        public string Text { get => _explicitNullValueText; set { _explicitNullValueText = value; AdditionalData?.Remove("text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
         private string _explicitNullValueText = default!;
 #endif
         /// <summary>
@@ -76,7 +80,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "finish_reason", n => { FinishReason = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemFinishReason>(); } },
+                { "finish_reason", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemFinishReason>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFinishReason = default; _explicitNullProperties?.Remove("finish_reason"); AdditionalData["finish_reason"] = unknown; } else { FinishReason = parsed; AdditionalData.Remove("finish_reason"); } } },
                 { "index", n => { Index = n.GetIntValue(); } },
                 { "logprobs", n => { Logprobs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs.CreateFromDiscriminatorValue); } },
                 { "text", n => { Text = n.GetStringValue(); } },

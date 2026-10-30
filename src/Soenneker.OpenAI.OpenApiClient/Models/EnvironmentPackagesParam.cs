@@ -18,9 +18,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("npm") is { } nullNodeNpm && nullNodeNpm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Npm = null;
-            if (parseNode.GetChildNode("python") is { } nullNodePython && nullNodePython.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Python = null;
-            if (parseNode.GetChildNode("system") is { } nullNodeSystem && nullNodeSystem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) System = null;
+            if (parseNode.GetChildNode("npm") is null) { _explicitNullValueNpm = default!; _explicitNullProperties?.Remove("npm"); }
+            else if (parseNode.GetChildNode("npm") is { } nullNodeNpm && nullNodeNpm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Npm = null;
+            if (parseNode.GetChildNode("python") is null) { _explicitNullValuePython = default!; _explicitNullProperties?.Remove("python"); }
+            else if (parseNode.GetChildNode("python") is { } nullNodePython && nullNodePython.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Python = null;
+            if (parseNode.GetChildNode("system") is null) { _explicitNullValueSystem = default!; _explicitNullProperties?.Remove("system"); }
+            else if (parseNode.GetChildNode("system") is { } nullNodeSystem && nullNodeSystem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) System = null;
         }
 
         /// <summary>npm packages to install globally. Defaults to an empty list.</summary>

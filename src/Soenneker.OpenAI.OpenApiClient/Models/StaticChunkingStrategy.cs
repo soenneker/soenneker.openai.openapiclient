@@ -17,8 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("chunk_overlap_tokens") is { } nullNodeChunkOverlapTokens && nullNodeChunkOverlapTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChunkOverlapTokens = null;
-            if (parseNode.GetChildNode("max_chunk_size_tokens") is { } nullNodeMaxChunkSizeTokens && nullNodeMaxChunkSizeTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxChunkSizeTokens = null;
+            if (parseNode.GetChildNode("chunk_overlap_tokens") is null) { _explicitNullValueChunkOverlapTokens = default!; _explicitNullProperties?.Remove("chunk_overlap_tokens"); }
+            else if (parseNode.GetChildNode("chunk_overlap_tokens") is { } nullNodeChunkOverlapTokens && nullNodeChunkOverlapTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChunkOverlapTokens = null;
+            if (parseNode.GetChildNode("max_chunk_size_tokens") is null) { _explicitNullValueMaxChunkSizeTokens = default!; _explicitNullProperties?.Remove("max_chunk_size_tokens"); }
+            else if (parseNode.GetChildNode("max_chunk_size_tokens") is { } nullNodeMaxChunkSizeTokens && nullNodeMaxChunkSizeTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxChunkSizeTokens = null;
         }
 
         /// <summary>The number of tokens that overlap between chunks. The default value is `400`.Note that the overlap must not exceed half of `max_chunk_size_tokens`.</summary>

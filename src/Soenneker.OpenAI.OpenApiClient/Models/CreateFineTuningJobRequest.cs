@@ -17,15 +17,24 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("hyperparameters") is { } nullNodeHyperparameters && nullNodeHyperparameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hyperparameters = null;
-            if (parseNode.GetChildNode("integrations") is { } nullNodeIntegrations && nullNodeIntegrations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Integrations = null;
-            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
-            if (parseNode.GetChildNode("method") is { } nullNodeMethod && nullNodeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Method = null;
-            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
-            if (parseNode.GetChildNode("seed") is { } nullNodeSeed && nullNodeSeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seed = null;
-            if (parseNode.GetChildNode("suffix") is { } nullNodeSuffix && nullNodeSuffix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Suffix = null;
-            if (parseNode.GetChildNode("training_file") is { } nullNodeTrainingFile && nullNodeTrainingFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrainingFile = null;
-            if (parseNode.GetChildNode("validation_file") is { } nullNodeValidationFile && nullNodeValidationFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidationFile = null;
+            if (parseNode.GetChildNode("hyperparameters") is null) { _explicitNullValueHyperparameters = default!; _explicitNullProperties?.Remove("hyperparameters"); }
+            else if (parseNode.GetChildNode("hyperparameters") is { } nullNodeHyperparameters && nullNodeHyperparameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hyperparameters = null;
+            if (parseNode.GetChildNode("integrations") is null) { _explicitNullValueIntegrations = default!; _explicitNullProperties?.Remove("integrations"); }
+            else if (parseNode.GetChildNode("integrations") is { } nullNodeIntegrations && nullNodeIntegrations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Integrations = null;
+            if (parseNode.GetChildNode("metadata") is null) { _explicitNullValueMetadata = default!; _explicitNullProperties?.Remove("metadata"); }
+            else if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("method") is null) { _explicitNullValueMethod = default!; _explicitNullProperties?.Remove("method"); }
+            else if (parseNode.GetChildNode("method") is { } nullNodeMethod && nullNodeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Method = null;
+            if (parseNode.GetChildNode("model") is null) { _explicitNullValueModel = default!; _explicitNullProperties?.Remove("model"); }
+            else if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("seed") is null) { _explicitNullValueSeed = default!; _explicitNullProperties?.Remove("seed"); }
+            else if (parseNode.GetChildNode("seed") is { } nullNodeSeed && nullNodeSeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seed = null;
+            if (parseNode.GetChildNode("suffix") is null) { _explicitNullValueSuffix = default!; _explicitNullProperties?.Remove("suffix"); }
+            else if (parseNode.GetChildNode("suffix") is { } nullNodeSuffix && nullNodeSuffix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Suffix = null;
+            if (parseNode.GetChildNode("training_file") is null) { _explicitNullValueTrainingFile = default!; _explicitNullProperties?.Remove("training_file"); }
+            else if (parseNode.GetChildNode("training_file") is { } nullNodeTrainingFile && nullNodeTrainingFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrainingFile = null;
+            if (parseNode.GetChildNode("validation_file") is null) { _explicitNullValueValidationFile = default!; _explicitNullProperties?.Remove("validation_file"); }
+            else if (parseNode.GetChildNode("validation_file") is { } nullNodeValidationFile && nullNodeValidationFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidationFile = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -34,84 +43,84 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparameters? Hyperparameters { get => _explicitNullValueHyperparameters; set { _explicitNullValueHyperparameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hyperparameters"); else _explicitNullProperties?.Remove("hyperparameters"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparameters? Hyperparameters { get => _explicitNullValueHyperparameters; set { _explicitNullValueHyperparameters = value; AdditionalData?.Remove("hyperparameters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hyperparameters"); else _explicitNullProperties?.Remove("hyperparameters"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparameters? _explicitNullValueHyperparameters = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparameters Hyperparameters { get => _explicitNullValueHyperparameters; set { _explicitNullValueHyperparameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hyperparameters"); else _explicitNullProperties?.Remove("hyperparameters"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparameters Hyperparameters { get => _explicitNullValueHyperparameters; set { _explicitNullValueHyperparameters = value; AdditionalData?.Remove("hyperparameters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hyperparameters"); else _explicitNullProperties?.Remove("hyperparameters"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestHyperparameters _explicitNullValueHyperparameters = default!;
 #endif
         /// <summary>A list of integrations to enable for your fine-tuning job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestIntegrationsItem>? Integrations { get => _explicitNullValueIntegrations; set { _explicitNullValueIntegrations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integrations"); else _explicitNullProperties?.Remove("integrations"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestIntegrationsItem>? Integrations { get => _explicitNullValueIntegrations; set { _explicitNullValueIntegrations = value; AdditionalData?.Remove("integrations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integrations"); else _explicitNullProperties?.Remove("integrations"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestIntegrationsItem>? _explicitNullValueIntegrations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestIntegrationsItem> Integrations { get => _explicitNullValueIntegrations; set { _explicitNullValueIntegrations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integrations"); else _explicitNullProperties?.Remove("integrations"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestIntegrationsItem> Integrations { get => _explicitNullValueIntegrations; set { _explicitNullValueIntegrations = value; AdditionalData?.Remove("integrations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integrations"); else _explicitNullProperties?.Remove("integrations"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestIntegrationsItem> _explicitNullValueIntegrations = default!;
 #endif
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The method used for fine-tuning.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; AdditionalData?.Remove("method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod? _explicitNullValueMethod = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; AdditionalData?.Remove("method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod _explicitNullValueMethod = default!;
 #endif
         /// <summary>The name of the model to fine-tune. You can select one of the[supported models](https://developers.openai.com/api/docs/guides/model-optimization#fine-tuning-methods).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestModel? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestModel? _explicitNullValueModel = default!;
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestModel Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestModel _explicitNullValueModel = default!;
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string _explicitNullValueModel = default!;
 #endif
         /// <summary>The seed controls the reproducibility of the job. Passing in the same seed and job parameters should produce the same results, but may differ in rare cases.If a seed is not specified, one will be generated for you.</summary>
-        public int? Seed { get => _explicitNullValueSeed; set { _explicitNullValueSeed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed"); else _explicitNullProperties?.Remove("seed"); } }
+        public int? Seed { get => _explicitNullValueSeed; set { _explicitNullValueSeed = value; AdditionalData?.Remove("seed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed"); else _explicitNullProperties?.Remove("seed"); } }
         private int? _explicitNullValueSeed = default!;
         /// <summary>A string of up to 64 characters that will be added to your fine-tuned model name.For example, a `suffix` of &quot;custom-model-name&quot; would produce a model name like `ft:gpt-4o-mini:openai:custom-model-name:7p4lURel`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Suffix { get => _explicitNullValueSuffix; set { _explicitNullValueSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suffix"); else _explicitNullProperties?.Remove("suffix"); } }
+        public string? Suffix { get => _explicitNullValueSuffix; set { _explicitNullValueSuffix = value; AdditionalData?.Remove("suffix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suffix"); else _explicitNullProperties?.Remove("suffix"); } }
         private string? _explicitNullValueSuffix = default!;
 #nullable restore
 #else
-        public string Suffix { get => _explicitNullValueSuffix; set { _explicitNullValueSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suffix"); else _explicitNullProperties?.Remove("suffix"); } }
+        public string Suffix { get => _explicitNullValueSuffix; set { _explicitNullValueSuffix = value; AdditionalData?.Remove("suffix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suffix"); else _explicitNullProperties?.Remove("suffix"); } }
         private string _explicitNullValueSuffix = default!;
 #endif
         /// <summary>The ID of an uploaded file that contains training data.See [upload file](https://developers.openai.com/api/reference/resources/files/methods/create) for how to upload a file.Your dataset must be formatted as a JSONL file. Additionally, you must upload your file with the purpose `fine-tune`.The contents of the file should differ depending on if the model uses the [chat](https://developers.openai.com/api/docs/guides/supervised-fine-tuning#formatting-your-data), [completions](https://developers.openai.com/api/docs/guides/supervised-fine-tuning#formatting-your-data) format, or if the fine-tuning method uses the [preference](https://developers.openai.com/api/docs/guides/direct-preference-optimization) format.See the [fine-tuning guide](https://developers.openai.com/api/docs/guides/model-optimization) for more details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TrainingFile { get => _explicitNullValueTrainingFile; set { _explicitNullValueTrainingFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("training_file"); else _explicitNullProperties?.Remove("training_file"); } }
+        public string? TrainingFile { get => _explicitNullValueTrainingFile; set { _explicitNullValueTrainingFile = value; AdditionalData?.Remove("training_file"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("training_file"); else _explicitNullProperties?.Remove("training_file"); } }
         private string? _explicitNullValueTrainingFile = default!;
 #nullable restore
 #else
-        public string TrainingFile { get => _explicitNullValueTrainingFile; set { _explicitNullValueTrainingFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("training_file"); else _explicitNullProperties?.Remove("training_file"); } }
+        public string TrainingFile { get => _explicitNullValueTrainingFile; set { _explicitNullValueTrainingFile = value; AdditionalData?.Remove("training_file"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("training_file"); else _explicitNullProperties?.Remove("training_file"); } }
         private string _explicitNullValueTrainingFile = default!;
 #endif
         /// <summary>The ID of an uploaded file that contains validation data.If you provide this file, the data is used to generate validationmetrics periodically during fine-tuning. These metrics can be viewed inthe fine-tuning results file.The same data should not be present in both train and validation files.Your dataset must be formatted as a JSONL file. You must upload your file with the purpose `fine-tune`.See the [fine-tuning guide](https://developers.openai.com/api/docs/guides/model-optimization) for more details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ValidationFile { get => _explicitNullValueValidationFile; set { _explicitNullValueValidationFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validation_file"); else _explicitNullProperties?.Remove("validation_file"); } }
+        public string? ValidationFile { get => _explicitNullValueValidationFile; set { _explicitNullValueValidationFile = value; AdditionalData?.Remove("validation_file"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validation_file"); else _explicitNullProperties?.Remove("validation_file"); } }
         private string? _explicitNullValueValidationFile = default!;
 #nullable restore
 #else
-        public string ValidationFile { get => _explicitNullValueValidationFile; set { _explicitNullValueValidationFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validation_file"); else _explicitNullProperties?.Remove("validation_file"); } }
+        public string ValidationFile { get => _explicitNullValueValidationFile; set { _explicitNullValueValidationFile = value; AdditionalData?.Remove("validation_file"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validation_file"); else _explicitNullProperties?.Remove("validation_file"); } }
         private string _explicitNullValueValidationFile = default!;
 #endif
         /// <summary>
@@ -143,7 +152,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "integrations", n => { Integrations = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestIntegrationsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestIntegrationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "method", n => { Method = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod.CreateFromDiscriminatorValue); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestModel>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestModel.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetStringValue(); } },
                 { "seed", n => { Seed = n.GetIntValue(); } },
                 { "suffix", n => { Suffix = n.GetStringValue(); } },
                 { "training_file", n => { TrainingFile = n.GetStringValue(); } },
@@ -161,7 +170,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestIntegrationsItem>("integrations", Integrations);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod>("method", Method);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateFineTuningJobRequestModel>("model", Model);
+            writer.WriteStringValue("model", Model);
             writer.WriteIntValue("seed", Seed);
             writer.WriteStringValue("suffix", Suffix);
             writer.WriteStringValue("training_file", TrainingFile);

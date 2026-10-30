@@ -18,13 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("retention_type") is { } nullNodeRetentionType && nullNodeRetentionType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetentionType = null;
+            if (parseNode.GetChildNode("retention_type") is null) { _explicitNullValueRetentionType = default!; _explicitNullProperties?.Remove("retention_type"); }
+            else if (parseNode.GetChildNode("retention_type") is { } nullNodeRetentionType && nullNodeRetentionType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetentionType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The desired project data retention type.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateProjectDataRetentionBodyRetentionType? RetentionType { get => _explicitNullValueRetentionType; set { _explicitNullValueRetentionType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retention_type"); else _explicitNullProperties?.Remove("retention_type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateProjectDataRetentionBodyRetentionType? RetentionType { get => _explicitNullValueRetentionType; set { _explicitNullValueRetentionType = value; AdditionalData?.Remove("retention_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retention_type"); else _explicitNullProperties?.Remove("retention_type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.UpdateProjectDataRetentionBodyRetentionType? _explicitNullValueRetentionType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.UpdateProjectDataRetentionBody"/> and sets the default values.
@@ -51,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "retention_type", n => { RetentionType = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateProjectDataRetentionBodyRetentionType>(); } },
+                { "retention_type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateProjectDataRetentionBodyRetentionType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRetentionType = default; _explicitNullProperties?.Remove("retention_type"); AdditionalData["retention_type"] = unknown; } else { RetentionType = parsed; AdditionalData.Remove("retention_type"); } } },
             };
         }
         /// <summary>

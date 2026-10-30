@@ -17,13 +17,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("input") is { } nullNodeInput && nullNodeInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Input = null;
-            if (parseNode.GetChildNode("instructions") is { } nullNodeInstructions && nullNodeInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Instructions = null;
-            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
-            if (parseNode.GetChildNode("response_format") is { } nullNodeResponseFormat && nullNodeResponseFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResponseFormat = null;
-            if (parseNode.GetChildNode("speed") is { } nullNodeSpeed && nullNodeSpeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Speed = null;
-            if (parseNode.GetChildNode("stream_format") is { } nullNodeStreamFormat && nullNodeStreamFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamFormat = null;
-            if (parseNode.GetChildNode("voice") is { } nullNodeVoice && nullNodeVoice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voice = null;
+            if (parseNode.GetChildNode("input") is null) { _explicitNullValueInput = default!; _explicitNullProperties?.Remove("input"); }
+            else if (parseNode.GetChildNode("input") is { } nullNodeInput && nullNodeInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Input = null;
+            if (parseNode.GetChildNode("instructions") is null) { _explicitNullValueInstructions = default!; _explicitNullProperties?.Remove("instructions"); }
+            else if (parseNode.GetChildNode("instructions") is { } nullNodeInstructions && nullNodeInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Instructions = null;
+            if (parseNode.GetChildNode("model") is null) { _explicitNullValueModel = default!; _explicitNullProperties?.Remove("model"); }
+            else if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("response_format") is null) { _explicitNullValueResponseFormat = default!; _explicitNullProperties?.Remove("response_format"); }
+            else if (parseNode.GetChildNode("response_format") is { } nullNodeResponseFormat && nullNodeResponseFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResponseFormat = null;
+            if (parseNode.GetChildNode("speed") is null) { _explicitNullValueSpeed = default!; _explicitNullProperties?.Remove("speed"); }
+            else if (parseNode.GetChildNode("speed") is { } nullNodeSpeed && nullNodeSpeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Speed = null;
+            if (parseNode.GetChildNode("stream_format") is null) { _explicitNullValueStreamFormat = default!; _explicitNullProperties?.Remove("stream_format"); }
+            else if (parseNode.GetChildNode("stream_format") is { } nullNodeStreamFormat && nullNodeStreamFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamFormat = null;
+            if (parseNode.GetChildNode("voice") is null) { _explicitNullValueVoice = default!; _explicitNullProperties?.Remove("voice"); }
+            else if (parseNode.GetChildNode("voice") is { } nullNodeVoice && nullNodeVoice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voice = null;
         }
 
         /// <summary>The text to generate audio for. The maximum length is 4096 characters.</summary>
@@ -49,12 +56,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>One of the available [TTS models](https://developers.openai.com/api/docs/guides/text-to-speech): `tts-1`, `tts-1-hd`, `gpt-4o-mini-tts`, or `gpt-4o-mini-tts-2025-12-15`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestModel? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestModel? _explicitNullValueModel = default!;
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestModel Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestModel _explicitNullValueModel = default!;
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string _explicitNullValueModel = default!;
 #endif
         /// <summary>The format to audio in. Supported formats are `mp3`, `opus`, `aac`, `flac`, `wav`, and `pcm`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestResponseFormat? ResponseFormat { get => _explicitNullValueResponseFormat; set { _explicitNullValueResponseFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("response_format"); else _explicitNullProperties?.Remove("response_format"); } }
@@ -68,12 +75,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The voice to use when generating the audio. Supported built-in voices are `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`, `verse`, `marin`, and `cedar`. You may also provide a custom voice object with an `id`, for example `{ &quot;id&quot;: &quot;voice_1234&quot; }`. Previews of the voices are available in the [Text to speech guide](https://developers.openai.com/api/docs/guides/text-to-speech#voice-options). Custom voices must be created from audio samples. Voices created from text prompts are supported only in Live.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoiceAnyOf2? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoiceAnyOf2? _explicitNullValueVoice = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoice? Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoice? _explicitNullValueVoice = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoiceAnyOf2 Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoiceAnyOf2 _explicitNullValueVoice = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoice Voice { get => _explicitNullValueVoice; set { _explicitNullValueVoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voice"); else _explicitNullProperties?.Remove("voice"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoice _explicitNullValueVoice = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequest"/> and sets the default values.
@@ -102,11 +109,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "input", n => { Input = n.GetStringValue(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
-                { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestModel>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestModel.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetStringValue(); } },
                 { "response_format", n => { ResponseFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestResponseFormat>(); } },
                 { "speed", n => { Speed = n.GetDoubleValue(); } },
                 { "stream_format", n => { StreamFormat = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestStreamFormat>(); } },
-                { "voice", n => { Voice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoiceAnyOf2>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoiceAnyOf2.CreateFromDiscriminatorValue); } },
+                { "voice", n => { Voice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoice>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoice.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -118,11 +125,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("input", Input);
             writer.WriteStringValue("instructions", Instructions);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestModel>("model", Model);
+            writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestResponseFormat>("response_format", ResponseFormat);
             writer.WriteDoubleValue("speed", Speed);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestStreamFormat>("stream_format", StreamFormat);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoiceAnyOf2>("voice", Voice);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateSpeechRequestVoice>("voice", Voice);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

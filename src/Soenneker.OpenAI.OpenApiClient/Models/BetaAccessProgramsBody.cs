@@ -17,13 +17,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cyber") is { } nullNodeCyber && nullNodeCyber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cyber = null;
+            if (parseNode.GetChildNode("cyber") is null) { _explicitNullValueCyber = default!; _explicitNullProperties?.Remove("cyber"); }
+            else if (parseNode.GetChildNode("cyber") is { } nullNodeCyber && nullNodeCyber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cyber = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The effective Cyber access program used for this response.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCyberAccessProgramEnum? Cyber { get => _explicitNullValueCyber; set { _explicitNullValueCyber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cyber"); else _explicitNullProperties?.Remove("cyber"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCyberAccessProgramEnum? Cyber { get => _explicitNullValueCyber; set { _explicitNullValueCyber = value; AdditionalData?.Remove("cyber"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cyber"); else _explicitNullProperties?.Remove("cyber"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaCyberAccessProgramEnum? _explicitNullValueCyber = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaAccessProgramsBody"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "cyber", n => { Cyber = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCyberAccessProgramEnum>(); } },
+                { "cyber", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCyberAccessProgramEnum>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCyber = default; _explicitNullProperties?.Remove("cyber"); AdditionalData["cyber"] = unknown; } else { Cyber = parsed; AdditionalData.Remove("cyber"); } } },
             };
         }
         /// <summary>

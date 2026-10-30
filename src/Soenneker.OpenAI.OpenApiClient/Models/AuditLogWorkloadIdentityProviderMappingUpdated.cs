@@ -18,9 +18,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("changes_requested") is { } nullNodeChangesRequested && nullNodeChangesRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChangesRequested = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("identity_provider_id") is { } nullNodeIdentityProviderId && nullNodeIdentityProviderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentityProviderId = null;
+            if (parseNode.GetChildNode("changes_requested") is null) { _explicitNullValueChangesRequested = default!; _explicitNullProperties?.Remove("changes_requested"); }
+            else if (parseNode.GetChildNode("changes_requested") is { } nullNodeChangesRequested && nullNodeChangesRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChangesRequested = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("identity_provider_id") is null) { _explicitNullValueIdentityProviderId = default!; _explicitNullProperties?.Remove("identity_provider_id"); }
+            else if (parseNode.GetChildNode("identity_provider_id") is { } nullNodeIdentityProviderId && nullNodeIdentityProviderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentityProviderId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The payload used to update the workload identity provider mapping.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdatedChangesRequestedProperty? ChangesRequested { get => _explicitNullValueChangesRequested; set { _explicitNullValueChangesRequested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("changes_requested"); else _explicitNullProperties?.Remove("changes_requested"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdatedChangesRequestedProperty? ChangesRequested { get => _explicitNullValueChangesRequested; set { _explicitNullValueChangesRequested = value; AdditionalData?.Remove("changes_requested"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("changes_requested"); else _explicitNullProperties?.Remove("changes_requested"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdatedChangesRequestedProperty? _explicitNullValueChangesRequested = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdatedChangesRequestedProperty ChangesRequested { get => _explicitNullValueChangesRequested; set { _explicitNullValueChangesRequested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("changes_requested"); else _explicitNullProperties?.Remove("changes_requested"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdatedChangesRequestedProperty ChangesRequested { get => _explicitNullValueChangesRequested; set { _explicitNullValueChangesRequested = value; AdditionalData?.Remove("changes_requested"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("changes_requested"); else _explicitNullProperties?.Remove("changes_requested"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdatedChangesRequestedProperty _explicitNullValueChangesRequested = default!;
 #endif
         /// <summary>The workload identity provider mapping ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>The workload identity provider ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdentityProviderId { get => _explicitNullValueIdentityProviderId; set { _explicitNullValueIdentityProviderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_provider_id"); else _explicitNullProperties?.Remove("identity_provider_id"); } }
+        public string? IdentityProviderId { get => _explicitNullValueIdentityProviderId; set { _explicitNullValueIdentityProviderId = value; AdditionalData?.Remove("identity_provider_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_provider_id"); else _explicitNullProperties?.Remove("identity_provider_id"); } }
         private string? _explicitNullValueIdentityProviderId = default!;
 #nullable restore
 #else
-        public string IdentityProviderId { get => _explicitNullValueIdentityProviderId; set { _explicitNullValueIdentityProviderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_provider_id"); else _explicitNullProperties?.Remove("identity_provider_id"); } }
+        public string IdentityProviderId { get => _explicitNullValueIdentityProviderId; set { _explicitNullValueIdentityProviderId = value; AdditionalData?.Remove("identity_provider_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_provider_id"); else _explicitNullProperties?.Remove("identity_provider_id"); } }
         private string _explicitNullValueIdentityProviderId = default!;
 #endif
         /// <summary>

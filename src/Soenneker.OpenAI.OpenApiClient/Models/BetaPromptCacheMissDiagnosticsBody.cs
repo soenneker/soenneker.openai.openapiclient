@@ -17,25 +17,29 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cache_missed_tokens") is { } nullNodeCacheMissedTokens && nullNodeCacheMissedTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheMissedTokens = null;
-            if (parseNode.GetChildNode("comparison_reusable_tokens") is { } nullNodeComparisonReusableTokens && nullNodeComparisonReusableTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComparisonReusableTokens = null;
-            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("cache_missed_tokens") is null) { _explicitNullValueCacheMissedTokens = default!; _explicitNullProperties?.Remove("cache_missed_tokens"); }
+            else if (parseNode.GetChildNode("cache_missed_tokens") is { } nullNodeCacheMissedTokens && nullNodeCacheMissedTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheMissedTokens = null;
+            if (parseNode.GetChildNode("comparison_reusable_tokens") is null) { _explicitNullValueComparisonReusableTokens = default!; _explicitNullProperties?.Remove("comparison_reusable_tokens"); }
+            else if (parseNode.GetChildNode("comparison_reusable_tokens") is { } nullNodeComparisonReusableTokens && nullNodeComparisonReusableTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComparisonReusableTokens = null;
+            if (parseNode.GetChildNode("reason") is null) { _explicitNullValueReason = default!; _explicitNullProperties?.Remove("reason"); }
+            else if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The estimated number of input tokens affected after the first detected divergence.</summary>
-        public int? CacheMissedTokens { get => _explicitNullValueCacheMissedTokens; set { _explicitNullValueCacheMissedTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_missed_tokens"); else _explicitNullProperties?.Remove("cache_missed_tokens"); } }
+        public int? CacheMissedTokens { get => _explicitNullValueCacheMissedTokens; set { _explicitNullValueCacheMissedTokens = value; AdditionalData?.Remove("cache_missed_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_missed_tokens"); else _explicitNullProperties?.Remove("cache_missed_tokens"); } }
         private int? _explicitNullValueCacheMissedTokens = default!;
         /// <summary>The raw token count of the reusable prefix in the compared response.</summary>
-        public int? ComparisonReusableTokens { get => _explicitNullValueComparisonReusableTokens; set { _explicitNullValueComparisonReusableTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comparison_reusable_tokens"); else _explicitNullProperties?.Remove("comparison_reusable_tokens"); } }
+        public int? ComparisonReusableTokens { get => _explicitNullValueComparisonReusableTokens; set { _explicitNullValueComparisonReusableTokens = value; AdditionalData?.Remove("comparison_reusable_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comparison_reusable_tokens"); else _explicitNullProperties?.Remove("comparison_reusable_tokens"); } }
         private int? _explicitNullValueComparisonReusableTokens = default!;
         /// <summary>The reason prompt cache reuse did not occur.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCacheMissReasonTypeEnum? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCacheMissReasonTypeEnum? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; AdditionalData?.Remove("reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaCacheMissReasonTypeEnum? _explicitNullValueReason = default!;
         /// <summary>The type property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CacheMissType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CacheMissType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CacheMissType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheMissDiagnosticsBody"/> and sets the default values.
@@ -64,8 +68,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "cache_missed_tokens", n => { CacheMissedTokens = n.GetIntValue(); } },
                 { "comparison_reusable_tokens", n => { ComparisonReusableTokens = n.GetIntValue(); } },
-                { "reason", n => { Reason = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCacheMissReasonTypeEnum>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CacheMissType>(); } },
+                { "reason", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCacheMissReasonTypeEnum>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueReason = default; _explicitNullProperties?.Remove("reason"); AdditionalData["reason"] = unknown; } else { Reason = parsed; AdditionalData.Remove("reason"); } } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CacheMissType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

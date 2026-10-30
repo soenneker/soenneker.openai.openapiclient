@@ -18,7 +18,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cyber") is { } nullNodeCyber && nullNodeCyber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cyber = null;
+            if (parseNode.GetChildNode("cyber") is null) { _explicitNullValueCyber = default!; _explicitNullProperties?.Remove("cyber"); }
+            else if (parseNode.GetChildNode("cyber") is { } nullNodeCyber && nullNodeCyber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cyber = null;
         }
 
         /// <summary>The Cyber access program to use for this request. Supported values are `standard`, `daybreak_blue`, and `daybreak_red`. If omitted, the API resolves the program from the model&apos;s Cyber tier and your organization and project access, subject to model-specific eligibility restrictions. By default, models without a Cyber tier use Standard. Blue-tier models use Daybreak Blue when authorized; otherwise they fall back to Standard unless the model requires Daybreak access. Red-tier models use Daybreak Red and require authorization. Requests that require unavailable Daybreak access return 403. An implicit Standard fallback is represented by null in the response&apos;s access_programs field, rather than an explicit Standard selection.</summary>

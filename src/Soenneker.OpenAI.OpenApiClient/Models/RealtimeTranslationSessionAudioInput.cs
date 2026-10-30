@@ -17,8 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("noise_reduction") is { } nullNodeNoiseReduction && nullNodeNoiseReduction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoiseReduction = null;
-            if (parseNode.GetChildNode("transcription") is { } nullNodeTranscription && nullNodeTranscription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transcription = null;
+            if (parseNode.GetChildNode("noise_reduction") is null) { _explicitNullValueNoiseReduction = default!; _explicitNullProperties?.Remove("noise_reduction"); }
+            else if (parseNode.GetChildNode("noise_reduction") is { } nullNodeNoiseReduction && nullNodeNoiseReduction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoiseReduction = null;
+            if (parseNode.GetChildNode("transcription") is null) { _explicitNullValueTranscription = default!; _explicitNullProperties?.Remove("transcription"); }
+            else if (parseNode.GetChildNode("transcription") is { } nullNodeTranscription && nullNodeTranscription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transcription = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Optional input noise reduction.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudioInputNoiseReduction? NoiseReduction { get => _explicitNullValueNoiseReduction; set { _explicitNullValueNoiseReduction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_reduction"); else _explicitNullProperties?.Remove("noise_reduction"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudioInputNoiseReduction? NoiseReduction { get => _explicitNullValueNoiseReduction; set { _explicitNullValueNoiseReduction = value; AdditionalData?.Remove("noise_reduction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_reduction"); else _explicitNullProperties?.Remove("noise_reduction"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudioInputNoiseReduction? _explicitNullValueNoiseReduction = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudioInputNoiseReduction NoiseReduction { get => _explicitNullValueNoiseReduction; set { _explicitNullValueNoiseReduction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_reduction"); else _explicitNullProperties?.Remove("noise_reduction"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudioInputNoiseReduction NoiseReduction { get => _explicitNullValueNoiseReduction; set { _explicitNullValueNoiseReduction = value; AdditionalData?.Remove("noise_reduction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_reduction"); else _explicitNullProperties?.Remove("noise_reduction"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudioInputNoiseReduction _explicitNullValueNoiseReduction = default!;
 #endif
         /// <summary>Optional source-language transcription. When configured, the server emits`session.input_transcript.delta` events. Translation itself still runs fromthe input audio stream.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudioInputTranscription? Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudioInputTranscription? Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; AdditionalData?.Remove("transcription"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudioInputTranscription? _explicitNullValueTranscription = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudioInputTranscription Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudioInputTranscription Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; AdditionalData?.Remove("transcription"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudioInputTranscription _explicitNullValueTranscription = default!;
 #endif
         /// <summary>

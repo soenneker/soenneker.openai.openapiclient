@@ -18,17 +18,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("anchor") is { } nullNodeAnchor && nullNodeAnchor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Anchor = null;
-            if (parseNode.GetChildNode("minutes") is { } nullNodeMinutes && nullNodeMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Minutes = null;
+            if (parseNode.GetChildNode("anchor") is null) { _explicitNullValueAnchor = default!; _explicitNullProperties?.Remove("anchor"); }
+            else if (parseNode.GetChildNode("anchor") is { } nullNodeAnchor && nullNodeAnchor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Anchor = null;
+            if (parseNode.GetChildNode("minutes") is null) { _explicitNullValueMinutes = default!; _explicitNullProperties?.Remove("minutes"); }
+            else if (parseNode.GetChildNode("minutes") is { } nullNodeMinutes && nullNodeMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Minutes = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Anchor timestamp after which the expiration policy applies. Supported anchors: `last_active_at`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LastActiveAtAnchor? Anchor { get => _explicitNullValueAnchor; set { _explicitNullValueAnchor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("anchor"); else _explicitNullProperties?.Remove("anchor"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LastActiveAtAnchor? Anchor { get => _explicitNullValueAnchor; set { _explicitNullValueAnchor = value; AdditionalData?.Remove("anchor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("anchor"); else _explicitNullProperties?.Remove("anchor"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.LastActiveAtAnchor? _explicitNullValueAnchor = default!;
         /// <summary>The number of minutes after the anchor before the container expires.</summary>
-        public int? Minutes { get => _explicitNullValueMinutes; set { _explicitNullValueMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minutes"); else _explicitNullProperties?.Remove("minutes"); } }
+        public int? Minutes { get => _explicitNullValueMinutes; set { _explicitNullValueMinutes = value; AdditionalData?.Remove("minutes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minutes"); else _explicitNullProperties?.Remove("minutes"); } }
         private int? _explicitNullValueMinutes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfter"/> and sets the default values.
@@ -55,7 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "anchor", n => { Anchor = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LastActiveAtAnchor>(); } },
+                { "anchor", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LastActiveAtAnchor>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAnchor = default; _explicitNullProperties?.Remove("anchor"); AdditionalData["anchor"] = unknown; } else { Anchor = parsed; AdditionalData.Remove("anchor"); } } },
                 { "minutes", n => { Minutes = n.GetIntValue(); } },
             };
         }

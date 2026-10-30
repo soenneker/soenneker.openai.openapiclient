@@ -17,23 +17,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
-            if (parseNode.GetChildNode("model_ids") is { } nullNodeModelIds && nullNodeModelIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelIds = null;
+            if (parseNode.GetChildNode("mode") is null) { _explicitNullValueMode = default!; _explicitNullProperties?.Remove("mode"); }
+            else if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("model_ids") is null) { _explicitNullValueModelIds = default!; _explicitNullProperties?.Remove("model_ids"); }
+            else if (parseNode.GetChildNode("model_ids") is { } nullNodeModelIds && nullNodeModelIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The model permissions mode to apply.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsUpdateRequestMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsUpdateRequestMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsUpdateRequestMode? _explicitNullValueMode = default!;
         /// <summary>The model IDs included in this permissions policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ModelIds { get => _explicitNullValueModelIds; set { _explicitNullValueModelIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_ids"); else _explicitNullProperties?.Remove("model_ids"); } }
+        public List<string>? ModelIds { get => _explicitNullValueModelIds; set { _explicitNullValueModelIds = value; AdditionalData?.Remove("model_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_ids"); else _explicitNullProperties?.Remove("model_ids"); } }
         private List<string>? _explicitNullValueModelIds = default!;
 #nullable restore
 #else
-        public List<string> ModelIds { get => _explicitNullValueModelIds; set { _explicitNullValueModelIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_ids"); else _explicitNullProperties?.Remove("model_ids"); } }
+        public List<string> ModelIds { get => _explicitNullValueModelIds; set { _explicitNullValueModelIds = value; AdditionalData?.Remove("model_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_ids"); else _explicitNullProperties?.Remove("model_ids"); } }
         private List<string> _explicitNullValueModelIds = default!;
 #endif
         /// <summary>
@@ -61,7 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsUpdateRequestMode>(); } },
+                { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectModelPermissionsUpdateRequestMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
                 { "model_ids", n => { ModelIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }

@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("expires_after") is { } nullNodeExpiresAfter && nullNodeExpiresAfter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAfter = null;
-            if (parseNode.GetChildNode("session") is { } nullNodeSession && nullNodeSession.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Session = null;
+            if (parseNode.GetChildNode("expires_after") is null) { _explicitNullValueExpiresAfter = default!; _explicitNullProperties?.Remove("expires_after"); }
+            else if (parseNode.GetChildNode("expires_after") is { } nullNodeExpiresAfter && nullNodeExpiresAfter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAfter = null;
+            if (parseNode.GetChildNode("session") is null) { _explicitNullValueSession = default!; _explicitNullProperties?.Remove("session"); }
+            else if (parseNode.GetChildNode("session") is { } nullNodeSession && nullNodeSession.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Session = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration for the client secret expiration. Expiration refers to the time after whicha client secret will no longer be valid for creating sessions. The session itself maycontinue after that time once started. A secret can be used to create multiple sessionsuntil it expires.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter? ExpiresAfter { get => _explicitNullValueExpiresAfter; set { _explicitNullValueExpiresAfter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_after"); else _explicitNullProperties?.Remove("expires_after"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter? ExpiresAfter { get => _explicitNullValueExpiresAfter; set { _explicitNullValueExpiresAfter = value; AdditionalData?.Remove("expires_after"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_after"); else _explicitNullProperties?.Remove("expires_after"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter? _explicitNullValueExpiresAfter = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter ExpiresAfter { get => _explicitNullValueExpiresAfter; set { _explicitNullValueExpiresAfter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_after"); else _explicitNullProperties?.Remove("expires_after"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter ExpiresAfter { get => _explicitNullValueExpiresAfter; set { _explicitNullValueExpiresAfter = value; AdditionalData?.Remove("expires_after"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_after"); else _explicitNullProperties?.Remove("expires_after"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestExpiresAfter _explicitNullValueExpiresAfter = default!;
 #endif
         /// <summary>Session configuration to use for the client secret. Choose either a realtimesession or a transcription session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestSession? Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestSession? Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; AdditionalData?.Remove("session"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestSession? _explicitNullValueSession = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestSession Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestSession Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; AdditionalData?.Remove("session"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeCreateClientSecretRequestSession _explicitNullValueSession = default!;
 #endif
         /// <summary>

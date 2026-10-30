@@ -17,7 +17,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("grader") is { } nullNodeGrader && nullNodeGrader.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Grader = null;
+            if (parseNode.GetChildNode("grader") is null) { _explicitNullValueGrader = default!; _explicitNullProperties?.Remove("grader"); }
+            else if (parseNode.GetChildNode("grader") is { } nullNodeGrader && nullNodeGrader.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Grader = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,12 +26,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The grader used for the fine-tuning job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ValidateGraderResponseGrader? Grader { get => _explicitNullValueGrader; set { _explicitNullValueGrader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grader"); else _explicitNullProperties?.Remove("grader"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ValidateGraderResponseGrader? _explicitNullValueGrader = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethodGrader? Grader { get => _explicitNullValueGrader; set { _explicitNullValueGrader = value; AdditionalData?.Remove("grader"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grader"); else _explicitNullProperties?.Remove("grader"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethodGrader? _explicitNullValueGrader = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ValidateGraderResponseGrader Grader { get => _explicitNullValueGrader; set { _explicitNullValueGrader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grader"); else _explicitNullProperties?.Remove("grader"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ValidateGraderResponseGrader _explicitNullValueGrader = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethodGrader Grader { get => _explicitNullValueGrader; set { _explicitNullValueGrader = value; AdditionalData?.Remove("grader"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grader"); else _explicitNullProperties?.Remove("grader"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethodGrader _explicitNullValueGrader = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ValidateGraderResponse"/> and sets the default values.
@@ -57,7 +58,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "grader", n => { Grader = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ValidateGraderResponseGrader>(global::Soenneker.OpenAI.OpenApiClient.Models.ValidateGraderResponseGrader.CreateFromDiscriminatorValue); } },
+                { "grader", n => { Grader = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethodGrader>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethodGrader.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ValidateGraderResponseGrader>("grader", Grader);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethodGrader>("grader", Grader);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

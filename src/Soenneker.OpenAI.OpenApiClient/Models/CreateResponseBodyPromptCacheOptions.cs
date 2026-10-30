@@ -17,10 +17,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("comparison_response_id") is { } nullNodeComparisonResponseId && nullNodeComparisonResponseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComparisonResponseId = null;
-            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
-            if (parseNode.GetChildNode("prewarm") is { } nullNodePrewarm && nullNodePrewarm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prewarm = null;
-            if (parseNode.GetChildNode("ttl") is { } nullNodeTtl && nullNodeTtl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ttl = null;
+            if (parseNode.GetChildNode("comparison_response_id") is null) { _explicitNullValueComparisonResponseId = default!; _explicitNullProperties?.Remove("comparison_response_id"); }
+            else if (parseNode.GetChildNode("comparison_response_id") is { } nullNodeComparisonResponseId && nullNodeComparisonResponseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComparisonResponseId = null;
+            if (parseNode.GetChildNode("mode") is null) { _explicitNullValueMode = default!; _explicitNullProperties?.Remove("mode"); }
+            else if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("prewarm") is null) { _explicitNullValuePrewarm = default!; _explicitNullProperties?.Remove("prewarm"); }
+            else if (parseNode.GetChildNode("prewarm") is { } nullNodePrewarm && nullNodePrewarm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prewarm = null;
+            if (parseNode.GetChildNode("ttl") is null) { _explicitNullValueTtl = default!; _explicitNullProperties?.Remove("ttl"); }
+            else if (parseNode.GetChildNode("ttl") is { } nullNodeTtl && nullNodeTtl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ttl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,21 +32,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The ID of a response to compare when diagnosing prompt cache reuse. Supplying this field requests prompt cache diagnostics when the feature is enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ComparisonResponseId { get => _explicitNullValueComparisonResponseId; set { _explicitNullValueComparisonResponseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comparison_response_id"); else _explicitNullProperties?.Remove("comparison_response_id"); } }
+        public string? ComparisonResponseId { get => _explicitNullValueComparisonResponseId; set { _explicitNullValueComparisonResponseId = value; AdditionalData?.Remove("comparison_response_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comparison_response_id"); else _explicitNullProperties?.Remove("comparison_response_id"); } }
         private string? _explicitNullValueComparisonResponseId = default!;
 #nullable restore
 #else
-        public string ComparisonResponseId { get => _explicitNullValueComparisonResponseId; set { _explicitNullValueComparisonResponseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comparison_response_id"); else _explicitNullProperties?.Remove("comparison_response_id"); } }
+        public string ComparisonResponseId { get => _explicitNullValueComparisonResponseId; set { _explicitNullValueComparisonResponseId = value; AdditionalData?.Remove("comparison_response_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comparison_response_id"); else _explicitNullProperties?.Remove("comparison_response_id"); } }
         private string _explicitNullValueComparisonResponseId = default!;
 #endif
         /// <summary>Controls whether OpenAI automatically creates an implicit cache breakpoint. Defaults to `implicit`. With `implicit`, OpenAI creates one implicit breakpoint and writes up to the latest three explicit breakpoints in the request. With `explicit`, OpenAI does not create an implicit breakpoint and writes up to the latest four explicit breakpoints. If there are no explicit breakpoints, the request does not use prompt caching.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheModeEnum? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheModeEnum? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheModeEnum? _explicitNullValueMode = default!;
         /// <summary>Prepares the prompt cache without generating output. Defaults to `false`. When set to `true`, overrides the `generate` field to `false`.</summary>
-        public bool? Prewarm { get => _explicitNullValuePrewarm; set { _explicitNullValuePrewarm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prewarm"); else _explicitNullProperties?.Remove("prewarm"); } }
+        public bool? Prewarm { get => _explicitNullValuePrewarm; set { _explicitNullValuePrewarm = value; AdditionalData?.Remove("prewarm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prewarm"); else _explicitNullProperties?.Remove("prewarm"); } }
         private bool? _explicitNullValuePrewarm = default!;
         /// <summary>The ttl property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheTtlEnum? Ttl { get => _explicitNullValueTtl; set { _explicitNullValueTtl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ttl"); else _explicitNullProperties?.Remove("ttl"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheTtlEnum? Ttl { get => _explicitNullValueTtl; set { _explicitNullValueTtl = value; AdditionalData?.Remove("ttl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ttl"); else _explicitNullProperties?.Remove("ttl"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheTtlEnum? _explicitNullValueTtl = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBodyPromptCacheOptions"/> and sets the default values.
@@ -70,9 +74,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "comparison_response_id", n => { ComparisonResponseId = n.GetStringValue(); } },
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheModeEnum>(); } },
+                { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheModeEnum>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
                 { "prewarm", n => { Prewarm = n.GetBoolValue(); } },
-                { "ttl", n => { Ttl = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheTtlEnum>(); } },
+                { "ttl", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheTtlEnum>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTtl = default; _explicitNullProperties?.Remove("ttl"); AdditionalData["ttl"] = unknown; } else { Ttl = parsed; AdditionalData.Remove("ttl"); } } },
             };
         }
         /// <summary>

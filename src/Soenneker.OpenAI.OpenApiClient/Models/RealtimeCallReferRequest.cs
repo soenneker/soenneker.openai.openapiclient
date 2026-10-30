@@ -18,7 +18,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("target_uri") is { } nullNodeTargetUri && nullNodeTargetUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetUri = null;
+            if (parseNode.GetChildNode("target_uri") is null) { _explicitNullValueTargetUri = default!; _explicitNullProperties?.Remove("target_uri"); }
+            else if (parseNode.GetChildNode("target_uri") is { } nullNodeTargetUri && nullNodeTargetUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetUri = null;
         }
 
         /// <summary>URI that should appear in the SIP Refer-To header. Supports values like`tel:+14155550123` or `sip:agent@example.com`.</summary>

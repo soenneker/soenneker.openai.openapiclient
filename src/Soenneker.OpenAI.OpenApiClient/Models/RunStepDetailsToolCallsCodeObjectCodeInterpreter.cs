@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("input") is { } nullNodeInput && nullNodeInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Input = null;
-            if (parseNode.GetChildNode("outputs") is { } nullNodeOutputs && nullNodeOutputs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Outputs = null;
+            if (parseNode.GetChildNode("input") is null) { _explicitNullValueInput = default!; _explicitNullProperties?.Remove("input"); }
+            else if (parseNode.GetChildNode("input") is { } nullNodeInput && nullNodeInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Input = null;
+            if (parseNode.GetChildNode("outputs") is null) { _explicitNullValueOutputs = default!; _explicitNullProperties?.Remove("outputs"); }
+            else if (parseNode.GetChildNode("outputs") is { } nullNodeOutputs && nullNodeOutputs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Outputs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The input to the Code Interpreter tool call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        public string? Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; AdditionalData?.Remove("input"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
         private string? _explicitNullValueInput = default!;
 #nullable restore
 #else
-        public string Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        public string Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; AdditionalData?.Remove("input"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
         private string _explicitNullValueInput = default!;
 #endif
         /// <summary>The outputs from the Code Interpreter tool call. Code Interpreter can output one or more items, including text (`logs`) or images (`image`). Each of these are represented by a different object type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem>? Outputs { get => _explicitNullValueOutputs; set { _explicitNullValueOutputs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outputs"); else _explicitNullProperties?.Remove("outputs"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem>? Outputs { get => _explicitNullValueOutputs; set { _explicitNullValueOutputs = value; AdditionalData?.Remove("outputs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outputs"); else _explicitNullProperties?.Remove("outputs"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem>? _explicitNullValueOutputs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem> Outputs { get => _explicitNullValueOutputs; set { _explicitNullValueOutputs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outputs"); else _explicitNullProperties?.Remove("outputs"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem> Outputs { get => _explicitNullValueOutputs; set { _explicitNullValueOutputs = value; AdditionalData?.Remove("outputs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outputs"); else _explicitNullProperties?.Remove("outputs"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem> _explicitNullValueOutputs = default!;
 #endif
         /// <summary>

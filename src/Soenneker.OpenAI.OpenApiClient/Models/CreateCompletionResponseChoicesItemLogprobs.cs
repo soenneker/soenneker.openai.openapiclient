@@ -17,10 +17,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("text_offset") is { } nullNodeTextOffset && nullNodeTextOffset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextOffset = null;
-            if (parseNode.GetChildNode("token_logprobs") is { } nullNodeTokenLogprobs && nullNodeTokenLogprobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenLogprobs = null;
-            if (parseNode.GetChildNode("tokens") is { } nullNodeTokens && nullNodeTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tokens = null;
-            if (parseNode.GetChildNode("top_logprobs") is { } nullNodeTopLogprobs && nullNodeTopLogprobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopLogprobs = null;
+            if (parseNode.GetChildNode("text_offset") is null) { _explicitNullValueTextOffset = default!; _explicitNullProperties?.Remove("text_offset"); }
+            else if (parseNode.GetChildNode("text_offset") is { } nullNodeTextOffset && nullNodeTextOffset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextOffset = null;
+            if (parseNode.GetChildNode("token_logprobs") is null) { _explicitNullValueTokenLogprobs = default!; _explicitNullProperties?.Remove("token_logprobs"); }
+            else if (parseNode.GetChildNode("token_logprobs") is { } nullNodeTokenLogprobs && nullNodeTokenLogprobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenLogprobs = null;
+            if (parseNode.GetChildNode("tokens") is null) { _explicitNullValueTokens = default!; _explicitNullProperties?.Remove("tokens"); }
+            else if (parseNode.GetChildNode("tokens") is { } nullNodeTokens && nullNodeTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tokens = null;
+            if (parseNode.GetChildNode("top_logprobs") is null) { _explicitNullValueTopLogprobs = default!; _explicitNullProperties?.Remove("top_logprobs"); }
+            else if (parseNode.GetChildNode("top_logprobs") is { } nullNodeTopLogprobs && nullNodeTopLogprobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopLogprobs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The text_offset property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? TextOffset { get => _explicitNullValueTextOffset; set { _explicitNullValueTextOffset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_offset"); else _explicitNullProperties?.Remove("text_offset"); } }
+        public List<int?>? TextOffset { get => _explicitNullValueTextOffset; set { _explicitNullValueTextOffset = value; AdditionalData?.Remove("text_offset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_offset"); else _explicitNullProperties?.Remove("text_offset"); } }
         private List<int?>? _explicitNullValueTextOffset = default!;
 #nullable restore
 #else
-        public List<int?> TextOffset { get => _explicitNullValueTextOffset; set { _explicitNullValueTextOffset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_offset"); else _explicitNullProperties?.Remove("text_offset"); } }
+        public List<int?> TextOffset { get => _explicitNullValueTextOffset; set { _explicitNullValueTextOffset = value; AdditionalData?.Remove("text_offset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_offset"); else _explicitNullProperties?.Remove("text_offset"); } }
         private List<int?> _explicitNullValueTextOffset = default!;
 #endif
         /// <summary>The token_logprobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? TokenLogprobs { get => _explicitNullValueTokenLogprobs; set { _explicitNullValueTokenLogprobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_logprobs"); else _explicitNullProperties?.Remove("token_logprobs"); } }
+        public List<double?>? TokenLogprobs { get => _explicitNullValueTokenLogprobs; set { _explicitNullValueTokenLogprobs = value; AdditionalData?.Remove("token_logprobs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_logprobs"); else _explicitNullProperties?.Remove("token_logprobs"); } }
         private List<double?>? _explicitNullValueTokenLogprobs = default!;
 #nullable restore
 #else
-        public List<double?> TokenLogprobs { get => _explicitNullValueTokenLogprobs; set { _explicitNullValueTokenLogprobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_logprobs"); else _explicitNullProperties?.Remove("token_logprobs"); } }
+        public List<double?> TokenLogprobs { get => _explicitNullValueTokenLogprobs; set { _explicitNullValueTokenLogprobs = value; AdditionalData?.Remove("token_logprobs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_logprobs"); else _explicitNullProperties?.Remove("token_logprobs"); } }
         private List<double?> _explicitNullValueTokenLogprobs = default!;
 #endif
         /// <summary>The tokens property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
+        public List<string>? Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; AdditionalData?.Remove("tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
         private List<string>? _explicitNullValueTokens = default!;
 #nullable restore
 #else
-        public List<string> Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
+        public List<string> Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; AdditionalData?.Remove("tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
         private List<string> _explicitNullValueTokens = default!;
 #endif
         /// <summary>The top_logprobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty>? TopLogprobs { get => _explicitNullValueTopLogprobs; set { _explicitNullValueTopLogprobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_logprobs"); else _explicitNullProperties?.Remove("top_logprobs"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty>? TopLogprobs { get => _explicitNullValueTopLogprobs; set { _explicitNullValueTopLogprobs = value; AdditionalData?.Remove("top_logprobs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_logprobs"); else _explicitNullProperties?.Remove("top_logprobs"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty>? _explicitNullValueTopLogprobs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty> TopLogprobs { get => _explicitNullValueTopLogprobs; set { _explicitNullValueTopLogprobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_logprobs"); else _explicitNullProperties?.Remove("top_logprobs"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty> TopLogprobs { get => _explicitNullValueTopLogprobs; set { _explicitNullValueTopLogprobs = value; AdditionalData?.Remove("top_logprobs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_logprobs"); else _explicitNullProperties?.Remove("top_logprobs"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty> _explicitNullValueTopLogprobs = default!;
 #endif
         /// <summary>

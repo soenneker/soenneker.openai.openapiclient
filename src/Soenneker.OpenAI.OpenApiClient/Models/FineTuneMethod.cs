@@ -18,10 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dpo") is { } nullNodeDpo && nullNodeDpo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dpo = null;
-            if (parseNode.GetChildNode("reinforcement") is { } nullNodeReinforcement && nullNodeReinforcement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reinforcement = null;
-            if (parseNode.GetChildNode("supervised") is { } nullNodeSupervised && nullNodeSupervised.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Supervised = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("dpo") is null) { _explicitNullValueDpo = default!; _explicitNullProperties?.Remove("dpo"); }
+            else if (parseNode.GetChildNode("dpo") is { } nullNodeDpo && nullNodeDpo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dpo = null;
+            if (parseNode.GetChildNode("reinforcement") is null) { _explicitNullValueReinforcement = default!; _explicitNullProperties?.Remove("reinforcement"); }
+            else if (parseNode.GetChildNode("reinforcement") is { } nullNodeReinforcement && nullNodeReinforcement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reinforcement = null;
+            if (parseNode.GetChildNode("supervised") is null) { _explicitNullValueSupervised = default!; _explicitNullProperties?.Remove("supervised"); }
+            else if (parseNode.GetChildNode("supervised") is { } nullNodeSupervised && nullNodeSupervised.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Supervised = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,35 +33,35 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration for the DPO fine-tuning method.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoMethod? Dpo { get => _explicitNullValueDpo; set { _explicitNullValueDpo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dpo"); else _explicitNullProperties?.Remove("dpo"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoMethod? Dpo { get => _explicitNullValueDpo; set { _explicitNullValueDpo = value; AdditionalData?.Remove("dpo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dpo"); else _explicitNullProperties?.Remove("dpo"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoMethod? _explicitNullValueDpo = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoMethod Dpo { get => _explicitNullValueDpo; set { _explicitNullValueDpo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dpo"); else _explicitNullProperties?.Remove("dpo"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoMethod Dpo { get => _explicitNullValueDpo; set { _explicitNullValueDpo = value; AdditionalData?.Remove("dpo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dpo"); else _explicitNullProperties?.Remove("dpo"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoMethod _explicitNullValueDpo = default!;
 #endif
         /// <summary>Configuration for the reinforcement fine-tuning method.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethod? Reinforcement { get => _explicitNullValueReinforcement; set { _explicitNullValueReinforcement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reinforcement"); else _explicitNullProperties?.Remove("reinforcement"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethod? Reinforcement { get => _explicitNullValueReinforcement; set { _explicitNullValueReinforcement = value; AdditionalData?.Remove("reinforcement"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reinforcement"); else _explicitNullProperties?.Remove("reinforcement"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethod? _explicitNullValueReinforcement = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethod Reinforcement { get => _explicitNullValueReinforcement; set { _explicitNullValueReinforcement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reinforcement"); else _explicitNullProperties?.Remove("reinforcement"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethod Reinforcement { get => _explicitNullValueReinforcement; set { _explicitNullValueReinforcement = value; AdditionalData?.Remove("reinforcement"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reinforcement"); else _explicitNullProperties?.Remove("reinforcement"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethod _explicitNullValueReinforcement = default!;
 #endif
         /// <summary>Configuration for the supervised fine-tuning method.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedMethod? Supervised { get => _explicitNullValueSupervised; set { _explicitNullValueSupervised = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supervised"); else _explicitNullProperties?.Remove("supervised"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedMethod? Supervised { get => _explicitNullValueSupervised; set { _explicitNullValueSupervised = value; AdditionalData?.Remove("supervised"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supervised"); else _explicitNullProperties?.Remove("supervised"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedMethod? _explicitNullValueSupervised = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedMethod Supervised { get => _explicitNullValueSupervised; set { _explicitNullValueSupervised = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supervised"); else _explicitNullProperties?.Remove("supervised"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedMethod Supervised { get => _explicitNullValueSupervised; set { _explicitNullValueSupervised = value; AdditionalData?.Remove("supervised"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supervised"); else _explicitNullProperties?.Remove("supervised"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedMethod _explicitNullValueSupervised = default!;
 #endif
         /// <summary>The type of method. Is either `supervised`, `dpo`, or `reinforcement`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethodType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethodType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethodType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod"/> and sets the default values.
@@ -87,7 +91,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "dpo", n => { Dpo = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoMethod>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneDpoMethod.CreateFromDiscriminatorValue); } },
                 { "reinforcement", n => { Reinforcement = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethod>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementMethod.CreateFromDiscriminatorValue); } },
                 { "supervised", n => { Supervised = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedMethod>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneSupervisedMethod.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethodType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethodType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

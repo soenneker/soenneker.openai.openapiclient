@@ -17,29 +17,34 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cancelled") is { } nullNodeCancelled && nullNodeCancelled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cancelled = null;
-            if (parseNode.GetChildNode("completed") is { } nullNodeCompleted && nullNodeCompleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Completed = null;
-            if (parseNode.GetChildNode("failed") is { } nullNodeFailed && nullNodeFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Failed = null;
-            if (parseNode.GetChildNode("in_progress") is { } nullNodeInProgress && nullNodeInProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InProgress = null;
-            if (parseNode.GetChildNode("total") is { } nullNodeTotal && nullNodeTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Total = null;
+            if (parseNode.GetChildNode("cancelled") is null) { _explicitNullValueCancelled = default!; _explicitNullProperties?.Remove("cancelled"); }
+            else if (parseNode.GetChildNode("cancelled") is { } nullNodeCancelled && nullNodeCancelled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cancelled = null;
+            if (parseNode.GetChildNode("completed") is null) { _explicitNullValueCompleted = default!; _explicitNullProperties?.Remove("completed"); }
+            else if (parseNode.GetChildNode("completed") is { } nullNodeCompleted && nullNodeCompleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Completed = null;
+            if (parseNode.GetChildNode("failed") is null) { _explicitNullValueFailed = default!; _explicitNullProperties?.Remove("failed"); }
+            else if (parseNode.GetChildNode("failed") is { } nullNodeFailed && nullNodeFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Failed = null;
+            if (parseNode.GetChildNode("in_progress") is null) { _explicitNullValueInProgress = default!; _explicitNullProperties?.Remove("in_progress"); }
+            else if (parseNode.GetChildNode("in_progress") is { } nullNodeInProgress && nullNodeInProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InProgress = null;
+            if (parseNode.GetChildNode("total") is null) { _explicitNullValueTotal = default!; _explicitNullProperties?.Remove("total"); }
+            else if (parseNode.GetChildNode("total") is { } nullNodeTotal && nullNodeTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Total = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of files that where cancelled.</summary>
-        public int? Cancelled { get => _explicitNullValueCancelled; set { _explicitNullValueCancelled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelled"); else _explicitNullProperties?.Remove("cancelled"); } }
+        public int? Cancelled { get => _explicitNullValueCancelled; set { _explicitNullValueCancelled = value; AdditionalData?.Remove("cancelled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelled"); else _explicitNullProperties?.Remove("cancelled"); } }
         private int? _explicitNullValueCancelled = default!;
         /// <summary>The number of files that have been processed.</summary>
-        public int? Completed { get => _explicitNullValueCompleted; set { _explicitNullValueCompleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed"); else _explicitNullProperties?.Remove("completed"); } }
+        public int? Completed { get => _explicitNullValueCompleted; set { _explicitNullValueCompleted = value; AdditionalData?.Remove("completed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed"); else _explicitNullProperties?.Remove("completed"); } }
         private int? _explicitNullValueCompleted = default!;
         /// <summary>The number of files that have failed to process.</summary>
-        public int? Failed { get => _explicitNullValueFailed; set { _explicitNullValueFailed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed"); else _explicitNullProperties?.Remove("failed"); } }
+        public int? Failed { get => _explicitNullValueFailed; set { _explicitNullValueFailed = value; AdditionalData?.Remove("failed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed"); else _explicitNullProperties?.Remove("failed"); } }
         private int? _explicitNullValueFailed = default!;
         /// <summary>The number of files that are currently being processed.</summary>
-        public int? InProgress { get => _explicitNullValueInProgress; set { _explicitNullValueInProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_progress"); else _explicitNullProperties?.Remove("in_progress"); } }
+        public int? InProgress { get => _explicitNullValueInProgress; set { _explicitNullValueInProgress = value; AdditionalData?.Remove("in_progress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_progress"); else _explicitNullProperties?.Remove("in_progress"); } }
         private int? _explicitNullValueInProgress = default!;
         /// <summary>The total number of files.</summary>
-        public int? Total { get => _explicitNullValueTotal; set { _explicitNullValueTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total"); else _explicitNullProperties?.Remove("total"); } }
+        public int? Total { get => _explicitNullValueTotal; set { _explicitNullValueTotal = value; AdditionalData?.Remove("total"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total"); else _explicitNullProperties?.Remove("total"); } }
         private int? _explicitNullValueTotal = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileBatchObjectFileCounts"/> and sets the default values.

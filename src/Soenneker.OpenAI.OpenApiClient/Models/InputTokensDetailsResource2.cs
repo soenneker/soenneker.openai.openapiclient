@@ -18,7 +18,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cached_tokens") is { } nullNodeCachedTokens && nullNodeCachedTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedTokens = null;
+            if (parseNode.GetChildNode("cached_tokens") is null) { _explicitNullValueCachedTokens = default!; _explicitNullProperties?.Remove("cached_tokens"); }
+            else if (parseNode.GetChildNode("cached_tokens") is { } nullNodeCachedTokens && nullNodeCachedTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedTokens = null;
         }
 
         /// <summary>The number of input tokens retrieved from the prompt cache.</summary>

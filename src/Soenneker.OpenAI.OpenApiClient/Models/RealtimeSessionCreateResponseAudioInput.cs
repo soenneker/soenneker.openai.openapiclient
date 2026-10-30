@@ -17,10 +17,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("format") is { } nullNodeFormat && nullNodeFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Format = null;
-            if (parseNode.GetChildNode("noise_reduction") is { } nullNodeNoiseReduction && nullNodeNoiseReduction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoiseReduction = null;
-            if (parseNode.GetChildNode("transcription") is { } nullNodeTranscription && nullNodeTranscription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transcription = null;
-            if (parseNode.GetChildNode("turn_detection") is { } nullNodeTurnDetection && nullNodeTurnDetection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TurnDetection = null;
+            if (parseNode.GetChildNode("format") is null) { _explicitNullValueFormat = default!; _explicitNullProperties?.Remove("format"); }
+            else if (parseNode.GetChildNode("format") is { } nullNodeFormat && nullNodeFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Format = null;
+            if (parseNode.GetChildNode("noise_reduction") is null) { _explicitNullValueNoiseReduction = default!; _explicitNullProperties?.Remove("noise_reduction"); }
+            else if (parseNode.GetChildNode("noise_reduction") is { } nullNodeNoiseReduction && nullNodeNoiseReduction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoiseReduction = null;
+            if (parseNode.GetChildNode("transcription") is null) { _explicitNullValueTranscription = default!; _explicitNullProperties?.Remove("transcription"); }
+            else if (parseNode.GetChildNode("transcription") is { } nullNodeTranscription && nullNodeTranscription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transcription = null;
+            if (parseNode.GetChildNode("turn_detection") is null) { _explicitNullValueTurnDetection = default!; _explicitNullProperties?.Remove("turn_detection"); }
+            else if (parseNode.GetChildNode("turn_detection") is { } nullNodeTurnDetection && nullNodeTurnDetection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TurnDetection = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The format property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats? Format { get => _explicitNullValueFormat; set { _explicitNullValueFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("format"); else _explicitNullProperties?.Remove("format"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats? Format { get => _explicitNullValueFormat; set { _explicitNullValueFormat = value; AdditionalData?.Remove("format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("format"); else _explicitNullProperties?.Remove("format"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats? _explicitNullValueFormat = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats Format { get => _explicitNullValueFormat; set { _explicitNullValueFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("format"); else _explicitNullProperties?.Remove("format"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats Format { get => _explicitNullValueFormat; set { _explicitNullValueFormat = value; AdditionalData?.Remove("format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("format"); else _explicitNullProperties?.Remove("format"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats _explicitNullValueFormat = default!;
 #endif
         /// <summary>Configuration for input audio noise reduction.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudioInputNoiseReduction? NoiseReduction { get => _explicitNullValueNoiseReduction; set { _explicitNullValueNoiseReduction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_reduction"); else _explicitNullProperties?.Remove("noise_reduction"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudioInputNoiseReduction? NoiseReduction { get => _explicitNullValueNoiseReduction; set { _explicitNullValueNoiseReduction = value; AdditionalData?.Remove("noise_reduction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_reduction"); else _explicitNullProperties?.Remove("noise_reduction"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudioInputNoiseReduction? _explicitNullValueNoiseReduction = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudioInputNoiseReduction NoiseReduction { get => _explicitNullValueNoiseReduction; set { _explicitNullValueNoiseReduction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_reduction"); else _explicitNullProperties?.Remove("noise_reduction"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudioInputNoiseReduction NoiseReduction { get => _explicitNullValueNoiseReduction; set { _explicitNullValueNoiseReduction = value; AdditionalData?.Remove("noise_reduction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noise_reduction"); else _explicitNullProperties?.Remove("noise_reduction"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudioInputNoiseReduction _explicitNullValueNoiseReduction = default!;
 #endif
         /// <summary>Configuration for input audio transcription.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse? Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse? Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; AdditionalData?.Remove("transcription"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse? _explicitNullValueTranscription = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; AdditionalData?.Remove("transcription"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse _explicitNullValueTranscription = default!;
 #endif
         /// <summary>Configuration for turn detection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudioInputTurnDetection? TurnDetection { get => _explicitNullValueTurnDetection; set { _explicitNullValueTurnDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("turn_detection"); else _explicitNullProperties?.Remove("turn_detection"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudioInputTurnDetection? TurnDetection { get => _explicitNullValueTurnDetection; set { _explicitNullValueTurnDetection = value; AdditionalData?.Remove("turn_detection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("turn_detection"); else _explicitNullProperties?.Remove("turn_detection"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudioInputTurnDetection? _explicitNullValueTurnDetection = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudioInputTurnDetection TurnDetection { get => _explicitNullValueTurnDetection; set { _explicitNullValueTurnDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("turn_detection"); else _explicitNullProperties?.Remove("turn_detection"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudioInputTurnDetection TurnDetection { get => _explicitNullValueTurnDetection; set { _explicitNullValueTurnDetection = value; AdditionalData?.Remove("turn_detection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("turn_detection"); else _explicitNullProperties?.Remove("turn_detection"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseAudioInputTurnDetection _explicitNullValueTurnDetection = default!;
 #endif
         /// <summary>

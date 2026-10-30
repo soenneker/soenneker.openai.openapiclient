@@ -17,7 +17,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("project_ids") is { } nullNodeProjectIds && nullNodeProjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectIds = null;
+            if (parseNode.GetChildNode("project_ids") is null) { _explicitNullValueProjectIds = default!; _explicitNullProperties?.Remove("project_ids"); }
+            else if (parseNode.GetChildNode("project_ids") is { } nullNodeProjectIds && nullNodeProjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectIds = null;
         }
 
         /// <summary>The project identifiers to grant access to.</summary>

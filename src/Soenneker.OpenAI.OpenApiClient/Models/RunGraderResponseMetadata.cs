@@ -17,13 +17,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("errors") is { } nullNodeErrors && nullNodeErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Errors = null;
-            if (parseNode.GetChildNode("execution_time") is { } nullNodeExecutionTime && nullNodeExecutionTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExecutionTime = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("sampled_model_name") is { } nullNodeSampledModelName && nullNodeSampledModelName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SampledModelName = null;
-            if (parseNode.GetChildNode("scores") is { } nullNodeScores && nullNodeScores.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scores = null;
-            if (parseNode.GetChildNode("token_usage") is { } nullNodeTokenUsage && nullNodeTokenUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenUsage = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("errors") is null) { _explicitNullValueErrors = default!; _explicitNullProperties?.Remove("errors"); }
+            else if (parseNode.GetChildNode("errors") is { } nullNodeErrors && nullNodeErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Errors = null;
+            if (parseNode.GetChildNode("execution_time") is null) { _explicitNullValueExecutionTime = default!; _explicitNullProperties?.Remove("execution_time"); }
+            else if (parseNode.GetChildNode("execution_time") is { } nullNodeExecutionTime && nullNodeExecutionTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExecutionTime = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("sampled_model_name") is null) { _explicitNullValueSampledModelName = default!; _explicitNullProperties?.Remove("sampled_model_name"); }
+            else if (parseNode.GetChildNode("sampled_model_name") is { } nullNodeSampledModelName && nullNodeSampledModelName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SampledModelName = null;
+            if (parseNode.GetChildNode("scores") is null) { _explicitNullValueScores = default!; _explicitNullProperties?.Remove("scores"); }
+            else if (parseNode.GetChildNode("scores") is { } nullNodeScores && nullNodeScores.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scores = null;
+            if (parseNode.GetChildNode("token_usage") is null) { _explicitNullValueTokenUsage = default!; _explicitNullProperties?.Remove("token_usage"); }
+            else if (parseNode.GetChildNode("token_usage") is { } nullNodeTokenUsage && nullNodeTokenUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenUsage = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,64 +38,64 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors? Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors? Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; AdditionalData?.Remove("errors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors? _explicitNullValueErrors = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; AdditionalData?.Remove("errors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors _explicitNullValueErrors = default!;
 #endif
         /// <summary>The execution_time property</summary>
-        public double? ExecutionTime { get => _explicitNullValueExecutionTime; set { _explicitNullValueExecutionTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("execution_time"); else _explicitNullProperties?.Remove("execution_time"); } }
+        public double? ExecutionTime { get => _explicitNullValueExecutionTime; set { _explicitNullValueExecutionTime = value; AdditionalData?.Remove("execution_time"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("execution_time"); else _explicitNullProperties?.Remove("execution_time"); } }
         private double? _explicitNullValueExecutionTime = default!;
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The sampled_model_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SampledModelName { get => _explicitNullValueSampledModelName; set { _explicitNullValueSampledModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sampled_model_name"); else _explicitNullProperties?.Remove("sampled_model_name"); } }
+        public string? SampledModelName { get => _explicitNullValueSampledModelName; set { _explicitNullValueSampledModelName = value; AdditionalData?.Remove("sampled_model_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sampled_model_name"); else _explicitNullProperties?.Remove("sampled_model_name"); } }
         private string? _explicitNullValueSampledModelName = default!;
 #nullable restore
 #else
-        public string SampledModelName { get => _explicitNullValueSampledModelName; set { _explicitNullValueSampledModelName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sampled_model_name"); else _explicitNullProperties?.Remove("sampled_model_name"); } }
+        public string SampledModelName { get => _explicitNullValueSampledModelName; set { _explicitNullValueSampledModelName = value; AdditionalData?.Remove("sampled_model_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sampled_model_name"); else _explicitNullProperties?.Remove("sampled_model_name"); } }
         private string _explicitNullValueSampledModelName = default!;
 #endif
         /// <summary>The scores property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataScoresProperty? Scores { get => _explicitNullValueScores; set { _explicitNullValueScores = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scores"); else _explicitNullProperties?.Remove("scores"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataScoresProperty? Scores { get => _explicitNullValueScores; set { _explicitNullValueScores = value; AdditionalData?.Remove("scores"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scores"); else _explicitNullProperties?.Remove("scores"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataScoresProperty? _explicitNullValueScores = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataScoresProperty Scores { get => _explicitNullValueScores; set { _explicitNullValueScores = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scores"); else _explicitNullProperties?.Remove("scores"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataScoresProperty Scores { get => _explicitNullValueScores; set { _explicitNullValueScores = value; AdditionalData?.Remove("scores"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scores"); else _explicitNullProperties?.Remove("scores"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataScoresProperty _explicitNullValueScores = default!;
 #endif
         /// <summary>The token_usage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage? TokenUsage { get => _explicitNullValueTokenUsage; set { _explicitNullValueTokenUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_usage"); else _explicitNullProperties?.Remove("token_usage"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage? TokenUsage { get => _explicitNullValueTokenUsage; set { _explicitNullValueTokenUsage = value; AdditionalData?.Remove("token_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_usage"); else _explicitNullProperties?.Remove("token_usage"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage? _explicitNullValueTokenUsage = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage TokenUsage { get => _explicitNullValueTokenUsage; set { _explicitNullValueTokenUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_usage"); else _explicitNullProperties?.Remove("token_usage"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage TokenUsage { get => _explicitNullValueTokenUsage; set { _explicitNullValueTokenUsage = value; AdditionalData?.Remove("token_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_usage"); else _explicitNullProperties?.Remove("token_usage"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataTokenUsage _explicitNullValueTokenUsage = default!;
 #endif
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private string? _explicitNullValueType = default!;
 #nullable restore
 #else
-        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private string _explicitNullValueType = default!;
 #endif
         /// <summary>

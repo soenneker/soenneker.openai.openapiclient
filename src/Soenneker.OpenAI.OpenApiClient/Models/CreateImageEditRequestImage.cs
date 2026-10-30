@@ -46,7 +46,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 result.CreateImageEditRequestImageBinary = createImageEditRequestImageBinaryValue;
             }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<byte[]>()?.AsList() is List<byte[]> binaryValue)
+            else if(global::System.Linq.Enumerable.Select(parseNode.GetCollectionOfPrimitiveValues<string>(), value => value == null ? null! : global::System.Convert.FromBase64String(value))?.AsList() is List<byte[]> binaryValue)
             {
                 result.Binary = binaryValue;
             }
@@ -77,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             }
             else if(Binary != null)
             {
-                writer.WriteCollectionOfPrimitiveValues<byte[]>(null, Binary);
+                writer.WriteCollectionOfPrimitiveValues<string>(null, Binary == null ? null : global::System.Linq.Enumerable.Select(Binary, value => value == null ? null! : global::System.Convert.ToBase64String(value)));
             }
         }
     }

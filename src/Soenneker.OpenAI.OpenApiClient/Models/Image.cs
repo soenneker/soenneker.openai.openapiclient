@@ -18,9 +18,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("b64_json") is { } nullNodeB64Json && nullNodeB64Json.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) B64Json = null;
-            if (parseNode.GetChildNode("revised_prompt") is { } nullNodeRevisedPrompt && nullNodeRevisedPrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RevisedPrompt = null;
-            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("b64_json") is null) { _explicitNullValueB64Json = default!; _explicitNullProperties?.Remove("b64_json"); }
+            else if (parseNode.GetChildNode("b64_json") is { } nullNodeB64Json && nullNodeB64Json.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) B64Json = null;
+            if (parseNode.GetChildNode("revised_prompt") is null) { _explicitNullValueRevisedPrompt = default!; _explicitNullProperties?.Remove("revised_prompt"); }
+            else if (parseNode.GetChildNode("revised_prompt") is { } nullNodeRevisedPrompt && nullNodeRevisedPrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RevisedPrompt = null;
+            if (parseNode.GetChildNode("url") is null) { _explicitNullValueUrl = default!; _explicitNullProperties?.Remove("url"); }
+            else if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The base64-encoded JSON of the generated image. Returned by default for GPT image models, or when `response_format` is set to `b64_json` for models that support that parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? B64Json { get => _explicitNullValueB64Json; set { _explicitNullValueB64Json = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("b64_json"); else _explicitNullProperties?.Remove("b64_json"); } }
+        public string? B64Json { get => _explicitNullValueB64Json; set { _explicitNullValueB64Json = value; AdditionalData?.Remove("b64_json"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("b64_json"); else _explicitNullProperties?.Remove("b64_json"); } }
         private string? _explicitNullValueB64Json = default!;
 #nullable restore
 #else
-        public string B64Json { get => _explicitNullValueB64Json; set { _explicitNullValueB64Json = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("b64_json"); else _explicitNullProperties?.Remove("b64_json"); } }
+        public string B64Json { get => _explicitNullValueB64Json; set { _explicitNullValueB64Json = value; AdditionalData?.Remove("b64_json"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("b64_json"); else _explicitNullProperties?.Remove("b64_json"); } }
         private string _explicitNullValueB64Json = default!;
 #endif
         /// <summary>The revised prompt used to generate the image, for models that support prompt revision. Not returned by GPT image models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RevisedPrompt { get => _explicitNullValueRevisedPrompt; set { _explicitNullValueRevisedPrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revised_prompt"); else _explicitNullProperties?.Remove("revised_prompt"); } }
+        public string? RevisedPrompt { get => _explicitNullValueRevisedPrompt; set { _explicitNullValueRevisedPrompt = value; AdditionalData?.Remove("revised_prompt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revised_prompt"); else _explicitNullProperties?.Remove("revised_prompt"); } }
         private string? _explicitNullValueRevisedPrompt = default!;
 #nullable restore
 #else
-        public string RevisedPrompt { get => _explicitNullValueRevisedPrompt; set { _explicitNullValueRevisedPrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revised_prompt"); else _explicitNullProperties?.Remove("revised_prompt"); } }
+        public string RevisedPrompt { get => _explicitNullValueRevisedPrompt; set { _explicitNullValueRevisedPrompt = value; AdditionalData?.Remove("revised_prompt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revised_prompt"); else _explicitNullProperties?.Remove("revised_prompt"); } }
         private string _explicitNullValueRevisedPrompt = default!;
 #endif
         /// <summary>The URL of the generated image when `response_format` is set to `url` for models that support that parameter. Unsupported for GPT image models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>

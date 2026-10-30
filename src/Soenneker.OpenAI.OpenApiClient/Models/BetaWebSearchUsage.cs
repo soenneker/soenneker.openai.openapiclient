@@ -18,13 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("num_requests") is { } nullNodeNumRequests && nullNodeNumRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumRequests = null;
+            if (parseNode.GetChildNode("num_requests") is null) { _explicitNullValueNumRequests = default!; _explicitNullProperties?.Remove("num_requests"); }
+            else if (parseNode.GetChildNode("num_requests") is { } nullNodeNumRequests && nullNodeNumRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumRequests = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of billable web search requests issued.</summary>
-        public int? NumRequests { get => _explicitNullValueNumRequests; set { _explicitNullValueNumRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("num_requests"); else _explicitNullProperties?.Remove("num_requests"); } }
+        public int? NumRequests { get => _explicitNullValueNumRequests; set { _explicitNullValueNumRequests = value; AdditionalData?.Remove("num_requests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("num_requests"); else _explicitNullProperties?.Remove("num_requests"); } }
         private int? _explicitNullValueNumRequests = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchUsage"/> and sets the default values.

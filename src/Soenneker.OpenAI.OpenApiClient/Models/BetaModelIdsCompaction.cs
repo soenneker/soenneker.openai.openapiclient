@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompactionMember1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses"/>, <see cref="string"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompactionMember1"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaModelIdsCompaction : IComposedTypeWrapper, IParsable
@@ -25,14 +25,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompactionMember1 BetaModelIdsCompactionMember1 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses? BetaModelIdsResponses { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsResponses BetaModelIdsResponses { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,11 +49,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             }
             else {
                 
-                
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            if (result.BetaModelIdsCompactionMember1 == null && result.BetaModelIdsResponses == null && result.String == null) result.UnrecognizedValue = unionPayload;
+            if (result.BetaModelIdsCompactionMember1 == null && result.String == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
         /// <summary>
@@ -70,9 +61,11 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(BetaModelIdsCompactionMember1 != null || BetaModelIdsResponses != null)
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
+            if(BetaModelIdsCompactionMember1 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BetaModelIdsCompactionMember1, BetaModelIdsResponses);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BetaModelIdsCompactionMember1);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -83,9 +76,11 @@ return result;
         public virtual void Serialize(ISerializationWriter writer)
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (BetaModelIdsCompactionMember1 == null && BetaModelIdsResponses == null && String == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (BetaModelIdsCompactionMember1 != null && BetaModelIdsResponses == null && String == null) { if (BetaModelIdsCompactionMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaModelIdsCompactionMember1); return; }
-            if (BetaModelIdsResponses != null && BetaModelIdsCompactionMember1 == null && String == null) { if (BetaModelIdsResponses is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaModelIdsResponses); return; }
+            if (BetaModelIdsCompactionMember1 == null && String == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            int selectedUnionBranches = 0;
+            if (BetaModelIdsCompactionMember1 != null) selectedUnionBranches++;
+            if (String != null) selectedUnionBranches++;
+            if (BetaModelIdsCompactionMember1 != null && selectedUnionBranches == 1) { if (BetaModelIdsCompactionMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaModelIdsCompactionMember1); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(String != null)
@@ -93,7 +88,8 @@ return result;
                 writer.WriteStringValue(null, String);
             }
             else {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompactionMember1>(null, BetaModelIdsCompactionMember1, BetaModelIdsResponses);
+                if (BetaModelIdsCompactionMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompactionMember1>(null, BetaModelIdsCompactionMember1);
             }
         }
     }

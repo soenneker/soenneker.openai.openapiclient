@@ -17,8 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("md5") is { } nullNodeMd5 && nullNodeMd5.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Md5 = null;
-            if (parseNode.GetChildNode("part_ids") is { } nullNodePartIds && nullNodePartIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartIds = null;
+            if (parseNode.GetChildNode("md5") is null) { _explicitNullValueMd5 = default!; _explicitNullProperties?.Remove("md5"); }
+            else if (parseNode.GetChildNode("md5") is { } nullNodeMd5 && nullNodeMd5.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Md5 = null;
+            if (parseNode.GetChildNode("part_ids") is null) { _explicitNullValuePartIds = default!; _explicitNullProperties?.Remove("part_ids"); }
+            else if (parseNode.GetChildNode("part_ids") is { } nullNodePartIds && nullNodePartIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartIds = null;
         }
 
         /// <summary>The optional md5 checksum for the file contents to verify if the bytes uploaded matches what you expect.</summary>

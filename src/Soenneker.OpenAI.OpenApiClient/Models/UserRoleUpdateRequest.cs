@@ -17,10 +17,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("developer_persona") is { } nullNodeDeveloperPersona && nullNodeDeveloperPersona.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeveloperPersona = null;
-            if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
-            if (parseNode.GetChildNode("role_id") is { } nullNodeRoleId && nullNodeRoleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleId = null;
-            if (parseNode.GetChildNode("technical_level") is { } nullNodeTechnicalLevel && nullNodeTechnicalLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TechnicalLevel = null;
+            if (parseNode.GetChildNode("developer_persona") is null) { _explicitNullValueDeveloperPersona = default!; _explicitNullProperties?.Remove("developer_persona"); }
+            else if (parseNode.GetChildNode("developer_persona") is { } nullNodeDeveloperPersona && nullNodeDeveloperPersona.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeveloperPersona = null;
+            if (parseNode.GetChildNode("role") is null) { _explicitNullValueRole = default!; _explicitNullProperties?.Remove("role"); }
+            else if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
+            if (parseNode.GetChildNode("role_id") is null) { _explicitNullValueRoleId = default!; _explicitNullProperties?.Remove("role_id"); }
+            else if (parseNode.GetChildNode("role_id") is { } nullNodeRoleId && nullNodeRoleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleId = null;
+            if (parseNode.GetChildNode("technical_level") is null) { _explicitNullValueTechnicalLevel = default!; _explicitNullProperties?.Remove("technical_level"); }
+            else if (parseNode.GetChildNode("technical_level") is { } nullNodeTechnicalLevel && nullNodeTechnicalLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TechnicalLevel = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Developer persona metadata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeveloperPersona { get => _explicitNullValueDeveloperPersona; set { _explicitNullValueDeveloperPersona = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("developer_persona"); else _explicitNullProperties?.Remove("developer_persona"); } }
+        public string? DeveloperPersona { get => _explicitNullValueDeveloperPersona; set { _explicitNullValueDeveloperPersona = value; AdditionalData?.Remove("developer_persona"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("developer_persona"); else _explicitNullProperties?.Remove("developer_persona"); } }
         private string? _explicitNullValueDeveloperPersona = default!;
 #nullable restore
 #else
-        public string DeveloperPersona { get => _explicitNullValueDeveloperPersona; set { _explicitNullValueDeveloperPersona = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("developer_persona"); else _explicitNullProperties?.Remove("developer_persona"); } }
+        public string DeveloperPersona { get => _explicitNullValueDeveloperPersona; set { _explicitNullValueDeveloperPersona = value; AdditionalData?.Remove("developer_persona"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("developer_persona"); else _explicitNullProperties?.Remove("developer_persona"); } }
         private string _explicitNullValueDeveloperPersona = default!;
 #endif
         /// <summary>`owner` or `reader`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
+        public string? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; AdditionalData?.Remove("role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
         private string? _explicitNullValueRole = default!;
 #nullable restore
 #else
-        public string Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
+        public string Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; AdditionalData?.Remove("role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
         private string _explicitNullValueRole = default!;
 #endif
         /// <summary>Role ID to assign to the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RoleId { get => _explicitNullValueRoleId; set { _explicitNullValueRoleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_id"); else _explicitNullProperties?.Remove("role_id"); } }
+        public string? RoleId { get => _explicitNullValueRoleId; set { _explicitNullValueRoleId = value; AdditionalData?.Remove("role_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_id"); else _explicitNullProperties?.Remove("role_id"); } }
         private string? _explicitNullValueRoleId = default!;
 #nullable restore
 #else
-        public string RoleId { get => _explicitNullValueRoleId; set { _explicitNullValueRoleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_id"); else _explicitNullProperties?.Remove("role_id"); } }
+        public string RoleId { get => _explicitNullValueRoleId; set { _explicitNullValueRoleId = value; AdditionalData?.Remove("role_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_id"); else _explicitNullProperties?.Remove("role_id"); } }
         private string _explicitNullValueRoleId = default!;
 #endif
         /// <summary>Technical level metadata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TechnicalLevel { get => _explicitNullValueTechnicalLevel; set { _explicitNullValueTechnicalLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("technical_level"); else _explicitNullProperties?.Remove("technical_level"); } }
+        public string? TechnicalLevel { get => _explicitNullValueTechnicalLevel; set { _explicitNullValueTechnicalLevel = value; AdditionalData?.Remove("technical_level"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("technical_level"); else _explicitNullProperties?.Remove("technical_level"); } }
         private string? _explicitNullValueTechnicalLevel = default!;
 #nullable restore
 #else
-        public string TechnicalLevel { get => _explicitNullValueTechnicalLevel; set { _explicitNullValueTechnicalLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("technical_level"); else _explicitNullProperties?.Remove("technical_level"); } }
+        public string TechnicalLevel { get => _explicitNullValueTechnicalLevel; set { _explicitNullValueTechnicalLevel = value; AdditionalData?.Remove("technical_level"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("technical_level"); else _explicitNullProperties?.Remove("technical_level"); } }
         private string _explicitNullValueTechnicalLevel = default!;
 #endif
         /// <summary>

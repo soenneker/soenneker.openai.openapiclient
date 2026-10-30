@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("geography") is { } nullNodeGeography && nullNodeGeography.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Geography = null;
-            if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
+            if (parseNode.GetChildNode("geography") is null) { _explicitNullValueGeography = default!; _explicitNullProperties?.Remove("geography"); }
+            else if (parseNode.GetChildNode("geography") is { } nullNodeGeography && nullNodeGeography.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Geography = null;
+            if (parseNode.GetChildNode("provider") is null) { _explicitNullValueProvider = default!; _explicitNullProperties?.Remove("provider"); }
+            else if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,22 +29,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The OpenAI geography derived from the storage region.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Geography { get => _explicitNullValueGeography; set { _explicitNullValueGeography = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("geography"); else _explicitNullProperties?.Remove("geography"); } }
+        public string? Geography { get => _explicitNullValueGeography; set { _explicitNullValueGeography = value; AdditionalData?.Remove("geography"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("geography"); else _explicitNullProperties?.Remove("geography"); } }
         private string? _explicitNullValueGeography = default!;
 #nullable restore
 #else
-        public string Geography { get => _explicitNullValueGeography; set { _explicitNullValueGeography = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("geography"); else _explicitNullProperties?.Remove("geography"); } }
+        public string Geography { get => _explicitNullValueGeography; set { _explicitNullValueGeography = value; AdditionalData?.Remove("geography"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("geography"); else _explicitNullProperties?.Remove("geography"); } }
         private string _explicitNullValueGeography = default!;
 #endif
         /// <summary>The provider property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Provider? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.Provider? _explicitNullValueProvider = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExternalStorageResponseProvider? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; AdditionalData?.Remove("provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ExternalStorageResponseProvider? _explicitNullValueProvider = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Provider Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.Provider _explicitNullValueProvider = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExternalStorageResponseProvider Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; AdditionalData?.Remove("provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ExternalStorageResponseProvider _explicitNullValueProvider = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegisteredData"/> and sets the default values.
@@ -70,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "geography", n => { Geography = n.GetStringValue(); } },
-                { "provider", n => { Provider = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Provider>(global::Soenneker.OpenAI.OpenApiClient.Models.Provider.CreateFromDiscriminatorValue); } },
+                { "provider", n => { Provider = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExternalStorageResponseProvider>(global::Soenneker.OpenAI.OpenApiClient.Models.ExternalStorageResponseProvider.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -81,7 +83,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("geography", Geography);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Provider>("provider", Provider);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExternalStorageResponseProvider>("provider", Provider);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

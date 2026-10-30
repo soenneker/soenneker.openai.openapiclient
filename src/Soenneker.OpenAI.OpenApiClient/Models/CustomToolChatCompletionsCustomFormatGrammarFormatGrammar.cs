@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("definition") is { } nullNodeDefinition && nullNodeDefinition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Definition = null;
-            if (parseNode.GetChildNode("syntax") is { } nullNodeSyntax && nullNodeSyntax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Syntax = null;
+            if (parseNode.GetChildNode("definition") is null) { _explicitNullValueDefinition = default!; _explicitNullProperties?.Remove("definition"); }
+            else if (parseNode.GetChildNode("definition") is { } nullNodeDefinition && nullNodeDefinition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Definition = null;
+            if (parseNode.GetChildNode("syntax") is null) { _explicitNullValueSyntax = default!; _explicitNullProperties?.Remove("syntax"); }
+            else if (parseNode.GetChildNode("syntax") is { } nullNodeSyntax && nullNodeSyntax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Syntax = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The grammar definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Definition { get => _explicitNullValueDefinition; set { _explicitNullValueDefinition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("definition"); else _explicitNullProperties?.Remove("definition"); } }
+        public string? Definition { get => _explicitNullValueDefinition; set { _explicitNullValueDefinition = value; AdditionalData?.Remove("definition"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("definition"); else _explicitNullProperties?.Remove("definition"); } }
         private string? _explicitNullValueDefinition = default!;
 #nullable restore
 #else
-        public string Definition { get => _explicitNullValueDefinition; set { _explicitNullValueDefinition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("definition"); else _explicitNullProperties?.Remove("definition"); } }
+        public string Definition { get => _explicitNullValueDefinition; set { _explicitNullValueDefinition = value; AdditionalData?.Remove("definition"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("definition"); else _explicitNullProperties?.Remove("definition"); } }
         private string _explicitNullValueDefinition = default!;
 #endif
         /// <summary>The syntax of the grammar definition. One of `lark` or `regex`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammarSyntax? Syntax { get => _explicitNullValueSyntax; set { _explicitNullValueSyntax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("syntax"); else _explicitNullProperties?.Remove("syntax"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammarSyntax? Syntax { get => _explicitNullValueSyntax; set { _explicitNullValueSyntax = value; AdditionalData?.Remove("syntax"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("syntax"); else _explicitNullProperties?.Remove("syntax"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammarSyntax? _explicitNullValueSyntax = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar"/> and sets the default values.
@@ -63,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "definition", n => { Definition = n.GetStringValue(); } },
-                { "syntax", n => { Syntax = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammarSyntax>(); } },
+                { "syntax", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammarSyntax>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSyntax = default; _explicitNullProperties?.Remove("syntax"); AdditionalData["syntax"] = unknown; } else { Syntax = parsed; AdditionalData.Remove("syntax"); } } },
             };
         }
         /// <summary>

@@ -18,9 +18,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("commands") is { } nullNodeCommands && nullNodeCommands.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Commands = null;
-            if (parseNode.GetChildNode("max_output_length") is { } nullNodeMaxOutputLength && nullNodeMaxOutputLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxOutputLength = null;
-            if (parseNode.GetChildNode("timeout_ms") is { } nullNodeTimeoutMs && nullNodeTimeoutMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutMs = null;
+            if (parseNode.GetChildNode("commands") is null) { _explicitNullValueCommands = default!; _explicitNullProperties?.Remove("commands"); }
+            else if (parseNode.GetChildNode("commands") is { } nullNodeCommands && nullNodeCommands.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Commands = null;
+            if (parseNode.GetChildNode("max_output_length") is null) { _explicitNullValueMaxOutputLength = default!; _explicitNullProperties?.Remove("max_output_length"); }
+            else if (parseNode.GetChildNode("max_output_length") is { } nullNodeMaxOutputLength && nullNodeMaxOutputLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxOutputLength = null;
+            if (parseNode.GetChildNode("timeout_ms") is null) { _explicitNullValueTimeoutMs = default!; _explicitNullProperties?.Remove("timeout_ms"); }
+            else if (parseNode.GetChildNode("timeout_ms") is { } nullNodeTimeoutMs && nullNodeTimeoutMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutMs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,18 +31,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The commands property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Commands { get => _explicitNullValueCommands; set { _explicitNullValueCommands = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commands"); else _explicitNullProperties?.Remove("commands"); } }
+        public List<string>? Commands { get => _explicitNullValueCommands; set { _explicitNullValueCommands = value; AdditionalData?.Remove("commands"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commands"); else _explicitNullProperties?.Remove("commands"); } }
         private List<string>? _explicitNullValueCommands = default!;
 #nullable restore
 #else
-        public List<string> Commands { get => _explicitNullValueCommands; set { _explicitNullValueCommands = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commands"); else _explicitNullProperties?.Remove("commands"); } }
+        public List<string> Commands { get => _explicitNullValueCommands; set { _explicitNullValueCommands = value; AdditionalData?.Remove("commands"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commands"); else _explicitNullProperties?.Remove("commands"); } }
         private List<string> _explicitNullValueCommands = default!;
 #endif
         /// <summary>Optional maximum number of characters to return from each command.</summary>
-        public int? MaxOutputLength { get => _explicitNullValueMaxOutputLength; set { _explicitNullValueMaxOutputLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_output_length"); else _explicitNullProperties?.Remove("max_output_length"); } }
+        public int? MaxOutputLength { get => _explicitNullValueMaxOutputLength; set { _explicitNullValueMaxOutputLength = value; AdditionalData?.Remove("max_output_length"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_output_length"); else _explicitNullProperties?.Remove("max_output_length"); } }
         private int? _explicitNullValueMaxOutputLength = default!;
         /// <summary>Optional timeout in milliseconds for the commands.</summary>
-        public int? TimeoutMs { get => _explicitNullValueTimeoutMs; set { _explicitNullValueTimeoutMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_ms"); else _explicitNullProperties?.Remove("timeout_ms"); } }
+        public int? TimeoutMs { get => _explicitNullValueTimeoutMs; set { _explicitNullValueTimeoutMs = value; AdditionalData?.Remove("timeout_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_ms"); else _explicitNullProperties?.Remove("timeout_ms"); } }
         private int? _explicitNullValueTimeoutMs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellAction"/> and sets the default values.

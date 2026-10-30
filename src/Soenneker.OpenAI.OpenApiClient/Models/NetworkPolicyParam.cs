@@ -18,9 +18,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("access") is { } nullNodeAccess && nullNodeAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Access = null;
-            if (parseNode.GetChildNode("allowed_domains") is { } nullNodeAllowedDomains && nullNodeAllowedDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedDomains = null;
-            if (parseNode.GetChildNode("blocked_domains") is { } nullNodeBlockedDomains && nullNodeBlockedDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockedDomains = null;
+            if (parseNode.GetChildNode("access") is null) { _explicitNullValueAccess = default!; _explicitNullProperties?.Remove("access"); }
+            else if (parseNode.GetChildNode("access") is { } nullNodeAccess && nullNodeAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Access = null;
+            if (parseNode.GetChildNode("allowed_domains") is null) { _explicitNullValueAllowedDomains = default!; _explicitNullProperties?.Remove("allowed_domains"); }
+            else if (parseNode.GetChildNode("allowed_domains") is { } nullNodeAllowedDomains && nullNodeAllowedDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedDomains = null;
+            if (parseNode.GetChildNode("blocked_domains") is null) { _explicitNullValueBlockedDomains = default!; _explicitNullProperties?.Remove("blocked_domains"); }
+            else if (parseNode.GetChildNode("blocked_domains") is { } nullNodeBlockedDomains && nullNodeBlockedDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockedDomains = null;
         }
 
         /// <summary>The environment&apos;s network access mode.</summary>

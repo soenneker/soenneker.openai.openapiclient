@@ -18,7 +18,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("reasoning_tokens") is { } nullNodeReasoningTokens && nullNodeReasoningTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasoningTokens = null;
+            if (parseNode.GetChildNode("reasoning_tokens") is null) { _explicitNullValueReasoningTokens = default!; _explicitNullProperties?.Remove("reasoning_tokens"); }
+            else if (parseNode.GetChildNode("reasoning_tokens") is { } nullNodeReasoningTokens && nullNodeReasoningTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasoningTokens = null;
         }
 
         /// <summary>The number of output tokens used for reasoning.</summary>

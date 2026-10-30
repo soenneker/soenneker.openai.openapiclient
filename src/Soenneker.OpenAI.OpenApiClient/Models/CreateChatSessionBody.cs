@@ -18,11 +18,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("chatkit_configuration") is { } nullNodeChatkitConfiguration && nullNodeChatkitConfiguration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChatkitConfiguration = null;
-            if (parseNode.GetChildNode("expires_after") is { } nullNodeExpiresAfter && nullNodeExpiresAfter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAfter = null;
-            if (parseNode.GetChildNode("rate_limits") is { } nullNodeRateLimits && nullNodeRateLimits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RateLimits = null;
-            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
-            if (parseNode.GetChildNode("workflow") is { } nullNodeWorkflow && nullNodeWorkflow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workflow = null;
+            if (parseNode.GetChildNode("chatkit_configuration") is null) { _explicitNullValueChatkitConfiguration = default!; _explicitNullProperties?.Remove("chatkit_configuration"); }
+            else if (parseNode.GetChildNode("chatkit_configuration") is { } nullNodeChatkitConfiguration && nullNodeChatkitConfiguration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChatkitConfiguration = null;
+            if (parseNode.GetChildNode("expires_after") is null) { _explicitNullValueExpiresAfter = default!; _explicitNullProperties?.Remove("expires_after"); }
+            else if (parseNode.GetChildNode("expires_after") is { } nullNodeExpiresAfter && nullNodeExpiresAfter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAfter = null;
+            if (parseNode.GetChildNode("rate_limits") is null) { _explicitNullValueRateLimits = default!; _explicitNullProperties?.Remove("rate_limits"); }
+            else if (parseNode.GetChildNode("rate_limits") is { } nullNodeRateLimits && nullNodeRateLimits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RateLimits = null;
+            if (parseNode.GetChildNode("user") is null) { _explicitNullValueUser = default!; _explicitNullProperties?.Remove("user"); }
+            else if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+            if (parseNode.GetChildNode("workflow") is null) { _explicitNullValueWorkflow = default!; _explicitNullProperties?.Remove("workflow"); }
+            else if (parseNode.GetChildNode("workflow") is { } nullNodeWorkflow && nullNodeWorkflow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workflow = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,51 +35,51 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Optional overrides for ChatKit runtime configuration features</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitConfigurationParam? ChatkitConfiguration { get => _explicitNullValueChatkitConfiguration; set { _explicitNullValueChatkitConfiguration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chatkit_configuration"); else _explicitNullProperties?.Remove("chatkit_configuration"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitConfigurationParam? ChatkitConfiguration { get => _explicitNullValueChatkitConfiguration; set { _explicitNullValueChatkitConfiguration = value; AdditionalData?.Remove("chatkit_configuration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chatkit_configuration"); else _explicitNullProperties?.Remove("chatkit_configuration"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitConfigurationParam? _explicitNullValueChatkitConfiguration = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitConfigurationParam ChatkitConfiguration { get => _explicitNullValueChatkitConfiguration; set { _explicitNullValueChatkitConfiguration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chatkit_configuration"); else _explicitNullProperties?.Remove("chatkit_configuration"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitConfigurationParam ChatkitConfiguration { get => _explicitNullValueChatkitConfiguration; set { _explicitNullValueChatkitConfiguration = value; AdditionalData?.Remove("chatkit_configuration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chatkit_configuration"); else _explicitNullProperties?.Remove("chatkit_configuration"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitConfigurationParam _explicitNullValueChatkitConfiguration = default!;
 #endif
         /// <summary>Optional override for session expiration timing in seconds from creation. Defaults to 10 minutes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParam? ExpiresAfter { get => _explicitNullValueExpiresAfter; set { _explicitNullValueExpiresAfter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_after"); else _explicitNullProperties?.Remove("expires_after"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParam? ExpiresAfter { get => _explicitNullValueExpiresAfter; set { _explicitNullValueExpiresAfter = value; AdditionalData?.Remove("expires_after"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_after"); else _explicitNullProperties?.Remove("expires_after"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParam? _explicitNullValueExpiresAfter = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParam ExpiresAfter { get => _explicitNullValueExpiresAfter; set { _explicitNullValueExpiresAfter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_after"); else _explicitNullProperties?.Remove("expires_after"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParam ExpiresAfter { get => _explicitNullValueExpiresAfter; set { _explicitNullValueExpiresAfter = value; AdditionalData?.Remove("expires_after"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_after"); else _explicitNullProperties?.Remove("expires_after"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ExpiresAfterParam _explicitNullValueExpiresAfter = default!;
 #endif
         /// <summary>Optional override for per-minute request limits. When omitted, defaults to 10.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RateLimitsParam? RateLimits { get => _explicitNullValueRateLimits; set { _explicitNullValueRateLimits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_limits"); else _explicitNullProperties?.Remove("rate_limits"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RateLimitsParam? RateLimits { get => _explicitNullValueRateLimits; set { _explicitNullValueRateLimits = value; AdditionalData?.Remove("rate_limits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_limits"); else _explicitNullProperties?.Remove("rate_limits"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RateLimitsParam? _explicitNullValueRateLimits = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RateLimitsParam RateLimits { get => _explicitNullValueRateLimits; set { _explicitNullValueRateLimits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_limits"); else _explicitNullProperties?.Remove("rate_limits"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RateLimitsParam RateLimits { get => _explicitNullValueRateLimits; set { _explicitNullValueRateLimits = value; AdditionalData?.Remove("rate_limits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_limits"); else _explicitNullProperties?.Remove("rate_limits"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RateLimitsParam _explicitNullValueRateLimits = default!;
 #endif
         /// <summary>A free-form string that identifies your end user; ensures this Session can access other objects that have the same `user` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        public string? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; AdditionalData?.Remove("user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
         private string? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public string User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        public string User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; AdditionalData?.Remove("user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
         private string _explicitNullValueUser = default!;
 #endif
         /// <summary>Workflow that powers the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParam? Workflow { get => _explicitNullValueWorkflow; set { _explicitNullValueWorkflow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow"); else _explicitNullProperties?.Remove("workflow"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParam? Workflow { get => _explicitNullValueWorkflow; set { _explicitNullValueWorkflow = value; AdditionalData?.Remove("workflow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow"); else _explicitNullProperties?.Remove("workflow"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParam? _explicitNullValueWorkflow = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParam Workflow { get => _explicitNullValueWorkflow; set { _explicitNullValueWorkflow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow"); else _explicitNullProperties?.Remove("workflow"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParam Workflow { get => _explicitNullValueWorkflow; set { _explicitNullValueWorkflow = value; AdditionalData?.Remove("workflow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow"); else _explicitNullProperties?.Remove("workflow"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.WorkflowParam _explicitNullValueWorkflow = default!;
 #endif
         /// <summary>

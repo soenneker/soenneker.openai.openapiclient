@@ -18,9 +18,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auth") is { } nullNodeAuth && nullNodeAuth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Auth = null;
-            if (parseNode.GetChildNode("caller_number") is { } nullNodeCallerNumber && nullNodeCallerNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallerNumber = null;
-            if (parseNode.GetChildNode("provider_url") is { } nullNodeProviderUrl && nullNodeProviderUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderUrl = null;
+            if (parseNode.GetChildNode("auth") is null) { _explicitNullValueAuth = default!; _explicitNullProperties?.Remove("auth"); }
+            else if (parseNode.GetChildNode("auth") is { } nullNodeAuth && nullNodeAuth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Auth = null;
+            if (parseNode.GetChildNode("caller_number") is null) { _explicitNullValueCallerNumber = default!; _explicitNullProperties?.Remove("caller_number"); }
+            else if (parseNode.GetChildNode("caller_number") is { } nullNodeCallerNumber && nullNodeCallerNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallerNumber = null;
+            if (parseNode.GetChildNode("provider_url") is null) { _explicitNullValueProviderUrl = default!; _explicitNullProperties?.Remove("provider_url"); }
+            else if (parseNode.GetChildNode("provider_url") is { } nullNodeProviderUrl && nullNodeProviderUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderUrl = null;
         }
 
         /// <summary>Credentials for SIP Digest authentication with your trunk provider.</summary>

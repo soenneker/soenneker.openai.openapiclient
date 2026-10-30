@@ -18,9 +18,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("prompt") is { } nullNodePrompt && nullNodePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prompt = null;
-            if (parseNode.GetChildNode("seconds") is { } nullNodeSeconds && nullNodeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seconds = null;
-            if (parseNode.GetChildNode("video") is { } nullNodeVideo && nullNodeVideo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Video = null;
+            if (parseNode.GetChildNode("prompt") is null) { _explicitNullValuePrompt = default!; _explicitNullProperties?.Remove("prompt"); }
+            else if (parseNode.GetChildNode("prompt") is { } nullNodePrompt && nullNodePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prompt = null;
+            if (parseNode.GetChildNode("seconds") is null) { _explicitNullValueSeconds = default!; _explicitNullProperties?.Remove("seconds"); }
+            else if (parseNode.GetChildNode("seconds") is { } nullNodeSeconds && nullNodeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seconds = null;
+            if (parseNode.GetChildNode("video") is null) { _explicitNullValueVideo = default!; _explicitNullProperties?.Remove("video"); }
+            else if (parseNode.GetChildNode("video") is { } nullNodeVideo && nullNodeVideo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Video = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,24 +31,24 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Updated text prompt that directs the extension generation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        public string? Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; AdditionalData?.Remove("prompt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
         private string? _explicitNullValuePrompt = default!;
 #nullable restore
 #else
-        public string Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        public string Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; AdditionalData?.Remove("prompt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
         private string _explicitNullValuePrompt = default!;
 #endif
         /// <summary>Length of the newly generated extension segment in seconds (allowed values: 4, 8, 12, 16, 20).</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds? Seconds { get => _explicitNullValueSeconds; set { _explicitNullValueSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seconds"); else _explicitNullProperties?.Remove("seconds"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds? Seconds { get => _explicitNullValueSeconds; set { _explicitNullValueSeconds = value; AdditionalData?.Remove("seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seconds"); else _explicitNullProperties?.Remove("seconds"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds? _explicitNullValueSeconds = default!;
         /// <summary>The video property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideo? Video { get => _explicitNullValueVideo; set { _explicitNullValueVideo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("video"); else _explicitNullProperties?.Remove("video"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideo? Video { get => _explicitNullValueVideo; set { _explicitNullValueVideo = value; AdditionalData?.Remove("video"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("video"); else _explicitNullProperties?.Remove("video"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideo? _explicitNullValueVideo = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideo Video { get => _explicitNullValueVideo; set { _explicitNullValueVideo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("video"); else _explicitNullProperties?.Remove("video"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideo Video { get => _explicitNullValueVideo; set { _explicitNullValueVideo = value; AdditionalData?.Remove("video"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("video"); else _explicitNullProperties?.Remove("video"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideo _explicitNullValueVideo = default!;
 #endif
         /// <summary>
@@ -74,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
-                { "seconds", n => { Seconds = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds>(); } },
+                { "seconds", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoSeconds>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSeconds = default; _explicitNullProperties?.Remove("seconds"); AdditionalData["seconds"] = unknown; } else { Seconds = parsed; AdditionalData.Remove("seconds"); } } },
                 { "video", n => { Video = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideo>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateVideoExtendMultipartBodyVideo.CreateFromDiscriminatorValue); } },
             };
         }

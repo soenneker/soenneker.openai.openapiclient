@@ -17,23 +17,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
-            if (parseNode.GetChildNode("wandb") is { } nullNodeWandb && nullNodeWandb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Wandb = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("wandb") is null) { _explicitNullValueWandb = default!; _explicitNullProperties?.Remove("wandb"); }
+            else if (parseNode.GetChildNode("wandb") is { } nullNodeWandb && nullNodeWandb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Wandb = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The type of the integration being enabled for the fine-tuning job</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WandbType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WandbType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.WandbType? _explicitNullValueType = default!;
         /// <summary>The settings for your integration with Weights and Biases. This payload specifies the project thatmetrics will be sent to. Optionally, you can set an explicit display name for your run, add tagsto your run, and set a default entity (team, username, etc) to be associated with your run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningIntegrationWandb? Wandb { get => _explicitNullValueWandb; set { _explicitNullValueWandb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wandb"); else _explicitNullProperties?.Remove("wandb"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningIntegrationWandb? Wandb { get => _explicitNullValueWandb; set { _explicitNullValueWandb = value; AdditionalData?.Remove("wandb"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wandb"); else _explicitNullProperties?.Remove("wandb"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningIntegrationWandb? _explicitNullValueWandb = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningIntegrationWandb Wandb { get => _explicitNullValueWandb; set { _explicitNullValueWandb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wandb"); else _explicitNullProperties?.Remove("wandb"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningIntegrationWandb Wandb { get => _explicitNullValueWandb; set { _explicitNullValueWandb = value; AdditionalData?.Remove("wandb"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wandb"); else _explicitNullProperties?.Remove("wandb"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningIntegrationWandb _explicitNullValueWandb = default!;
 #endif
         /// <summary>
@@ -61,7 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WandbType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WandbType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
                 { "wandb", n => { Wandb = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningIntegrationWandb>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningIntegrationWandb.CreateFromDiscriminatorValue); } },
             };
         }

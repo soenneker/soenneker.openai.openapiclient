@@ -18,13 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("verbosity") is { } nullNodeVerbosity && nullNodeVerbosity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verbosity = null;
+            if (parseNode.GetChildNode("verbosity") is null) { _explicitNullValueVerbosity = default!; _explicitNullProperties?.Remove("verbosity"); }
+            else if (parseNode.GetChildNode("verbosity") is { } nullNodeVerbosity && nullNodeVerbosity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verbosity = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The verbosity property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveTextVerbosity? Verbosity { get => _explicitNullValueVerbosity; set { _explicitNullValueVerbosity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verbosity"); else _explicitNullProperties?.Remove("verbosity"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveTextVerbosity? Verbosity { get => _explicitNullValueVerbosity; set { _explicitNullValueVerbosity = value; AdditionalData?.Remove("verbosity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verbosity"); else _explicitNullProperties?.Remove("verbosity"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.LiveTextVerbosity? _explicitNullValueVerbosity = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationTextInputParam"/> and sets the default values.
@@ -51,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "verbosity", n => { Verbosity = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveTextVerbosity>(); } },
+                { "verbosity", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveTextVerbosity>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueVerbosity = default; _explicitNullProperties?.Remove("verbosity"); AdditionalData["verbosity"] = unknown; } else { Verbosity = parsed; AdditionalData.Remove("verbosity"); } } },
             };
         }
         /// <summary>

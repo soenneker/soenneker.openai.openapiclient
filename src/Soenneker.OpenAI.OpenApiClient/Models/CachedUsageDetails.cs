@@ -17,17 +17,19 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cached_image_tokens") is { } nullNodeCachedImageTokens && nullNodeCachedImageTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedImageTokens = null;
-            if (parseNode.GetChildNode("cached_text_tokens") is { } nullNodeCachedTextTokens && nullNodeCachedTextTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedTextTokens = null;
+            if (parseNode.GetChildNode("cached_image_tokens") is null) { _explicitNullValueCachedImageTokens = default!; _explicitNullProperties?.Remove("cached_image_tokens"); }
+            else if (parseNode.GetChildNode("cached_image_tokens") is { } nullNodeCachedImageTokens && nullNodeCachedImageTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedImageTokens = null;
+            if (parseNode.GetChildNode("cached_text_tokens") is null) { _explicitNullValueCachedTextTokens = default!; _explicitNullProperties?.Remove("cached_text_tokens"); }
+            else if (parseNode.GetChildNode("cached_text_tokens") is { } nullNodeCachedTextTokens && nullNodeCachedTextTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedTextTokens = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The cached_image_tokens property</summary>
-        public int? CachedImageTokens { get => _explicitNullValueCachedImageTokens; set { _explicitNullValueCachedImageTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_image_tokens"); else _explicitNullProperties?.Remove("cached_image_tokens"); } }
+        public int? CachedImageTokens { get => _explicitNullValueCachedImageTokens; set { _explicitNullValueCachedImageTokens = value; AdditionalData?.Remove("cached_image_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_image_tokens"); else _explicitNullProperties?.Remove("cached_image_tokens"); } }
         private int? _explicitNullValueCachedImageTokens = default!;
         /// <summary>The cached_text_tokens property</summary>
-        public int? CachedTextTokens { get => _explicitNullValueCachedTextTokens; set { _explicitNullValueCachedTextTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_text_tokens"); else _explicitNullProperties?.Remove("cached_text_tokens"); } }
+        public int? CachedTextTokens { get => _explicitNullValueCachedTextTokens; set { _explicitNullValueCachedTextTokens = value; AdditionalData?.Remove("cached_text_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_text_tokens"); else _explicitNullProperties?.Remove("cached_text_tokens"); } }
         private int? _explicitNullValueCachedTextTokens = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CachedUsageDetails"/> and sets the default values.

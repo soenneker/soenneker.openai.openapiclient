@@ -18,13 +18,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("api_call_logging") is { } nullNodeApiCallLogging && nullNodeApiCallLogging.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiCallLogging = null;
-            if (parseNode.GetChildNode("api_call_logging_project_ids") is { } nullNodeApiCallLoggingProjectIds && nullNodeApiCallLoggingProjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiCallLoggingProjectIds = null;
-            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("threads_ui_visibility") is { } nullNodeThreadsUiVisibility && nullNodeThreadsUiVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadsUiVisibility = null;
-            if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
-            if (parseNode.GetChildNode("usage_dashboard_visibility") is { } nullNodeUsageDashboardVisibility && nullNodeUsageDashboardVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsageDashboardVisibility = null;
+            if (parseNode.GetChildNode("api_call_logging") is null) { _explicitNullValueApiCallLogging = default!; _explicitNullProperties?.Remove("api_call_logging"); }
+            else if (parseNode.GetChildNode("api_call_logging") is { } nullNodeApiCallLogging && nullNodeApiCallLogging.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiCallLogging = null;
+            if (parseNode.GetChildNode("api_call_logging_project_ids") is null) { _explicitNullValueApiCallLoggingProjectIds = default!; _explicitNullProperties?.Remove("api_call_logging_project_ids"); }
+            else if (parseNode.GetChildNode("api_call_logging_project_ids") is { } nullNodeApiCallLoggingProjectIds && nullNodeApiCallLoggingProjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiCallLoggingProjectIds = null;
+            if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
+            else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("threads_ui_visibility") is null) { _explicitNullValueThreadsUiVisibility = default!; _explicitNullProperties?.Remove("threads_ui_visibility"); }
+            else if (parseNode.GetChildNode("threads_ui_visibility") is { } nullNodeThreadsUiVisibility && nullNodeThreadsUiVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadsUiVisibility = null;
+            if (parseNode.GetChildNode("title") is null) { _explicitNullValueTitle = default!; _explicitNullProperties?.Remove("title"); }
+            else if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
+            if (parseNode.GetChildNode("usage_dashboard_visibility") is null) { _explicitNullValueUsageDashboardVisibility = default!; _explicitNullProperties?.Remove("usage_dashboard_visibility"); }
+            else if (parseNode.GetChildNode("usage_dashboard_visibility") is { } nullNodeUsageDashboardVisibility && nullNodeUsageDashboardVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsageDashboardVisibility = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,71 +39,71 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>How your organization logs data from supported API calls. One of `disabled`, `enabled_per_call`, `enabled_for_all_projects`, or `enabled_for_selected_projects`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiCallLogging { get => _explicitNullValueApiCallLogging; set { _explicitNullValueApiCallLogging = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_call_logging"); else _explicitNullProperties?.Remove("api_call_logging"); } }
+        public string? ApiCallLogging { get => _explicitNullValueApiCallLogging; set { _explicitNullValueApiCallLogging = value; AdditionalData?.Remove("api_call_logging"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_call_logging"); else _explicitNullProperties?.Remove("api_call_logging"); } }
         private string? _explicitNullValueApiCallLogging = default!;
 #nullable restore
 #else
-        public string ApiCallLogging { get => _explicitNullValueApiCallLogging; set { _explicitNullValueApiCallLogging = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_call_logging"); else _explicitNullProperties?.Remove("api_call_logging"); } }
+        public string ApiCallLogging { get => _explicitNullValueApiCallLogging; set { _explicitNullValueApiCallLogging = value; AdditionalData?.Remove("api_call_logging"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_call_logging"); else _explicitNullProperties?.Remove("api_call_logging"); } }
         private string _explicitNullValueApiCallLogging = default!;
 #endif
         /// <summary>The list of project ids if api_call_logging is set to `enabled_for_selected_projects`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiCallLoggingProjectIds { get => _explicitNullValueApiCallLoggingProjectIds; set { _explicitNullValueApiCallLoggingProjectIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_call_logging_project_ids"); else _explicitNullProperties?.Remove("api_call_logging_project_ids"); } }
+        public string? ApiCallLoggingProjectIds { get => _explicitNullValueApiCallLoggingProjectIds; set { _explicitNullValueApiCallLoggingProjectIds = value; AdditionalData?.Remove("api_call_logging_project_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_call_logging_project_ids"); else _explicitNullProperties?.Remove("api_call_logging_project_ids"); } }
         private string? _explicitNullValueApiCallLoggingProjectIds = default!;
 #nullable restore
 #else
-        public string ApiCallLoggingProjectIds { get => _explicitNullValueApiCallLoggingProjectIds; set { _explicitNullValueApiCallLoggingProjectIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_call_logging_project_ids"); else _explicitNullProperties?.Remove("api_call_logging_project_ids"); } }
+        public string ApiCallLoggingProjectIds { get => _explicitNullValueApiCallLoggingProjectIds; set { _explicitNullValueApiCallLoggingProjectIds = value; AdditionalData?.Remove("api_call_logging_project_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_call_logging_project_ids"); else _explicitNullProperties?.Remove("api_call_logging_project_ids"); } }
         private string _explicitNullValueApiCallLoggingProjectIds = default!;
 #endif
         /// <summary>The organization description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The organization name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Visibility of the threads page which shows messages created with the Assistants API and Playground. One of `ANY_ROLE`, `OWNERS`, or `NONE`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ThreadsUiVisibility { get => _explicitNullValueThreadsUiVisibility; set { _explicitNullValueThreadsUiVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threads_ui_visibility"); else _explicitNullProperties?.Remove("threads_ui_visibility"); } }
+        public string? ThreadsUiVisibility { get => _explicitNullValueThreadsUiVisibility; set { _explicitNullValueThreadsUiVisibility = value; AdditionalData?.Remove("threads_ui_visibility"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threads_ui_visibility"); else _explicitNullProperties?.Remove("threads_ui_visibility"); } }
         private string? _explicitNullValueThreadsUiVisibility = default!;
 #nullable restore
 #else
-        public string ThreadsUiVisibility { get => _explicitNullValueThreadsUiVisibility; set { _explicitNullValueThreadsUiVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threads_ui_visibility"); else _explicitNullProperties?.Remove("threads_ui_visibility"); } }
+        public string ThreadsUiVisibility { get => _explicitNullValueThreadsUiVisibility; set { _explicitNullValueThreadsUiVisibility = value; AdditionalData?.Remove("threads_ui_visibility"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threads_ui_visibility"); else _explicitNullProperties?.Remove("threads_ui_visibility"); } }
         private string _explicitNullValueThreadsUiVisibility = default!;
 #endif
         /// <summary>The organization title.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        public string? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; AdditionalData?.Remove("title"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
         private string? _explicitNullValueTitle = default!;
 #nullable restore
 #else
-        public string Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        public string Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; AdditionalData?.Remove("title"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
         private string _explicitNullValueTitle = default!;
 #endif
         /// <summary>Visibility of the usage dashboard which shows activity and costs for your organization. One of `ANY_ROLE` or `OWNERS`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UsageDashboardVisibility { get => _explicitNullValueUsageDashboardVisibility; set { _explicitNullValueUsageDashboardVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_dashboard_visibility"); else _explicitNullProperties?.Remove("usage_dashboard_visibility"); } }
+        public string? UsageDashboardVisibility { get => _explicitNullValueUsageDashboardVisibility; set { _explicitNullValueUsageDashboardVisibility = value; AdditionalData?.Remove("usage_dashboard_visibility"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_dashboard_visibility"); else _explicitNullProperties?.Remove("usage_dashboard_visibility"); } }
         private string? _explicitNullValueUsageDashboardVisibility = default!;
 #nullable restore
 #else
-        public string UsageDashboardVisibility { get => _explicitNullValueUsageDashboardVisibility; set { _explicitNullValueUsageDashboardVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_dashboard_visibility"); else _explicitNullProperties?.Remove("usage_dashboard_visibility"); } }
+        public string UsageDashboardVisibility { get => _explicitNullValueUsageDashboardVisibility; set { _explicitNullValueUsageDashboardVisibility = value; AdditionalData?.Remove("usage_dashboard_visibility"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_dashboard_visibility"); else _explicitNullProperties?.Remove("usage_dashboard_visibility"); } }
         private string _explicitNullValueUsageDashboardVisibility = default!;
 #endif
         /// <summary>

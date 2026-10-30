@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("format") is { } nullNodeFormat && nullNodeFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Format = null;
-            if (parseNode.GetChildNode("verbosity") is { } nullNodeVerbosity && nullNodeVerbosity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verbosity = null;
+            if (parseNode.GetChildNode("format") is null) { _explicitNullValueFormat = default!; _explicitNullProperties?.Remove("format"); }
+            else if (parseNode.GetChildNode("format") is { } nullNodeFormat && nullNodeFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Format = null;
+            if (parseNode.GetChildNode("verbosity") is null) { _explicitNullValueVerbosity = default!; _explicitNullProperties?.Remove("verbosity"); }
+            else if (parseNode.GetChildNode("verbosity") is { } nullNodeVerbosity && nullNodeVerbosity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verbosity = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>An object specifying the format that the model must output.Configuring `{ &quot;type&quot;: &quot;json_schema&quot; }` enables Structured Outputs,which ensures the model will match your supplied JSON schema. Learn more in the[Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs).The default format is `{ &quot;type&quot;: &quot;text&quot; }` with no additional options.**Not recommended for gpt-4o and newer models:**Setting to `{ &quot;type&quot;: &quot;json_object&quot; }` enables the older JSON mode, whichensures the message the model generates is valid JSON. Using `json_schema`is preferred for models that support it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatConfiguration? Format { get => _explicitNullValueFormat; set { _explicitNullValueFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("format"); else _explicitNullProperties?.Remove("format"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatConfiguration? Format { get => _explicitNullValueFormat; set { _explicitNullValueFormat = value; AdditionalData?.Remove("format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("format"); else _explicitNullProperties?.Remove("format"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatConfiguration? _explicitNullValueFormat = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatConfiguration Format { get => _explicitNullValueFormat; set { _explicitNullValueFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("format"); else _explicitNullProperties?.Remove("format"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatConfiguration Format { get => _explicitNullValueFormat; set { _explicitNullValueFormat = value; AdditionalData?.Remove("format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("format"); else _explicitNullProperties?.Remove("format"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatConfiguration _explicitNullValueFormat = default!;
 #endif
         /// <summary>Constrains the verbosity of the model&apos;s response. Lower values will result inmore concise responses, while higher values will result in more verbose responses.Currently supported values are `low`, `medium`, and `high`. The default is`medium`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity? Verbosity { get => _explicitNullValueVerbosity; set { _explicitNullValueVerbosity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verbosity"); else _explicitNullProperties?.Remove("verbosity"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity? Verbosity { get => _explicitNullValueVerbosity; set { _explicitNullValueVerbosity = value; AdditionalData?.Remove("verbosity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verbosity"); else _explicitNullProperties?.Remove("verbosity"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity? _explicitNullValueVerbosity = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam"/> and sets the default values.
@@ -63,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatConfiguration>(global::Soenneker.OpenAI.OpenApiClient.Models.TextResponseFormatConfiguration.CreateFromDiscriminatorValue); } },
-                { "verbosity", n => { Verbosity = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity>(); } },
+                { "verbosity", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Verbosity>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueVerbosity = default; _explicitNullProperties?.Remove("verbosity"); AdditionalData["verbosity"] = unknown; } else { Verbosity = parsed; AdditionalData.Remove("verbosity"); } } },
             };
         }
         /// <summary>

@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ranker") is { } nullNodeRanker && nullNodeRanker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ranker = null;
-            if (parseNode.GetChildNode("score_threshold") is { } nullNodeScoreThreshold && nullNodeScoreThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScoreThreshold = null;
+            if (parseNode.GetChildNode("ranker") is null) { _explicitNullValueRanker = default!; _explicitNullProperties?.Remove("ranker"); }
+            else if (parseNode.GetChildNode("ranker") is { } nullNodeRanker && nullNodeRanker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ranker = null;
+            if (parseNode.GetChildNode("score_threshold") is null) { _explicitNullValueScoreThreshold = default!; _explicitNullProperties?.Remove("score_threshold"); }
+            else if (parseNode.GetChildNode("score_threshold") is { } nullNodeScoreThreshold && nullNodeScoreThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScoreThreshold = null;
         }
 
         /// <summary>Enable re-ranking; set to `none` to disable, which can help reduce latency.</summary>

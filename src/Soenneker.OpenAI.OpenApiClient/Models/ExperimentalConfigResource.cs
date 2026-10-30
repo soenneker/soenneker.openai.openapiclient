@@ -18,7 +18,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("time_awareness") is { } nullNodeTimeAwareness && nullNodeTimeAwareness.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeAwareness = null;
+            if (parseNode.GetChildNode("time_awareness") is null) { _explicitNullValueTimeAwareness = default!; _explicitNullProperties?.Remove("time_awareness"); }
+            else if (parseNode.GetChildNode("time_awareness") is { } nullNodeTimeAwareness && nullNodeTimeAwareness.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeAwareness = null;
         }
 
         /// <summary>Whether the model receives periodic current-time reminders.</summary>

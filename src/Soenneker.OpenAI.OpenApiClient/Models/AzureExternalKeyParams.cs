@@ -17,13 +17,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("key_name") is { } nullNodeKeyName && nullNodeKeyName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyName = null;
-            if (parseNode.GetChildNode("key_version") is { } nullNodeKeyVersion && nullNodeKeyVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyVersion = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("purpose") is { } nullNodePurpose && nullNodePurpose.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Purpose = null;
-            if (parseNode.GetChildNode("tenant_id") is { } nullNodeTenantId && nullNodeTenantId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TenantId = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
-            if (parseNode.GetChildNode("vault_uri") is { } nullNodeVaultUri && nullNodeVaultUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VaultUri = null;
+            if (parseNode.GetChildNode("key_name") is null) { _explicitNullValueKeyName = default!; _explicitNullProperties?.Remove("key_name"); }
+            else if (parseNode.GetChildNode("key_name") is { } nullNodeKeyName && nullNodeKeyName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyName = null;
+            if (parseNode.GetChildNode("key_version") is null) { _explicitNullValueKeyVersion = default!; _explicitNullProperties?.Remove("key_version"); }
+            else if (parseNode.GetChildNode("key_version") is { } nullNodeKeyVersion && nullNodeKeyVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyVersion = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("purpose") is null) { _explicitNullValuePurpose = default!; _explicitNullProperties?.Remove("purpose"); }
+            else if (parseNode.GetChildNode("purpose") is { } nullNodePurpose && nullNodePurpose.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Purpose = null;
+            if (parseNode.GetChildNode("tenant_id") is null) { _explicitNullValueTenantId = default!; _explicitNullProperties?.Remove("tenant_id"); }
+            else if (parseNode.GetChildNode("tenant_id") is { } nullNodeTenantId && nullNodeTenantId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TenantId = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("vault_uri") is null) { _explicitNullValueVaultUri = default!; _explicitNullProperties?.Remove("vault_uri"); }
+            else if (parseNode.GetChildNode("vault_uri") is { } nullNodeVaultUri && nullNodeVaultUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VaultUri = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,57 +38,57 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The name of the Azure Key Vault master key that you manage</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KeyName { get => _explicitNullValueKeyName; set { _explicitNullValueKeyName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_name"); else _explicitNullProperties?.Remove("key_name"); } }
+        public string? KeyName { get => _explicitNullValueKeyName; set { _explicitNullValueKeyName = value; AdditionalData?.Remove("key_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_name"); else _explicitNullProperties?.Remove("key_name"); } }
         private string? _explicitNullValueKeyName = default!;
 #nullable restore
 #else
-        public string KeyName { get => _explicitNullValueKeyName; set { _explicitNullValueKeyName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_name"); else _explicitNullProperties?.Remove("key_name"); } }
+        public string KeyName { get => _explicitNullValueKeyName; set { _explicitNullValueKeyName = value; AdditionalData?.Remove("key_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_name"); else _explicitNullProperties?.Remove("key_name"); } }
         private string _explicitNullValueKeyName = default!;
 #endif
         /// <summary>An exact Azure Key Vault key version. Required for PSP decryption; not accepted for EKM.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KeyVersion { get => _explicitNullValueKeyVersion; set { _explicitNullValueKeyVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_version"); else _explicitNullProperties?.Remove("key_version"); } }
+        public string? KeyVersion { get => _explicitNullValueKeyVersion; set { _explicitNullValueKeyVersion = value; AdditionalData?.Remove("key_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_version"); else _explicitNullProperties?.Remove("key_version"); } }
         private string? _explicitNullValueKeyVersion = default!;
 #nullable restore
 #else
-        public string KeyVersion { get => _explicitNullValueKeyVersion; set { _explicitNullValueKeyVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_version"); else _explicitNullProperties?.Remove("key_version"); } }
+        public string KeyVersion { get => _explicitNullValueKeyVersion; set { _explicitNullValueKeyVersion = value; AdditionalData?.Remove("key_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_version"); else _explicitNullProperties?.Remove("key_version"); } }
         private string _explicitNullValueKeyVersion = default!;
 #endif
         /// <summary>A friendly name to identify this config</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The purpose property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ExternalKeyPurpose? Purpose { get => _explicitNullValuePurpose; set { _explicitNullValuePurpose = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("purpose"); else _explicitNullProperties?.Remove("purpose"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExternalKeyPurpose? Purpose { get => _explicitNullValuePurpose; set { _explicitNullValuePurpose = value; AdditionalData?.Remove("purpose"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("purpose"); else _explicitNullProperties?.Remove("purpose"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ExternalKeyPurpose? _explicitNullValuePurpose = default!;
         /// <summary>Your Azure tenant UUID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TenantId { get => _explicitNullValueTenantId; set { _explicitNullValueTenantId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tenant_id"); else _explicitNullProperties?.Remove("tenant_id"); } }
+        public string? TenantId { get => _explicitNullValueTenantId; set { _explicitNullValueTenantId = value; AdditionalData?.Remove("tenant_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tenant_id"); else _explicitNullProperties?.Remove("tenant_id"); } }
         private string? _explicitNullValueTenantId = default!;
 #nullable restore
 #else
-        public string TenantId { get => _explicitNullValueTenantId; set { _explicitNullValueTenantId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tenant_id"); else _explicitNullProperties?.Remove("tenant_id"); } }
+        public string TenantId { get => _explicitNullValueTenantId; set { _explicitNullValueTenantId = value; AdditionalData?.Remove("tenant_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tenant_id"); else _explicitNullProperties?.Remove("tenant_id"); } }
         private string _explicitNullValueTenantId = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AzureType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AzureType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.AzureType? _explicitNullValueType = default!;
         /// <summary>The URI of the Azure vault containing the master key you manage</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VaultUri { get => _explicitNullValueVaultUri; set { _explicitNullValueVaultUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vault_uri"); else _explicitNullProperties?.Remove("vault_uri"); } }
+        public string? VaultUri { get => _explicitNullValueVaultUri; set { _explicitNullValueVaultUri = value; AdditionalData?.Remove("vault_uri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vault_uri"); else _explicitNullProperties?.Remove("vault_uri"); } }
         private string? _explicitNullValueVaultUri = default!;
 #nullable restore
 #else
-        public string VaultUri { get => _explicitNullValueVaultUri; set { _explicitNullValueVaultUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vault_uri"); else _explicitNullProperties?.Remove("vault_uri"); } }
+        public string VaultUri { get => _explicitNullValueVaultUri; set { _explicitNullValueVaultUri = value; AdditionalData?.Remove("vault_uri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vault_uri"); else _explicitNullProperties?.Remove("vault_uri"); } }
         private string _explicitNullValueVaultUri = default!;
 #endif
         /// <summary>
@@ -112,9 +119,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "key_name", n => { KeyName = n.GetStringValue(); } },
                 { "key_version", n => { KeyVersion = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "purpose", n => { Purpose = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExternalKeyPurpose>(); } },
+                { "purpose", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExternalKeyPurpose>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePurpose = default; _explicitNullProperties?.Remove("purpose"); AdditionalData["purpose"] = unknown; } else { Purpose = parsed; AdditionalData.Remove("purpose"); } } },
                 { "tenant_id", n => { TenantId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AzureType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AzureType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
                 { "vault_uri", n => { VaultUri = n.GetStringValue(); } },
             };
         }

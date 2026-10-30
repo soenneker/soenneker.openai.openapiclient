@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ranking_options") is { } nullNodeRankingOptions && nullNodeRankingOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RankingOptions = null;
-            if (parseNode.GetChildNode("results") is { } nullNodeResults && nullNodeResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Results = null;
+            if (parseNode.GetChildNode("ranking_options") is null) { _explicitNullValueRankingOptions = default!; _explicitNullProperties?.Remove("ranking_options"); }
+            else if (parseNode.GetChildNode("ranking_options") is { } nullNodeRankingOptions && nullNodeRankingOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RankingOptions = null;
+            if (parseNode.GetChildNode("results") is null) { _explicitNullValueResults = default!; _explicitNullProperties?.Remove("results"); }
+            else if (parseNode.GetChildNode("results") is { } nullNodeResults && nullNodeResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Results = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The ranking options for the file search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchRankingOptionsObject? RankingOptions { get => _explicitNullValueRankingOptions; set { _explicitNullValueRankingOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ranking_options"); else _explicitNullProperties?.Remove("ranking_options"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchRankingOptionsObject? RankingOptions { get => _explicitNullValueRankingOptions; set { _explicitNullValueRankingOptions = value; AdditionalData?.Remove("ranking_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ranking_options"); else _explicitNullProperties?.Remove("ranking_options"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchRankingOptionsObject? _explicitNullValueRankingOptions = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchRankingOptionsObject RankingOptions { get => _explicitNullValueRankingOptions; set { _explicitNullValueRankingOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ranking_options"); else _explicitNullProperties?.Remove("ranking_options"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchRankingOptionsObject RankingOptions { get => _explicitNullValueRankingOptions; set { _explicitNullValueRankingOptions = value; AdditionalData?.Remove("ranking_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ranking_options"); else _explicitNullProperties?.Remove("ranking_options"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchRankingOptionsObject _explicitNullValueRankingOptions = default!;
 #endif
         /// <summary>The results of the file search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObject>? Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObject>? Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; AdditionalData?.Remove("results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObject>? _explicitNullValueResults = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObject> Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObject> Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; AdditionalData?.Remove("results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepDetailsToolCallsFileSearchResultObject> _explicitNullValueResults = default!;
 #endif
         /// <summary>

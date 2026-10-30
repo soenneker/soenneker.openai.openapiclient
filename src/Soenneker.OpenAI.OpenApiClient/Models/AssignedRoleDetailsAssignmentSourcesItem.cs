@@ -17,8 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("principal_id") is { } nullNodePrincipalId && nullNodePrincipalId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrincipalId = null;
-            if (parseNode.GetChildNode("principal_type") is { } nullNodePrincipalType && nullNodePrincipalType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrincipalType = null;
+            if (parseNode.GetChildNode("principal_id") is null) { _explicitNullValuePrincipalId = default!; _explicitNullProperties?.Remove("principal_id"); }
+            else if (parseNode.GetChildNode("principal_id") is { } nullNodePrincipalId && nullNodePrincipalId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrincipalId = null;
+            if (parseNode.GetChildNode("principal_type") is null) { _explicitNullValuePrincipalType = default!; _explicitNullProperties?.Remove("principal_type"); }
+            else if (parseNode.GetChildNode("principal_type") is { } nullNodePrincipalType && nullNodePrincipalType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrincipalType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The principal_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrincipalId { get => _explicitNullValuePrincipalId; set { _explicitNullValuePrincipalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("principal_id"); else _explicitNullProperties?.Remove("principal_id"); } }
+        public string? PrincipalId { get => _explicitNullValuePrincipalId; set { _explicitNullValuePrincipalId = value; AdditionalData?.Remove("principal_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("principal_id"); else _explicitNullProperties?.Remove("principal_id"); } }
         private string? _explicitNullValuePrincipalId = default!;
 #nullable restore
 #else
-        public string PrincipalId { get => _explicitNullValuePrincipalId; set { _explicitNullValuePrincipalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("principal_id"); else _explicitNullProperties?.Remove("principal_id"); } }
+        public string PrincipalId { get => _explicitNullValuePrincipalId; set { _explicitNullValuePrincipalId = value; AdditionalData?.Remove("principal_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("principal_id"); else _explicitNullProperties?.Remove("principal_id"); } }
         private string _explicitNullValuePrincipalId = default!;
 #endif
         /// <summary>The principal_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrincipalType { get => _explicitNullValuePrincipalType; set { _explicitNullValuePrincipalType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("principal_type"); else _explicitNullProperties?.Remove("principal_type"); } }
+        public string? PrincipalType { get => _explicitNullValuePrincipalType; set { _explicitNullValuePrincipalType = value; AdditionalData?.Remove("principal_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("principal_type"); else _explicitNullProperties?.Remove("principal_type"); } }
         private string? _explicitNullValuePrincipalType = default!;
 #nullable restore
 #else
-        public string PrincipalType { get => _explicitNullValuePrincipalType; set { _explicitNullValuePrincipalType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("principal_type"); else _explicitNullProperties?.Remove("principal_type"); } }
+        public string PrincipalType { get => _explicitNullValuePrincipalType; set { _explicitNullValuePrincipalType = value; AdditionalData?.Remove("principal_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("principal_type"); else _explicitNullProperties?.Remove("principal_type"); } }
         private string _explicitNullValuePrincipalType = default!;
 #endif
         /// <summary>

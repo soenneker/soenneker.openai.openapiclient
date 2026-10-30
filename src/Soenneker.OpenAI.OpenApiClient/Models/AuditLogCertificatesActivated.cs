@@ -18,7 +18,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("certificates") is { } nullNodeCertificates && nullNodeCertificates.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Certificates = null;
+            if (parseNode.GetChildNode("certificates") is null) { _explicitNullValueCertificates = default!; _explicitNullProperties?.Remove("certificates"); }
+            else if (parseNode.GetChildNode("certificates") is { } nullNodeCertificates && nullNodeCertificates.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Certificates = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The certificates property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivatedCertificatesItem>? Certificates { get => _explicitNullValueCertificates; set { _explicitNullValueCertificates = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificates"); else _explicitNullProperties?.Remove("certificates"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivatedCertificatesItem>? Certificates { get => _explicitNullValueCertificates; set { _explicitNullValueCertificates = value; AdditionalData?.Remove("certificates"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificates"); else _explicitNullProperties?.Remove("certificates"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivatedCertificatesItem>? _explicitNullValueCertificates = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivatedCertificatesItem> Certificates { get => _explicitNullValueCertificates; set { _explicitNullValueCertificates = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificates"); else _explicitNullProperties?.Remove("certificates"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivatedCertificatesItem> Certificates { get => _explicitNullValueCertificates; set { _explicitNullValueCertificates = value; AdditionalData?.Remove("certificates"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificates"); else _explicitNullProperties?.Remove("certificates"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivatedCertificatesItem> _explicitNullValueCertificates = default!;
 #endif
         /// <summary>

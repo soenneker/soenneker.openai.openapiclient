@@ -18,8 +18,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("image_file") is { } nullNodeImageFile && nullNodeImageFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageFile = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("image_file") is null) { _explicitNullValueImageFile = default!; _explicitNullProperties?.Remove("image_file"); }
+            else if (parseNode.GetChildNode("image_file") is { } nullNodeImageFile && nullNodeImageFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageFile = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The image_file property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile? ImageFile { get => _explicitNullValueImageFile; set { _explicitNullValueImageFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_file"); else _explicitNullProperties?.Remove("image_file"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile? ImageFile { get => _explicitNullValueImageFile; set { _explicitNullValueImageFile = value; AdditionalData?.Remove("image_file"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_file"); else _explicitNullProperties?.Remove("image_file"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile? _explicitNullValueImageFile = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile ImageFile { get => _explicitNullValueImageFile; set { _explicitNullValueImageFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_file"); else _explicitNullProperties?.Remove("image_file"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile ImageFile { get => _explicitNullValueImageFile; set { _explicitNullValueImageFile = value; AdditionalData?.Remove("image_file"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_file"); else _explicitNullProperties?.Remove("image_file"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile _explicitNullValueImageFile = default!;
 #endif
         /// <summary>Always `image_file`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageFileType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageFileType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ImageFileType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObject"/> and sets the default values.
@@ -63,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "image_file", n => { ImageFile = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentImageFileObjectImageFile.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageFileType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageFileType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

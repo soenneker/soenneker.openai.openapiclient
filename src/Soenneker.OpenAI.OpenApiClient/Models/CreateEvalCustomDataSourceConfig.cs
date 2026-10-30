@@ -18,28 +18,31 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("include_sample_schema") is { } nullNodeIncludeSampleSchema && nullNodeIncludeSampleSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeSampleSchema = null;
-            if (parseNode.GetChildNode("item_schema") is { } nullNodeItemSchema && nullNodeItemSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ItemSchema = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("include_sample_schema") is null) { _explicitNullValueIncludeSampleSchema = default!; _explicitNullProperties?.Remove("include_sample_schema"); }
+            else if (parseNode.GetChildNode("include_sample_schema") is { } nullNodeIncludeSampleSchema && nullNodeIncludeSampleSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeSampleSchema = null;
+            if (parseNode.GetChildNode("item_schema") is null) { _explicitNullValueItemSchema = default!; _explicitNullProperties?.Remove("item_schema"); }
+            else if (parseNode.GetChildNode("item_schema") is { } nullNodeItemSchema && nullNodeItemSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ItemSchema = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the eval should expect you to populate the sample namespace (ie, by generating responses off of your data source)</summary>
-        public bool? IncludeSampleSchema { get => _explicitNullValueIncludeSampleSchema; set { _explicitNullValueIncludeSampleSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_sample_schema"); else _explicitNullProperties?.Remove("include_sample_schema"); } }
+        public bool? IncludeSampleSchema { get => _explicitNullValueIncludeSampleSchema; set { _explicitNullValueIncludeSampleSchema = value; AdditionalData?.Remove("include_sample_schema"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_sample_schema"); else _explicitNullProperties?.Remove("include_sample_schema"); } }
         private bool? _explicitNullValueIncludeSampleSchema = default!;
         /// <summary>The json schema for each row in the data source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty? ItemSchema { get => _explicitNullValueItemSchema; set { _explicitNullValueItemSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("item_schema"); else _explicitNullProperties?.Remove("item_schema"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty? ItemSchema { get => _explicitNullValueItemSchema; set { _explicitNullValueItemSchema = value; AdditionalData?.Remove("item_schema"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("item_schema"); else _explicitNullProperties?.Remove("item_schema"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty? _explicitNullValueItemSchema = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty ItemSchema { get => _explicitNullValueItemSchema; set { _explicitNullValueItemSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("item_schema"); else _explicitNullProperties?.Remove("item_schema"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty ItemSchema { get => _explicitNullValueItemSchema; set { _explicitNullValueItemSchema = value; AdditionalData?.Remove("item_schema"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("item_schema"); else _explicitNullProperties?.Remove("item_schema"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty _explicitNullValueItemSchema = default!;
 #endif
         /// <summary>The type of the tool. Always `custom`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CustomType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig"/> and sets the default values.
@@ -69,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "include_sample_schema", n => { IncludeSampleSchema = n.GetBoolValue(); } },
                 { "item_schema", n => { ItemSchema = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

@@ -52,9 +52,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && parseNode.GetChildNode("message") != null && parseNode.GetChildNode("param") != null && parseNode.GetChildNode("code") != null))();
-            if (result.Error == null && result.String == null && matchesUnionBranch0) result.Error = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.Error(), parseNode);
-            if (result.Error == null && result.String == null && unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) result.Error = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.Error(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("type") && shapeMembers1.ContainsKey("message") && shapeMembers1.ContainsKey("param") && shapeMembers1.ContainsKey("code") && (!shapeMembers1.ContainsKey("code") || ((((shapeMembers1["code"] == null || shapeMembers1["code"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || (shapeMembers1["code"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("message") || (((shapeMembers1["message"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("param") || ((((shapeMembers1["param"] == null || shapeMembers1["param"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || (shapeMembers1["param"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("type") || (((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("misalignment") || (((shapeMembers1["misalignment"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (shapeMembers1["misalignment"] is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject10 || (shapeObject10.GetValue() is var shapeMembers11 && ((!shapeMembers11.ContainsKey("error_type") || (((shapeMembers11["error_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers11.ContainsKey("detailed_explanation") || (((shapeMembers11["detailed_explanation"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers11.ContainsKey("steer") || (((shapeMembers11["steer"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (shapeMembers11["steer"] is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject22 || (shapeObject22.GetValue() is var shapeMembers23 && (shapeMembers23.ContainsKey("message") && (!shapeMembers23.ContainsKey("message") || (((shapeMembers23["message"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))))))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.Error == null && result.String == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.Error = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.Error(), parseNode);
             if (result.Error == null && result.String == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -64,6 +66,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(Error != null)
             {
                 return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Error);
@@ -78,7 +82,10 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (Error == null && String == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (Error != null && String == null) { if (Error is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Error); return; }
+            int selectedUnionBranches = 0;
+            if (Error != null) selectedUnionBranches++;
+            if (String != null) selectedUnionBranches++;
+            if (Error != null && selectedUnionBranches == 1) { if (Error is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Error); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(String != null)

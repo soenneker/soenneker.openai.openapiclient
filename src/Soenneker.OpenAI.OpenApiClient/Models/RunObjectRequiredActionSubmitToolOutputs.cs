@@ -18,7 +18,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("tool_calls") is { } nullNodeToolCalls && nullNodeToolCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolCalls = null;
+            if (parseNode.GetChildNode("tool_calls") is null) { _explicitNullValueToolCalls = default!; _explicitNullProperties?.Remove("tool_calls"); }
+            else if (parseNode.GetChildNode("tool_calls") is { } nullNodeToolCalls && nullNodeToolCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolCalls = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>A list of the relevant tool calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunToolCallObject>? ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunToolCallObject>? ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; AdditionalData?.Remove("tool_calls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.RunToolCallObject>? _explicitNullValueToolCalls = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunToolCallObject> ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RunToolCallObject> ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; AdditionalData?.Remove("tool_calls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.RunToolCallObject> _explicitNullValueToolCalls = default!;
 #endif
         /// <summary>

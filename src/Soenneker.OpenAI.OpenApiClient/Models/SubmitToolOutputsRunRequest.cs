@@ -17,8 +17,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("stream") is { } nullNodeStream && nullNodeStream.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stream = null;
-            if (parseNode.GetChildNode("tool_outputs") is { } nullNodeToolOutputs && nullNodeToolOutputs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolOutputs = null;
+            if (parseNode.GetChildNode("stream") is null) { _explicitNullValueStream = default!; _explicitNullProperties?.Remove("stream"); }
+            else if (parseNode.GetChildNode("stream") is { } nullNodeStream && nullNodeStream.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stream = null;
+            if (parseNode.GetChildNode("tool_outputs") is null) { _explicitNullValueToolOutputs = default!; _explicitNullProperties?.Remove("tool_outputs"); }
+            else if (parseNode.GetChildNode("tool_outputs") is { } nullNodeToolOutputs && nullNodeToolOutputs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolOutputs = null;
         }
 
         /// <summary>If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.</summary>
