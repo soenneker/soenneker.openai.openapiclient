@@ -12,18 +12,30 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateChatCompletionRequestAllOf2WebSearchOptions : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("search_context_size") is { } nullNodeSearchContextSize && nullNodeSearchContextSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchContextSize = null;
+            if (parseNode.GetChildNode("user_location") is { } nullNodeUserLocation && nullNodeUserLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserLocation = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>High level guidance for the amount of context window space to use for the search. One of `low`, `medium`, or `high`. `medium` is the default.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchContextSize? SearchContextSize { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchContextSize? SearchContextSize { get => _explicitNullValueSearchContextSize; set { _explicitNullValueSearchContextSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_context_size"); else _explicitNullProperties?.Remove("search_context_size"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchContextSize? _explicitNullValueSearchContextSize = default!;
         /// <summary>Approximate location parameters for the search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptionsUserLocation? UserLocation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptionsUserLocation? UserLocation { get => _explicitNullValueUserLocation; set { _explicitNullValueUserLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_location"); else _explicitNullProperties?.Remove("user_location"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptionsUserLocation? _explicitNullValueUserLocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptionsUserLocation UserLocation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptionsUserLocation UserLocation { get => _explicitNullValueUserLocation; set { _explicitNullValueUserLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_location"); else _explicitNullProperties?.Remove("user_location"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptionsUserLocation _explicitNullValueUserLocation = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptions"/> and sets the default values.
@@ -40,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchContextSize>("search_context_size", SearchContextSize);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequestAllOf2WebSearchOptionsUserLocation>("user_location", UserLocation);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

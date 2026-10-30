@@ -11,29 +11,48 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ResponseUsageResource : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("input_tokens") is { } nullNodeInputTokens && nullNodeInputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputTokens = null;
+            if (parseNode.GetChildNode("input_tokens_details") is { } nullNodeInputTokensDetails && nullNodeInputTokensDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputTokensDetails = null;
+            if (parseNode.GetChildNode("output_tokens") is { } nullNodeOutputTokens && nullNodeOutputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputTokens = null;
+            if (parseNode.GetChildNode("output_tokens_details") is { } nullNodeOutputTokensDetails && nullNodeOutputTokensDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputTokensDetails = null;
+            if (parseNode.GetChildNode("total_tokens") is { } nullNodeTotalTokens && nullNodeTotalTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalTokens = null;
+        }
+
         /// <summary>The input_tokens property</summary>
-        public long? InputTokens { get; set; }
+        public long? InputTokens { get => _explicitNullValueInputTokens; set { _explicitNullValueInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_tokens"); else _explicitNullProperties?.Remove("input_tokens"); } }
+        private long? _explicitNullValueInputTokens = default!;
         /// <summary>The input_tokens_details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputTokensDetailsResource? InputTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputTokensDetailsResource? InputTokensDetails { get => _explicitNullValueInputTokensDetails; set { _explicitNullValueInputTokensDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_tokens_details"); else _explicitNullProperties?.Remove("input_tokens_details"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.InputTokensDetailsResource? _explicitNullValueInputTokensDetails = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputTokensDetailsResource InputTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputTokensDetailsResource InputTokensDetails { get => _explicitNullValueInputTokensDetails; set { _explicitNullValueInputTokensDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_tokens_details"); else _explicitNullProperties?.Remove("input_tokens_details"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.InputTokensDetailsResource _explicitNullValueInputTokensDetails = default!;
 #endif
         /// <summary>The output_tokens property</summary>
-        public long? OutputTokens { get; set; }
+        public long? OutputTokens { get => _explicitNullValueOutputTokens; set { _explicitNullValueOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_tokens"); else _explicitNullProperties?.Remove("output_tokens"); } }
+        private long? _explicitNullValueOutputTokens = default!;
         /// <summary>The output_tokens_details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OutputTokensDetailsResource? OutputTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OutputTokensDetailsResource? OutputTokensDetails { get => _explicitNullValueOutputTokensDetails; set { _explicitNullValueOutputTokensDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_tokens_details"); else _explicitNullProperties?.Remove("output_tokens_details"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.OutputTokensDetailsResource? _explicitNullValueOutputTokensDetails = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OutputTokensDetailsResource OutputTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OutputTokensDetailsResource OutputTokensDetails { get => _explicitNullValueOutputTokensDetails; set { _explicitNullValueOutputTokensDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_tokens_details"); else _explicitNullProperties?.Remove("output_tokens_details"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.OutputTokensDetailsResource _explicitNullValueOutputTokensDetails = default!;
 #endif
         /// <summary>The total_tokens property</summary>
-        public long? TotalTokens { get; set; }
+        public long? TotalTokens { get => _explicitNullValueTotalTokens; set { _explicitNullValueTotalTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_tokens"); else _explicitNullProperties?.Remove("total_tokens"); } }
+        private long? _explicitNullValueTotalTokens = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -42,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageResource();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ResponseUsageResource(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,7 +89,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputTokensDetailsResource>("input_tokens_details", InputTokensDetails);
             writer.WriteLongValue("output_tokens", OutputTokens);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputTokensDetailsResource>("output_tokens_details", OutputTokensDetails);
-            writer.WriteLongValue("total_tokens", TotalTokens);
+            writer.WriteLongValue("total_tokens", TotalTokens);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

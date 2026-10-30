@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaAnnotation : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerFileCitationBody"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,25 +58,36 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaAnnotation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaAnnotation();
             if("BetaContainerFileCitationBody".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.BetaContainerFileCitationBody = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerFileCitationBody();
+                
             }
             else if("BetaFileCitationBody".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.BetaFileCitationBody = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileCitationBody();
+                
             }
             else if("BetaFilePath".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.BetaFilePath = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaFilePath();
+                
             }
             else if("BetaUrlCitationBody".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.BetaUrlCitationBody = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaUrlCitationBody();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("file_citation".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("file_id") != null && parseNode.GetChildNode("index") != null && parseNode.GetChildNode("filename") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("url_citation".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("url") != null && parseNode.GetChildNode("start_index") != null && parseNode.GetChildNode("end_index") != null && parseNode.GetChildNode("title") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("container_file_citation".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("container_id") != null && parseNode.GetChildNode("file_id") != null && parseNode.GetChildNode("start_index") != null && parseNode.GetChildNode("end_index") != null && parseNode.GetChildNode("filename") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("file_path".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("file_id") != null && parseNode.GetChildNode("index") != null))();
+            if (result.BetaContainerFileCitationBody == null && result.BetaFileCitationBody == null && result.BetaFilePath == null && result.BetaUrlCitationBody == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.BetaFileCitationBody = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileCitationBody(), parseNode);
+            if (result.BetaContainerFileCitationBody == null && result.BetaFileCitationBody == null && result.BetaFilePath == null && result.BetaUrlCitationBody == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.BetaUrlCitationBody = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaUrlCitationBody(), parseNode);
+            if (result.BetaContainerFileCitationBody == null && result.BetaFileCitationBody == null && result.BetaFilePath == null && result.BetaUrlCitationBody == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.BetaContainerFileCitationBody = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerFileCitationBody(), parseNode);
+            if (result.BetaContainerFileCitationBody == null && result.BetaFileCitationBody == null && result.BetaFilePath == null && result.BetaUrlCitationBody == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.BetaFilePath = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaFilePath(), parseNode);
+            if (result.BetaContainerFileCitationBody == null && result.BetaFileCitationBody == null && result.BetaFilePath == null && result.BetaUrlCitationBody == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,21 +119,32 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (BetaContainerFileCitationBody == null && BetaFileCitationBody == null && BetaFilePath == null && BetaUrlCitationBody == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (BetaContainerFileCitationBody != null && BetaFileCitationBody == null && BetaFilePath == null && BetaUrlCitationBody == null) { if (BetaContainerFileCitationBody is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaContainerFileCitationBody); return; }
+            if (BetaFileCitationBody != null && BetaContainerFileCitationBody == null && BetaFilePath == null && BetaUrlCitationBody == null) { if (BetaFileCitationBody is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaFileCitationBody); return; }
+            if (BetaFilePath != null && BetaContainerFileCitationBody == null && BetaFileCitationBody == null && BetaUrlCitationBody == null) { if (BetaFilePath is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaFilePath); return; }
+            if (BetaUrlCitationBody != null && BetaContainerFileCitationBody == null && BetaFileCitationBody == null && BetaFilePath == null) { if (BetaUrlCitationBody is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaUrlCitationBody); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(BetaContainerFileCitationBody != null)
             {
+                if (BetaContainerFileCitationBody is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerFileCitationBody>(null, BetaContainerFileCitationBody);
             }
             else if(BetaFileCitationBody != null)
             {
+                if (BetaFileCitationBody is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFileCitationBody>(null, BetaFileCitationBody);
             }
             else if(BetaFilePath != null)
             {
+                if (BetaFilePath is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFilePath>(null, BetaFilePath);
             }
             else if(BetaUrlCitationBody != null)
             {
+                if (BetaUrlCitationBody is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaUrlCitationBody>(null, BetaUrlCitationBody);
             }
         }

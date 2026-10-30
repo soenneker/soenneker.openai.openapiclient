@@ -53,6 +53,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.Item.Steps.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObject.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -11,16 +11,28 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SubmitToolOutputsRunRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("stream") is { } nullNodeStream && nullNodeStream.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stream = null;
+            if (parseNode.GetChildNode("tool_outputs") is { } nullNodeToolOutputs && nullNodeToolOutputs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolOutputs = null;
+        }
+
         /// <summary>If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.</summary>
-        public bool? Stream { get; set; }
+        public bool? Stream { get => _explicitNullValueStream; set { _explicitNullValueStream = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream"); else _explicitNullProperties?.Remove("stream"); } }
+        private bool? _explicitNullValueStream = default!;
         /// <summary>A list of tools for which the outputs are being submitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem>? ToolOutputs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem>? ToolOutputs { get => _explicitNullValueToolOutputs; set { _explicitNullValueToolOutputs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_outputs"); else _explicitNullProperties?.Remove("tool_outputs"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem>? _explicitNullValueToolOutputs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem> ToolOutputs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem> ToolOutputs { get => _explicitNullValueToolOutputs; set { _explicitNullValueToolOutputs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_outputs"); else _explicitNullProperties?.Remove("tool_outputs"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem> _explicitNullValueToolOutputs = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -30,7 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,7 +64,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("stream", Stream);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem>("tool_outputs", ToolOutputs);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SubmitToolOutputsRunRequestToolOutputsItem>("tool_outputs", ToolOutputs);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

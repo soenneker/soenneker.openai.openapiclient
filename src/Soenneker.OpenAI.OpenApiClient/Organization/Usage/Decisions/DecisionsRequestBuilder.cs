@@ -57,6 +57,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Usage.Decisions
                 { "400", global::Soenneker.OpenAI.OpenApiClient.Models.DecisionsUsageErrorResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.OpenAI.OpenApiClient.Models.DecisionsUsagePermissionErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.PublicDecisionsUsageResponseResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.PublicDecisionsUsageResponseResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

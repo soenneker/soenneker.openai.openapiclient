@@ -11,92 +11,141 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateImageEditRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("background") is { } nullNodeBackground && nullNodeBackground.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Background = null;
+            if (parseNode.GetChildNode("image") is { } nullNodeImage && nullNodeImage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Image = null;
+            if (parseNode.GetChildNode("input_fidelity") is { } nullNodeInputFidelity && nullNodeInputFidelity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputFidelity = null;
+            if (parseNode.GetChildNode("markup") is { } nullNodeMarkup && nullNodeMarkup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Markup = null;
+            if (parseNode.GetChildNode("mask") is { } nullNodeMask && nullNodeMask.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mask = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("n") is { } nullNodeN && nullNodeN.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) N = null;
+            if (parseNode.GetChildNode("output_compression") is { } nullNodeOutputCompression && nullNodeOutputCompression.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputCompression = null;
+            if (parseNode.GetChildNode("output_format") is { } nullNodeOutputFormat && nullNodeOutputFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputFormat = null;
+            if (parseNode.GetChildNode("partial_images") is { } nullNodePartialImages && nullNodePartialImages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartialImages = null;
+            if (parseNode.GetChildNode("prompt") is { } nullNodePrompt && nullNodePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prompt = null;
+            if (parseNode.GetChildNode("quality") is { } nullNodeQuality && nullNodeQuality.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Quality = null;
+            if (parseNode.GetChildNode("response_format") is { } nullNodeResponseFormat && nullNodeResponseFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResponseFormat = null;
+            if (parseNode.GetChildNode("safety_identifier") is { } nullNodeSafetyIdentifier && nullNodeSafetyIdentifier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SafetyIdentifier = null;
+            if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
+            if (parseNode.GetChildNode("stream") is { } nullNodeStream && nullNodeStream.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stream = null;
+            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Set the background of the generated image(s). This parameter is only supported forthe GPT image models. Must be one of `transparent`, `opaque`, or `auto` (defaultvalue). When `auto` is used, the model will automatically determine the bestbackground for the image.`gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08`snapshots, support `opaque` and `transparent` backgrounds. Transparent backgroundsare available for supported GPT Image models. For `gpt-image-2` and`gpt-image-2-2026-04-21`, this support is in preview. When using `transparent`,set the output format to `png` or `webp`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground? Background { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground? Background { get => _explicitNullValueBackground; set { _explicitNullValueBackground = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background"); else _explicitNullProperties?.Remove("background"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground? _explicitNullValueBackground = default!;
         /// <summary>The image(s) to edit. Must be a supported image file or an array of images.For the GPT image models (`gpt-image-1-mini`, `gpt-image-1.5`,`gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`,`gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, and`gpt-image-2.5-flare-2026-09-08`), each image should be a `png`, `webp`, or `jpg`file less than 50MB. You can provide up to 16 images. `chatgpt-image-latest`follows the same input constraints as GPT image models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage? Image { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage? Image { get => _explicitNullValueImage; set { _explicitNullValueImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image"); else _explicitNullProperties?.Remove("image"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage? _explicitNullValueImage = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage Image { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage Image { get => _explicitNullValueImage; set { _explicitNullValueImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image"); else _explicitNullProperties?.Remove("image"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage _explicitNullValueImage = default!;
 #endif
         /// <summary>The input_fidelity property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity? InputFidelity { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity? InputFidelity { get => _explicitNullValueInputFidelity; set { _explicitNullValueInputFidelity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_fidelity"); else _explicitNullProperties?.Remove("input_fidelity"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity? _explicitNullValueInputFidelity = default!;
         /// <summary>A transparent PNG overlaid on the first image to guide the edit. Must match that image&apos;s dimensions after orientation and contain transparent pixels. Supports GPT Image 2.5 and 2.6. Cannot be combined with mask.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public byte[]? Markup { get; set; }
+        public byte[]? Markup { get => _explicitNullValueMarkup; set { _explicitNullValueMarkup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("markup"); else _explicitNullProperties?.Remove("markup"); } }
+        private byte[]? _explicitNullValueMarkup = default!;
 #nullable restore
 #else
-        public byte[] Markup { get; set; }
+        public byte[] Markup { get => _explicitNullValueMarkup; set { _explicitNullValueMarkup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("markup"); else _explicitNullProperties?.Remove("markup"); } }
+        private byte[] _explicitNullValueMarkup = default!;
 #endif
         /// <summary>An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where `image` should be edited. If there are multiple images provided, the mask will be applied on the first image. Must be a valid PNG file, less than 4MB, and have the same dimensions as `image`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public byte[]? Mask { get; set; }
+        public byte[]? Mask { get => _explicitNullValueMask; set { _explicitNullValueMask = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mask"); else _explicitNullProperties?.Remove("mask"); } }
+        private byte[]? _explicitNullValueMask = default!;
 #nullable restore
 #else
-        public byte[] Mask { get; set; }
+        public byte[] Mask { get => _explicitNullValueMask; set { _explicitNullValueMask = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mask"); else _explicitNullProperties?.Remove("mask"); } }
+        private byte[] _explicitNullValueMask = default!;
 #endif
         /// <summary>The GPT image model to use for image editing(`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,`gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`,`gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`,`gpt-image-2.5-flare-2026-09-08`, or `chatgpt-image-latest`).`gpt-image-1` was shut down on October 23, 2026. Use`gpt-image-2.5-sunburst` or `gpt-image-2.5-flare` instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestModel _explicitNullValueModel = default!;
 #endif
         /// <summary>The number of images to generate. Must be between 1 and 10.</summary>
-        public int? N { get; set; }
+        public int? N { get => _explicitNullValueN; set { _explicitNullValueN = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("n"); else _explicitNullProperties?.Remove("n"); } }
+        private int? _explicitNullValueN = default!;
         /// <summary>The compression level (0-100%) for the generated images. This parameteris only supported for the GPT image models with the `webp` or `jpeg` outputformats, and defaults to 100.</summary>
-        public int? OutputCompression { get; set; }
+        public int? OutputCompression { get => _explicitNullValueOutputCompression; set { _explicitNullValueOutputCompression = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_compression"); else _explicitNullProperties?.Remove("output_compression"); } }
+        private int? _explicitNullValueOutputCompression = default!;
         /// <summary>The format in which the generated images are returned. This parameter isonly supported for the GPT image models. Must be one of `png`, `jpeg`, or `webp`.The default value is `png`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat? OutputFormat { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat? OutputFormat { get => _explicitNullValueOutputFormat; set { _explicitNullValueOutputFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_format"); else _explicitNullProperties?.Remove("output_format"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat? _explicitNullValueOutputFormat = default!;
         /// <summary>The number of partial images to generate. This parameter is used forstreaming responses that return partial images. Value must be between 0 and 3.When set to 0, the response will be a single image sent in one streaming event.Note that the final image may be sent before the full number of partial imagesare generated if the full image is generated more quickly.</summary>
-        public int? PartialImages { get; set; }
+        public int? PartialImages { get => _explicitNullValuePartialImages; set { _explicitNullValuePartialImages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partial_images"); else _explicitNullProperties?.Remove("partial_images"); } }
+        private int? _explicitNullValuePartialImages = default!;
         /// <summary>A text description of the desired image(s). The maximum length is 32000 characters for the GPT image models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Prompt { get; set; }
+        public string? Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        private string? _explicitNullValuePrompt = default!;
 #nullable restore
 #else
-        public string Prompt { get; set; }
+        public string Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        private string _explicitNullValuePrompt = default!;
 #endif
         /// <summary>The quality of the image that will be generated for GPT image models. The GPT image models support `low`, `medium`, and `high`. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08` snapshots, also support `xhigh` and `max`. Defaults to `auto`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality? Quality { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality? Quality { get => _explicitNullValueQuality; set { _explicitNullValueQuality = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quality"); else _explicitNullProperties?.Remove("quality"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality? _explicitNullValueQuality = default!;
         /// <summary>Legacy response format parameter for retired image models. Unsupported for GPT image models, which always return base64-encoded images.</summary>
         [Obsolete("")]
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat? ResponseFormat { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat? ResponseFormat { get => _explicitNullValueResponseFormat; set { _explicitNullValueResponseFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("response_format"); else _explicitNullProperties?.Remove("response_format"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat? _explicitNullValueResponseFormat = default!;
         /// <summary>A stable identifier for an end user in your organization, used for safety monitoring and abuse detection. Hash a username or email address to avoid sending identifying information. A non-empty value takes precedence over the deprecated `user` parameter. If omitted, null, or empty, the API uses `user` when available. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SafetyIdentifier { get; set; }
+        public string? SafetyIdentifier { get => _explicitNullValueSafetyIdentifier; set { _explicitNullValueSafetyIdentifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("safety_identifier"); else _explicitNullProperties?.Remove("safety_identifier"); } }
+        private string? _explicitNullValueSafetyIdentifier = default!;
 #nullable restore
 #else
-        public string SafetyIdentifier { get; set; }
+        public string SafetyIdentifier { get => _explicitNullValueSafetyIdentifier; set { _explicitNullValueSafetyIdentifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("safety_identifier"); else _explicitNullProperties?.Remove("safety_identifier"); } }
+        private string _explicitNullValueSafetyIdentifier = default!;
 #endif
         /// <summary>The size of the generated images. Defaults to `auto`. For `gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`, `gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, and `gpt-image-2.5-flare-2026-09-08`, arbitrary resolutions are supported as `WIDTHxHEIGHT` strings, for example `1536x864`. Width and height must both be divisible by 16 and the requested aspect ratio must be between 1:3 and 3:1. Resolutions above `2560x1440` are experimental, and the maximum supported resolution is `3840x2160`. The requested size must also satisfy the model&apos;s current pixel and edge limits. The standard sizes `1024x1024`, `1536x1024`, and `1024x1536` are supported by the GPT image models; `auto` is supported for models that allow automatic sizing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestSize? Size { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestSize? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestSize? _explicitNullValueSize = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestSize Size { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestSize Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestSize _explicitNullValueSize = default!;
 #endif
         /// <summary>Edit the image in streaming mode. Defaults to `false`. See the[Image generation guide](https://developers.openai.com/api/docs/guides/image-generation) for more information.</summary>
-        public bool? Stream { get; set; }
+        public bool? Stream { get => _explicitNullValueStream; set { _explicitNullValueStream = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream"); else _explicitNullProperties?.Remove("stream"); } }
+        private bool? _explicitNullValueStream = default!;
         /// <summary>Deprecated: use `safety_identifier` instead. This parameter remains accepted for backward compatibility and is used when `safety_identifier` is omitted, null, or empty. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? User { get; set; }
+        public string? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public string User { get; set; }
+        public string User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string _explicitNullValueUser = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest"/> and sets the default values.
@@ -117,7 +166,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -170,6 +219,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestSize>("size", Size);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteStringValue("user", User);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

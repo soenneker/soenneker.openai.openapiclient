@@ -36,10 +36,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateSkillBodyFiles CreateFromDiscriminatorValue(IParseNode parseNode)
         {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateSkillBodyFiles();
+
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateSkillBodyFiles();
-            if(parseNode.GetByteArrayValue() is byte[] createSkillBodyFilesBinaryValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetByteArrayValue() is byte[] createSkillBodyFilesBinaryValue)
             {
                 result.CreateSkillBodyFilesBinary = createSkillBodyFilesBinaryValue;
             }
@@ -63,6 +67,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Binary == null && CreateSkillBodyFilesBinary == null) { writer.WriteNullValue(null); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(CreateSkillBodyFilesBinary != null)
             {

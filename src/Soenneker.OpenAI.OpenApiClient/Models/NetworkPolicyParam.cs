@@ -12,24 +12,39 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NetworkPolicyParam : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("access") is { } nullNodeAccess && nullNodeAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Access = null;
+            if (parseNode.GetChildNode("allowed_domains") is { } nullNodeAllowedDomains && nullNodeAllowedDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedDomains = null;
+            if (parseNode.GetChildNode("blocked_domains") is { } nullNodeBlockedDomains && nullNodeBlockedDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockedDomains = null;
+        }
+
         /// <summary>The environment&apos;s network access mode.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.NetworkAccessParam? Access { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.NetworkAccessParam? Access { get => _explicitNullValueAccess; set { _explicitNullValueAccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access"); else _explicitNullProperties?.Remove("access"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.NetworkAccessParam? _explicitNullValueAccess = default!;
         /// <summary>Domains the environment may access when network access is restricted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowedDomains { get; set; }
+        public List<string>? AllowedDomains { get => _explicitNullValueAllowedDomains; set { _explicitNullValueAllowedDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_domains"); else _explicitNullProperties?.Remove("allowed_domains"); } }
+        private List<string>? _explicitNullValueAllowedDomains = default!;
 #nullable restore
 #else
-        public List<string> AllowedDomains { get; set; }
+        public List<string> AllowedDomains { get => _explicitNullValueAllowedDomains; set { _explicitNullValueAllowedDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_domains"); else _explicitNullProperties?.Remove("allowed_domains"); } }
+        private List<string> _explicitNullValueAllowedDomains = default!;
 #endif
         /// <summary>Domains blocked for both executor and browser when access is restricted. A nonempty list requires `access: restricted` and cannot be combined with nonempty `allowed_domains`. Wildcard domains are not supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? BlockedDomains { get; set; }
+        public List<string>? BlockedDomains { get => _explicitNullValueBlockedDomains; set { _explicitNullValueBlockedDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked_domains"); else _explicitNullProperties?.Remove("blocked_domains"); } }
+        private List<string>? _explicitNullValueBlockedDomains = default!;
 #nullable restore
 #else
-        public List<string> BlockedDomains { get; set; }
+        public List<string> BlockedDomains { get => _explicitNullValueBlockedDomains; set { _explicitNullValueBlockedDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked_domains"); else _explicitNullProperties?.Remove("blocked_domains"); } }
+        private List<string> _explicitNullValueBlockedDomains = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.NetworkPolicyParam CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.NetworkPolicyParam();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.NetworkPolicyParam(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +78,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.NetworkAccessParam>("access", Access);
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_domains", AllowedDomains);
-            writer.WriteCollectionOfPrimitiveValues<string>("blocked_domains", BlockedDomains);
+            writer.WriteCollectionOfPrimitiveValues<string>("blocked_domains", BlockedDomains);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

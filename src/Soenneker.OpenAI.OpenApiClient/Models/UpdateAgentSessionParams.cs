@@ -12,23 +12,40 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateAgentSessionParams : IParsable
-    {
-        /// <summary>Model settings for subsequent turns. Omitted fields stay unchanged.</summary>
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("review") is { } nullNodeReview && nullNodeReview.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Review = null;
+        }
+
+        /// <summary>Agent settings to update on this session. Omitted fields stay unchanged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateSessionAgentParam? Agent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateSessionAgentParam? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.UpdateSessionAgentParam? _explicitNullValueAgent = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateSessionAgentParam Agent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateSessionAgentParam Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.UpdateSessionAgentParam _explicitNullValueAgent = default!;
 #endif
         /// <summary>Replaces all metadata. Omit to leave unchanged, or pass null or {} to clear it. Up to 16 string key-value pairs, with keys up to 64 and values up to 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParamsMetadataProperty? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParamsMetadataProperty? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParamsMetadataProperty? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParamsMetadataProperty Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParamsMetadataProperty Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParamsMetadataProperty _explicitNullValueMetadata = default!;
 #endif
+        /// <summary>Default action review for new root turns. Existing turns and their subagents keep their review mode.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SessionReviewParam? Review { get => _explicitNullValueReview; set { _explicitNullValueReview = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review"); else _explicitNullProperties?.Remove("review"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.SessionReviewParam? _explicitNullValueReview = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParams CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParams();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParams(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,6 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateSessionAgentParam>(global::Soenneker.OpenAI.OpenApiClient.Models.UpdateSessionAgentParam.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParamsMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParamsMetadataProperty.CreateFromDiscriminatorValue); } },
+                { "review", n => { Review = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionReviewParam>(); } },
             };
         }
         /// <summary>
@@ -60,6 +78,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateSessionAgentParam>("agent", Agent);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.UpdateAgentSessionParamsMetadataProperty>("metadata", Metadata);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionReviewParam>("review", Review);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

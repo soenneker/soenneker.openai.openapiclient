@@ -12,83 +12,121 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AutomationEnvironmentResourceOpenaiHosted : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("capability_directories") is { } nullNodeCapabilityDirectories && nullNodeCapabilityDirectories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CapabilityDirectories = null;
+            if (parseNode.GetChildNode("container_size") is { } nullNodeContainerSize && nullNodeContainerSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContainerSize = null;
+            if (parseNode.GetChildNode("desktop") is { } nullNodeDesktop && nullNodeDesktop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Desktop = null;
+            if (parseNode.GetChildNode("environment_id") is { } nullNodeEnvironmentId && nullNodeEnvironmentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnvironmentId = null;
+            if (parseNode.GetChildNode("environment_template_id") is { } nullNodeEnvironmentTemplateId && nullNodeEnvironmentTemplateId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnvironmentTemplateId = null;
+            if (parseNode.GetChildNode("files") is { } nullNodeFiles && nullNodeFiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Files = null;
+            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("packages") is { } nullNodePackages && nullNodePackages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Packages = null;
+            if (parseNode.GetChildNode("plugins") is { } nullNodePlugins && nullNodePlugins.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Plugins = null;
+            if (parseNode.GetChildNode("skills") is { } nullNodeSkills && nullNodeSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Skills = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Directory overrides, or null to inherit the template or creation default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CapabilityDirectories { get; set; }
+        public List<string>? CapabilityDirectories { get => _explicitNullValueCapabilityDirectories; set { _explicitNullValueCapabilityDirectories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("capability_directories"); else _explicitNullProperties?.Remove("capability_directories"); } }
+        private List<string>? _explicitNullValueCapabilityDirectories = default!;
 #nullable restore
 #else
-        public List<string> CapabilityDirectories { get; set; }
+        public List<string> CapabilityDirectories { get => _explicitNullValueCapabilityDirectories; set { _explicitNullValueCapabilityDirectories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("capability_directories"); else _explicitNullProperties?.Remove("capability_directories"); } }
+        private List<string> _explicitNullValueCapabilityDirectories = default!;
 #endif
         /// <summary>The configured container size, or null to use the creation default.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResource? ContainerSize { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResource? ContainerSize { get => _explicitNullValueContainerSize; set { _explicitNullValueContainerSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("container_size"); else _explicitNullProperties?.Remove("container_size"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ContainerSizeResource? _explicitNullValueContainerSize = default!;
         /// <summary>Desktop overrides, or null to inherit the template or creation default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DesktopResource? Desktop { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DesktopResource? Desktop { get => _explicitNullValueDesktop; set { _explicitNullValueDesktop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("desktop"); else _explicitNullProperties?.Remove("desktop"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.DesktopResource? _explicitNullValueDesktop = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DesktopResource Desktop { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DesktopResource Desktop { get => _explicitNullValueDesktop; set { _explicitNullValueDesktop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("desktop"); else _explicitNullProperties?.Remove("desktop"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.DesktopResource _explicitNullValueDesktop = default!;
 #endif
         /// <summary>An existing environment reference, or null when provisioning a new environment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EnvironmentId { get; set; }
+        public string? EnvironmentId { get => _explicitNullValueEnvironmentId; set { _explicitNullValueEnvironmentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment_id"); else _explicitNullProperties?.Remove("environment_id"); } }
+        private string? _explicitNullValueEnvironmentId = default!;
 #nullable restore
 #else
-        public string EnvironmentId { get; set; }
+        public string EnvironmentId { get => _explicitNullValueEnvironmentId; set { _explicitNullValueEnvironmentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment_id"); else _explicitNullProperties?.Remove("environment_id"); } }
+        private string _explicitNullValueEnvironmentId = default!;
 #endif
         /// <summary>A template reference, or null when no template is selected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EnvironmentTemplateId { get; set; }
+        public string? EnvironmentTemplateId { get => _explicitNullValueEnvironmentTemplateId; set { _explicitNullValueEnvironmentTemplateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment_template_id"); else _explicitNullProperties?.Remove("environment_template_id"); } }
+        private string? _explicitNullValueEnvironmentTemplateId = default!;
 #nullable restore
 #else
-        public string EnvironmentTemplateId { get; set; }
+        public string EnvironmentTemplateId { get => _explicitNullValueEnvironmentTemplateId; set { _explicitNullValueEnvironmentTemplateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment_template_id"); else _explicitNullProperties?.Remove("environment_template_id"); } }
+        private string _explicitNullValueEnvironmentTemplateId = default!;
 #endif
         /// <summary>File overrides, excluding contents, or null to inherit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateFileResource>? Files { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateFileResource>? Files { get => _explicitNullValueFiles; set { _explicitNullValueFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("files"); else _explicitNullProperties?.Remove("files"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateFileResource>? _explicitNullValueFiles = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateFileResource> Files { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateFileResource> Files { get => _explicitNullValueFiles; set { _explicitNullValueFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("files"); else _explicitNullProperties?.Remove("files"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateFileResource> _explicitNullValueFiles = default!;
 #endif
         /// <summary>Network overrides, or null to inherit the template or creation default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.NetworkPolicyResource? Network { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.NetworkPolicyResource? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.NetworkPolicyResource? _explicitNullValueNetwork = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.NetworkPolicyResource Network { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.NetworkPolicyResource Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.NetworkPolicyResource _explicitNullValueNetwork = default!;
 #endif
         /// <summary>Package overrides, or null to inherit the template or creation default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentPackagesResource? Packages { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentPackagesResource? Packages { get => _explicitNullValuePackages; set { _explicitNullValuePackages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("packages"); else _explicitNullProperties?.Remove("packages"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentPackagesResource? _explicitNullValuePackages = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentPackagesResource Packages { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentPackagesResource Packages { get => _explicitNullValuePackages; set { _explicitNullValuePackages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("packages"); else _explicitNullProperties?.Remove("packages"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentPackagesResource _explicitNullValuePackages = default!;
 #endif
         /// <summary>Plugin overrides, excluding archive contents, or null to inherit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedPluginResource>? Plugins { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedPluginResource>? Plugins { get => _explicitNullValuePlugins; set { _explicitNullValuePlugins = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plugins"); else _explicitNullProperties?.Remove("plugins"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedPluginResource>? _explicitNullValuePlugins = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedPluginResource> Plugins { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedPluginResource> Plugins { get => _explicitNullValuePlugins; set { _explicitNullValuePlugins = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plugins"); else _explicitNullProperties?.Remove("plugins"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedPluginResource> _explicitNullValuePlugins = default!;
 #endif
         /// <summary>Skill overrides, excluding archive contents, or null to inherit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateSkillResource>? Skills { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateSkillResource>? Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateSkillResource>? _explicitNullValueSkills = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateSkillResource> Skills { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateSkillResource> Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateSkillResource> _explicitNullValueSkills = default!;
 #endif
         /// <summary>The type of the object. Always `openai_hosted`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.OpenaiHostedType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.OpenaiHostedType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.OpenaiHostedType? _explicitNullValueType = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -97,7 +135,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.AutomationEnvironmentResourceOpenaiHosted CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationEnvironmentResourceOpenaiHosted();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationEnvironmentResourceOpenaiHosted(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -137,7 +175,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentPackagesResource>("packages", Packages);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.HostedPluginResource>("plugins", Plugins);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.HostedTemplateSkillResource>("skills", Skills);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenaiHostedType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OpenaiHostedType>("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

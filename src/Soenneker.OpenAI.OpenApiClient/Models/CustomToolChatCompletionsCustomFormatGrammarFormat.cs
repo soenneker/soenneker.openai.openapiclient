@@ -12,17 +12,29 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomToolChatCompletionsCustomFormatGrammarFormat : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("grammar") is { } nullNodeGrammar && nullNodeGrammar.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Grammar = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Your chosen grammar.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar? Grammar { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar? Grammar { get => _explicitNullValueGrammar; set { _explicitNullValueGrammar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grammar"); else _explicitNullProperties?.Remove("grammar"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar? _explicitNullValueGrammar = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar Grammar { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar Grammar { get => _explicitNullValueGrammar; set { _explicitNullValueGrammar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grammar"); else _explicitNullProperties?.Remove("grammar"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar _explicitNullValueGrammar = default!;
 #endif
         /// <summary>The type of response format being defined. Always `grammar`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GrammarType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GrammarType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.GrammarType? _explicitNullValueType = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -31,7 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormat CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormat();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormat(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +65,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar>("grammar", Grammar);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GrammarType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.GrammarType>("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

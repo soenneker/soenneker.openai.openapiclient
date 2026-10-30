@@ -11,21 +11,40 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ProjectRateLimitUpdateRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("batch_1_day_max_input_tokens") is { } nullNodeBatch1DayMaxInputTokens && nullNodeBatch1DayMaxInputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Batch1DayMaxInputTokens = null;
+            if (parseNode.GetChildNode("max_audio_megabytes_per_1_minute") is { } nullNodeMaxAudioMegabytesPer1Minute && nullNodeMaxAudioMegabytesPer1Minute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAudioMegabytesPer1Minute = null;
+            if (parseNode.GetChildNode("max_images_per_1_minute") is { } nullNodeMaxImagesPer1Minute && nullNodeMaxImagesPer1Minute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxImagesPer1Minute = null;
+            if (parseNode.GetChildNode("max_requests_per_1_day") is { } nullNodeMaxRequestsPer1Day && nullNodeMaxRequestsPer1Day.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxRequestsPer1Day = null;
+            if (parseNode.GetChildNode("max_requests_per_1_minute") is { } nullNodeMaxRequestsPer1Minute && nullNodeMaxRequestsPer1Minute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxRequestsPer1Minute = null;
+            if (parseNode.GetChildNode("max_tokens_per_1_minute") is { } nullNodeMaxTokensPer1Minute && nullNodeMaxTokensPer1Minute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxTokensPer1Minute = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum batch input tokens per day. Only relevant for certain models.</summary>
-        public int? Batch1DayMaxInputTokens { get; set; }
+        public int? Batch1DayMaxInputTokens { get => _explicitNullValueBatch1DayMaxInputTokens; set { _explicitNullValueBatch1DayMaxInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("batch_1_day_max_input_tokens"); else _explicitNullProperties?.Remove("batch_1_day_max_input_tokens"); } }
+        private int? _explicitNullValueBatch1DayMaxInputTokens = default!;
         /// <summary>The maximum audio megabytes per minute. Only relevant for certain models.</summary>
-        public int? MaxAudioMegabytesPer1Minute { get; set; }
+        public int? MaxAudioMegabytesPer1Minute { get => _explicitNullValueMaxAudioMegabytesPer1Minute; set { _explicitNullValueMaxAudioMegabytesPer1Minute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_audio_megabytes_per_1_minute"); else _explicitNullProperties?.Remove("max_audio_megabytes_per_1_minute"); } }
+        private int? _explicitNullValueMaxAudioMegabytesPer1Minute = default!;
         /// <summary>The maximum images per minute. Only relevant for certain models.</summary>
-        public int? MaxImagesPer1Minute { get; set; }
+        public int? MaxImagesPer1Minute { get => _explicitNullValueMaxImagesPer1Minute; set { _explicitNullValueMaxImagesPer1Minute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_images_per_1_minute"); else _explicitNullProperties?.Remove("max_images_per_1_minute"); } }
+        private int? _explicitNullValueMaxImagesPer1Minute = default!;
         /// <summary>The maximum requests per day. Only relevant for certain models.</summary>
-        public int? MaxRequestsPer1Day { get; set; }
+        public int? MaxRequestsPer1Day { get => _explicitNullValueMaxRequestsPer1Day; set { _explicitNullValueMaxRequestsPer1Day = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_requests_per_1_day"); else _explicitNullProperties?.Remove("max_requests_per_1_day"); } }
+        private int? _explicitNullValueMaxRequestsPer1Day = default!;
         /// <summary>The maximum requests per minute.</summary>
-        public int? MaxRequestsPer1Minute { get; set; }
+        public int? MaxRequestsPer1Minute { get => _explicitNullValueMaxRequestsPer1Minute; set { _explicitNullValueMaxRequestsPer1Minute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_requests_per_1_minute"); else _explicitNullProperties?.Remove("max_requests_per_1_minute"); } }
+        private int? _explicitNullValueMaxRequestsPer1Minute = default!;
         /// <summary>The maximum tokens per minute.</summary>
-        public int? MaxTokensPer1Minute { get; set; }
+        public int? MaxTokensPer1Minute { get => _explicitNullValueMaxTokensPer1Minute; set { _explicitNullValueMaxTokensPer1Minute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_tokens_per_1_minute"); else _explicitNullProperties?.Remove("max_tokens_per_1_minute"); } }
+        private int? _explicitNullValueMaxTokensPer1Minute = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimitUpdateRequest"/> and sets the default values.
         /// </summary>
@@ -41,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimitUpdateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimitUpdateRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimitUpdateRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +91,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("max_requests_per_1_day", MaxRequestsPer1Day);
             writer.WriteIntValue("max_requests_per_1_minute", MaxRequestsPer1Minute);
             writer.WriteIntValue("max_tokens_per_1_minute", MaxTokensPer1Minute);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

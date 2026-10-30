@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessageContentItem : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,45 +98,66 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentItem();
             if("ComputerScreenshotContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ComputerScreenshotContent = new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent();
+                
             }
             else if("InputFileContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InputFileContent = new global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent();
+                
             }
             else if("InputImageContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InputImageContent = new global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent();
+                
             }
             else if("InputTextContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InputTextContent = new global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent();
+                
             }
             else if("OutputTextContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OutputTextContent = new global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextContent();
+                
             }
             else if("ReasoningTextContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReasoningTextContent = new global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningTextContent();
+                
             }
             else if("RefusalContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.RefusalContent = new global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContent();
+                
             }
             else if("SummaryTextContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SummaryTextContent = new global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent();
+                
             }
             else if("TextContent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.TextContent = new global::Soenneker.OpenAI.OpenApiClient.Models.TextContent();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("input_text".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("text") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("output_text".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("text") != null && parseNode.GetChildNode("annotations") != null && parseNode.GetChildNode("logprobs") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("text".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("text") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("summary_text".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("text") != null))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reasoning_text".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("text") != null))();
+            bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("refusal".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("refusal") != null))();
+            bool matchesUnionBranch6 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("input_image".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("detail") != null && (parseNode.GetChildNode("detail")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("low".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "high".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "auto".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "original".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch7 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("computer_screenshot".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("image_url") != null && parseNode.GetChildNode("file_id") != null && parseNode.GetChildNode("detail") != null && (parseNode.GetChildNode("detail")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag5 && ("low".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "high".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "auto".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "original".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch8 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("input_file".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && (parseNode.GetChildNode("detail") == null || (parseNode.GetChildNode("detail")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag2 && ("auto".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "low".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "high".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal))))))();
+            if (result.ComputerScreenshotContent == null && result.InputFileContent == null && result.InputImageContent == null && result.InputTextContent == null && result.OutputTextContent == null && result.ReasoningTextContent == null && result.RefusalContent == null && result.SummaryTextContent == null && result.TextContent == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.InputTextContent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent(), parseNode);
+            if (result.ComputerScreenshotContent == null && result.InputFileContent == null && result.InputImageContent == null && result.InputTextContent == null && result.OutputTextContent == null && result.ReasoningTextContent == null && result.RefusalContent == null && result.SummaryTextContent == null && result.TextContent == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.OutputTextContent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextContent(), parseNode);
+            if (result.ComputerScreenshotContent == null && result.InputFileContent == null && result.InputImageContent == null && result.InputTextContent == null && result.OutputTextContent == null && result.ReasoningTextContent == null && result.RefusalContent == null && result.SummaryTextContent == null && result.TextContent == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.TextContent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.TextContent(), parseNode);
+            if (result.ComputerScreenshotContent == null && result.InputFileContent == null && result.InputImageContent == null && result.InputTextContent == null && result.OutputTextContent == null && result.ReasoningTextContent == null && result.RefusalContent == null && result.SummaryTextContent == null && result.TextContent == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.SummaryTextContent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent(), parseNode);
+            if (result.ComputerScreenshotContent == null && result.InputFileContent == null && result.InputImageContent == null && result.InputTextContent == null && result.OutputTextContent == null && result.ReasoningTextContent == null && result.RefusalContent == null && result.SummaryTextContent == null && result.TextContent == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.ReasoningTextContent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningTextContent(), parseNode);
+            if (result.ComputerScreenshotContent == null && result.InputFileContent == null && result.InputImageContent == null && result.InputTextContent == null && result.OutputTextContent == null && result.ReasoningTextContent == null && result.RefusalContent == null && result.SummaryTextContent == null && result.TextContent == null && matchesUnionBranch5 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.RefusalContent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContent(), parseNode);
+            if (result.ComputerScreenshotContent == null && result.InputFileContent == null && result.InputImageContent == null && result.InputTextContent == null && result.OutputTextContent == null && result.ReasoningTextContent == null && result.RefusalContent == null && result.SummaryTextContent == null && result.TextContent == null && matchesUnionBranch6 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch7 && !matchesUnionBranch8) result.InputImageContent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent(), parseNode);
+            if (result.ComputerScreenshotContent == null && result.InputFileContent == null && result.InputImageContent == null && result.InputTextContent == null && result.OutputTextContent == null && result.ReasoningTextContent == null && result.RefusalContent == null && result.SummaryTextContent == null && result.TextContent == null && matchesUnionBranch7 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch8) result.ComputerScreenshotContent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent(), parseNode);
+            if (result.ComputerScreenshotContent == null && result.InputFileContent == null && result.InputImageContent == null && result.InputTextContent == null && result.OutputTextContent == null && result.ReasoningTextContent == null && result.RefusalContent == null && result.SummaryTextContent == null && result.TextContent == null && matchesUnionBranch8 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7) result.InputFileContent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent(), parseNode);
+            if (result.ComputerScreenshotContent == null && result.InputFileContent == null && result.InputImageContent == null && result.InputTextContent == null && result.OutputTextContent == null && result.ReasoningTextContent == null && result.RefusalContent == null && result.SummaryTextContent == null && result.TextContent == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -183,41 +209,62 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ComputerScreenshotContent == null && InputFileContent == null && InputImageContent == null && InputTextContent == null && OutputTextContent == null && ReasoningTextContent == null && RefusalContent == null && SummaryTextContent == null && TextContent == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ComputerScreenshotContent != null && InputFileContent == null && InputImageContent == null && InputTextContent == null && OutputTextContent == null && ReasoningTextContent == null && RefusalContent == null && SummaryTextContent == null && TextContent == null) { if (ComputerScreenshotContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ComputerScreenshotContent); return; }
+            if (InputFileContent != null && ComputerScreenshotContent == null && InputImageContent == null && InputTextContent == null && OutputTextContent == null && ReasoningTextContent == null && RefusalContent == null && SummaryTextContent == null && TextContent == null) { if (InputFileContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InputFileContent); return; }
+            if (InputImageContent != null && ComputerScreenshotContent == null && InputFileContent == null && InputTextContent == null && OutputTextContent == null && ReasoningTextContent == null && RefusalContent == null && SummaryTextContent == null && TextContent == null) { if (InputImageContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InputImageContent); return; }
+            if (InputTextContent != null && ComputerScreenshotContent == null && InputFileContent == null && InputImageContent == null && OutputTextContent == null && ReasoningTextContent == null && RefusalContent == null && SummaryTextContent == null && TextContent == null) { if (InputTextContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InputTextContent); return; }
+            if (OutputTextContent != null && ComputerScreenshotContent == null && InputFileContent == null && InputImageContent == null && InputTextContent == null && ReasoningTextContent == null && RefusalContent == null && SummaryTextContent == null && TextContent == null) { if (OutputTextContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OutputTextContent); return; }
+            if (ReasoningTextContent != null && ComputerScreenshotContent == null && InputFileContent == null && InputImageContent == null && InputTextContent == null && OutputTextContent == null && RefusalContent == null && SummaryTextContent == null && TextContent == null) { if (ReasoningTextContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReasoningTextContent); return; }
+            if (RefusalContent != null && ComputerScreenshotContent == null && InputFileContent == null && InputImageContent == null && InputTextContent == null && OutputTextContent == null && ReasoningTextContent == null && SummaryTextContent == null && TextContent == null) { if (RefusalContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RefusalContent); return; }
+            if (SummaryTextContent != null && ComputerScreenshotContent == null && InputFileContent == null && InputImageContent == null && InputTextContent == null && OutputTextContent == null && ReasoningTextContent == null && RefusalContent == null && TextContent == null) { if (SummaryTextContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SummaryTextContent); return; }
+            if (TextContent != null && ComputerScreenshotContent == null && InputFileContent == null && InputImageContent == null && InputTextContent == null && OutputTextContent == null && ReasoningTextContent == null && RefusalContent == null && SummaryTextContent == null) { if (TextContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, TextContent); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ComputerScreenshotContent != null)
             {
+                if (ComputerScreenshotContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerScreenshotContent>(null, ComputerScreenshotContent);
             }
             else if(InputFileContent != null)
             {
+                if (InputFileContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFileContent>(null, InputFileContent);
             }
             else if(InputImageContent != null)
             {
+                if (InputImageContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputImageContent>(null, InputImageContent);
             }
             else if(InputTextContent != null)
             {
+                if (InputTextContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputTextContent>(null, InputTextContent);
             }
             else if(OutputTextContent != null)
             {
+                if (OutputTextContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OutputTextContent>(null, OutputTextContent);
             }
             else if(ReasoningTextContent != null)
             {
+                if (ReasoningTextContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningTextContent>(null, ReasoningTextContent);
             }
             else if(RefusalContent != null)
             {
+                if (RefusalContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RefusalContent>(null, RefusalContent);
             }
             else if(SummaryTextContent != null)
             {
+                if (SummaryTextContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent>(null, SummaryTextContent);
             }
             else if(TextContent != null)
             {
+                if (TextContent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextContent>(null, TextContent);
             }
         }

@@ -12,25 +12,40 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LiveMediaSessionForkParams : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("client") is { } nullNodeClient && nullNodeClient.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Client = null;
+            if (parseNode.GetChildNode("delegation") is { } nullNodeDelegation && nullNodeDelegation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Delegation = null;
+            if (parseNode.GetChildNode("store") is { } nullNodeStore && nullNodeStore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Store = null;
+        }
+
         /// <summary>Startup-only capabilities for an untrusted frontend attached to a unified WebRTC session. Trusted sideband connections are unaffected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientConfigParam? Client { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientConfigParam? Client { get => _explicitNullValueClient; set { _explicitNullValueClient = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client"); else _explicitNullProperties?.Remove("client"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientConfigParam? _explicitNullValueClient = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientConfigParam Client { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientConfigParam Client { get => _explicitNullValueClient; set { _explicitNullValueClient = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client"); else _explicitNullProperties?.Remove("client"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientConfigParam _explicitNullValueClient = default!;
 #endif
         /// <summary>Update the Responses backend for an existing Live session without changing delegation ownership.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationUpdateParam? Delegation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationUpdateParam? Delegation { get => _explicitNullValueDelegation; set { _explicitNullValueDelegation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegation"); else _explicitNullProperties?.Remove("delegation"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationUpdateParam? _explicitNullValueDelegation = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationUpdateParam Delegation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationUpdateParam Delegation { get => _explicitNullValueDelegation; set { _explicitNullValueDelegation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegation"); else _explicitNullProperties?.Remove("delegation"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationUpdateParam _explicitNullValueDelegation = default!;
 #endif
         /// <summary>Whether to store the forked session. Omission inherits the stored session&apos;s setting.</summary>
-        public bool? Store { get; set; }
+        public bool? Store { get => _explicitNullValueStore; set { _explicitNullValueStore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("store"); else _explicitNullProperties?.Remove("store"); } }
+        private bool? _explicitNullValueStore = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.LiveMediaSessionForkParams CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.LiveMediaSessionForkParams();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.LiveMediaSessionForkParams(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +78,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveClientConfigParam>("client", Client);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationUpdateParam>("delegation", Delegation);
-            writer.WriteBoolValue("store", Store);
+            writer.WriteBoolValue("store", Store);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

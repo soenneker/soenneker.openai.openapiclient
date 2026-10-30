@@ -11,54 +11,79 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DecisionRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("input") is { } nullNodeInput && nullNodeInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Input = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("prompt_cache_key") is { } nullNodePromptCacheKey && nullNodePromptCacheKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptCacheKey = null;
+            if (parseNode.GetChildNode("prompt_cache_options") is { } nullNodePromptCacheOptions && nullNodePromptCacheOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptCacheOptions = null;
+            if (parseNode.GetChildNode("questions") is { } nullNodeQuestions && nullNodeQuestions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Questions = null;
+            if (parseNode.GetChildNode("safety_identifier") is { } nullNodeSafetyIdentifier && nullNodeSafetyIdentifier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SafetyIdentifier = null;
+        }
+
         /// <summary>The input to evaluate for every question. Provide a text string or an ordered array of messages, function calls and outputs, or custom tool calls and outputs. Each tool output must identify a matching call by call ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionInput? Input { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionInput? Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.DecisionInput? _explicitNullValueInput = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionInput Input { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionInput Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.DecisionInput _explicitNullValueInput = default!;
 #endif
         /// <summary>The model to use. Only `gpt-6-luna` is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get; set; }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get; set; }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string _explicitNullValueModel = default!;
 #endif
         /// <summary>Partition prompt cache reuse by caller-provided key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PromptCacheKey { get; set; }
+        public string? PromptCacheKey { get => _explicitNullValuePromptCacheKey; set { _explicitNullValuePromptCacheKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_key"); else _explicitNullProperties?.Remove("prompt_cache_key"); } }
+        private string? _explicitNullValuePromptCacheKey = default!;
 #nullable restore
 #else
-        public string PromptCacheKey { get; set; }
+        public string PromptCacheKey { get => _explicitNullValuePromptCacheKey; set { _explicitNullValuePromptCacheKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_key"); else _explicitNullProperties?.Remove("prompt_cache_key"); } }
+        private string _explicitNullValuePromptCacheKey = default!;
 #endif
         /// <summary>Options for prompt caching. Supported for `gpt-5.6` and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with `prompt_cache_breakpoint`. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set `mode` to `explicit` to disable the implicit breakpoint. The `ttl` defaults to `30m`, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptions? PromptCacheOptions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptions? PromptCacheOptions { get => _explicitNullValuePromptCacheOptions; set { _explicitNullValuePromptCacheOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_options"); else _explicitNullProperties?.Remove("prompt_cache_options"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptions? _explicitNullValuePromptCacheOptions = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptions PromptCacheOptions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptions PromptCacheOptions { get => _explicitNullValuePromptCacheOptions; set { _explicitNullValuePromptCacheOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_options"); else _explicitNullProperties?.Remove("prompt_cache_options"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptions _explicitNullValuePromptCacheOptions = default!;
 #endif
         /// <summary>Ask 1–400 questions about the input. Each question can be a predicate, choice, or score. Answers come back in the same order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParam>? Questions { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParam>? Questions { get => _explicitNullValueQuestions; set { _explicitNullValueQuestions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("questions"); else _explicitNullProperties?.Remove("questions"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParam>? _explicitNullValueQuestions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParam> Questions { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParam> Questions { get => _explicitNullValueQuestions; set { _explicitNullValueQuestions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("questions"); else _explicitNullProperties?.Remove("questions"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParam> _explicitNullValueQuestions = default!;
 #endif
         /// <summary>Opaque caller-provided end-user identifier, scoped by the verified org. Match Responses&apos; limit; this is never the authenticated user identity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SafetyIdentifier { get; set; }
+        public string? SafetyIdentifier { get => _explicitNullValueSafetyIdentifier; set { _explicitNullValueSafetyIdentifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("safety_identifier"); else _explicitNullProperties?.Remove("safety_identifier"); } }
+        private string? _explicitNullValueSafetyIdentifier = default!;
 #nullable restore
 #else
-        public string SafetyIdentifier { get; set; }
+        public string SafetyIdentifier { get => _explicitNullValueSafetyIdentifier; set { _explicitNullValueSafetyIdentifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("safety_identifier"); else _explicitNullProperties?.Remove("safety_identifier"); } }
+        private string _explicitNullValueSafetyIdentifier = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -68,7 +93,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,7 +123,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("prompt_cache_key", PromptCacheKey);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptions>("prompt_cache_options", PromptCacheOptions);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParam>("questions", Questions);
-            writer.WriteStringValue("safety_identifier", SafetyIdentifier);
+            writer.WriteStringValue("safety_identifier", SafetyIdentifier);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

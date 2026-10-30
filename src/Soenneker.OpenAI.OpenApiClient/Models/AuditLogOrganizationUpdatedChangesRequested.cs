@@ -12,64 +12,92 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuditLogOrganizationUpdatedChangesRequested : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("api_call_logging") is { } nullNodeApiCallLogging && nullNodeApiCallLogging.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiCallLogging = null;
+            if (parseNode.GetChildNode("api_call_logging_project_ids") is { } nullNodeApiCallLoggingProjectIds && nullNodeApiCallLoggingProjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiCallLoggingProjectIds = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("threads_ui_visibility") is { } nullNodeThreadsUiVisibility && nullNodeThreadsUiVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadsUiVisibility = null;
+            if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
+            if (parseNode.GetChildNode("usage_dashboard_visibility") is { } nullNodeUsageDashboardVisibility && nullNodeUsageDashboardVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsageDashboardVisibility = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>How your organization logs data from supported API calls. One of `disabled`, `enabled_per_call`, `enabled_for_all_projects`, or `enabled_for_selected_projects`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiCallLogging { get; set; }
+        public string? ApiCallLogging { get => _explicitNullValueApiCallLogging; set { _explicitNullValueApiCallLogging = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_call_logging"); else _explicitNullProperties?.Remove("api_call_logging"); } }
+        private string? _explicitNullValueApiCallLogging = default!;
 #nullable restore
 #else
-        public string ApiCallLogging { get; set; }
+        public string ApiCallLogging { get => _explicitNullValueApiCallLogging; set { _explicitNullValueApiCallLogging = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_call_logging"); else _explicitNullProperties?.Remove("api_call_logging"); } }
+        private string _explicitNullValueApiCallLogging = default!;
 #endif
         /// <summary>The list of project ids if api_call_logging is set to `enabled_for_selected_projects`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiCallLoggingProjectIds { get; set; }
+        public string? ApiCallLoggingProjectIds { get => _explicitNullValueApiCallLoggingProjectIds; set { _explicitNullValueApiCallLoggingProjectIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_call_logging_project_ids"); else _explicitNullProperties?.Remove("api_call_logging_project_ids"); } }
+        private string? _explicitNullValueApiCallLoggingProjectIds = default!;
 #nullable restore
 #else
-        public string ApiCallLoggingProjectIds { get; set; }
+        public string ApiCallLoggingProjectIds { get => _explicitNullValueApiCallLoggingProjectIds; set { _explicitNullValueApiCallLoggingProjectIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_call_logging_project_ids"); else _explicitNullProperties?.Remove("api_call_logging_project_ids"); } }
+        private string _explicitNullValueApiCallLoggingProjectIds = default!;
 #endif
         /// <summary>The organization description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The organization name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Visibility of the threads page which shows messages created with the Assistants API and Playground. One of `ANY_ROLE`, `OWNERS`, or `NONE`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ThreadsUiVisibility { get; set; }
+        public string? ThreadsUiVisibility { get => _explicitNullValueThreadsUiVisibility; set { _explicitNullValueThreadsUiVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threads_ui_visibility"); else _explicitNullProperties?.Remove("threads_ui_visibility"); } }
+        private string? _explicitNullValueThreadsUiVisibility = default!;
 #nullable restore
 #else
-        public string ThreadsUiVisibility { get; set; }
+        public string ThreadsUiVisibility { get => _explicitNullValueThreadsUiVisibility; set { _explicitNullValueThreadsUiVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threads_ui_visibility"); else _explicitNullProperties?.Remove("threads_ui_visibility"); } }
+        private string _explicitNullValueThreadsUiVisibility = default!;
 #endif
         /// <summary>The organization title.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Title { get; set; }
+        public string? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        private string? _explicitNullValueTitle = default!;
 #nullable restore
 #else
-        public string Title { get; set; }
+        public string Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        private string _explicitNullValueTitle = default!;
 #endif
         /// <summary>Visibility of the usage dashboard which shows activity and costs for your organization. One of `ANY_ROLE` or `OWNERS`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UsageDashboardVisibility { get; set; }
+        public string? UsageDashboardVisibility { get => _explicitNullValueUsageDashboardVisibility; set { _explicitNullValueUsageDashboardVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_dashboard_visibility"); else _explicitNullProperties?.Remove("usage_dashboard_visibility"); } }
+        private string? _explicitNullValueUsageDashboardVisibility = default!;
 #nullable restore
 #else
-        public string UsageDashboardVisibility { get; set; }
+        public string UsageDashboardVisibility { get => _explicitNullValueUsageDashboardVisibility; set { _explicitNullValueUsageDashboardVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_dashboard_visibility"); else _explicitNullProperties?.Remove("usage_dashboard_visibility"); } }
+        private string _explicitNullValueUsageDashboardVisibility = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdatedChangesRequested"/> and sets the default values.
@@ -86,7 +114,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdatedChangesRequested CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdatedChangesRequested();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdatedChangesRequested(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -119,6 +147,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("threads_ui_visibility", ThreadsUiVisibility);
             writer.WriteStringValue("title", Title);
             writer.WriteStringValue("usage_dashboard_visibility", UsageDashboardVisibility);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

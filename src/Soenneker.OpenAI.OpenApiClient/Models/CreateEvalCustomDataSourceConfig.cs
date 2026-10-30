@@ -12,21 +12,35 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateEvalCustomDataSourceConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("include_sample_schema") is { } nullNodeIncludeSampleSchema && nullNodeIncludeSampleSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeSampleSchema = null;
+            if (parseNode.GetChildNode("item_schema") is { } nullNodeItemSchema && nullNodeItemSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ItemSchema = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the eval should expect you to populate the sample namespace (ie, by generating responses off of your data source)</summary>
-        public bool? IncludeSampleSchema { get; set; }
+        public bool? IncludeSampleSchema { get => _explicitNullValueIncludeSampleSchema; set { _explicitNullValueIncludeSampleSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_sample_schema"); else _explicitNullProperties?.Remove("include_sample_schema"); } }
+        private bool? _explicitNullValueIncludeSampleSchema = default!;
         /// <summary>The json schema for each row in the data source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty? ItemSchema { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty? ItemSchema { get => _explicitNullValueItemSchema; set { _explicitNullValueItemSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("item_schema"); else _explicitNullProperties?.Remove("item_schema"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty? _explicitNullValueItemSchema = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty ItemSchema { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty ItemSchema { get => _explicitNullValueItemSchema; set { _explicitNullValueItemSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("item_schema"); else _explicitNullProperties?.Remove("item_schema"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty _explicitNullValueItemSchema = default!;
 #endif
         /// <summary>The type of the tool. Always `custom`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CustomType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig"/> and sets the default values.
         /// </summary>
@@ -43,7 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteBoolValue("include_sample_schema", IncludeSampleSchema);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateEvalCustomDataSourceConfigItemSchemaProperty>("item_schema", ItemSchema);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

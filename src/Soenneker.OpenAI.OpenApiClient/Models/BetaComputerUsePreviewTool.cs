@@ -12,17 +12,32 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaComputerUsePreviewTool : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("display_height") is { } nullNodeDisplayHeight && nullNodeDisplayHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayHeight = null;
+            if (parseNode.GetChildNode("display_width") is { } nullNodeDisplayWidth && nullNodeDisplayWidth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayWidth = null;
+            if (parseNode.GetChildNode("environment") is { } nullNodeEnvironment && nullNodeEnvironment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Environment = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The height of the computer display.</summary>
-        public int? DisplayHeight { get; set; }
+        public int? DisplayHeight { get => _explicitNullValueDisplayHeight; set { _explicitNullValueDisplayHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_height"); else _explicitNullProperties?.Remove("display_height"); } }
+        private int? _explicitNullValueDisplayHeight = default!;
         /// <summary>The width of the computer display.</summary>
-        public int? DisplayWidth { get; set; }
+        public int? DisplayWidth { get => _explicitNullValueDisplayWidth; set { _explicitNullValueDisplayWidth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_width"); else _explicitNullProperties?.Remove("display_width"); } }
+        private int? _explicitNullValueDisplayWidth = default!;
         /// <summary>The type of computer environment to control.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerEnvironment? Environment { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerEnvironment? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerEnvironment? _explicitNullValueEnvironment = default!;
         /// <summary>The type of the computer use tool. Always `computer_use_preview`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerUsePreviewTool"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerUsePreviewTool CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerUsePreviewTool();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerUsePreviewTool(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("display_width", DisplayWidth);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerEnvironment>("environment", Environment);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUsePreviewType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

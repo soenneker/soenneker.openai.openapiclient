@@ -12,31 +12,50 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CompletionUsage : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("completion_tokens") is { } nullNodeCompletionTokens && nullNodeCompletionTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletionTokens = null;
+            if (parseNode.GetChildNode("completion_tokens_details") is { } nullNodeCompletionTokensDetails && nullNodeCompletionTokensDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletionTokensDetails = null;
+            if (parseNode.GetChildNode("prompt_tokens") is { } nullNodePromptTokens && nullNodePromptTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptTokens = null;
+            if (parseNode.GetChildNode("prompt_tokens_details") is { } nullNodePromptTokensDetails && nullNodePromptTokensDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptTokensDetails = null;
+            if (parseNode.GetChildNode("total_tokens") is { } nullNodeTotalTokens && nullNodeTotalTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalTokens = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of tokens in the generated completion.</summary>
-        public int? CompletionTokens { get; set; }
+        public int? CompletionTokens { get => _explicitNullValueCompletionTokens; set { _explicitNullValueCompletionTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completion_tokens"); else _explicitNullProperties?.Remove("completion_tokens"); } }
+        private int? _explicitNullValueCompletionTokens = default!;
         /// <summary>Breakdown of tokens used in a completion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsageCompletionTokensDetails? CompletionTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsageCompletionTokensDetails? CompletionTokensDetails { get => _explicitNullValueCompletionTokensDetails; set { _explicitNullValueCompletionTokensDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completion_tokens_details"); else _explicitNullProperties?.Remove("completion_tokens_details"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsageCompletionTokensDetails? _explicitNullValueCompletionTokensDetails = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsageCompletionTokensDetails CompletionTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsageCompletionTokensDetails CompletionTokensDetails { get => _explicitNullValueCompletionTokensDetails; set { _explicitNullValueCompletionTokensDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completion_tokens_details"); else _explicitNullProperties?.Remove("completion_tokens_details"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsageCompletionTokensDetails _explicitNullValueCompletionTokensDetails = default!;
 #endif
         /// <summary>Number of tokens in the prompt.</summary>
-        public int? PromptTokens { get; set; }
+        public int? PromptTokens { get => _explicitNullValuePromptTokens; set { _explicitNullValuePromptTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_tokens"); else _explicitNullProperties?.Remove("prompt_tokens"); } }
+        private int? _explicitNullValuePromptTokens = default!;
         /// <summary>Breakdown of tokens used in the prompt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails? PromptTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails? PromptTokensDetails { get => _explicitNullValuePromptTokensDetails; set { _explicitNullValuePromptTokensDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_tokens_details"); else _explicitNullProperties?.Remove("prompt_tokens_details"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails? _explicitNullValuePromptTokensDetails = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails PromptTokensDetails { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails PromptTokensDetails { get => _explicitNullValuePromptTokensDetails; set { _explicitNullValuePromptTokensDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_tokens_details"); else _explicitNullProperties?.Remove("prompt_tokens_details"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails _explicitNullValuePromptTokensDetails = default!;
 #endif
         /// <summary>Total number of tokens used in the request (prompt + completion).</summary>
-        public int? TotalTokens { get; set; }
+        public int? TotalTokens { get => _explicitNullValueTotalTokens; set { _explicitNullValueTotalTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_tokens"); else _explicitNullProperties?.Remove("total_tokens"); } }
+        private int? _explicitNullValueTotalTokens = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage"/> and sets the default values.
         /// </summary>
@@ -55,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,6 +103,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("prompt_tokens", PromptTokens);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails>("prompt_tokens_details", PromptTokensDetails);
             writer.WriteIntValue("total_tokens", TotalTokens);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

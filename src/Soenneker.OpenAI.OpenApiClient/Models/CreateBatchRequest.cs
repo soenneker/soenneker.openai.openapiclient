@@ -11,36 +11,56 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateBatchRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("completion_window") is { } nullNodeCompletionWindow && nullNodeCompletionWindow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletionWindow = null;
+            if (parseNode.GetChildNode("endpoint") is { } nullNodeEndpoint && nullNodeEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Endpoint = null;
+            if (parseNode.GetChildNode("input_file_id") is { } nullNodeInputFileId && nullNodeInputFileId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputFileId = null;
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("output_expires_after") is { } nullNodeOutputExpiresAfter && nullNodeOutputExpiresAfter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputExpiresAfter = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The time frame within which the batch should be processed. Currently only `24h` is supported.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Value24HCompletionWindow? CompletionWindow { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Value24HCompletionWindow? CompletionWindow { get => _explicitNullValueCompletionWindow; set { _explicitNullValueCompletionWindow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completion_window"); else _explicitNullProperties?.Remove("completion_window"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.Value24HCompletionWindow? _explicitNullValueCompletionWindow = default!;
         /// <summary>The endpoint to be used for all requests in the batch. Currently `/v1/responses`, `/v1/chat/completions`, `/v1/embeddings`, `/v1/completions`, `/v1/moderations`, `/v1/images/generations`, `/v1/images/edits`, and `/v1/videos` are supported. Note that `/v1/embeddings` batches are also restricted to a maximum of 50,000 embedding inputs across all requests in the batch.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestEndpoint? Endpoint { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestEndpoint? Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestEndpoint? _explicitNullValueEndpoint = default!;
         /// <summary>The ID of an uploaded file that contains requests for the new batch.See [upload file](https://developers.openai.com/api/reference/resources/files/methods/create) for how to upload a file.Your input file must be formatted as a [JSONL file](https://developers.openai.com/api/docs/guides/batch#1-prepare-your-batch-file), and must be uploaded with the purpose `batch`. The file can contain up to 50,000 requests, and can be up to 200 MB in size.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InputFileId { get; set; }
+        public string? InputFileId { get => _explicitNullValueInputFileId; set { _explicitNullValueInputFileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_file_id"); else _explicitNullProperties?.Remove("input_file_id"); } }
+        private string? _explicitNullValueInputFileId = default!;
 #nullable restore
 #else
-        public string InputFileId { get; set; }
+        public string InputFileId { get => _explicitNullValueInputFileId; set { _explicitNullValueInputFileId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_file_id"); else _explicitNullProperties?.Remove("input_file_id"); } }
+        private string _explicitNullValueInputFileId = default!;
 #endif
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestMetadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestMetadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The expiration policy for the output and/or error file that are generated for a batch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchFileExpirationAfter? OutputExpiresAfter { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchFileExpirationAfter? OutputExpiresAfter { get => _explicitNullValueOutputExpiresAfter; set { _explicitNullValueOutputExpiresAfter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_expires_after"); else _explicitNullProperties?.Remove("output_expires_after"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BatchFileExpirationAfter? _explicitNullValueOutputExpiresAfter = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchFileExpirationAfter OutputExpiresAfter { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BatchFileExpirationAfter OutputExpiresAfter { get => _explicitNullValueOutputExpiresAfter; set { _explicitNullValueOutputExpiresAfter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_expires_after"); else _explicitNullProperties?.Remove("output_expires_after"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BatchFileExpirationAfter _explicitNullValueOutputExpiresAfter = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequest"/> and sets the default values.
@@ -57,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,6 +106,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("input_file_id", InputFileId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateBatchRequestMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchFileExpirationAfter>("output_expires_after", OutputExpiresAfter);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

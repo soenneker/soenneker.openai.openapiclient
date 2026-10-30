@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EvalTestingCriteriaItem : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModel"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,25 +70,38 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalTestingCriteriaItem();
             if("label_model".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EvalGraderLabelModel = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModel();
+                
             }
             else if("python".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EvalGraderPython = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPython();
+                
             }
             else if("score_model".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EvalGraderScoreModel = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModel();
+                
             }
             else if("string_check".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EvalGraderStringCheck = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheck();
+                
             }
             else if("text_similarity".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EvalGraderTextSimilarity = new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("label_model".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("model") != null && parseNode.GetChildNode("input") != null && parseNode.GetChildNode("passing_labels") != null && parseNode.GetChildNode("labels") != null && parseNode.GetChildNode("name") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("string_check".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("name") != null && parseNode.GetChildNode("input") != null && parseNode.GetChildNode("reference") != null && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag6 && ("eq".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "ne".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "like".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "ilike".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("text_similarity".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("name") != null && parseNode.GetChildNode("input") != null && parseNode.GetChildNode("reference") != null && parseNode.GetChildNode("evaluation_metric") != null && (parseNode.GetChildNode("evaluation_metric")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag6 && ("cosine".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "fuzzy_match".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "bleu".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "gleu".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "meteor".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "rouge_1".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "rouge_2".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "rouge_3".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "rouge_4".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "rouge_5".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "rouge_l".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("pass_threshold") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("python".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("name") != null && parseNode.GetChildNode("source") != null))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("score_model".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("name") != null && parseNode.GetChildNode("input") != null && parseNode.GetChildNode("model") != null))();
+            if (result.EvalGraderLabelModel == null && result.EvalGraderPython == null && result.EvalGraderScoreModel == null && result.EvalGraderStringCheck == null && result.EvalGraderTextSimilarity == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4) result.EvalGraderLabelModel = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModel(), parseNode);
+            if (result.EvalGraderLabelModel == null && result.EvalGraderPython == null && result.EvalGraderScoreModel == null && result.EvalGraderStringCheck == null && result.EvalGraderTextSimilarity == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4) result.EvalGraderStringCheck = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheck(), parseNode);
+            if (result.EvalGraderLabelModel == null && result.EvalGraderPython == null && result.EvalGraderScoreModel == null && result.EvalGraderStringCheck == null && result.EvalGraderTextSimilarity == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4) result.EvalGraderTextSimilarity = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity(), parseNode);
+            if (result.EvalGraderLabelModel == null && result.EvalGraderPython == null && result.EvalGraderScoreModel == null && result.EvalGraderStringCheck == null && result.EvalGraderTextSimilarity == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4) result.EvalGraderPython = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPython(), parseNode);
+            if (result.EvalGraderLabelModel == null && result.EvalGraderPython == null && result.EvalGraderScoreModel == null && result.EvalGraderStringCheck == null && result.EvalGraderTextSimilarity == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.EvalGraderScoreModel = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModel(), parseNode);
+            if (result.EvalGraderLabelModel == null && result.EvalGraderPython == null && result.EvalGraderScoreModel == null && result.EvalGraderStringCheck == null && result.EvalGraderTextSimilarity == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -119,25 +137,38 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (EvalGraderLabelModel == null && EvalGraderPython == null && EvalGraderScoreModel == null && EvalGraderStringCheck == null && EvalGraderTextSimilarity == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (EvalGraderLabelModel != null && EvalGraderPython == null && EvalGraderScoreModel == null && EvalGraderStringCheck == null && EvalGraderTextSimilarity == null) { if (EvalGraderLabelModel is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EvalGraderLabelModel); return; }
+            if (EvalGraderPython != null && EvalGraderLabelModel == null && EvalGraderScoreModel == null && EvalGraderStringCheck == null && EvalGraderTextSimilarity == null) { if (EvalGraderPython is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EvalGraderPython); return; }
+            if (EvalGraderScoreModel != null && EvalGraderLabelModel == null && EvalGraderPython == null && EvalGraderStringCheck == null && EvalGraderTextSimilarity == null) { if (EvalGraderScoreModel is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EvalGraderScoreModel); return; }
+            if (EvalGraderStringCheck != null && EvalGraderLabelModel == null && EvalGraderPython == null && EvalGraderScoreModel == null && EvalGraderTextSimilarity == null) { if (EvalGraderStringCheck is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EvalGraderStringCheck); return; }
+            if (EvalGraderTextSimilarity != null && EvalGraderLabelModel == null && EvalGraderPython == null && EvalGraderScoreModel == null && EvalGraderStringCheck == null) { if (EvalGraderTextSimilarity is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EvalGraderTextSimilarity); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(EvalGraderLabelModel != null)
             {
+                if (EvalGraderLabelModel is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderLabelModel>(null, EvalGraderLabelModel);
             }
             else if(EvalGraderPython != null)
             {
+                if (EvalGraderPython is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderPython>(null, EvalGraderPython);
             }
             else if(EvalGraderScoreModel != null)
             {
+                if (EvalGraderScoreModel is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderScoreModel>(null, EvalGraderScoreModel);
             }
             else if(EvalGraderStringCheck != null)
             {
+                if (EvalGraderStringCheck is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderStringCheck>(null, EvalGraderStringCheck);
             }
             else if(EvalGraderTextSimilarity != null)
             {
+                if (EvalGraderTextSimilarity is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalGraderTextSimilarity>(null, EvalGraderTextSimilarity);
             }
         }

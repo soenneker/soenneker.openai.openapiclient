@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RealtimeTruncation : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationOneOf1"/></summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationOneOf1? RealtimeTruncationOneOf1 { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncation"/></summary>
@@ -33,15 +38,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation();
-            if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationOneOf1>() is global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationOneOf1 realtimeTruncationOneOf1Value)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString unionEnumValue0 && ("auto".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "disabled".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase)) && parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationOneOf1>() is global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationOneOf1 realtimeTruncationOneOf1Value)
             {
                 result.RealtimeTruncationOneOf1 = realtimeTruncationOneOf1Value;
             }
             else if("RealtimeTruncationRetentionRatioTruncation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.RealtimeTruncationRetentionRatioTruncation = new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncation();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("retention_ratio".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("retention_ratio") != null))();
+            if (result.RealtimeTruncationOneOf1 == null && result.RealtimeTruncationRetentionRatioTruncation == null && matchesUnionBranch0) result.RealtimeTruncationRetentionRatioTruncation = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncation(), parseNode);
+            if (result.RealtimeTruncationOneOf1 == null && result.RealtimeTruncationRetentionRatioTruncation == null && unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) result.RealtimeTruncationRetentionRatioTruncation = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncation(), parseNode);
+            if (result.RealtimeTruncationOneOf1 == null && result.RealtimeTruncationRetentionRatioTruncation == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +72,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (RealtimeTruncationOneOf1 == null && RealtimeTruncationRetentionRatioTruncation == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (RealtimeTruncationRetentionRatioTruncation != null && RealtimeTruncationOneOf1 == null) { if (RealtimeTruncationRetentionRatioTruncation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RealtimeTruncationRetentionRatioTruncation); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(RealtimeTruncationOneOf1 != null)
             {
@@ -68,6 +83,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             }
             else if(RealtimeTruncationRetentionRatioTruncation != null)
             {
+                if (RealtimeTruncationRetentionRatioTruncation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncationRetentionRatioTruncation>(null, RealtimeTruncationRetentionRatioTruncation);
             }
         }

@@ -12,18 +12,30 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatCompletionAllowedTools : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Constrains the tools available to the model to a pre-defined set.`auto` allows the model to pick from among the allowed tools and generate amessage.`required` requires the model to call one or more of the allowed tools.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsMode? Mode { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsMode? _explicitNullValueMode = default!;
         /// <summary>A list of tool definitions that the model should be allowed to call.For the Chat Completions API, the list of tool definitions might look like:```json[  { &quot;type&quot;: &quot;function&quot;, &quot;function&quot;: { &quot;name&quot;: &quot;get_weather&quot; } },  { &quot;type&quot;: &quot;function&quot;, &quot;function&quot;: { &quot;name&quot;: &quot;get_time&quot; } }]```</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty>? Tools { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty>? Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty>? _explicitNullValueTools = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty> Tools { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty> Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty> _explicitNullValueTools = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools"/> and sets the default values.
@@ -40,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedTools(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsMode>("mode", Mode);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionAllowedToolsToolsItemProperty>("tools", Tools);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

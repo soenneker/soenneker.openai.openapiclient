@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaTextResponseFormatConfiguration : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseFormatJsonObject"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,21 +50,30 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatConfiguration();
             if("BetaResponseFormatJsonObject".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.BetaResponseFormatJsonObject = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseFormatJsonObject();
+                
             }
             else if("BetaResponseFormatText".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.BetaResponseFormatText = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseFormatText();
+                
             }
             else if("BetaTextResponseFormatJsonSchema".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.BetaTextResponseFormatJsonSchema = new global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatJsonSchema();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("text".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("json_schema".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("schema") != null && parseNode.GetChildNode("name") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("json_object".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.BetaResponseFormatJsonObject == null && result.BetaResponseFormatText == null && result.BetaTextResponseFormatJsonSchema == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.BetaResponseFormatText = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseFormatText(), parseNode);
+            if (result.BetaResponseFormatJsonObject == null && result.BetaResponseFormatText == null && result.BetaTextResponseFormatJsonSchema == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.BetaTextResponseFormatJsonSchema = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatJsonSchema(), parseNode);
+            if (result.BetaResponseFormatJsonObject == null && result.BetaResponseFormatText == null && result.BetaTextResponseFormatJsonSchema == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.BetaResponseFormatJsonObject = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseFormatJsonObject(), parseNode);
+            if (result.BetaResponseFormatJsonObject == null && result.BetaResponseFormatText == null && result.BetaTextResponseFormatJsonSchema == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,17 +101,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (BetaResponseFormatJsonObject == null && BetaResponseFormatText == null && BetaTextResponseFormatJsonSchema == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (BetaResponseFormatJsonObject != null && BetaResponseFormatText == null && BetaTextResponseFormatJsonSchema == null) { if (BetaResponseFormatJsonObject is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaResponseFormatJsonObject); return; }
+            if (BetaResponseFormatText != null && BetaResponseFormatJsonObject == null && BetaTextResponseFormatJsonSchema == null) { if (BetaResponseFormatText is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaResponseFormatText); return; }
+            if (BetaTextResponseFormatJsonSchema != null && BetaResponseFormatJsonObject == null && BetaResponseFormatText == null) { if (BetaTextResponseFormatJsonSchema is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BetaTextResponseFormatJsonSchema); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(BetaResponseFormatJsonObject != null)
             {
+                if (BetaResponseFormatJsonObject is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseFormatJsonObject>(null, BetaResponseFormatJsonObject);
             }
             else if(BetaResponseFormatText != null)
             {
+                if (BetaResponseFormatText is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseFormatText>(null, BetaResponseFormatText);
             }
             else if(BetaTextResponseFormatJsonSchema != null)
             {
+                if (BetaTextResponseFormatJsonSchema is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatJsonSchema>(null, BetaTextResponseFormatJsonSchema);
             }
         }

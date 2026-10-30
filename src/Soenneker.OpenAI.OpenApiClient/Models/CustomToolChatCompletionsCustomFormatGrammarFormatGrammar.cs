@@ -12,19 +12,31 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomToolChatCompletionsCustomFormatGrammarFormatGrammar : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("definition") is { } nullNodeDefinition && nullNodeDefinition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Definition = null;
+            if (parseNode.GetChildNode("syntax") is { } nullNodeSyntax && nullNodeSyntax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Syntax = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The grammar definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Definition { get; set; }
+        public string? Definition { get => _explicitNullValueDefinition; set { _explicitNullValueDefinition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("definition"); else _explicitNullProperties?.Remove("definition"); } }
+        private string? _explicitNullValueDefinition = default!;
 #nullable restore
 #else
-        public string Definition { get; set; }
+        public string Definition { get => _explicitNullValueDefinition; set { _explicitNullValueDefinition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("definition"); else _explicitNullProperties?.Remove("definition"); } }
+        private string _explicitNullValueDefinition = default!;
 #endif
         /// <summary>The syntax of the grammar definition. One of `lark` or `regex`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammarSyntax? Syntax { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammarSyntax? Syntax { get => _explicitNullValueSyntax; set { _explicitNullValueSyntax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("syntax"); else _explicitNullProperties?.Remove("syntax"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammarSyntax? _explicitNullValueSyntax = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar"/> and sets the default values.
         /// </summary>
@@ -40,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammar(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("definition", Definition);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatGrammarSyntax>("syntax", Syntax);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

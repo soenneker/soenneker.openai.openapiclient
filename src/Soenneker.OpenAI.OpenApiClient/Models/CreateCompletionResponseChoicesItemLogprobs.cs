@@ -11,40 +11,59 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateCompletionResponseChoicesItemLogprobs : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("text_offset") is { } nullNodeTextOffset && nullNodeTextOffset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextOffset = null;
+            if (parseNode.GetChildNode("token_logprobs") is { } nullNodeTokenLogprobs && nullNodeTokenLogprobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenLogprobs = null;
+            if (parseNode.GetChildNode("tokens") is { } nullNodeTokens && nullNodeTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tokens = null;
+            if (parseNode.GetChildNode("top_logprobs") is { } nullNodeTopLogprobs && nullNodeTopLogprobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopLogprobs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The text_offset property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? TextOffset { get; set; }
+        public List<int?>? TextOffset { get => _explicitNullValueTextOffset; set { _explicitNullValueTextOffset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_offset"); else _explicitNullProperties?.Remove("text_offset"); } }
+        private List<int?>? _explicitNullValueTextOffset = default!;
 #nullable restore
 #else
-        public List<int?> TextOffset { get; set; }
+        public List<int?> TextOffset { get => _explicitNullValueTextOffset; set { _explicitNullValueTextOffset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_offset"); else _explicitNullProperties?.Remove("text_offset"); } }
+        private List<int?> _explicitNullValueTextOffset = default!;
 #endif
         /// <summary>The token_logprobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? TokenLogprobs { get; set; }
+        public List<double?>? TokenLogprobs { get => _explicitNullValueTokenLogprobs; set { _explicitNullValueTokenLogprobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_logprobs"); else _explicitNullProperties?.Remove("token_logprobs"); } }
+        private List<double?>? _explicitNullValueTokenLogprobs = default!;
 #nullable restore
 #else
-        public List<double?> TokenLogprobs { get; set; }
+        public List<double?> TokenLogprobs { get => _explicitNullValueTokenLogprobs; set { _explicitNullValueTokenLogprobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_logprobs"); else _explicitNullProperties?.Remove("token_logprobs"); } }
+        private List<double?> _explicitNullValueTokenLogprobs = default!;
 #endif
         /// <summary>The tokens property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tokens { get; set; }
+        public List<string>? Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
+        private List<string>? _explicitNullValueTokens = default!;
 #nullable restore
 #else
-        public List<string> Tokens { get; set; }
+        public List<string> Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
+        private List<string> _explicitNullValueTokens = default!;
 #endif
         /// <summary>The top_logprobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty>? TopLogprobs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty>? TopLogprobs { get => _explicitNullValueTopLogprobs; set { _explicitNullValueTopLogprobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_logprobs"); else _explicitNullProperties?.Remove("top_logprobs"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty>? _explicitNullValueTopLogprobs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty> TopLogprobs { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty> TopLogprobs { get => _explicitNullValueTopLogprobs; set { _explicitNullValueTopLogprobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_logprobs"); else _explicitNullProperties?.Remove("top_logprobs"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty> _explicitNullValueTopLogprobs = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs"/> and sets the default values.
@@ -61,7 +80,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +109,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<double?>("token_logprobs", TokenLogprobs);
             writer.WriteCollectionOfPrimitiveValues<string>("tokens", Tokens);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobsTopLogprobsItemProperty>("top_logprobs", TopLogprobs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

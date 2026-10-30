@@ -12,51 +12,77 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EvalItemContentItem : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("detail") is { } nullNodeDetail && nullNodeDetail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Detail = null;
+            if (parseNode.GetChildNode("image_url") is { } nullNodeImageUrl && nullNodeImageUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageUrl = null;
+            if (parseNode.GetChildNode("input_audio") is { } nullNodeInputAudio && nullNodeInputAudio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputAudio = null;
+            if (parseNode.GetChildNode("prompt_cache_breakpoint") is { } nullNodePromptCacheBreakpoint && nullNodePromptCacheBreakpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptCacheBreakpoint = null;
+            if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The detail level of the image to be sent to the model. One of `high`, `low`, or `auto`. Defaults to `auto`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Detail { get; set; }
+        public string? Detail { get => _explicitNullValueDetail; set { _explicitNullValueDetail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detail"); else _explicitNullProperties?.Remove("detail"); } }
+        private string? _explicitNullValueDetail = default!;
 #nullable restore
 #else
-        public string Detail { get; set; }
+        public string Detail { get => _explicitNullValueDetail; set { _explicitNullValueDetail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detail"); else _explicitNullProperties?.Remove("detail"); } }
+        private string _explicitNullValueDetail = default!;
 #endif
         /// <summary>The URL of the image input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ImageUrl { get; set; }
+        public string? ImageUrl { get => _explicitNullValueImageUrl; set { _explicitNullValueImageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_url"); else _explicitNullProperties?.Remove("image_url"); } }
+        private string? _explicitNullValueImageUrl = default!;
 #nullable restore
 #else
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get => _explicitNullValueImageUrl; set { _explicitNullValueImageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_url"); else _explicitNullProperties?.Remove("image_url"); } }
+        private string _explicitNullValueImageUrl = default!;
 #endif
         /// <summary>The input_audio property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio? InputAudio { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio? InputAudio { get => _explicitNullValueInputAudio; set { _explicitNullValueInputAudio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_audio"); else _explicitNullProperties?.Remove("input_audio"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio? _explicitNullValueInputAudio = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio InputAudio { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio InputAudio { get => _explicitNullValueInputAudio; set { _explicitNullValueInputAudio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_audio"); else _explicitNullProperties?.Remove("input_audio"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio _explicitNullValueInputAudio = default!;
 #endif
         /// <summary>Marks the exact end of a reusable prompt prefix. When `ttl` is omitted, the breakpoint inherits the request&apos;s `prompt_cache_options.ttl`; the boundary is not rounded to a token block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig? PromptCacheBreakpoint { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig? PromptCacheBreakpoint { get => _explicitNullValuePromptCacheBreakpoint; set { _explicitNullValuePromptCacheBreakpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_breakpoint"); else _explicitNullProperties?.Remove("prompt_cache_breakpoint"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig? _explicitNullValuePromptCacheBreakpoint = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig PromptCacheBreakpoint { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig PromptCacheBreakpoint { get => _explicitNullValuePromptCacheBreakpoint; set { _explicitNullValuePromptCacheBreakpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_breakpoint"); else _explicitNullProperties?.Remove("prompt_cache_breakpoint"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig _explicitNullValuePromptCacheBreakpoint = default!;
 #endif
         /// <summary>The text input to the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Text { get; set; }
+        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string? _explicitNullValueText = default!;
 #nullable restore
 #else
-        public string Text { get; set; }
+        public string Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string _explicitNullValueText = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType? Type { get; set; }
+#nullable enable
+        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string? _explicitNullValueType = default!;
+#nullable restore
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem"/> and sets the default values.
         /// </summary>
@@ -72,7 +98,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.EvalItemContentItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,7 +113,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "input_audio", n => { InputAudio = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio>(global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio.CreateFromDiscriminatorValue); } },
                 { "prompt_cache_breakpoint", n => { PromptCacheBreakpoint = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>(global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig.CreateFromDiscriminatorValue); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -102,7 +128,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputAudioInputAudio>("input_audio", InputAudio);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheBreakpointConfig>("prompt_cache_breakpoint", PromptCacheBreakpoint);
             writer.WriteStringValue("text", Text);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputTextType>("type", Type);
+            writer.WriteStringValue("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

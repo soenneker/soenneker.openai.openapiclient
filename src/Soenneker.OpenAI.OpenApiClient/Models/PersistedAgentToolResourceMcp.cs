@@ -12,53 +12,81 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PersistedAgentToolResourceMcp : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowed_tools") is { } nullNodeAllowedTools && nullNodeAllowedTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedTools = null;
+            if (parseNode.GetChildNode("connection_origin") is { } nullNodeConnectionOrigin && nullNodeConnectionOrigin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionOrigin = null;
+            if (parseNode.GetChildNode("credential_id") is { } nullNodeCredentialId && nullNodeCredentialId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialId = null;
+            if (parseNode.GetChildNode("request_metadata") is { } nullNodeRequestMetadata && nullNodeRequestMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestMetadata = null;
+            if (parseNode.GetChildNode("required") is { } nullNodeRequired && nullNodeRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Required = null;
+            if (parseNode.GetChildNode("server_label") is { } nullNodeServerLabel && nullNodeServerLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerLabel = null;
+            if (parseNode.GetChildNode("transport") is { } nullNodeTransport && nullNodeTransport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transport = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>The MCP tools the agent may call, or null when all server tools are allowed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowedTools { get; set; }
+        public List<string>? AllowedTools { get => _explicitNullValueAllowedTools; set { _explicitNullValueAllowedTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_tools"); else _explicitNullProperties?.Remove("allowed_tools"); } }
+        private List<string>? _explicitNullValueAllowedTools = default!;
 #nullable restore
 #else
-        public List<string> AllowedTools { get; set; }
+        public List<string> AllowedTools { get => _explicitNullValueAllowedTools; set { _explicitNullValueAllowedTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_tools"); else _explicitNullProperties?.Remove("allowed_tools"); } }
+        private List<string> _explicitNullValueAllowedTools = default!;
 #endif
         /// <summary>Where outbound MCP HTTP connections originate.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpConnectionOriginResource? ConnectionOrigin { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpConnectionOriginResource? ConnectionOrigin { get => _explicitNullValueConnectionOrigin; set { _explicitNullValueConnectionOrigin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_origin"); else _explicitNullProperties?.Remove("connection_origin"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.McpConnectionOriginResource? _explicitNullValueConnectionOrigin = default!;
         /// <summary>The vault credential selected for this MCP server, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CredentialId { get; set; }
+        public string? CredentialId { get => _explicitNullValueCredentialId; set { _explicitNullValueCredentialId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_id"); else _explicitNullProperties?.Remove("credential_id"); } }
+        private string? _explicitNullValueCredentialId = default!;
 #nullable restore
 #else
-        public string CredentialId { get; set; }
+        public string CredentialId { get => _explicitNullValueCredentialId; set { _explicitNullValueCredentialId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_id"); else _explicitNullProperties?.Remove("credential_id"); } }
+        private string _explicitNullValueCredentialId = default!;
 #endif
         /// <summary>Metadata included with requests to this MCP server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceMcpRequestMetadataProperty? RequestMetadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceMcpRequestMetadataProperty? RequestMetadata { get => _explicitNullValueRequestMetadata; set { _explicitNullValueRequestMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_metadata"); else _explicitNullProperties?.Remove("request_metadata"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceMcpRequestMetadataProperty? _explicitNullValueRequestMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceMcpRequestMetadataProperty RequestMetadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceMcpRequestMetadataProperty RequestMetadata { get => _explicitNullValueRequestMetadata; set { _explicitNullValueRequestMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_metadata"); else _explicitNullProperties?.Remove("request_metadata"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceMcpRequestMetadataProperty _explicitNullValueRequestMetadata = default!;
 #endif
         /// <summary>Whether this MCP server must initialize before the first turn.</summary>
-        public bool? Required { get; set; }
+        public bool? Required { get => _explicitNullValueRequired; set { _explicitNullValueRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required"); else _explicitNullProperties?.Remove("required"); } }
+        private bool? _explicitNullValueRequired = default!;
         /// <summary>A label used to identify the MCP server in tool calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServerLabel { get; set; }
+        public string? ServerLabel { get => _explicitNullValueServerLabel; set { _explicitNullValueServerLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_label"); else _explicitNullProperties?.Remove("server_label"); } }
+        private string? _explicitNullValueServerLabel = default!;
 #nullable restore
 #else
-        public string ServerLabel { get; set; }
+        public string ServerLabel { get => _explicitNullValueServerLabel; set { _explicitNullValueServerLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_label"); else _explicitNullProperties?.Remove("server_label"); } }
+        private string _explicitNullValueServerLabel = default!;
 #endif
         /// <summary>The credential-free transport used to connect to the MCP server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResource? Transport { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResource? Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResource? _explicitNullValueTransport = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResource Transport { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResource Transport { get => _explicitNullValueTransport; set { _explicitNullValueTransport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transport"); else _explicitNullProperties?.Remove("transport"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResource _explicitNullValueTransport = default!;
 #endif
         /// <summary>The type of the MCP tool. Always `mcp`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.McpType? _explicitNullValueType = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -67,7 +95,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceMcp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceMcp();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceMcp(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -101,7 +129,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteBoolValue("required", Required);
             writer.WriteStringValue("server_label", ServerLabel);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResource>("transport", Transport);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpType>("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

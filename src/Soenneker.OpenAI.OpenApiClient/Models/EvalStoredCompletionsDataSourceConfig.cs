@@ -13,27 +13,42 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EvalStoredCompletionsDataSourceConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("schema") is { } nullNodeSchema && nullNodeSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schema = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard.Keys are strings with a maximum length of 64 characters. Values are stringswith a maximum length of 512 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfigMetadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfigMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfigMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfigMetadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfigMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfigMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The json schema for the run data source items.Learn how to build JSON schemas [here](https://json-schema.org/).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfigSchemaProperty? Schema { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfigSchemaProperty? Schema { get => _explicitNullValueSchema; set { _explicitNullValueSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema"); else _explicitNullProperties?.Remove("schema"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfigSchemaProperty? _explicitNullValueSchema = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfigSchemaProperty Schema { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfigSchemaProperty Schema { get => _explicitNullValueSchema; set { _explicitNullValueSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema"); else _explicitNullProperties?.Remove("schema"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfigSchemaProperty _explicitNullValueSchema = default!;
 #endif
         /// <summary>The type of data source. Always `stored_completions`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.StoredCompletionsType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.StoredCompletionsType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.StoredCompletionsType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfig"/> and sets the default values.
         /// </summary>
@@ -49,7 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,6 +89,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfigMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalStoredCompletionsDataSourceConfigSchemaProperty>("schema", Schema);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.StoredCompletionsType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,34 +11,52 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RunGraderResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("model_grader_token_usage_per_model") is { } nullNodeModelGraderTokenUsagePerModel && nullNodeModelGraderTokenUsagePerModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelGraderTokenUsagePerModel = null;
+            if (parseNode.GetChildNode("reward") is { } nullNodeReward && nullNodeReward.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reward = null;
+            if (parseNode.GetChildNode("sub_rewards") is { } nullNodeSubRewards && nullNodeSubRewards.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubRewards = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadata? Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadata Metadata { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The model_grader_token_usage_per_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseModelGraderTokenUsagePerModelProperty? ModelGraderTokenUsagePerModel { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseModelGraderTokenUsagePerModelProperty? ModelGraderTokenUsagePerModel { get => _explicitNullValueModelGraderTokenUsagePerModel; set { _explicitNullValueModelGraderTokenUsagePerModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_grader_token_usage_per_model"); else _explicitNullProperties?.Remove("model_grader_token_usage_per_model"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseModelGraderTokenUsagePerModelProperty? _explicitNullValueModelGraderTokenUsagePerModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseModelGraderTokenUsagePerModelProperty ModelGraderTokenUsagePerModel { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseModelGraderTokenUsagePerModelProperty ModelGraderTokenUsagePerModel { get => _explicitNullValueModelGraderTokenUsagePerModel; set { _explicitNullValueModelGraderTokenUsagePerModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_grader_token_usage_per_model"); else _explicitNullProperties?.Remove("model_grader_token_usage_per_model"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseModelGraderTokenUsagePerModelProperty _explicitNullValueModelGraderTokenUsagePerModel = default!;
 #endif
         /// <summary>The reward property</summary>
-        public double? Reward { get; set; }
+        public double? Reward { get => _explicitNullValueReward; set { _explicitNullValueReward = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reward"); else _explicitNullProperties?.Remove("reward"); } }
+        private double? _explicitNullValueReward = default!;
         /// <summary>The sub_rewards property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseSubRewardsProperty? SubRewards { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseSubRewardsProperty? SubRewards { get => _explicitNullValueSubRewards; set { _explicitNullValueSubRewards = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_rewards"); else _explicitNullProperties?.Remove("sub_rewards"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseSubRewardsProperty? _explicitNullValueSubRewards = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseSubRewardsProperty SubRewards { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseSubRewardsProperty SubRewards { get => _explicitNullValueSubRewards; set { _explicitNullValueSubRewards = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_rewards"); else _explicitNullProperties?.Remove("sub_rewards"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseSubRewardsProperty _explicitNullValueSubRewards = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse"/> and sets the default values.
@@ -55,7 +73,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +100,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseModelGraderTokenUsagePerModelProperty>("model_grader_token_usage_per_model", ModelGraderTokenUsagePerModel);
             writer.WriteDoubleValue("reward", Reward);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseSubRewardsProperty>("sub_rewards", SubRewards);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

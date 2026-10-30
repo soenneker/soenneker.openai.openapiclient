@@ -12,35 +12,53 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookLiveTransportIncomingData : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("session_id") is { } nullNodeSessionId && nullNodeSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionId = null;
+            if (parseNode.GetChildNode("sip_headers") is { } nullNodeSipHeaders && nullNodeSipHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipHeaders = null;
+            if (parseNode.GetChildNode("sip_media_security") is { } nullNodeSipMediaSecurity && nullNodeSipMediaSecurity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SipMediaSecurity = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The `live_...` ID of the pending SIP session. Forward this valueunchanged when accepting or rejecting the call through the Live API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SessionId { get; set; }
+        public string? SessionId { get => _explicitNullValueSessionId; set { _explicitNullValueSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_id"); else _explicitNullProperties?.Remove("session_id"); } }
+        private string? _explicitNullValueSessionId = default!;
 #nullable restore
 #else
-        public string SessionId { get; set; }
+        public string SessionId { get => _explicitNullValueSessionId; set { _explicitNullValueSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_id"); else _explicitNullProperties?.Remove("session_id"); } }
+        private string _explicitNullValueSessionId = default!;
 #endif
         /// <summary>Headers from the SIP INVITE, excluding SIP authorization headers.Retained names, values, repeated entries, and order are preserved.Treat these values as untrusted call metadata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingDataSipHeadersItem>? SipHeaders { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingDataSipHeadersItem>? SipHeaders { get => _explicitNullValueSipHeaders; set { _explicitNullValueSipHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_headers"); else _explicitNullProperties?.Remove("sip_headers"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingDataSipHeadersItem>? _explicitNullValueSipHeaders = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingDataSipHeadersItem> SipHeaders { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingDataSipHeadersItem> SipHeaders { get => _explicitNullValueSipHeaders; set { _explicitNullValueSipHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_headers"); else _explicitNullProperties?.Remove("sip_headers"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingDataSipHeadersItem> _explicitNullValueSipHeaders = default!;
 #endif
         /// <summary>Media protection selected on the SIP leg during SDP negotiation. `srtp`indicates SRTP; `rtp` indicates unencrypted RTP. Omitted when unknown.This does not describe SIP signaling security or confirm that media hasflowed. Clients should handle unrecognized values as unknown.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingDataSipMediaSecurity? SipMediaSecurity { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingDataSipMediaSecurity? SipMediaSecurity { get => _explicitNullValueSipMediaSecurity; set { _explicitNullValueSipMediaSecurity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_media_security"); else _explicitNullProperties?.Remove("sip_media_security"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingDataSipMediaSecurity? _explicitNullValueSipMediaSecurity = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingDataSipMediaSecurity SipMediaSecurity { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingDataSipMediaSecurity SipMediaSecurity { get => _explicitNullValueSipMediaSecurity; set { _explicitNullValueSipMediaSecurity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sip_media_security"); else _explicitNullProperties?.Remove("sip_media_security"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingDataSipMediaSecurity _explicitNullValueSipMediaSecurity = default!;
 #endif
         /// <summary>The transport used for the Live session. Always `sip`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SipType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SipType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.SipType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingData"/> and sets the default values.
         /// </summary>
@@ -56,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,6 +101,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingDataSipHeadersItem>("sip_headers", SipHeaders);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebhookLiveTransportIncomingDataSipMediaSecurity>("sip_media_security", SipMediaSecurity);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SipType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,25 +12,40 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VaultCredentialAuthResourceEnvironmentVariable : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("networking") is { } nullNodeNetworking && nullNodeNetworking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Networking = null;
+            if (parseNode.GetChildNode("secret_name") is { } nullNodeSecretName && nullNodeSecretName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretName = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>The destinations where the proxy can substitute the secret, subject to the environment network policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialNetworkingResource? Networking { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialNetworkingResource? Networking { get => _explicitNullValueNetworking; set { _explicitNullValueNetworking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("networking"); else _explicitNullProperties?.Remove("networking"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialNetworkingResource? _explicitNullValueNetworking = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialNetworkingResource Networking { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialNetworkingResource Networking { get => _explicitNullValueNetworking; set { _explicitNullValueNetworking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("networking"); else _explicitNullProperties?.Remove("networking"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialNetworkingResource _explicitNullValueNetworking = default!;
 #endif
         /// <summary>The environment variable name that receives the placeholder in the sandbox.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SecretName { get; set; }
+        public string? SecretName { get => _explicitNullValueSecretName; set { _explicitNullValueSecretName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_name"); else _explicitNullProperties?.Remove("secret_name"); } }
+        private string? _explicitNullValueSecretName = default!;
 #nullable restore
 #else
-        public string SecretName { get; set; }
+        public string SecretName { get => _explicitNullValueSecretName; set { _explicitNullValueSecretName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_name"); else _explicitNullProperties?.Remove("secret_name"); } }
+        private string _explicitNullValueSecretName = default!;
 #endif
         /// <summary>The type of the object. Always `environment_variable`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentVariableType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentVariableType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentVariableType? _explicitNullValueType = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,7 +54,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialAuthResourceEnvironmentVariable CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialAuthResourceEnvironmentVariable();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialAuthResourceEnvironmentVariable(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +78,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialNetworkingResource>("networking", Networking);
             writer.WriteStringValue("secret_name", SecretName);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentVariableType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentVariableType>("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -12,47 +12,72 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FineTuningJobCheckpoint : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("fine_tuned_model_checkpoint") is { } nullNodeFineTunedModelCheckpoint && nullNodeFineTunedModelCheckpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FineTunedModelCheckpoint = null;
+            if (parseNode.GetChildNode("fine_tuning_job_id") is { } nullNodeFineTuningJobId && nullNodeFineTuningJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FineTuningJobId = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("metrics") is { } nullNodeMetrics && nullNodeMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metrics = null;
+            if (parseNode.GetChildNode("object") is { } nullNodeObject && nullNodeObject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Object = null;
+            if (parseNode.GetChildNode("step_number") is { } nullNodeStepNumber && nullNodeStepNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepNumber = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Unix timestamp (in seconds) for when the checkpoint was created.</summary>
-        public int? CreatedAt { get; set; }
+        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private int? _explicitNullValueCreatedAt = default!;
         /// <summary>The name of the fine-tuned checkpoint model that is created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FineTunedModelCheckpoint { get; set; }
+        public string? FineTunedModelCheckpoint { get => _explicitNullValueFineTunedModelCheckpoint; set { _explicitNullValueFineTunedModelCheckpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fine_tuned_model_checkpoint"); else _explicitNullProperties?.Remove("fine_tuned_model_checkpoint"); } }
+        private string? _explicitNullValueFineTunedModelCheckpoint = default!;
 #nullable restore
 #else
-        public string FineTunedModelCheckpoint { get; set; }
+        public string FineTunedModelCheckpoint { get => _explicitNullValueFineTunedModelCheckpoint; set { _explicitNullValueFineTunedModelCheckpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fine_tuned_model_checkpoint"); else _explicitNullProperties?.Remove("fine_tuned_model_checkpoint"); } }
+        private string _explicitNullValueFineTunedModelCheckpoint = default!;
 #endif
         /// <summary>The name of the fine-tuning job that this checkpoint was created from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FineTuningJobId { get; set; }
+        public string? FineTuningJobId { get => _explicitNullValueFineTuningJobId; set { _explicitNullValueFineTuningJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fine_tuning_job_id"); else _explicitNullProperties?.Remove("fine_tuning_job_id"); } }
+        private string? _explicitNullValueFineTuningJobId = default!;
 #nullable restore
 #else
-        public string FineTuningJobId { get; set; }
+        public string FineTuningJobId { get => _explicitNullValueFineTuningJobId; set { _explicitNullValueFineTuningJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fine_tuning_job_id"); else _explicitNullProperties?.Remove("fine_tuning_job_id"); } }
+        private string _explicitNullValueFineTuningJobId = default!;
 #endif
         /// <summary>The checkpoint identifier, which can be referenced in the API endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>Metrics at the step number during the fine-tuning job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics? Metrics { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics? Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics? _explicitNullValueMetrics = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics Metrics { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics _explicitNullValueMetrics = default!;
 #endif
         /// <summary>The object type, which is always &quot;fine_tuning.job.checkpoint&quot;.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointObject? Object { get => _explicitNullValueObject; set { _explicitNullValueObject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object"); else _explicitNullProperties?.Remove("object"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointObject? _explicitNullValueObject = default!;
         /// <summary>The step number that the checkpoint was created at.</summary>
-        public int? StepNumber { get; set; }
+        public int? StepNumber { get => _explicitNullValueStepNumber; set { _explicitNullValueStepNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step_number"); else _explicitNullProperties?.Remove("step_number"); } }
+        private int? _explicitNullValueStepNumber = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint"/> and sets the default values.
         /// </summary>
@@ -68,7 +93,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpoint(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -101,6 +126,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics>("metrics", Metrics);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointObject>("object", Object);
             writer.WriteIntValue("step_number", StepNumber);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,59 +12,86 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FineTuneReinforcementHyperparameters : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("batch_size") is { } nullNodeBatchSize && nullNodeBatchSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BatchSize = null;
+            if (parseNode.GetChildNode("compute_multiplier") is { } nullNodeComputeMultiplier && nullNodeComputeMultiplier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComputeMultiplier = null;
+            if (parseNode.GetChildNode("eval_interval") is { } nullNodeEvalInterval && nullNodeEvalInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvalInterval = null;
+            if (parseNode.GetChildNode("eval_samples") is { } nullNodeEvalSamples && nullNodeEvalSamples.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvalSamples = null;
+            if (parseNode.GetChildNode("learning_rate_multiplier") is { } nullNodeLearningRateMultiplier && nullNodeLearningRateMultiplier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LearningRateMultiplier = null;
+            if (parseNode.GetChildNode("n_epochs") is { } nullNodeNEpochs && nullNodeNEpochs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NEpochs = null;
+            if (parseNode.GetChildNode("reasoning_effort") is { } nullNodeReasoningEffort && nullNodeReasoningEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasoningEffort = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of examples in each batch. A larger batch size means that model parameters are updated less frequently, but with lower variance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersBatchSize? BatchSize { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersBatchSize? BatchSize { get => _explicitNullValueBatchSize; set { _explicitNullValueBatchSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("batch_size"); else _explicitNullProperties?.Remove("batch_size"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersBatchSize? _explicitNullValueBatchSize = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersBatchSize BatchSize { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersBatchSize BatchSize { get => _explicitNullValueBatchSize; set { _explicitNullValueBatchSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("batch_size"); else _explicitNullProperties?.Remove("batch_size"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersBatchSize _explicitNullValueBatchSize = default!;
 #endif
         /// <summary>Multiplier on amount of compute used for exploring search space during training.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersComputeMultiplier? ComputeMultiplier { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersComputeMultiplier? ComputeMultiplier { get => _explicitNullValueComputeMultiplier; set { _explicitNullValueComputeMultiplier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compute_multiplier"); else _explicitNullProperties?.Remove("compute_multiplier"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersComputeMultiplier? _explicitNullValueComputeMultiplier = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersComputeMultiplier ComputeMultiplier { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersComputeMultiplier ComputeMultiplier { get => _explicitNullValueComputeMultiplier; set { _explicitNullValueComputeMultiplier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compute_multiplier"); else _explicitNullProperties?.Remove("compute_multiplier"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersComputeMultiplier _explicitNullValueComputeMultiplier = default!;
 #endif
         /// <summary>The number of training steps between evaluation runs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalInterval? EvalInterval { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalInterval? EvalInterval { get => _explicitNullValueEvalInterval; set { _explicitNullValueEvalInterval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eval_interval"); else _explicitNullProperties?.Remove("eval_interval"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalInterval? _explicitNullValueEvalInterval = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalInterval EvalInterval { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalInterval EvalInterval { get => _explicitNullValueEvalInterval; set { _explicitNullValueEvalInterval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eval_interval"); else _explicitNullProperties?.Remove("eval_interval"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalInterval _explicitNullValueEvalInterval = default!;
 #endif
         /// <summary>Number of evaluation samples to generate per training step.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamples? EvalSamples { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamples? EvalSamples { get => _explicitNullValueEvalSamples; set { _explicitNullValueEvalSamples = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eval_samples"); else _explicitNullProperties?.Remove("eval_samples"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamples? _explicitNullValueEvalSamples = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamples EvalSamples { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamples EvalSamples { get => _explicitNullValueEvalSamples; set { _explicitNullValueEvalSamples = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eval_samples"); else _explicitNullProperties?.Remove("eval_samples"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersEvalSamples _explicitNullValueEvalSamples = default!;
 #endif
         /// <summary>Scaling factor for the learning rate. A smaller learning rate may be useful to avoid overfitting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersLearningRateMultiplier? LearningRateMultiplier { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersLearningRateMultiplier? LearningRateMultiplier { get => _explicitNullValueLearningRateMultiplier; set { _explicitNullValueLearningRateMultiplier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("learning_rate_multiplier"); else _explicitNullProperties?.Remove("learning_rate_multiplier"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersLearningRateMultiplier? _explicitNullValueLearningRateMultiplier = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersLearningRateMultiplier LearningRateMultiplier { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersLearningRateMultiplier LearningRateMultiplier { get => _explicitNullValueLearningRateMultiplier; set { _explicitNullValueLearningRateMultiplier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("learning_rate_multiplier"); else _explicitNullProperties?.Remove("learning_rate_multiplier"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersLearningRateMultiplier _explicitNullValueLearningRateMultiplier = default!;
 #endif
         /// <summary>The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersNEpochs? NEpochs { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersNEpochs? NEpochs { get => _explicitNullValueNEpochs; set { _explicitNullValueNEpochs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("n_epochs"); else _explicitNullProperties?.Remove("n_epochs"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersNEpochs? _explicitNullValueNEpochs = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersNEpochs NEpochs { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersNEpochs NEpochs { get => _explicitNullValueNEpochs; set { _explicitNullValueNEpochs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("n_epochs"); else _explicitNullProperties?.Remove("n_epochs"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersNEpochs _explicitNullValueNEpochs = default!;
 #endif
         /// <summary>Level of reasoning effort.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersReasoningEffort? ReasoningEffort { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersReasoningEffort? ReasoningEffort { get => _explicitNullValueReasoningEffort; set { _explicitNullValueReasoningEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_effort"); else _explicitNullProperties?.Remove("reasoning_effort"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersReasoningEffort? _explicitNullValueReasoningEffort = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparameters"/> and sets the default values.
         /// </summary>
@@ -80,7 +107,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparameters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparameters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -113,6 +140,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersLearningRateMultiplier>("learning_rate_multiplier", LearningRateMultiplier);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersNEpochs>("n_epochs", NEpochs);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneReinforcementHyperparametersReasoningEffort>("reasoning_effort", ReasoningEffort);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

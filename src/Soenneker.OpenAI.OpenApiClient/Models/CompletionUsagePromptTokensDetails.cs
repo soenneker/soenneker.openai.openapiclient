@@ -12,19 +12,36 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CompletionUsagePromptTokensDetails : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("audio_tokens") is { } nullNodeAudioTokens && nullNodeAudioTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AudioTokens = null;
+            if (parseNode.GetChildNode("cached_tokens") is { } nullNodeCachedTokens && nullNodeCachedTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedTokens = null;
+            if (parseNode.GetChildNode("cache_write_tokens") is { } nullNodeCacheWriteTokens && nullNodeCacheWriteTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheWriteTokens = null;
+            if (parseNode.GetChildNode("image_tokens") is { } nullNodeImageTokens && nullNodeImageTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageTokens = null;
+            if (parseNode.GetChildNode("text_tokens") is { } nullNodeTextTokens && nullNodeTextTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextTokens = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Audio input tokens present in the prompt.</summary>
-        public int? AudioTokens { get; set; }
+        public int? AudioTokens { get => _explicitNullValueAudioTokens; set { _explicitNullValueAudioTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio_tokens"); else _explicitNullProperties?.Remove("audio_tokens"); } }
+        private int? _explicitNullValueAudioTokens = default!;
         /// <summary>Cached tokens present in the prompt.</summary>
-        public int? CachedTokens { get; set; }
+        public int? CachedTokens { get => _explicitNullValueCachedTokens; set { _explicitNullValueCachedTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_tokens"); else _explicitNullProperties?.Remove("cached_tokens"); } }
+        private int? _explicitNullValueCachedTokens = default!;
         /// <summary>The unadjusted number of prompt tokens written to cache.</summary>
-        public int? CacheWriteTokens { get; set; }
+        public int? CacheWriteTokens { get => _explicitNullValueCacheWriteTokens; set { _explicitNullValueCacheWriteTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_write_tokens"); else _explicitNullProperties?.Remove("cache_write_tokens"); } }
+        private int? _explicitNullValueCacheWriteTokens = default!;
         /// <summary>Image input tokens present in the prompt.</summary>
-        public int? ImageTokens { get; set; }
+        public int? ImageTokens { get => _explicitNullValueImageTokens; set { _explicitNullValueImageTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_tokens"); else _explicitNullProperties?.Remove("image_tokens"); } }
+        private int? _explicitNullValueImageTokens = default!;
         /// <summary>Text input tokens present in the prompt.</summary>
-        public int? TextTokens { get; set; }
+        public int? TextTokens { get => _explicitNullValueTextTokens; set { _explicitNullValueTextTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_tokens"); else _explicitNullProperties?.Remove("text_tokens"); } }
+        private int? _explicitNullValueTextTokens = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails"/> and sets the default values.
         /// </summary>
@@ -43,7 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsagePromptTokensDetails(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +89,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("cache_write_tokens", CacheWriteTokens);
             writer.WriteIntValue("image_tokens", ImageTokens);
             writer.WriteIntValue("text_tokens", TextTokens);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

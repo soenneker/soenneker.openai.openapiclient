@@ -12,30 +12,54 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("create_response") is { } nullNodeCreateResponse && nullNodeCreateResponse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreateResponse = null;
+            if (parseNode.GetChildNode("eagerness") is { } nullNodeEagerness && nullNodeEagerness.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Eagerness = null;
+            if (parseNode.GetChildNode("idle_timeout_ms") is { } nullNodeIdleTimeoutMs && nullNodeIdleTimeoutMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdleTimeoutMs = null;
+            if (parseNode.GetChildNode("interrupt_response") is { } nullNodeInterruptResponse && nullNodeInterruptResponse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterruptResponse = null;
+            if (parseNode.GetChildNode("prefix_padding_ms") is { } nullNodePrefixPaddingMs && nullNodePrefixPaddingMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrefixPaddingMs = null;
+            if (parseNode.GetChildNode("silence_duration_ms") is { } nullNodeSilenceDurationMs && nullNodeSilenceDurationMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SilenceDurationMs = null;
+            if (parseNode.GetChildNode("threshold") is { } nullNodeThreshold && nullNodeThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Threshold = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether or not to automatically generate a response when a VAD stop event occurs. If `interrupt_response` is set to `false` this may fail to create a response if the model is already responding.If both `create_response` and `interrupt_response` are set to `false`, the model will never respond automatically but VAD events will still be emitted.</summary>
-        public bool? CreateResponse { get; set; }
+        public bool? CreateResponse { get => _explicitNullValueCreateResponse; set { _explicitNullValueCreateResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("create_response"); else _explicitNullProperties?.Remove("create_response"); } }
+        private bool? _explicitNullValueCreateResponse = default!;
         /// <summary>Used only for `semantic_vad` mode. The eagerness of the model to respond. `low` will wait longer for the user to continue speaking, `high` will respond more quickly. `auto` is the default and is equivalent to `medium`. `low`, `medium`, and `high` have max timeouts of 8s, 4s, and 2s respectively.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVadEagerness? Eagerness { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVadEagerness? Eagerness { get => _explicitNullValueEagerness; set { _explicitNullValueEagerness = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eagerness"); else _explicitNullProperties?.Remove("eagerness"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVadEagerness? _explicitNullValueEagerness = default!;
         /// <summary>Optional timeout after which a model response will be triggered automatically. This isuseful for situations in which a long pause from the user is unexpected, such as a phonecall. The model will effectively prompt the user to continue the conversation basedon the current context.The timeout value will be applied after the last model response&apos;s audio has finished playing,i.e. it&apos;s set to the `response.done` time plus audio playback duration.An `input_audio_buffer.timeout_triggered` event (plus eventsassociated with the Response) will be emitted when the timeout is reached.Idle timeout is currently only supported for `server_vad` mode.</summary>
-        public int? IdleTimeoutMs { get; set; }
+        public int? IdleTimeoutMs { get => _explicitNullValueIdleTimeoutMs; set { _explicitNullValueIdleTimeoutMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idle_timeout_ms"); else _explicitNullProperties?.Remove("idle_timeout_ms"); } }
+        private int? _explicitNullValueIdleTimeoutMs = default!;
         /// <summary>Whether or not to automatically interrupt (cancel) any ongoing response with output to the defaultconversation (i.e. `conversation` of `auto`) when a VAD start event occurs. If `true` then the response will be cancelled, otherwise it will continue until complete.If both `create_response` and `interrupt_response` are set to `false`, the model will never respond automatically but VAD events will still be emitted.</summary>
-        public bool? InterruptResponse { get; set; }
+        public bool? InterruptResponse { get => _explicitNullValueInterruptResponse; set { _explicitNullValueInterruptResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interrupt_response"); else _explicitNullProperties?.Remove("interrupt_response"); } }
+        private bool? _explicitNullValueInterruptResponse = default!;
         /// <summary>Used only for `server_vad` mode. Amount of audio to include before the VAD detected speech (inmilliseconds). Defaults to 300ms.</summary>
-        public int? PrefixPaddingMs { get; set; }
+        public int? PrefixPaddingMs { get => _explicitNullValuePrefixPaddingMs; set { _explicitNullValuePrefixPaddingMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prefix_padding_ms"); else _explicitNullProperties?.Remove("prefix_padding_ms"); } }
+        private int? _explicitNullValuePrefixPaddingMs = default!;
         /// <summary>Used only for `server_vad` mode. Duration of silence to detect speech stop (in milliseconds). Defaultsto 500ms. With shorter values the model will respond more quickly,but may jump in on short pauses from the user.</summary>
-        public int? SilenceDurationMs { get; set; }
+        public int? SilenceDurationMs { get => _explicitNullValueSilenceDurationMs; set { _explicitNullValueSilenceDurationMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("silence_duration_ms"); else _explicitNullProperties?.Remove("silence_duration_ms"); } }
+        private int? _explicitNullValueSilenceDurationMs = default!;
         /// <summary>Used only for `server_vad` mode. Activation threshold for VAD (0.0 to 1.0), this defaults to 0.5. Ahigher threshold will require louder audio to activate the model, andthus might perform better in noisy environments.</summary>
-        public double? Threshold { get; set; }
+        public double? Threshold { get => _explicitNullValueThreshold; set { _explicitNullValueThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threshold"); else _explicitNullProperties?.Remove("threshold"); } }
+        private double? _explicitNullValueThreshold = default!;
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string? _explicitNullValueType = default!;
 #nullable restore
 #else
-        public string Type { get; set; }
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string _explicitNullValueType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad"/> and sets the default values.
@@ -54,7 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +113,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("silence_duration_ms", SilenceDurationMs);
             writer.WriteDoubleValue("threshold", Threshold);
             writer.WriteStringValue("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

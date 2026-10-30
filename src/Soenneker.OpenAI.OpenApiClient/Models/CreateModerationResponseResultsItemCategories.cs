@@ -12,35 +12,68 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateModerationResponseResultsItemCategories : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("harassment") is { } nullNodeHarassment && nullNodeHarassment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Harassment = null;
+            if (parseNode.GetChildNode("harassment/threatening") is { } nullNodeHarassmentThreatening && nullNodeHarassmentThreatening.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HarassmentThreatening = null;
+            if (parseNode.GetChildNode("hate") is { } nullNodeHate && nullNodeHate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hate = null;
+            if (parseNode.GetChildNode("hate/threatening") is { } nullNodeHateThreatening && nullNodeHateThreatening.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HateThreatening = null;
+            if (parseNode.GetChildNode("illicit") is { } nullNodeIllicit && nullNodeIllicit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Illicit = null;
+            if (parseNode.GetChildNode("illicit/violent") is { } nullNodeIllicitViolent && nullNodeIllicitViolent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IllicitViolent = null;
+            if (parseNode.GetChildNode("self-harm") is { } nullNodeSelfHarm && nullNodeSelfHarm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfHarm = null;
+            if (parseNode.GetChildNode("self-harm/instructions") is { } nullNodeSelfHarmInstructions && nullNodeSelfHarmInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfHarmInstructions = null;
+            if (parseNode.GetChildNode("self-harm/intent") is { } nullNodeSelfHarmIntent && nullNodeSelfHarmIntent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfHarmIntent = null;
+            if (parseNode.GetChildNode("sexual") is { } nullNodeSexual && nullNodeSexual.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sexual = null;
+            if (parseNode.GetChildNode("sexual/minors") is { } nullNodeSexualMinors && nullNodeSexualMinors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SexualMinors = null;
+            if (parseNode.GetChildNode("violence") is { } nullNodeViolence && nullNodeViolence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Violence = null;
+            if (parseNode.GetChildNode("violence/graphic") is { } nullNodeViolenceGraphic && nullNodeViolenceGraphic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ViolenceGraphic = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Content that expresses, incites, or promotes harassing language towards any target.</summary>
-        public bool? Harassment { get; set; }
+        public bool? Harassment { get => _explicitNullValueHarassment; set { _explicitNullValueHarassment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("harassment"); else _explicitNullProperties?.Remove("harassment"); } }
+        private bool? _explicitNullValueHarassment = default!;
         /// <summary>Harassment content that also includes violence or serious harm towards any target.</summary>
-        public bool? HarassmentThreatening { get; set; }
+        public bool? HarassmentThreatening { get => _explicitNullValueHarassmentThreatening; set { _explicitNullValueHarassmentThreatening = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("harassment/threatening"); else _explicitNullProperties?.Remove("harassment/threatening"); } }
+        private bool? _explicitNullValueHarassmentThreatening = default!;
         /// <summary>Content that expresses, incites, or promotes hate based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste. Hateful content aimed at non-protected groups (e.g., chess players) is harassment.</summary>
-        public bool? Hate { get; set; }
+        public bool? Hate { get => _explicitNullValueHate; set { _explicitNullValueHate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hate"); else _explicitNullProperties?.Remove("hate"); } }
+        private bool? _explicitNullValueHate = default!;
         /// <summary>Hateful content that also includes violence or serious harm towards the targeted group based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste.</summary>
-        public bool? HateThreatening { get; set; }
+        public bool? HateThreatening { get => _explicitNullValueHateThreatening; set { _explicitNullValueHateThreatening = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hate/threatening"); else _explicitNullProperties?.Remove("hate/threatening"); } }
+        private bool? _explicitNullValueHateThreatening = default!;
         /// <summary>Content that includes instructions or advice that facilitate the planning or execution of wrongdoing, or that gives advice or instruction on how to commit illicit acts. For example, &quot;how to shoplift&quot; would fit this category.</summary>
-        public bool? Illicit { get; set; }
+        public bool? Illicit { get => _explicitNullValueIllicit; set { _explicitNullValueIllicit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("illicit"); else _explicitNullProperties?.Remove("illicit"); } }
+        private bool? _explicitNullValueIllicit = default!;
         /// <summary>Content that includes instructions or advice that facilitate the planning or execution of wrongdoing that also includes violence, or that gives advice or instruction on the procurement of any weapon.</summary>
-        public bool? IllicitViolent { get; set; }
+        public bool? IllicitViolent { get => _explicitNullValueIllicitViolent; set { _explicitNullValueIllicitViolent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("illicit/violent"); else _explicitNullProperties?.Remove("illicit/violent"); } }
+        private bool? _explicitNullValueIllicitViolent = default!;
         /// <summary>Content that promotes, encourages, or depicts acts of self-harm, such as suicide, cutting, and eating disorders.</summary>
-        public bool? SelfHarm { get; set; }
+        public bool? SelfHarm { get => _explicitNullValueSelfHarm; set { _explicitNullValueSelfHarm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self-harm"); else _explicitNullProperties?.Remove("self-harm"); } }
+        private bool? _explicitNullValueSelfHarm = default!;
         /// <summary>Content that encourages performing acts of self-harm, such as suicide, cutting, and eating disorders, or that gives instructions or advice on how to commit such acts.</summary>
-        public bool? SelfHarmInstructions { get; set; }
+        public bool? SelfHarmInstructions { get => _explicitNullValueSelfHarmInstructions; set { _explicitNullValueSelfHarmInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self-harm/instructions"); else _explicitNullProperties?.Remove("self-harm/instructions"); } }
+        private bool? _explicitNullValueSelfHarmInstructions = default!;
         /// <summary>Content where the speaker expresses that they are engaging or intend to engage in acts of self-harm, such as suicide, cutting, and eating disorders.</summary>
-        public bool? SelfHarmIntent { get; set; }
+        public bool? SelfHarmIntent { get => _explicitNullValueSelfHarmIntent; set { _explicitNullValueSelfHarmIntent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self-harm/intent"); else _explicitNullProperties?.Remove("self-harm/intent"); } }
+        private bool? _explicitNullValueSelfHarmIntent = default!;
         /// <summary>Content meant to arouse sexual excitement, such as the description of sexual activity, or that promotes sexual services (excluding sex education and wellness).</summary>
-        public bool? Sexual { get; set; }
+        public bool? Sexual { get => _explicitNullValueSexual; set { _explicitNullValueSexual = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sexual"); else _explicitNullProperties?.Remove("sexual"); } }
+        private bool? _explicitNullValueSexual = default!;
         /// <summary>Sexual content that includes an individual who is under 18 years old.</summary>
-        public bool? SexualMinors { get; set; }
+        public bool? SexualMinors { get => _explicitNullValueSexualMinors; set { _explicitNullValueSexualMinors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sexual/minors"); else _explicitNullProperties?.Remove("sexual/minors"); } }
+        private bool? _explicitNullValueSexualMinors = default!;
         /// <summary>Content that depicts death, violence, or physical injury.</summary>
-        public bool? Violence { get; set; }
+        public bool? Violence { get => _explicitNullValueViolence; set { _explicitNullValueViolence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("violence"); else _explicitNullProperties?.Remove("violence"); } }
+        private bool? _explicitNullValueViolence = default!;
         /// <summary>Content that depicts death, violence, or physical injury in graphic detail.</summary>
-        public bool? ViolenceGraphic { get; set; }
+        public bool? ViolenceGraphic { get => _explicitNullValueViolenceGraphic; set { _explicitNullValueViolenceGraphic = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("violence/graphic"); else _explicitNullProperties?.Remove("violence/graphic"); } }
+        private bool? _explicitNullValueViolenceGraphic = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategories"/> and sets the default values.
         /// </summary>
@@ -56,7 +89,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategories CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategories();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategories(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -101,6 +134,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteBoolValue("sexual/minors", SexualMinors);
             writer.WriteBoolValue("violence", Violence);
             writer.WriteBoolValue("violence/graphic", ViolenceGraphic);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

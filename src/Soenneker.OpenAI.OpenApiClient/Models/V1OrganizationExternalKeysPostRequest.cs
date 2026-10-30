@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class V1OrganizationExternalKeysPostRequest : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AwsExternalKeyParams"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,21 +50,30 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.V1OrganizationExternalKeysPostRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.V1OrganizationExternalKeysPostRequest();
             if("AwsExternalKeyParams".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AwsExternalKeyParams = new global::Soenneker.OpenAI.OpenApiClient.Models.AwsExternalKeyParams();
+                
             }
             else if("AzureExternalKeyParams".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AzureExternalKeyParams = new global::Soenneker.OpenAI.OpenApiClient.Models.AzureExternalKeyParams();
+                
             }
             else if("GcpExternalKeyParams".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.GcpExternalKeyParams = new global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalKeyParams();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("name") != null && parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("aws".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("role_arn") != null && parseNode.GetChildNode("kms_arn") != null && parseNode.GetChildNode("external_id") != null && (parseNode.GetChildNode("purpose") == null || (parseNode.GetChildNode("purpose")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag6 && ("ekm".Equals(optionalTag6.GetValue(), global::System.StringComparison.Ordinal) || "psp_decryption".Equals(optionalTag6.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("name") != null && parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("gcp".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("workload_identity_project_number") != null && parseNode.GetChildNode("workload_identity_pool_id") != null && parseNode.GetChildNode("workload_identity_provider_id") != null && parseNode.GetChildNode("kms_project_id") != null && parseNode.GetChildNode("kms_key_ring_name") != null && parseNode.GetChildNode("kms_key_name") != null && parseNode.GetChildNode("kms_key_location") != null && parseNode.GetChildNode("audience") != null && (parseNode.GetChildNode("purpose") == null || (parseNode.GetChildNode("purpose")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag11 && ("ekm".Equals(optionalTag11.GetValue(), global::System.StringComparison.Ordinal) || "psp_decryption".Equals(optionalTag11.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("name") != null && parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("azure".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("tenant_id") != null && parseNode.GetChildNode("vault_uri") != null && parseNode.GetChildNode("key_name") != null && (parseNode.GetChildNode("purpose") == null || (parseNode.GetChildNode("purpose")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag6 && ("ekm".Equals(optionalTag6.GetValue(), global::System.StringComparison.Ordinal) || "psp_decryption".Equals(optionalTag6.GetValue(), global::System.StringComparison.Ordinal))))))();
+            if (result.AwsExternalKeyParams == null && result.AzureExternalKeyParams == null && result.GcpExternalKeyParams == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.AwsExternalKeyParams = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.AwsExternalKeyParams(), parseNode);
+            if (result.AwsExternalKeyParams == null && result.AzureExternalKeyParams == null && result.GcpExternalKeyParams == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.GcpExternalKeyParams = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalKeyParams(), parseNode);
+            if (result.AwsExternalKeyParams == null && result.AzureExternalKeyParams == null && result.GcpExternalKeyParams == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.AzureExternalKeyParams = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.AzureExternalKeyParams(), parseNode);
+            if (result.AwsExternalKeyParams == null && result.AzureExternalKeyParams == null && result.GcpExternalKeyParams == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,17 +101,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (AwsExternalKeyParams == null && AzureExternalKeyParams == null && GcpExternalKeyParams == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (AwsExternalKeyParams != null && AzureExternalKeyParams == null && GcpExternalKeyParams == null) { if (AwsExternalKeyParams is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AwsExternalKeyParams); return; }
+            if (AzureExternalKeyParams != null && AwsExternalKeyParams == null && GcpExternalKeyParams == null) { if (AzureExternalKeyParams is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AzureExternalKeyParams); return; }
+            if (GcpExternalKeyParams != null && AwsExternalKeyParams == null && AzureExternalKeyParams == null) { if (GcpExternalKeyParams is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GcpExternalKeyParams); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(AwsExternalKeyParams != null)
             {
+                if (AwsExternalKeyParams is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AwsExternalKeyParams>(null, AwsExternalKeyParams);
             }
             else if(AzureExternalKeyParams != null)
             {
+                if (AzureExternalKeyParams is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AzureExternalKeyParams>(null, AzureExternalKeyParams);
             }
             else if(GcpExternalKeyParams != null)
             {
+                if (GcpExternalKeyParams is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalKeyParams>(null, GcpExternalKeyParams);
             }
         }

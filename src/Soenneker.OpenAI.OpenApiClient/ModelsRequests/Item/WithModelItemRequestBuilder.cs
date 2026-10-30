@@ -55,6 +55,8 @@ namespace Soenneker.OpenAI.OpenApiClient.ModelsRequests.Item
             {
                 { "403", global::Soenneker.OpenAI.OpenApiClient.Models.PermissionErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.DeleteModelResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.DeleteModelResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -80,6 +82,8 @@ namespace Soenneker.OpenAI.OpenApiClient.ModelsRequests.Item
             {
                 { "403", global::Soenneker.OpenAI.OpenApiClient.Models.PermissionErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ModelValue>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ModelValue.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

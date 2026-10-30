@@ -12,6 +12,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     public partial class VoiceIdsShared : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
     #pragma warning restore CS1591
     {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Composed type representation for type <see cref="string"/></summary>
@@ -40,15 +44,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsShared();
-            if(parseNode.GetStringValue() is string stringValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
             {
                 result.String = stringValue;
             }
-            else if(parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedAnyOf2>() is global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedAnyOf2 voiceIdsSharedAnyOf2Value)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString unionEnumValue0 && ("alloy".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "ash".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "ballad".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "coral".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "echo".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "sage".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "shimmer".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "verse".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "marin".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase) || "cedar".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase)) && parseNode.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedAnyOf2>() is global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedAnyOf2 voiceIdsSharedAnyOf2Value)
             {
                 result.VoiceIdsSharedAnyOf2 = voiceIdsSharedAnyOf2Value;
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            if (result.String == null && result.VoiceIdsSharedAnyOf2 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +71,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (String == null && VoiceIdsSharedAnyOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(String != null)
             {
@@ -73,7 +83,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VoiceIdsSharedAnyOf2>(null, VoiceIdsSharedAnyOf2);
             }
-            writer.WriteAdditionalData(AdditionalData);
+            
         }
     }
 }

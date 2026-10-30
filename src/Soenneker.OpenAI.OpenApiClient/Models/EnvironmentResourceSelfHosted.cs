@@ -12,40 +12,61 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnvironmentResourceSelfHosted : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("capability_directories") is { } nullNodeCapabilityDirectories && nullNodeCapabilityDirectories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CapabilityDirectories = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("remote_url") is { } nullNodeRemoteUrl && nullNodeRemoteUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemoteUrl = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("workspace_directory") is { } nullNodeWorkspaceDirectory && nullNodeWorkspaceDirectory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceDirectory = null;
+        }
+
         /// <summary>Directories that contain capabilities exposed to the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CapabilityDirectories { get; set; }
+        public List<string>? CapabilityDirectories { get => _explicitNullValueCapabilityDirectories; set { _explicitNullValueCapabilityDirectories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("capability_directories"); else _explicitNullProperties?.Remove("capability_directories"); } }
+        private List<string>? _explicitNullValueCapabilityDirectories = default!;
 #nullable restore
 #else
-        public List<string> CapabilityDirectories { get; set; }
+        public List<string> CapabilityDirectories { get => _explicitNullValueCapabilityDirectories; set { _explicitNullValueCapabilityDirectories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("capability_directories"); else _explicitNullProperties?.Remove("capability_directories"); } }
+        private List<string> _explicitNullValueCapabilityDirectories = default!;
 #endif
         /// <summary>The public ID of the environment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>Pass this URL unchanged to `codex exec-server --remote` when connecting this environment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RemoteUrl { get; set; }
+        public string? RemoteUrl { get => _explicitNullValueRemoteUrl; set { _explicitNullValueRemoteUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remote_url"); else _explicitNullProperties?.Remove("remote_url"); } }
+        private string? _explicitNullValueRemoteUrl = default!;
 #nullable restore
 #else
-        public string RemoteUrl { get; set; }
+        public string RemoteUrl { get => _explicitNullValueRemoteUrl; set { _explicitNullValueRemoteUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remote_url"); else _explicitNullProperties?.Remove("remote_url"); } }
+        private string _explicitNullValueRemoteUrl = default!;
 #endif
         /// <summary>The type of the object. Always `self_hosted`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SelfHostedType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SelfHostedType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.SelfHostedType? _explicitNullValueType = default!;
         /// <summary>The absolute project directory inside the environment. Defaults to `/workspace`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkspaceDirectory { get; set; }
+        public string? WorkspaceDirectory { get => _explicitNullValueWorkspaceDirectory; set { _explicitNullValueWorkspaceDirectory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_directory"); else _explicitNullProperties?.Remove("workspace_directory"); } }
+        private string? _explicitNullValueWorkspaceDirectory = default!;
 #nullable restore
 #else
-        public string WorkspaceDirectory { get; set; }
+        public string WorkspaceDirectory { get => _explicitNullValueWorkspaceDirectory; set { _explicitNullValueWorkspaceDirectory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_directory"); else _explicitNullProperties?.Remove("workspace_directory"); } }
+        private string _explicitNullValueWorkspaceDirectory = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -55,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentResourceSelfHosted CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentResourceSelfHosted();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentResourceSelfHosted(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,7 +104,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("remote_url", RemoteUrl);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SelfHostedType>("type", Type);
-            writer.WriteStringValue("workspace_directory", WorkspaceDirectory);
+            writer.WriteStringValue("workspace_directory", WorkspaceDirectory);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

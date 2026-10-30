@@ -12,23 +12,44 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FineTuningJobCheckpointMetrics : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("full_valid_loss") is { } nullNodeFullValidLoss && nullNodeFullValidLoss.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullValidLoss = null;
+            if (parseNode.GetChildNode("full_valid_mean_token_accuracy") is { } nullNodeFullValidMeanTokenAccuracy && nullNodeFullValidMeanTokenAccuracy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullValidMeanTokenAccuracy = null;
+            if (parseNode.GetChildNode("step") is { } nullNodeStep && nullNodeStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Step = null;
+            if (parseNode.GetChildNode("train_loss") is { } nullNodeTrainLoss && nullNodeTrainLoss.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrainLoss = null;
+            if (parseNode.GetChildNode("train_mean_token_accuracy") is { } nullNodeTrainMeanTokenAccuracy && nullNodeTrainMeanTokenAccuracy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrainMeanTokenAccuracy = null;
+            if (parseNode.GetChildNode("valid_loss") is { } nullNodeValidLoss && nullNodeValidLoss.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidLoss = null;
+            if (parseNode.GetChildNode("valid_mean_token_accuracy") is { } nullNodeValidMeanTokenAccuracy && nullNodeValidMeanTokenAccuracy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidMeanTokenAccuracy = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The full_valid_loss property</summary>
-        public double? FullValidLoss { get; set; }
+        public double? FullValidLoss { get => _explicitNullValueFullValidLoss; set { _explicitNullValueFullValidLoss = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_valid_loss"); else _explicitNullProperties?.Remove("full_valid_loss"); } }
+        private double? _explicitNullValueFullValidLoss = default!;
         /// <summary>The full_valid_mean_token_accuracy property</summary>
-        public double? FullValidMeanTokenAccuracy { get; set; }
+        public double? FullValidMeanTokenAccuracy { get => _explicitNullValueFullValidMeanTokenAccuracy; set { _explicitNullValueFullValidMeanTokenAccuracy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_valid_mean_token_accuracy"); else _explicitNullProperties?.Remove("full_valid_mean_token_accuracy"); } }
+        private double? _explicitNullValueFullValidMeanTokenAccuracy = default!;
         /// <summary>The step property</summary>
-        public double? Step { get; set; }
+        public double? Step { get => _explicitNullValueStep; set { _explicitNullValueStep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step"); else _explicitNullProperties?.Remove("step"); } }
+        private double? _explicitNullValueStep = default!;
         /// <summary>The train_loss property</summary>
-        public double? TrainLoss { get; set; }
+        public double? TrainLoss { get => _explicitNullValueTrainLoss; set { _explicitNullValueTrainLoss = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("train_loss"); else _explicitNullProperties?.Remove("train_loss"); } }
+        private double? _explicitNullValueTrainLoss = default!;
         /// <summary>The train_mean_token_accuracy property</summary>
-        public double? TrainMeanTokenAccuracy { get; set; }
+        public double? TrainMeanTokenAccuracy { get => _explicitNullValueTrainMeanTokenAccuracy; set { _explicitNullValueTrainMeanTokenAccuracy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("train_mean_token_accuracy"); else _explicitNullProperties?.Remove("train_mean_token_accuracy"); } }
+        private double? _explicitNullValueTrainMeanTokenAccuracy = default!;
         /// <summary>The valid_loss property</summary>
-        public double? ValidLoss { get; set; }
+        public double? ValidLoss { get => _explicitNullValueValidLoss; set { _explicitNullValueValidLoss = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid_loss"); else _explicitNullProperties?.Remove("valid_loss"); } }
+        private double? _explicitNullValueValidLoss = default!;
         /// <summary>The valid_mean_token_accuracy property</summary>
-        public double? ValidMeanTokenAccuracy { get; set; }
+        public double? ValidMeanTokenAccuracy { get => _explicitNullValueValidMeanTokenAccuracy; set { _explicitNullValueValidMeanTokenAccuracy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid_mean_token_accuracy"); else _explicitNullProperties?.Remove("valid_mean_token_accuracy"); } }
+        private double? _explicitNullValueValidMeanTokenAccuracy = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics"/> and sets the default values.
         /// </summary>
@@ -44,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobCheckpointMetrics(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,6 +98,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteDoubleValue("train_mean_token_accuracy", TrainMeanTokenAccuracy);
             writer.WriteDoubleValue("valid_loss", ValidLoss);
             writer.WriteDoubleValue("valid_mean_token_accuracy", ValidMeanTokenAccuracy);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

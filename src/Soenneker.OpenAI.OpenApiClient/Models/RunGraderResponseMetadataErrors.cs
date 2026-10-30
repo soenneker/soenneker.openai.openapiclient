@@ -11,55 +11,93 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RunGraderResponseMetadataErrors : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("formula_parse_error") is { } nullNodeFormulaParseError && nullNodeFormulaParseError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormulaParseError = null;
+            if (parseNode.GetChildNode("invalid_variable_error") is { } nullNodeInvalidVariableError && nullNodeInvalidVariableError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvalidVariableError = null;
+            if (parseNode.GetChildNode("model_grader_parse_error") is { } nullNodeModelGraderParseError && nullNodeModelGraderParseError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelGraderParseError = null;
+            if (parseNode.GetChildNode("model_grader_refusal_error") is { } nullNodeModelGraderRefusalError && nullNodeModelGraderRefusalError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelGraderRefusalError = null;
+            if (parseNode.GetChildNode("model_grader_server_error") is { } nullNodeModelGraderServerError && nullNodeModelGraderServerError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelGraderServerError = null;
+            if (parseNode.GetChildNode("model_grader_server_error_details") is { } nullNodeModelGraderServerErrorDetails && nullNodeModelGraderServerErrorDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelGraderServerErrorDetails = null;
+            if (parseNode.GetChildNode("other_error") is { } nullNodeOtherError && nullNodeOtherError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OtherError = null;
+            if (parseNode.GetChildNode("python_grader_runtime_error") is { } nullNodePythonGraderRuntimeError && nullNodePythonGraderRuntimeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PythonGraderRuntimeError = null;
+            if (parseNode.GetChildNode("python_grader_runtime_error_details") is { } nullNodePythonGraderRuntimeErrorDetails && nullNodePythonGraderRuntimeErrorDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PythonGraderRuntimeErrorDetails = null;
+            if (parseNode.GetChildNode("python_grader_server_error") is { } nullNodePythonGraderServerError && nullNodePythonGraderServerError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PythonGraderServerError = null;
+            if (parseNode.GetChildNode("python_grader_server_error_type") is { } nullNodePythonGraderServerErrorType && nullNodePythonGraderServerErrorType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PythonGraderServerErrorType = null;
+            if (parseNode.GetChildNode("sample_parse_error") is { } nullNodeSampleParseError && nullNodeSampleParseError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SampleParseError = null;
+            if (parseNode.GetChildNode("truncated_observation_error") is { } nullNodeTruncatedObservationError && nullNodeTruncatedObservationError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TruncatedObservationError = null;
+            if (parseNode.GetChildNode("unresponsive_reward_error") is { } nullNodeUnresponsiveRewardError && nullNodeUnresponsiveRewardError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnresponsiveRewardError = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The formula_parse_error property</summary>
-        public bool? FormulaParseError { get; set; }
+        public bool? FormulaParseError { get => _explicitNullValueFormulaParseError; set { _explicitNullValueFormulaParseError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formula_parse_error"); else _explicitNullProperties?.Remove("formula_parse_error"); } }
+        private bool? _explicitNullValueFormulaParseError = default!;
         /// <summary>The invalid_variable_error property</summary>
-        public bool? InvalidVariableError { get; set; }
+        public bool? InvalidVariableError { get => _explicitNullValueInvalidVariableError; set { _explicitNullValueInvalidVariableError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalid_variable_error"); else _explicitNullProperties?.Remove("invalid_variable_error"); } }
+        private bool? _explicitNullValueInvalidVariableError = default!;
         /// <summary>The model_grader_parse_error property</summary>
-        public bool? ModelGraderParseError { get; set; }
+        public bool? ModelGraderParseError { get => _explicitNullValueModelGraderParseError; set { _explicitNullValueModelGraderParseError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_grader_parse_error"); else _explicitNullProperties?.Remove("model_grader_parse_error"); } }
+        private bool? _explicitNullValueModelGraderParseError = default!;
         /// <summary>The model_grader_refusal_error property</summary>
-        public bool? ModelGraderRefusalError { get; set; }
+        public bool? ModelGraderRefusalError { get => _explicitNullValueModelGraderRefusalError; set { _explicitNullValueModelGraderRefusalError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_grader_refusal_error"); else _explicitNullProperties?.Remove("model_grader_refusal_error"); } }
+        private bool? _explicitNullValueModelGraderRefusalError = default!;
         /// <summary>The model_grader_server_error property</summary>
-        public bool? ModelGraderServerError { get; set; }
+        public bool? ModelGraderServerError { get => _explicitNullValueModelGraderServerError; set { _explicitNullValueModelGraderServerError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_grader_server_error"); else _explicitNullProperties?.Remove("model_grader_server_error"); } }
+        private bool? _explicitNullValueModelGraderServerError = default!;
         /// <summary>The model_grader_server_error_details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ModelGraderServerErrorDetails { get; set; }
+        public string? ModelGraderServerErrorDetails { get => _explicitNullValueModelGraderServerErrorDetails; set { _explicitNullValueModelGraderServerErrorDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_grader_server_error_details"); else _explicitNullProperties?.Remove("model_grader_server_error_details"); } }
+        private string? _explicitNullValueModelGraderServerErrorDetails = default!;
 #nullable restore
 #else
-        public string ModelGraderServerErrorDetails { get; set; }
+        public string ModelGraderServerErrorDetails { get => _explicitNullValueModelGraderServerErrorDetails; set { _explicitNullValueModelGraderServerErrorDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_grader_server_error_details"); else _explicitNullProperties?.Remove("model_grader_server_error_details"); } }
+        private string _explicitNullValueModelGraderServerErrorDetails = default!;
 #endif
         /// <summary>The other_error property</summary>
-        public bool? OtherError { get; set; }
+        public bool? OtherError { get => _explicitNullValueOtherError; set { _explicitNullValueOtherError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("other_error"); else _explicitNullProperties?.Remove("other_error"); } }
+        private bool? _explicitNullValueOtherError = default!;
         /// <summary>The python_grader_runtime_error property</summary>
-        public bool? PythonGraderRuntimeError { get; set; }
+        public bool? PythonGraderRuntimeError { get => _explicitNullValuePythonGraderRuntimeError; set { _explicitNullValuePythonGraderRuntimeError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("python_grader_runtime_error"); else _explicitNullProperties?.Remove("python_grader_runtime_error"); } }
+        private bool? _explicitNullValuePythonGraderRuntimeError = default!;
         /// <summary>The python_grader_runtime_error_details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PythonGraderRuntimeErrorDetails { get; set; }
+        public string? PythonGraderRuntimeErrorDetails { get => _explicitNullValuePythonGraderRuntimeErrorDetails; set { _explicitNullValuePythonGraderRuntimeErrorDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("python_grader_runtime_error_details"); else _explicitNullProperties?.Remove("python_grader_runtime_error_details"); } }
+        private string? _explicitNullValuePythonGraderRuntimeErrorDetails = default!;
 #nullable restore
 #else
-        public string PythonGraderRuntimeErrorDetails { get; set; }
+        public string PythonGraderRuntimeErrorDetails { get => _explicitNullValuePythonGraderRuntimeErrorDetails; set { _explicitNullValuePythonGraderRuntimeErrorDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("python_grader_runtime_error_details"); else _explicitNullProperties?.Remove("python_grader_runtime_error_details"); } }
+        private string _explicitNullValuePythonGraderRuntimeErrorDetails = default!;
 #endif
         /// <summary>The python_grader_server_error property</summary>
-        public bool? PythonGraderServerError { get; set; }
+        public bool? PythonGraderServerError { get => _explicitNullValuePythonGraderServerError; set { _explicitNullValuePythonGraderServerError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("python_grader_server_error"); else _explicitNullProperties?.Remove("python_grader_server_error"); } }
+        private bool? _explicitNullValuePythonGraderServerError = default!;
         /// <summary>The python_grader_server_error_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PythonGraderServerErrorType { get; set; }
+        public string? PythonGraderServerErrorType { get => _explicitNullValuePythonGraderServerErrorType; set { _explicitNullValuePythonGraderServerErrorType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("python_grader_server_error_type"); else _explicitNullProperties?.Remove("python_grader_server_error_type"); } }
+        private string? _explicitNullValuePythonGraderServerErrorType = default!;
 #nullable restore
 #else
-        public string PythonGraderServerErrorType { get; set; }
+        public string PythonGraderServerErrorType { get => _explicitNullValuePythonGraderServerErrorType; set { _explicitNullValuePythonGraderServerErrorType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("python_grader_server_error_type"); else _explicitNullProperties?.Remove("python_grader_server_error_type"); } }
+        private string _explicitNullValuePythonGraderServerErrorType = default!;
 #endif
         /// <summary>The sample_parse_error property</summary>
-        public bool? SampleParseError { get; set; }
+        public bool? SampleParseError { get => _explicitNullValueSampleParseError; set { _explicitNullValueSampleParseError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sample_parse_error"); else _explicitNullProperties?.Remove("sample_parse_error"); } }
+        private bool? _explicitNullValueSampleParseError = default!;
         /// <summary>The truncated_observation_error property</summary>
-        public bool? TruncatedObservationError { get; set; }
+        public bool? TruncatedObservationError { get => _explicitNullValueTruncatedObservationError; set { _explicitNullValueTruncatedObservationError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("truncated_observation_error"); else _explicitNullProperties?.Remove("truncated_observation_error"); } }
+        private bool? _explicitNullValueTruncatedObservationError = default!;
         /// <summary>The unresponsive_reward_error property</summary>
-        public bool? UnresponsiveRewardError { get; set; }
+        public bool? UnresponsiveRewardError { get => _explicitNullValueUnresponsiveRewardError; set { _explicitNullValueUnresponsiveRewardError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unresponsive_reward_error"); else _explicitNullProperties?.Remove("unresponsive_reward_error"); } }
+        private bool? _explicitNullValueUnresponsiveRewardError = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors"/> and sets the default values.
         /// </summary>
@@ -75,7 +113,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderResponseMetadataErrors(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -122,6 +160,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteBoolValue("sample_parse_error", SampleParseError);
             writer.WriteBoolValue("truncated_observation_error", TruncatedObservationError);
             writer.WriteBoolValue("unresponsive_reward_error", UnresponsiveRewardError);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

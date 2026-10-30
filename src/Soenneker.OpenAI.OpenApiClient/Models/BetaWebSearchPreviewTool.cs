@@ -12,28 +12,45 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaWebSearchPreviewTool : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("search_content_types") is { } nullNodeSearchContentTypes && nullNodeSearchContentTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchContentTypes = null;
+            if (parseNode.GetChildNode("search_context_size") is { } nullNodeSearchContextSize && nullNodeSearchContextSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchContextSize = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("user_location") is { } nullNodeUserLocation && nullNodeUserLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserLocation = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The search_content_types property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContentType?>? SearchContentTypes { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContentType?>? SearchContentTypes { get => _explicitNullValueSearchContentTypes; set { _explicitNullValueSearchContentTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_content_types"); else _explicitNullProperties?.Remove("search_content_types"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContentType?>? _explicitNullValueSearchContentTypes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContentType?> SearchContentTypes { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContentType?> SearchContentTypes { get => _explicitNullValueSearchContentTypes; set { _explicitNullValueSearchContentTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_content_types"); else _explicitNullProperties?.Remove("search_content_types"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContentType?> _explicitNullValueSearchContentTypes = default!;
 #endif
         /// <summary>High level guidance for the amount of context window space to use for the search. One of `low`, `medium`, or `high`. `medium` is the default.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContextSize? SearchContextSize { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContextSize? SearchContextSize { get => _explicitNullValueSearchContextSize; set { _explicitNullValueSearchContextSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_context_size"); else _explicitNullProperties?.Remove("search_context_size"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContextSize? _explicitNullValueSearchContextSize = default!;
         /// <summary>The type of the web search tool. One of `web_search_preview` or `web_search_preview_2025_03_11`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewToolType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewToolType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewToolType? _explicitNullValueType = default!;
         /// <summary>The user_location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocation? UserLocation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocation? UserLocation { get => _explicitNullValueUserLocation; set { _explicitNullValueUserLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_location"); else _explicitNullProperties?.Remove("user_location"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocation? _explicitNullValueUserLocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocation UserLocation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocation UserLocation { get => _explicitNullValueUserLocation; set { _explicitNullValueUserLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_location"); else _explicitNullProperties?.Remove("user_location"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocation _explicitNullValueUserLocation = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewTool"/> and sets the default values.
@@ -50,7 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewTool CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewTool();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewTool(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,6 +94,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaSearchContextSize>("search_context_size", SearchContextSize);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaWebSearchPreviewToolType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaApproximateLocation>("user_location", UserLocation);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

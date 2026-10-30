@@ -11,21 +11,35 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BetaRankingOptions : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("hybrid_search") is { } nullNodeHybridSearch && nullNodeHybridSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HybridSearch = null;
+            if (parseNode.GetChildNode("ranker") is { } nullNodeRanker && nullNodeRanker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ranker = null;
+            if (parseNode.GetChildNode("score_threshold") is { } nullNodeScoreThreshold && nullNodeScoreThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScoreThreshold = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Weights that control how reciprocal rank fusion balances semantic embedding matches versus sparse keyword matches when hybrid search is enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions? HybridSearch { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions? HybridSearch { get => _explicitNullValueHybridSearch; set { _explicitNullValueHybridSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hybrid_search"); else _explicitNullProperties?.Remove("hybrid_search"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions? _explicitNullValueHybridSearch = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions HybridSearch { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions HybridSearch { get => _explicitNullValueHybridSearch; set { _explicitNullValueHybridSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hybrid_search"); else _explicitNullProperties?.Remove("hybrid_search"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions _explicitNullValueHybridSearch = default!;
 #endif
         /// <summary>The ranker to use for the file search.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankerVersionType? Ranker { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankerVersionType? Ranker { get => _explicitNullValueRanker; set { _explicitNullValueRanker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ranker"); else _explicitNullProperties?.Remove("ranker"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankerVersionType? _explicitNullValueRanker = default!;
         /// <summary>The score threshold for the file search, a number between 0 and 1. Numbers closer to 1 will attempt to return only the most relevant results, but may return fewer results.</summary>
-        public double? ScoreThreshold { get; set; }
+        public double? ScoreThreshold { get => _explicitNullValueScoreThreshold; set { _explicitNullValueScoreThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("score_threshold"); else _explicitNullProperties?.Remove("score_threshold"); } }
+        private double? _explicitNullValueScoreThreshold = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankingOptions"/> and sets the default values.
         /// </summary>
@@ -41,7 +55,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankingOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankingOptions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankingOptions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaHybridSearchOptions>("hybrid_search", HybridSearch);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaRankerVersionType>("ranker", Ranker);
             writer.WriteDoubleValue("score_threshold", ScoreThreshold);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

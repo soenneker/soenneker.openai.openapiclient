@@ -11,40 +11,59 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MisalignmentErrorDetailsResource : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("detailed_explanation") is { } nullNodeDetailedExplanation && nullNodeDetailedExplanation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DetailedExplanation = null;
+            if (parseNode.GetChildNode("error_type") is { } nullNodeErrorType && nullNodeErrorType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorType = null;
+            if (parseNode.GetChildNode("review_target") is { } nullNodeReviewTarget && nullNodeReviewTarget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewTarget = null;
+            if (parseNode.GetChildNode("steer") is { } nullNodeSteer && nullNodeSteer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Steer = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The public explanation for this block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DetailedExplanation { get; set; }
+        public string? DetailedExplanation { get => _explicitNullValueDetailedExplanation; set { _explicitNullValueDetailedExplanation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detailed_explanation"); else _explicitNullProperties?.Remove("detailed_explanation"); } }
+        private string? _explicitNullValueDetailedExplanation = default!;
 #nullable restore
 #else
-        public string DetailedExplanation { get; set; }
+        public string DetailedExplanation { get => _explicitNullValueDetailedExplanation; set { _explicitNullValueDetailedExplanation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detailed_explanation"); else _explicitNullProperties?.Remove("detailed_explanation"); } }
+        private string _explicitNullValueDetailedExplanation = default!;
 #endif
         /// <summary>The error_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorType? ErrorType { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorType? ErrorType { get => _explicitNullValueErrorType; set { _explicitNullValueErrorType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_type"); else _explicitNullProperties?.Remove("error_type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorType? _explicitNullValueErrorType = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorType ErrorType { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorType ErrorType { get => _explicitNullValueErrorType; set { _explicitNullValueErrorType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_type"); else _explicitNullProperties?.Remove("error_type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorType _explicitNullValueErrorType = default!;
 #endif
         /// <summary>The review_target property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResourceReviewTarget? ReviewTarget { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResourceReviewTarget? ReviewTarget { get => _explicitNullValueReviewTarget; set { _explicitNullValueReviewTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review_target"); else _explicitNullProperties?.Remove("review_target"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResourceReviewTarget? _explicitNullValueReviewTarget = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResourceReviewTarget ReviewTarget { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResourceReviewTarget ReviewTarget { get => _explicitNullValueReviewTarget; set { _explicitNullValueReviewTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review_target"); else _explicitNullProperties?.Remove("review_target"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResourceReviewTarget _explicitNullValueReviewTarget = default!;
 #endif
         /// <summary>The steer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentSteer? Steer { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentSteer? Steer { get => _explicitNullValueSteer; set { _explicitNullValueSteer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steer"); else _explicitNullProperties?.Remove("steer"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentSteer? _explicitNullValueSteer = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentSteer Steer { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentSteer Steer { get => _explicitNullValueSteer; set { _explicitNullValueSteer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steer"); else _explicitNullProperties?.Remove("steer"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentSteer _explicitNullValueSteer = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResource"/> and sets the default values.
@@ -61,7 +80,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResource();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResource(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +107,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorType>("error_type", ErrorType);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentErrorDetailsResourceReviewTarget>("review_target", ReviewTarget);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MisalignmentSteer>("steer", Steer);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

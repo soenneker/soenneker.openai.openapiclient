@@ -74,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses
         /// <summary>
         /// Creates a model response. Provide [text](https://developers.openai.com/api/docs/guides/text) or[image](https://developers.openai.com/api/docs/guides/images-vision) inputs to generate [text](https://developers.openai.com/api/docs/guides/text)or [JSON](https://developers.openai.com/api/docs/guides/structured-outputs) outputs. Have the model callyour own [custom code](https://developers.openai.com/api/docs/guides/function-calling) or use built-in[tools](https://developers.openai.com/api/docs/guides/tools) like [web search](https://developers.openai.com/api/docs/guides/tools-web-search)or [file search](https://developers.openai.com/api/docs/guides/tools-file-search) to use your own dataas input for the model&apos;s response.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue"/></returns>
+        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -84,11 +84,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -99,8 +99,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses
                 { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a model response. Provide [text](https://developers.openai.com/api/docs/guides/text) or[image](https://developers.openai.com/api/docs/guides/images-vision) inputs to generate [text](https://developers.openai.com/api/docs/guides/text)or [JSON](https://developers.openai.com/api/docs/guides/structured-outputs) outputs. Have the model callyour own [custom code](https://developers.openai.com/api/docs/guides/function-calling) or use built-in[tools](https://developers.openai.com/api/docs/guides/tools) like [web search](https://developers.openai.com/api/docs/guides/tools-web-search)or [file search](https://developers.openai.com/api/docs/guides/tools-file-search) to use your own dataas input for the model&apos;s response.

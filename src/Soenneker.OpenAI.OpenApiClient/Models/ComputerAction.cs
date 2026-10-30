@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ComputerAction : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ClickParam"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,45 +98,66 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.ComputerAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerAction();
             if("ClickParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ClickParam = new global::Soenneker.OpenAI.OpenApiClient.Models.ClickParam();
+                
             }
             else if("DoubleClickAction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.DoubleClickAction = new global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickAction();
+                
             }
             else if("DragParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.DragParam = new global::Soenneker.OpenAI.OpenApiClient.Models.DragParam();
+                
             }
             else if("KeyPressAction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.KeyPressAction = new global::Soenneker.OpenAI.OpenApiClient.Models.KeyPressAction();
+                
             }
             else if("MoveParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MoveParam = new global::Soenneker.OpenAI.OpenApiClient.Models.MoveParam();
+                
             }
             else if("ScreenshotParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ScreenshotParam = new global::Soenneker.OpenAI.OpenApiClient.Models.ScreenshotParam();
+                
             }
             else if("ScrollParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ScrollParam = new global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParam();
+                
             }
             else if("TypeParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.TypeParam = new global::Soenneker.OpenAI.OpenApiClient.Models.TypeParam();
+                
             }
             else if("WaitParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WaitParam = new global::Soenneker.OpenAI.OpenApiClient.Models.WaitParam();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("click".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("button") != null && (parseNode.GetChildNode("button")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("left".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "right".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "wheel".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "back".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "forward".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("x") != null && parseNode.GetChildNode("y") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("double_click".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("x") != null && parseNode.GetChildNode("y") != null && parseNode.GetChildNode("keys") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("drag".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("path") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("keypress".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("keys") != null))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("move".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("x") != null && parseNode.GetChildNode("y") != null))();
+            bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("screenshot".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch6 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("scroll".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("x") != null && parseNode.GetChildNode("y") != null && parseNode.GetChildNode("scroll_x") != null && parseNode.GetChildNode("scroll_y") != null))();
+            bool matchesUnionBranch7 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("type".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("text") != null))();
+            bool matchesUnionBranch8 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("wait".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.ClickParam == null && result.DoubleClickAction == null && result.DragParam == null && result.KeyPressAction == null && result.MoveParam == null && result.ScreenshotParam == null && result.ScrollParam == null && result.TypeParam == null && result.WaitParam == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.ClickParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ClickParam(), parseNode);
+            if (result.ClickParam == null && result.DoubleClickAction == null && result.DragParam == null && result.KeyPressAction == null && result.MoveParam == null && result.ScreenshotParam == null && result.ScrollParam == null && result.TypeParam == null && result.WaitParam == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.DoubleClickAction = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickAction(), parseNode);
+            if (result.ClickParam == null && result.DoubleClickAction == null && result.DragParam == null && result.KeyPressAction == null && result.MoveParam == null && result.ScreenshotParam == null && result.ScrollParam == null && result.TypeParam == null && result.WaitParam == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.DragParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.DragParam(), parseNode);
+            if (result.ClickParam == null && result.DoubleClickAction == null && result.DragParam == null && result.KeyPressAction == null && result.MoveParam == null && result.ScreenshotParam == null && result.ScrollParam == null && result.TypeParam == null && result.WaitParam == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.KeyPressAction = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.KeyPressAction(), parseNode);
+            if (result.ClickParam == null && result.DoubleClickAction == null && result.DragParam == null && result.KeyPressAction == null && result.MoveParam == null && result.ScreenshotParam == null && result.ScrollParam == null && result.TypeParam == null && result.WaitParam == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.MoveParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.MoveParam(), parseNode);
+            if (result.ClickParam == null && result.DoubleClickAction == null && result.DragParam == null && result.KeyPressAction == null && result.MoveParam == null && result.ScreenshotParam == null && result.ScrollParam == null && result.TypeParam == null && result.WaitParam == null && matchesUnionBranch5 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.ScreenshotParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ScreenshotParam(), parseNode);
+            if (result.ClickParam == null && result.DoubleClickAction == null && result.DragParam == null && result.KeyPressAction == null && result.MoveParam == null && result.ScreenshotParam == null && result.ScrollParam == null && result.TypeParam == null && result.WaitParam == null && matchesUnionBranch6 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch7 && !matchesUnionBranch8) result.ScrollParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParam(), parseNode);
+            if (result.ClickParam == null && result.DoubleClickAction == null && result.DragParam == null && result.KeyPressAction == null && result.MoveParam == null && result.ScreenshotParam == null && result.ScrollParam == null && result.TypeParam == null && result.WaitParam == null && matchesUnionBranch7 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch8) result.TypeParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.TypeParam(), parseNode);
+            if (result.ClickParam == null && result.DoubleClickAction == null && result.DragParam == null && result.KeyPressAction == null && result.MoveParam == null && result.ScreenshotParam == null && result.ScrollParam == null && result.TypeParam == null && result.WaitParam == null && matchesUnionBranch8 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7) result.WaitParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.WaitParam(), parseNode);
+            if (result.ClickParam == null && result.DoubleClickAction == null && result.DragParam == null && result.KeyPressAction == null && result.MoveParam == null && result.ScreenshotParam == null && result.ScrollParam == null && result.TypeParam == null && result.WaitParam == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -183,41 +209,62 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ClickParam == null && DoubleClickAction == null && DragParam == null && KeyPressAction == null && MoveParam == null && ScreenshotParam == null && ScrollParam == null && TypeParam == null && WaitParam == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ClickParam != null && DoubleClickAction == null && DragParam == null && KeyPressAction == null && MoveParam == null && ScreenshotParam == null && ScrollParam == null && TypeParam == null && WaitParam == null) { if (ClickParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ClickParam); return; }
+            if (DoubleClickAction != null && ClickParam == null && DragParam == null && KeyPressAction == null && MoveParam == null && ScreenshotParam == null && ScrollParam == null && TypeParam == null && WaitParam == null) { if (DoubleClickAction is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DoubleClickAction); return; }
+            if (DragParam != null && ClickParam == null && DoubleClickAction == null && KeyPressAction == null && MoveParam == null && ScreenshotParam == null && ScrollParam == null && TypeParam == null && WaitParam == null) { if (DragParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DragParam); return; }
+            if (KeyPressAction != null && ClickParam == null && DoubleClickAction == null && DragParam == null && MoveParam == null && ScreenshotParam == null && ScrollParam == null && TypeParam == null && WaitParam == null) { if (KeyPressAction is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, KeyPressAction); return; }
+            if (MoveParam != null && ClickParam == null && DoubleClickAction == null && DragParam == null && KeyPressAction == null && ScreenshotParam == null && ScrollParam == null && TypeParam == null && WaitParam == null) { if (MoveParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MoveParam); return; }
+            if (ScreenshotParam != null && ClickParam == null && DoubleClickAction == null && DragParam == null && KeyPressAction == null && MoveParam == null && ScrollParam == null && TypeParam == null && WaitParam == null) { if (ScreenshotParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ScreenshotParam); return; }
+            if (ScrollParam != null && ClickParam == null && DoubleClickAction == null && DragParam == null && KeyPressAction == null && MoveParam == null && ScreenshotParam == null && TypeParam == null && WaitParam == null) { if (ScrollParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ScrollParam); return; }
+            if (TypeParam != null && ClickParam == null && DoubleClickAction == null && DragParam == null && KeyPressAction == null && MoveParam == null && ScreenshotParam == null && ScrollParam == null && WaitParam == null) { if (TypeParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, TypeParam); return; }
+            if (WaitParam != null && ClickParam == null && DoubleClickAction == null && DragParam == null && KeyPressAction == null && MoveParam == null && ScreenshotParam == null && ScrollParam == null && TypeParam == null) { if (WaitParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WaitParam); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ClickParam != null)
             {
+                if (ClickParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ClickParam>(null, ClickParam);
             }
             else if(DoubleClickAction != null)
             {
+                if (DoubleClickAction is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DoubleClickAction>(null, DoubleClickAction);
             }
             else if(DragParam != null)
             {
+                if (DragParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DragParam>(null, DragParam);
             }
             else if(KeyPressAction != null)
             {
+                if (KeyPressAction is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.KeyPressAction>(null, KeyPressAction);
             }
             else if(MoveParam != null)
             {
+                if (MoveParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MoveParam>(null, MoveParam);
             }
             else if(ScreenshotParam != null)
             {
+                if (ScreenshotParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScreenshotParam>(null, ScreenshotParam);
             }
             else if(ScrollParam != null)
             {
+                if (ScrollParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ScrollParam>(null, ScrollParam);
             }
             else if(TypeParam != null)
             {
+                if (TypeParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TypeParam>(null, TypeParam);
             }
             else if(WaitParam != null)
             {
+                if (WaitParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WaitParam>(null, WaitParam);
             }
         }

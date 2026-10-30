@@ -11,27 +11,42 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ContainerNetworkPolicyAllowlistParam : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowed_domains") is { } nullNodeAllowedDomains && nullNodeAllowedDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedDomains = null;
+            if (parseNode.GetChildNode("domain_secrets") is { } nullNodeDomainSecrets && nullNodeDomainSecrets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DomainSecrets = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A list of allowed domains when type is `allowlist`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowedDomains { get; set; }
+        public List<string>? AllowedDomains { get => _explicitNullValueAllowedDomains; set { _explicitNullValueAllowedDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_domains"); else _explicitNullProperties?.Remove("allowed_domains"); } }
+        private List<string>? _explicitNullValueAllowedDomains = default!;
 #nullable restore
 #else
-        public List<string> AllowedDomains { get; set; }
+        public List<string> AllowedDomains { get => _explicitNullValueAllowedDomains; set { _explicitNullValueAllowedDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_domains"); else _explicitNullProperties?.Remove("allowed_domains"); } }
+        private List<string> _explicitNullValueAllowedDomains = default!;
 #endif
         /// <summary>Optional domain-scoped secrets for allowlisted domains.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDomainSecretParam>? DomainSecrets { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDomainSecretParam>? DomainSecrets { get => _explicitNullValueDomainSecrets; set { _explicitNullValueDomainSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_secrets"); else _explicitNullProperties?.Remove("domain_secrets"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDomainSecretParam>? _explicitNullValueDomainSecrets = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDomainSecretParam> DomainSecrets { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDomainSecretParam> DomainSecrets { get => _explicitNullValueDomainSecrets; set { _explicitNullValueDomainSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_secrets"); else _explicitNullProperties?.Remove("domain_secrets"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDomainSecretParam> _explicitNullValueDomainSecrets = default!;
 #endif
         /// <summary>Allow outbound network access only to specified domains. Always `allowlist`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AllowlistType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AllowlistType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AllowlistType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParam"/> and sets the default values.
         /// </summary>
@@ -47,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParam CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParam();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyAllowlistParam(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_domains", AllowedDomains);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerNetworkPolicyDomainSecretParam>("domain_secrets", DomainSecrets);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AllowlistType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

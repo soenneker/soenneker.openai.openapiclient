@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AnswerResource : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourceChoice"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,25 +58,36 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResource();
-            if("choice".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("AnswerResourceChoice".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AnswerResourceChoice = new global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourceChoice();
+                
             }
-            else if("predicate".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("AnswerResourcePredicate".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AnswerResourcePredicate = new global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourcePredicate();
+                
             }
-            else if("refusal".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("AnswerResourceRefusal".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AnswerResourceRefusal = new global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourceRefusal();
+                
             }
-            else if("score".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("AnswerResourceScore".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AnswerResourceScore = new global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourceScore();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("predicate".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("name") != null && parseNode.GetChildNode("probability") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("choice".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("name") != null && parseNode.GetChildNode("choice") != null && parseNode.GetChildNode("probabilities") != null && parseNode.GetChildNode("confidence") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("score".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("name") != null && parseNode.GetChildNode("score") != null && parseNode.GetChildNode("probabilities") != null && parseNode.GetChildNode("confidence") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("refusal".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("name") != null))();
+            if (result.AnswerResourceChoice == null && result.AnswerResourcePredicate == null && result.AnswerResourceRefusal == null && result.AnswerResourceScore == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.AnswerResourcePredicate = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourcePredicate(), parseNode);
+            if (result.AnswerResourceChoice == null && result.AnswerResourcePredicate == null && result.AnswerResourceRefusal == null && result.AnswerResourceScore == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.AnswerResourceChoice = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourceChoice(), parseNode);
+            if (result.AnswerResourceChoice == null && result.AnswerResourcePredicate == null && result.AnswerResourceRefusal == null && result.AnswerResourceScore == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.AnswerResourceScore = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourceScore(), parseNode);
+            if (result.AnswerResourceChoice == null && result.AnswerResourcePredicate == null && result.AnswerResourceRefusal == null && result.AnswerResourceScore == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.AnswerResourceRefusal = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourceRefusal(), parseNode);
+            if (result.AnswerResourceChoice == null && result.AnswerResourcePredicate == null && result.AnswerResourceRefusal == null && result.AnswerResourceScore == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,21 +119,32 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (AnswerResourceChoice == null && AnswerResourcePredicate == null && AnswerResourceRefusal == null && AnswerResourceScore == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (AnswerResourceChoice != null && AnswerResourcePredicate == null && AnswerResourceRefusal == null && AnswerResourceScore == null) { if (AnswerResourceChoice is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AnswerResourceChoice); return; }
+            if (AnswerResourcePredicate != null && AnswerResourceChoice == null && AnswerResourceRefusal == null && AnswerResourceScore == null) { if (AnswerResourcePredicate is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AnswerResourcePredicate); return; }
+            if (AnswerResourceRefusal != null && AnswerResourceChoice == null && AnswerResourcePredicate == null && AnswerResourceScore == null) { if (AnswerResourceRefusal is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AnswerResourceRefusal); return; }
+            if (AnswerResourceScore != null && AnswerResourceChoice == null && AnswerResourcePredicate == null && AnswerResourceRefusal == null) { if (AnswerResourceScore is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AnswerResourceScore); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(AnswerResourceChoice != null)
             {
+                if (AnswerResourceChoice is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourceChoice>(null, AnswerResourceChoice);
             }
             else if(AnswerResourcePredicate != null)
             {
+                if (AnswerResourcePredicate is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourcePredicate>(null, AnswerResourcePredicate);
             }
             else if(AnswerResourceRefusal != null)
             {
+                if (AnswerResourceRefusal is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourceRefusal>(null, AnswerResourceRefusal);
             }
             else if(AnswerResourceScore != null)
             {
+                if (AnswerResourceScore is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AnswerResourceScore>(null, AnswerResourceScore);
             }
         }

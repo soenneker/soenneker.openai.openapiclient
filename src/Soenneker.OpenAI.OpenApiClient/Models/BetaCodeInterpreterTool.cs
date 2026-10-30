@@ -12,27 +12,42 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BetaCodeInterpreterTool : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowed_callers") is { } nullNodeAllowedCallers && nullNodeAllowedCallers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedCallers = null;
+            if (parseNode.GetChildNode("container") is { } nullNodeContainer && nullNodeContainer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Container = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The tool invocation context(s).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller?>? AllowedCallers { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller?>? AllowedCallers { get => _explicitNullValueAllowedCallers; set { _explicitNullValueAllowedCallers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_callers"); else _explicitNullProperties?.Remove("allowed_callers"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller?>? _explicitNullValueAllowedCallers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller?> AllowedCallers { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller?> AllowedCallers { get => _explicitNullValueAllowedCallers; set { _explicitNullValueAllowedCallers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_callers"); else _explicitNullProperties?.Remove("allowed_callers"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller?> _explicitNullValueAllowedCallers = default!;
 #endif
         /// <summary>The code interpreter container. Can be a container ID or an object thatspecifies uploaded file IDs to make available to your code, along with anoptional `memory_limit` setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolContainer? Container { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolContainer? Container { get => _explicitNullValueContainer; set { _explicitNullValueContainer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("container"); else _explicitNullProperties?.Remove("container"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolContainer? _explicitNullValueContainer = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolContainer Container { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolContainer Container { get => _explicitNullValueContainer; set { _explicitNullValueContainer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("container"); else _explicitNullProperties?.Remove("container"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolContainer _explicitNullValueContainer = default!;
 #endif
         /// <summary>The type of tool being defined: `code_interpreter`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterTool"/> and sets the default values.
         /// </summary>
@@ -48,7 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterTool CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterTool();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterTool(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCallableToolAllowedCaller>("allowed_callers", AllowedCallers);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolContainer>("container", Container);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CodeInterpreterType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

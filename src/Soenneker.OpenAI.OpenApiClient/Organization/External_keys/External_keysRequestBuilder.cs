@@ -62,7 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.External_keys
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ListExternalKeysResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ListExternalKeysResource.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ListExternalKeysResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ListExternalKeysResource.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Add an external key config for an organization
@@ -82,7 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.External_keys
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ExternalKeyResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ExternalKeyResource.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ExternalKeyResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ExternalKeyResource.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List the external key configs registered on the user&apos;s organization

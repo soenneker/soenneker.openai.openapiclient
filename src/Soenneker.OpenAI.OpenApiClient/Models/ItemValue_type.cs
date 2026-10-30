@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The type of task that was run. Always `transcribe`.</summary>
+    /// <summary>The type of the message input. Always `message`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum TranscribeTask
+    public enum ItemValue_type
     {
-        [EnumMember(Value = "transcribe")]
+        [EnumMember(Value = "message")]
         #pragma warning disable CS1591
-        Transcribe,
+        Message,
         #pragma warning restore CS1591
     }
 }

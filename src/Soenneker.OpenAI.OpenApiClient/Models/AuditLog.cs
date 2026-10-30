@@ -12,492 +12,683 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuditLog : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("actor") is { } nullNodeActor && nullNodeActor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Actor = null;
+            if (parseNode.GetChildNode("api_key.created") is { } nullNodeApiKeyCreated && nullNodeApiKeyCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyCreated = null;
+            if (parseNode.GetChildNode("api_key.deleted") is { } nullNodeApiKeyDeleted && nullNodeApiKeyDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyDeleted = null;
+            if (parseNode.GetChildNode("api_key.updated") is { } nullNodeApiKeyUpdated && nullNodeApiKeyUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyUpdated = null;
+            if (parseNode.GetChildNode("certificate.created") is { } nullNodeCertificateCreated && nullNodeCertificateCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertificateCreated = null;
+            if (parseNode.GetChildNode("certificate.deleted") is { } nullNodeCertificateDeleted && nullNodeCertificateDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertificateDeleted = null;
+            if (parseNode.GetChildNode("certificates.activated") is { } nullNodeCertificatesActivated && nullNodeCertificatesActivated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertificatesActivated = null;
+            if (parseNode.GetChildNode("certificates.deactivated") is { } nullNodeCertificatesDeactivated && nullNodeCertificatesDeactivated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertificatesDeactivated = null;
+            if (parseNode.GetChildNode("certificate.updated") is { } nullNodeCertificateUpdated && nullNodeCertificateUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CertificateUpdated = null;
+            if (parseNode.GetChildNode("checkpoint.permission.created") is { } nullNodeCheckpointPermissionCreated && nullNodeCheckpointPermissionCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckpointPermissionCreated = null;
+            if (parseNode.GetChildNode("checkpoint.permission.deleted") is { } nullNodeCheckpointPermissionDeleted && nullNodeCheckpointPermissionDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckpointPermissionDeleted = null;
+            if (parseNode.GetChildNode("effective_at") is { } nullNodeEffectiveAt && nullNodeEffectiveAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveAt = null;
+            if (parseNode.GetChildNode("external_key.registered") is { } nullNodeExternalKeyRegistered && nullNodeExternalKeyRegistered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalKeyRegistered = null;
+            if (parseNode.GetChildNode("external_key.removed") is { } nullNodeExternalKeyRemoved && nullNodeExternalKeyRemoved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalKeyRemoved = null;
+            if (parseNode.GetChildNode("external_storage.registered") is { } nullNodeExternalStorageRegistered && nullNodeExternalStorageRegistered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalStorageRegistered = null;
+            if (parseNode.GetChildNode("external_storage.removed") is { } nullNodeExternalStorageRemoved && nullNodeExternalStorageRemoved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalStorageRemoved = null;
+            if (parseNode.GetChildNode("group.created") is { } nullNodeGroupCreated && nullNodeGroupCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupCreated = null;
+            if (parseNode.GetChildNode("group.deleted") is { } nullNodeGroupDeleted && nullNodeGroupDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupDeleted = null;
+            if (parseNode.GetChildNode("group.updated") is { } nullNodeGroupUpdated && nullNodeGroupUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupUpdated = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("invite.accepted") is { } nullNodeInviteAccepted && nullNodeInviteAccepted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InviteAccepted = null;
+            if (parseNode.GetChildNode("invite.deleted") is { } nullNodeInviteDeleted && nullNodeInviteDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InviteDeleted = null;
+            if (parseNode.GetChildNode("invite.sent") is { } nullNodeInviteSent && nullNodeInviteSent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InviteSent = null;
+            if (parseNode.GetChildNode("ip_allowlist.config.activated") is { } nullNodeIpAllowlistConfigActivated && nullNodeIpAllowlistConfigActivated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAllowlistConfigActivated = null;
+            if (parseNode.GetChildNode("ip_allowlist.config.deactivated") is { } nullNodeIpAllowlistConfigDeactivated && nullNodeIpAllowlistConfigDeactivated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAllowlistConfigDeactivated = null;
+            if (parseNode.GetChildNode("ip_allowlist.created") is { } nullNodeIpAllowlistCreated && nullNodeIpAllowlistCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAllowlistCreated = null;
+            if (parseNode.GetChildNode("ip_allowlist.deleted") is { } nullNodeIpAllowlistDeleted && nullNodeIpAllowlistDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAllowlistDeleted = null;
+            if (parseNode.GetChildNode("ip_allowlist.updated") is { } nullNodeIpAllowlistUpdated && nullNodeIpAllowlistUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAllowlistUpdated = null;
+            if (parseNode.GetChildNode("login.failed") is { } nullNodeLoginFailed && nullNodeLoginFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoginFailed = null;
+            if (parseNode.GetChildNode("login.succeeded") is { } nullNodeLoginSucceeded && nullNodeLoginSucceeded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoginSucceeded = null;
+            if (parseNode.GetChildNode("logout.failed") is { } nullNodeLogoutFailed && nullNodeLogoutFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogoutFailed = null;
+            if (parseNode.GetChildNode("logout.succeeded") is { } nullNodeLogoutSucceeded && nullNodeLogoutSucceeded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogoutSucceeded = null;
+            if (parseNode.GetChildNode("organization.updated") is { } nullNodeOrganizationUpdated && nullNodeOrganizationUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationUpdated = null;
+            if (parseNode.GetChildNode("project") is { } nullNodeProject && nullNodeProject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Project = null;
+            if (parseNode.GetChildNode("project.archived") is { } nullNodeProjectArchived && nullNodeProjectArchived.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectArchived = null;
+            if (parseNode.GetChildNode("project.created") is { } nullNodeProjectCreated && nullNodeProjectCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectCreated = null;
+            if (parseNode.GetChildNode("project.deleted") is { } nullNodeProjectDeleted && nullNodeProjectDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectDeleted = null;
+            if (parseNode.GetChildNode("project.updated") is { } nullNodeProjectUpdated && nullNodeProjectUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectUpdated = null;
+            if (parseNode.GetChildNode("rate_limit.deleted") is { } nullNodeRateLimitDeleted && nullNodeRateLimitDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RateLimitDeleted = null;
+            if (parseNode.GetChildNode("rate_limit.updated") is { } nullNodeRateLimitUpdated && nullNodeRateLimitUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RateLimitUpdated = null;
+            if (parseNode.GetChildNode("role.assignment.created") is { } nullNodeRoleAssignmentCreated && nullNodeRoleAssignmentCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleAssignmentCreated = null;
+            if (parseNode.GetChildNode("role.assignment.deleted") is { } nullNodeRoleAssignmentDeleted && nullNodeRoleAssignmentDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleAssignmentDeleted = null;
+            if (parseNode.GetChildNode("role.bound_to_resource") is { } nullNodeRoleBoundToResource && nullNodeRoleBoundToResource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleBoundToResource = null;
+            if (parseNode.GetChildNode("role.created") is { } nullNodeRoleCreated && nullNodeRoleCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleCreated = null;
+            if (parseNode.GetChildNode("role.deleted") is { } nullNodeRoleDeleted && nullNodeRoleDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleDeleted = null;
+            if (parseNode.GetChildNode("role.unbound_from_resource") is { } nullNodeRoleUnboundFromResource && nullNodeRoleUnboundFromResource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleUnboundFromResource = null;
+            if (parseNode.GetChildNode("role.updated") is { } nullNodeRoleUpdated && nullNodeRoleUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleUpdated = null;
+            if (parseNode.GetChildNode("scim.disabled") is { } nullNodeScimDisabled && nullNodeScimDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScimDisabled = null;
+            if (parseNode.GetChildNode("scim.enabled") is { } nullNodeScimEnabled && nullNodeScimEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScimEnabled = null;
+            if (parseNode.GetChildNode("service_account.created") is { } nullNodeServiceAccountCreated && nullNodeServiceAccountCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAccountCreated = null;
+            if (parseNode.GetChildNode("service_account.deleted") is { } nullNodeServiceAccountDeleted && nullNodeServiceAccountDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAccountDeleted = null;
+            if (parseNode.GetChildNode("service_account.updated") is { } nullNodeServiceAccountUpdated && nullNodeServiceAccountUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAccountUpdated = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("user.added") is { } nullNodeUserAdded && nullNodeUserAdded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAdded = null;
+            if (parseNode.GetChildNode("user.deleted") is { } nullNodeUserDeleted && nullNodeUserDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserDeleted = null;
+            if (parseNode.GetChildNode("user.updated") is { } nullNodeUserUpdated && nullNodeUserUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserUpdated = null;
+            if (parseNode.GetChildNode("workload_identity_provider.created") is { } nullNodeWorkloadIdentityProviderCreated && nullNodeWorkloadIdentityProviderCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProviderCreated = null;
+            if (parseNode.GetChildNode("workload_identity_provider.deleted") is { } nullNodeWorkloadIdentityProviderDeleted && nullNodeWorkloadIdentityProviderDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProviderDeleted = null;
+            if (parseNode.GetChildNode("workload_identity_provider_mapping.created") is { } nullNodeWorkloadIdentityProviderMappingCreated && nullNodeWorkloadIdentityProviderMappingCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProviderMappingCreated = null;
+            if (parseNode.GetChildNode("workload_identity_provider_mapping.deleted") is { } nullNodeWorkloadIdentityProviderMappingDeleted && nullNodeWorkloadIdentityProviderMappingDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProviderMappingDeleted = null;
+            if (parseNode.GetChildNode("workload_identity_provider_mapping.updated") is { } nullNodeWorkloadIdentityProviderMappingUpdated && nullNodeWorkloadIdentityProviderMappingUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProviderMappingUpdated = null;
+            if (parseNode.GetChildNode("workload_identity_provider.updated") is { } nullNodeWorkloadIdentityProviderUpdated && nullNodeWorkloadIdentityProviderUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProviderUpdated = null;
+        }
+
         /// <summary>The actor property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor? Actor { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor? Actor { get => _explicitNullValueActor; set { _explicitNullValueActor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor"); else _explicitNullProperties?.Remove("actor"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor? _explicitNullValueActor = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor Actor { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor Actor { get => _explicitNullValueActor; set { _explicitNullValueActor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor"); else _explicitNullProperties?.Remove("actor"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor _explicitNullValueActor = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated? ApiKeyCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated? ApiKeyCreated { get => _explicitNullValueApiKeyCreated; set { _explicitNullValueApiKeyCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key.created"); else _explicitNullProperties?.Remove("api_key.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated? _explicitNullValueApiKeyCreated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated ApiKeyCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated ApiKeyCreated { get => _explicitNullValueApiKeyCreated; set { _explicitNullValueApiKeyCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key.created"); else _explicitNullProperties?.Remove("api_key.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated _explicitNullValueApiKeyCreated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted? ApiKeyDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted? ApiKeyDeleted { get => _explicitNullValueApiKeyDeleted; set { _explicitNullValueApiKeyDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key.deleted"); else _explicitNullProperties?.Remove("api_key.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted? _explicitNullValueApiKeyDeleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted ApiKeyDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted ApiKeyDeleted { get => _explicitNullValueApiKeyDeleted; set { _explicitNullValueApiKeyDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key.deleted"); else _explicitNullProperties?.Remove("api_key.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted _explicitNullValueApiKeyDeleted = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated? ApiKeyUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated? ApiKeyUpdated { get => _explicitNullValueApiKeyUpdated; set { _explicitNullValueApiKeyUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key.updated"); else _explicitNullProperties?.Remove("api_key.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated? _explicitNullValueApiKeyUpdated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated ApiKeyUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated ApiKeyUpdated { get => _explicitNullValueApiKeyUpdated; set { _explicitNullValueApiKeyUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key.updated"); else _explicitNullProperties?.Remove("api_key.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated _explicitNullValueApiKeyUpdated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateCreated? CertificateCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateCreated? CertificateCreated { get => _explicitNullValueCertificateCreated; set { _explicitNullValueCertificateCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate.created"); else _explicitNullProperties?.Remove("certificate.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateCreated? _explicitNullValueCertificateCreated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateCreated CertificateCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateCreated CertificateCreated { get => _explicitNullValueCertificateCreated; set { _explicitNullValueCertificateCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate.created"); else _explicitNullProperties?.Remove("certificate.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateCreated _explicitNullValueCertificateCreated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateDeleted? CertificateDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateDeleted? CertificateDeleted { get => _explicitNullValueCertificateDeleted; set { _explicitNullValueCertificateDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate.deleted"); else _explicitNullProperties?.Remove("certificate.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateDeleted? _explicitNullValueCertificateDeleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateDeleted CertificateDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateDeleted CertificateDeleted { get => _explicitNullValueCertificateDeleted; set { _explicitNullValueCertificateDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate.deleted"); else _explicitNullProperties?.Remove("certificate.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateDeleted _explicitNullValueCertificateDeleted = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated? CertificatesActivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated? CertificatesActivated { get => _explicitNullValueCertificatesActivated; set { _explicitNullValueCertificatesActivated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificates.activated"); else _explicitNullProperties?.Remove("certificates.activated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated? _explicitNullValueCertificatesActivated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated CertificatesActivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated CertificatesActivated { get => _explicitNullValueCertificatesActivated; set { _explicitNullValueCertificatesActivated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificates.activated"); else _explicitNullProperties?.Remove("certificates.activated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesActivated _explicitNullValueCertificatesActivated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesDeactivated? CertificatesDeactivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesDeactivated? CertificatesDeactivated { get => _explicitNullValueCertificatesDeactivated; set { _explicitNullValueCertificatesDeactivated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificates.deactivated"); else _explicitNullProperties?.Remove("certificates.deactivated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesDeactivated? _explicitNullValueCertificatesDeactivated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesDeactivated CertificatesDeactivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesDeactivated CertificatesDeactivated { get => _explicitNullValueCertificatesDeactivated; set { _explicitNullValueCertificatesDeactivated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificates.deactivated"); else _explicitNullProperties?.Remove("certificates.deactivated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesDeactivated _explicitNullValueCertificatesDeactivated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateUpdated? CertificateUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateUpdated? CertificateUpdated { get => _explicitNullValueCertificateUpdated; set { _explicitNullValueCertificateUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate.updated"); else _explicitNullProperties?.Remove("certificate.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateUpdated? _explicitNullValueCertificateUpdated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateUpdated CertificateUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateUpdated CertificateUpdated { get => _explicitNullValueCertificateUpdated; set { _explicitNullValueCertificateUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("certificate.updated"); else _explicitNullProperties?.Remove("certificate.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateUpdated _explicitNullValueCertificateUpdated = default!;
 #endif
         /// <summary>The project and fine-tuned model checkpoint that the checkpoint permission was created for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionCreated? CheckpointPermissionCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionCreated? CheckpointPermissionCreated { get => _explicitNullValueCheckpointPermissionCreated; set { _explicitNullValueCheckpointPermissionCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkpoint.permission.created"); else _explicitNullProperties?.Remove("checkpoint.permission.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionCreated? _explicitNullValueCheckpointPermissionCreated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionCreated CheckpointPermissionCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionCreated CheckpointPermissionCreated { get => _explicitNullValueCheckpointPermissionCreated; set { _explicitNullValueCheckpointPermissionCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkpoint.permission.created"); else _explicitNullProperties?.Remove("checkpoint.permission.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionCreated _explicitNullValueCheckpointPermissionCreated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted? CheckpointPermissionDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted? CheckpointPermissionDeleted { get => _explicitNullValueCheckpointPermissionDeleted; set { _explicitNullValueCheckpointPermissionDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkpoint.permission.deleted"); else _explicitNullProperties?.Remove("checkpoint.permission.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted? _explicitNullValueCheckpointPermissionDeleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted CheckpointPermissionDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted CheckpointPermissionDeleted { get => _explicitNullValueCheckpointPermissionDeleted; set { _explicitNullValueCheckpointPermissionDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkpoint.permission.deleted"); else _explicitNullProperties?.Remove("checkpoint.permission.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted _explicitNullValueCheckpointPermissionDeleted = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) of the event.</summary>
-        public int? EffectiveAt { get; set; }
+        public int? EffectiveAt { get => _explicitNullValueEffectiveAt; set { _explicitNullValueEffectiveAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_at"); else _explicitNullProperties?.Remove("effective_at"); } }
+        private int? _explicitNullValueEffectiveAt = default!;
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered? ExternalKeyRegistered { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered? ExternalKeyRegistered { get => _explicitNullValueExternalKeyRegistered; set { _explicitNullValueExternalKeyRegistered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_key.registered"); else _explicitNullProperties?.Remove("external_key.registered"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered? _explicitNullValueExternalKeyRegistered = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered ExternalKeyRegistered { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered ExternalKeyRegistered { get => _explicitNullValueExternalKeyRegistered; set { _explicitNullValueExternalKeyRegistered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_key.registered"); else _explicitNullProperties?.Remove("external_key.registered"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered _explicitNullValueExternalKeyRegistered = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved? ExternalKeyRemoved { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved? ExternalKeyRemoved { get => _explicitNullValueExternalKeyRemoved; set { _explicitNullValueExternalKeyRemoved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_key.removed"); else _explicitNullProperties?.Remove("external_key.removed"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved? _explicitNullValueExternalKeyRemoved = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved ExternalKeyRemoved { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved ExternalKeyRemoved { get => _explicitNullValueExternalKeyRemoved; set { _explicitNullValueExternalKeyRemoved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_key.removed"); else _explicitNullProperties?.Remove("external_key.removed"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved _explicitNullValueExternalKeyRemoved = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegistered? ExternalStorageRegistered { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegistered? ExternalStorageRegistered { get => _explicitNullValueExternalStorageRegistered; set { _explicitNullValueExternalStorageRegistered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_storage.registered"); else _explicitNullProperties?.Remove("external_storage.registered"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegistered? _explicitNullValueExternalStorageRegistered = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegistered ExternalStorageRegistered { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegistered ExternalStorageRegistered { get => _explicitNullValueExternalStorageRegistered; set { _explicitNullValueExternalStorageRegistered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_storage.registered"); else _explicitNullProperties?.Remove("external_storage.registered"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegistered _explicitNullValueExternalStorageRegistered = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRemoved? ExternalStorageRemoved { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRemoved? ExternalStorageRemoved { get => _explicitNullValueExternalStorageRemoved; set { _explicitNullValueExternalStorageRemoved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_storage.removed"); else _explicitNullProperties?.Remove("external_storage.removed"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRemoved? _explicitNullValueExternalStorageRemoved = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRemoved ExternalStorageRemoved { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRemoved ExternalStorageRemoved { get => _explicitNullValueExternalStorageRemoved; set { _explicitNullValueExternalStorageRemoved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_storage.removed"); else _explicitNullProperties?.Remove("external_storage.removed"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRemoved _explicitNullValueExternalStorageRemoved = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated? GroupCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated? GroupCreated { get => _explicitNullValueGroupCreated; set { _explicitNullValueGroupCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group.created"); else _explicitNullProperties?.Remove("group.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated? _explicitNullValueGroupCreated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated GroupCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated GroupCreated { get => _explicitNullValueGroupCreated; set { _explicitNullValueGroupCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group.created"); else _explicitNullProperties?.Remove("group.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupCreated _explicitNullValueGroupCreated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupDeleted? GroupDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupDeleted? GroupDeleted { get => _explicitNullValueGroupDeleted; set { _explicitNullValueGroupDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group.deleted"); else _explicitNullProperties?.Remove("group.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupDeleted? _explicitNullValueGroupDeleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupDeleted GroupDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupDeleted GroupDeleted { get => _explicitNullValueGroupDeleted; set { _explicitNullValueGroupDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group.deleted"); else _explicitNullProperties?.Remove("group.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupDeleted _explicitNullValueGroupDeleted = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupUpdated? GroupUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupUpdated? GroupUpdated { get => _explicitNullValueGroupUpdated; set { _explicitNullValueGroupUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group.updated"); else _explicitNullProperties?.Remove("group.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupUpdated? _explicitNullValueGroupUpdated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupUpdated GroupUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupUpdated GroupUpdated { get => _explicitNullValueGroupUpdated; set { _explicitNullValueGroupUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group.updated"); else _explicitNullProperties?.Remove("group.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogGroupUpdated _explicitNullValueGroupUpdated = default!;
 #endif
         /// <summary>The ID of this log.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteAccepted? InviteAccepted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteAccepted? InviteAccepted { get => _explicitNullValueInviteAccepted; set { _explicitNullValueInviteAccepted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invite.accepted"); else _explicitNullProperties?.Remove("invite.accepted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteAccepted? _explicitNullValueInviteAccepted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteAccepted InviteAccepted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteAccepted InviteAccepted { get => _explicitNullValueInviteAccepted; set { _explicitNullValueInviteAccepted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invite.accepted"); else _explicitNullProperties?.Remove("invite.accepted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteAccepted _explicitNullValueInviteAccepted = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteDeleted? InviteDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteDeleted? InviteDeleted { get => _explicitNullValueInviteDeleted; set { _explicitNullValueInviteDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invite.deleted"); else _explicitNullProperties?.Remove("invite.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteDeleted? _explicitNullValueInviteDeleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteDeleted InviteDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteDeleted InviteDeleted { get => _explicitNullValueInviteDeleted; set { _explicitNullValueInviteDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invite.deleted"); else _explicitNullProperties?.Remove("invite.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteDeleted _explicitNullValueInviteDeleted = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteSent? InviteSent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteSent? InviteSent { get => _explicitNullValueInviteSent; set { _explicitNullValueInviteSent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invite.sent"); else _explicitNullProperties?.Remove("invite.sent"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteSent? _explicitNullValueInviteSent = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteSent InviteSent { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteSent InviteSent { get => _explicitNullValueInviteSent; set { _explicitNullValueInviteSent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invite.sent"); else _explicitNullProperties?.Remove("invite.sent"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogInviteSent _explicitNullValueInviteSent = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated? IpAllowlistConfigActivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated? IpAllowlistConfigActivated { get => _explicitNullValueIpAllowlistConfigActivated; set { _explicitNullValueIpAllowlistConfigActivated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_allowlist.config.activated"); else _explicitNullProperties?.Remove("ip_allowlist.config.activated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated? _explicitNullValueIpAllowlistConfigActivated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated IpAllowlistConfigActivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated IpAllowlistConfigActivated { get => _explicitNullValueIpAllowlistConfigActivated; set { _explicitNullValueIpAllowlistConfigActivated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_allowlist.config.activated"); else _explicitNullProperties?.Remove("ip_allowlist.config.activated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigActivated _explicitNullValueIpAllowlistConfigActivated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigDeactivated? IpAllowlistConfigDeactivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigDeactivated? IpAllowlistConfigDeactivated { get => _explicitNullValueIpAllowlistConfigDeactivated; set { _explicitNullValueIpAllowlistConfigDeactivated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_allowlist.config.deactivated"); else _explicitNullProperties?.Remove("ip_allowlist.config.deactivated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigDeactivated? _explicitNullValueIpAllowlistConfigDeactivated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigDeactivated IpAllowlistConfigDeactivated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigDeactivated IpAllowlistConfigDeactivated { get => _explicitNullValueIpAllowlistConfigDeactivated; set { _explicitNullValueIpAllowlistConfigDeactivated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_allowlist.config.deactivated"); else _explicitNullProperties?.Remove("ip_allowlist.config.deactivated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistConfigDeactivated _explicitNullValueIpAllowlistConfigDeactivated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistCreated? IpAllowlistCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistCreated? IpAllowlistCreated { get => _explicitNullValueIpAllowlistCreated; set { _explicitNullValueIpAllowlistCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_allowlist.created"); else _explicitNullProperties?.Remove("ip_allowlist.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistCreated? _explicitNullValueIpAllowlistCreated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistCreated IpAllowlistCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistCreated IpAllowlistCreated { get => _explicitNullValueIpAllowlistCreated; set { _explicitNullValueIpAllowlistCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_allowlist.created"); else _explicitNullProperties?.Remove("ip_allowlist.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistCreated _explicitNullValueIpAllowlistCreated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistDeleted? IpAllowlistDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistDeleted? IpAllowlistDeleted { get => _explicitNullValueIpAllowlistDeleted; set { _explicitNullValueIpAllowlistDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_allowlist.deleted"); else _explicitNullProperties?.Remove("ip_allowlist.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistDeleted? _explicitNullValueIpAllowlistDeleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistDeleted IpAllowlistDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistDeleted IpAllowlistDeleted { get => _explicitNullValueIpAllowlistDeleted; set { _explicitNullValueIpAllowlistDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_allowlist.deleted"); else _explicitNullProperties?.Remove("ip_allowlist.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistDeleted _explicitNullValueIpAllowlistDeleted = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistUpdated? IpAllowlistUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistUpdated? IpAllowlistUpdated { get => _explicitNullValueIpAllowlistUpdated; set { _explicitNullValueIpAllowlistUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_allowlist.updated"); else _explicitNullProperties?.Remove("ip_allowlist.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistUpdated? _explicitNullValueIpAllowlistUpdated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistUpdated IpAllowlistUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistUpdated IpAllowlistUpdated { get => _explicitNullValueIpAllowlistUpdated; set { _explicitNullValueIpAllowlistUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip_allowlist.updated"); else _explicitNullProperties?.Remove("ip_allowlist.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogIpAllowlistUpdated _explicitNullValueIpAllowlistUpdated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginFailed? LoginFailed { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginFailed? LoginFailed { get => _explicitNullValueLoginFailed; set { _explicitNullValueLoginFailed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("login.failed"); else _explicitNullProperties?.Remove("login.failed"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginFailed? _explicitNullValueLoginFailed = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginFailed LoginFailed { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginFailed LoginFailed { get => _explicitNullValueLoginFailed; set { _explicitNullValueLoginFailed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("login.failed"); else _explicitNullProperties?.Remove("login.failed"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginFailed _explicitNullValueLoginFailed = default!;
 #endif
         /// <summary>This event has no additional fields beyond the standard audit log attributes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginSucceededProperty? LoginSucceeded { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginSucceededProperty? LoginSucceeded { get => _explicitNullValueLoginSucceeded; set { _explicitNullValueLoginSucceeded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("login.succeeded"); else _explicitNullProperties?.Remove("login.succeeded"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginSucceededProperty? _explicitNullValueLoginSucceeded = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginSucceededProperty LoginSucceeded { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginSucceededProperty LoginSucceeded { get => _explicitNullValueLoginSucceeded; set { _explicitNullValueLoginSucceeded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("login.succeeded"); else _explicitNullProperties?.Remove("login.succeeded"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLoginSucceededProperty _explicitNullValueLoginSucceeded = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutFailed? LogoutFailed { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutFailed? LogoutFailed { get => _explicitNullValueLogoutFailed; set { _explicitNullValueLogoutFailed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logout.failed"); else _explicitNullProperties?.Remove("logout.failed"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutFailed? _explicitNullValueLogoutFailed = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutFailed LogoutFailed { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutFailed LogoutFailed { get => _explicitNullValueLogoutFailed; set { _explicitNullValueLogoutFailed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logout.failed"); else _explicitNullProperties?.Remove("logout.failed"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutFailed _explicitNullValueLogoutFailed = default!;
 #endif
         /// <summary>This event has no additional fields beyond the standard audit log attributes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutSucceededProperty? LogoutSucceeded { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutSucceededProperty? LogoutSucceeded { get => _explicitNullValueLogoutSucceeded; set { _explicitNullValueLogoutSucceeded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logout.succeeded"); else _explicitNullProperties?.Remove("logout.succeeded"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutSucceededProperty? _explicitNullValueLogoutSucceeded = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutSucceededProperty LogoutSucceeded { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutSucceededProperty LogoutSucceeded { get => _explicitNullValueLogoutSucceeded; set { _explicitNullValueLogoutSucceeded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logout.succeeded"); else _explicitNullProperties?.Remove("logout.succeeded"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogLogoutSucceededProperty _explicitNullValueLogoutSucceeded = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdated? OrganizationUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdated? OrganizationUpdated { get => _explicitNullValueOrganizationUpdated; set { _explicitNullValueOrganizationUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization.updated"); else _explicitNullProperties?.Remove("organization.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdated? _explicitNullValueOrganizationUpdated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdated OrganizationUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdated OrganizationUpdated { get => _explicitNullValueOrganizationUpdated; set { _explicitNullValueOrganizationUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization.updated"); else _explicitNullProperties?.Remove("organization.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogOrganizationUpdated _explicitNullValueOrganizationUpdated = default!;
 #endif
         /// <summary>The project that the action was scoped to. Absent for actions not scoped to projects. Note that any admin actions taken via Admin API keys are associated with the default project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProject? Project { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProject? Project { get => _explicitNullValueProject; set { _explicitNullValueProject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project"); else _explicitNullProperties?.Remove("project"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProject? _explicitNullValueProject = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProject Project { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProject Project { get => _explicitNullValueProject; set { _explicitNullValueProject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project"); else _explicitNullProperties?.Remove("project"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProject _explicitNullValueProject = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectArchived? ProjectArchived { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectArchived? ProjectArchived { get => _explicitNullValueProjectArchived; set { _explicitNullValueProjectArchived = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project.archived"); else _explicitNullProperties?.Remove("project.archived"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectArchived? _explicitNullValueProjectArchived = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectArchived ProjectArchived { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectArchived ProjectArchived { get => _explicitNullValueProjectArchived; set { _explicitNullValueProjectArchived = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project.archived"); else _explicitNullProperties?.Remove("project.archived"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectArchived _explicitNullValueProjectArchived = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectCreated? ProjectCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectCreated? ProjectCreated { get => _explicitNullValueProjectCreated; set { _explicitNullValueProjectCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project.created"); else _explicitNullProperties?.Remove("project.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectCreated? _explicitNullValueProjectCreated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectCreated ProjectCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectCreated ProjectCreated { get => _explicitNullValueProjectCreated; set { _explicitNullValueProjectCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project.created"); else _explicitNullProperties?.Remove("project.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectCreated _explicitNullValueProjectCreated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectDeleted? ProjectDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectDeleted? ProjectDeleted { get => _explicitNullValueProjectDeleted; set { _explicitNullValueProjectDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project.deleted"); else _explicitNullProperties?.Remove("project.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectDeleted? _explicitNullValueProjectDeleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectDeleted ProjectDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectDeleted ProjectDeleted { get => _explicitNullValueProjectDeleted; set { _explicitNullValueProjectDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project.deleted"); else _explicitNullProperties?.Remove("project.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectDeleted _explicitNullValueProjectDeleted = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectUpdated? ProjectUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectUpdated? ProjectUpdated { get => _explicitNullValueProjectUpdated; set { _explicitNullValueProjectUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project.updated"); else _explicitNullProperties?.Remove("project.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectUpdated? _explicitNullValueProjectUpdated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectUpdated ProjectUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectUpdated ProjectUpdated { get => _explicitNullValueProjectUpdated; set { _explicitNullValueProjectUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project.updated"); else _explicitNullProperties?.Remove("project.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogProjectUpdated _explicitNullValueProjectUpdated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitDeleted? RateLimitDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitDeleted? RateLimitDeleted { get => _explicitNullValueRateLimitDeleted; set { _explicitNullValueRateLimitDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_limit.deleted"); else _explicitNullProperties?.Remove("rate_limit.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitDeleted? _explicitNullValueRateLimitDeleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitDeleted RateLimitDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitDeleted RateLimitDeleted { get => _explicitNullValueRateLimitDeleted; set { _explicitNullValueRateLimitDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_limit.deleted"); else _explicitNullProperties?.Remove("rate_limit.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitDeleted _explicitNullValueRateLimitDeleted = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitUpdated? RateLimitUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitUpdated? RateLimitUpdated { get => _explicitNullValueRateLimitUpdated; set { _explicitNullValueRateLimitUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_limit.updated"); else _explicitNullProperties?.Remove("rate_limit.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitUpdated? _explicitNullValueRateLimitUpdated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitUpdated RateLimitUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitUpdated RateLimitUpdated { get => _explicitNullValueRateLimitUpdated; set { _explicitNullValueRateLimitUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_limit.updated"); else _explicitNullProperties?.Remove("rate_limit.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRateLimitUpdated _explicitNullValueRateLimitUpdated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentCreated? RoleAssignmentCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentCreated? RoleAssignmentCreated { get => _explicitNullValueRoleAssignmentCreated; set { _explicitNullValueRoleAssignmentCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role.assignment.created"); else _explicitNullProperties?.Remove("role.assignment.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentCreated? _explicitNullValueRoleAssignmentCreated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentCreated RoleAssignmentCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentCreated RoleAssignmentCreated { get => _explicitNullValueRoleAssignmentCreated; set { _explicitNullValueRoleAssignmentCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role.assignment.created"); else _explicitNullProperties?.Remove("role.assignment.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentCreated _explicitNullValueRoleAssignmentCreated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentDeleted? RoleAssignmentDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentDeleted? RoleAssignmentDeleted { get => _explicitNullValueRoleAssignmentDeleted; set { _explicitNullValueRoleAssignmentDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role.assignment.deleted"); else _explicitNullProperties?.Remove("role.assignment.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentDeleted? _explicitNullValueRoleAssignmentDeleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentDeleted RoleAssignmentDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentDeleted RoleAssignmentDeleted { get => _explicitNullValueRoleAssignmentDeleted; set { _explicitNullValueRoleAssignmentDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role.assignment.deleted"); else _explicitNullProperties?.Remove("role.assignment.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleAssignmentDeleted _explicitNullValueRoleAssignmentDeleted = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleBoundToResource? RoleBoundToResource { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleBoundToResource? RoleBoundToResource { get => _explicitNullValueRoleBoundToResource; set { _explicitNullValueRoleBoundToResource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role.bound_to_resource"); else _explicitNullProperties?.Remove("role.bound_to_resource"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleBoundToResource? _explicitNullValueRoleBoundToResource = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleBoundToResource RoleBoundToResource { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleBoundToResource RoleBoundToResource { get => _explicitNullValueRoleBoundToResource; set { _explicitNullValueRoleBoundToResource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role.bound_to_resource"); else _explicitNullProperties?.Remove("role.bound_to_resource"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleBoundToResource _explicitNullValueRoleBoundToResource = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated? RoleCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated? RoleCreated { get => _explicitNullValueRoleCreated; set { _explicitNullValueRoleCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role.created"); else _explicitNullProperties?.Remove("role.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated? _explicitNullValueRoleCreated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated RoleCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated RoleCreated { get => _explicitNullValueRoleCreated; set { _explicitNullValueRoleCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role.created"); else _explicitNullProperties?.Remove("role.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleCreated _explicitNullValueRoleCreated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted? RoleDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted? RoleDeleted { get => _explicitNullValueRoleDeleted; set { _explicitNullValueRoleDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role.deleted"); else _explicitNullProperties?.Remove("role.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted? _explicitNullValueRoleDeleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted RoleDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted RoleDeleted { get => _explicitNullValueRoleDeleted; set { _explicitNullValueRoleDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role.deleted"); else _explicitNullProperties?.Remove("role.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleDeleted _explicitNullValueRoleDeleted = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUnboundFromResource? RoleUnboundFromResource { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUnboundFromResource? RoleUnboundFromResource { get => _explicitNullValueRoleUnboundFromResource; set { _explicitNullValueRoleUnboundFromResource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role.unbound_from_resource"); else _explicitNullProperties?.Remove("role.unbound_from_resource"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUnboundFromResource? _explicitNullValueRoleUnboundFromResource = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUnboundFromResource RoleUnboundFromResource { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUnboundFromResource RoleUnboundFromResource { get => _explicitNullValueRoleUnboundFromResource; set { _explicitNullValueRoleUnboundFromResource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role.unbound_from_resource"); else _explicitNullProperties?.Remove("role.unbound_from_resource"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUnboundFromResource _explicitNullValueRoleUnboundFromResource = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdated? RoleUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdated? RoleUpdated { get => _explicitNullValueRoleUpdated; set { _explicitNullValueRoleUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role.updated"); else _explicitNullProperties?.Remove("role.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdated? _explicitNullValueRoleUpdated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdated RoleUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdated RoleUpdated { get => _explicitNullValueRoleUpdated; set { _explicitNullValueRoleUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role.updated"); else _explicitNullProperties?.Remove("role.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogRoleUpdated _explicitNullValueRoleUpdated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimDisabled? ScimDisabled { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimDisabled? ScimDisabled { get => _explicitNullValueScimDisabled; set { _explicitNullValueScimDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scim.disabled"); else _explicitNullProperties?.Remove("scim.disabled"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimDisabled? _explicitNullValueScimDisabled = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimDisabled ScimDisabled { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimDisabled ScimDisabled { get => _explicitNullValueScimDisabled; set { _explicitNullValueScimDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scim.disabled"); else _explicitNullProperties?.Remove("scim.disabled"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimDisabled _explicitNullValueScimDisabled = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimEnabled? ScimEnabled { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimEnabled? ScimEnabled { get => _explicitNullValueScimEnabled; set { _explicitNullValueScimEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scim.enabled"); else _explicitNullProperties?.Remove("scim.enabled"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimEnabled? _explicitNullValueScimEnabled = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimEnabled ScimEnabled { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimEnabled ScimEnabled { get => _explicitNullValueScimEnabled; set { _explicitNullValueScimEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scim.enabled"); else _explicitNullProperties?.Remove("scim.enabled"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogScimEnabled _explicitNullValueScimEnabled = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountCreated? ServiceAccountCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountCreated? ServiceAccountCreated { get => _explicitNullValueServiceAccountCreated; set { _explicitNullValueServiceAccountCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account.created"); else _explicitNullProperties?.Remove("service_account.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountCreated? _explicitNullValueServiceAccountCreated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountCreated ServiceAccountCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountCreated ServiceAccountCreated { get => _explicitNullValueServiceAccountCreated; set { _explicitNullValueServiceAccountCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account.created"); else _explicitNullProperties?.Remove("service_account.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountCreated _explicitNullValueServiceAccountCreated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountDeleted? ServiceAccountDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountDeleted? ServiceAccountDeleted { get => _explicitNullValueServiceAccountDeleted; set { _explicitNullValueServiceAccountDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account.deleted"); else _explicitNullProperties?.Remove("service_account.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountDeleted? _explicitNullValueServiceAccountDeleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountDeleted ServiceAccountDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountDeleted ServiceAccountDeleted { get => _explicitNullValueServiceAccountDeleted; set { _explicitNullValueServiceAccountDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account.deleted"); else _explicitNullProperties?.Remove("service_account.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountDeleted _explicitNullValueServiceAccountDeleted = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountUpdated? ServiceAccountUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountUpdated? ServiceAccountUpdated { get => _explicitNullValueServiceAccountUpdated; set { _explicitNullValueServiceAccountUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account.updated"); else _explicitNullProperties?.Remove("service_account.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountUpdated? _explicitNullValueServiceAccountUpdated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountUpdated ServiceAccountUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountUpdated ServiceAccountUpdated { get => _explicitNullValueServiceAccountUpdated; set { _explicitNullValueServiceAccountUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account.updated"); else _explicitNullProperties?.Remove("service_account.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogServiceAccountUpdated _explicitNullValueServiceAccountUpdated = default!;
 #endif
         /// <summary>The event type.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogEventType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogEventType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogEventType? _explicitNullValueType = default!;
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserAdded? UserAdded { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserAdded? UserAdded { get => _explicitNullValueUserAdded; set { _explicitNullValueUserAdded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user.added"); else _explicitNullProperties?.Remove("user.added"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserAdded? _explicitNullValueUserAdded = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserAdded UserAdded { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserAdded UserAdded { get => _explicitNullValueUserAdded; set { _explicitNullValueUserAdded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user.added"); else _explicitNullProperties?.Remove("user.added"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserAdded _explicitNullValueUserAdded = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserDeleted? UserDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserDeleted? UserDeleted { get => _explicitNullValueUserDeleted; set { _explicitNullValueUserDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user.deleted"); else _explicitNullProperties?.Remove("user.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserDeleted? _explicitNullValueUserDeleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserDeleted UserDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserDeleted UserDeleted { get => _explicitNullValueUserDeleted; set { _explicitNullValueUserDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user.deleted"); else _explicitNullProperties?.Remove("user.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserDeleted _explicitNullValueUserDeleted = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated? UserUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated? UserUpdated { get => _explicitNullValueUserUpdated; set { _explicitNullValueUserUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user.updated"); else _explicitNullProperties?.Remove("user.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated? _explicitNullValueUserUpdated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated UserUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated UserUpdated { get => _explicitNullValueUserUpdated; set { _explicitNullValueUserUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user.updated"); else _explicitNullProperties?.Remove("user.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogUserUpdated _explicitNullValueUserUpdated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderCreated? WorkloadIdentityProviderCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderCreated? WorkloadIdentityProviderCreated { get => _explicitNullValueWorkloadIdentityProviderCreated; set { _explicitNullValueWorkloadIdentityProviderCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider.created"); else _explicitNullProperties?.Remove("workload_identity_provider.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderCreated? _explicitNullValueWorkloadIdentityProviderCreated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderCreated WorkloadIdentityProviderCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderCreated WorkloadIdentityProviderCreated { get => _explicitNullValueWorkloadIdentityProviderCreated; set { _explicitNullValueWorkloadIdentityProviderCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider.created"); else _explicitNullProperties?.Remove("workload_identity_provider.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderCreated _explicitNullValueWorkloadIdentityProviderCreated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderDeleted? WorkloadIdentityProviderDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderDeleted? WorkloadIdentityProviderDeleted { get => _explicitNullValueWorkloadIdentityProviderDeleted; set { _explicitNullValueWorkloadIdentityProviderDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider.deleted"); else _explicitNullProperties?.Remove("workload_identity_provider.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderDeleted? _explicitNullValueWorkloadIdentityProviderDeleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderDeleted WorkloadIdentityProviderDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderDeleted WorkloadIdentityProviderDeleted { get => _explicitNullValueWorkloadIdentityProviderDeleted; set { _explicitNullValueWorkloadIdentityProviderDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider.deleted"); else _explicitNullProperties?.Remove("workload_identity_provider.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderDeleted _explicitNullValueWorkloadIdentityProviderDeleted = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingCreated? WorkloadIdentityProviderMappingCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingCreated? WorkloadIdentityProviderMappingCreated { get => _explicitNullValueWorkloadIdentityProviderMappingCreated; set { _explicitNullValueWorkloadIdentityProviderMappingCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider_mapping.created"); else _explicitNullProperties?.Remove("workload_identity_provider_mapping.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingCreated? _explicitNullValueWorkloadIdentityProviderMappingCreated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingCreated WorkloadIdentityProviderMappingCreated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingCreated WorkloadIdentityProviderMappingCreated { get => _explicitNullValueWorkloadIdentityProviderMappingCreated; set { _explicitNullValueWorkloadIdentityProviderMappingCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider_mapping.created"); else _explicitNullProperties?.Remove("workload_identity_provider_mapping.created"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingCreated _explicitNullValueWorkloadIdentityProviderMappingCreated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingDeleted? WorkloadIdentityProviderMappingDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingDeleted? WorkloadIdentityProviderMappingDeleted { get => _explicitNullValueWorkloadIdentityProviderMappingDeleted; set { _explicitNullValueWorkloadIdentityProviderMappingDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider_mapping.deleted"); else _explicitNullProperties?.Remove("workload_identity_provider_mapping.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingDeleted? _explicitNullValueWorkloadIdentityProviderMappingDeleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingDeleted WorkloadIdentityProviderMappingDeleted { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingDeleted WorkloadIdentityProviderMappingDeleted { get => _explicitNullValueWorkloadIdentityProviderMappingDeleted; set { _explicitNullValueWorkloadIdentityProviderMappingDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider_mapping.deleted"); else _explicitNullProperties?.Remove("workload_identity_provider_mapping.deleted"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingDeleted _explicitNullValueWorkloadIdentityProviderMappingDeleted = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdated? WorkloadIdentityProviderMappingUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdated? WorkloadIdentityProviderMappingUpdated { get => _explicitNullValueWorkloadIdentityProviderMappingUpdated; set { _explicitNullValueWorkloadIdentityProviderMappingUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider_mapping.updated"); else _explicitNullProperties?.Remove("workload_identity_provider_mapping.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdated? _explicitNullValueWorkloadIdentityProviderMappingUpdated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdated WorkloadIdentityProviderMappingUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdated WorkloadIdentityProviderMappingUpdated { get => _explicitNullValueWorkloadIdentityProviderMappingUpdated; set { _explicitNullValueWorkloadIdentityProviderMappingUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider_mapping.updated"); else _explicitNullProperties?.Remove("workload_identity_provider_mapping.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdated _explicitNullValueWorkloadIdentityProviderMappingUpdated = default!;
 #endif
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderUpdated? WorkloadIdentityProviderUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderUpdated? WorkloadIdentityProviderUpdated { get => _explicitNullValueWorkloadIdentityProviderUpdated; set { _explicitNullValueWorkloadIdentityProviderUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider.updated"); else _explicitNullProperties?.Remove("workload_identity_provider.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderUpdated? _explicitNullValueWorkloadIdentityProviderUpdated = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderUpdated WorkloadIdentityProviderUpdated { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderUpdated WorkloadIdentityProviderUpdated { get => _explicitNullValueWorkloadIdentityProviderUpdated; set { _explicitNullValueWorkloadIdentityProviderUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider.updated"); else _explicitNullProperties?.Remove("workload_identity_provider.updated"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderUpdated _explicitNullValueWorkloadIdentityProviderUpdated = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog"/> and sets the default values.
@@ -514,7 +705,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.AuditLog(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -657,6 +848,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingDeleted>("workload_identity_provider_mapping.deleted", WorkloadIdentityProviderMappingDeleted);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderMappingUpdated>("workload_identity_provider_mapping.updated", WorkloadIdentityProviderMappingUpdated);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogWorkloadIdentityProviderUpdated>("workload_identity_provider.updated", WorkloadIdentityProviderUpdated);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

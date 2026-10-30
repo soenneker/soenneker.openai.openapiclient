@@ -12,13 +12,24 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatCompletionStreamOptions : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("include_obfuscation") is { } nullNodeIncludeObfuscation && nullNodeIncludeObfuscation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeObfuscation = null;
+            if (parseNode.GetChildNode("include_usage") is { } nullNodeIncludeUsage && nullNodeIncludeUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeUsage = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When true, stream obfuscation will be enabled. Stream obfuscation addsrandom characters to an `obfuscation` field on streaming delta events tonormalize payload sizes as a mitigation to certain side-channel attacks.These obfuscation fields are included by default, but add a small amountof overhead to the data stream. You can set `include_obfuscation` tofalse to optimize for bandwidth if you trust the network links betweenyour application and the OpenAI API.</summary>
-        public bool? IncludeObfuscation { get; set; }
+        public bool? IncludeObfuscation { get => _explicitNullValueIncludeObfuscation; set { _explicitNullValueIncludeObfuscation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_obfuscation"); else _explicitNullProperties?.Remove("include_obfuscation"); } }
+        private bool? _explicitNullValueIncludeObfuscation = default!;
         /// <summary>If set, an additional chunk will be streamed before the `data: [DONE]`message. The `usage` field on this chunk shows the token usage statisticsfor the entire request, and the `choices` field will always be an emptyarray.All other chunks will also include a `usage` field, but with a nullvalue. **NOTE:** If the stream is interrupted, you may not receive thefinal usage chunk which contains the total token usage for the request.</summary>
-        public bool? IncludeUsage { get; set; }
+        public bool? IncludeUsage { get => _explicitNullValueIncludeUsage; set { _explicitNullValueIncludeUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_usage"); else _explicitNullProperties?.Remove("include_usage"); } }
+        private bool? _explicitNullValueIncludeUsage = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions"/> and sets the default values.
         /// </summary>
@@ -34,7 +45,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionStreamOptions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,6 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("include_obfuscation", IncludeObfuscation);
             writer.WriteBoolValue("include_usage", IncludeUsage);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

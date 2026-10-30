@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnvironmentParam : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamNone"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,21 +50,30 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParam CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParam();
-            if("none".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("EnvironmentParamNone".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EnvironmentParamNone = new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamNone();
+                
             }
-            else if("openai_hosted".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EnvironmentParamOpenaiHosted".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EnvironmentParamOpenaiHosted = new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamOpenaiHosted();
+                
             }
-            else if("self_hosted".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EnvironmentParamSelfHosted".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EnvironmentParamSelfHosted = new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamSelfHosted();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("none".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("openai_hosted".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && (parseNode.GetChildNode("container_size") == null || (parseNode.GetChildNode("container_size")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag2 && ("small".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "medium".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal) || "large".Equals(optionalTag2.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("self_hosted".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("workspace_directory") != null))();
+            if (result.EnvironmentParamNone == null && result.EnvironmentParamOpenaiHosted == null && result.EnvironmentParamSelfHosted == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.EnvironmentParamNone = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamNone(), parseNode);
+            if (result.EnvironmentParamNone == null && result.EnvironmentParamOpenaiHosted == null && result.EnvironmentParamSelfHosted == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.EnvironmentParamOpenaiHosted = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamOpenaiHosted(), parseNode);
+            if (result.EnvironmentParamNone == null && result.EnvironmentParamOpenaiHosted == null && result.EnvironmentParamSelfHosted == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.EnvironmentParamSelfHosted = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamSelfHosted(), parseNode);
+            if (result.EnvironmentParamNone == null && result.EnvironmentParamOpenaiHosted == null && result.EnvironmentParamSelfHosted == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,17 +101,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (EnvironmentParamNone == null && EnvironmentParamOpenaiHosted == null && EnvironmentParamSelfHosted == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (EnvironmentParamNone != null && EnvironmentParamOpenaiHosted == null && EnvironmentParamSelfHosted == null) { if (EnvironmentParamNone is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EnvironmentParamNone); return; }
+            if (EnvironmentParamOpenaiHosted != null && EnvironmentParamNone == null && EnvironmentParamSelfHosted == null) { if (EnvironmentParamOpenaiHosted is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EnvironmentParamOpenaiHosted); return; }
+            if (EnvironmentParamSelfHosted != null && EnvironmentParamNone == null && EnvironmentParamOpenaiHosted == null) { if (EnvironmentParamSelfHosted is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EnvironmentParamSelfHosted); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(EnvironmentParamNone != null)
             {
+                if (EnvironmentParamNone is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamNone>(null, EnvironmentParamNone);
             }
             else if(EnvironmentParamOpenaiHosted != null)
             {
+                if (EnvironmentParamOpenaiHosted is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamOpenaiHosted>(null, EnvironmentParamOpenaiHosted);
             }
             else if(EnvironmentParamSelfHosted != null)
             {
+                if (EnvironmentParamSelfHosted is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentParamSelfHosted>(null, EnvironmentParamSelfHosted);
             }
         }

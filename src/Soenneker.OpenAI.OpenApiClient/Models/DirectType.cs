@@ -3,13 +3,14 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The type of the usage object. Always `duration` for this variant.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum DurationType
+    #pragma warning disable CS1591
+    public enum DirectType
+    #pragma warning restore CS1591
     {
-        [EnumMember(Value = "duration")]
+        [EnumMember(Value = "direct")]
         #pragma warning disable CS1591
-        Duration,
+        Direct,
         #pragma warning restore CS1591
     }
 }

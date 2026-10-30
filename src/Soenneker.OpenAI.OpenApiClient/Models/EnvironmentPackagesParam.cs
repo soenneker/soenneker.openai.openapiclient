@@ -12,30 +12,46 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnvironmentPackagesParam : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("npm") is { } nullNodeNpm && nullNodeNpm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Npm = null;
+            if (parseNode.GetChildNode("python") is { } nullNodePython && nullNodePython.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Python = null;
+            if (parseNode.GetChildNode("system") is { } nullNodeSystem && nullNodeSystem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) System = null;
+        }
+
         /// <summary>npm packages to install globally. Defaults to an empty list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Npm { get; set; }
+        public List<string>? Npm { get => _explicitNullValueNpm; set { _explicitNullValueNpm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("npm"); else _explicitNullProperties?.Remove("npm"); } }
+        private List<string>? _explicitNullValueNpm = default!;
 #nullable restore
 #else
-        public List<string> Npm { get; set; }
+        public List<string> Npm { get => _explicitNullValueNpm; set { _explicitNullValueNpm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("npm"); else _explicitNullProperties?.Remove("npm"); } }
+        private List<string> _explicitNullValueNpm = default!;
 #endif
         /// <summary>Python packages to install. Defaults to an empty list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Python { get; set; }
+        public List<string>? Python { get => _explicitNullValuePython; set { _explicitNullValuePython = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("python"); else _explicitNullProperties?.Remove("python"); } }
+        private List<string>? _explicitNullValuePython = default!;
 #nullable restore
 #else
-        public List<string> Python { get; set; }
+        public List<string> Python { get => _explicitNullValuePython; set { _explicitNullValuePython = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("python"); else _explicitNullProperties?.Remove("python"); } }
+        private List<string> _explicitNullValuePython = default!;
 #endif
         /// <summary>System packages to install. Defaults to an empty list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? System { get; set; }
+        public List<string>? System { get => _explicitNullValueSystem; set { _explicitNullValueSystem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("system"); else _explicitNullProperties?.Remove("system"); } }
+        private List<string>? _explicitNullValueSystem = default!;
 #nullable restore
 #else
-        public List<string> System { get; set; }
+        public List<string> System { get => _explicitNullValueSystem; set { _explicitNullValueSystem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("system"); else _explicitNullProperties?.Remove("system"); } }
+        private List<string> _explicitNullValueSystem = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentPackagesParam CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentPackagesParam();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.EnvironmentPackagesParam(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +85,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("npm", Npm);
             writer.WriteCollectionOfPrimitiveValues<string>("python", Python);
-            writer.WriteCollectionOfPrimitiveValues<string>("system", System);
+            writer.WriteCollectionOfPrimitiveValues<string>("system", System);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

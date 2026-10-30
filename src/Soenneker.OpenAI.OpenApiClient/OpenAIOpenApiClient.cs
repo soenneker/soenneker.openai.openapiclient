@@ -57,6 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient
             get => new global::Soenneker.OpenAI.OpenApiClient.Agents.AgentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The assistants property</summary>
+        [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Assistants.AssistantsRequestBuilder Assistants
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Assistants.AssistantsRequestBuilder(PathParameters, RequestAdapter);
@@ -202,6 +203,7 @@ namespace Soenneker.OpenAI.OpenApiClient
             get => new global::Soenneker.OpenAI.OpenApiClient.Vector_stores.Vector_storesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The videos property</summary>
+        [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Videos.VideosRequestBuilder Videos
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Videos.VideosRequestBuilder(PathParameters, RequestAdapter);

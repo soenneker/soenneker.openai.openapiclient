@@ -101,6 +101,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item
                 { "409", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.DeletedSessionResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.DeletedSessionResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -136,11 +138,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item
                 { "409", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.SessionResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.SessionResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates session metadata, model, reasoning effort, or service tier. Model settings apply to subsequent turns. Omitted fields are unchanged. See [managing sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage).
+        /// Updates session tools, metadata, model, reasoning effort, or service tier. Model settings apply to subsequent turns. Omitted fields are unchanged. See [managing sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SessionResource"/></returns>
         /// <param name="body">Fields to update on an existing session.</param>
@@ -173,6 +177,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item
                 { "409", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.SessionResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.SessionResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -215,7 +221,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates session metadata, model, reasoning effort, or service tier. Model settings apply to subsequent turns. Omitted fields are unchanged. See [managing sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage).
+        /// Updates session tools, metadata, model, reasoning effort, or service tier. Model settings apply to subsequent turns. Omitted fields are unchanged. See [managing sessions](https://developers.openai.com/api/docs/guides/agents-api/sessions/manage).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Fields to update on an existing session.</param>

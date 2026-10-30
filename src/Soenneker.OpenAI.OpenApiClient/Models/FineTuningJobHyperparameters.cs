@@ -12,32 +12,48 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FineTuningJobHyperparameters : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("batch_size") is { } nullNodeBatchSize && nullNodeBatchSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BatchSize = null;
+            if (parseNode.GetChildNode("learning_rate_multiplier") is { } nullNodeLearningRateMultiplier && nullNodeLearningRateMultiplier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LearningRateMultiplier = null;
+            if (parseNode.GetChildNode("n_epochs") is { } nullNodeNEpochs && nullNodeNEpochs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NEpochs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The batch_size property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? BatchSize { get; set; }
+        public UntypedNode? BatchSize { get => _explicitNullValueBatchSize; set { _explicitNullValueBatchSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("batch_size"); else _explicitNullProperties?.Remove("batch_size"); } }
+        private UntypedNode? _explicitNullValueBatchSize = default!;
 #nullable restore
 #else
-        public UntypedNode BatchSize { get; set; }
+        public UntypedNode BatchSize { get => _explicitNullValueBatchSize; set { _explicitNullValueBatchSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("batch_size"); else _explicitNullProperties?.Remove("batch_size"); } }
+        private UntypedNode _explicitNullValueBatchSize = default!;
 #endif
         /// <summary>Scaling factor for the learning rate. A smaller learning rate may be useful to avoidoverfitting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplier? LearningRateMultiplier { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplier? LearningRateMultiplier { get => _explicitNullValueLearningRateMultiplier; set { _explicitNullValueLearningRateMultiplier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("learning_rate_multiplier"); else _explicitNullProperties?.Remove("learning_rate_multiplier"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplier? _explicitNullValueLearningRateMultiplier = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplier LearningRateMultiplier { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplier LearningRateMultiplier { get => _explicitNullValueLearningRateMultiplier; set { _explicitNullValueLearningRateMultiplier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("learning_rate_multiplier"); else _explicitNullProperties?.Remove("learning_rate_multiplier"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplier _explicitNullValueLearningRateMultiplier = default!;
 #endif
         /// <summary>The number of epochs to train the model for. An epoch refers to one full cyclethrough the training dataset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersNEpochs? NEpochs { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersNEpochs? NEpochs { get => _explicitNullValueNEpochs; set { _explicitNullValueNEpochs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("n_epochs"); else _explicitNullProperties?.Remove("n_epochs"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersNEpochs? _explicitNullValueNEpochs = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersNEpochs NEpochs { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersNEpochs NEpochs { get => _explicitNullValueNEpochs; set { _explicitNullValueNEpochs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("n_epochs"); else _explicitNullProperties?.Remove("n_epochs"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersNEpochs _explicitNullValueNEpochs = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparameters"/> and sets the default values.
@@ -54,7 +70,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparameters();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparameters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<UntypedNode>("batch_size", BatchSize);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplier>("learning_rate_multiplier", LearningRateMultiplier);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersNEpochs>("n_epochs", NEpochs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,112 +12,158 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateModerationResponseResultsItemCategoryAppliedInputTypes : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("harassment") is { } nullNodeHarassment && nullNodeHarassment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Harassment = null;
+            if (parseNode.GetChildNode("harassment/threatening") is { } nullNodeHarassmentThreatening && nullNodeHarassmentThreatening.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HarassmentThreatening = null;
+            if (parseNode.GetChildNode("hate") is { } nullNodeHate && nullNodeHate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hate = null;
+            if (parseNode.GetChildNode("hate/threatening") is { } nullNodeHateThreatening && nullNodeHateThreatening.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HateThreatening = null;
+            if (parseNode.GetChildNode("illicit") is { } nullNodeIllicit && nullNodeIllicit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Illicit = null;
+            if (parseNode.GetChildNode("illicit/violent") is { } nullNodeIllicitViolent && nullNodeIllicitViolent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IllicitViolent = null;
+            if (parseNode.GetChildNode("self-harm") is { } nullNodeSelfHarm && nullNodeSelfHarm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfHarm = null;
+            if (parseNode.GetChildNode("self-harm/instructions") is { } nullNodeSelfHarmInstructions && nullNodeSelfHarmInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfHarmInstructions = null;
+            if (parseNode.GetChildNode("self-harm/intent") is { } nullNodeSelfHarmIntent && nullNodeSelfHarmIntent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfHarmIntent = null;
+            if (parseNode.GetChildNode("sexual") is { } nullNodeSexual && nullNodeSexual.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sexual = null;
+            if (parseNode.GetChildNode("sexual/minors") is { } nullNodeSexualMinors && nullNodeSexualMinors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SexualMinors = null;
+            if (parseNode.GetChildNode("violence") is { } nullNodeViolence && nullNodeViolence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Violence = null;
+            if (parseNode.GetChildNode("violence/graphic") is { } nullNodeViolenceGraphic && nullNodeViolenceGraphic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ViolenceGraphic = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The applied input type(s) for the category &apos;harassment&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? Harassment { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? Harassment { get => _explicitNullValueHarassment; set { _explicitNullValueHarassment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("harassment"); else _explicitNullProperties?.Remove("harassment"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? _explicitNullValueHarassment = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> Harassment { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> Harassment { get => _explicitNullValueHarassment; set { _explicitNullValueHarassment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("harassment"); else _explicitNullProperties?.Remove("harassment"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> _explicitNullValueHarassment = default!;
 #endif
         /// <summary>The applied input type(s) for the category &apos;harassment/threatening&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? HarassmentThreatening { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? HarassmentThreatening { get => _explicitNullValueHarassmentThreatening; set { _explicitNullValueHarassmentThreatening = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("harassment/threatening"); else _explicitNullProperties?.Remove("harassment/threatening"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? _explicitNullValueHarassmentThreatening = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> HarassmentThreatening { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> HarassmentThreatening { get => _explicitNullValueHarassmentThreatening; set { _explicitNullValueHarassmentThreatening = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("harassment/threatening"); else _explicitNullProperties?.Remove("harassment/threatening"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> _explicitNullValueHarassmentThreatening = default!;
 #endif
         /// <summary>The applied input type(s) for the category &apos;hate&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? Hate { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? Hate { get => _explicitNullValueHate; set { _explicitNullValueHate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hate"); else _explicitNullProperties?.Remove("hate"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? _explicitNullValueHate = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> Hate { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> Hate { get => _explicitNullValueHate; set { _explicitNullValueHate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hate"); else _explicitNullProperties?.Remove("hate"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> _explicitNullValueHate = default!;
 #endif
         /// <summary>The applied input type(s) for the category &apos;hate/threatening&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? HateThreatening { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? HateThreatening { get => _explicitNullValueHateThreatening; set { _explicitNullValueHateThreatening = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hate/threatening"); else _explicitNullProperties?.Remove("hate/threatening"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? _explicitNullValueHateThreatening = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> HateThreatening { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> HateThreatening { get => _explicitNullValueHateThreatening; set { _explicitNullValueHateThreatening = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hate/threatening"); else _explicitNullProperties?.Remove("hate/threatening"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> _explicitNullValueHateThreatening = default!;
 #endif
         /// <summary>The applied input type(s) for the category &apos;illicit&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? Illicit { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? Illicit { get => _explicitNullValueIllicit; set { _explicitNullValueIllicit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("illicit"); else _explicitNullProperties?.Remove("illicit"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? _explicitNullValueIllicit = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> Illicit { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> Illicit { get => _explicitNullValueIllicit; set { _explicitNullValueIllicit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("illicit"); else _explicitNullProperties?.Remove("illicit"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> _explicitNullValueIllicit = default!;
 #endif
         /// <summary>The applied input type(s) for the category &apos;illicit/violent&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? IllicitViolent { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? IllicitViolent { get => _explicitNullValueIllicitViolent; set { _explicitNullValueIllicitViolent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("illicit/violent"); else _explicitNullProperties?.Remove("illicit/violent"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? _explicitNullValueIllicitViolent = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> IllicitViolent { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> IllicitViolent { get => _explicitNullValueIllicitViolent; set { _explicitNullValueIllicitViolent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("illicit/violent"); else _explicitNullProperties?.Remove("illicit/violent"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> _explicitNullValueIllicitViolent = default!;
 #endif
         /// <summary>The applied input type(s) for the category &apos;self-harm&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem?>? SelfHarm { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem?>? SelfHarm { get => _explicitNullValueSelfHarm; set { _explicitNullValueSelfHarm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self-harm"); else _explicitNullProperties?.Remove("self-harm"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem?>? _explicitNullValueSelfHarm = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem?> SelfHarm { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem?> SelfHarm { get => _explicitNullValueSelfHarm; set { _explicitNullValueSelfHarm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self-harm"); else _explicitNullProperties?.Remove("self-harm"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmItem?> _explicitNullValueSelfHarm = default!;
 #endif
         /// <summary>The applied input type(s) for the category &apos;self-harm/instructions&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem?>? SelfHarmInstructions { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem?>? SelfHarmInstructions { get => _explicitNullValueSelfHarmInstructions; set { _explicitNullValueSelfHarmInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self-harm/instructions"); else _explicitNullProperties?.Remove("self-harm/instructions"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem?>? _explicitNullValueSelfHarmInstructions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem?> SelfHarmInstructions { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem?> SelfHarmInstructions { get => _explicitNullValueSelfHarmInstructions; set { _explicitNullValueSelfHarmInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self-harm/instructions"); else _explicitNullProperties?.Remove("self-harm/instructions"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmInstructionsItem?> _explicitNullValueSelfHarmInstructions = default!;
 #endif
         /// <summary>The applied input type(s) for the category &apos;self-harm/intent&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem?>? SelfHarmIntent { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem?>? SelfHarmIntent { get => _explicitNullValueSelfHarmIntent; set { _explicitNullValueSelfHarmIntent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self-harm/intent"); else _explicitNullProperties?.Remove("self-harm/intent"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem?>? _explicitNullValueSelfHarmIntent = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem?> SelfHarmIntent { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem?> SelfHarmIntent { get => _explicitNullValueSelfHarmIntent; set { _explicitNullValueSelfHarmIntent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self-harm/intent"); else _explicitNullProperties?.Remove("self-harm/intent"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSelfHarmIntentItem?> _explicitNullValueSelfHarmIntent = default!;
 #endif
         /// <summary>The applied input type(s) for the category &apos;sexual&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem?>? Sexual { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem?>? Sexual { get => _explicitNullValueSexual; set { _explicitNullValueSexual = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sexual"); else _explicitNullProperties?.Remove("sexual"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem?>? _explicitNullValueSexual = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem?> Sexual { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem?> Sexual { get => _explicitNullValueSexual; set { _explicitNullValueSexual = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sexual"); else _explicitNullProperties?.Remove("sexual"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesSexualItem?> _explicitNullValueSexual = default!;
 #endif
         /// <summary>The applied input type(s) for the category &apos;sexual/minors&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? SexualMinors { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? SexualMinors { get => _explicitNullValueSexualMinors; set { _explicitNullValueSexualMinors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sexual/minors"); else _explicitNullProperties?.Remove("sexual/minors"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?>? _explicitNullValueSexualMinors = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> SexualMinors { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> SexualMinors { get => _explicitNullValueSexualMinors; set { _explicitNullValueSexualMinors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sexual/minors"); else _explicitNullProperties?.Remove("sexual/minors"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem?> _explicitNullValueSexualMinors = default!;
 #endif
         /// <summary>The applied input type(s) for the category &apos;violence&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem?>? Violence { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem?>? Violence { get => _explicitNullValueViolence; set { _explicitNullValueViolence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("violence"); else _explicitNullProperties?.Remove("violence"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem?>? _explicitNullValueViolence = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem?> Violence { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem?> Violence { get => _explicitNullValueViolence; set { _explicitNullValueViolence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("violence"); else _explicitNullProperties?.Remove("violence"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem?> _explicitNullValueViolence = default!;
 #endif
         /// <summary>The applied input type(s) for the category &apos;violence/graphic&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem?>? ViolenceGraphic { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem?>? ViolenceGraphic { get => _explicitNullValueViolenceGraphic; set { _explicitNullValueViolenceGraphic = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("violence/graphic"); else _explicitNullProperties?.Remove("violence/graphic"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem?>? _explicitNullValueViolenceGraphic = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem?> ViolenceGraphic { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem?> ViolenceGraphic { get => _explicitNullValueViolenceGraphic; set { _explicitNullValueViolenceGraphic = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("violence/graphic"); else _explicitNullProperties?.Remove("violence/graphic"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem?> _explicitNullValueViolenceGraphic = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypes"/> and sets the default values.
@@ -134,7 +180,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypes();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypes(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -179,6 +225,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.TextItem>("sexual/minors", SexualMinors);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceItem>("violence", Violence);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateModerationResponseResultsItemCategoryAppliedInputTypesViolenceGraphicItem>("violence/graphic", ViolenceGraphic);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

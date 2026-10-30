@@ -11,32 +11,48 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RunGraderRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("grader") is { } nullNodeGrader && nullNodeGrader.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Grader = null;
+            if (parseNode.GetChildNode("item") is { } nullNodeItem && nullNodeItem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Item = null;
+            if (parseNode.GetChildNode("model_sample") is { } nullNodeModelSample && nullNodeModelSample.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelSample = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The grader used for the fine-tuning job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestGrader? Grader { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestGrader? Grader { get => _explicitNullValueGrader; set { _explicitNullValueGrader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grader"); else _explicitNullProperties?.Remove("grader"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestGrader? _explicitNullValueGrader = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestGrader Grader { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestGrader Grader { get => _explicitNullValueGrader; set { _explicitNullValueGrader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grader"); else _explicitNullProperties?.Remove("grader"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestGrader _explicitNullValueGrader = default!;
 #endif
         /// <summary>The dataset item provided to the grader. This will be used to populatethe `item` namespace. See [the guide](https://developers.openai.com/api/docs/guides/graders) for more details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestItemProperty? Item { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestItemProperty? Item { get => _explicitNullValueItem; set { _explicitNullValueItem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("item"); else _explicitNullProperties?.Remove("item"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestItemProperty? _explicitNullValueItem = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestItemProperty Item { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestItemProperty Item { get => _explicitNullValueItem; set { _explicitNullValueItem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("item"); else _explicitNullProperties?.Remove("item"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestItemProperty _explicitNullValueItem = default!;
 #endif
         /// <summary>The model sample to be evaluated. This value will be used to populatethe `sample` namespace. See [the guide](https://developers.openai.com/api/docs/guides/graders) for more details.The `output_json` variable will be populated if the model sample is avalid JSON string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ModelSample { get; set; }
+        public string? ModelSample { get => _explicitNullValueModelSample; set { _explicitNullValueModelSample = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_sample"); else _explicitNullProperties?.Remove("model_sample"); } }
+        private string? _explicitNullValueModelSample = default!;
 #nullable restore
 #else
-        public string ModelSample { get; set; }
+        public string ModelSample { get => _explicitNullValueModelSample; set { _explicitNullValueModelSample = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_sample"); else _explicitNullProperties?.Remove("model_sample"); } }
+        private string _explicitNullValueModelSample = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequest"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestGrader>("grader", Grader);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunGraderRequestItemProperty>("item", Item);
             writer.WriteStringValue("model_sample", ModelSample);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

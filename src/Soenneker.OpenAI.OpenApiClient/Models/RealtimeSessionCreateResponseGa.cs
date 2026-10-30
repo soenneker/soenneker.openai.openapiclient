@@ -12,119 +12,171 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RealtimeSessionCreateResponseGa : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("audio") is { } nullNodeAudio && nullNodeAudio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Audio = null;
+            if (parseNode.GetChildNode("expires_at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("include") is { } nullNodeInclude && nullNodeInclude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Include = null;
+            if (parseNode.GetChildNode("instructions") is { } nullNodeInstructions && nullNodeInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Instructions = null;
+            if (parseNode.GetChildNode("max_output_tokens") is { } nullNodeMaxOutputTokens && nullNodeMaxOutputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxOutputTokens = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("object") is { } nullNodeObject && nullNodeObject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Object = null;
+            if (parseNode.GetChildNode("output_modalities") is { } nullNodeOutputModalities && nullNodeOutputModalities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputModalities = null;
+            if (parseNode.GetChildNode("prompt") is { } nullNodePrompt && nullNodePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prompt = null;
+            if (parseNode.GetChildNode("reasoning") is { } nullNodeReasoning && nullNodeReasoning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reasoning = null;
+            if (parseNode.GetChildNode("tool_choice") is { } nullNodeToolChoice && nullNodeToolChoice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolChoice = null;
+            if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
+            if (parseNode.GetChildNode("tracing") is { } nullNodeTracing && nullNodeTracing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tracing = null;
+            if (parseNode.GetChildNode("truncation") is { } nullNodeTruncation && nullNodeTruncation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Truncation = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Configuration for input and output audio.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaAudio? Audio { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaAudio? Audio { get => _explicitNullValueAudio; set { _explicitNullValueAudio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio"); else _explicitNullProperties?.Remove("audio"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaAudio? _explicitNullValueAudio = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaAudio Audio { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaAudio Audio { get => _explicitNullValueAudio; set { _explicitNullValueAudio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio"); else _explicitNullProperties?.Remove("audio"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaAudio _explicitNullValueAudio = default!;
 #endif
         /// <summary>Expiration timestamp for the session, in seconds since epoch.</summary>
-        public int? ExpiresAt { get; set; }
+        public int? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private int? _explicitNullValueExpiresAt = default!;
         /// <summary>Unique identifier for the session that looks like `sess_1234567890abcdef`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>Additional fields to include in server outputs.`item.input_audio_transcription.logprobs`: Include logprobs for input audio transcription.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?>? Include { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?>? Include { get => _explicitNullValueInclude; set { _explicitNullValueInclude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include"); else _explicitNullProperties?.Remove("include"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?>? _explicitNullValueInclude = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?> Include { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?> Include { get => _explicitNullValueInclude; set { _explicitNullValueInclude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include"); else _explicitNullProperties?.Remove("include"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.ItemInputAudioTranscriptionLogprobsItem?> _explicitNullValueInclude = default!;
 #endif
         /// <summary>The default system instructions (i.e. system message) prepended to model calls. This field allows the client to guide the model on desired responses. The model can be instructed on response content and format, (e.g. &quot;be extremely succinct&quot;, &quot;act friendly&quot;, &quot;here are examples of good responses&quot;) and on audio behavior (e.g. &quot;talk quickly&quot;, &quot;inject emotion into your voice&quot;, &quot;laugh frequently&quot;). The instructions are not guaranteed to be followed by the model, but they provide guidance to the model on the desired behavior.Note that the server sets default instructions which will be used if this field is not set and are visible in the `session.created` event at the start of the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Instructions { get; set; }
+        public string? Instructions { get => _explicitNullValueInstructions; set { _explicitNullValueInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instructions"); else _explicitNullProperties?.Remove("instructions"); } }
+        private string? _explicitNullValueInstructions = default!;
 #nullable restore
 #else
-        public string Instructions { get; set; }
+        public string Instructions { get => _explicitNullValueInstructions; set { _explicitNullValueInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instructions"); else _explicitNullProperties?.Remove("instructions"); } }
+        private string _explicitNullValueInstructions = default!;
 #endif
         /// <summary>Maximum number of output tokens for a single assistant response,inclusive of tool calls. Provide an integer between 1 and 4096 tolimit output tokens, or `inf` for the maximum available tokens for agiven model. Defaults to `inf`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaMaxOutputTokens? MaxOutputTokens { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaMaxOutputTokens? MaxOutputTokens { get => _explicitNullValueMaxOutputTokens; set { _explicitNullValueMaxOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_output_tokens"); else _explicitNullProperties?.Remove("max_output_tokens"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaMaxOutputTokens? _explicitNullValueMaxOutputTokens = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaMaxOutputTokens MaxOutputTokens { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaMaxOutputTokens MaxOutputTokens { get => _explicitNullValueMaxOutputTokens; set { _explicitNullValueMaxOutputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_output_tokens"); else _explicitNullProperties?.Remove("max_output_tokens"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaMaxOutputTokens _explicitNullValueMaxOutputTokens = default!;
 #endif
         /// <summary>The Realtime model used for this session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaModel? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaModel? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaModel? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaModel Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaModel Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaModel _explicitNullValueModel = default!;
 #endif
         /// <summary>The object type. Always `realtime.session`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionObject? Object { get => _explicitNullValueObject; set { _explicitNullValueObject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object"); else _explicitNullProperties?.Remove("object"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionObject? _explicitNullValueObject = default!;
         /// <summary>The set of modalities the model can respond with. It defaults to `[&quot;audio&quot;]`, indicatingthat the model will respond with audio plus a transcript. `[&quot;text&quot;]` can be used to makethe model respond with text only. It is not possible to request both `text` and `audio` at the same time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaOutputModalitiesItem?>? OutputModalities { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaOutputModalitiesItem?>? OutputModalities { get => _explicitNullValueOutputModalities; set { _explicitNullValueOutputModalities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_modalities"); else _explicitNullProperties?.Remove("output_modalities"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaOutputModalitiesItem?>? _explicitNullValueOutputModalities = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaOutputModalitiesItem?> OutputModalities { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaOutputModalitiesItem?> OutputModalities { get => _explicitNullValueOutputModalities; set { _explicitNullValueOutputModalities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_modalities"); else _explicitNullProperties?.Remove("output_modalities"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaOutputModalitiesItem?> _explicitNullValueOutputModalities = default!;
 #endif
         /// <summary>Reference to a prompt template and its variables.[Learn more](https://developers.openai.com/api/docs/guides/text?api-mode=responses#version-prompts-in-code).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Prompt? Prompt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Prompt? Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.Prompt? _explicitNullValuePrompt = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Prompt Prompt { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Prompt Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.Prompt _explicitNullValuePrompt = default!;
 #endif
         /// <summary>Configuration for reasoning-capable Realtime models such as `gpt-realtime-2`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeReasoning? Reasoning { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeReasoning? Reasoning { get => _explicitNullValueReasoning; set { _explicitNullValueReasoning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning"); else _explicitNullProperties?.Remove("reasoning"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeReasoning? _explicitNullValueReasoning = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeReasoning Reasoning { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeReasoning Reasoning { get => _explicitNullValueReasoning; set { _explicitNullValueReasoning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning"); else _explicitNullProperties?.Remove("reasoning"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeReasoning _explicitNullValueReasoning = default!;
 #endif
         /// <summary>How the model chooses tools. Provide one of the string modes or force a specificfunction/MCP tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolChoice? ToolChoice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolChoice? ToolChoice { get => _explicitNullValueToolChoice; set { _explicitNullValueToolChoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_choice"); else _explicitNullProperties?.Remove("tool_choice"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolChoice? _explicitNullValueToolChoice = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolChoice ToolChoice { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolChoice ToolChoice { get => _explicitNullValueToolChoice; set { _explicitNullValueToolChoice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_choice"); else _explicitNullProperties?.Remove("tool_choice"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolChoice _explicitNullValueToolChoice = default!;
 #endif
         /// <summary>Tools available to the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolsItem>? Tools { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolsItem>? Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolsItem>? _explicitNullValueTools = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolsItem> Tools { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolsItem> Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaToolsItem> _explicitNullValueTools = default!;
 #endif
         /// <summary>Realtime API can write session traces to the [Traces Dashboard](https://platform.openai.com/logs?api=traces). Set to null to disable tracing. Oncetracing is enabled for a session, the configuration cannot be modified.`auto` will create a trace for the session with default values for theworkflow name, group id, and metadata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracing? Tracing { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracing? Tracing { get => _explicitNullValueTracing; set { _explicitNullValueTracing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracing"); else _explicitNullProperties?.Remove("tracing"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracing? _explicitNullValueTracing = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracing Tracing { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracing Tracing { get => _explicitNullValueTracing; set { _explicitNullValueTracing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracing"); else _explicitNullProperties?.Remove("tracing"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracing _explicitNullValueTracing = default!;
 #endif
         /// <summary>When the number of tokens in a conversation exceeds the model&apos;s input token limit, the conversation be truncated, meaning messages (starting from the oldest) will not be included in the model&apos;s context. A 32k context model with 4,096 max output tokens can only include 28,224 tokens in the context before truncation occurs.Clients can configure truncation behavior to truncate with a lower max token limit, which is an effective way to control token usage and cost.Truncation will reduce the number of cached tokens on the next turn (busting the cache), since messages are dropped from the beginning of the context. However, clients can also configure truncation to retain messages up to a fraction of the maximum context size, which will reduce the need for future truncations and thus improve the cache rate.Truncation can be disabled entirely, which means the server will never truncate but would instead return an error if the conversation exceeds the model&apos;s input token limit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation? Truncation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation? Truncation { get => _explicitNullValueTruncation; set { _explicitNullValueTruncation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("truncation"); else _explicitNullProperties?.Remove("truncation"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation? _explicitNullValueTruncation = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation Truncation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation Truncation { get => _explicitNullValueTruncation; set { _explicitNullValueTruncation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("truncation"); else _explicitNullProperties?.Remove("truncation"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation _explicitNullValueTruncation = default!;
 #endif
         /// <summary>The type of session to create. Always `realtime` for the Realtime API.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGa"/> and sets the default values.
         /// </summary>
@@ -140,7 +192,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGa CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGa();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGa(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -191,6 +243,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaTracing>("tracing", Tracing);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTruncation>("truncation", Truncation);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

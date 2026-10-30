@@ -30,6 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Audio
             get => new global::Soenneker.OpenAI.OpenApiClient.Audio.Transcriptions.TranscriptionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The translations property</summary>
+        [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Audio.Translations.TranslationsRequestBuilder Translations
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Audio.Translations.TranslationsRequestBuilder(PathParameters, RequestAdapter);

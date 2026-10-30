@@ -11,23 +11,39 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BetaCreateResponseBody_prompt_cache_options : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("comparison_response_id") is { } nullNodeComparisonResponseId && nullNodeComparisonResponseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComparisonResponseId = null;
+            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("prewarm") is { } nullNodePrewarm && nullNodePrewarm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prewarm = null;
+            if (parseNode.GetChildNode("ttl") is { } nullNodeTtl && nullNodeTtl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ttl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of a response to compare when diagnosing prompt cache reuse. Supplying this field requests prompt cache diagnostics when the feature is enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ComparisonResponseId { get; set; }
+        public string? ComparisonResponseId { get => _explicitNullValueComparisonResponseId; set { _explicitNullValueComparisonResponseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comparison_response_id"); else _explicitNullProperties?.Remove("comparison_response_id"); } }
+        private string? _explicitNullValueComparisonResponseId = default!;
 #nullable restore
 #else
-        public string ComparisonResponseId { get; set; }
+        public string ComparisonResponseId { get => _explicitNullValueComparisonResponseId; set { _explicitNullValueComparisonResponseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comparison_response_id"); else _explicitNullProperties?.Remove("comparison_response_id"); } }
+        private string _explicitNullValueComparisonResponseId = default!;
 #endif
         /// <summary>Controls whether OpenAI automatically creates an implicit cache breakpoint. Defaults to `implicit`. With `implicit`, OpenAI creates one implicit breakpoint and writes up to the latest three explicit breakpoints in the request. With `explicit`, OpenAI does not create an implicit breakpoint and writes up to the latest four explicit breakpoints. If there are no explicit breakpoints, the request does not use prompt caching.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheModeEnum? Mode { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheModeEnum? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheModeEnum? _explicitNullValueMode = default!;
         /// <summary>Prepares the prompt cache without generating output. Defaults to `false`. When set to `true`, overrides the `generate` field to `false`.</summary>
-        public bool? Prewarm { get; set; }
+        public bool? Prewarm { get => _explicitNullValuePrewarm; set { _explicitNullValuePrewarm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prewarm"); else _explicitNullProperties?.Remove("prewarm"); } }
+        private bool? _explicitNullValuePrewarm = default!;
         /// <summary>The ttl property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheTtlEnum? Ttl { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheTtlEnum? Ttl { get => _explicitNullValueTtl; set { _explicitNullValueTtl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ttl"); else _explicitNullProperties?.Remove("ttl"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheTtlEnum? _explicitNullValueTtl = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options"/> and sets the default values.
         /// </summary>
@@ -43,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,6 +86,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheModeEnum>("mode", Mode);
             writer.WriteBoolValue("prewarm", Prewarm);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheTtlEnum>("ttl", Ttl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

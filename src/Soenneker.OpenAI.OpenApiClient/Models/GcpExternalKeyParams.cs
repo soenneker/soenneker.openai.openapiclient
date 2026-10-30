@@ -11,92 +11,133 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GcpExternalKeyParams : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("audience") is { } nullNodeAudience && nullNodeAudience.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Audience = null;
+            if (parseNode.GetChildNode("kms_key_location") is { } nullNodeKmsKeyLocation && nullNodeKmsKeyLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KmsKeyLocation = null;
+            if (parseNode.GetChildNode("kms_key_name") is { } nullNodeKmsKeyName && nullNodeKmsKeyName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KmsKeyName = null;
+            if (parseNode.GetChildNode("kms_key_ring_name") is { } nullNodeKmsKeyRingName && nullNodeKmsKeyRingName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KmsKeyRingName = null;
+            if (parseNode.GetChildNode("kms_key_version") is { } nullNodeKmsKeyVersion && nullNodeKmsKeyVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KmsKeyVersion = null;
+            if (parseNode.GetChildNode("kms_project_id") is { } nullNodeKmsProjectId && nullNodeKmsProjectId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KmsProjectId = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("purpose") is { } nullNodePurpose && nullNodePurpose.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Purpose = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("workload_identity_pool_id") is { } nullNodeWorkloadIdentityPoolId && nullNodeWorkloadIdentityPoolId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityPoolId = null;
+            if (parseNode.GetChildNode("workload_identity_project_number") is { } nullNodeWorkloadIdentityProjectNumber && nullNodeWorkloadIdentityProjectNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProjectNumber = null;
+            if (parseNode.GetChildNode("workload_identity_provider_id") is { } nullNodeWorkloadIdentityProviderId && nullNodeWorkloadIdentityProviderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProviderId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The aud field in the identity token OpenAI will pass in the call to the customer&apos;s GCP STS. This must be the OpenAI organization ID or an API project ID that belongs to the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Audience { get; set; }
+        public string? Audience { get => _explicitNullValueAudience; set { _explicitNullValueAudience = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audience"); else _explicitNullProperties?.Remove("audience"); } }
+        private string? _explicitNullValueAudience = default!;
 #nullable restore
 #else
-        public string Audience { get; set; }
+        public string Audience { get => _explicitNullValueAudience; set { _explicitNullValueAudience = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audience"); else _explicitNullProperties?.Remove("audience"); } }
+        private string _explicitNullValueAudience = default!;
 #endif
         /// <summary>The region where your Key Management System master key is located</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KmsKeyLocation { get; set; }
+        public string? KmsKeyLocation { get => _explicitNullValueKmsKeyLocation; set { _explicitNullValueKmsKeyLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kms_key_location"); else _explicitNullProperties?.Remove("kms_key_location"); } }
+        private string? _explicitNullValueKmsKeyLocation = default!;
 #nullable restore
 #else
-        public string KmsKeyLocation { get; set; }
+        public string KmsKeyLocation { get => _explicitNullValueKmsKeyLocation; set { _explicitNullValueKmsKeyLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kms_key_location"); else _explicitNullProperties?.Remove("kms_key_location"); } }
+        private string _explicitNullValueKmsKeyLocation = default!;
 #endif
         /// <summary>The name of the Key Management System master key you manage</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KmsKeyName { get; set; }
+        public string? KmsKeyName { get => _explicitNullValueKmsKeyName; set { _explicitNullValueKmsKeyName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kms_key_name"); else _explicitNullProperties?.Remove("kms_key_name"); } }
+        private string? _explicitNullValueKmsKeyName = default!;
 #nullable restore
 #else
-        public string KmsKeyName { get; set; }
+        public string KmsKeyName { get => _explicitNullValueKmsKeyName; set { _explicitNullValueKmsKeyName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kms_key_name"); else _explicitNullProperties?.Remove("kms_key_name"); } }
+        private string _explicitNullValueKmsKeyName = default!;
 #endif
         /// <summary>The Key Management System key ring for the master key you manage</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KmsKeyRingName { get; set; }
+        public string? KmsKeyRingName { get => _explicitNullValueKmsKeyRingName; set { _explicitNullValueKmsKeyRingName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kms_key_ring_name"); else _explicitNullProperties?.Remove("kms_key_ring_name"); } }
+        private string? _explicitNullValueKmsKeyRingName = default!;
 #nullable restore
 #else
-        public string KmsKeyRingName { get; set; }
+        public string KmsKeyRingName { get => _explicitNullValueKmsKeyRingName; set { _explicitNullValueKmsKeyRingName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kms_key_ring_name"); else _explicitNullProperties?.Remove("kms_key_ring_name"); } }
+        private string _explicitNullValueKmsKeyRingName = default!;
 #endif
         /// <summary>An exact CryptoKeyVersion number. Required for PSP decryption; not accepted for EKM.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KmsKeyVersion { get; set; }
+        public string? KmsKeyVersion { get => _explicitNullValueKmsKeyVersion; set { _explicitNullValueKmsKeyVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kms_key_version"); else _explicitNullProperties?.Remove("kms_key_version"); } }
+        private string? _explicitNullValueKmsKeyVersion = default!;
 #nullable restore
 #else
-        public string KmsKeyVersion { get; set; }
+        public string KmsKeyVersion { get => _explicitNullValueKmsKeyVersion; set { _explicitNullValueKmsKeyVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kms_key_version"); else _explicitNullProperties?.Remove("kms_key_version"); } }
+        private string _explicitNullValueKmsKeyVersion = default!;
 #endif
         /// <summary>The string GCP project name where your KMS resides</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KmsProjectId { get; set; }
+        public string? KmsProjectId { get => _explicitNullValueKmsProjectId; set { _explicitNullValueKmsProjectId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kms_project_id"); else _explicitNullProperties?.Remove("kms_project_id"); } }
+        private string? _explicitNullValueKmsProjectId = default!;
 #nullable restore
 #else
-        public string KmsProjectId { get; set; }
+        public string KmsProjectId { get => _explicitNullValueKmsProjectId; set { _explicitNullValueKmsProjectId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kms_project_id"); else _explicitNullProperties?.Remove("kms_project_id"); } }
+        private string _explicitNullValueKmsProjectId = default!;
 #endif
         /// <summary>A friendly name to identify this config</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The purpose property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ExternalKeyPurpose? Purpose { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ExternalKeyPurpose? Purpose { get => _explicitNullValuePurpose; set { _explicitNullValuePurpose = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("purpose"); else _explicitNullProperties?.Remove("purpose"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ExternalKeyPurpose? _explicitNullValuePurpose = default!;
         /// <summary>The type property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.GcpType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.GcpType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.GcpType? _explicitNullValueType = default!;
         /// <summary>The pool containing the Workload Identity provider that you registered for OpenAI</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkloadIdentityPoolId { get; set; }
+        public string? WorkloadIdentityPoolId { get => _explicitNullValueWorkloadIdentityPoolId; set { _explicitNullValueWorkloadIdentityPoolId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_pool_id"); else _explicitNullProperties?.Remove("workload_identity_pool_id"); } }
+        private string? _explicitNullValueWorkloadIdentityPoolId = default!;
 #nullable restore
 #else
-        public string WorkloadIdentityPoolId { get; set; }
+        public string WorkloadIdentityPoolId { get => _explicitNullValueWorkloadIdentityPoolId; set { _explicitNullValueWorkloadIdentityPoolId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_pool_id"); else _explicitNullProperties?.Remove("workload_identity_pool_id"); } }
+        private string _explicitNullValueWorkloadIdentityPoolId = default!;
 #endif
         /// <summary>The numeric GCP project number where you registered OpenAI&apos;s workload identity</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkloadIdentityProjectNumber { get; set; }
+        public string? WorkloadIdentityProjectNumber { get => _explicitNullValueWorkloadIdentityProjectNumber; set { _explicitNullValueWorkloadIdentityProjectNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_project_number"); else _explicitNullProperties?.Remove("workload_identity_project_number"); } }
+        private string? _explicitNullValueWorkloadIdentityProjectNumber = default!;
 #nullable restore
 #else
-        public string WorkloadIdentityProjectNumber { get; set; }
+        public string WorkloadIdentityProjectNumber { get => _explicitNullValueWorkloadIdentityProjectNumber; set { _explicitNullValueWorkloadIdentityProjectNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_project_number"); else _explicitNullProperties?.Remove("workload_identity_project_number"); } }
+        private string _explicitNullValueWorkloadIdentityProjectNumber = default!;
 #endif
         /// <summary>The Workload Identity provider that you registered for OpenAI</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkloadIdentityProviderId { get; set; }
+        public string? WorkloadIdentityProviderId { get => _explicitNullValueWorkloadIdentityProviderId; set { _explicitNullValueWorkloadIdentityProviderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider_id"); else _explicitNullProperties?.Remove("workload_identity_provider_id"); } }
+        private string? _explicitNullValueWorkloadIdentityProviderId = default!;
 #nullable restore
 #else
-        public string WorkloadIdentityProviderId { get; set; }
+        public string WorkloadIdentityProviderId { get => _explicitNullValueWorkloadIdentityProviderId; set { _explicitNullValueWorkloadIdentityProviderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider_id"); else _explicitNullProperties?.Remove("workload_identity_provider_id"); } }
+        private string _explicitNullValueWorkloadIdentityProviderId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalKeyParams"/> and sets the default values.
@@ -113,7 +154,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalKeyParams CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalKeyParams();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalKeyParams(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -156,6 +197,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("workload_identity_pool_id", WorkloadIdentityPoolId);
             writer.WriteStringValue("workload_identity_project_number", WorkloadIdentityProjectNumber);
             writer.WriteStringValue("workload_identity_provider_id", WorkloadIdentityProviderId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

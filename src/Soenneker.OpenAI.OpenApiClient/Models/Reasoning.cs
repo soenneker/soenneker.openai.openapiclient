@@ -12,25 +12,43 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Reasoning : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("context") is { } nullNodeContext && nullNodeContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Context = null;
+            if (parseNode.GetChildNode("effort") is { } nullNodeEffort && nullNodeEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Effort = null;
+            if (parseNode.GetChildNode("generate_summary") is { } nullNodeGenerateSummary && nullNodeGenerateSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GenerateSummary = null;
+            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("summary") is { } nullNodeSummary && nullNodeSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Summary = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Controls which reasoning items are rendered back to the model on later turns.If omitted or set to `auto`, the model determines the context mode. The`gpt-5.6` model family defaults to `all_turns`; earlier models default to`current_turn`.When returned on a response, this is the effective reasoning context modeused for the response.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContext? Context { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContext? Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningContext? _explicitNullValueContext = default!;
         /// <summary>Constrains effort on reasoning for reasoning models. Currently supportedvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.Reducing reasoning effort can result in faster responses and fewer tokensused on reasoning in a response. Not all reasoning models support everyvalue. See the[reasoning guide](https://developers.openai.com/api/docs/guides/reasoning)for model-specific support.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? Effort { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? Effort { get => _explicitNullValueEffort; set { _explicitNullValueEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effort"); else _explicitNullProperties?.Remove("effort"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? _explicitNullValueEffort = default!;
         /// <summary>**Deprecated:** use `summary` instead.A summary of the reasoning performed by the model. This can beuseful for debugging and understanding the model&apos;s reasoning process.One of `auto`, `concise`, or `detailed`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary? GenerateSummary { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary? GenerateSummary { get => _explicitNullValueGenerateSummary; set { _explicitNullValueGenerateSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generate_summary"); else _explicitNullProperties?.Remove("generate_summary"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary? _explicitNullValueGenerateSummary = default!;
         /// <summary>Controls the reasoning execution mode for the request.When returned on a response, this is the effective execution mode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum? Mode { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum? _explicitNullValueMode = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum Mode { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum _explicitNullValueMode = default!;
 #endif
         /// <summary>A summary of the reasoning performed by the model. This can beuseful for debugging and understanding the model&apos;s reasoning process.One of `auto`, `concise`, or `detailed`.`concise` is supported for `computer-use-preview` models and all reasoning models after `gpt-5`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummary? Summary { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummary? Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummary? _explicitNullValueSummary = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning"/> and sets the default values.
         /// </summary>
@@ -46,7 +64,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,6 +93,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningGenerateSummary>("generate_summary", GenerateSummary);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningModeEnum>("mode", Mode);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningSummary>("summary", Summary);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

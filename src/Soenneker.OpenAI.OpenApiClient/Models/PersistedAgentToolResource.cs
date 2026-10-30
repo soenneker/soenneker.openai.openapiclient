@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PersistedAgentToolResource : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceAutomations"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,37 +82,54 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResource();
-            if("automations".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("PersistedAgentToolResourceAutomations".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PersistedAgentToolResourceAutomations = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceAutomations();
+                
             }
-            else if("computer_use".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("PersistedAgentToolResourceComputerUse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PersistedAgentToolResourceComputerUse = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceComputerUse();
+                
             }
-            else if("function".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("PersistedAgentToolResourceFunction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PersistedAgentToolResourceFunction = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceFunction();
+                
             }
-            else if("mcp".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("PersistedAgentToolResourceMcp".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PersistedAgentToolResourceMcp = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceMcp();
+                
             }
-            else if("programmatic_tool_calling".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("PersistedAgentToolResourceProgrammaticToolCalling".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PersistedAgentToolResourceProgrammaticToolCalling = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceProgrammaticToolCalling();
+                
             }
-            else if("tool_search".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("PersistedAgentToolResourceToolSearch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PersistedAgentToolResourceToolSearch = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceToolSearch();
+                
             }
-            else if("web_search".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("PersistedAgentToolResourceWebSearch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PersistedAgentToolResourceWebSearch = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceWebSearch();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("function".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("name") != null && parseNode.GetChildNode("description") != null && parseNode.GetChildNode("parameters") != null && parseNode.GetChildNode("defer_loading") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("tool_search".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("programmatic_tool_calling".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("enabled") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("mcp".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("server_label") != null && parseNode.GetChildNode("credential_id") != null && parseNode.GetChildNode("transport") != null && parseNode.GetChildNode("request_metadata") != null && parseNode.GetChildNode("allowed_tools") != null && parseNode.GetChildNode("required") != null && parseNode.GetChildNode("connection_origin") != null && (parseNode.GetChildNode("connection_origin")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag9 && ("service".Equals(tag9.GetValue(), global::System.StringComparison.Ordinal) || "environment".Equals(tag9.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("web_search".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("mode") != null && (parseNode.GetChildNode("mode")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("disabled".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "cached".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "live".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("context_size") != null && (parseNode.GetChildNode("context_size")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag5 && ("low".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "medium".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "high".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("allowed_domains") != null && parseNode.GetChildNode("location") != null))();
+            bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("computer_use".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("include_screenshots") != null))();
+            bool matchesUnionBranch6 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("automations".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.PersistedAgentToolResourceAutomations == null && result.PersistedAgentToolResourceComputerUse == null && result.PersistedAgentToolResourceFunction == null && result.PersistedAgentToolResourceMcp == null && result.PersistedAgentToolResourceProgrammaticToolCalling == null && result.PersistedAgentToolResourceToolSearch == null && result.PersistedAgentToolResourceWebSearch == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6) result.PersistedAgentToolResourceFunction = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceFunction(), parseNode);
+            if (result.PersistedAgentToolResourceAutomations == null && result.PersistedAgentToolResourceComputerUse == null && result.PersistedAgentToolResourceFunction == null && result.PersistedAgentToolResourceMcp == null && result.PersistedAgentToolResourceProgrammaticToolCalling == null && result.PersistedAgentToolResourceToolSearch == null && result.PersistedAgentToolResourceWebSearch == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6) result.PersistedAgentToolResourceToolSearch = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceToolSearch(), parseNode);
+            if (result.PersistedAgentToolResourceAutomations == null && result.PersistedAgentToolResourceComputerUse == null && result.PersistedAgentToolResourceFunction == null && result.PersistedAgentToolResourceMcp == null && result.PersistedAgentToolResourceProgrammaticToolCalling == null && result.PersistedAgentToolResourceToolSearch == null && result.PersistedAgentToolResourceWebSearch == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6) result.PersistedAgentToolResourceProgrammaticToolCalling = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceProgrammaticToolCalling(), parseNode);
+            if (result.PersistedAgentToolResourceAutomations == null && result.PersistedAgentToolResourceComputerUse == null && result.PersistedAgentToolResourceFunction == null && result.PersistedAgentToolResourceMcp == null && result.PersistedAgentToolResourceProgrammaticToolCalling == null && result.PersistedAgentToolResourceToolSearch == null && result.PersistedAgentToolResourceWebSearch == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6) result.PersistedAgentToolResourceMcp = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceMcp(), parseNode);
+            if (result.PersistedAgentToolResourceAutomations == null && result.PersistedAgentToolResourceComputerUse == null && result.PersistedAgentToolResourceFunction == null && result.PersistedAgentToolResourceMcp == null && result.PersistedAgentToolResourceProgrammaticToolCalling == null && result.PersistedAgentToolResourceToolSearch == null && result.PersistedAgentToolResourceWebSearch == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch5 && !matchesUnionBranch6) result.PersistedAgentToolResourceWebSearch = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceWebSearch(), parseNode);
+            if (result.PersistedAgentToolResourceAutomations == null && result.PersistedAgentToolResourceComputerUse == null && result.PersistedAgentToolResourceFunction == null && result.PersistedAgentToolResourceMcp == null && result.PersistedAgentToolResourceProgrammaticToolCalling == null && result.PersistedAgentToolResourceToolSearch == null && result.PersistedAgentToolResourceWebSearch == null && matchesUnionBranch5 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch6) result.PersistedAgentToolResourceComputerUse = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceComputerUse(), parseNode);
+            if (result.PersistedAgentToolResourceAutomations == null && result.PersistedAgentToolResourceComputerUse == null && result.PersistedAgentToolResourceFunction == null && result.PersistedAgentToolResourceMcp == null && result.PersistedAgentToolResourceProgrammaticToolCalling == null && result.PersistedAgentToolResourceToolSearch == null && result.PersistedAgentToolResourceWebSearch == null && matchesUnionBranch6 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.PersistedAgentToolResourceAutomations = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceAutomations(), parseNode);
+            if (result.PersistedAgentToolResourceAutomations == null && result.PersistedAgentToolResourceComputerUse == null && result.PersistedAgentToolResourceFunction == null && result.PersistedAgentToolResourceMcp == null && result.PersistedAgentToolResourceProgrammaticToolCalling == null && result.PersistedAgentToolResourceToolSearch == null && result.PersistedAgentToolResourceWebSearch == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -151,33 +173,50 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (PersistedAgentToolResourceAutomations == null && PersistedAgentToolResourceComputerUse == null && PersistedAgentToolResourceFunction == null && PersistedAgentToolResourceMcp == null && PersistedAgentToolResourceProgrammaticToolCalling == null && PersistedAgentToolResourceToolSearch == null && PersistedAgentToolResourceWebSearch == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (PersistedAgentToolResourceAutomations != null && PersistedAgentToolResourceComputerUse == null && PersistedAgentToolResourceFunction == null && PersistedAgentToolResourceMcp == null && PersistedAgentToolResourceProgrammaticToolCalling == null && PersistedAgentToolResourceToolSearch == null && PersistedAgentToolResourceWebSearch == null) { if (PersistedAgentToolResourceAutomations is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PersistedAgentToolResourceAutomations); return; }
+            if (PersistedAgentToolResourceComputerUse != null && PersistedAgentToolResourceAutomations == null && PersistedAgentToolResourceFunction == null && PersistedAgentToolResourceMcp == null && PersistedAgentToolResourceProgrammaticToolCalling == null && PersistedAgentToolResourceToolSearch == null && PersistedAgentToolResourceWebSearch == null) { if (PersistedAgentToolResourceComputerUse is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PersistedAgentToolResourceComputerUse); return; }
+            if (PersistedAgentToolResourceFunction != null && PersistedAgentToolResourceAutomations == null && PersistedAgentToolResourceComputerUse == null && PersistedAgentToolResourceMcp == null && PersistedAgentToolResourceProgrammaticToolCalling == null && PersistedAgentToolResourceToolSearch == null && PersistedAgentToolResourceWebSearch == null) { if (PersistedAgentToolResourceFunction is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PersistedAgentToolResourceFunction); return; }
+            if (PersistedAgentToolResourceMcp != null && PersistedAgentToolResourceAutomations == null && PersistedAgentToolResourceComputerUse == null && PersistedAgentToolResourceFunction == null && PersistedAgentToolResourceProgrammaticToolCalling == null && PersistedAgentToolResourceToolSearch == null && PersistedAgentToolResourceWebSearch == null) { if (PersistedAgentToolResourceMcp is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PersistedAgentToolResourceMcp); return; }
+            if (PersistedAgentToolResourceProgrammaticToolCalling != null && PersistedAgentToolResourceAutomations == null && PersistedAgentToolResourceComputerUse == null && PersistedAgentToolResourceFunction == null && PersistedAgentToolResourceMcp == null && PersistedAgentToolResourceToolSearch == null && PersistedAgentToolResourceWebSearch == null) { if (PersistedAgentToolResourceProgrammaticToolCalling is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PersistedAgentToolResourceProgrammaticToolCalling); return; }
+            if (PersistedAgentToolResourceToolSearch != null && PersistedAgentToolResourceAutomations == null && PersistedAgentToolResourceComputerUse == null && PersistedAgentToolResourceFunction == null && PersistedAgentToolResourceMcp == null && PersistedAgentToolResourceProgrammaticToolCalling == null && PersistedAgentToolResourceWebSearch == null) { if (PersistedAgentToolResourceToolSearch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PersistedAgentToolResourceToolSearch); return; }
+            if (PersistedAgentToolResourceWebSearch != null && PersistedAgentToolResourceAutomations == null && PersistedAgentToolResourceComputerUse == null && PersistedAgentToolResourceFunction == null && PersistedAgentToolResourceMcp == null && PersistedAgentToolResourceProgrammaticToolCalling == null && PersistedAgentToolResourceToolSearch == null) { if (PersistedAgentToolResourceWebSearch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PersistedAgentToolResourceWebSearch); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(PersistedAgentToolResourceAutomations != null)
             {
+                if (PersistedAgentToolResourceAutomations is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceAutomations>(null, PersistedAgentToolResourceAutomations);
             }
             else if(PersistedAgentToolResourceComputerUse != null)
             {
+                if (PersistedAgentToolResourceComputerUse is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceComputerUse>(null, PersistedAgentToolResourceComputerUse);
             }
             else if(PersistedAgentToolResourceFunction != null)
             {
+                if (PersistedAgentToolResourceFunction is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceFunction>(null, PersistedAgentToolResourceFunction);
             }
             else if(PersistedAgentToolResourceMcp != null)
             {
+                if (PersistedAgentToolResourceMcp is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceMcp>(null, PersistedAgentToolResourceMcp);
             }
             else if(PersistedAgentToolResourceProgrammaticToolCalling != null)
             {
+                if (PersistedAgentToolResourceProgrammaticToolCalling is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceProgrammaticToolCalling>(null, PersistedAgentToolResourceProgrammaticToolCalling);
             }
             else if(PersistedAgentToolResourceToolSearch != null)
             {
+                if (PersistedAgentToolResourceToolSearch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceToolSearch>(null, PersistedAgentToolResourceToolSearch);
             }
             else if(PersistedAgentToolResourceWebSearch != null)
             {
+                if (PersistedAgentToolResourceWebSearch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceWebSearch>(null, PersistedAgentToolResourceWebSearch);
             }
         }

@@ -49,7 +49,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.External_keys.Item.Validat
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ValidateExternalKeyResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ValidateExternalKeyResource.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ValidateExternalKeyResource>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ValidateExternalKeyResource.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Validate an external key config for the user&apos;s organization

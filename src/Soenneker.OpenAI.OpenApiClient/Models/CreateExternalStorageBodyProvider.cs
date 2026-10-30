@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateExternalStorageBodyProvider : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AwsExternalStorageProviderParams"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,25 +58,36 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateExternalStorageBodyProvider CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.CreateExternalStorageBodyProvider();
             if("AwsExternalStorageProviderParams".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AwsExternalStorageProviderParams = new global::Soenneker.OpenAI.OpenApiClient.Models.AwsExternalStorageProviderParams();
+                
             }
             else if("AzureExternalStorageProviderParams".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AzureExternalStorageProviderParams = new global::Soenneker.OpenAI.OpenApiClient.Models.AzureExternalStorageProviderParams();
+                
             }
             else if("GcpExternalStorageProviderParams".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.GcpExternalStorageProviderParams = new global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalStorageProviderParams();
+                
             }
             else if("OciExternalStorageProviderParams".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OciExternalStorageProviderParams = new global::Soenneker.OpenAI.OpenApiClient.Models.OciExternalStorageProviderParams();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("aws".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("bucket") != null && parseNode.GetChildNode("role_arn") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("azure".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("tenant_id") != null && parseNode.GetChildNode("subscription_id") != null && parseNode.GetChildNode("resource_group") != null && parseNode.GetChildNode("account_name") != null && parseNode.GetChildNode("container") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("gcp".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("bucket") != null && parseNode.GetChildNode("workload_identity_project_number") != null && parseNode.GetChildNode("workload_identity_pool_id") != null && parseNode.GetChildNode("workload_identity_provider_id") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("oci".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("tenancy_ocid") != null && parseNode.GetChildNode("region") != null && parseNode.GetChildNode("bucket") != null))();
+            if (result.AwsExternalStorageProviderParams == null && result.AzureExternalStorageProviderParams == null && result.GcpExternalStorageProviderParams == null && result.OciExternalStorageProviderParams == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.AwsExternalStorageProviderParams = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.AwsExternalStorageProviderParams(), parseNode);
+            if (result.AwsExternalStorageProviderParams == null && result.AzureExternalStorageProviderParams == null && result.GcpExternalStorageProviderParams == null && result.OciExternalStorageProviderParams == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.AzureExternalStorageProviderParams = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.AzureExternalStorageProviderParams(), parseNode);
+            if (result.AwsExternalStorageProviderParams == null && result.AzureExternalStorageProviderParams == null && result.GcpExternalStorageProviderParams == null && result.OciExternalStorageProviderParams == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.GcpExternalStorageProviderParams = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalStorageProviderParams(), parseNode);
+            if (result.AwsExternalStorageProviderParams == null && result.AzureExternalStorageProviderParams == null && result.GcpExternalStorageProviderParams == null && result.OciExternalStorageProviderParams == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.OciExternalStorageProviderParams = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.OciExternalStorageProviderParams(), parseNode);
+            if (result.AwsExternalStorageProviderParams == null && result.AzureExternalStorageProviderParams == null && result.GcpExternalStorageProviderParams == null && result.OciExternalStorageProviderParams == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,21 +119,32 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (AwsExternalStorageProviderParams == null && AzureExternalStorageProviderParams == null && GcpExternalStorageProviderParams == null && OciExternalStorageProviderParams == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (AwsExternalStorageProviderParams != null && AzureExternalStorageProviderParams == null && GcpExternalStorageProviderParams == null && OciExternalStorageProviderParams == null) { if (AwsExternalStorageProviderParams is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AwsExternalStorageProviderParams); return; }
+            if (AzureExternalStorageProviderParams != null && AwsExternalStorageProviderParams == null && GcpExternalStorageProviderParams == null && OciExternalStorageProviderParams == null) { if (AzureExternalStorageProviderParams is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AzureExternalStorageProviderParams); return; }
+            if (GcpExternalStorageProviderParams != null && AwsExternalStorageProviderParams == null && AzureExternalStorageProviderParams == null && OciExternalStorageProviderParams == null) { if (GcpExternalStorageProviderParams is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GcpExternalStorageProviderParams); return; }
+            if (OciExternalStorageProviderParams != null && AwsExternalStorageProviderParams == null && AzureExternalStorageProviderParams == null && GcpExternalStorageProviderParams == null) { if (OciExternalStorageProviderParams is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OciExternalStorageProviderParams); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(AwsExternalStorageProviderParams != null)
             {
+                if (AwsExternalStorageProviderParams is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AwsExternalStorageProviderParams>(null, AwsExternalStorageProviderParams);
             }
             else if(AzureExternalStorageProviderParams != null)
             {
+                if (AzureExternalStorageProviderParams is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AzureExternalStorageProviderParams>(null, AzureExternalStorageProviderParams);
             }
             else if(GcpExternalStorageProviderParams != null)
             {
+                if (GcpExternalStorageProviderParams is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.GcpExternalStorageProviderParams>(null, GcpExternalStorageProviderParams);
             }
             else if(OciExternalStorageProviderParams != null)
             {
+                if (OciExternalStorageProviderParams is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.OciExternalStorageProviderParams>(null, OciExternalStorageProviderParams);
             }
         }

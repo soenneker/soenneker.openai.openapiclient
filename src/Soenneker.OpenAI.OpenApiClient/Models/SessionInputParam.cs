@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SessionInputParam : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputCancel"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,25 +58,36 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParam CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParam();
-            if("agent.session.input.cancel".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("SessionInputParamAgentSessionInputCancel".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SessionInputParamAgentSessionInputCancel = new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputCancel();
+                
             }
-            else if("agent.session.input.computer_use_approval_request_result".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("SessionInputParamAgentSessionInputComputerUseApprovalRequestResult".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SessionInputParamAgentSessionInputComputerUseApprovalRequestResult = new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputComputerUseApprovalRequestResult();
+                
             }
-            else if("agent.session.input.message".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("SessionInputParamAgentSessionInputMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SessionInputParamAgentSessionInputMessage = new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputMessage();
+                
             }
-            else if("agent.session.input.tool_result".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("SessionInputParamAgentSessionInputToolResult".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SessionInputParamAgentSessionInputToolResult = new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputToolResult();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("agent.session.input.computer_use_approval_request_result".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("request_id") != null && parseNode.GetChildNode("response") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("agent.session.input.message".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("input") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("agent.session.input.cancel".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("agent.session.input.tool_result".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("turn_id") != null && parseNode.GetChildNode("call_id") != null && parseNode.GetChildNode("success") != null))();
+            if (result.SessionInputParamAgentSessionInputCancel == null && result.SessionInputParamAgentSessionInputComputerUseApprovalRequestResult == null && result.SessionInputParamAgentSessionInputMessage == null && result.SessionInputParamAgentSessionInputToolResult == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.SessionInputParamAgentSessionInputComputerUseApprovalRequestResult = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputComputerUseApprovalRequestResult(), parseNode);
+            if (result.SessionInputParamAgentSessionInputCancel == null && result.SessionInputParamAgentSessionInputComputerUseApprovalRequestResult == null && result.SessionInputParamAgentSessionInputMessage == null && result.SessionInputParamAgentSessionInputToolResult == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.SessionInputParamAgentSessionInputMessage = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputMessage(), parseNode);
+            if (result.SessionInputParamAgentSessionInputCancel == null && result.SessionInputParamAgentSessionInputComputerUseApprovalRequestResult == null && result.SessionInputParamAgentSessionInputMessage == null && result.SessionInputParamAgentSessionInputToolResult == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.SessionInputParamAgentSessionInputCancel = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputCancel(), parseNode);
+            if (result.SessionInputParamAgentSessionInputCancel == null && result.SessionInputParamAgentSessionInputComputerUseApprovalRequestResult == null && result.SessionInputParamAgentSessionInputMessage == null && result.SessionInputParamAgentSessionInputToolResult == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.SessionInputParamAgentSessionInputToolResult = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputToolResult(), parseNode);
+            if (result.SessionInputParamAgentSessionInputCancel == null && result.SessionInputParamAgentSessionInputComputerUseApprovalRequestResult == null && result.SessionInputParamAgentSessionInputMessage == null && result.SessionInputParamAgentSessionInputToolResult == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,21 +119,32 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (SessionInputParamAgentSessionInputCancel == null && SessionInputParamAgentSessionInputComputerUseApprovalRequestResult == null && SessionInputParamAgentSessionInputMessage == null && SessionInputParamAgentSessionInputToolResult == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (SessionInputParamAgentSessionInputCancel != null && SessionInputParamAgentSessionInputComputerUseApprovalRequestResult == null && SessionInputParamAgentSessionInputMessage == null && SessionInputParamAgentSessionInputToolResult == null) { if (SessionInputParamAgentSessionInputCancel is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SessionInputParamAgentSessionInputCancel); return; }
+            if (SessionInputParamAgentSessionInputComputerUseApprovalRequestResult != null && SessionInputParamAgentSessionInputCancel == null && SessionInputParamAgentSessionInputMessage == null && SessionInputParamAgentSessionInputToolResult == null) { if (SessionInputParamAgentSessionInputComputerUseApprovalRequestResult is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SessionInputParamAgentSessionInputComputerUseApprovalRequestResult); return; }
+            if (SessionInputParamAgentSessionInputMessage != null && SessionInputParamAgentSessionInputCancel == null && SessionInputParamAgentSessionInputComputerUseApprovalRequestResult == null && SessionInputParamAgentSessionInputToolResult == null) { if (SessionInputParamAgentSessionInputMessage is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SessionInputParamAgentSessionInputMessage); return; }
+            if (SessionInputParamAgentSessionInputToolResult != null && SessionInputParamAgentSessionInputCancel == null && SessionInputParamAgentSessionInputComputerUseApprovalRequestResult == null && SessionInputParamAgentSessionInputMessage == null) { if (SessionInputParamAgentSessionInputToolResult is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SessionInputParamAgentSessionInputToolResult); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(SessionInputParamAgentSessionInputCancel != null)
             {
+                if (SessionInputParamAgentSessionInputCancel is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputCancel>(null, SessionInputParamAgentSessionInputCancel);
             }
             else if(SessionInputParamAgentSessionInputComputerUseApprovalRequestResult != null)
             {
+                if (SessionInputParamAgentSessionInputComputerUseApprovalRequestResult is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputComputerUseApprovalRequestResult>(null, SessionInputParamAgentSessionInputComputerUseApprovalRequestResult);
             }
             else if(SessionInputParamAgentSessionInputMessage != null)
             {
+                if (SessionInputParamAgentSessionInputMessage is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputMessage>(null, SessionInputParamAgentSessionInputMessage);
             }
             else if(SessionInputParamAgentSessionInputToolResult != null)
             {
+                if (SessionInputParamAgentSessionInputToolResult is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputToolResult>(null, SessionInputParamAgentSessionInputToolResult);
             }
         }

@@ -11,11 +11,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategyStatic : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("chunk_overlap_tokens") is { } nullNodeChunkOverlapTokens && nullNodeChunkOverlapTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChunkOverlapTokens = null;
+            if (parseNode.GetChildNode("max_chunk_size_tokens") is { } nullNodeMaxChunkSizeTokens && nullNodeMaxChunkSizeTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxChunkSizeTokens = null;
+        }
+
         /// <summary>The number of tokens that overlap between chunks. The default value is `400`.Note that the overlap must not exceed half of `max_chunk_size_tokens`.</summary>
-        public int? ChunkOverlapTokens { get; set; }
+        public int? ChunkOverlapTokens { get => _explicitNullValueChunkOverlapTokens; set { _explicitNullValueChunkOverlapTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chunk_overlap_tokens"); else _explicitNullProperties?.Remove("chunk_overlap_tokens"); } }
+        private int? _explicitNullValueChunkOverlapTokens = default!;
         /// <summary>The maximum number of tokens in each chunk. The default value is `800`. The minimum value is `100` and the maximum value is `4096`.</summary>
-        public int? MaxChunkSizeTokens { get; set; }
+        public int? MaxChunkSizeTokens { get => _explicitNullValueMaxChunkSizeTokens; set { _explicitNullValueMaxChunkSizeTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_chunk_size_tokens"); else _explicitNullProperties?.Remove("max_chunk_size_tokens"); } }
+        private int? _explicitNullValueMaxChunkSizeTokens = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -24,7 +35,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategyStatic CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategyStatic();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategyStatic(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +57,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("chunk_overlap_tokens", ChunkOverlapTokens);
-            writer.WriteIntValue("max_chunk_size_tokens", MaxChunkSizeTokens);
+            writer.WriteIntValue("max_chunk_size_tokens", MaxChunkSizeTokens);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

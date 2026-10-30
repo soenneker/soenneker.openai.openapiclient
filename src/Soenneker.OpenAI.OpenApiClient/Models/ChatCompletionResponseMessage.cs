@@ -12,59 +12,86 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatCompletionResponseMessage : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("annotations") is { } nullNodeAnnotations && nullNodeAnnotations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Annotations = null;
+            if (parseNode.GetChildNode("audio") is { } nullNodeAudio && nullNodeAudio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Audio = null;
+            if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
+            if (parseNode.GetChildNode("function_call") is { } nullNodeFunctionCall && nullNodeFunctionCall.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FunctionCall = null;
+            if (parseNode.GetChildNode("refusal") is { } nullNodeRefusal && nullNodeRefusal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Refusal = null;
+            if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
+            if (parseNode.GetChildNode("tool_calls") is { } nullNodeToolCalls && nullNodeToolCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolCalls = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Annotations for the message, when applicable, as when using the[web search tool](https://developers.openai.com/api/docs/guides/tools-web-search).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageAnnotationsItem>? Annotations { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageAnnotationsItem>? Annotations { get => _explicitNullValueAnnotations; set { _explicitNullValueAnnotations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotations"); else _explicitNullProperties?.Remove("annotations"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageAnnotationsItem>? _explicitNullValueAnnotations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageAnnotationsItem> Annotations { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageAnnotationsItem> Annotations { get => _explicitNullValueAnnotations; set { _explicitNullValueAnnotations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotations"); else _explicitNullProperties?.Remove("annotations"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageAnnotationsItem> _explicitNullValueAnnotations = default!;
 #endif
         /// <summary>If the audio output modality is requested, this object contains dataabout the audio response from the model. [Learn more](https://developers.openai.com/api/docs/guides/audio).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageAudio? Audio { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageAudio? Audio { get => _explicitNullValueAudio; set { _explicitNullValueAudio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio"); else _explicitNullProperties?.Remove("audio"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageAudio? _explicitNullValueAudio = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageAudio Audio { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageAudio Audio { get => _explicitNullValueAudio; set { _explicitNullValueAudio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audio"); else _explicitNullProperties?.Remove("audio"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageAudio _explicitNullValueAudio = default!;
 #endif
         /// <summary>The contents of the message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Content { get; set; }
+        public string? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        private string? _explicitNullValueContent = default!;
 #nullable restore
 #else
-        public string Content { get; set; }
+        public string Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        private string _explicitNullValueContent = default!;
 #endif
         /// <summary>Deprecated and replaced by `tool_calls`. The name and arguments of a function that should be called, as generated by the model.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageFunctionCall? FunctionCall { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageFunctionCall? FunctionCall { get => _explicitNullValueFunctionCall; set { _explicitNullValueFunctionCall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function_call"); else _explicitNullProperties?.Remove("function_call"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageFunctionCall? _explicitNullValueFunctionCall = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageFunctionCall FunctionCall { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageFunctionCall FunctionCall { get => _explicitNullValueFunctionCall; set { _explicitNullValueFunctionCall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function_call"); else _explicitNullProperties?.Remove("function_call"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessageFunctionCall _explicitNullValueFunctionCall = default!;
 #endif
         /// <summary>The refusal message generated by the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Refusal { get; set; }
+        public string? Refusal { get => _explicitNullValueRefusal; set { _explicitNullValueRefusal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refusal"); else _explicitNullProperties?.Remove("refusal"); } }
+        private string? _explicitNullValueRefusal = default!;
 #nullable restore
 #else
-        public string Refusal { get; set; }
+        public string Refusal { get => _explicitNullValueRefusal; set { _explicitNullValueRefusal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refusal"); else _explicitNullProperties?.Remove("refusal"); } }
+        private string _explicitNullValueRefusal = default!;
 #endif
         /// <summary>The role of the messages author, in this case `assistant`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantRole? Role { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AssistantRole? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AssistantRole? _explicitNullValueRole = default!;
         /// <summary>The tool calls generated by the model, such as function calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem>? ToolCalls { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem>? ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem>? _explicitNullValueToolCalls = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem> ToolCalls { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem> ToolCalls { get => _explicitNullValueToolCalls; set { _explicitNullValueToolCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_calls"); else _explicitNullProperties?.Remove("tool_calls"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem> _explicitNullValueToolCalls = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessage"/> and sets the default values.
@@ -81,7 +108,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessage();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionResponseMessage(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -114,6 +141,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("refusal", Refusal);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantRole>("role", Role);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionMessageToolCallsItem>("tool_calls", ToolCalls);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

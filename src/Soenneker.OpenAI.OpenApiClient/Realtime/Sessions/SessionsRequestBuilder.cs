@@ -51,7 +51,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Realtime.Sessions
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create an ephemeral API token for use in client-side applications with theRealtime API. Can be configured with the same session parameters as the`session.update` client event.It responds with a session object, plus a `client_secret` key which containsa usable ephemeral API token that can be used to authenticate browser clientsfor the Realtime API.Returns the created Realtime session object, plus an ephemeral key.

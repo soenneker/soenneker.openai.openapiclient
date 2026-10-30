@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ComputerUseApprovalRequestKindResource : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalRequestKindResourceBrowserAuthentication"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,17 +42,24 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalRequestKindResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalRequestKindResource();
-            if("browser_authentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ComputerUseApprovalRequestKindResourceBrowserAuthentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ComputerUseApprovalRequestKindResourceBrowserAuthentication = new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalRequestKindResourceBrowserAuthentication();
+                
             }
-            else if("browser_origin_access".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ComputerUseApprovalRequestKindResourceBrowserOriginAccess".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ComputerUseApprovalRequestKindResourceBrowserOriginAccess = new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalRequestKindResourceBrowserOriginAccess();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("browser_authentication".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("reason") != null && parseNode.GetChildNode("credential_origin") != null && parseNode.GetChildNode("fields") != null && parseNode.GetChildNode("options") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("browser_origin_access".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("reason") != null && parseNode.GetChildNode("origin") != null))();
+            if (result.ComputerUseApprovalRequestKindResourceBrowserAuthentication == null && result.ComputerUseApprovalRequestKindResourceBrowserOriginAccess == null && matchesUnionBranch0 && !matchesUnionBranch1) result.ComputerUseApprovalRequestKindResourceBrowserAuthentication = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalRequestKindResourceBrowserAuthentication(), parseNode);
+            if (result.ComputerUseApprovalRequestKindResourceBrowserAuthentication == null && result.ComputerUseApprovalRequestKindResourceBrowserOriginAccess == null && matchesUnionBranch1 && !matchesUnionBranch0) result.ComputerUseApprovalRequestKindResourceBrowserOriginAccess = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalRequestKindResourceBrowserOriginAccess(), parseNode);
+            if (result.ComputerUseApprovalRequestKindResourceBrowserAuthentication == null && result.ComputerUseApprovalRequestKindResourceBrowserOriginAccess == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,13 +83,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ComputerUseApprovalRequestKindResourceBrowserAuthentication == null && ComputerUseApprovalRequestKindResourceBrowserOriginAccess == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ComputerUseApprovalRequestKindResourceBrowserAuthentication != null && ComputerUseApprovalRequestKindResourceBrowserOriginAccess == null) { if (ComputerUseApprovalRequestKindResourceBrowserAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ComputerUseApprovalRequestKindResourceBrowserAuthentication); return; }
+            if (ComputerUseApprovalRequestKindResourceBrowserOriginAccess != null && ComputerUseApprovalRequestKindResourceBrowserAuthentication == null) { if (ComputerUseApprovalRequestKindResourceBrowserOriginAccess is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ComputerUseApprovalRequestKindResourceBrowserOriginAccess); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ComputerUseApprovalRequestKindResourceBrowserAuthentication != null)
             {
+                if (ComputerUseApprovalRequestKindResourceBrowserAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalRequestKindResourceBrowserAuthentication>(null, ComputerUseApprovalRequestKindResourceBrowserAuthentication);
             }
             else if(ComputerUseApprovalRequestKindResourceBrowserOriginAccess != null)
             {
+                if (ComputerUseApprovalRequestKindResourceBrowserOriginAccess is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalRequestKindResourceBrowserOriginAccess>(null, ComputerUseApprovalRequestKindResourceBrowserOriginAccess);
             }
         }

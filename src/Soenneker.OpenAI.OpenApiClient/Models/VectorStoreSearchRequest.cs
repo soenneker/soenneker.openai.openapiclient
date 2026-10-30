@@ -11,35 +11,55 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class VectorStoreSearchRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("filters") is { } nullNodeFilters && nullNodeFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filters = null;
+            if (parseNode.GetChildNode("max_num_results") is { } nullNodeMaxNumResults && nullNodeMaxNumResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxNumResults = null;
+            if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
+            if (parseNode.GetChildNode("ranking_options") is { } nullNodeRankingOptions && nullNodeRankingOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RankingOptions = null;
+            if (parseNode.GetChildNode("rewrite_query") is { } nullNodeRewriteQuery && nullNodeRewriteQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RewriteQuery = null;
+        }
+
         /// <summary>A filter to apply based on file attributes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestFilters? Filters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestFilters? Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestFilters? _explicitNullValueFilters = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestFilters Filters { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestFilters Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestFilters _explicitNullValueFilters = default!;
 #endif
         /// <summary>The maximum number of results to return. This number should be between 1 and 50 inclusive.</summary>
-        public int? MaxNumResults { get; set; }
+        public int? MaxNumResults { get => _explicitNullValueMaxNumResults; set { _explicitNullValueMaxNumResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_num_results"); else _explicitNullProperties?.Remove("max_num_results"); } }
+        private int? _explicitNullValueMaxNumResults = default!;
         /// <summary>A query string for a search</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestQuery? Query { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestQuery? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestQuery? _explicitNullValueQuery = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestQuery Query { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestQuery Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestQuery _explicitNullValueQuery = default!;
 #endif
         /// <summary>Ranking options for search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptions? RankingOptions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptions? RankingOptions { get => _explicitNullValueRankingOptions; set { _explicitNullValueRankingOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ranking_options"); else _explicitNullProperties?.Remove("ranking_options"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptions? _explicitNullValueRankingOptions = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptions RankingOptions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptions RankingOptions { get => _explicitNullValueRankingOptions; set { _explicitNullValueRankingOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ranking_options"); else _explicitNullProperties?.Remove("ranking_options"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptions _explicitNullValueRankingOptions = default!;
 #endif
         /// <summary>Whether to rewrite the natural language query for vector search.</summary>
-        public bool? RewriteQuery { get; set; }
+        public bool? RewriteQuery { get => _explicitNullValueRewriteQuery; set { _explicitNullValueRewriteQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rewrite_query"); else _explicitNullProperties?.Remove("rewrite_query"); } }
+        private bool? _explicitNullValueRewriteQuery = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest"/> and sets the default values.
         /// </summary>
@@ -56,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,7 +104,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("max_num_results", MaxNumResults);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestQuery>("query", Query);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchRequestRankingOptions>("ranking_options", RankingOptions);
-            writer.WriteBoolValue("rewrite_query", RewriteQuery);
+            writer.WriteBoolValue("rewrite_query", RewriteQuery);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

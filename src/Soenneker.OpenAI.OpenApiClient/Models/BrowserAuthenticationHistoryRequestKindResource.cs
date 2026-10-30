@@ -7,60 +7,67 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// A registered form awaiting the application&apos;s response.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class BrowserAuthenticationHistoryRequestKindResource : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
-    {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+    public partial class BrowserAuthenticationHistoryRequestKindResource : IParsable
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("credential_origin") is { } nullNodeCredentialOrigin && nullNodeCredentialOrigin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialOrigin = null;
+            if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("options") is { } nullNodeOptions && nullNodeOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Options = null;
+            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>The registered form or frame origin where values will be entered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CredentialOrigin { get; set; }
+        public string? CredentialOrigin { get => _explicitNullValueCredentialOrigin; set { _explicitNullValueCredentialOrigin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_origin"); else _explicitNullProperties?.Remove("credential_origin"); } }
+        private string? _explicitNullValueCredentialOrigin = default!;
 #nullable restore
 #else
-        public string CredentialOrigin { get; set; }
+        public string CredentialOrigin { get => _explicitNullValueCredentialOrigin; set { _explicitNullValueCredentialOrigin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_origin"); else _explicitNullProperties?.Remove("credential_origin"); } }
+        private string _explicitNullValueCredentialOrigin = default!;
 #endif
         /// <summary>Controls to render. All submitted values are sensitive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationFieldResource>? Fields { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationFieldResource>? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationFieldResource>? _explicitNullValueFields = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationFieldResource> Fields { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationFieldResource> Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationFieldResource> _explicitNullValueFields = default!;
 #endif
         /// <summary>Sign-in methods. Empty for a plain form.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationOptionResource>? Options { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationOptionResource>? Options { get => _explicitNullValueOptions; set { _explicitNullValueOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationOptionResource>? _explicitNullValueOptions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationOptionResource> Options { get; set; }
+        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationOptionResource> Options { get => _explicitNullValueOptions; set { _explicitNullValueOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
+        private List<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationOptionResource> _explicitNullValueOptions = default!;
 #endif
         /// <summary>Why the agent needs the user to sign in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Reason { get; set; }
+        public string? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private string? _explicitNullValueReason = default!;
 #nullable restore
 #else
-        public string Reason { get; set; }
+        public string Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private string _explicitNullValueReason = default!;
 #endif
-        /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationHistoryRequestKindResource"/> and sets the default values.
-        /// </summary>
-        public BrowserAuthenticationHistoryRequestKindResource()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>The type of the object. Always `browser_authentication`.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationType? _explicitNullValueType = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -69,7 +76,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationHistoryRequestKindResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationHistoryRequestKindResource();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationHistoryRequestKindResource(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,7 +90,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "fields", n => { Fields = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationFieldResource>(global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationFieldResource.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "options", n => { Options = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationOptionResource>(global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationOptionResource.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationType>(); } },
             };
         }
         /// <summary>
@@ -97,8 +104,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationFieldResource>("fields", Fields);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationOptionResource>("options", Options);
             writer.WriteStringValue("reason", Reason);
-            writer.WriteStringValue("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BrowserAuthenticationType>("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

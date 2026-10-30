@@ -12,30 +12,46 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LiveSipTrunk : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auth") is { } nullNodeAuth && nullNodeAuth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Auth = null;
+            if (parseNode.GetChildNode("caller_number") is { } nullNodeCallerNumber && nullNodeCallerNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallerNumber = null;
+            if (parseNode.GetChildNode("provider_url") is { } nullNodeProviderUrl && nullNodeProviderUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderUrl = null;
+        }
+
         /// <summary>Credentials for SIP Digest authentication with your trunk provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveSipTrunkAuth? Auth { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveSipTrunkAuth? Auth { get => _explicitNullValueAuth; set { _explicitNullValueAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth"); else _explicitNullProperties?.Remove("auth"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveSipTrunkAuth? _explicitNullValueAuth = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveSipTrunkAuth Auth { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveSipTrunkAuth Auth { get => _explicitNullValueAuth; set { _explicitNullValueAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth"); else _explicitNullProperties?.Remove("auth"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveSipTrunkAuth _explicitNullValueAuth = default!;
 #endif
         /// <summary>Caller phone number in E.164 format to use in the SIP From header.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallerNumber { get; set; }
+        public string? CallerNumber { get => _explicitNullValueCallerNumber; set { _explicitNullValueCallerNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caller_number"); else _explicitNullProperties?.Remove("caller_number"); } }
+        private string? _explicitNullValueCallerNumber = default!;
 #nullable restore
 #else
-        public string CallerNumber { get; set; }
+        public string CallerNumber { get => _explicitNullValueCallerNumber; set { _explicitNullValueCallerNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caller_number"); else _explicitNullProperties?.Remove("caller_number"); } }
+        private string _explicitNullValueCallerNumber = default!;
 #endif
         /// <summary>Provider endpoint in the form `sips:host[:port][;transport=tcp]`. The default port is 5061. IPv6 addresses must be bracketed. TLS signaling is required; plaintext SIP is not supported. Do not include userinfo, a path, URI headers, or other URI parameters. Local hostnames and literal private, loopback, link-local, unspecified, multicast, and broadcast IP addresses are rejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProviderUrl { get; set; }
+        public string? ProviderUrl { get => _explicitNullValueProviderUrl; set { _explicitNullValueProviderUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_url"); else _explicitNullProperties?.Remove("provider_url"); } }
+        private string? _explicitNullValueProviderUrl = default!;
 #nullable restore
 #else
-        public string ProviderUrl { get; set; }
+        public string ProviderUrl { get => _explicitNullValueProviderUrl; set { _explicitNullValueProviderUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_url"); else _explicitNullProperties?.Remove("provider_url"); } }
+        private string _explicitNullValueProviderUrl = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.LiveSipTrunk CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.LiveSipTrunk();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.LiveSipTrunk(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +85,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveSipTrunkAuth>("auth", Auth);
             writer.WriteStringValue("caller_number", CallerNumber);
-            writer.WriteStringValue("provider_url", ProviderUrl);
+            writer.WriteStringValue("provider_url", ProviderUrl);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SessionRequiredActionResource : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResourceComputerUseApprovalRequest"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,21 +50,30 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResource();
-            if("computer_use_approval_request".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("SessionRequiredActionResourceComputerUseApprovalRequest".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SessionRequiredActionResourceComputerUseApprovalRequest = new global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResourceComputerUseApprovalRequest();
+                
             }
-            else if("environment_connection".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("SessionRequiredActionResourceEnvironmentConnection".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SessionRequiredActionResourceEnvironmentConnection = new global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResourceEnvironmentConnection();
+                
             }
-            else if("function_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("SessionRequiredActionResourceFunctionCall".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SessionRequiredActionResourceFunctionCall = new global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResourceFunctionCall();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("computer_use_approval_request".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("turn_id") != null && parseNode.GetChildNode("request_id") != null && parseNode.GetChildNode("request") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("function_call".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("turn_id") != null && parseNode.GetChildNode("call_id") != null && parseNode.GetChildNode("name") != null && parseNode.GetChildNode("arguments") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("environment_connection".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("environment_id") != null))();
+            if (result.SessionRequiredActionResourceComputerUseApprovalRequest == null && result.SessionRequiredActionResourceEnvironmentConnection == null && result.SessionRequiredActionResourceFunctionCall == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.SessionRequiredActionResourceComputerUseApprovalRequest = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResourceComputerUseApprovalRequest(), parseNode);
+            if (result.SessionRequiredActionResourceComputerUseApprovalRequest == null && result.SessionRequiredActionResourceEnvironmentConnection == null && result.SessionRequiredActionResourceFunctionCall == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.SessionRequiredActionResourceFunctionCall = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResourceFunctionCall(), parseNode);
+            if (result.SessionRequiredActionResourceComputerUseApprovalRequest == null && result.SessionRequiredActionResourceEnvironmentConnection == null && result.SessionRequiredActionResourceFunctionCall == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.SessionRequiredActionResourceEnvironmentConnection = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResourceEnvironmentConnection(), parseNode);
+            if (result.SessionRequiredActionResourceComputerUseApprovalRequest == null && result.SessionRequiredActionResourceEnvironmentConnection == null && result.SessionRequiredActionResourceFunctionCall == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,17 +101,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (SessionRequiredActionResourceComputerUseApprovalRequest == null && SessionRequiredActionResourceEnvironmentConnection == null && SessionRequiredActionResourceFunctionCall == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (SessionRequiredActionResourceComputerUseApprovalRequest != null && SessionRequiredActionResourceEnvironmentConnection == null && SessionRequiredActionResourceFunctionCall == null) { if (SessionRequiredActionResourceComputerUseApprovalRequest is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SessionRequiredActionResourceComputerUseApprovalRequest); return; }
+            if (SessionRequiredActionResourceEnvironmentConnection != null && SessionRequiredActionResourceComputerUseApprovalRequest == null && SessionRequiredActionResourceFunctionCall == null) { if (SessionRequiredActionResourceEnvironmentConnection is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SessionRequiredActionResourceEnvironmentConnection); return; }
+            if (SessionRequiredActionResourceFunctionCall != null && SessionRequiredActionResourceComputerUseApprovalRequest == null && SessionRequiredActionResourceEnvironmentConnection == null) { if (SessionRequiredActionResourceFunctionCall is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SessionRequiredActionResourceFunctionCall); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(SessionRequiredActionResourceComputerUseApprovalRequest != null)
             {
+                if (SessionRequiredActionResourceComputerUseApprovalRequest is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResourceComputerUseApprovalRequest>(null, SessionRequiredActionResourceComputerUseApprovalRequest);
             }
             else if(SessionRequiredActionResourceEnvironmentConnection != null)
             {
+                if (SessionRequiredActionResourceEnvironmentConnection is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResourceEnvironmentConnection>(null, SessionRequiredActionResourceEnvironmentConnection);
             }
             else if(SessionRequiredActionResourceFunctionCall != null)
             {
+                if (SessionRequiredActionResourceFunctionCall is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResourceFunctionCall>(null, SessionRequiredActionResourceFunctionCall);
             }
         }

@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The type of the usage object. Always `tokens` for this variant.</summary>
+    /// <summary>The type of the content part.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum TokensType
+    public enum LiveInitialAssistantMessageItemParamContentItemOneOf1_type
     {
-        [EnumMember(Value = "tokens")]
+        [EnumMember(Value = "text")]
         #pragma warning disable CS1591
-        Tokens,
+        Text,
         #pragma warning restore CS1591
     }
 }

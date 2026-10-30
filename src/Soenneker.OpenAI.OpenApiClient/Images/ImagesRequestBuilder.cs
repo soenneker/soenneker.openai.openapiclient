@@ -28,6 +28,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Images
             get => new global::Soenneker.OpenAI.OpenApiClient.Images.Generations.GenerationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The variations property</summary>
+        [Obsolete("")]
         public global::Soenneker.OpenAI.OpenApiClient.Images.Variations.VariationsRequestBuilder Variations
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Images.Variations.VariationsRequestBuilder(PathParameters, RequestAdapter);

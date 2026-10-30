@@ -11,61 +11,90 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BetaCompactResponseMethodPublicBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("input") is { } nullNodeInput && nullNodeInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Input = null;
+            if (parseNode.GetChildNode("instructions") is { } nullNodeInstructions && nullNodeInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Instructions = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("previous_response_id") is { } nullNodePreviousResponseId && nullNodePreviousResponseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousResponseId = null;
+            if (parseNode.GetChildNode("prompt_cache_key") is { } nullNodePromptCacheKey && nullNodePromptCacheKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptCacheKey = null;
+            if (parseNode.GetChildNode("prompt_cache_options") is { } nullNodePromptCacheOptions && nullNodePromptCacheOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptCacheOptions = null;
+            if (parseNode.GetChildNode("prompt_cache_retention") is { } nullNodePromptCacheRetention && nullNodePromptCacheRetention.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromptCacheRetention = null;
+            if (parseNode.GetChildNode("service_tier") is { } nullNodeServiceTier && nullNodeServiceTier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceTier = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The input property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Input { get; set; }
+        public UntypedNode? Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private UntypedNode? _explicitNullValueInput = default!;
 #nullable restore
 #else
-        public UntypedNode Input { get; set; }
+        public UntypedNode Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private UntypedNode _explicitNullValueInput = default!;
 #endif
         /// <summary>A system (or developer) message inserted into the model&apos;s context.When used along with `previous_response_id`, the instructions from a previous response will not be carried over to the next response. This makes it simple to swap out system (or developer) messages in new responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Instructions { get; set; }
+        public string? Instructions { get => _explicitNullValueInstructions; set { _explicitNullValueInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instructions"); else _explicitNullProperties?.Remove("instructions"); } }
+        private string? _explicitNullValueInstructions = default!;
 #nullable restore
 #else
-        public string Instructions { get; set; }
+        public string Instructions { get => _explicitNullValueInstructions; set { _explicitNullValueInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instructions"); else _explicitNullProperties?.Remove("instructions"); } }
+        private string _explicitNullValueInstructions = default!;
 #endif
         /// <summary>Model ID used to generate the response, like `gpt-6-astra`. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models) to browse and compare available models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction? Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction Model { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction _explicitNullValueModel = default!;
 #endif
         /// <summary>The unique ID of the previous response to the model. Use this to create multi-turn conversations. Learn more about [conversation state](https://developers.openai.com/api/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PreviousResponseId { get; set; }
+        public string? PreviousResponseId { get => _explicitNullValuePreviousResponseId; set { _explicitNullValuePreviousResponseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_response_id"); else _explicitNullProperties?.Remove("previous_response_id"); } }
+        private string? _explicitNullValuePreviousResponseId = default!;
 #nullable restore
 #else
-        public string PreviousResponseId { get; set; }
+        public string PreviousResponseId { get => _explicitNullValuePreviousResponseId; set { _explicitNullValuePreviousResponseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_response_id"); else _explicitNullProperties?.Remove("previous_response_id"); } }
+        private string _explicitNullValuePreviousResponseId = default!;
 #endif
         /// <summary>A key to use when reading from or writing to the prompt cache.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PromptCacheKey { get; set; }
+        public string? PromptCacheKey { get => _explicitNullValuePromptCacheKey; set { _explicitNullValuePromptCacheKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_key"); else _explicitNullProperties?.Remove("prompt_cache_key"); } }
+        private string? _explicitNullValuePromptCacheKey = default!;
 #nullable restore
 #else
-        public string PromptCacheKey { get; set; }
+        public string PromptCacheKey { get => _explicitNullValuePromptCacheKey; set { _explicitNullValuePromptCacheKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_key"); else _explicitNullProperties?.Remove("prompt_cache_key"); } }
+        private string _explicitNullValuePromptCacheKey = default!;
 #endif
         /// <summary>The prompt_cache_options property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam? PromptCacheOptions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam? PromptCacheOptions { get => _explicitNullValuePromptCacheOptions; set { _explicitNullValuePromptCacheOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_options"); else _explicitNullProperties?.Remove("prompt_cache_options"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam? _explicitNullValuePromptCacheOptions = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam PromptCacheOptions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam PromptCacheOptions { get => _explicitNullValuePromptCacheOptions; set { _explicitNullValuePromptCacheOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_options"); else _explicitNullProperties?.Remove("prompt_cache_options"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam _explicitNullValuePromptCacheOptions = default!;
 #endif
         /// <summary>The prompt_cache_retention property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnum? PromptCacheRetention { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnum? PromptCacheRetention { get => _explicitNullValuePromptCacheRetention; set { _explicitNullValuePromptCacheRetention = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_retention"); else _explicitNullProperties?.Remove("prompt_cache_retention"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnum? _explicitNullValuePromptCacheRetention = default!;
         /// <summary>The service_tier property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierEnum? ServiceTier { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierEnum? ServiceTier { get => _explicitNullValueServiceTier; set { _explicitNullValueServiceTier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_tier"); else _explicitNullProperties?.Remove("service_tier"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierEnum? _explicitNullValueServiceTier = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBody"/> and sets the default values.
         /// </summary>
@@ -81,7 +110,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBody();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBody(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -116,6 +145,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam>("prompt_cache_options", PromptCacheOptions);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnum>("prompt_cache_retention", PromptCacheRetention);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierEnum>("service_tier", ServiceTier);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

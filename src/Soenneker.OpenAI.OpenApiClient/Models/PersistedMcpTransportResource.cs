@@ -12,7 +12,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PersistedMcpTransportResource : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResourceHttp"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,17 +42,24 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResource();
-            if("http".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("PersistedMcpTransportResourceHttp".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PersistedMcpTransportResourceHttp = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResourceHttp();
+                
             }
-            else if("stdio".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("PersistedMcpTransportResourceStdio".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PersistedMcpTransportResourceStdio = new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResourceStdio();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("http".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("server_url") != null && parseNode.GetChildNode("headers") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("stdio".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("command") != null && parseNode.GetChildNode("args") != null && parseNode.GetChildNode("cwd") != null && parseNode.GetChildNode("env_vars") != null))();
+            if (result.PersistedMcpTransportResourceHttp == null && result.PersistedMcpTransportResourceStdio == null && matchesUnionBranch0 && !matchesUnionBranch1) result.PersistedMcpTransportResourceHttp = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResourceHttp(), parseNode);
+            if (result.PersistedMcpTransportResourceHttp == null && result.PersistedMcpTransportResourceStdio == null && matchesUnionBranch1 && !matchesUnionBranch0) result.PersistedMcpTransportResourceStdio = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResourceStdio(), parseNode);
+            if (result.PersistedMcpTransportResourceHttp == null && result.PersistedMcpTransportResourceStdio == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,13 +83,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (PersistedMcpTransportResourceHttp == null && PersistedMcpTransportResourceStdio == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (PersistedMcpTransportResourceHttp != null && PersistedMcpTransportResourceStdio == null) { if (PersistedMcpTransportResourceHttp is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PersistedMcpTransportResourceHttp); return; }
+            if (PersistedMcpTransportResourceStdio != null && PersistedMcpTransportResourceHttp == null) { if (PersistedMcpTransportResourceStdio is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PersistedMcpTransportResourceStdio); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(PersistedMcpTransportResourceHttp != null)
             {
+                if (PersistedMcpTransportResourceHttp is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResourceHttp>(null, PersistedMcpTransportResourceHttp);
             }
             else if(PersistedMcpTransportResourceStdio != null)
             {
+                if (PersistedMcpTransportResourceStdio is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedMcpTransportResourceStdio>(null, PersistedMcpTransportResourceStdio);
             }
         }

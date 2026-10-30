@@ -11,17 +11,32 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PromptCacheMissDiagnosticsBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cache_missed_tokens") is { } nullNodeCacheMissedTokens && nullNodeCacheMissedTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheMissedTokens = null;
+            if (parseNode.GetChildNode("comparison_reusable_tokens") is { } nullNodeComparisonReusableTokens && nullNodeComparisonReusableTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComparisonReusableTokens = null;
+            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The estimated number of input tokens affected after the first detected divergence.</summary>
-        public int? CacheMissedTokens { get; set; }
+        public int? CacheMissedTokens { get => _explicitNullValueCacheMissedTokens; set { _explicitNullValueCacheMissedTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_missed_tokens"); else _explicitNullProperties?.Remove("cache_missed_tokens"); } }
+        private int? _explicitNullValueCacheMissedTokens = default!;
         /// <summary>The raw token count of the reusable prefix in the compared response.</summary>
-        public int? ComparisonReusableTokens { get; set; }
+        public int? ComparisonReusableTokens { get => _explicitNullValueComparisonReusableTokens; set { _explicitNullValueComparisonReusableTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comparison_reusable_tokens"); else _explicitNullProperties?.Remove("comparison_reusable_tokens"); } }
+        private int? _explicitNullValueComparisonReusableTokens = default!;
         /// <summary>The reason prompt cache reuse did not occur.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CacheMissReasonTypeEnum? Reason { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CacheMissReasonTypeEnum? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CacheMissReasonTypeEnum? _explicitNullValueReason = default!;
         /// <summary>The type property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CacheMissType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CacheMissType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CacheMissType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheMissDiagnosticsBody"/> and sets the default values.
         /// </summary>
@@ -37,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheMissDiagnosticsBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheMissDiagnosticsBody();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheMissDiagnosticsBody(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +79,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("comparison_reusable_tokens", ComparisonReusableTokens);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CacheMissReasonTypeEnum>("reason", Reason);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CacheMissType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

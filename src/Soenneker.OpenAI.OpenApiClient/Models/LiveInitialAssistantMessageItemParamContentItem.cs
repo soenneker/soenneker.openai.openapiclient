@@ -8,11 +8,24 @@ using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialOutputTextContentPartParam"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialTextContentPartParam"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItemOneOf1"/>, <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialOutputTextContentPartParam"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LiveInitialAssistantMessageItemParamContentItem : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItemOneOf1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItemOneOf1? LiveInitialAssistantMessageItemParamContentItemOneOf1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItemOneOf1 LiveInitialAssistantMessageItemParamContentItemOneOf1 { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialOutputTextContentPartParam"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,14 +33,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialOutputTextContentPartParam LiveInitialOutputTextContentPartParam { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialTextContentPartParam"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialTextContentPartParam? LiveInitialTextContentPartParam { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialTextContentPartParam LiveInitialTextContentPartParam { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,17 +42,24 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItem();
-            if("LiveInitialOutputTextContentPartParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("LiveInitialAssistantMessageItemParamContentItemOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.LiveInitialOutputTextContentPartParam = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialOutputTextContentPartParam();
+                
             }
-            else if("LiveInitialTextContentPartParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("LiveInitialOutputTextContentPartParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.LiveInitialTextContentPartParam = new global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialTextContentPartParam();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("text") != null && parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("text".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("output_text".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("text") != null))();
+            if (result.LiveInitialAssistantMessageItemParamContentItemOneOf1 == null && result.LiveInitialOutputTextContentPartParam == null && matchesUnionBranch0 && !matchesUnionBranch1) result.LiveInitialAssistantMessageItemParamContentItemOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItemOneOf1(), parseNode);
+            if (result.LiveInitialAssistantMessageItemParamContentItemOneOf1 == null && result.LiveInitialOutputTextContentPartParam == null && matchesUnionBranch1 && !matchesUnionBranch0) result.LiveInitialOutputTextContentPartParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialOutputTextContentPartParam(), parseNode);
+            if (result.LiveInitialAssistantMessageItemParamContentItemOneOf1 == null && result.LiveInitialOutputTextContentPartParam == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,13 +67,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(LiveInitialOutputTextContentPartParam != null)
+            if(LiveInitialAssistantMessageItemParamContentItemOneOf1 != null)
+            {
+                return LiveInitialAssistantMessageItemParamContentItemOneOf1.GetFieldDeserializers();
+            }
+            else if(LiveInitialOutputTextContentPartParam != null)
             {
                 return LiveInitialOutputTextContentPartParam.GetFieldDeserializers();
-            }
-            else if(LiveInitialTextContentPartParam != null)
-            {
-                return LiveInitialTextContentPartParam.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -71,14 +83,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (LiveInitialAssistantMessageItemParamContentItemOneOf1 == null && LiveInitialOutputTextContentPartParam == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (LiveInitialAssistantMessageItemParamContentItemOneOf1 != null && LiveInitialOutputTextContentPartParam == null) { if (LiveInitialAssistantMessageItemParamContentItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, LiveInitialAssistantMessageItemParamContentItemOneOf1); return; }
+            if (LiveInitialOutputTextContentPartParam != null && LiveInitialAssistantMessageItemParamContentItemOneOf1 == null) { if (LiveInitialOutputTextContentPartParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, LiveInitialOutputTextContentPartParam); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(LiveInitialOutputTextContentPartParam != null)
+            if(LiveInitialAssistantMessageItemParamContentItemOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialOutputTextContentPartParam>(null, LiveInitialOutputTextContentPartParam);
+                if (LiveInitialAssistantMessageItemParamContentItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItemOneOf1>(null, LiveInitialAssistantMessageItemParamContentItemOneOf1);
             }
-            else if(LiveInitialTextContentPartParam != null)
+            else if(LiveInitialOutputTextContentPartParam != null)
             {
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialTextContentPartParam>(null, LiveInitialTextContentPartParam);
+                if (LiveInitialOutputTextContentPartParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialOutputTextContentPartParam>(null, LiveInitialOutputTextContentPartParam);
             }
         }
     }

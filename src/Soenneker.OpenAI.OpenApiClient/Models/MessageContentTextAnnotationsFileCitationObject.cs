@@ -12,31 +12,50 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessageContentTextAnnotationsFileCitationObject : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("end_index") is { } nullNodeEndIndex && nullNodeEndIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndIndex = null;
+            if (parseNode.GetChildNode("file_citation") is { } nullNodeFileCitation && nullNodeFileCitation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileCitation = null;
+            if (parseNode.GetChildNode("start_index") is { } nullNodeStartIndex && nullNodeStartIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartIndex = null;
+            if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The end_index property</summary>
-        public int? EndIndex { get; set; }
+        public int? EndIndex { get => _explicitNullValueEndIndex; set { _explicitNullValueEndIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_index"); else _explicitNullProperties?.Remove("end_index"); } }
+        private int? _explicitNullValueEndIndex = default!;
         /// <summary>The file_citation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectFileCitation? FileCitation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectFileCitation? FileCitation { get => _explicitNullValueFileCitation; set { _explicitNullValueFileCitation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_citation"); else _explicitNullProperties?.Remove("file_citation"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectFileCitation? _explicitNullValueFileCitation = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectFileCitation FileCitation { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectFileCitation FileCitation { get => _explicitNullValueFileCitation; set { _explicitNullValueFileCitation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_citation"); else _explicitNullProperties?.Remove("file_citation"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObjectFileCitation _explicitNullValueFileCitation = default!;
 #endif
         /// <summary>The start_index property</summary>
-        public int? StartIndex { get; set; }
+        public int? StartIndex { get => _explicitNullValueStartIndex; set { _explicitNullValueStartIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_index"); else _explicitNullProperties?.Remove("start_index"); } }
+        private int? _explicitNullValueStartIndex = default!;
         /// <summary>The text in the message content that needs to be replaced.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Text { get; set; }
+        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string? _explicitNullValueText = default!;
 #nullable restore
 #else
-        public string Text { get; set; }
+        public string Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string _explicitNullValueText = default!;
 #endif
         /// <summary>Always `file_citation`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FileCitationType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FileCitationType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FileCitationType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject"/> and sets the default values.
         /// </summary>
@@ -52,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentTextAnnotationsFileCitationObject(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,6 +100,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("start_index", StartIndex);
             writer.WriteStringValue("text", Text);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FileCitationType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

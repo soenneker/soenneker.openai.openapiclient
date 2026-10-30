@@ -12,33 +12,51 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VaultCredentialAuthResourceMcpOAuth : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("expires_at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("mcp_server_url") is { } nullNodeMcpServerUrl && nullNodeMcpServerUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpServerUrl = null;
+            if (parseNode.GetChildNode("refresh") is { } nullNodeRefresh && nullNodeRefresh.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Refresh = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>When the OAuth access token expires, as an RFC 3339 timestamp, if known.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExpiresAt { get; set; }
+        public string? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private string? _explicitNullValueExpiresAt = default!;
 #nullable restore
 #else
-        public string ExpiresAt { get; set; }
+        public string ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private string _explicitNullValueExpiresAt = default!;
 #endif
         /// <summary>The HTTPS MCP server URL authorized by this credential.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? McpServerUrl { get; set; }
+        public string? McpServerUrl { get => _explicitNullValueMcpServerUrl; set { _explicitNullValueMcpServerUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_url"); else _explicitNullProperties?.Remove("mcp_server_url"); } }
+        private string? _explicitNullValueMcpServerUrl = default!;
 #nullable restore
 #else
-        public string McpServerUrl { get; set; }
+        public string McpServerUrl { get => _explicitNullValueMcpServerUrl; set { _explicitNullValueMcpServerUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_url"); else _explicitNullProperties?.Remove("mcp_server_url"); } }
+        private string _explicitNullValueMcpServerUrl = default!;
 #endif
         /// <summary>Public refresh metadata without refresh tokens or OAuth client secrets.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpOAuthRefreshResource? Refresh { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpOAuthRefreshResource? Refresh { get => _explicitNullValueRefresh; set { _explicitNullValueRefresh = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh"); else _explicitNullProperties?.Remove("refresh"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.McpOAuthRefreshResource? _explicitNullValueRefresh = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpOAuthRefreshResource Refresh { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpOAuthRefreshResource Refresh { get => _explicitNullValueRefresh; set { _explicitNullValueRefresh = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh"); else _explicitNullProperties?.Remove("refresh"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.McpOAuthRefreshResource _explicitNullValueRefresh = default!;
 #endif
         /// <summary>The type of the object. Always `mcp_oauth`.</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.McpOAuthType? Type { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.McpOAuthType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.McpOAuthType? _explicitNullValueType = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -47,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialAuthResourceMcpOAuth CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialAuthResourceMcpOAuth();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialAuthResourceMcpOAuth(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,7 +91,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("expires_at", ExpiresAt);
             writer.WriteStringValue("mcp_server_url", McpServerUrl);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpOAuthRefreshResource>("refresh", Refresh);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpOAuthType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.McpOAuthType>("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

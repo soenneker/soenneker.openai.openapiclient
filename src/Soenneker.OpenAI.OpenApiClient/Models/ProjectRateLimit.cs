@@ -12,39 +12,66 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProjectRateLimit : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("batch_1_day_max_input_tokens") is { } nullNodeBatch1DayMaxInputTokens && nullNodeBatch1DayMaxInputTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Batch1DayMaxInputTokens = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("max_audio_megabytes_per_1_minute") is { } nullNodeMaxAudioMegabytesPer1Minute && nullNodeMaxAudioMegabytesPer1Minute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAudioMegabytesPer1Minute = null;
+            if (parseNode.GetChildNode("max_images_per_1_minute") is { } nullNodeMaxImagesPer1Minute && nullNodeMaxImagesPer1Minute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxImagesPer1Minute = null;
+            if (parseNode.GetChildNode("max_requests_per_1_day") is { } nullNodeMaxRequestsPer1Day && nullNodeMaxRequestsPer1Day.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxRequestsPer1Day = null;
+            if (parseNode.GetChildNode("max_requests_per_1_minute") is { } nullNodeMaxRequestsPer1Minute && nullNodeMaxRequestsPer1Minute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxRequestsPer1Minute = null;
+            if (parseNode.GetChildNode("max_tokens_per_1_minute") is { } nullNodeMaxTokensPer1Minute && nullNodeMaxTokensPer1Minute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxTokensPer1Minute = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("object") is { } nullNodeObject && nullNodeObject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Object = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum batch input tokens per day. Only present for relevant models.</summary>
-        public int? Batch1DayMaxInputTokens { get; set; }
+        public int? Batch1DayMaxInputTokens { get => _explicitNullValueBatch1DayMaxInputTokens; set { _explicitNullValueBatch1DayMaxInputTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("batch_1_day_max_input_tokens"); else _explicitNullProperties?.Remove("batch_1_day_max_input_tokens"); } }
+        private int? _explicitNullValueBatch1DayMaxInputTokens = default!;
         /// <summary>The identifier, which can be referenced in API endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>The maximum audio megabytes per minute. Only present for relevant models.</summary>
-        public int? MaxAudioMegabytesPer1Minute { get; set; }
+        public int? MaxAudioMegabytesPer1Minute { get => _explicitNullValueMaxAudioMegabytesPer1Minute; set { _explicitNullValueMaxAudioMegabytesPer1Minute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_audio_megabytes_per_1_minute"); else _explicitNullProperties?.Remove("max_audio_megabytes_per_1_minute"); } }
+        private int? _explicitNullValueMaxAudioMegabytesPer1Minute = default!;
         /// <summary>The maximum images per minute. Only present for relevant models.</summary>
-        public int? MaxImagesPer1Minute { get; set; }
+        public int? MaxImagesPer1Minute { get => _explicitNullValueMaxImagesPer1Minute; set { _explicitNullValueMaxImagesPer1Minute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_images_per_1_minute"); else _explicitNullProperties?.Remove("max_images_per_1_minute"); } }
+        private int? _explicitNullValueMaxImagesPer1Minute = default!;
         /// <summary>The maximum requests per day. Only present for relevant models.</summary>
-        public int? MaxRequestsPer1Day { get; set; }
+        public int? MaxRequestsPer1Day { get => _explicitNullValueMaxRequestsPer1Day; set { _explicitNullValueMaxRequestsPer1Day = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_requests_per_1_day"); else _explicitNullProperties?.Remove("max_requests_per_1_day"); } }
+        private int? _explicitNullValueMaxRequestsPer1Day = default!;
         /// <summary>The maximum requests per minute.</summary>
-        public int? MaxRequestsPer1Minute { get; set; }
+        public int? MaxRequestsPer1Minute { get => _explicitNullValueMaxRequestsPer1Minute; set { _explicitNullValueMaxRequestsPer1Minute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_requests_per_1_minute"); else _explicitNullProperties?.Remove("max_requests_per_1_minute"); } }
+        private int? _explicitNullValueMaxRequestsPer1Minute = default!;
         /// <summary>The maximum tokens per minute.</summary>
-        public int? MaxTokensPer1Minute { get; set; }
+        public int? MaxTokensPer1Minute { get => _explicitNullValueMaxTokensPer1Minute; set { _explicitNullValueMaxTokensPer1Minute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_tokens_per_1_minute"); else _explicitNullProperties?.Remove("max_tokens_per_1_minute"); } }
+        private int? _explicitNullValueMaxTokensPer1Minute = default!;
         /// <summary>The model this rate limit applies to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get; set; }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get; set; }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string _explicitNullValueModel = default!;
 #endif
         /// <summary>The object type, which is always `project.rate_limit`</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimitObject? Object { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimitObject? Object { get => _explicitNullValueObject; set { _explicitNullValueObject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object"); else _explicitNullProperties?.Remove("object"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimitObject? _explicitNullValueObject = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimit"/> and sets the default values.
         /// </summary>
@@ -60,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimit();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimit(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -97,6 +124,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("max_tokens_per_1_minute", MaxTokensPer1Minute);
             writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectRateLimitObject>("object", Object);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,34 +12,52 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LiveDecisionsDelegationParam : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("acknowledgement_delay_ms") is { } nullNodeAcknowledgementDelayMs && nullNodeAcknowledgementDelayMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcknowledgementDelayMs = null;
+            if (parseNode.GetChildNode("decisions") is { } nullNodeDecisions && nullNodeDecisions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Decisions = null;
+            if (parseNode.GetChildNode("responses") is { } nullNodeResponses && nullNodeResponses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Responses = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Milliseconds to wait before requesting an automatic spoken acknowledgement for a delegation. The model may still speak before this delay. Any commentary or thinking appended to the session cancels all pending acknowledgements, including those for other delegations. Defaults to 400 for Decisions sessions and 0 (request immediately) for other sessions. Omission in a session update preserves the current value. Updates apply to subsequent delegations.</summary>
-        public int? AcknowledgementDelayMs { get; set; }
+        public int? AcknowledgementDelayMs { get => _explicitNullValueAcknowledgementDelayMs; set { _explicitNullValueAcknowledgementDelayMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acknowledgement_delay_ms"); else _explicitNullProperties?.Remove("acknowledgement_delay_ms"); } }
+        private int? _explicitNullValueAcknowledgementDelayMs = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The decisions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsSettingsInputParam? Decisions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsSettingsInputParam? Decisions { get => _explicitNullValueDecisions; set { _explicitNullValueDecisions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("decisions"); else _explicitNullProperties?.Remove("decisions"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsSettingsInputParam? _explicitNullValueDecisions = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsSettingsInputParam Decisions { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsSettingsInputParam Decisions { get => _explicitNullValueDecisions; set { _explicitNullValueDecisions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("decisions"); else _explicitNullProperties?.Remove("decisions"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsSettingsInputParam _explicitNullValueDecisions = default!;
 #endif
         /// <summary>Backend model, prompt, and tools used when the Live session delegates a task to Responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParam? Responses { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParam? Responses { get => _explicitNullValueResponses; set { _explicitNullValueResponses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responses"); else _explicitNullProperties?.Remove("responses"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParam? _explicitNullValueResponses = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParam Responses { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParam Responses { get => _explicitNullValueResponses; set { _explicitNullValueResponses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responses"); else _explicitNullProperties?.Remove("responses"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParam _explicitNullValueResponses = default!;
 #endif
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string? _explicitNullValueType = default!;
 #nullable restore
 #else
-        public string Type { get; set; }
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string _explicitNullValueType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam"/> and sets the default values.
@@ -56,7 +74,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsDelegationParam(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,6 +101,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDecisionsSettingsInputParam>("decisions", Decisions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParam>("responses", Responses);
             writer.WriteStringValue("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

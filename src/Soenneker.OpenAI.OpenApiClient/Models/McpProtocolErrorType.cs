@@ -3,13 +3,14 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The type of the event. Always `transcript.text.segment`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum TranscriptTextSegmentType
+    #pragma warning disable CS1591
+    public enum McpProtocolErrorType
+    #pragma warning restore CS1591
     {
-        [EnumMember(Value = "transcript.text.segment")]
+        [EnumMember(Value = "mcp_protocol_error")]
         #pragma warning disable CS1591
-        TranscriptTextSegment,
+        McpProtocolError,
         #pragma warning restore CS1591
     }
 }
