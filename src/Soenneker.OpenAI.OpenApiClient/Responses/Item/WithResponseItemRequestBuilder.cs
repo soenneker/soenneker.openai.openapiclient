@@ -87,18 +87,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses.Item
         /// <summary>
         /// Retrieves a model response with the given ID.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Responses.Item.WithResponseItemRequestBuilder.WithResponseItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Responses.Item.WithResponseItemRequestBuilder.WithResponseItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Responses.Item.WithResponseItemRequestBuilder.WithResponseItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Responses.Item.WithResponseItemRequestBuilder.WithResponseItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -109,7 +109,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Responses.Item
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValue.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a model response with the given ID.

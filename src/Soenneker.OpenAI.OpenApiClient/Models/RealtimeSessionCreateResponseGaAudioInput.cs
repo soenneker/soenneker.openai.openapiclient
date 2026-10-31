@@ -62,12 +62,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The turn_detection property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad? TurnDetection { get => _explicitNullValueTurnDetection; set { _explicitNullValueTurnDetection = value; AdditionalData?.Remove("turn_detection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("turn_detection"); else _explicitNullProperties?.Remove("turn_detection"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad? _explicitNullValueTurnDetection = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionAnyOf1? TurnDetection { get => _explicitNullValueTurnDetection; set { _explicitNullValueTurnDetection = value; AdditionalData?.Remove("turn_detection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("turn_detection"); else _explicitNullProperties?.Remove("turn_detection"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionAnyOf1? _explicitNullValueTurnDetection = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad TurnDetection { get => _explicitNullValueTurnDetection; set { _explicitNullValueTurnDetection = value; AdditionalData?.Remove("turn_detection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("turn_detection"); else _explicitNullProperties?.Remove("turn_detection"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad _explicitNullValueTurnDetection = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionAnyOf1 TurnDetection { get => _explicitNullValueTurnDetection; set { _explicitNullValueTurnDetection = value; AdditionalData?.Remove("turn_detection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("turn_detection"); else _explicitNullProperties?.Remove("turn_detection"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionAnyOf1 _explicitNullValueTurnDetection = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaAudioInput"/> and sets the default values.
@@ -97,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats.CreateFromDiscriminatorValue); } },
                 { "noise_reduction", n => { NoiseReduction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaAudioInputNoiseReduction>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaAudioInputNoiseReduction.CreateFromDiscriminatorValue); } },
                 { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse.CreateFromDiscriminatorValue); } },
-                { "turn_detection", n => { TurnDetection = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad.CreateFromDiscriminatorValue); } },
+                { "turn_detection", n => { TurnDetection = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionAnyOf1>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionAnyOf1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -110,7 +110,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats>("format", Format);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeSessionCreateResponseGaAudioInputNoiseReduction>("noise_reduction", NoiseReduction);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse>("transcription", Transcription);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad>("turn_detection", TurnDetection);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionAnyOf1>("turn_detection", TurnDetection);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

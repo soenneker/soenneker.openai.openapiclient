@@ -60,6 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "type", n => { Type = n.GetStringValue(); } },
                 { "response_event", n => { ResponseEvent = n.GetStringValue(); } },
+
             };
         }
         /// <summary>

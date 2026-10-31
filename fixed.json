@@ -508,28 +508,18 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateTranscription200Response"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateTranscription200PlainResponseSchema"
                 }
               },
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateTranscriptionResponseStreamEvent"
                 }
               }
@@ -697,19 +687,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateTranslation200Response"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateTranslation200PlainResponseSchema"
                 }
               }
@@ -1707,19 +1691,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateChatCompletionResponse"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/CreateChatCompletionStreamResponse"
                 }
               }
@@ -2192,7 +2170,9 @@
                 "schema": {
                   "$ref": "#/components/schemas/CreateCompletionResponse"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
                   "$ref": "#/components/schemas/CreateCompletionResponse"
@@ -3446,6 +3426,17 @@
           "429": {
             "description": "The request was rejected because a rate limit was exceeded.",
             "$ref": "#/components/responses/TooManyRequests"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Eval"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oaiMeta": {
@@ -3838,6 +3829,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successfully created a run for the evaluation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvalRun"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oaiMeta": {
@@ -5781,19 +5783,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ImagesResponse"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ImageEditStreamEvent"
                 }
               }
@@ -5896,19 +5892,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ImagesResponse"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ImageGenStreamEvent"
                 }
               }
@@ -6242,6 +6232,42 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Returns 201 Created with a WebRTC answer or an initialized outbound SIP session. A SIP response does not mean the callee has answered.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiveSessionCreateResponse"
+                },
+                "examples": {
+                  "webrtc": {
+                    "summary": "WebRTC session created (201 Created)",
+                    "value": {
+                      "session": {
+                        "id": "live_123"
+                      },
+                      "transport": {
+                        "type": "webrtc",
+                        "sdp": "\u003CSDP answer\u003E"
+                      }
+                    }
+                  },
+                  "sip": {
+                    "summary": "Outbound SIP session initialized (201 Created)",
+                    "value": {
+                      "session": {
+                        "id": "live_123"
+                      },
+                      "transport": {
+                        "type": "sip"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oaiMeta": {
@@ -6465,6 +6491,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Forked Live session created with a WebRTC answer.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiveCreateResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oaiMeta": {
@@ -18187,6 +18224,25 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Realtime call created successfully.",
+            "headers": {
+              "Location": {
+                "description": "Relative URL containing the call ID for subsequent control requests.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/sdp": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateRealtimeCall201SdpResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oaiMeta": {
@@ -18715,19 +18771,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ResponseValue"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ResponseStreamEvent"
                 }
               }
@@ -18910,19 +18960,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ResponseValue"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ResponseStreamEvent"
                 }
               }
@@ -19249,19 +19293,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/RunObject"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/AssistantStreamEvent"
                 }
               }
@@ -19913,19 +19951,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/RunObject"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/AssistantStreamEvent"
                 }
               }
@@ -20377,19 +20409,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/RunObject"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/AssistantStreamEvent"
                 }
               }
@@ -24836,32 +24862,22 @@
           "200": {
             "description": "The video bytes or preview asset that matches the requested variant.",
             "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveVideoContent200ResponseSchema"
+                }
+              }
+            },
+            "x-client-original-non-json-content": {
               "video/mp4": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "example": "\u003Cbinary MP4 video content\u003E",
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/RetrieveVideoContent200Mp4ResponseSchema"
-                }
+                },
+                "example": "\u003Cbinary MP4 video content\u003E"
               },
               "image/webp": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/RetrieveVideoContent200WebpResponseSchema"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
-                  "$ref": "#/components/schemas/RetrieveVideoContent200ResponseSchema"
                 }
               }
             }
@@ -25440,22 +25456,16 @@
           "200": {
             "description": "The skill zip bundle.",
             "content": {
-              "application/zip": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
-                  "$ref": "#/components/schemas/GetSkillContent200ZipResponseSchema"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/GetSkillContent200ResponseSchema"
+                }
+              }
+            },
+            "x-client-original-non-json-content": {
+              "application/zip": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSkillContent200ZipResponseSchema"
                 }
               }
             }
@@ -25810,22 +25820,16 @@
           "200": {
             "description": "The skill zip bundle.",
             "content": {
-              "application/zip": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
-                  "$ref": "#/components/schemas/GetSkillVersionContent200ZipResponseSchema"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/GetSkillVersionContent200ResponseSchema"
+                }
+              }
+            },
+            "x-client-original-non-json-content": {
+              "application/zip": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSkillVersionContent200ZipResponseSchema"
                 }
               }
             }
@@ -26565,6 +26569,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "The created automation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AutomationResource"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -27851,6 +27866,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "The created OpenAI-hosted environment.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicEnvironmentResource"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -28228,6 +28254,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "The written live environment file.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvironmentFileResource"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -29285,6 +29322,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "The created agent.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentResource"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -29822,6 +29870,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "The created environment template.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvironmentTemplateResource"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -30315,19 +30374,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/SessionResource"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/SessionEvent"
                 }
               }
@@ -30412,6 +30465,24 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "The created session or its event stream.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionResource"
+                }
+              }
+            },
+            "x-client-original-non-json-content": {
+              "text/event-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionEvent"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oai-streaming": {
@@ -32384,6 +32455,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "The created vault.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaultResource"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -32984,6 +33066,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "The created vault credential without secret values.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaultCredentialResource"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -33829,19 +33922,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/BetaResponse"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/BetaResponseStreamEvent"
                 }
               }
@@ -34036,19 +34123,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/BetaResponse"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "text/event-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/BetaResponseStreamEvent"
                 }
               }
@@ -41189,30 +41270,22 @@
         "description": "Creates a synthetic voice from a text description. Supports application/json or multipart/form-data."
       },
       "CreateVoiceRequest": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/CreateVoiceFromConsentRequest"
+            "$ref": "#/components/schemas/CreateVoiceRequestOneOf1"
           },
           {
             "$ref": "#/components/schemas/CreateVoicePromptRequest"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-oai-default-discriminator-value": "audio_sample",
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "audio_sample": "#/components/schemas/CreateVoiceFromConsentRequest",
             "prompt": "#/components/schemas/CreateVoicePromptRequest"
           }
-        },
-        "x-oai-default-discriminator-value": "audio_sample"
+        }
       },
       "CustomToolCall": {
         "title": "Custom tool call",
@@ -44666,21 +44739,18 @@
         }
       },
       "InputItem": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/EasyInputMessage"
+            "$ref": "#/components/schemas/InputItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/ItemValue"
+            "$ref": "#/components/schemas/InputItemOneOf2"
           },
           {
             "$ref": "#/components/schemas/CompactionTriggerItemParam"
           },
           {
-            "$ref": "#/components/schemas/ItemReferenceParam"
+            "$ref": "#/components/schemas/InputItemOneOf4"
           },
           {
             "$ref": "#/components/schemas/ProgramItemParam"
@@ -44689,12 +44759,7 @@
             "$ref": "#/components/schemas/ProgramOutputItemParam"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "EasyInputMessage": "#/components/schemas/EasyInputMessage",
@@ -56013,27 +56078,7 @@
       "RealtimeTurnDetection": {
         "anyOf": [
           {
-            "title": "Realtime Turn Detection",
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/RealtimeTurnDetectionRealtimeTurnDetectionServerVad"
-              },
-              {
-                "$ref": "#/components/schemas/RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "description": "Configuration for turn detection, ether Server VAD or Semantic VAD. This can be set to \u0060null\u0060 to turn off, in which case the client must manually trigger model response.\n\nServer VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech.\n\nSemantic VAD is more advanced and uses a turn detection model (in conjunction with VAD) to semantically estimate whether the user has finished speaking, then dynamically sets a timeout based on this probability. For example, if user audio trails off with \u0022uhhm\u0022, the model will score a low probability of turn end and wait longer for the user to continue speaking. This can be useful for more natural conversations, but may have a higher latency.\n\nFor \u0060gpt-realtime-whisper\u0060 transcription sessions, turn detection must be\nset to \u0060null\u0060; VAD is not supported.\n",
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/RealtimeTurnDetectionAnyOf1"
           },
           {
             "type": "null"
@@ -71070,29 +71115,7 @@
       "Delegation": {
         "anyOf": [
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LiveClientDelegationParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveResponsesDelegationParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveDecisionsDelegationParam"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "description": "Who handles tasks delegated by the Live model. Omitted or null selects your application; use \u0060responses\u0060 or \u0060decisions\u0060 to delegate to the corresponding API.",
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/DelegationAnyOf1"
           },
           {
             "type": "null"
@@ -71466,7 +71489,7 @@
             "description": "Tools available to the Responses backend while it handles tasks delegated by the Live model."
           },
           "tool_choice": {
-            "$ref": "#/components/schemas/LiveResponsesDelegationSettingsInputParamToolChoice"
+            "$ref": "#/components/schemas/LiveResponsesDelegationSettingsUpdateInputParamToolChoice"
           },
           "parallel_tool_calls": {
             "type": [
@@ -74635,7 +74658,7 @@
             "description": "Model ID used to generate the response, like \u0060gpt-4o\u0060 or \u0060o3\u0060. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models) to browse and compare available models."
           },
           "input": {
-            "$ref": "#/components/schemas/CompactResponseMethodPublicBodyInput"
+            "$ref": "#/components/schemas/TokenCountsBodyInput"
           },
           "previous_response_id": {
             "type": [
@@ -88682,38 +88705,25 @@
         "additionalProperties": false
       },
       "ComputerUseApprovalResponseParamBrowserAuthentication": {
-        "required": [
-          "type",
-          "action"
-        ],
-        "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParam"
+            "$ref": "#/components/schemas/ComputerUseApprovalResponseParamBrowserAuthenticationOneOf1"
           },
           {
-            "$ref": "#/components/schemas/ComputerUseApprovalResponseParamBrowserAuthenticationCancelParam"
+            "$ref": "#/components/schemas/ComputerUseApprovalResponseParamBrowserAuthenticationOneOf2"
           }
         ],
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/BrowserAuthenticationType"
-          },
-          "action": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-oai-discriminator-values": [
+          "submit",
+          "cancel"
+        ],
+        "x-client-original-discriminator": {
           "propertyName": "action",
           "mapping": {
             "submit": "#/components/schemas/ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParam",
             "cancel": "#/components/schemas/ComputerUseApprovalResponseParamBrowserAuthenticationCancelParam"
           }
-        },
-        "x-oai-discriminator-values": [
-          "submit",
-          "cancel"
-        ]
+        }
       },
       "BrowserOriginAccessDecisionParam": {
         "enum": [
@@ -88765,9 +88775,6 @@
         "additionalProperties": false
       },
       "ComputerUseApprovalResponseParam": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ComputerUseApprovalResponseParamBrowserAuthentication"
@@ -88776,22 +88783,17 @@
             "$ref": "#/components/schemas/ComputerUseApprovalResponseParamBrowserOriginAccessParam"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-oai-discriminator-values": [
+          "browser_authentication",
+          "browser_origin_access"
+        ],
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "browser_authentication": "#/components/schemas/ComputerUseApprovalResponseParamBrowserAuthentication",
             "browser_origin_access": "#/components/schemas/ComputerUseApprovalResponseParamBrowserOriginAccessParam"
           }
-        },
-        "x-oai-discriminator-values": [
-          "browser_authentication",
-          "browser_origin_access"
-        ]
+        }
       },
       "SessionInputParamAgentSessionInputComputerUseApprovalRequestResult": {
         "required": [
@@ -90897,7 +90899,7 @@
             "$ref": "#/components/schemas/LiveInitialSessionAudioParam"
           },
           "delegation": {
-            "$ref": "#/components/schemas/Delegation"
+            "$ref": "#/components/schemas/LiveSessionCreateParamsDelegation"
           },
           "triggers": {
             "maxItems": 2,
@@ -91788,12 +91790,9 @@
         }
       },
       "LiveDecisionInputItemParam": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/LiveDecisionInputItemParamOneOf1"
+            "$ref": "#/components/schemas/LiveDecisionInputItemParamOneOf1Branch"
           },
           {
             "$ref": "#/components/schemas/LiveDecisionFunctionCallParam"
@@ -91808,12 +91807,8 @@
             "$ref": "#/components/schemas/LiveDecisionCustomToolCallOutputParam"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-oai-default-discriminator-value": "message",
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "LiveDecisionInputItemParamOneOf1": "#/components/schemas/LiveDecisionInputItemParamOneOf1",
@@ -91822,8 +91817,7 @@
             "LiveDecisionCustomToolCallParam": "#/components/schemas/LiveDecisionCustomToolCallParam",
             "LiveDecisionCustomToolCallOutputParam": "#/components/schemas/LiveDecisionCustomToolCallOutputParam"
           }
-        },
-        "x-oai-default-discriminator-value": "message"
+        }
       },
       "LiveDecisionItemCreateParam": {
         "required": [
@@ -92131,7 +92125,7 @@
             "$ref": "#/components/schemas/LiveInitialSessionAudioParam"
           },
           "delegation": {
-            "$ref": "#/components/schemas/Delegation"
+            "$ref": "#/components/schemas/LiveSessionResourceParamDelegation"
           },
           "triggers": {
             "maxItems": 2,
@@ -93230,12 +93224,9 @@
         }
       },
       "LiveDecisionStoredInputItemParam": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/LiveDecisionStoredInputItemParamOneOf1"
+            "$ref": "#/components/schemas/LiveDecisionStoredInputItemParamOneOf1Branch"
           },
           {
             "$ref": "#/components/schemas/LiveDecisionStoredFunctionCallParam"
@@ -93250,12 +93241,8 @@
             "$ref": "#/components/schemas/LiveDecisionStoredCustomToolCallOutputParam"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-oai-default-discriminator-value": "message",
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "LiveDecisionStoredInputItemParamOneOf1": "#/components/schemas/LiveDecisionStoredInputItemParamOneOf1",
@@ -93264,8 +93251,7 @@
             "LiveDecisionStoredCustomToolCallParam": "#/components/schemas/LiveDecisionStoredCustomToolCallParam",
             "LiveDecisionStoredCustomToolCallOutputParam": "#/components/schemas/LiveDecisionStoredCustomToolCallOutputParam"
           }
-        },
-        "x-oai-default-discriminator-value": "message"
+        }
       },
       "LiveDecisionItemCreated": {
         "required": [
@@ -94203,7 +94189,7 @@
             "description": "Model ID used to generate the response, like \u0060gpt-4o\u0060 or \u0060o3\u0060. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models) to browse and compare available models."
           },
           "input": {
-            "$ref": "#/components/schemas/BetaCompactResponseMethodPublicBodyInput"
+            "$ref": "#/components/schemas/BetaTokenCountsBodyInput"
           },
           "previous_response_id": {
             "type": [
@@ -96099,24 +96085,18 @@
         "x-openai-structured-output": "function"
       },
       "BetaInputItem": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/BetaEasyInputMessage"
+            "$ref": "#/components/schemas/BetaInputItemOneOf1"
           },
           {
-            "description": "An item representing part of the context for the response to be\ngenerated by the model. Can contain text, images, and audio inputs,\nas well as previous assistant responses and tool call outputs.\n",
-            "type": "object",
-            "title": "Item",
-            "$ref": "#/components/schemas/BetaItem"
+            "$ref": "#/components/schemas/BetaInputItemOneOf2"
           },
           {
             "$ref": "#/components/schemas/BetaCompactionTriggerItemParam"
           },
           {
-            "$ref": "#/components/schemas/BetaItemReferenceParam"
+            "$ref": "#/components/schemas/BetaInputItemOneOf4"
           },
           {
             "$ref": "#/components/schemas/BetaProgramItemParam"
@@ -96125,12 +96105,7 @@
             "$ref": "#/components/schemas/BetaProgramOutputItemParam"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "BetaEasyInputMessage": "#/components/schemas/BetaEasyInputMessage",
@@ -108009,23 +107984,7 @@
       "ChatCompletionRequestAssistantMessageContent": {
         "anyOf": [
           {
-            "oneOf": [
-              {
-                "title": "Text content",
-                "type": "string",
-                "description": "The contents of the assistant message."
-              },
-              {
-                "title": "Array of content parts",
-                "minItems": 1,
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ChatCompletionRequestAssistantMessageContentPart"
-                },
-                "description": "An array of content parts with a defined type. Can be one or more of type \u0060text\u0060, or exactly one of type \u0060refusal\u0060."
-              }
-            ],
-            "description": "The contents of the assistant message. Required unless \u0060tool_calls\u0060 or \u0060function_call\u0060 is specified.\n"
+            "$ref": "#/components/schemas/ChatCompletionRequestAssistantMessageContentAnyOf1"
           },
           {
             "type": "null"
@@ -109365,16 +109324,7 @@
       "CreateTranscriptionRequestChunkingStrategy": {
         "anyOf": [
           {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/CreateTranscriptionRequestChunkingStrategyAnyOf1AnyOf1"
-              },
-              {
-                "$ref": "#/components/schemas/VadConfig"
-              }
-            ],
-            "description": "Controls how the audio is cut into chunks. When set to \u0060\u0022auto\u0022\u0060, the server first normalizes loudness and then uses voice activity detection (VAD) to choose boundaries. \u0060server_vad\u0060 object can be provided to tweak VAD detection parameters manually. If unset, the audio is transcribed as a single block. Required when using \u0060gpt-4o-transcribe-diarize\u0060 for inputs longer than 30 seconds. ",
-            "x-oaiTypeLabel": "string"
+            "$ref": "#/components/schemas/CreateTranscriptionRequestChunkingStrategyAnyOf1"
           },
           {
             "type": "null"
@@ -109977,17 +109927,7 @@
       "FineTuningJobHyperparametersBatchSize": {
         "anyOf": [
           {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/FineTuningJobHyperparametersBatchSizeAnyOf1OneOf1"
-              },
-              {
-                "maximum": 256,
-                "minimum": 1,
-                "type": "integer"
-              }
-            ],
-            "description": "Number of examples in each batch. A larger batch size means that model parameters\nare updated less frequently, but with lower variance.\n"
+            "$ref": "#/components/schemas/FineTuningJobHyperparametersBatchSizeAnyOf1"
           },
           {
             "type": "null"
@@ -110250,20 +110190,7 @@
       "McpToolAllowedTools": {
         "anyOf": [
           {
-            "description": "List of allowed tool names or a filter object.\n",
-            "anyOf": [
-              {
-                "title": "MCP allowed tools",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "A string array of allowed tool names"
-              },
-              {
-                "$ref": "#/components/schemas/McpToolFilter"
-              }
-            ]
+            "$ref": "#/components/schemas/McpToolAllowedToolsAnyOf1"
           },
           {
             "type": "null"
@@ -110876,26 +110803,7 @@
       "RealtimeMcpToolCallError": {
         "anyOf": [
           {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/RealtimeMcpProtocolError"
-              },
-              {
-                "$ref": "#/components/schemas/RealtimeMcpToolExecutionError"
-              },
-              {
-                "$ref": "#/components/schemas/RealtimeMcphttpError"
-              }
-            ],
-            "description": "The error from the tool call, if any.",
-            "discriminator": {
-              "propertyName": "type",
-              "mapping": {
-                "protocol_error": "#/components/schemas/RealtimeMcpProtocolError",
-                "tool_execution_error": "#/components/schemas/RealtimeMcpToolExecutionError",
-                "http_error": "#/components/schemas/RealtimeMcphttpError"
-              }
-            }
+            "$ref": "#/components/schemas/RealtimeMcpToolCallErrorAnyOf1"
           },
           {
             "type": "null"
@@ -113471,28 +113379,7 @@
       "FunctionShellToolParamEnvironment": {
         "anyOf": [
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ContainerAutoParam"
-              },
-              {
-                "$ref": "#/components/schemas/LocalEnvironmentParam"
-              },
-              {
-                "$ref": "#/components/schemas/ContainerReferenceParam"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/FunctionShellToolParamEnvironmentAnyOf1"
           },
           {
             "type": "null"
@@ -113572,25 +113459,7 @@
       "FunctionShellCallEnvironment": {
         "anyOf": [
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LocalEnvironmentResource"
-              },
-              {
-                "$ref": "#/components/schemas/ContainerReferenceResource"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/FunctionShellCallEnvironmentAnyOf1"
           },
           {
             "type": "null"
@@ -113834,26 +113703,7 @@
       "FunctionShellCallItemParamEnvironment": {
         "anyOf": [
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LocalEnvironmentParam"
-              },
-              {
-                "$ref": "#/components/schemas/ContainerReferenceParam"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "description": "The environment to execute the shell commands in.",
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/FunctionShellCallItemParamEnvironmentAnyOf1"
           },
           {
             "type": "null"
@@ -113963,26 +113813,7 @@
       "LiveHostedShellContainerAutoParamNetworkPolicy": {
         "anyOf": [
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LiveContainerNetworkPolicyDisabledParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveHostedShellNetworkPolicyAllowlistParam"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "description": "Network access policy for the container.",
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/LiveHostedShellContainerAutoParamNetworkPolicyAnyOf1"
           },
           {
             "type": "null"
@@ -114009,28 +113840,7 @@
       "LiveHostedShellToolInputParamEnvironment": {
         "anyOf": [
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LiveHostedShellContainerAutoParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveContainerReferenceParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveLocalEnvironmentParam"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/LiveHostedShellToolInputParamEnvironmentAnyOf1"
           },
           {
             "type": "null"
@@ -114205,55 +114015,7 @@
             "$ref": "#/components/schemas/LiveToolChoiceEnum"
           },
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LiveFunctionToolChoiceParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveMcpToolChoiceParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificFileSearchParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificWebSearchParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificWebSearchPreviewParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificImageGenParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificComputerParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificCodeInterpreterParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificProgrammaticToolCallingParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificFunctionShellParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificCustomToolParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificApplyPatchParam"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/LiveResponsesDelegationSettingsInputParamToolChoiceOneOf2"
           },
           {
             "$ref": "#/components/schemas/LiveAllowedToolsChoiceParam"
@@ -114522,55 +114284,7 @@
             "$ref": "#/components/schemas/LiveToolChoiceEnum"
           },
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LiveFunctionToolChoiceParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveMcpToolChoiceParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificFileSearchParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificWebSearchParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificWebSearchPreviewParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificImageGenParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificComputerParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificCodeInterpreterParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificProgrammaticToolCallingParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificFunctionShellParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificCustomToolParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveSpecificApplyPatchParam"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/LiveResponsesDelegationSettingsInputParamToolChoiceOneOf2"
           },
           {
             "$ref": "#/components/schemas/LiveAllowedToolsChoiceParam"
@@ -114765,22 +114479,7 @@
       "TokenCountsBodyInput": {
         "anyOf": [
           {
-            "oneOf": [
-              {
-                "maxLength": 10485760,
-                "type": "string",
-                "description": "A text input to the model, equivalent to a text input with the \u0060user\u0060 role."
-              },
-              {
-                "maxItems": 131072,
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/InputItem"
-                },
-                "description": "A list of one or many input items to the model, containing different content types."
-              }
-            ],
-            "description": "Text, image, or file inputs to the model, used to generate a response"
+            "$ref": "#/components/schemas/CompactResponseMethodPublicBodyInputAnyOf1"
           },
           {
             "type": "null"
@@ -114832,22 +114531,7 @@
       "CompactResponseMethodPublicBodyInput": {
         "anyOf": [
           {
-            "oneOf": [
-              {
-                "maxLength": 10485760,
-                "type": "string",
-                "description": "A text input to the model, equivalent to a text input with the \u0060user\u0060 role."
-              },
-              {
-                "maxItems": 131072,
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/InputItem"
-                },
-                "description": "A list of one or many input items to the model, containing different content types."
-              }
-            ],
-            "description": "Text, image, or file inputs to the model, used to generate a response"
+            "$ref": "#/components/schemas/CompactResponseMethodPublicBodyInputAnyOf1"
           },
           {
             "type": "null"
@@ -115189,12 +114873,9 @@
         ]
       },
       "DecisionInputOneOf2Item": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/DecisionInputMessage"
+            "$ref": "#/components/schemas/DecisionInputOneOf2ItemOneOf1"
           },
           {
             "$ref": "#/components/schemas/DecisionInputFunctionCall"
@@ -115209,12 +114890,15 @@
             "$ref": "#/components/schemas/DecisionInputCustomToolCallOutput"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-oai-discriminator-values": [
+          "message",
+          "function_call",
+          "function_call_output",
+          "custom_tool_call",
+          "custom_tool_call_output"
+        ],
+        "x-oai-default-discriminator-value": "message",
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "message": "#/components/schemas/DecisionInputMessage",
@@ -115223,15 +114907,7 @@
             "custom_tool_call": "#/components/schemas/DecisionInputCustomToolCall",
             "custom_tool_call_output": "#/components/schemas/DecisionInputCustomToolCallOutput"
           }
-        },
-        "x-oai-discriminator-values": [
-          "message",
-          "function_call",
-          "function_call_output",
-          "custom_tool_call",
-          "custom_tool_call_output"
-        ],
-        "x-oai-default-discriminator-value": "message"
+        }
       },
       "DecisionQuestionInputImageDetail": {
         "anyOf": [
@@ -116085,29 +115761,7 @@
       "LiveSessionCreateParamsDelegation": {
         "anyOf": [
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LiveClientDelegationParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveResponsesDelegationParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveDecisionsDelegationParam"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "description": "Who handles tasks delegated by the Live model. Omitted or null selects your application; use \u0060responses\u0060 or \u0060decisions\u0060 to delegate to the corresponding API.",
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/DelegationAnyOf1"
           },
           {
             "type": "null"
@@ -116117,29 +115771,7 @@
       "LiveSessionUpdateParamsDelegation": {
         "anyOf": [
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LiveClientDelegationParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveResponsesDelegationUpdateParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveDecisionsDelegationUpdateParam"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "description": "Delegation settings to update. The delegation type must match the current session; omitted settings retain their values.",
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/LiveSessionUpdateParamsDelegationAnyOf1"
           },
           {
             "type": "null"
@@ -116326,29 +115958,7 @@
       "LiveSessionResourceParamDelegation": {
         "anyOf": [
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LiveClientDelegationParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveResponsesDelegationParam"
-              },
-              {
-                "$ref": "#/components/schemas/LiveDecisionsDelegationParam"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "description": "Who handles tasks delegated by the Live model. Omitted or null selects your application; use \u0060responses\u0060 or \u0060decisions\u0060 to delegate to the corresponding API.",
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/DelegationAnyOf1"
           },
           {
             "type": "null"
@@ -116632,22 +116242,7 @@
       "BetaTokenCountsBodyInput": {
         "anyOf": [
           {
-            "oneOf": [
-              {
-                "maxLength": 10485760,
-                "type": "string",
-                "description": "A text input to the model, equivalent to a text input with the \u0060user\u0060 role."
-              },
-              {
-                "maxItems": 131072,
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/BetaInputItem"
-                },
-                "description": "A list of one or many input items to the model, containing different content types."
-              }
-            ],
-            "description": "Text, image, or file inputs to the model, used to generate a response"
+            "$ref": "#/components/schemas/BetaCompactResponseMethodPublicBodyInputAnyOf1"
           },
           {
             "type": "null"
@@ -116758,28 +116353,7 @@
       "BetaFunctionShellToolParamEnvironment": {
         "anyOf": [
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BetaContainerAutoParam"
-              },
-              {
-                "$ref": "#/components/schemas/BetaLocalEnvironmentParam"
-              },
-              {
-                "$ref": "#/components/schemas/BetaContainerReferenceParam"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/BetaFunctionShellToolParamEnvironmentAnyOf1"
           },
           {
             "type": "null"
@@ -116895,20 +116469,7 @@
       "BetaMcpToolAllowedTools": {
         "anyOf": [
           {
-            "description": "List of allowed tool names or a filter object.\n",
-            "anyOf": [
-              {
-                "title": "MCP allowed tools",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "A string array of allowed tool names"
-              },
-              {
-                "$ref": "#/components/schemas/BetaMcpToolFilter"
-              }
-            ]
+            "$ref": "#/components/schemas/BetaMcpToolAllowedToolsAnyOf1"
           },
           {
             "type": "null"
@@ -117242,26 +116803,7 @@
       "BetaFunctionShellCallItemParamEnvironment": {
         "anyOf": [
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BetaLocalEnvironmentParam"
-              },
-              {
-                "$ref": "#/components/schemas/BetaContainerReferenceParam"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "description": "The environment to execute the shell commands in.",
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/BetaFunctionShellCallItemParamEnvironmentAnyOf1"
           },
           {
             "type": "null"
@@ -117832,22 +117374,7 @@
       "BetaCompactResponseMethodPublicBodyInput": {
         "anyOf": [
           {
-            "oneOf": [
-              {
-                "maxLength": 10485760,
-                "type": "string",
-                "description": "A text input to the model, equivalent to a text input with the \u0060user\u0060 role."
-              },
-              {
-                "maxItems": 131072,
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/BetaInputItem"
-                },
-                "description": "A list of one or many input items to the model, containing different content types."
-              }
-            ],
-            "description": "Text, image, or file inputs to the model, used to generate a response"
+            "$ref": "#/components/schemas/BetaCompactResponseMethodPublicBodyInputAnyOf1"
           },
           {
             "type": "null"
@@ -118046,25 +117573,7 @@
       "BetaFunctionShellCallEnvironment": {
         "anyOf": [
           {
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BetaLocalEnvironmentResource"
-              },
-              {
-                "$ref": "#/components/schemas/BetaContainerReferenceResource"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/BetaFunctionShellCallEnvironmentAnyOf1"
           },
           {
             "type": "null"
@@ -120464,21 +119973,7 @@
       "ResponseValueAllOf3Instructions": {
         "anyOf": [
           {
-            "oneOf": [
-              {
-                "type": "string",
-                "description": "A text input to the model, equivalent to a text input with the\n\u0060developer\u0060 role.\n"
-              },
-              {
-                "title": "Input item list",
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/InputItem"
-                },
-                "description": "A list of one or many input items to the model, containing\ndifferent content types.\n"
-              }
-            ],
-            "description": "A system (or developer) message inserted into the model\u0027s context.\n\nWhen using along with \u0060previous_response_id\u0060, the instructions from a previous\nresponse will not be carried over to the next response. This makes it simple\nto swap out system (or developer) messages in new responses.\n"
+            "$ref": "#/components/schemas/ResponseValueAllOf3InstructionsAnyOf1"
           },
           {
             "type": "null"
@@ -120856,21 +120351,7 @@
       "BetaResponseAllOf3Instructions": {
         "anyOf": [
           {
-            "oneOf": [
-              {
-                "type": "string",
-                "description": "A text input to the model, equivalent to a text input with the\n\u0060developer\u0060 role.\n"
-              },
-              {
-                "title": "Input item list",
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/BetaInputItem"
-                },
-                "description": "A list of one or many input items to the model, containing\ndifferent content types.\n"
-              }
-            ],
-            "description": "A system (or developer) message inserted into the model\u0027s context.\n\nWhen using along with \u0060previous_response_id\u0060, the instructions from a previous\nresponse will not be carried over to the next response. This makes it simple\nto swap out system (or developer) messages in new responses.\n"
+            "$ref": "#/components/schemas/BetaResponseAllOf3InstructionsAnyOf1"
           },
           {
             "type": "null"
@@ -161351,6 +160832,51 @@
           ]
         }
       },
+      "CreateVoiceRequestOneOf1": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "audio_sample"
+            ],
+            "type": "string",
+            "description": "The voice creation method. Defaults to \u0060audio_sample\u0060 when omitted.",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "audio_sample",
+                  "name": "AudioSample"
+                }
+              ]
+            }
+          },
+          "name": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the new voice."
+          },
+          "audio_sample": {
+            "type": "string",
+            "description": "The sample audio recording file. Maximum size is 10 MiB.\n\nSupported MIME types:\n\u0060audio/mpeg\u0060, \u0060audio/wav\u0060, \u0060audio/x-wav\u0060, \u0060audio/ogg\u0060, \u0060audio/aac\u0060, \u0060audio/flac\u0060, \u0060audio/webm\u0060, \u0060audio/mp4\u0060.\n",
+            "format": "binary",
+            "x-oaiTypeLabel": "file"
+          },
+          "consent": {
+            "type": "string",
+            "description": "The consent recording ID (for example, \u0060cons_1234\u0060)."
+          }
+        },
+        "required": [
+          "name",
+          "audio_sample",
+          "consent",
+          "type"
+        ],
+        "additionalProperties": false
+      },
       "ItemValueOneOf1": {
         "type": "object",
         "properties": {
@@ -162569,6 +162095,117 @@
           "error"
         ]
       },
+      "RealtimeTurnDetectionAnyOf1": {
+        "title": "Realtime Turn Detection",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/RealtimeTurnDetectionRealtimeTurnDetectionServerVad"
+          },
+          {
+            "$ref": "#/components/schemas/RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad"
+          }
+        ],
+        "description": "Configuration for turn detection, ether Server VAD or Semantic VAD. This can be set to \u0060null\u0060 to turn off, in which case the client must manually trigger model response.\n\nServer VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech.\n\nSemantic VAD is more advanced and uses a turn detection model (in conjunction with VAD) to semantically estimate whether the user has finished speaking, then dynamically sets a timeout based on this probability. For example, if user audio trails off with \u0022uhhm\u0022, the model will score a low probability of turn end and wait longer for the user to continue speaking. This can be useful for more natural conversations, but may have a higher latency.\n\nFor \u0060gpt-realtime-whisper\u0060 transcription sessions, turn detection must be\nset to \u0060null\u0060; VAD is not supported.\n",
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "DelegationAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveClientDelegationParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveResponsesDelegationParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionsDelegationParam"
+          }
+        ],
+        "description": "Who handles tasks delegated by the Live model. Omitted or null selects your application; use \u0060responses\u0060 or \u0060decisions\u0060 to delegate to the corresponding API.",
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "ComputerUseApprovalResponseParamBrowserAuthenticationOneOf1": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/BrowserAuthenticationType"
+          },
+          "action": {
+            "enum": [
+              "submit"
+            ],
+            "type": "string",
+            "x-stainless-const": true,
+            "x-ms-enum": {
+              "name": "Action",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "submit",
+                  "name": "Submit"
+                }
+              ]
+            }
+          },
+          "fields": {
+            "maxItems": 6,
+            "minItems": 0,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BrowserAuthenticationFieldValueParam"
+            },
+            "description": "Values for up to six active fields in the required action. The submitted field-value mapping and selected option must fit within 120 KiB of JSON."
+          },
+          "selected_option": {
+            "maxLength": 1048576,
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The chosen method. Required when the required action contains options."
+          }
+        },
+        "required": [
+          "type",
+          "action",
+          "fields"
+        ],
+        "additionalProperties": false
+      },
+      "ComputerUseApprovalResponseParamBrowserAuthenticationOneOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/BrowserAuthenticationType"
+          },
+          "action": {
+            "enum": [
+              "cancel"
+            ],
+            "type": "string",
+            "x-stainless-const": true,
+            "x-ms-enum": {
+              "name": "Action",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "cancel",
+                  "name": "Cancel"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "type",
+          "action"
+        ],
+        "additionalProperties": false
+      },
       "BetaItemOneOf1": {
         "type": "object",
         "properties": {
@@ -162614,6 +162251,204 @@
           "type"
         ]
       },
+      "ChatCompletionRequestAssistantMessageContentAnyOf1": {
+        "oneOf": [
+          {
+            "title": "Text content",
+            "type": "string",
+            "description": "The contents of the assistant message."
+          },
+          {
+            "title": "Array of content parts",
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChatCompletionRequestAssistantMessageContentPart"
+            },
+            "description": "An array of content parts with a defined type. Can be one or more of type \u0060text\u0060, or exactly one of type \u0060refusal\u0060."
+          }
+        ],
+        "description": "The contents of the assistant message. Required unless \u0060tool_calls\u0060 or \u0060function_call\u0060 is specified.\n"
+      },
+      "CreateTranscriptionRequestChunkingStrategyAnyOf1": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/CreateTranscriptionRequestChunkingStrategyAnyOf1AnyOf1"
+          },
+          {
+            "$ref": "#/components/schemas/VadConfig"
+          }
+        ],
+        "description": "Controls how the audio is cut into chunks. When set to \u0060\u0022auto\u0022\u0060, the server first normalizes loudness and then uses voice activity detection (VAD) to choose boundaries. \u0060server_vad\u0060 object can be provided to tweak VAD detection parameters manually. If unset, the audio is transcribed as a single block. Required when using \u0060gpt-4o-transcribe-diarize\u0060 for inputs longer than 30 seconds. ",
+        "x-oaiTypeLabel": "string"
+      },
+      "FineTuningJobHyperparametersBatchSizeAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/FineTuningJobHyperparametersBatchSizeAnyOf1OneOf1"
+          },
+          {
+            "maximum": 256,
+            "minimum": 1,
+            "type": "integer"
+          }
+        ],
+        "description": "Number of examples in each batch. A larger batch size means that model parameters\nare updated less frequently, but with lower variance.\n"
+      },
+      "McpToolAllowedToolsAnyOf1": {
+        "description": "List of allowed tool names or a filter object.\n",
+        "anyOf": [
+          {
+            "title": "MCP allowed tools",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A string array of allowed tool names"
+          },
+          {
+            "$ref": "#/components/schemas/McpToolFilter"
+          }
+        ]
+      },
+      "RealtimeMcpToolCallErrorAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/RealtimeMcpProtocolError"
+          },
+          {
+            "$ref": "#/components/schemas/RealtimeMcpToolExecutionError"
+          },
+          {
+            "$ref": "#/components/schemas/RealtimeMcphttpError"
+          }
+        ],
+        "description": "The error from the tool call, if any.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "protocol_error": "#/components/schemas/RealtimeMcpProtocolError",
+            "tool_execution_error": "#/components/schemas/RealtimeMcpToolExecutionError",
+            "http_error": "#/components/schemas/RealtimeMcphttpError"
+          }
+        }
+      },
+      "FunctionShellToolParamEnvironmentAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ContainerAutoParam"
+          },
+          {
+            "$ref": "#/components/schemas/LocalEnvironmentParam"
+          },
+          {
+            "$ref": "#/components/schemas/ContainerReferenceParam"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "FunctionShellCallEnvironmentAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LocalEnvironmentResource"
+          },
+          {
+            "$ref": "#/components/schemas/ContainerReferenceResource"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "FunctionShellCallItemParamEnvironmentAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LocalEnvironmentParam"
+          },
+          {
+            "$ref": "#/components/schemas/ContainerReferenceParam"
+          }
+        ],
+        "description": "The environment to execute the shell commands in.",
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "LiveHostedShellContainerAutoParamNetworkPolicyAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveContainerNetworkPolicyDisabledParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveHostedShellNetworkPolicyAllowlistParam"
+          }
+        ],
+        "description": "Network access policy for the container.",
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "LiveHostedShellToolInputParamEnvironmentAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveHostedShellContainerAutoParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveContainerReferenceParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveLocalEnvironmentParam"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "LiveResponsesDelegationSettingsInputParamToolChoiceOneOf2": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveFunctionToolChoiceParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveMcpToolChoiceParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificFileSearchParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificWebSearchParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificWebSearchPreviewParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificImageGenParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificComputerParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificCodeInterpreterParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificProgrammaticToolCallingParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificFunctionShellParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificCustomToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificApplyPatchParam"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
       "LiveInitialAssistantMessageItemParamContentItemOneOf1": {
         "type": "object",
         "properties": {
@@ -162644,6 +162479,150 @@
           "text",
           "type"
         ]
+      },
+      "LiveResponsesDelegationSettingsUpdateInputParamToolChoiceOneOf2": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveFunctionToolChoiceParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveMcpToolChoiceParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificFileSearchParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificWebSearchParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificWebSearchPreviewParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificImageGenParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificComputerParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificCodeInterpreterParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificProgrammaticToolCallingParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificFunctionShellParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificCustomToolParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveSpecificApplyPatchParam"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "TokenCountsBodyInputAnyOf1": {
+        "oneOf": [
+          {
+            "maxLength": 10485760,
+            "type": "string",
+            "description": "A text input to the model, equivalent to a text input with the \u0060user\u0060 role."
+          },
+          {
+            "maxItems": 131072,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InputItem"
+            },
+            "description": "A list of one or many input items to the model, containing different content types."
+          }
+        ],
+        "description": "Text, image, or file inputs to the model, used to generate a response"
+      },
+      "CompactResponseMethodPublicBodyInputAnyOf1": {
+        "oneOf": [
+          {
+            "maxLength": 10485760,
+            "type": "string",
+            "description": "A text input to the model, equivalent to a text input with the \u0060user\u0060 role."
+          },
+          {
+            "maxItems": 131072,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InputItem"
+            },
+            "description": "A list of one or many input items to the model, containing different content types."
+          }
+        ],
+        "description": "Text, image, or file inputs to the model, used to generate a response"
+      },
+      "DecisionInputOneOf2ItemOneOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DecisionInputOneOf2ItemOneOf1OneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputOneOf2ItemOneOf1OneOf2"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputOneOf2ItemOneOf1OneOf3"
+          },
+          {
+            "$ref": "#/components/schemas/DecisionInputOneOf2ItemOneOf1OneOf4"
+          }
+        ],
+        "x-oai-discriminator-values": [
+          "user",
+          "developer",
+          "system",
+          "assistant"
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "role",
+          "mapping": {
+            "user": "#/components/schemas/DecisionInputUserMessage",
+            "developer": "#/components/schemas/DecisionInputDeveloperMessage",
+            "system": "#/components/schemas/DecisionInputSystemMessage",
+            "assistant": "#/components/schemas/DecisionInputAssistantMessage"
+          }
+        }
+      },
+      "LiveSessionCreateParamsDelegationAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveClientDelegationParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveResponsesDelegationParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionsDelegationParam"
+          }
+        ],
+        "description": "Who handles tasks delegated by the Live model. Omitted or null selects your application; use \u0060responses\u0060 or \u0060decisions\u0060 to delegate to the corresponding API.",
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "LiveSessionUpdateParamsDelegationAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveClientDelegationParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveResponsesDelegationUpdateParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionsDelegationUpdateParam"
+          }
+        ],
+        "description": "Delegation settings to update. The delegation type must match the current session; omitted settings retain their values.",
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
       },
       "LiveDecisionInputItemParamOneOf1OneOf1": {
         "type": "object",
@@ -162808,6 +162787,23 @@
           "content"
         ]
       },
+      "LiveSessionResourceParamDelegationAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LiveClientDelegationParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveResponsesDelegationParam"
+          },
+          {
+            "$ref": "#/components/schemas/LiveDecisionsDelegationParam"
+          }
+        ],
+        "description": "Who handles tasks delegated by the Live model. Omitted or null selects your application; use \u0060responses\u0060 or \u0060decisions\u0060 to delegate to the corresponding API.",
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
       "LiveDecisionStoredInputItemParamOneOf1OneOf1": {
         "type": "object",
         "properties": {
@@ -162958,6 +162954,1166 @@
           "content",
           "id"
         ]
+      },
+      "BetaTokenCountsBodyInputAnyOf1": {
+        "oneOf": [
+          {
+            "maxLength": 10485760,
+            "type": "string",
+            "description": "A text input to the model, equivalent to a text input with the \u0060user\u0060 role."
+          },
+          {
+            "maxItems": 131072,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BetaInputItem"
+            },
+            "description": "A list of one or many input items to the model, containing different content types."
+          }
+        ],
+        "description": "Text, image, or file inputs to the model, used to generate a response"
+      },
+      "BetaFunctionShellToolParamEnvironmentAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BetaContainerAutoParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaLocalEnvironmentParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaContainerReferenceParam"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "BetaMcpToolAllowedToolsAnyOf1": {
+        "description": "List of allowed tool names or a filter object.\n",
+        "anyOf": [
+          {
+            "title": "MCP allowed tools",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A string array of allowed tool names"
+          },
+          {
+            "$ref": "#/components/schemas/BetaMcpToolFilter"
+          }
+        ]
+      },
+      "BetaFunctionShellCallItemParamEnvironmentAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BetaLocalEnvironmentParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaContainerReferenceParam"
+          }
+        ],
+        "description": "The environment to execute the shell commands in.",
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "BetaCompactResponseMethodPublicBodyInputAnyOf1": {
+        "oneOf": [
+          {
+            "maxLength": 10485760,
+            "type": "string",
+            "description": "A text input to the model, equivalent to a text input with the \u0060user\u0060 role."
+          },
+          {
+            "maxItems": 131072,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BetaInputItem"
+            },
+            "description": "A list of one or many input items to the model, containing different content types."
+          }
+        ],
+        "description": "Text, image, or file inputs to the model, used to generate a response"
+      },
+      "BetaFunctionShellCallEnvironmentAnyOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BetaLocalEnvironmentResource"
+          },
+          {
+            "$ref": "#/components/schemas/BetaContainerReferenceResource"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "ResponseValueAllOf3InstructionsAnyOf1": {
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "A text input to the model, equivalent to a text input with the\n\u0060developer\u0060 role.\n"
+          },
+          {
+            "title": "Input item list",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InputItem"
+            },
+            "description": "A list of one or many input items to the model, containing\ndifferent content types.\n"
+          }
+        ],
+        "description": "A system (or developer) message inserted into the model\u0027s context.\n\nWhen using along with \u0060previous_response_id\u0060, the instructions from a previous\nresponse will not be carried over to the next response. This makes it simple\nto swap out system (or developer) messages in new responses.\n"
+      },
+      "BetaResponseAllOf3InstructionsAnyOf1": {
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "A text input to the model, equivalent to a text input with the\n\u0060developer\u0060 role.\n"
+          },
+          {
+            "title": "Input item list",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BetaInputItem"
+            },
+            "description": "A list of one or many input items to the model, containing\ndifferent content types.\n"
+          }
+        ],
+        "description": "A system (or developer) message inserted into the model\u0027s context.\n\nWhen using along with \u0060previous_response_id\u0060, the instructions from a previous\nresponse will not be carried over to the next response. This makes it simple\nto swap out system (or developer) messages in new responses.\n"
+      },
+      "InputItemOneOf1": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/EasyInputMessageRole"
+          },
+          "content": {
+            "$ref": "#/components/schemas/EasyInputMessageContent"
+          },
+          "phase": {
+            "$ref": "#/components/schemas/EasyInputMessagePhase"
+          },
+          "type": {
+            "enum": [
+              "message"
+            ],
+            "type": "string",
+            "description": "The type of the message input. Always \u0060message\u0060.\n",
+            "x-stainless-const": true,
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "message",
+                  "name": "Message"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "role",
+          "content",
+          "type"
+        ]
+      },
+      "InputItemOneOf2": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ItemValueOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/OutputMessage"
+          },
+          {
+            "$ref": "#/components/schemas/FileSearchToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/ComputerToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/ComputerCallOutputItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/WebSearchToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/FunctionToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/FunctionCallOutputItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/ToolSearchCallItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/ToolSearchOutputItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/AdditionalToolsItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/ResponseConfigurationUpdateItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/ReasoningItem"
+          },
+          {
+            "$ref": "#/components/schemas/CompactionSummaryItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/ImageGenToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/CodeInterpreterToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/LocalShellToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/LocalShellToolCallOutput"
+          },
+          {
+            "$ref": "#/components/schemas/FunctionShellCallItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/FunctionShellCallOutputItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/ApplyPatchToolCallItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/ApplyPatchToolCallOutputItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/McpListTools"
+          },
+          {
+            "$ref": "#/components/schemas/McpApprovalRequest"
+          },
+          {
+            "$ref": "#/components/schemas/McpApprovalResponse"
+          },
+          {
+            "$ref": "#/components/schemas/McpToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/CustomToolCallOutput"
+          },
+          {
+            "$ref": "#/components/schemas/CustomToolCall"
+          }
+        ],
+        "description": "Content item used to generate a response.\n",
+        "x-client-original-discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "InputMessage": "#/components/schemas/InputMessage",
+            "OutputMessage": "#/components/schemas/OutputMessage",
+            "FileSearchToolCall": "#/components/schemas/FileSearchToolCall",
+            "ComputerToolCall": "#/components/schemas/ComputerToolCall",
+            "ComputerCallOutputItemParam": "#/components/schemas/ComputerCallOutputItemParam",
+            "WebSearchToolCall": "#/components/schemas/WebSearchToolCall",
+            "FunctionToolCall": "#/components/schemas/FunctionToolCall",
+            "FunctionCallOutputItemParam": "#/components/schemas/FunctionCallOutputItemParam",
+            "ToolSearchCallItemParam": "#/components/schemas/ToolSearchCallItemParam",
+            "ToolSearchOutputItemParam": "#/components/schemas/ToolSearchOutputItemParam",
+            "AdditionalToolsItemParam": "#/components/schemas/AdditionalToolsItemParam",
+            "ResponseConfigurationUpdateItemParam": "#/components/schemas/ResponseConfigurationUpdateItemParam",
+            "ReasoningItem": "#/components/schemas/ReasoningItem",
+            "CompactionSummaryItemParam": "#/components/schemas/CompactionSummaryItemParam",
+            "ImageGenToolCall": "#/components/schemas/ImageGenToolCall",
+            "CodeInterpreterToolCall": "#/components/schemas/CodeInterpreterToolCall",
+            "LocalShellToolCall": "#/components/schemas/LocalShellToolCall",
+            "LocalShellToolCallOutput": "#/components/schemas/LocalShellToolCallOutput",
+            "FunctionShellCallItemParam": "#/components/schemas/FunctionShellCallItemParam",
+            "FunctionShellCallOutputItemParam": "#/components/schemas/FunctionShellCallOutputItemParam",
+            "ApplyPatchToolCallItemParam": "#/components/schemas/ApplyPatchToolCallItemParam",
+            "ApplyPatchToolCallOutputItemParam": "#/components/schemas/ApplyPatchToolCallOutputItemParam",
+            "McpListTools": "#/components/schemas/McpListTools",
+            "McpApprovalRequest": "#/components/schemas/McpApprovalRequest",
+            "McpApprovalResponse": "#/components/schemas/McpApprovalResponse",
+            "McpToolCall": "#/components/schemas/McpToolCall",
+            "CustomToolCallOutput": "#/components/schemas/CustomToolCallOutput",
+            "CustomToolCall": "#/components/schemas/CustomToolCall"
+          }
+        }
+      },
+      "InputItemOneOf4": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "item_reference",
+              null
+            ],
+            "type": "string",
+            "description": "The type of item to reference. Always \u0060item_reference\u0060.",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "item_reference",
+                  "name": "ItemReference"
+                }
+              ]
+            }
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the item to reference."
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ]
+      },
+      "ComputerUseApprovalResponseParamOneOf1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ComputerUseApprovalResponseParamBrowserAuthenticationOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/ComputerUseApprovalResponseParamBrowserAuthenticationOneOf2"
+          }
+        ],
+        "x-oai-discriminator-values": [
+          "submit",
+          "cancel"
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "action",
+          "mapping": {
+            "submit": "#/components/schemas/ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParam",
+            "cancel": "#/components/schemas/ComputerUseApprovalResponseParamBrowserAuthenticationCancelParam"
+          }
+        }
+      },
+      "LiveDecisionInputItemParamOneOf1Branch": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "The unique ID of this message item."
+              },
+              "type": {
+                "enum": [
+                  "message"
+                ],
+                "type": "string",
+                "description": "The type of the message input. Always \u0060message\u0060.\n",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Type",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "message",
+                      "name": "Message"
+                    }
+                  ]
+                }
+              },
+              "role": {
+                "enum": [
+                  "user"
+                ],
+                "type": "string",
+                "description": "The role of the messages author, in this case \u0060user\u0060.",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Role",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "user",
+                      "name": "User"
+                    }
+                  ]
+                }
+              },
+              "content": {
+                "$ref": "#/components/schemas/LiveDecisionUserMessageParamContent"
+              }
+            },
+            "required": [
+              "role",
+              "content",
+              "type"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "The unique ID of this message item."
+              },
+              "type": {
+                "enum": [
+                  "message"
+                ],
+                "type": "string",
+                "description": "The type of the message input. Always \u0060message\u0060.\n",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Type",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "message",
+                      "name": "Message"
+                    }
+                  ]
+                }
+              },
+              "role": {
+                "enum": [
+                  "developer"
+                ],
+                "type": "string",
+                "description": "The role of the messages author, in this case \u0060developer\u0060.",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Role",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "developer",
+                      "name": "Developer"
+                    }
+                  ]
+                }
+              },
+              "content": {
+                "$ref": "#/components/schemas/LiveDecisionDeveloperMessageParamContent"
+              }
+            },
+            "required": [
+              "role",
+              "content",
+              "type"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "The unique ID of this message item."
+              },
+              "type": {
+                "enum": [
+                  "message"
+                ],
+                "type": "string",
+                "description": "The type of the message input. Always \u0060message\u0060.\n",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Type",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "message",
+                      "name": "Message"
+                    }
+                  ]
+                }
+              },
+              "role": {
+                "enum": [
+                  "system"
+                ],
+                "type": "string",
+                "description": "The role of the messages author, in this case \u0060system\u0060.",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Role",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "system",
+                      "name": "System"
+                    }
+                  ]
+                }
+              },
+              "content": {
+                "$ref": "#/components/schemas/LiveDecisionDeveloperMessageParamContent"
+              }
+            },
+            "required": [
+              "role",
+              "content",
+              "type"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "description": "The unique ID of this message item."
+              },
+              "type": {
+                "enum": [
+                  "message"
+                ],
+                "type": "string",
+                "description": "The type of the message input. Always \u0060message\u0060.\n",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Type",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "message",
+                      "name": "Message"
+                    }
+                  ]
+                }
+              },
+              "role": {
+                "enum": [
+                  "assistant"
+                ],
+                "type": "string",
+                "description": "The role of the messages author, in this case \u0060assistant\u0060.",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Role",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "assistant",
+                      "name": "Assistant"
+                    }
+                  ]
+                }
+              },
+              "content": {
+                "$ref": "#/components/schemas/LiveDecisionAssistantMessageParamContent"
+              },
+              "phase": {
+                "$ref": "#/components/schemas/LiveDecisionAssistantMessageParamPhase"
+              }
+            },
+            "required": [
+              "role",
+              "content",
+              "type"
+            ]
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "role",
+          "mapping": {
+            "LiveDecisionUserMessageParam": "#/components/schemas/LiveDecisionUserMessageParam",
+            "LiveDecisionDeveloperMessageParam": "#/components/schemas/LiveDecisionDeveloperMessageParam",
+            "LiveDecisionSystemMessageParam": "#/components/schemas/LiveDecisionSystemMessageParam",
+            "LiveDecisionAssistantMessageParam": "#/components/schemas/LiveDecisionAssistantMessageParam"
+          }
+        }
+      },
+      "LiveDecisionStoredInputItemParamOneOf1Branch": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "message"
+                ],
+                "type": "string",
+                "description": "The type of the message input. Always \u0060message\u0060.\n",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Type",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "message",
+                      "name": "Message"
+                    }
+                  ]
+                }
+              },
+              "role": {
+                "enum": [
+                  "user"
+                ],
+                "type": "string",
+                "description": "The role of the messages author, in this case \u0060user\u0060.",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Role",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "user",
+                      "name": "User"
+                    }
+                  ]
+                }
+              },
+              "content": {
+                "$ref": "#/components/schemas/LiveDecisionStoredUserMessageParamContent"
+              }
+            },
+            "required": [
+              "role",
+              "content",
+              "id",
+              "type"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "message"
+                ],
+                "type": "string",
+                "description": "The type of the message input. Always \u0060message\u0060.\n",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Type",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "message",
+                      "name": "Message"
+                    }
+                  ]
+                }
+              },
+              "role": {
+                "enum": [
+                  "developer"
+                ],
+                "type": "string",
+                "description": "The role of the messages author, in this case \u0060developer\u0060.",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Role",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "developer",
+                      "name": "Developer"
+                    }
+                  ]
+                }
+              },
+              "content": {
+                "$ref": "#/components/schemas/LiveDecisionDeveloperMessageParamContent"
+              }
+            },
+            "required": [
+              "role",
+              "content",
+              "id",
+              "type"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "message"
+                ],
+                "type": "string",
+                "description": "The type of the message input. Always \u0060message\u0060.\n",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Type",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "message",
+                      "name": "Message"
+                    }
+                  ]
+                }
+              },
+              "role": {
+                "enum": [
+                  "system"
+                ],
+                "type": "string",
+                "description": "The role of the messages author, in this case \u0060system\u0060.",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Role",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "system",
+                      "name": "System"
+                    }
+                  ]
+                }
+              },
+              "content": {
+                "$ref": "#/components/schemas/LiveDecisionDeveloperMessageParamContent"
+              }
+            },
+            "required": [
+              "role",
+              "content",
+              "id",
+              "type"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "message"
+                ],
+                "type": "string",
+                "description": "The type of the message input. Always \u0060message\u0060.\n",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Type",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "message",
+                      "name": "Message"
+                    }
+                  ]
+                }
+              },
+              "role": {
+                "enum": [
+                  "assistant"
+                ],
+                "type": "string",
+                "description": "The role of the messages author, in this case \u0060assistant\u0060.",
+                "x-stainless-const": true,
+                "x-ms-enum": {
+                  "name": "Role",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "assistant",
+                      "name": "Assistant"
+                    }
+                  ]
+                }
+              },
+              "content": {
+                "$ref": "#/components/schemas/LiveDecisionStoredAssistantMessageParamContent"
+              },
+              "phase": {
+                "$ref": "#/components/schemas/LiveDecisionAssistantMessageParamPhase"
+              }
+            },
+            "required": [
+              "role",
+              "content",
+              "id",
+              "type"
+            ]
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "role",
+          "mapping": {
+            "LiveDecisionStoredUserMessageParam": "#/components/schemas/LiveDecisionStoredUserMessageParam",
+            "LiveDecisionStoredDeveloperMessageParam": "#/components/schemas/LiveDecisionStoredDeveloperMessageParam",
+            "LiveDecisionStoredSystemMessageParam": "#/components/schemas/LiveDecisionStoredSystemMessageParam",
+            "LiveDecisionStoredAssistantMessageParam": "#/components/schemas/LiveDecisionStoredAssistantMessageParam"
+          }
+        }
+      },
+      "BetaInputItemOneOf1": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/BetaEasyInputMessageRole"
+          },
+          "content": {
+            "$ref": "#/components/schemas/BetaEasyInputMessageContent"
+          },
+          "phase": {
+            "$ref": "#/components/schemas/BetaEasyInputMessagePhase"
+          },
+          "type": {
+            "enum": [
+              "message"
+            ],
+            "type": "string",
+            "description": "The type of the message input. Always \u0060message\u0060.\n",
+            "x-stainless-const": true,
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "message",
+                  "name": "Message"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "role",
+          "content",
+          "type"
+        ]
+      },
+      "BetaInputItemOneOf2": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BetaItemOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/BetaOutputMessage"
+          },
+          {
+            "$ref": "#/components/schemas/BetaFileSearchToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/BetaComputerToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/BetaComputerCallOutputItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaWebSearchToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/BetaFunctionToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/BetaFunctionCallOutputItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaAgentMessageItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaMultiAgentCallItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaMultiAgentCallOutputItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaToolSearchCallItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaToolSearchOutputItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaResponseConfigurationUpdateItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaReasoningItem"
+          },
+          {
+            "$ref": "#/components/schemas/BetaCompactionSummaryItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaImageGenToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/BetaCodeInterpreterToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/BetaLocalShellToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/BetaLocalShellToolCallOutput"
+          },
+          {
+            "$ref": "#/components/schemas/BetaFunctionShellCallItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaFunctionShellCallOutputItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaApplyPatchToolCallItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaApplyPatchToolCallOutputItemParam"
+          },
+          {
+            "$ref": "#/components/schemas/BetaMcpListTools"
+          },
+          {
+            "$ref": "#/components/schemas/BetaMcpApprovalRequest"
+          },
+          {
+            "$ref": "#/components/schemas/BetaMcpApprovalResponse"
+          },
+          {
+            "$ref": "#/components/schemas/BetaMcpToolCall"
+          },
+          {
+            "$ref": "#/components/schemas/BetaCustomToolCallOutput"
+          },
+          {
+            "$ref": "#/components/schemas/BetaCustomToolCall"
+          }
+        ],
+        "description": "Content item used to generate a response.\n",
+        "x-client-original-discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "BetaInputMessage": "#/components/schemas/BetaInputMessage",
+            "BetaOutputMessage": "#/components/schemas/BetaOutputMessage",
+            "BetaFileSearchToolCall": "#/components/schemas/BetaFileSearchToolCall",
+            "BetaComputerToolCall": "#/components/schemas/BetaComputerToolCall",
+            "BetaComputerCallOutputItemParam": "#/components/schemas/BetaComputerCallOutputItemParam",
+            "BetaWebSearchToolCall": "#/components/schemas/BetaWebSearchToolCall",
+            "BetaFunctionToolCall": "#/components/schemas/BetaFunctionToolCall",
+            "BetaFunctionCallOutputItemParam": "#/components/schemas/BetaFunctionCallOutputItemParam",
+            "BetaAgentMessageItemParam": "#/components/schemas/BetaAgentMessageItemParam",
+            "BetaMultiAgentCallItemParam": "#/components/schemas/BetaMultiAgentCallItemParam",
+            "BetaMultiAgentCallOutputItemParam": "#/components/schemas/BetaMultiAgentCallOutputItemParam",
+            "BetaToolSearchCallItemParam": "#/components/schemas/BetaToolSearchCallItemParam",
+            "BetaToolSearchOutputItemParam": "#/components/schemas/BetaToolSearchOutputItemParam",
+            "BetaAdditionalToolsItemParam": "#/components/schemas/BetaAdditionalToolsItemParam",
+            "BetaResponseConfigurationUpdateItemParam": "#/components/schemas/BetaResponseConfigurationUpdateItemParam",
+            "BetaReasoningItem": "#/components/schemas/BetaReasoningItem",
+            "BetaCompactionSummaryItemParam": "#/components/schemas/BetaCompactionSummaryItemParam",
+            "BetaImageGenToolCall": "#/components/schemas/BetaImageGenToolCall",
+            "BetaCodeInterpreterToolCall": "#/components/schemas/BetaCodeInterpreterToolCall",
+            "BetaLocalShellToolCall": "#/components/schemas/BetaLocalShellToolCall",
+            "BetaLocalShellToolCallOutput": "#/components/schemas/BetaLocalShellToolCallOutput",
+            "BetaFunctionShellCallItemParam": "#/components/schemas/BetaFunctionShellCallItemParam",
+            "BetaFunctionShellCallOutputItemParam": "#/components/schemas/BetaFunctionShellCallOutputItemParam",
+            "BetaApplyPatchToolCallItemParam": "#/components/schemas/BetaApplyPatchToolCallItemParam",
+            "BetaApplyPatchToolCallOutputItemParam": "#/components/schemas/BetaApplyPatchToolCallOutputItemParam",
+            "BetaMcpListTools": "#/components/schemas/BetaMcpListTools",
+            "BetaMcpApprovalRequest": "#/components/schemas/BetaMcpApprovalRequest",
+            "BetaMcpApprovalResponse": "#/components/schemas/BetaMcpApprovalResponse",
+            "BetaMcpToolCall": "#/components/schemas/BetaMcpToolCall",
+            "BetaCustomToolCallOutput": "#/components/schemas/BetaCustomToolCallOutput",
+            "BetaCustomToolCall": "#/components/schemas/BetaCustomToolCall"
+          }
+        }
+      },
+      "BetaInputItemOneOf4": {
+        "type": "object",
+        "properties": {
+          "agent": {
+            "$ref": "#/components/schemas/BetaAdditionalToolsItemParamAgent"
+          },
+          "type": {
+            "enum": [
+              "item_reference",
+              null
+            ],
+            "type": "string",
+            "description": "The type of item to reference. Always \u0060item_reference\u0060.",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "item_reference",
+                  "name": "ItemReference"
+                }
+              ]
+            }
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the item to reference."
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ]
+      },
+      "DecisionInputOneOf2ItemOneOf1OneOf1": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/UserRole"
+          },
+          "content": {
+            "description": "A text string or an ordered list of text, image, and JSON parts.",
+            "$ref": "#/components/schemas/DecisionInputContent"
+          },
+          "type": {
+            "enum": [
+              "message"
+            ],
+            "type": "string",
+            "description": "The type of the message input. Always \u0060message\u0060.\n",
+            "x-stainless-const": true,
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "message",
+                  "name": "Message"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "role",
+          "content",
+          "type"
+        ],
+        "additionalProperties": false
+      },
+      "DecisionInputOneOf2ItemOneOf1OneOf2": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/DeveloperRole"
+          },
+          "content": {
+            "description": "A text string or an ordered list of input text parts.",
+            "$ref": "#/components/schemas/DecisionInputDeveloperContent"
+          },
+          "type": {
+            "enum": [
+              "message"
+            ],
+            "type": "string",
+            "description": "The type of the message input. Always \u0060message\u0060.\n",
+            "x-stainless-const": true,
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "message",
+                  "name": "Message"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "role",
+          "content",
+          "type"
+        ],
+        "additionalProperties": false
+      },
+      "DecisionInputOneOf2ItemOneOf1OneOf3": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/SystemRole"
+          },
+          "content": {
+            "description": "A text string or an ordered list of input text parts.",
+            "$ref": "#/components/schemas/DecisionInputDeveloperContent"
+          },
+          "type": {
+            "enum": [
+              "message"
+            ],
+            "type": "string",
+            "description": "The type of the message input. Always \u0060message\u0060.\n",
+            "x-stainless-const": true,
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "message",
+                  "name": "Message"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "role",
+          "content",
+          "type"
+        ],
+        "additionalProperties": false
+      },
+      "DecisionInputOneOf2ItemOneOf1OneOf4": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/AssistantRole"
+          },
+          "content": {
+            "description": "A text string or an ordered list of output text and refusal parts.",
+            "$ref": "#/components/schemas/DecisionInputAssistantContent"
+          },
+          "phase": {
+            "$ref": "#/components/schemas/DecisionInputAssistantMessagePhase"
+          },
+          "type": {
+            "enum": [
+              "message"
+            ],
+            "type": "string",
+            "description": "The type of the message input. Always \u0060message\u0060.\n",
+            "x-stainless-const": true,
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "message",
+                  "name": "Message"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "role",
+          "content",
+          "type"
+        ],
+        "additionalProperties": false
       },
       "AssistantStreamEventThreadCreated": {
         "required": [

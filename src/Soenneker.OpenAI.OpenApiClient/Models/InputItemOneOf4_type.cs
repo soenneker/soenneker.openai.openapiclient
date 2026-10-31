@@ -5,7 +5,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>The type of item to reference. Always `item_reference`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum ItemReferenceParamType
+    public enum InputItemOneOf4_type
     {
         [EnumMember(Value = "item_reference")]
         #pragma warning disable CS1591

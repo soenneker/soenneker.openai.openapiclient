@@ -40,12 +40,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The input property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; AdditionalData?.Remove("input"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
-        private UntypedNode? _explicitNullValueInput = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInputAnyOf1? Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; AdditionalData?.Remove("input"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInputAnyOf1? _explicitNullValueInput = default!;
 #nullable restore
 #else
-        public UntypedNode Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; AdditionalData?.Remove("input"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
-        private UntypedNode _explicitNullValueInput = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInputAnyOf1 Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; AdditionalData?.Remove("input"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInputAnyOf1 _explicitNullValueInput = default!;
 #endif
         /// <summary>A system (or developer) message inserted into the model&apos;s context.When used along with `previous_response_id`, the instructions from a previous response will not be carried over to the next response. This makes it simple to swap out system (or developer) messages in new responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -128,7 +128,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "input", n => { Input = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "input", n => { Input = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInputAnyOf1>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInputAnyOf1.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction.CreateFromDiscriminatorValue); } },
                 { "previous_response_id", n => { PreviousResponseId = n.GetStringValue(); } },
@@ -145,7 +145,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<UntypedNode>("input", Input);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactResponseMethodPublicBodyInputAnyOf1>("input", Input);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction>("model", Model);
             writer.WriteStringValue("previous_response_id", PreviousResponseId);

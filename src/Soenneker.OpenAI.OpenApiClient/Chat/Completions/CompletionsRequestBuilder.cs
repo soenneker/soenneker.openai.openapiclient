@@ -78,7 +78,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Chat.Completions
         /// <summary>
         /// **Starting a new project?** We recommend trying [Responses](https://developers.openai.com/api/reference/resources/responses)to take advantage of the latest OpenAI platform features. Compare[Chat Completions with Responses](https://developers.openai.com/api/docs/guides/migrate-to-responses?api-mode=responses).---Creates a model response for the given chat conversation. Learn more in the[text generation](https://developers.openai.com/api/docs/guides/text), [vision](https://developers.openai.com/api/docs/guides/images-vision),and [audio](https://developers.openai.com/api/docs/guides/audio) guides.Parameter support can differ depending on the model used to generate theresponse, particularly for newer reasoning models. Parameters that are onlysupported for reasoning models are noted below. For the current state ofunsupported parameters in reasoning models,[refer to the reasoning guide](https://developers.openai.com/api/docs/guides/reasoning).Returns a chat completion object, or a streamed sequence of chat completionchunk objects if the request is streamed.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -90,11 +90,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Chat.Completions
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -110,7 +110,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Chat.Completions
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List stored Chat Completions. Only Chat Completions that have been storedwith the `store` parameter set to `true` will be returned.

@@ -74,18 +74,18 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs
         /// <summary>
         /// Create a run.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RunObject"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequest body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.RunsRequestBuilder.RunsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequest body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.RunsRequestBuilder.RunsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequest body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.RunsRequestBuilder.RunsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.CreateRunRequest body, Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs.RunsRequestBuilder.RunsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -96,7 +96,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Threads.Item.Runs
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.OpenAI.OpenApiClient.Models.RunObject>(requestInfo, global::Soenneker.OpenAI.OpenApiClient.Models.RunObject.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of runs belonging to a thread.

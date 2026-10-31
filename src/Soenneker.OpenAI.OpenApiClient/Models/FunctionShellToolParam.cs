@@ -41,12 +41,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; AdditionalData?.Remove("environment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam? _explicitNullValueEnvironment = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironmentAnyOf1? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; AdditionalData?.Remove("environment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironmentAnyOf1? _explicitNullValueEnvironment = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; AdditionalData?.Remove("environment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam _explicitNullValueEnvironment = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironmentAnyOf1 Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; AdditionalData?.Remove("environment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironmentAnyOf1 _explicitNullValueEnvironment = default!;
 #endif
         /// <summary>The type of the shell tool. Always `shell`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ShellType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
@@ -77,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allowed_callers", n => { AllowedCallers = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller>()?.AsList(); } },
-                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam.CreateFromDiscriminatorValue); } },
+                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironmentAnyOf1>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironmentAnyOf1.CreateFromDiscriminatorValue); } },
                 { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ShellType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
@@ -89,7 +89,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.CallableToolAllowedCaller>("allowed_callers", AllowedCallers);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam>("environment", Environment);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellToolParamEnvironmentAnyOf1>("environment", Environment);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ShellType>("type", Type);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

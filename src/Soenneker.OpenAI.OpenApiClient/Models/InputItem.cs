@@ -27,29 +27,29 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionTriggerItemParam CompactionTriggerItemParam { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessage"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessage? EasyInputMessage { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf1? InputItemOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessage EasyInputMessage { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf1 InputItemOneOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ItemReferenceParam"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ItemReferenceParam? ItemReferenceParam { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf2? InputItemOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ItemReferenceParam ItemReferenceParam { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf2 InputItemOneOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue? ItemValue { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf4? InputItemOneOf4 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue ItemValue { get; set; }
+        public global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf4 InputItemOneOf4 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ProgramItemParam"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,17 +82,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.InputItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.OpenAI.OpenApiClient.Models.InputItem();
             if("CompactionTriggerItemParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("EasyInputMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("InputItemOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
-            else if("ItemReferenceParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("InputItemOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 
             }
@@ -106,10 +106,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("role") && shapeMembers1.ContainsKey("content") && (!shapeMembers1.ContainsKey("role") || (((shapeMembers1["role"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["role"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "user".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["role"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal3 && "assistant".Equals(literal3.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["role"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal4 && "system".Equals(literal4.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["role"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal5 && "developer".Equals(literal5.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("phase") || (((((shapeMembers1["phase"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["phase"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal14 && "commentary".Equals(literal14.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["phase"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal15 && "final_answer".Equals(literal15.GetValue(), global::System.StringComparison.Ordinal)))) || ((((shapeMembers1["phase"] == null || shapeMembers1["phase"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull))))))) && (!shapeMembers1.ContainsKey("type") || (((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal20 && "message".Equals(literal20.GetValue(), global::System.StringComparison.Ordinal))))))))))();
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("role") && shapeMembers1.ContainsKey("content") && shapeMembers1.ContainsKey("type") && (!shapeMembers1.ContainsKey("role") || (((shapeMembers1["role"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["role"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "user".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["role"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal3 && "assistant".Equals(literal3.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["role"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal4 && "system".Equals(literal4.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["role"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal5 && "developer".Equals(literal5.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("phase") || (((((shapeMembers1["phase"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["phase"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal14 && "commentary".Equals(literal14.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["phase"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal15 && "final_answer".Equals(literal15.GetValue(), global::System.StringComparison.Ordinal)))) || ((((shapeMembers1["phase"] == null || shapeMembers1["phase"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull))))))) && (!shapeMembers1.ContainsKey("type") || (((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal20 && "message".Equals(literal20.GetValue(), global::System.StringComparison.Ordinal))))))))))();
             bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => true))();
             bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("type") && (!shapeMembers1.ContainsKey("id") || ((((shapeMembers1["id"] == null || shapeMembers1["id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || (shapeMembers1["id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("type") || (((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal4 && "compaction_trigger".Equals(literal4.GetValue(), global::System.StringComparison.Ordinal))))))))))();
-            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("id") && (!shapeMembers1.ContainsKey("type") || ((((shapeMembers1["type"] == null || shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || (shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "item_reference".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["type"] == null || shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)))) && (!shapeMembers1.ContainsKey("id") || (((shapeMembers1["id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("id") && shapeMembers1.ContainsKey("type") && (!shapeMembers1.ContainsKey("type") || (((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal2 && "item_reference".Equals(literal2.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["type"] == null || shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)))) && (!shapeMembers1.ContainsKey("id") || (((shapeMembers1["id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
             bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("id") && shapeMembers1.ContainsKey("type") && shapeMembers1.ContainsKey("call_id") && shapeMembers1.ContainsKey("code") && shapeMembers1.ContainsKey("fingerprint") && (!shapeMembers1.ContainsKey("id") || (((shapeMembers1["id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("type") || (((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal4 && "program".Equals(literal4.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("call_id") || (((shapeMembers1["call_id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("code") || (((shapeMembers1["code"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("fingerprint") || (((shapeMembers1["fingerprint"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
             bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("id") && shapeMembers1.ContainsKey("type") && shapeMembers1.ContainsKey("call_id") && shapeMembers1.ContainsKey("result") && shapeMembers1.ContainsKey("status") && (!shapeMembers1.ContainsKey("id") || (((shapeMembers1["id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("type") || (((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal4 && "program_output".Equals(literal4.GetValue(), global::System.StringComparison.Ordinal))))) && (!shapeMembers1.ContainsKey("call_id") || (((shapeMembers1["call_id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("result") || (((shapeMembers1["result"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("status") || (((shapeMembers1["status"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["status"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal11 && "completed".Equals(literal11.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["status"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal12 && "incomplete".Equals(literal12.GetValue(), global::System.StringComparison.Ordinal))))))))))();
             int matchingUnionBranches = 0;
@@ -119,13 +119,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if (matchesUnionBranch3) matchingUnionBranches++;
             if (matchesUnionBranch4) matchingUnionBranches++;
             if (matchesUnionBranch5) matchingUnionBranches++;
-            bool noSelectedUnionBranch = result.CompactionTriggerItemParam == null && result.EasyInputMessage == null && result.ItemReferenceParam == null && result.ItemValue == null && result.ProgramItemParam == null && result.ProgramOutputItemParam == null;
-            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.EasyInputMessage = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessage(), parseNode);
+            bool noSelectedUnionBranch = result.CompactionTriggerItemParam == null && result.InputItemOneOf1 == null && result.InputItemOneOf2 == null && result.InputItemOneOf4 == null && result.ProgramItemParam == null && result.ProgramOutputItemParam == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.InputItemOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf1(), parseNode);
             if (noSelectedUnionBranch && matchesUnionBranch2 && matchingUnionBranches == 1) result.CompactionTriggerItemParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.CompactionTriggerItemParam(), parseNode);
-            if (noSelectedUnionBranch && matchesUnionBranch3 && matchingUnionBranches == 1) result.ItemReferenceParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ItemReferenceParam(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch3 && matchingUnionBranches == 1) result.InputItemOneOf4 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf4(), parseNode);
             if (noSelectedUnionBranch && matchesUnionBranch4 && matchingUnionBranches == 1) result.ProgramItemParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ProgramItemParam(), parseNode);
             if (noSelectedUnionBranch && matchesUnionBranch5 && matchingUnionBranches == 1) result.ProgramOutputItemParam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ProgramOutputItemParam(), parseNode);
-            if (result.CompactionTriggerItemParam == null && result.EasyInputMessage == null && result.ItemReferenceParam == null && result.ItemValue == null && result.ProgramItemParam == null && result.ProgramOutputItemParam == null) result.UnrecognizedValue = unionPayload;
+            if (result.CompactionTriggerItemParam == null && result.InputItemOneOf1 == null && result.InputItemOneOf2 == null && result.InputItemOneOf4 == null && result.ProgramItemParam == null && result.ProgramOutputItemParam == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
         /// <summary>
@@ -140,17 +140,17 @@ return result;
             {
                 return CompactionTriggerItemParam.GetFieldDeserializers();
             }
-            else if(EasyInputMessage != null)
+            else if(InputItemOneOf1 != null)
             {
-                return EasyInputMessage.GetFieldDeserializers();
+                return InputItemOneOf1.GetFieldDeserializers();
             }
-            else if(ItemReferenceParam != null)
+            else if(InputItemOneOf2 != null)
             {
-                return ItemReferenceParam.GetFieldDeserializers();
+                return InputItemOneOf2.GetFieldDeserializers();
             }
-            else if(ItemValue != null)
+            else if(InputItemOneOf4 != null)
             {
-                return ItemValue.GetFieldDeserializers();
+                return InputItemOneOf4.GetFieldDeserializers();
             }
             else if(ProgramItemParam != null)
             {
@@ -169,17 +169,17 @@ return result;
         public virtual void Serialize(ISerializationWriter writer)
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (CompactionTriggerItemParam == null && EasyInputMessage == null && ItemReferenceParam == null && ItemValue == null && ProgramItemParam == null && ProgramOutputItemParam == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (CompactionTriggerItemParam == null && InputItemOneOf1 == null && InputItemOneOf2 == null && InputItemOneOf4 == null && ProgramItemParam == null && ProgramOutputItemParam == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
             int selectedUnionBranches = 0;
             if (CompactionTriggerItemParam != null) selectedUnionBranches++;
-            if (EasyInputMessage != null) selectedUnionBranches++;
-            if (ItemReferenceParam != null) selectedUnionBranches++;
-            if (ItemValue != null) selectedUnionBranches++;
+            if (InputItemOneOf1 != null) selectedUnionBranches++;
+            if (InputItemOneOf2 != null) selectedUnionBranches++;
+            if (InputItemOneOf4 != null) selectedUnionBranches++;
             if (ProgramItemParam != null) selectedUnionBranches++;
             if (ProgramOutputItemParam != null) selectedUnionBranches++;
             if (CompactionTriggerItemParam != null && selectedUnionBranches == 1) { if (CompactionTriggerItemParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CompactionTriggerItemParam); return; }
-            if (EasyInputMessage != null && selectedUnionBranches == 1) { if (EasyInputMessage is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EasyInputMessage); return; }
-            if (ItemReferenceParam != null && selectedUnionBranches == 1) { if (ItemReferenceParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ItemReferenceParam); return; }
+            if (InputItemOneOf1 != null && selectedUnionBranches == 1) { if (InputItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InputItemOneOf1); return; }
+            if (InputItemOneOf4 != null && selectedUnionBranches == 1) { if (InputItemOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InputItemOneOf4); return; }
             if (ProgramItemParam != null && selectedUnionBranches == 1) { if (ProgramItemParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ProgramItemParam); return; }
             if (ProgramOutputItemParam != null && selectedUnionBranches == 1) { if (ProgramOutputItemParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ProgramOutputItemParam); return; }
 
@@ -189,20 +189,20 @@ return result;
                 if (CompactionTriggerItemParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionTriggerItemParam>(null, CompactionTriggerItemParam);
             }
-            else if(EasyInputMessage != null)
+            else if(InputItemOneOf1 != null)
             {
-                if (EasyInputMessage is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EasyInputMessage>(null, EasyInputMessage);
+                if (InputItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf1>(null, InputItemOneOf1);
             }
-            else if(ItemReferenceParam != null)
+            else if(InputItemOneOf2 != null)
             {
-                if (ItemReferenceParam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ItemReferenceParam>(null, ItemReferenceParam);
+                if (InputItemOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf2>(null, InputItemOneOf2);
             }
-            else if(ItemValue != null)
+            else if(InputItemOneOf4 != null)
             {
-                if (ItemValue is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue>(null, ItemValue);
+                if (InputItemOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf4>(null, InputItemOneOf4);
             }
             else if(ProgramItemParam != null)
             {

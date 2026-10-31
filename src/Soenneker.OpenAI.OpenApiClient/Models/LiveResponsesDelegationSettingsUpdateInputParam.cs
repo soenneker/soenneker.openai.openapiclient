@@ -92,12 +92,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Controls which tool the Responses backend uses when handling a task delegated by the Live model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParamToolChoice? ToolChoice { get => _explicitNullValueToolChoice; set { _explicitNullValueToolChoice = value; AdditionalData?.Remove("tool_choice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_choice"); else _explicitNullProperties?.Remove("tool_choice"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParamToolChoice? _explicitNullValueToolChoice = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsUpdateInputParamToolChoice? ToolChoice { get => _explicitNullValueToolChoice; set { _explicitNullValueToolChoice = value; AdditionalData?.Remove("tool_choice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_choice"); else _explicitNullProperties?.Remove("tool_choice"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsUpdateInputParamToolChoice? _explicitNullValueToolChoice = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParamToolChoice ToolChoice { get => _explicitNullValueToolChoice; set { _explicitNullValueToolChoice = value; AdditionalData?.Remove("tool_choice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_choice"); else _explicitNullProperties?.Remove("tool_choice"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParamToolChoice _explicitNullValueToolChoice = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsUpdateInputParamToolChoice ToolChoice { get => _explicitNullValueToolChoice; set { _explicitNullValueToolChoice = value; AdditionalData?.Remove("tool_choice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_choice"); else _explicitNullProperties?.Remove("tool_choice"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsUpdateInputParamToolChoice _explicitNullValueToolChoice = default!;
 #endif
         /// <summary>Tools available to the Responses backend while it handles tasks delegated by the Live model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -141,7 +141,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationReasoningInputParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationReasoningInputParam.CreateFromDiscriminatorValue); } },
                 { "service_tier", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesServiceTier>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueServiceTier = default; _explicitNullProperties?.Remove("service_tier"); AdditionalData["service_tier"] = unknown; } else { ServiceTier = parsed; AdditionalData.Remove("service_tier"); } } },
                 { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationTextInputParam>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationTextInputParam.CreateFromDiscriminatorValue); } },
-                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParamToolChoice>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParamToolChoice.CreateFromDiscriminatorValue); } },
+                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsUpdateInputParamToolChoice>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsUpdateInputParamToolChoice.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParamToolsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParamToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -159,7 +159,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationReasoningInputParam>("reasoning", Reasoning);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesServiceTier>("service_tier", ServiceTier);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveDelegationTextInputParam>("text", Text);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParamToolChoice>("tool_choice", ToolChoice);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsUpdateInputParamToolChoice>("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.LiveResponsesDelegationSettingsInputParamToolsItem>("tools", Tools);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

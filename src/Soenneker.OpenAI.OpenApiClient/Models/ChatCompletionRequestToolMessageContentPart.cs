@@ -66,6 +66,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "prompt_cache_breakpoint", n => { PromptCacheBreakpoint = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
+
             };
         }
         /// <summary>

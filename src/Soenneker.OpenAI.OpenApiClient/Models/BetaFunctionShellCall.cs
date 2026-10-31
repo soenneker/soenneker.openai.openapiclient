@@ -93,12 +93,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceResource? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; AdditionalData?.Remove("environment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceResource? _explicitNullValueEnvironment = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallEnvironmentAnyOf1? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; AdditionalData?.Remove("environment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallEnvironmentAnyOf1? _explicitNullValueEnvironment = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceResource Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; AdditionalData?.Remove("environment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceResource _explicitNullValueEnvironment = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallEnvironmentAnyOf1 Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; AdditionalData?.Remove("environment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallEnvironmentAnyOf1 _explicitNullValueEnvironment = default!;
 #endif
         /// <summary>The unique ID of the shell tool call. Populated when this item is returned via API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -146,7 +146,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "caller", n => { Caller = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolCallCaller>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolCallCaller.CreateFromDiscriminatorValue); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
-                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceResource>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceResource.CreateFromDiscriminatorValue); } },
+                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallEnvironmentAnyOf1>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallEnvironmentAnyOf1.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ShellCallType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
@@ -164,7 +164,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaToolCallCaller>("caller", Caller);
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("created_by", CreatedBy);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerReferenceResource>("environment", Environment);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallEnvironmentAnyOf1>("environment", Environment);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellCallStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ShellCallType>("type", Type);

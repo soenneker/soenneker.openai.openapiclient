@@ -11,7 +11,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// Content item used to generate a response.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ItemValue : IAdditionalDataHolder, IParsable
+    public partial class InputItemOneOf2 : IAdditionalDataHolder, IParsable
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -230,12 +230,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; AdditionalData?.Remove("environment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam? _explicitNullValueEnvironment = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironmentAnyOf1? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; AdditionalData?.Remove("environment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironmentAnyOf1? _explicitNullValueEnvironment = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; AdditionalData?.Remove("environment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam _explicitNullValueEnvironment = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironmentAnyOf1 Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; AdditionalData?.Remove("environment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironmentAnyOf1 _explicitNullValueEnvironment = default!;
 #endif
         /// <summary>Details of a moderation failure, when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -466,21 +466,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string? _explicitNullValueType = default!;
 #nullable restore
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf2"/> and sets the default values.
         /// </summary>
-        public ItemValue()
+        public InputItemOneOf2()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf2"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ItemValue(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.InputItemOneOf2(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -504,7 +504,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "container_id", n => { ContainerId = n.GetStringValue(); } },
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionAndCustomToolCallOutput>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionAndCustomToolCallOutput.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "encrypted_content", n => { EncryptedContent = n.GetStringValue(); } },
-                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam.CreateFromDiscriminatorValue); } },
+                { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironmentAnyOf1>(global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironmentAnyOf1.CreateFromDiscriminatorValue); } },
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallError>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallError.CreateFromDiscriminatorValue); } },
                 { "execution", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueExecution = default; _explicitNullProperties?.Remove("execution"); AdditionalData["execution"] = unknown; } else { Execution = parsed; AdditionalData.Remove("execution"); } } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -556,7 +556,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("container_id", ContainerId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionAndCustomToolCallOutput>("content", Content);
             writer.WriteStringValue("encrypted_content", EncryptedContent);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerReferenceParam>("environment", Environment);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallItemParamEnvironmentAnyOf1>("environment", Environment);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolCallError>("error", Error);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchExecutionType>("execution", Execution);
             writer.WriteStringValue("id", Id);

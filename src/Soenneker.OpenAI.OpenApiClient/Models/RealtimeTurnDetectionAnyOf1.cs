@@ -11,7 +11,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
     /// Configuration for turn detection, ether Server VAD or Semantic VAD. This can be set to `null` to turn off, in which case the client must manually trigger model response.Server VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech.Semantic VAD is more advanced and uses a turn detection model (in conjunction with VAD) to semantically estimate whether the user has finished speaking, then dynamically sets a timeout based on this probability. For example, if user audio trails off with &quot;uhhm&quot;, the model will score a low probability of turn end and wait longer for the user to continue speaking. This can be useful for more natural conversations, but may have a higher latency.For `gpt-realtime-whisper` transcription sessions, turn detection must beset to `null`; VAD is not supported.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad : IAdditionalDataHolder, IParsable
+    public partial class RealtimeTurnDetectionAnyOf1 : IAdditionalDataHolder, IParsable
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -59,20 +59,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Used only for `server_vad` mode. Activation threshold for VAD (0.0 to 1.0), this defaults to 0.5. Ahigher threshold will require louder audio to activate the model, andthus might perform better in noisy environments.</summary>
         public double? Threshold { get => _explicitNullValueThreshold; set { _explicitNullValueThreshold = value; AdditionalData?.Remove("threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threshold"); else _explicitNullProperties?.Remove("threshold"); } }
         private double? _explicitNullValueThreshold = default!;
-        /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        /// <summary>Type of turn detection, `server_vad` to turn on simple Server VAD.</summary>
 #nullable enable
         public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private string? _explicitNullValueType = default!;
 #nullable restore
-#else
-        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
-        private string _explicitNullValueType = default!;
-#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionAnyOf1"/> and sets the default values.
         /// </summary>
-        public RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad()
+        public RealtimeTurnDetectionAnyOf1()
         {
             AdditionalData = new Dictionary<string, object>();
             CreateResponse = true;
@@ -81,12 +76,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionAnyOf1"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionAnyOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionRealtimeTurnDetectionSemanticVad(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTurnDetectionAnyOf1(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model

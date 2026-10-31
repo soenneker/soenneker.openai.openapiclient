@@ -31,12 +31,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The batch_size property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? BatchSize { get => _explicitNullValueBatchSize; set { _explicitNullValueBatchSize = value; AdditionalData?.Remove("batch_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("batch_size"); else _explicitNullProperties?.Remove("batch_size"); } }
-        private UntypedNode? _explicitNullValueBatchSize = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersBatchSizeAnyOf1? BatchSize { get => _explicitNullValueBatchSize; set { _explicitNullValueBatchSize = value; AdditionalData?.Remove("batch_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("batch_size"); else _explicitNullProperties?.Remove("batch_size"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersBatchSizeAnyOf1? _explicitNullValueBatchSize = default!;
 #nullable restore
 #else
-        public UntypedNode BatchSize { get => _explicitNullValueBatchSize; set { _explicitNullValueBatchSize = value; AdditionalData?.Remove("batch_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("batch_size"); else _explicitNullProperties?.Remove("batch_size"); } }
-        private UntypedNode _explicitNullValueBatchSize = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersBatchSizeAnyOf1 BatchSize { get => _explicitNullValueBatchSize; set { _explicitNullValueBatchSize = value; AdditionalData?.Remove("batch_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("batch_size"); else _explicitNullProperties?.Remove("batch_size"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersBatchSizeAnyOf1 _explicitNullValueBatchSize = default!;
 #endif
         /// <summary>Scaling factor for the learning rate. A smaller learning rate may be useful to avoidoverfitting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,7 +85,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "batch_size", n => { BatchSize = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "batch_size", n => { BatchSize = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersBatchSizeAnyOf1>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersBatchSizeAnyOf1.CreateFromDiscriminatorValue); } },
                 { "learning_rate_multiplier", n => { LearningRateMultiplier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplier>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplier.CreateFromDiscriminatorValue); } },
                 { "n_epochs", n => { NEpochs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersNEpochs>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersNEpochs.CreateFromDiscriminatorValue); } },
             };
@@ -97,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<UntypedNode>("batch_size", BatchSize);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersBatchSizeAnyOf1>("batch_size", BatchSize);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersLearningRateMultiplier>("learning_rate_multiplier", LearningRateMultiplier);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparametersNEpochs>("n_epochs", NEpochs);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

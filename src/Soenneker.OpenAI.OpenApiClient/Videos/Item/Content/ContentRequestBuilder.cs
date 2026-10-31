@@ -36,7 +36,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Videos.Item.Content
         /// <summary>
         /// Download the generated video bytes or a derived preview asset.Streams the rendered video content for the specified video job.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="string"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
@@ -45,11 +45,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Videos.Item.Content
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Videos.Item.Content.ContentRequestBuilder.ContentRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Videos.Item.Content.ContentRequestBuilder.ContentRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Videos.Item.Content.ContentRequestBuilder.ContentRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Videos.Item.Content.ContentRequestBuilder.ContentRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -61,7 +61,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Videos.Item.Content
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Download the generated video bytes or a derived preview asset.Streams the rendered video content for the specified video job.

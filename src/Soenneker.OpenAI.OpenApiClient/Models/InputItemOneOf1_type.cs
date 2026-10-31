@@ -5,7 +5,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 {
     /// <summary>The type of the message input. Always `message`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum ItemValue_type
+    public enum InputItemOneOf1_type
     {
         [EnumMember(Value = "message")]
         #pragma warning disable CS1591

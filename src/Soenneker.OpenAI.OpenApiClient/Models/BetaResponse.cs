@@ -159,12 +159,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The instructions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Instructions { get => _explicitNullValueInstructions; set { _explicitNullValueInstructions = value; AdditionalData?.Remove("instructions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instructions"); else _explicitNullProperties?.Remove("instructions"); } }
-        private UntypedNode? _explicitNullValueInstructions = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3InstructionsAnyOf1? Instructions { get => _explicitNullValueInstructions; set { _explicitNullValueInstructions = value; AdditionalData?.Remove("instructions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instructions"); else _explicitNullProperties?.Remove("instructions"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3InstructionsAnyOf1? _explicitNullValueInstructions = default!;
 #nullable restore
 #else
-        public UntypedNode Instructions { get => _explicitNullValueInstructions; set { _explicitNullValueInstructions = value; AdditionalData?.Remove("instructions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instructions"); else _explicitNullProperties?.Remove("instructions"); } }
-        private UntypedNode _explicitNullValueInstructions = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3InstructionsAnyOf1 Instructions { get => _explicitNullValueInstructions; set { _explicitNullValueInstructions = value; AdditionalData?.Remove("instructions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instructions"); else _explicitNullProperties?.Remove("instructions"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3InstructionsAnyOf1 _explicitNullValueInstructions = default!;
 #endif
         /// <summary>An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](https://developers.openai.com/api/docs/guides/reasoning).</summary>
         public int? MaxOutputTokens { get => _explicitNullValueMaxOutputTokens; set { _explicitNullValueMaxOutputTokens = value; AdditionalData?.Remove("max_output_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_output_tokens"); else _explicitNullProperties?.Remove("max_output_tokens"); } }
@@ -418,7 +418,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseError>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseError.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "incomplete_details", n => { IncompleteDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetails.CreateFromDiscriminatorValue); } },
-                { "instructions", n => { Instructions = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "instructions", n => { Instructions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3InstructionsAnyOf1>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3InstructionsAnyOf1.CreateFromDiscriminatorValue); } },
                 { "max_output_tokens", n => { MaxOutputTokens = n.GetIntValue(); } },
                 { "max_tool_calls", n => { MaxToolCalls = n.GetIntValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseMetadata.CreateFromDiscriminatorValue); } },
@@ -465,7 +465,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseError>("error", Error);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3IncompleteDetails>("incomplete_details", IncompleteDetails);
-            writer.WriteObjectValue<UntypedNode>("instructions", Instructions);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseAllOf3InstructionsAnyOf1>("instructions", Instructions);
             writer.WriteIntValue("max_output_tokens", MaxOutputTokens);
             writer.WriteIntValue("max_tool_calls", MaxToolCalls);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseMetadata>("metadata", Metadata);
