@@ -52,8 +52,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "client_secret_basic" => new global::Soenneker.OpenAI.OpenApiClient.Models.RotateMcpOAuthTokenEndpointAuthParamRotateMcpOAuthTokenEndpointAuthParamClientSecretBasic(),
-                "client_secret_post" => new global::Soenneker.OpenAI.OpenApiClient.Models.RotateMcpOAuthTokenEndpointAuthParamRotateMcpOAuthTokenEndpointAuthParamClientSecretPost(),
+                "client_secret_basic" => new global::Soenneker.OpenAI.OpenApiClient.Models.RotateMcpOAuthTokenEndpointAuthParamClientSecretBasicVariant(),
+                "client_secret_post" => new global::Soenneker.OpenAI.OpenApiClient.Models.RotateMcpOAuthTokenEndpointAuthParamClientSecretPostVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.RotateMcpOAuthTokenEndpointAuthParam(),
             };
         }

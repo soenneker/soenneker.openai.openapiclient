@@ -52,8 +52,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "json_schema" => new global::Soenneker.OpenAI.OpenApiClient.Models.TextFormatResourceTextFormatResourceJsonSchema(),
-                "text" => new global::Soenneker.OpenAI.OpenApiClient.Models.TextFormatResourceTextFormatResourceText(),
+                "json_schema" => new global::Soenneker.OpenAI.OpenApiClient.Models.TextFormatResourceJsonSchemaVariant(),
+                "text" => new global::Soenneker.OpenAI.OpenApiClient.Models.TextFormatResourceTextVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.TextFormatResource(),
             };
         }

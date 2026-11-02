@@ -52,8 +52,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "limited" => new global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialNetworkingParamVaultCredentialNetworkingParamLimited(),
-                "unrestricted" => new global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialNetworkingParamVaultCredentialNetworkingParamUnrestricted(),
+                "limited" => new global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialNetworkingParamLimitedVariant(),
+                "unrestricted" => new global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialNetworkingParamUnrestrictedVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.VaultCredentialNetworkingParam(),
             };
         }

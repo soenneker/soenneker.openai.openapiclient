@@ -52,13 +52,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "automations" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamPersistedAgentToolConfigParamAutomations(),
-                "computer_use" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamPersistedAgentToolConfigParamComputerUse(),
-                "function" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamPersistedAgentToolConfigParamFunction(),
-                "mcp" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamPersistedAgentToolConfigParamMcp(),
-                "programmatic_tool_calling" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamPersistedAgentToolConfigParamProgrammaticToolCalling(),
-                "tool_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamPersistedAgentToolConfigParamToolSearch(),
-                "web_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamPersistedAgentToolConfigParamWebSearch(),
+                "automations" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamAutomationsVariant(),
+                "computer_use" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamComputerUseVariant(),
+                "function" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamFunctionVariant(),
+                "mcp" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamMcpVariant(),
+                "programmatic_tool_calling" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamProgrammaticToolCallingVariant(),
+                "tool_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamToolSearchVariant(),
+                "web_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParamWebSearchVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParam(),
             };
         }

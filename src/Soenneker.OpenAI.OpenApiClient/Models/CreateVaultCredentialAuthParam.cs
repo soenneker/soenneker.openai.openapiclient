@@ -52,9 +52,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "environment_variable" => new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamEnvironmentVariable(),
-                "mcp_oauth" => new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamMcpOAuth(),
-                "static_bearer" => new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVaultCredentialAuthParamCreateVaultCredentialAuthParamStaticBearer(),
+                "environment_variable" => new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVaultCredentialAuthParamEnvironmentVariableVariant(),
+                "mcp_oauth" => new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVaultCredentialAuthParamMcpOAuthVariant(),
+                "static_bearer" => new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVaultCredentialAuthParamStaticBearerVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.CreateVaultCredentialAuthParam(),
             };
         }

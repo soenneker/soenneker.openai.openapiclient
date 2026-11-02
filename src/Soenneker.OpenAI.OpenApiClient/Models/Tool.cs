@@ -65,7 +65,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 "namespace" => new global::Soenneker.OpenAI.OpenApiClient.Models.ToolNamespaceToolParam(),
                 "programmatic_tool_calling" => new global::Soenneker.OpenAI.OpenApiClient.Models.ToolProgrammaticToolCallingParam(),
                 "shell" => new global::Soenneker.OpenAI.OpenApiClient.Models.ToolFunctionShellToolParam(),
-                "tool_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.ToolToolSearchToolParam(),
+                "tool_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchToolParamVariant(),
                 "web_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.ToolWebSearchTool(),
                 "web_search_2025_08_26" => new global::Soenneker.OpenAI.OpenApiClient.Models.ToolWebSearchTool(),
                 "web_search_preview" => new global::Soenneker.OpenAI.OpenApiClient.Models.ToolWebSearchPreviewTool(),

@@ -52,8 +52,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "existing_session" => new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationTargetResourceAutomationTargetResourceExistingSession(),
-                "new_session" => new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationTargetResourceAutomationTargetResourceNewSession(),
+                "existing_session" => new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationTargetResourceExistingSessionVariant(),
+                "new_session" => new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationTargetResourceNewSessionVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.AutomationTargetResource(),
             };
         }

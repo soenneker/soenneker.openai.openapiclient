@@ -52,10 +52,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "agent.session.input.cancel" => new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamSessionInputParamAgentSessionInputCancel(),
-                "agent.session.input.computer_use_approval_request_result" => new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamSessionInputParamAgentSessionInputComputerUseApprovalRequestResult(),
-                "agent.session.input.message" => new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamSessionInputParamAgentSessionInputMessage(),
-                "agent.session.input.tool_result" => new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamSessionInputParamAgentSessionInputToolResult(),
+                "agent.session.input.cancel" => new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputCancelVariant(),
+                "agent.session.input.computer_use_approval_request_result" => new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputComputerUseApprovalRequestResultVariant(),
+                "agent.session.input.message" => new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputMessageVariant(),
+                "agent.session.input.tool_result" => new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParamAgentSessionInputToolResultVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.SessionInputParam(),
             };
         }

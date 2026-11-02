@@ -52,13 +52,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "automations" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAgentToolConfigParamAutomations(),
-                "computer_use" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAgentToolConfigParamComputerUse(),
-                "function" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAgentToolConfigParamFunction(),
-                "mcp" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAgentToolConfigParamMcp(),
-                "programmatic_tool_calling" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAgentToolConfigParamProgrammaticToolCalling(),
-                "tool_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAgentToolConfigParamToolSearch(),
-                "web_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAgentToolConfigParamWebSearch(),
+                "automations" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamAutomationsVariant(),
+                "computer_use" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamComputerUseVariant(),
+                "function" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamFunctionVariant(),
+                "mcp" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamMcpVariant(),
+                "programmatic_tool_calling" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamProgrammaticToolCallingVariant(),
+                "tool_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamToolSearchVariant(),
+                "web_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParamWebSearchVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolConfigParam(),
             };
         }

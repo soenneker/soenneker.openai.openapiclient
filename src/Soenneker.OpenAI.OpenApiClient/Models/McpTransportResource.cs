@@ -52,8 +52,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "http" => new global::Soenneker.OpenAI.OpenApiClient.Models.McpTransportResourceMcpTransportResourceHttp(),
-                "stdio" => new global::Soenneker.OpenAI.OpenApiClient.Models.McpTransportResourceMcpTransportResourceStdio(),
+                "http" => new global::Soenneker.OpenAI.OpenApiClient.Models.McpTransportResourceHttpVariant(),
+                "stdio" => new global::Soenneker.OpenAI.OpenApiClient.Models.McpTransportResourceStdioVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.McpTransportResource(),
             };
         }

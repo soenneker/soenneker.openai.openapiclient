@@ -52,12 +52,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "automations" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolResourceAgentToolResourceAutomations(),
-                "computer_use" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolResourceAgentToolResourceComputerUse(),
-                "function" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolResourceAgentToolResourceFunction(),
-                "mcp" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolResourceAgentToolResourceMcp(),
-                "programmatic_tool_calling" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolResourceAgentToolResourceProgrammaticToolCalling(),
-                "web_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolResourceAgentToolResourceWebSearch(),
+                "automations" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolResourceAutomationsVariant(),
+                "computer_use" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolResourceComputerUseVariant(),
+                "function" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolResourceFunctionVariant(),
+                "mcp" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolResourceMcpVariant(),
+                "programmatic_tool_calling" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolResourceProgrammaticToolCallingVariant(),
+                "web_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolResourceWebSearchVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.AgentToolResource(),
             };
         }

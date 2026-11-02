@@ -52,8 +52,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "inline" => new global::Soenneker.OpenAI.OpenApiClient.Models.HostedSkillResourceHostedSkillResourceInline(),
-                "skill_reference" => new global::Soenneker.OpenAI.OpenApiClient.Models.HostedSkillResourceHostedSkillResourceSkillReference(),
+                "inline" => new global::Soenneker.OpenAI.OpenApiClient.Models.HostedSkillResourceInlineVariant(),
+                "skill_reference" => new global::Soenneker.OpenAI.OpenApiClient.Models.HostedSkillResourceSkillReferenceVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.HostedSkillResource(),
             };
         }

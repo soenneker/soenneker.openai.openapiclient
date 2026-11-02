@@ -52,10 +52,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "find_in_page" => new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResourceWebSearchActionResourceFindInPage(),
-                "open_page" => new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResourceWebSearchActionResourceOpenPage(),
-                "other" => new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResourceWebSearchActionResourceOther(),
-                "search" => new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResourceWebSearchActionResourceSearch(),
+                "find_in_page" => new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResourceFindInPageVariant(),
+                "open_page" => new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResourceOpenPageVariant(),
+                "other" => new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResourceOtherVariant(),
+                "search" => new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResourceSearchVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResource(),
             };
         }

@@ -52,13 +52,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "automations" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourcePersistedAgentToolResourceAutomations(),
-                "computer_use" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourcePersistedAgentToolResourceComputerUse(),
-                "function" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourcePersistedAgentToolResourceFunction(),
-                "mcp" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourcePersistedAgentToolResourceMcp(),
-                "programmatic_tool_calling" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourcePersistedAgentToolResourceProgrammaticToolCalling(),
-                "tool_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourcePersistedAgentToolResourceToolSearch(),
-                "web_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourcePersistedAgentToolResourceWebSearch(),
+                "automations" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceAutomationsVariant(),
+                "computer_use" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceComputerUseVariant(),
+                "function" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceFunctionVariant(),
+                "mcp" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceMcpVariant(),
+                "programmatic_tool_calling" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceProgrammaticToolCallingVariant(),
+                "tool_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceToolSearchVariant(),
+                "web_search" => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResourceWebSearchVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolResource(),
             };
         }

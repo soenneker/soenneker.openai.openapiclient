@@ -51,8 +51,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("action")?.GetStringValue();
             return mappingValue switch
             {
-                "cancel" => new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalResponseParamBrowserAuthenticationComputerUseApprovalResponseParamBrowserAuthenticationOneOf2(),
-                "submit" => new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalResponseParamBrowserAuthenticationComputerUseApprovalResponseParamBrowserAuthenticationOneOf1(),
+                "cancel" => new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalResponseParamBrowserAuthenticationOneOf2Variant(),
+                "submit" => new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalResponseParamBrowserAuthenticationOneOf1Variant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.ComputerUseApprovalResponseParamBrowserAuthentication(),
             };
         }

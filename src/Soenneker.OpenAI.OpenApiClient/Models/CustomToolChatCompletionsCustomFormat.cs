@@ -52,8 +52,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "grammar" => new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatGrammarFormat(),
-                "text" => new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatCustomToolChatCompletionsCustomFormatTextFormat(),
+                "grammar" => new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatGrammarFormatVariant(),
+                "text" => new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormatTextFormatVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.CustomToolChatCompletionsCustomFormat(),
             };
         }

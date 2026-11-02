@@ -52,9 +52,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "choice" => new global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamQuestionParamChoice(),
-                "predicate" => new global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamQuestionParamPredicate(),
-                "score" => new global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamQuestionParamScore(),
+                "choice" => new global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamChoiceVariant(),
+                "predicate" => new global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamPredicateVariant(),
+                "score" => new global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParamScoreVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.QuestionParam(),
             };
         }

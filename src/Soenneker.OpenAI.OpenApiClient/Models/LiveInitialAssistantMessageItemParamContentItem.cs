@@ -52,7 +52,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return mappingValue switch
             {
                 "output_text" => new global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItemLiveInitialOutputTextContentPartParam(),
-                "text" => new global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItemLiveInitialAssistantMessageItemParamContentItemOneOf1(),
+                "text" => new global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItemOneOf1Variant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.LiveInitialAssistantMessageItemParamContentItem(),
             };
         }

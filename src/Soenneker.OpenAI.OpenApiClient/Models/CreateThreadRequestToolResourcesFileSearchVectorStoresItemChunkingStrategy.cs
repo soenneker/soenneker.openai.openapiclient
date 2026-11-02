@@ -52,8 +52,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "auto" => new global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyAutoChunkingStrategy(),
-                "static" => new global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyCreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyStaticChunkingStrategy(),
+                "auto" => new global::Soenneker.OpenAI.OpenApiClient.Models.TaggedAutoVariantC1DB0B9966A35189(),
+                "static" => new global::Soenneker.OpenAI.OpenApiClient.Models.TaggedStaticVariant67CE4FAAE822ABD5(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategy(),
             };
         }

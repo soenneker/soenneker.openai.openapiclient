@@ -52,9 +52,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "input_image" => new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentResourceMessageContentResourceInputImage(),
-                "input_text" => new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentResourceMessageContentResourceInputText(),
-                "output_text" => new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentResourceMessageContentResourceOutputText(),
+                "input_image" => new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentResourceInputImageVariant(),
+                "input_text" => new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentResourceInputTextVariant(),
+                "output_text" => new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentResourceOutputTextVariant(),
                 _ => new global::Soenneker.OpenAI.OpenApiClient.Models.MessageContentResource(),
             };
         }
