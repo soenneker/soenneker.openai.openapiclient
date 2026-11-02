@@ -37,8 +37,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatConfiguration _explicitNullValueFormat = default!;
 #endif
         /// <summary>Constrains the verbosity of the model&apos;s response. Lower values will result inmore concise responses, while higher values will result in more verbose responses.Currently supported values are `low`, `medium`, and `high`. The default is`medium`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity? Verbosity { get => _explicitNullValueVerbosity; set { _explicitNullValueVerbosity = value; AdditionalData?.Remove("verbosity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verbosity"); else _explicitNullProperties?.Remove("verbosity"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity? _explicitNullValueVerbosity = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity Verbosity { get => _explicitNullValueVerbosity; set { _explicitNullValueVerbosity = value; AdditionalData?.Remove("verbosity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verbosity"); else _explicitNullProperties?.Remove("verbosity"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity _explicitNullValueVerbosity = default!;
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseTextParam"/> and sets the default values.
         /// </summary>
@@ -65,7 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatConfiguration>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatConfiguration.CreateFromDiscriminatorValue); } },
-                { "verbosity", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueVerbosity = default; _explicitNullProperties?.Remove("verbosity"); AdditionalData["verbosity"] = unknown; } else { Verbosity = parsed; AdditionalData.Remove("verbosity"); } } },
+                { "verbosity", n => { Verbosity = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,7 +83,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaTextResponseFormatConfiguration>("format", Format);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity>("verbosity", Verbosity);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaVerbosity>("verbosity", Verbosity);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

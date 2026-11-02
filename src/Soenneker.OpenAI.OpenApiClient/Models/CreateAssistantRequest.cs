@@ -92,8 +92,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Constrains effort on reasoning for reasoning models. Currently supportedvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.Reducing reasoning effort can result in faster responses and fewer tokensused on reasoning in a response. Not all reasoning models support everyvalue. See the[reasoning guide](https://developers.openai.com/api/docs/guides/reasoning)for model-specific support.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? ReasoningEffort { get => _explicitNullValueReasoningEffort; set { _explicitNullValueReasoningEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_effort"); else _explicitNullProperties?.Remove("reasoning_effort"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? _explicitNullValueReasoningEffort = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort ReasoningEffort { get => _explicitNullValueReasoningEffort; set { _explicitNullValueReasoningEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_effort"); else _explicitNullProperties?.Remove("reasoning_effort"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort _explicitNullValueReasoningEffort = default!;
+#endif
         /// <summary>The response_format property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -161,7 +168,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "reasoning_effort", n => { ReasoningEffort = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(); } },
+                { "reasoning_effort", n => { ReasoningEffort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort.CreateFromDiscriminatorValue); } },
                 { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption.CreateFromDiscriminatorValue); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "tool_resources", n => { ToolResources = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestToolResources>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestToolResources.CreateFromDiscriminatorValue); } },
@@ -181,7 +188,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestMetadata>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("reasoning_effort", ReasoningEffort);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("reasoning_effort", ReasoningEffort);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption>("response_format", ResponseFormat);
             writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAssistantRequestToolResources>("tool_resources", ToolResources);

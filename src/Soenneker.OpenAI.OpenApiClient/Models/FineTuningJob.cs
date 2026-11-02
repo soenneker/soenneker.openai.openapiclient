@@ -61,8 +61,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Unix timestamp (in seconds) for when the fine-tuning job was created.</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
-        private int? _explicitNullValueCreatedAt = default!;
+        public long? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private long? _explicitNullValueCreatedAt = default!;
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,8 +74,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError _explicitNullValueError = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the fine-tuning job is estimated to finish. The value will be null if the fine-tuning job is not running.</summary>
-        public int? EstimatedFinish { get => _explicitNullValueEstimatedFinish; set { _explicitNullValueEstimatedFinish = value; AdditionalData?.Remove("estimated_finish"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("estimated_finish"); else _explicitNullProperties?.Remove("estimated_finish"); } }
-        private int? _explicitNullValueEstimatedFinish = default!;
+        public long? EstimatedFinish { get => _explicitNullValueEstimatedFinish; set { _explicitNullValueEstimatedFinish = value; AdditionalData?.Remove("estimated_finish"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("estimated_finish"); else _explicitNullProperties?.Remove("estimated_finish"); } }
+        private long? _explicitNullValueEstimatedFinish = default!;
         /// <summary>The name of the fine-tuned model that is being created. The value will be null if the fine-tuning job is still running.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -87,8 +87,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueFineTunedModel = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the fine-tuning job was finished. The value will be null if the fine-tuning job is still running.</summary>
-        public int? FinishedAt { get => _explicitNullValueFinishedAt; set { _explicitNullValueFinishedAt = value; AdditionalData?.Remove("finished_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("finished_at"); else _explicitNullProperties?.Remove("finished_at"); } }
-        private int? _explicitNullValueFinishedAt = default!;
+        public long? FinishedAt { get => _explicitNullValueFinishedAt; set { _explicitNullValueFinishedAt = value; AdditionalData?.Remove("finished_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("finished_at"); else _explicitNullProperties?.Remove("finished_at"); } }
+        private long? _explicitNullValueFinishedAt = default!;
         /// <summary>The hyperparameters used for the fine-tuning job. This value will only be returned when running `supervised` jobs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -129,15 +129,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobMetadata _explicitNullValueMetadata = default!;
 #endif
-        /// <summary>The method property</summary>
+        /// <summary>The method used for fine-tuning.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; AdditionalData?.Remove("method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod? _explicitNullValueMethod = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; AdditionalData?.Remove("method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobMethod? _explicitNullValueMethod = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; AdditionalData?.Remove("method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod _explicitNullValueMethod = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobMethod Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; AdditionalData?.Remove("method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobMethod _explicitNullValueMethod = default!;
 #endif
         /// <summary>The base model that is being fine-tuned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -226,16 +226,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError.CreateFromDiscriminatorValue); } },
-                { "estimated_finish", n => { EstimatedFinish = n.GetIntValue(); } },
+                { "estimated_finish", n => { EstimatedFinish = n.GetLongValue(); } },
                 { "fine_tuned_model", n => { FineTunedModel = n.GetStringValue(); } },
-                { "finished_at", n => { FinishedAt = n.GetIntValue(); } },
+                { "finished_at", n => { FinishedAt = n.GetLongValue(); } },
                 { "hyperparameters", n => { Hyperparameters = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparameters>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparameters.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "integrations", n => { Integrations = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrationsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobMetadata.CreateFromDiscriminatorValue); } },
-                { "method", n => { Method = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod.CreateFromDiscriminatorValue); } },
+                { "method", n => { Method = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobMethod>(global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobMethod.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "object", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobObject>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueObject = default; _explicitNullProperties?.Remove("object"); AdditionalData["object"] = unknown; } else { Object = parsed; AdditionalData.Remove("object"); } } },
                 { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
@@ -254,16 +254,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteLongValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobError>("error", Error);
-            writer.WriteIntValue("estimated_finish", EstimatedFinish);
+            writer.WriteLongValue("estimated_finish", EstimatedFinish);
             writer.WriteStringValue("fine_tuned_model", FineTunedModel);
-            writer.WriteIntValue("finished_at", FinishedAt);
+            writer.WriteLongValue("finished_at", FinishedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobHyperparameters>("hyperparameters", Hyperparameters);
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobIntegrationsItem>("integrations", Integrations);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobMetadata>("metadata", Metadata);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuneMethod>("method", Method);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobMethod>("method", Method);
             writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.FineTuningJobObject>("object", Object);
             writer.WriteStringValue("organization_id", OrganizationId);

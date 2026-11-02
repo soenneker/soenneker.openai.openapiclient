@@ -56,6 +56,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Live.Sessions
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 413 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateLive500PlainResponseSchemaError">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateLive502PlainResponseSchemaError">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 503 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,6 +76,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Live.Sessions
                 { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "413", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.OpenAI.OpenApiClient.Models.CreateLive500PlainResponseSchemaError.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.OpenAI.OpenApiClient.Models.CreateLive502PlainResponseSchemaError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },

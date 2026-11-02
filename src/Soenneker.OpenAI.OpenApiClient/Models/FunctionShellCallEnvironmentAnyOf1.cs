@@ -17,29 +17,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("container_id") is null) { _explicitNullValueContainerId = default!; _explicitNullProperties?.Remove("container_id"); }
-            else if (parseNode.GetChildNode("container_id") is { } nullNodeContainerId && nullNodeContainerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContainerId = null;
             if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
             else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The container_id property</summary>
+        /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ContainerId { get => _explicitNullValueContainerId; set { _explicitNullValueContainerId = value; AdditionalData?.Remove("container_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("container_id"); else _explicitNullProperties?.Remove("container_id"); } }
-        private string? _explicitNullValueContainerId = default!;
-#nullable restore
-#else
-        public string ContainerId { get => _explicitNullValueContainerId; set { _explicitNullValueContainerId = value; AdditionalData?.Remove("container_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("container_id"); else _explicitNullProperties?.Remove("container_id"); } }
-        private string _explicitNullValueContainerId = default!;
-#endif
-        /// <summary>Use a local computer environment.</summary>
 #nullable enable
         public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private string? _explicitNullValueType = default!;
 #nullable restore
+#else
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string _explicitNullValueType = default!;
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironmentAnyOf1"/> and sets the default values.
         /// </summary>
@@ -55,7 +48,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironmentAnyOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironmentAnyOf1(), parseNode);
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            return mappingValue switch
+            {
+                "container_reference" => new global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironmentAnyOf1ContainerReferenceResource(),
+                "local" => new global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironmentAnyOf1LocalEnvironmentResource(),
+                _ => new global::Soenneker.OpenAI.OpenApiClient.Models.FunctionShellCallEnvironmentAnyOf1(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,7 +64,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "container_id", n => { ContainerId = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -76,7 +74,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("container_id", ContainerId);
             writer.WriteStringValue("type", Type);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

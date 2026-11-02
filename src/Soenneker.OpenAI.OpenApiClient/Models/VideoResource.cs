@@ -49,24 +49,24 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Unix timestamp (seconds) for when the job completed, if finished.</summary>
-        public int? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
-        private int? _explicitNullValueCompletedAt = default!;
+        public long? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
+        private long? _explicitNullValueCompletedAt = default!;
         /// <summary>Unix timestamp (seconds) for when the job was created.</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
-        private int? _explicitNullValueCreatedAt = default!;
-        /// <summary>The error property</summary>
+        public long? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private long? _explicitNullValueCreatedAt = default!;
+        /// <summary>An error that occurred while generating the response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Error2? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.Error2? _explicitNullValueError = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Error2 Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.Error2 _explicitNullValueError = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError _explicitNullValueError = default!;
 #endif
         /// <summary>Unix timestamp (seconds) for when the downloadable assets expire, if set.</summary>
-        public int? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
-        private int? _explicitNullValueExpiresAt = default!;
+        public long? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private long? _explicitNullValueExpiresAt = default!;
         /// <summary>Unique identifier for the video job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -154,10 +154,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "completed_at", n => { CompletedAt = n.GetIntValue(); } },
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Error2>(global::Soenneker.OpenAI.OpenApiClient.Models.Error2.CreateFromDiscriminatorValue); } },
-                { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
+                { "completed_at", n => { CompletedAt = n.GetLongValue(); } },
+                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
+                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError>(global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError.CreateFromDiscriminatorValue); } },
+                { "expires_at", n => { ExpiresAt = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "object", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoObject>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueObject = default; _explicitNullProperties?.Remove("object"); AdditionalData["object"] = unknown; } else { Object = parsed; AdditionalData.Remove("object"); } } },
@@ -176,10 +176,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("completed_at", CompletedAt);
-            writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Error2>("error", Error);
-            writer.WriteIntValue("expires_at", ExpiresAt);
+            writer.WriteLongValue("completed_at", CompletedAt);
+            writer.WriteLongValue("created_at", CreatedAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoResourceError>("error", Error);
+            writer.WriteLongValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.VideoObject>("object", Object);

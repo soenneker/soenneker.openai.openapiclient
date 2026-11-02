@@ -51,8 +51,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueOutput = default!;
 #endif
         /// <summary>The status of the item. One of `in_progress`, `completed`, or `incomplete`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus? _explicitNullValueStatus = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus _explicitNullValueStatus = default!;
+#endif
         /// <summary>The type of the local shell tool call output. Always `local_shell_call_output`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallOutputType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallOutputType? _explicitNullValueType = default!;
@@ -83,7 +90,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetStringValue(); } },
-                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus>(global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus.CreateFromDiscriminatorValue); } },
                 { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallOutputType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
@@ -96,7 +103,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("output", Output);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellToolCallOutputStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.LocalShellCallOutputType>("type", Type);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

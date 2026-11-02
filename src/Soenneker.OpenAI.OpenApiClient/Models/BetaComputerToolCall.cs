@@ -61,12 +61,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The agent that produced this item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag? _explicitNullValueAgent = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent? _explicitNullValueAgent = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag _explicitNullValueAgent = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent _explicitNullValueAgent = default!;
 #endif
         /// <summary>An identifier used when responding to the tool call with output.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -131,7 +131,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "action", n => { Action = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerAction>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerAction.CreateFromDiscriminatorValue); } },
                 { "actions", n => { Actions = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerAction>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerAction.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag.CreateFromDiscriminatorValue); } },
+                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent.CreateFromDiscriminatorValue); } },
                 { "call_id", n => { CallId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "pending_safety_checks", n => { PendingSafetyChecks = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerCallSafetyCheckParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerCallSafetyCheckParam.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -148,7 +148,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerAction>("action", Action);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerAction>("actions", Actions);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>("agent", Agent);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent>("agent", Agent);
             writer.WriteStringValue("call_id", CallId);
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaComputerCallSafetyCheckParam>("pending_safety_checks", PendingSafetyChecks);

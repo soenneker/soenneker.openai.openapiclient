@@ -56,8 +56,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Set the background of the generated image(s). This parameter is only supported forthe GPT image models. Must be one of `transparent`, `opaque`, or `auto` (defaultvalue). When `auto` is used, the model will automatically determine the bestbackground for the image.`gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08`snapshots, support `opaque` and `transparent` backgrounds. Transparent backgroundsare available for supported GPT Image models. For `gpt-image-2` and`gpt-image-2-2026-04-21`, this support is in preview. When using `transparent`,set the output format to `png` or `webp`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground? Background { get => _explicitNullValueBackground; set { _explicitNullValueBackground = value; AdditionalData?.Remove("background"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background"); else _explicitNullProperties?.Remove("background"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground? _explicitNullValueBackground = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground Background { get => _explicitNullValueBackground; set { _explicitNullValueBackground = value; AdditionalData?.Remove("background"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background"); else _explicitNullProperties?.Remove("background"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground _explicitNullValueBackground = default!;
+#endif
         /// <summary>The image(s) to edit. Must be a supported image file or an array of images.For the GPT image models (`gpt-image-1-mini`, `gpt-image-1.5`,`gpt-image-2`, `gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`,`gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`, and`gpt-image-2.5-flare-2026-09-08`), each image should be a `png`, `webp`, or `jpg`file less than 50MB. You can provide up to 16 images. `chatgpt-image-latest`follows the same input constraints as GPT image models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -108,8 +115,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? OutputCompression { get => _explicitNullValueOutputCompression; set { _explicitNullValueOutputCompression = value; AdditionalData?.Remove("output_compression"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_compression"); else _explicitNullProperties?.Remove("output_compression"); } }
         private int? _explicitNullValueOutputCompression = default!;
         /// <summary>The format in which the generated images are returned. This parameter isonly supported for the GPT image models. Must be one of `png`, `jpeg`, or `webp`.The default value is `png`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat? OutputFormat { get => _explicitNullValueOutputFormat; set { _explicitNullValueOutputFormat = value; AdditionalData?.Remove("output_format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_format"); else _explicitNullProperties?.Remove("output_format"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat? _explicitNullValueOutputFormat = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat OutputFormat { get => _explicitNullValueOutputFormat; set { _explicitNullValueOutputFormat = value; AdditionalData?.Remove("output_format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_format"); else _explicitNullProperties?.Remove("output_format"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat _explicitNullValueOutputFormat = default!;
+#endif
         /// <summary>The number of partial images to generate. This parameter is used forstreaming responses that return partial images. Value must be between 0 and 3.When set to 0, the response will be a single image sent in one streaming event.Note that the final image may be sent before the full number of partial imagesare generated if the full image is generated more quickly.</summary>
         public int? PartialImages { get => _explicitNullValuePartialImages; set { _explicitNullValuePartialImages = value; AdditionalData?.Remove("partial_images"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partial_images"); else _explicitNullProperties?.Remove("partial_images"); } }
         private int? _explicitNullValuePartialImages = default!;
@@ -124,12 +138,26 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValuePrompt = default!;
 #endif
         /// <summary>The quality of the image that will be generated for GPT image models. The GPT image models support `low`, `medium`, and `high`. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08` snapshots, also support `xhigh` and `max`. Defaults to `auto`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality? Quality { get => _explicitNullValueQuality; set { _explicitNullValueQuality = value; AdditionalData?.Remove("quality"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quality"); else _explicitNullProperties?.Remove("quality"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality? _explicitNullValueQuality = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality Quality { get => _explicitNullValueQuality; set { _explicitNullValueQuality = value; AdditionalData?.Remove("quality"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quality"); else _explicitNullProperties?.Remove("quality"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality _explicitNullValueQuality = default!;
+#endif
         /// <summary>Legacy response format parameter for retired image models. Unsupported for GPT image models, which always return base64-encoded images.</summary>
         [Obsolete("")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat? ResponseFormat { get => _explicitNullValueResponseFormat; set { _explicitNullValueResponseFormat = value; AdditionalData?.Remove("response_format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("response_format"); else _explicitNullProperties?.Remove("response_format"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat? _explicitNullValueResponseFormat = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat ResponseFormat { get => _explicitNullValueResponseFormat; set { _explicitNullValueResponseFormat = value; AdditionalData?.Remove("response_format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("response_format"); else _explicitNullProperties?.Remove("response_format"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat _explicitNullValueResponseFormat = default!;
+#endif
         /// <summary>A stable identifier for an end user in your organization, used for safety monitoring and abuse detection. Hash a username or email address to avoid sending identifying information. A non-empty value takes precedence over the deprecated `user` parameter. If omitted, null, or empty, the API uses `user` when available. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -193,7 +221,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "background", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBackground = default; _explicitNullProperties?.Remove("background"); AdditionalData["background"] = unknown; } else { Background = parsed; AdditionalData.Remove("background"); } } },
+                { "background", n => { Background = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground.CreateFromDiscriminatorValue); } },
                 { "image", n => { Image = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage.CreateFromDiscriminatorValue); } },
                 { "input_fidelity", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInputFidelity = default; _explicitNullProperties?.Remove("input_fidelity"); AdditionalData["input_fidelity"] = unknown; } else { InputFidelity = parsed; AdditionalData.Remove("input_fidelity"); } } },
                 { "markup", n => { Markup = n.GetByteArrayValue(); } },
@@ -201,11 +229,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "n", n => { N = n.GetIntValue(); } },
                 { "output_compression", n => { OutputCompression = n.GetIntValue(); } },
-                { "output_format", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOutputFormat = default; _explicitNullProperties?.Remove("output_format"); AdditionalData["output_format"] = unknown; } else { OutputFormat = parsed; AdditionalData.Remove("output_format"); } } },
+                { "output_format", n => { OutputFormat = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat.CreateFromDiscriminatorValue); } },
                 { "partial_images", n => { PartialImages = n.GetIntValue(); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
-                { "quality", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueQuality = default; _explicitNullProperties?.Remove("quality"); AdditionalData["quality"] = unknown; } else { Quality = parsed; AdditionalData.Remove("quality"); } } },
-                { "response_format", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueResponseFormat = default; _explicitNullProperties?.Remove("response_format"); AdditionalData["response_format"] = unknown; } else { ResponseFormat = parsed; AdditionalData.Remove("response_format"); } } },
+                { "quality", n => { Quality = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality.CreateFromDiscriminatorValue); } },
+                { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat.CreateFromDiscriminatorValue); } },
                 { "safety_identifier", n => { SafetyIdentifier = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestSize>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestSize.CreateFromDiscriminatorValue); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
@@ -219,7 +247,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground>("background", Background);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestBackground>("background", Background);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestImage>("image", Image);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity>("input_fidelity", InputFidelity);
             writer.WriteByteArrayValue("markup", Markup);
@@ -227,11 +255,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("model", Model);
             writer.WriteIntValue("n", N);
             writer.WriteIntValue("output_compression", OutputCompression);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat>("output_format", OutputFormat);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestOutputFormat>("output_format", OutputFormat);
             writer.WriteIntValue("partial_images", PartialImages);
             writer.WriteStringValue("prompt", Prompt);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality>("quality", Quality);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat>("response_format", ResponseFormat);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestQuality>("quality", Quality);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestResponseFormat>("response_format", ResponseFormat);
             writer.WriteStringValue("safety_identifier", SafetyIdentifier);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageEditRequestSize>("size", Size);
             writer.WriteBoolValue("stream", Stream);

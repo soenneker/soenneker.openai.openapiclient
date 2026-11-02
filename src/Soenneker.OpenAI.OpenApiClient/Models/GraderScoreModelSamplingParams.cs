@@ -36,8 +36,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public int? MaxCompletionsTokens { get => _explicitNullValueMaxCompletionsTokens; set { _explicitNullValueMaxCompletionsTokens = value; AdditionalData?.Remove("max_completions_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_completions_tokens"); else _explicitNullProperties?.Remove("max_completions_tokens"); } }
         private int? _explicitNullValueMaxCompletionsTokens = default!;
         /// <summary>Constrains effort on reasoning for reasoning models. Currently supportedvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.Reducing reasoning effort can result in faster responses and fewer tokensused on reasoning in a response. Not all reasoning models support everyvalue. See the[reasoning guide](https://developers.openai.com/api/docs/guides/reasoning)for model-specific support.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? ReasoningEffort { get => _explicitNullValueReasoningEffort; set { _explicitNullValueReasoningEffort = value; AdditionalData?.Remove("reasoning_effort"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_effort"); else _explicitNullProperties?.Remove("reasoning_effort"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? _explicitNullValueReasoningEffort = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort ReasoningEffort { get => _explicitNullValueReasoningEffort; set { _explicitNullValueReasoningEffort = value; AdditionalData?.Remove("reasoning_effort"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_effort"); else _explicitNullProperties?.Remove("reasoning_effort"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort _explicitNullValueReasoningEffort = default!;
+#endif
         /// <summary>A seed value to initialize the randomness, during sampling.</summary>
         public int? Seed { get => _explicitNullValueSeed; set { _explicitNullValueSeed = value; AdditionalData?.Remove("seed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed"); else _explicitNullProperties?.Remove("seed"); } }
         private int? _explicitNullValueSeed = default!;
@@ -74,7 +81,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "max_completions_tokens", n => { MaxCompletionsTokens = n.GetIntValue(); } },
-                { "reasoning_effort", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueReasoningEffort = default; _explicitNullProperties?.Remove("reasoning_effort"); AdditionalData["reasoning_effort"] = unknown; } else { ReasoningEffort = parsed; AdditionalData.Remove("reasoning_effort"); } } },
+                { "reasoning_effort", n => { ReasoningEffort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort.CreateFromDiscriminatorValue); } },
                 { "seed", n => { Seed = n.GetIntValue(); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },
@@ -88,7 +95,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("max_completions_tokens", MaxCompletionsTokens);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("reasoning_effort", ReasoningEffort);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("reasoning_effort", ReasoningEffort);
             writer.WriteIntValue("seed", Seed);
             writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteDoubleValue("top_p", TopP);

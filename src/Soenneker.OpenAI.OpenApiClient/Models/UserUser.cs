@@ -42,8 +42,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public bool? Banned { get => _explicitNullValueBanned; set { _explicitNullValueBanned = value; AdditionalData?.Remove("banned"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("banned"); else _explicitNullProperties?.Remove("banned"); } }
         private bool? _explicitNullValueBanned = default!;
         /// <summary>The banned_at property</summary>
-        public int? BannedAt { get => _explicitNullValueBannedAt; set { _explicitNullValueBannedAt = value; AdditionalData?.Remove("banned_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("banned_at"); else _explicitNullProperties?.Remove("banned_at"); } }
-        private int? _explicitNullValueBannedAt = default!;
+        public long? BannedAt { get => _explicitNullValueBannedAt; set { _explicitNullValueBannedAt = value; AdditionalData?.Remove("banned_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("banned_at"); else _explicitNullProperties?.Remove("banned_at"); } }
+        private long? _explicitNullValueBannedAt = default!;
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -116,7 +116,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "banned", n => { Banned = n.GetBoolValue(); } },
-                { "banned_at", n => { BannedAt = n.GetIntValue(); } },
+                { "banned_at", n => { BannedAt = n.GetLongValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -133,7 +133,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("banned", Banned);
-            writer.WriteIntValue("banned_at", BannedAt);
+            writer.WriteLongValue("banned_at", BannedAt);
             writer.WriteStringValue("email", Email);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("id", Id);

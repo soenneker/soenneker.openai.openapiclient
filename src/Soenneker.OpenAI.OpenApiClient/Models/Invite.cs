@@ -39,13 +39,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         }
 
         /// <summary>The Unix timestamp (in seconds) of when the invite was accepted.</summary>
-        public int? AcceptedAt { get => _explicitNullValueAcceptedAt; set { _explicitNullValueAcceptedAt = value; AdditionalData?.Remove("accepted_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accepted_at"); else _explicitNullProperties?.Remove("accepted_at"); } }
-        private int? _explicitNullValueAcceptedAt = default!;
+        public long? AcceptedAt { get => _explicitNullValueAcceptedAt; set { _explicitNullValueAcceptedAt = value; AdditionalData?.Remove("accepted_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accepted_at"); else _explicitNullProperties?.Remove("accepted_at"); } }
+        private long? _explicitNullValueAcceptedAt = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Unix timestamp (in seconds) of when the invite was sent.</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
-        private int? _explicitNullValueCreatedAt = default!;
+        public long? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private long? _explicitNullValueCreatedAt = default!;
         /// <summary>The email address of the individual to whom the invite was sent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,8 +57,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueEmail = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) of when the invite expires.</summary>
-        public int? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
-        private int? _explicitNullValueExpiresAt = default!;
+        public long? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private long? _explicitNullValueExpiresAt = default!;
         /// <summary>The identifier, which can be referenced in API endpoints</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -113,10 +113,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accepted_at", n => { AcceptedAt = n.GetIntValue(); } },
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "accepted_at", n => { AcceptedAt = n.GetLongValue(); } },
+                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
+                { "expires_at", n => { ExpiresAt = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "object", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationInviteObject>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueObject = default; _explicitNullProperties?.Remove("object"); AdditionalData["object"] = unknown; } else { Object = parsed; AdditionalData.Remove("object"); } } },
                 { "projects", n => { Projects = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InviteProjectsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.InviteProjectsItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -131,10 +131,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("accepted_at", AcceptedAt);
-            writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteLongValue("accepted_at", AcceptedAt);
+            writer.WriteLongValue("created_at", CreatedAt);
             writer.WriteStringValue("email", Email);
-            writer.WriteIntValue("expires_at", ExpiresAt);
+            writer.WriteLongValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationInviteObject>("object", Object);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.InviteProjectsItem>("projects", Projects);

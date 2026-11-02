@@ -42,8 +42,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseBackground? Background { get => _explicitNullValueBackground; set { _explicitNullValueBackground = value; AdditionalData?.Remove("background"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background"); else _explicitNullProperties?.Remove("background"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseBackground? _explicitNullValueBackground = default!;
         /// <summary>The Unix timestamp (in seconds) of when the image was created.</summary>
-        public int? Created { get => _explicitNullValueCreated; set { _explicitNullValueCreated = value; AdditionalData?.Remove("created"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created"); else _explicitNullProperties?.Remove("created"); } }
-        private int? _explicitNullValueCreated = default!;
+        public long? Created { get => _explicitNullValueCreated; set { _explicitNullValueCreated = value; AdditionalData?.Remove("created"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created"); else _explicitNullProperties?.Remove("created"); } }
+        private long? _explicitNullValueCreated = default!;
         /// <summary>The list of generated images.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -116,7 +116,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "background", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseBackground>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBackground = default; _explicitNullProperties?.Remove("background"); AdditionalData["background"] = unknown; } else { Background = parsed; AdditionalData.Remove("background"); } } },
-                { "created", n => { Created = n.GetIntValue(); } },
+                { "created", n => { Created = n.GetLongValue(); } },
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Image>(global::Soenneker.OpenAI.OpenApiClient.Models.Image.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "output_format", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseOutputFormat>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOutputFormat = default; _explicitNullProperties?.Remove("output_format"); AdditionalData["output_format"] = unknown; } else { OutputFormat = parsed; AdditionalData.Remove("output_format"); } } },
                 { "quality", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseQuality>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueQuality = default; _explicitNullProperties?.Remove("quality"); AdditionalData["quality"] = unknown; } else { Quality = parsed; AdditionalData.Remove("quality"); } } },
@@ -133,7 +133,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseBackground>("background", Background);
-            writer.WriteIntValue("created", Created);
+            writer.WriteLongValue("created", Created);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Image>("data", Data);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseOutputFormat>("output_format", OutputFormat);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImagesResponseQuality>("quality", Quality);

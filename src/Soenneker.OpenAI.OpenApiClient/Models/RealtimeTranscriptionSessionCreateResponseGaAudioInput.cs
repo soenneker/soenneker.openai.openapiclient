@@ -52,12 +52,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration of the transcription model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse? Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; AdditionalData?.Remove("transcription"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse? _explicitNullValueTranscription = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGaAudioInputTranscription? Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; AdditionalData?.Remove("transcription"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGaAudioInputTranscription? _explicitNullValueTranscription = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; AdditionalData?.Remove("transcription"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse _explicitNullValueTranscription = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGaAudioInputTranscription Transcription { get => _explicitNullValueTranscription; set { _explicitNullValueTranscription = value; AdditionalData?.Remove("transcription"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcription"); else _explicitNullProperties?.Remove("transcription"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGaAudioInputTranscription _explicitNullValueTranscription = default!;
 #endif
         /// <summary>Configuration for turn detection. For `gpt-realtime-whisper`, this must be `null`; VAD is not supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -96,7 +96,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "format", n => { Format = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats.CreateFromDiscriminatorValue); } },
                 { "noise_reduction", n => { NoiseReduction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGaAudioInputNoiseReduction>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGaAudioInputNoiseReduction.CreateFromDiscriminatorValue); } },
-                { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse>(global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse.CreateFromDiscriminatorValue); } },
+                { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGaAudioInputTranscription>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGaAudioInputTranscription.CreateFromDiscriminatorValue); } },
                 { "turn_detection", n => { TurnDetection = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGaAudioInputTurnDetection>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGaAudioInputTurnDetection.CreateFromDiscriminatorValue); } },
             };
         }
@@ -109,7 +109,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeAudioFormats>("format", Format);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGaAudioInputNoiseReduction>("noise_reduction", NoiseReduction);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AudioTranscriptionResponse>("transcription", Transcription);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGaAudioInputTranscription>("transcription", Transcription);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranscriptionSessionCreateResponseGaAudioInputTurnDetection>("turn_detection", TurnDetection);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

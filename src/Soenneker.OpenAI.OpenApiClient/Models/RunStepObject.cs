@@ -65,20 +65,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueAssistantId = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the run step was cancelled.</summary>
-        public int? CancelledAt { get => _explicitNullValueCancelledAt; set { _explicitNullValueCancelledAt = value; AdditionalData?.Remove("cancelled_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelled_at"); else _explicitNullProperties?.Remove("cancelled_at"); } }
-        private int? _explicitNullValueCancelledAt = default!;
+        public long? CancelledAt { get => _explicitNullValueCancelledAt; set { _explicitNullValueCancelledAt = value; AdditionalData?.Remove("cancelled_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelled_at"); else _explicitNullProperties?.Remove("cancelled_at"); } }
+        private long? _explicitNullValueCancelledAt = default!;
         /// <summary>The Unix timestamp (in seconds) for when the run step completed.</summary>
-        public int? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
-        private int? _explicitNullValueCompletedAt = default!;
+        public long? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
+        private long? _explicitNullValueCompletedAt = default!;
         /// <summary>The Unix timestamp (in seconds) for when the run step was created.</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
-        private int? _explicitNullValueCreatedAt = default!;
+        public long? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private long? _explicitNullValueCreatedAt = default!;
         /// <summary>The Unix timestamp (in seconds) for when the run step expired. A step is considered expired if the parent run is expired.</summary>
-        public int? ExpiredAt { get => _explicitNullValueExpiredAt; set { _explicitNullValueExpiredAt = value; AdditionalData?.Remove("expired_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expired_at"); else _explicitNullProperties?.Remove("expired_at"); } }
-        private int? _explicitNullValueExpiredAt = default!;
+        public long? ExpiredAt { get => _explicitNullValueExpiredAt; set { _explicitNullValueExpiredAt = value; AdditionalData?.Remove("expired_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expired_at"); else _explicitNullProperties?.Remove("expired_at"); } }
+        private long? _explicitNullValueExpiredAt = default!;
         /// <summary>The Unix timestamp (in seconds) for when the run step failed.</summary>
-        public int? FailedAt { get => _explicitNullValueFailedAt; set { _explicitNullValueFailedAt = value; AdditionalData?.Remove("failed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_at"); else _explicitNullProperties?.Remove("failed_at"); } }
-        private int? _explicitNullValueFailedAt = default!;
+        public long? FailedAt { get => _explicitNullValueFailedAt; set { _explicitNullValueFailedAt = value; AdditionalData?.Remove("failed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_at"); else _explicitNullProperties?.Remove("failed_at"); } }
+        private long? _explicitNullValueFailedAt = default!;
         /// <summary>The identifier of the run step, which can be referenced in API endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -184,11 +184,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assistant_id", n => { AssistantId = n.GetStringValue(); } },
-                { "cancelled_at", n => { CancelledAt = n.GetIntValue(); } },
-                { "completed_at", n => { CompletedAt = n.GetIntValue(); } },
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "expired_at", n => { ExpiredAt = n.GetIntValue(); } },
-                { "failed_at", n => { FailedAt = n.GetIntValue(); } },
+                { "cancelled_at", n => { CancelledAt = n.GetLongValue(); } },
+                { "completed_at", n => { CompletedAt = n.GetLongValue(); } },
+                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
+                { "expired_at", n => { ExpiredAt = n.GetLongValue(); } },
+                { "failed_at", n => { FailedAt = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_error", n => { LastError = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectMetadata.CreateFromDiscriminatorValue); } },
@@ -209,11 +209,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("assistant_id", AssistantId);
-            writer.WriteIntValue("cancelled_at", CancelledAt);
-            writer.WriteIntValue("completed_at", CompletedAt);
-            writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteIntValue("expired_at", ExpiredAt);
-            writer.WriteIntValue("failed_at", FailedAt);
+            writer.WriteLongValue("cancelled_at", CancelledAt);
+            writer.WriteLongValue("completed_at", CompletedAt);
+            writer.WriteLongValue("created_at", CreatedAt);
+            writer.WriteLongValue("expired_at", ExpiredAt);
+            writer.WriteLongValue("failed_at", FailedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectLastError>("last_error", LastError);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunStepObjectMetadata>("metadata", Metadata);

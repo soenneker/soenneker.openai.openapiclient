@@ -45,12 +45,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Context compaction settings. Omission or null enables background compaction.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam? Compaction { get => _explicitNullValueCompaction; set { _explicitNullValueCompaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compaction"); else _explicitNullProperties?.Remove("compaction"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam? _explicitNullValueCompaction = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsCompaction? Compaction { get => _explicitNullValueCompaction; set { _explicitNullValueCompaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compaction"); else _explicitNullProperties?.Remove("compaction"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsCompaction? _explicitNullValueCompaction = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam Compaction { get => _explicitNullValueCompaction; set { _explicitNullValueCompaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compaction"); else _explicitNullProperties?.Remove("compaction"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam _explicitNullValueCompaction = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsCompaction Compaction { get => _explicitNullValueCompaction; set { _explicitNullValueCompaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compaction"); else _explicitNullProperties?.Remove("compaction"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsCompaction _explicitNullValueCompaction = default!;
 #endif
         /// <summary>Experimental agent settings. All experimental features default to disabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,12 +95,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration for creating and coordinating subagents. Subagent tools are disabled by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigCurrentParam? MultiAgent { get => _explicitNullValueMultiAgent; set { _explicitNullValueMultiAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multi_agent"); else _explicitNullProperties?.Remove("multi_agent"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigCurrentParam? _explicitNullValueMultiAgent = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMultiAgent? MultiAgent { get => _explicitNullValueMultiAgent; set { _explicitNullValueMultiAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multi_agent"); else _explicitNullProperties?.Remove("multi_agent"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMultiAgent? _explicitNullValueMultiAgent = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigCurrentParam MultiAgent { get => _explicitNullValueMultiAgent; set { _explicitNullValueMultiAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multi_agent"); else _explicitNullProperties?.Remove("multi_agent"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigCurrentParam _explicitNullValueMultiAgent = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMultiAgent MultiAgent { get => _explicitNullValueMultiAgent; set { _explicitNullValueMultiAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multi_agent"); else _explicitNullProperties?.Remove("multi_agent"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMultiAgent _explicitNullValueMultiAgent = default!;
 #endif
         /// <summary>A human-readable name for the agent. Omission or null leaves the agent unnamed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -115,12 +115,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration for model reasoning. Omission uses the model&apos;s default effort.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningParam? Reasoning { get => _explicitNullValueReasoning; set { _explicitNullValueReasoning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning"); else _explicitNullProperties?.Remove("reasoning"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningParam? _explicitNullValueReasoning = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsReasoning? Reasoning { get => _explicitNullValueReasoning; set { _explicitNullValueReasoning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning"); else _explicitNullProperties?.Remove("reasoning"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsReasoning? _explicitNullValueReasoning = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningParam Reasoning { get => _explicitNullValueReasoning; set { _explicitNullValueReasoning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning"); else _explicitNullProperties?.Remove("reasoning"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningParam _explicitNullValueReasoning = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsReasoning Reasoning { get => _explicitNullValueReasoning; set { _explicitNullValueReasoning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning"); else _explicitNullProperties?.Remove("reasoning"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsReasoning _explicitNullValueReasoning = default!;
 #endif
         /// <summary>The service tier used for model requests. Defaults to `auto`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierParam? ServiceTier { get => _explicitNullValueServiceTier; set { _explicitNullValueServiceTier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_tier"); else _explicitNullProperties?.Remove("service_tier"); } }
@@ -128,12 +128,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Configuration for generated text. Defaults to the `text` format and medium verbosity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TextParam? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.TextParam? _explicitNullValueText = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsText? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsText? _explicitNullValueText = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TextParam Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.TextParam _explicitNullValueText = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsText Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsText _explicitNullValueText = default!;
 #endif
         /// <summary>Tools available to the agent. Defaults to an empty list. The tool list must fit within 3 MiB (3,145,728 bytes) of compact UTF-8 JSON.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -163,16 +163,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "compaction", n => { Compaction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam>(global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam.CreateFromDiscriminatorValue); } },
+                { "compaction", n => { Compaction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsCompaction>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsCompaction.CreateFromDiscriminatorValue); } },
                 { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigParam.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "multi_agent", n => { MultiAgent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigCurrentParam>(global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigCurrentParam.CreateFromDiscriminatorValue); } },
+                { "multi_agent", n => { MultiAgent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMultiAgent>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMultiAgent.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningParam.CreateFromDiscriminatorValue); } },
+                { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsReasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsReasoning.CreateFromDiscriminatorValue); } },
                 { "service_tier", n => { ServiceTier = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierParam>(); } },
-                { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextParam>(global::Soenneker.OpenAI.OpenApiClient.Models.TextParam.CreateFromDiscriminatorValue); } },
+                { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsText>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsText.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParam>(global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParam.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -183,16 +183,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompactionParam>("compaction", Compaction);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsCompaction>("compaction", Compaction);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ExperimentalConfigParam>("experimental", Experimental);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MultiAgentConfigCurrentParam>("multi_agent", MultiAgent);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsMultiAgent>("multi_agent", MultiAgent);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningParam>("reasoning", Reasoning);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsReasoning>("reasoning", Reasoning);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTierParam>("service_tier", ServiceTier);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextParam>("text", Text);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentParamsText>("text", Text);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.PersistedAgentToolConfigParam>("tools", Tools);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

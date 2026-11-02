@@ -25,8 +25,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         }
 
         /// <summary>Controls whether OpenAI automatically creates an implicit cache breakpoint. Defaults to `implicit`. With `implicit`, OpenAI creates one implicit breakpoint and writes up to the latest three explicit breakpoints in the request. With `explicit`, OpenAI does not create an implicit breakpoint and writes up to the latest four explicit breakpoints. If there are no explicit breakpoints, the request does not use prompt caching.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptionsMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptionsMode? _explicitNullValueMode = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptionsMode Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptionsMode _explicitNullValueMode = default!;
+#endif
         /// <summary>The minimum lifetime applied to every implicit and explicit cache breakpoint written by the request. Defaults to `30m`, which is currently the only supported value. The backend may retain cache entries for longer.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.Value30MTtl? Ttl { get => _explicitNullValueTtl; set { _explicitNullValueTtl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ttl"); else _explicitNullProperties?.Remove("ttl"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.Value30MTtl? _explicitNullValueTtl = default!;
@@ -50,7 +57,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptionsMode>(); } },
+                { "mode", n => { Mode = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptionsMode>(global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptionsMode.CreateFromDiscriminatorValue); } },
                 { "ttl", n => { Ttl = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Value30MTtl>(); } },
             };
         }
@@ -61,7 +68,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptionsMode>("mode", Mode);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.DecisionRequestPromptCacheOptionsMode>("mode", Mode);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.Value30MTtl>("ttl", Ttl);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

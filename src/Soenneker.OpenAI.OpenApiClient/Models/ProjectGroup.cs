@@ -35,8 +35,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Unix timestamp (in seconds) when the group was granted project access.</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
-        private int? _explicitNullValueCreatedAt = default!;
+        public long? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private long? _explicitNullValueCreatedAt = default!;
         /// <summary>Identifier of the group that has access to the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,7 +98,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
                 { "group_id", n => { GroupId = n.GetStringValue(); } },
                 { "group_name", n => { GroupName = n.GetStringValue(); } },
                 { "group_type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroupGroupType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueGroupType = default; _explicitNullProperties?.Remove("group_type"); AdditionalData["group_type"] = unknown; } else { GroupType = parsed; AdditionalData.Remove("group_type"); } } },
@@ -113,7 +113,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteLongValue("created_at", CreatedAt);
             writer.WriteStringValue("group_id", GroupId);
             writer.WriteStringValue("group_name", GroupName);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectGroupGroupType>("group_type", GroupType);

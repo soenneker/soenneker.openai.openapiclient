@@ -39,11 +39,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Unix timestamp (in seconds) of when the project was archived or `null`.</summary>
-        public int? ArchivedAt { get => _explicitNullValueArchivedAt; set { _explicitNullValueArchivedAt = value; AdditionalData?.Remove("archived_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("archived_at"); else _explicitNullProperties?.Remove("archived_at"); } }
-        private int? _explicitNullValueArchivedAt = default!;
+        public long? ArchivedAt { get => _explicitNullValueArchivedAt; set { _explicitNullValueArchivedAt = value; AdditionalData?.Remove("archived_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("archived_at"); else _explicitNullProperties?.Remove("archived_at"); } }
+        private long? _explicitNullValueArchivedAt = default!;
         /// <summary>The Unix timestamp (in seconds) of when the project was created.</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
-        private int? _explicitNullValueCreatedAt = default!;
+        public long? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private long? _explicitNullValueCreatedAt = default!;
         /// <summary>The external key associated with the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,8 +115,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "archived_at", n => { ArchivedAt = n.GetIntValue(); } },
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "archived_at", n => { ArchivedAt = n.GetLongValue(); } },
+                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
                 { "external_key_id", n => { ExternalKeyId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -132,8 +132,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("archived_at", ArchivedAt);
-            writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteLongValue("archived_at", ArchivedAt);
+            writer.WriteLongValue("created_at", CreatedAt);
             writer.WriteStringValue("external_key_id", ExternalKeyId);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);

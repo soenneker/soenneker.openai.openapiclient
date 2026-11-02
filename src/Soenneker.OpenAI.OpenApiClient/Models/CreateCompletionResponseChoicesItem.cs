@@ -30,8 +30,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence,`length` if the maximum number of tokens specified in the request was reached,or `content_filter` if content was omitted due to a flag from our content filters. The value is null while a streamed completion is unfinished.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemFinishReason? FinishReason { get => _explicitNullValueFinishReason; set { _explicitNullValueFinishReason = value; AdditionalData?.Remove("finish_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("finish_reason"); else _explicitNullProperties?.Remove("finish_reason"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemFinishReason? _explicitNullValueFinishReason = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemFinishReason FinishReason { get => _explicitNullValueFinishReason; set { _explicitNullValueFinishReason = value; AdditionalData?.Remove("finish_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("finish_reason"); else _explicitNullProperties?.Remove("finish_reason"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemFinishReason _explicitNullValueFinishReason = default!;
+#endif
         /// <summary>The index property</summary>
         public int? Index { get => _explicitNullValueIndex; set { _explicitNullValueIndex = value; AdditionalData?.Remove("index"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index"); else _explicitNullProperties?.Remove("index"); } }
         private int? _explicitNullValueIndex = default!;
@@ -80,7 +87,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "finish_reason", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemFinishReason>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFinishReason = default; _explicitNullProperties?.Remove("finish_reason"); AdditionalData["finish_reason"] = unknown; } else { FinishReason = parsed; AdditionalData.Remove("finish_reason"); } } },
+                { "finish_reason", n => { FinishReason = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemFinishReason>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemFinishReason.CreateFromDiscriminatorValue); } },
                 { "index", n => { Index = n.GetIntValue(); } },
                 { "logprobs", n => { Logprobs = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs.CreateFromDiscriminatorValue); } },
                 { "text", n => { Text = n.GetStringValue(); } },
@@ -93,7 +100,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemFinishReason>("finish_reason", FinishReason);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemFinishReason>("finish_reason", FinishReason);
             writer.WriteIntValue("index", Index);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItemLogprobs>("logprobs", Logprobs);
             writer.WriteStringValue("text", Text);

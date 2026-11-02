@@ -71,8 +71,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsItem> _explicitNullValueAttachments = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the message was completed.</summary>
-        public int? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
-        private int? _explicitNullValueCompletedAt = default!;
+        public long? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
+        private long? _explicitNullValueCompletedAt = default!;
         /// <summary>The content of the message in array of text and/or images.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,8 +84,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectContentItem> _explicitNullValueContent = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the message was created.</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
-        private int? _explicitNullValueCreatedAt = default!;
+        public long? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private long? _explicitNullValueCreatedAt = default!;
         /// <summary>The identifier, which can be referenced in API endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,8 +97,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the message was marked as incomplete.</summary>
-        public int? IncompleteAt { get => _explicitNullValueIncompleteAt; set { _explicitNullValueIncompleteAt = value; AdditionalData?.Remove("incomplete_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("incomplete_at"); else _explicitNullProperties?.Remove("incomplete_at"); } }
-        private int? _explicitNullValueIncompleteAt = default!;
+        public long? IncompleteAt { get => _explicitNullValueIncompleteAt; set { _explicitNullValueIncompleteAt = value; AdditionalData?.Remove("incomplete_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("incomplete_at"); else _explicitNullProperties?.Remove("incomplete_at"); } }
+        private long? _explicitNullValueIncompleteAt = default!;
         /// <summary>On an incomplete message, details about why the message is incomplete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -175,11 +175,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "assistant_id", n => { AssistantId = n.GetStringValue(); } },
                 { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "completed_at", n => { CompletedAt = n.GetIntValue(); } },
+                { "completed_at", n => { CompletedAt = n.GetLongValue(); } },
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectContentItem>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectContentItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "incomplete_at", n => { IncompleteAt = n.GetIntValue(); } },
+                { "incomplete_at", n => { IncompleteAt = n.GetLongValue(); } },
                 { "incomplete_details", n => { IncompleteDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetails.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectMetadata.CreateFromDiscriminatorValue); } },
                 { "object", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadMessageObject>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueObject = default; _explicitNullProperties?.Remove("object"); AdditionalData["object"] = unknown; } else { Object = parsed; AdditionalData.Remove("object"); } } },
@@ -198,11 +198,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("assistant_id", AssistantId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectAttachmentsItem>("attachments", Attachments);
-            writer.WriteIntValue("completed_at", CompletedAt);
+            writer.WriteLongValue("completed_at", CompletedAt);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectContentItem>("content", Content);
-            writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteLongValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteIntValue("incomplete_at", IncompleteAt);
+            writer.WriteLongValue("incomplete_at", IncompleteAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectIncompleteDetails>("incomplete_details", IncompleteDetails);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.MessageObjectMetadata>("metadata", Metadata);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ThreadMessageObject>("object", Object);

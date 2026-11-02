@@ -87,15 +87,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string PromptCacheKey { get => _explicitNullValuePromptCacheKey; set { _explicitNullValuePromptCacheKey = value; AdditionalData?.Remove("prompt_cache_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_key"); else _explicitNullProperties?.Remove("prompt_cache_key"); } }
         private string _explicitNullValuePromptCacheKey = default!;
 #endif
-        /// <summary>The prompt_cache_options property</summary>
+        /// <summary>Options for prompt caching. Supported for `gpt-5.6` and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with `prompt_cache_breakpoint`. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set `mode` to `explicit` to disable the implicit breakpoint. The `ttl` defaults to `30m`, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam? PromptCacheOptions { get => _explicitNullValuePromptCacheOptions; set { _explicitNullValuePromptCacheOptions = value; AdditionalData?.Remove("prompt_cache_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_options"); else _explicitNullProperties?.Remove("prompt_cache_options"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam? _explicitNullValuePromptCacheOptions = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBodyPromptCacheOptions? PromptCacheOptions { get => _explicitNullValuePromptCacheOptions; set { _explicitNullValuePromptCacheOptions = value; AdditionalData?.Remove("prompt_cache_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_options"); else _explicitNullProperties?.Remove("prompt_cache_options"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBodyPromptCacheOptions? _explicitNullValuePromptCacheOptions = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam PromptCacheOptions { get => _explicitNullValuePromptCacheOptions; set { _explicitNullValuePromptCacheOptions = value; AdditionalData?.Remove("prompt_cache_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_options"); else _explicitNullProperties?.Remove("prompt_cache_options"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam _explicitNullValuePromptCacheOptions = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBodyPromptCacheOptions PromptCacheOptions { get => _explicitNullValuePromptCacheOptions; set { _explicitNullValuePromptCacheOptions = value; AdditionalData?.Remove("prompt_cache_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_options"); else _explicitNullProperties?.Remove("prompt_cache_options"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBodyPromptCacheOptions _explicitNullValuePromptCacheOptions = default!;
 #endif
         /// <summary>The prompt_cache_retention property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnum? PromptCacheRetention { get => _explicitNullValuePromptCacheRetention; set { _explicitNullValuePromptCacheRetention = value; AdditionalData?.Remove("prompt_cache_retention"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_retention"); else _explicitNullProperties?.Remove("prompt_cache_retention"); } }
@@ -133,7 +133,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "model", n => { Model = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction.CreateFromDiscriminatorValue); } },
                 { "previous_response_id", n => { PreviousResponseId = n.GetStringValue(); } },
                 { "prompt_cache_key", n => { PromptCacheKey = n.GetStringValue(); } },
-                { "prompt_cache_options", n => { PromptCacheOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_options", n => { PromptCacheOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBodyPromptCacheOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBodyPromptCacheOptions.CreateFromDiscriminatorValue); } },
                 { "prompt_cache_retention", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnum>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePromptCacheRetention = default; _explicitNullProperties?.Remove("prompt_cache_retention"); AdditionalData["prompt_cache_retention"] = unknown; } else { PromptCacheRetention = parsed; AdditionalData.Remove("prompt_cache_retention"); } } },
                 { "service_tier", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierEnum>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueServiceTier = default; _explicitNullProperties?.Remove("service_tier"); AdditionalData["service_tier"] = unknown; } else { ServiceTier = parsed; AdditionalData.Remove("service_tier"); } } },
             };
@@ -150,7 +150,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaModelIdsCompaction>("model", Model);
             writer.WriteStringValue("previous_response_id", PreviousResponseId);
             writer.WriteStringValue("prompt_cache_key", PromptCacheKey);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsParam>("prompt_cache_options", PromptCacheOptions);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCompactResponseMethodPublicBodyPromptCacheOptions>("prompt_cache_options", PromptCacheOptions);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheRetentionEnum>("prompt_cache_retention", PromptCacheRetention);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaServiceTierEnum>("service_tier", ServiceTier);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

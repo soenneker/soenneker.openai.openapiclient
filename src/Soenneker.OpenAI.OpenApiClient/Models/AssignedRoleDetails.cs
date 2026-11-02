@@ -57,8 +57,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSourcesItem> _explicitNullValueAssignmentSources = default!;
 #endif
         /// <summary>When the role was created.</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
-        private int? _explicitNullValueCreatedAt = default!;
+        public long? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private long? _explicitNullValueCreatedAt = default!;
         /// <summary>Identifier of the actor who created the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -143,8 +143,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueResourceType = default!;
 #endif
         /// <summary>When the role was last updated.</summary>
-        public int? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
-        private int? _explicitNullValueUpdatedAt = default!;
+        public long? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private long? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetails"/> and sets the default values.
         /// </summary>
@@ -171,7 +171,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assignment_sources", n => { AssignmentSources = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSourcesItem>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSourcesItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "created_by_user_obj", n => { CreatedByUserObj = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObjProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObjProperty.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -181,7 +181,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "predefined_role", n => { PredefinedRole = n.GetBoolValue(); } },
                 { "resource_type", n => { ResourceType = n.GetStringValue(); } },
-                { "updated_at", n => { UpdatedAt = n.GetIntValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -192,7 +192,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsAssignmentSourcesItem>("assignment_sources", AssignmentSources);
-            writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteLongValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssignedRoleDetailsCreatedByUserObjProperty>("created_by_user_obj", CreatedByUserObj);
             writer.WriteStringValue("description", Description);
@@ -202,7 +202,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
             writer.WriteBoolValue("predefined_role", PredefinedRole);
             writer.WriteStringValue("resource_type", ResourceType);
-            writer.WriteIntValue("updated_at", UpdatedAt);
+            writer.WriteLongValue("updated_at", UpdatedAt);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

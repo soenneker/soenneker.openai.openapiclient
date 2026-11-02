@@ -43,8 +43,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudio _explicitNullValueAudio = default!;
 #endif
         /// <summary>Expiration timestamp for the session, in seconds since epoch.</summary>
-        public int? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
-        private int? _explicitNullValueExpiresAt = default!;
+        public long? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private long? _explicitNullValueExpiresAt = default!;
         /// <summary>Unique identifier for the session that looks like `sess_1234567890abcdef`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -94,7 +94,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "audio", n => { Audio = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudio>(global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudio.CreateFromDiscriminatorValue); } },
-                { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
+                { "expires_at", n => { ExpiresAt = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranslationType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
@@ -108,7 +108,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RealtimeTranslationSessionAudio>("audio", Audio);
-            writer.WriteIntValue("expires_at", ExpiresAt);
+            writer.WriteLongValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TranslationType>("type", Type);

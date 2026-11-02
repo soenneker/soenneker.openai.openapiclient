@@ -43,6 +43,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Live.Sessions.Item.Reject
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.RejectLiveSession500PlainResponseSchemaError">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<Stream?> PostAsync(global::Soenneker.OpenAI.OpenApiClient.Models.LiveCallRejectRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -59,6 +60,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Live.Sessions.Item.Reject
                 { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.OpenAI.OpenApiClient.Models.RejectLiveSession500PlainResponseSchemaError.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };

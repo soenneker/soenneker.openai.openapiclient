@@ -46,15 +46,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The type of the web search tool. One of `web_search_preview` or `web_search_preview_2025_03_11`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewToolType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewToolType? _explicitNullValueType = default!;
-        /// <summary>The user_location property</summary>
+        /// <summary>The approximate location of the user. If omitted or null, defaults to the United States. To avoid this fallback, pass `{&quot;type&quot;: &quot;approximate&quot;}` without location fields. To localize results, provide the relevant location fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApproximateLocation? UserLocation { get => _explicitNullValueUserLocation; set { _explicitNullValueUserLocation = value; AdditionalData?.Remove("user_location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_location"); else _explicitNullProperties?.Remove("user_location"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ApproximateLocation? _explicitNullValueUserLocation = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewToolUserLocation? UserLocation { get => _explicitNullValueUserLocation; set { _explicitNullValueUserLocation = value; AdditionalData?.Remove("user_location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_location"); else _explicitNullProperties?.Remove("user_location"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewToolUserLocation? _explicitNullValueUserLocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ApproximateLocation UserLocation { get => _explicitNullValueUserLocation; set { _explicitNullValueUserLocation = value; AdditionalData?.Remove("user_location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_location"); else _explicitNullProperties?.Remove("user_location"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ApproximateLocation _explicitNullValueUserLocation = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewToolUserLocation UserLocation { get => _explicitNullValueUserLocation; set { _explicitNullValueUserLocation = value; AdditionalData?.Remove("user_location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_location"); else _explicitNullProperties?.Remove("user_location"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewToolUserLocation _explicitNullValueUserLocation = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewTool"/> and sets the default values.
@@ -84,7 +84,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "search_content_types", n => { SearchContentTypes = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.SearchContentType>()?.AsList(); } },
                 { "search_context_size", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SearchContextSize>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSearchContextSize = default; _explicitNullProperties?.Remove("search_context_size"); AdditionalData["search_context_size"] = unknown; } else { SearchContextSize = parsed; AdditionalData.Remove("search_context_size"); } } },
                 { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewToolType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
-                { "user_location", n => { UserLocation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApproximateLocation>(global::Soenneker.OpenAI.OpenApiClient.Models.ApproximateLocation.CreateFromDiscriminatorValue); } },
+                { "user_location", n => { UserLocation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewToolUserLocation>(global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewToolUserLocation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -97,7 +97,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.SearchContentType>("search_content_types", SearchContentTypes);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SearchContextSize>("search_context_size", SearchContextSize);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewToolType>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ApproximateLocation>("user_location", UserLocation);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchPreviewToolUserLocation>("user_location", UserLocation);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

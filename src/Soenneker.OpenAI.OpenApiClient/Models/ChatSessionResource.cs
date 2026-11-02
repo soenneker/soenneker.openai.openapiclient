@@ -63,8 +63,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueClientSecret = default!;
 #endif
         /// <summary>Unix timestamp (in seconds) for when the session expires.</summary>
-        public int? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
-        private int? _explicitNullValueExpiresAt = default!;
+        public long? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private long? _explicitNullValueExpiresAt = default!;
         /// <summary>Identifier for the ChatKit session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -141,7 +141,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "chatkit_configuration", n => { ChatkitConfiguration = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionChatkitConfiguration>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionChatkitConfiguration.CreateFromDiscriminatorValue); } },
                 { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
-                { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
+                { "expires_at", n => { ExpiresAt = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "max_requests_per_1_minute", n => { MaxRequestsPer1Minute = n.GetIntValue(); } },
                 { "object", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitSessionObject>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueObject = default; _explicitNullProperties?.Remove("object"); AdditionalData["object"] = unknown; } else { Object = parsed; AdditionalData.Remove("object"); } } },
@@ -160,7 +160,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatSessionChatkitConfiguration>("chatkit_configuration", ChatkitConfiguration);
             writer.WriteStringValue("client_secret", ClientSecret);
-            writer.WriteIntValue("expires_at", ExpiresAt);
+            writer.WriteLongValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteIntValue("max_requests_per_1_minute", MaxRequestsPer1Minute);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatkitSessionObject>("object", Object);

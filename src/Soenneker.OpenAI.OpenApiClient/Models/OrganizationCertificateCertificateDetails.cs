@@ -26,11 +26,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Unix timestamp (in seconds) of when the certificate expires.</summary>
-        public int? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
-        private int? _explicitNullValueExpiresAt = default!;
+        public long? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private long? _explicitNullValueExpiresAt = default!;
         /// <summary>The Unix timestamp (in seconds) of when the certificate becomes valid.</summary>
-        public int? ValidAt { get => _explicitNullValueValidAt; set { _explicitNullValueValidAt = value; AdditionalData?.Remove("valid_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid_at"); else _explicitNullProperties?.Remove("valid_at"); } }
-        private int? _explicitNullValueValidAt = default!;
+        public long? ValidAt { get => _explicitNullValueValidAt; set { _explicitNullValueValidAt = value; AdditionalData?.Remove("valid_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid_at"); else _explicitNullProperties?.Remove("valid_at"); } }
+        private long? _explicitNullValueValidAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationCertificateCertificateDetails"/> and sets the default values.
         /// </summary>
@@ -56,8 +56,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
-                { "valid_at", n => { ValidAt = n.GetIntValue(); } },
+                { "expires_at", n => { ExpiresAt = n.GetLongValue(); } },
+                { "valid_at", n => { ValidAt = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("expires_at", ExpiresAt);
-            writer.WriteIntValue("valid_at", ValidAt);
+            writer.WriteLongValue("expires_at", ExpiresAt);
+            writer.WriteLongValue("valid_at", ValidAt);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

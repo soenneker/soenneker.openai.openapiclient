@@ -18,64 +18,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("pattern") is null) { _explicitNullValuePattern = default!; _explicitNullProperties?.Remove("pattern"); }
-            else if (parseNode.GetChildNode("pattern") is { } nullNodePattern && nullNodePattern.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pattern = null;
-            if (parseNode.GetChildNode("queries") is null) { _explicitNullValueQueries = default!; _explicitNullProperties?.Remove("queries"); }
-            else if (parseNode.GetChildNode("queries") is { } nullNodeQueries && nullNodeQueries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Queries = null;
-            if (parseNode.GetChildNode("query") is null) { _explicitNullValueQuery = default!; _explicitNullProperties?.Remove("query"); }
-            else if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
             if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
             else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
-            if (parseNode.GetChildNode("url") is null) { _explicitNullValueUrl = default!; _explicitNullProperties?.Remove("url"); }
-            else if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The text pattern that was searched for.</summary>
+        /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Pattern { get => _explicitNullValuePattern; set { _explicitNullValuePattern = value; AdditionalData?.Remove("pattern"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern"); else _explicitNullProperties?.Remove("pattern"); } }
-        private string? _explicitNullValuePattern = default!;
-#nullable restore
-#else
-        public string Pattern { get => _explicitNullValuePattern; set { _explicitNullValuePattern = value; AdditionalData?.Remove("pattern"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern"); else _explicitNullProperties?.Remove("pattern"); } }
-        private string _explicitNullValuePattern = default!;
-#endif
-        /// <summary>The search queries, when multiple queries were used.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? Queries { get => _explicitNullValueQueries; set { _explicitNullValueQueries = value; AdditionalData?.Remove("queries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queries"); else _explicitNullProperties?.Remove("queries"); } }
-        private List<string>? _explicitNullValueQueries = default!;
-#nullable restore
-#else
-        public List<string> Queries { get => _explicitNullValueQueries; set { _explicitNullValueQueries = value; AdditionalData?.Remove("queries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queries"); else _explicitNullProperties?.Remove("queries"); } }
-        private List<string> _explicitNullValueQueries = default!;
-#endif
-        /// <summary>The search query, when a single query was used.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; AdditionalData?.Remove("query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
-        private string? _explicitNullValueQuery = default!;
-#nullable restore
-#else
-        public string Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; AdditionalData?.Remove("query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
-        private string _explicitNullValueQuery = default!;
-#endif
-        /// <summary>The action type.</summary>
 #nullable enable
         public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private string? _explicitNullValueType = default!;
 #nullable restore
-        /// <summary>The URL of the page that was opened.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
-        private string? _explicitNullValueUrl = default!;
-#nullable restore
 #else
-        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
-        private string _explicitNullValueUrl = default!;
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string _explicitNullValueType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResource"/> and sets the default values.
@@ -92,7 +49,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResource(), parseNode);
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            return mappingValue switch
+            {
+                "find_in_page" => new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResourceWebSearchActionResourceFindInPage(),
+                "open_page" => new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResourceWebSearchActionResourceOpenPage(),
+                "other" => new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResourceWebSearchActionResourceOther(),
+                "search" => new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResourceWebSearchActionResourceSearch(),
+                _ => new global::Soenneker.OpenAI.OpenApiClient.Models.WebSearchActionResource(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -102,11 +67,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "pattern", n => { Pattern = n.GetStringValue(); } },
-                { "queries", n => { Queries = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "query", n => { Query = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
-                { "url", n => { Url = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -116,11 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("pattern", Pattern);
-            writer.WriteCollectionOfPrimitiveValues<string>("queries", Queries);
-            writer.WriteStringValue("query", Query);
             writer.WriteStringValue("type", Type);
-            writer.WriteStringValue("url", Url);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

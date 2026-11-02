@@ -39,12 +39,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The agent that produced this item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag? _explicitNullValueAgent = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent? _explicitNullValueAgent = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag _explicitNullValueAgent = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent _explicitNullValueAgent = default!;
 #endif
         /// <summary>The code to run, or null if not available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -117,7 +117,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag.CreateFromDiscriminatorValue); } },
+                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent.CreateFromDiscriminatorValue); } },
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "container_id", n => { ContainerId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -133,7 +133,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAgentTag>("agent", Agent);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCodeInterpreterToolCallAgent>("agent", Agent);
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("container_id", ContainerId);
             writer.WriteStringValue("id", Id);

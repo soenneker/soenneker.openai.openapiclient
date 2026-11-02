@@ -51,8 +51,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Unix timestamp (in seconds) when the evaluation run was created.</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
-        private int? _explicitNullValueCreatedAt = default!;
+        public long? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private long? _explicitNullValueCreatedAt = default!;
         /// <summary>Information about the run&apos;s data source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,15 +63,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunDataSource DataSource { get => _explicitNullValueDataSource; set { _explicitNullValueDataSource = value; AdditionalData?.Remove("data_source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_source"); else _explicitNullProperties?.Remove("data_source"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunDataSource _explicitNullValueDataSource = default!;
 #endif
-        /// <summary>The error property</summary>
+        /// <summary>An object representing an error response from the Eval API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError? _explicitNullValueError = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunError? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunError? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError _explicitNullValueError = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunError Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunError _explicitNullValueError = default!;
 #endif
         /// <summary>The identifier of the associated evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -201,9 +201,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
                 { "data_source", n => { DataSource = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunDataSource>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunDataSource.CreateFromDiscriminatorValue); } },
-                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunError>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunError.CreateFromDiscriminatorValue); } },
                 { "eval_id", n => { EvalId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunMetadata.CreateFromDiscriminatorValue); } },
@@ -224,9 +224,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteLongValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunDataSource>("data_source", DataSource);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalApiError>("error", Error);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunError>("error", Error);
             writer.WriteStringValue("eval_id", EvalId);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalRunMetadata>("metadata", Metadata);

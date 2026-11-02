@@ -29,15 +29,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if (parseNode.GetChildNode("score") is { } nullNodeScore && nullNodeScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Score = null;
         }
 
-        /// <summary>The attributes property</summary>
+        /// <summary>Set of 16 key-value pairs that can be attached to an object. This can beuseful for storing additional information about the object in a structuredformat, and querying for objects via API or the dashboard. Keys are stringswith a maximum length of 64 characters. Values are strings with a maximumlength of 512 characters, booleans, or numbers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributesAnyOf1? Attributes { get => _explicitNullValueAttributes; set { _explicitNullValueAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attributes"); else _explicitNullProperties?.Remove("attributes"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributesAnyOf1? _explicitNullValueAttributes = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes? Attributes { get => _explicitNullValueAttributes; set { _explicitNullValueAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attributes"); else _explicitNullProperties?.Remove("attributes"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes? _explicitNullValueAttributes = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributesAnyOf1 Attributes { get => _explicitNullValueAttributes; set { _explicitNullValueAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attributes"); else _explicitNullProperties?.Remove("attributes"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributesAnyOf1 _explicitNullValueAttributes = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes Attributes { get => _explicitNullValueAttributes; set { _explicitNullValueAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attributes"); else _explicitNullProperties?.Remove("attributes"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes _explicitNullValueAttributes = default!;
 #endif
         /// <summary>Content chunks from the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -90,7 +90,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributesAnyOf1>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributesAnyOf1.CreateFromDiscriminatorValue); } },
+                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes.CreateFromDiscriminatorValue); } },
                 { "content", n => { Content = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultContentObject>(global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultContentObject.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "file_id", n => { FileId = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
@@ -104,7 +104,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributesAnyOf1>("attributes", Attributes);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreFileAttributes>("attributes", Attributes);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.VectorStoreSearchResultContentObject>("content", Content);
             writer.WriteStringValue("file_id", FileId);
             writer.WriteStringValue("filename", Filename);

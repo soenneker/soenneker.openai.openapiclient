@@ -53,8 +53,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItem> _explicitNullValueChoices = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) of when the chat completion was created.</summary>
-        public int? Created { get => _explicitNullValueCreated; set { _explicitNullValueCreated = value; AdditionalData?.Remove("created"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created"); else _explicitNullProperties?.Remove("created"); } }
-        private int? _explicitNullValueCreated = default!;
+        public long? Created { get => _explicitNullValueCreated; set { _explicitNullValueCreated = value; AdditionalData?.Remove("created"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created"); else _explicitNullProperties?.Remove("created"); } }
+        private long? _explicitNullValueCreated = default!;
         /// <summary>A unique identifier for the chat completion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,22 +85,29 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
         private string _explicitNullValueModel = default!;
 #endif
-        /// <summary>The moderation property</summary>
+        /// <summary>Moderation results for the request input and generated output, if moderatedcompletions were requested.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration? Moderation { get => _explicitNullValueModeration; set { _explicitNullValueModeration = value; AdditionalData?.Remove("moderation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moderation"); else _explicitNullProperties?.Remove("moderation"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration? _explicitNullValueModeration = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration? Moderation { get => _explicitNullValueModeration; set { _explicitNullValueModeration = value; AdditionalData?.Remove("moderation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moderation"); else _explicitNullProperties?.Remove("moderation"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration? _explicitNullValueModeration = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration Moderation { get => _explicitNullValueModeration; set { _explicitNullValueModeration = value; AdditionalData?.Remove("moderation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moderation"); else _explicitNullProperties?.Remove("moderation"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration _explicitNullValueModeration = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration Moderation { get => _explicitNullValueModeration; set { _explicitNullValueModeration = value; AdditionalData?.Remove("moderation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moderation"); else _explicitNullProperties?.Remove("moderation"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration _explicitNullValueModeration = default!;
 #endif
         /// <summary>The object type, which is always `chat.completion`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionObject? Object { get => _explicitNullValueObject; set { _explicitNullValueObject = value; AdditionalData?.Remove("object"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object"); else _explicitNullProperties?.Remove("object"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionObject? _explicitNullValueObject = default!;
         /// <summary>Specifies the processing type used for serving the request.  - If set to &apos;auto&apos;, then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use &apos;default&apos;.  - If set to &apos;default&apos;, then the request will be processed with the standard pricing and performance for the selected model.  - If set to &apos;[flex](https://developers.openai.com/api/docs/guides/flex-processing)&apos;, then the request will be processed with the Flex Processing service tier.  - To opt-in to [Fast mode](https://developers.openai.com/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.  - When not set, the default behavior is &apos;auto&apos;.  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier? ServiceTier { get => _explicitNullValueServiceTier; set { _explicitNullValueServiceTier = value; AdditionalData?.Remove("service_tier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_tier"); else _explicitNullProperties?.Remove("service_tier"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier? _explicitNullValueServiceTier = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier ServiceTier { get => _explicitNullValueServiceTier; set { _explicitNullValueServiceTier = value; AdditionalData?.Remove("service_tier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_tier"); else _explicitNullProperties?.Remove("service_tier"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier _explicitNullValueServiceTier = default!;
+#endif
         /// <summary>This fingerprint represents the backend configuration that the model runs with.Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -148,13 +155,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "choices", n => { Choices = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItem>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "created", n => { Created = n.GetIntValue(); } },
+                { "created", n => { Created = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseMetadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "moderation", n => { Moderation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration>(global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration.CreateFromDiscriminatorValue); } },
+                { "moderation", n => { Moderation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration.CreateFromDiscriminatorValue); } },
                 { "object", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionObject>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueObject = default; _explicitNullProperties?.Remove("object"); AdditionalData["object"] = unknown; } else { Object = parsed; AdditionalData.Remove("object"); } } },
-                { "service_tier", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueServiceTier = default; _explicitNullProperties?.Remove("service_tier"); AdditionalData["service_tier"] = unknown; } else { ServiceTier = parsed; AdditionalData.Remove("service_tier"); } } },
+                { "service_tier", n => { ServiceTier = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier>(global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier.CreateFromDiscriminatorValue); } },
                 { "system_fingerprint", n => { SystemFingerprint = n.GetStringValue(); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage.CreateFromDiscriminatorValue); } },
             };
@@ -167,13 +174,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseChoicesItem>("choices", Choices);
-            writer.WriteIntValue("created", Created);
+            writer.WriteLongValue("created", Created);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseMetadata>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionModeration>("moderation", Moderation);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateChatCompletionResponseModeration>("moderation", Moderation);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ChatCompletionObject>("object", Object);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier>("service_tier", ServiceTier);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ServiceTier>("service_tier", ServiceTier);
             writer.WriteStringValue("system_fingerprint", SystemFingerprint);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CompletionUsage>("usage", Usage);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

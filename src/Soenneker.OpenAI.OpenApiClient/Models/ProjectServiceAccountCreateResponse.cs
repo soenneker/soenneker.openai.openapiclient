@@ -36,16 +36,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountApiKey? ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; AdditionalData?.Remove("api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountApiKey? _explicitNullValueApiKey = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseApiKey? ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; AdditionalData?.Remove("api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseApiKey? _explicitNullValueApiKey = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountApiKey ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; AdditionalData?.Remove("api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountApiKey _explicitNullValueApiKey = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseApiKey ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; AdditionalData?.Remove("api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseApiKey _explicitNullValueApiKey = default!;
 #endif
         /// <summary>The created_at property</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
-        private int? _explicitNullValueCreatedAt = default!;
+        public long? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private long? _explicitNullValueCreatedAt = default!;
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,8 +97,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountApiKey>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountApiKey.CreateFromDiscriminatorValue); } },
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "api_key", n => { ApiKey = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseApiKey>(global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseApiKey.CreateFromDiscriminatorValue); } },
+                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "object", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectServiceAccountObject>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueObject = default; _explicitNullProperties?.Remove("object"); AdditionalData["object"] = unknown; } else { Object = parsed; AdditionalData.Remove("object"); } } },
@@ -112,8 +112,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountApiKey>("api_key", ApiKey);
-            writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ProjectServiceAccountCreateResponseApiKey>("api_key", ApiKey);
+            writer.WriteLongValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.OrganizationProjectServiceAccountObject>("object", Object);

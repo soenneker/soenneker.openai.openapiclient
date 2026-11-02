@@ -33,8 +33,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         }
 
         /// <summary>The Unix timestamp (in seconds) of when the project was added.</summary>
-        public int? AddedAt { get => _explicitNullValueAddedAt; set { _explicitNullValueAddedAt = value; AdditionalData?.Remove("added_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("added_at"); else _explicitNullProperties?.Remove("added_at"); } }
-        private int? _explicitNullValueAddedAt = default!;
+        public long? AddedAt { get => _explicitNullValueAddedAt; set { _explicitNullValueAddedAt = value; AdditionalData?.Remove("added_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("added_at"); else _explicitNullProperties?.Remove("added_at"); } }
+        private long? _explicitNullValueAddedAt = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The email address of the user</summary>
@@ -105,7 +105,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "added_at", n => { AddedAt = n.GetIntValue(); } },
+                { "added_at", n => { AddedAt = n.GetLongValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -120,7 +120,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("added_at", AddedAt);
+            writer.WriteLongValue("added_at", AddedAt);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);

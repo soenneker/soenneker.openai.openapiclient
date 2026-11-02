@@ -47,8 +47,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItem> _explicitNullValueChoices = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) of when the completion was created.</summary>
-        public int? Created { get => _explicitNullValueCreated; set { _explicitNullValueCreated = value; AdditionalData?.Remove("created"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created"); else _explicitNullProperties?.Remove("created"); } }
-        private int? _explicitNullValueCreated = default!;
+        public long? Created { get => _explicitNullValueCreated; set { _explicitNullValueCreated = value; AdditionalData?.Remove("created"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created"); else _explicitNullProperties?.Remove("created"); } }
+        private long? _explicitNullValueCreated = default!;
         /// <summary>A unique identifier for the completion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -118,7 +118,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "choices", n => { Choices = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItem>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "created", n => { Created = n.GetIntValue(); } },
+                { "created", n => { Created = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "object", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextCompletionObject>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueObject = default; _explicitNullProperties?.Remove("object"); AdditionalData["object"] = unknown; } else { Object = parsed; AdditionalData.Remove("object"); } } },
@@ -134,7 +134,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletionResponseChoicesItem>("choices", Choices);
-            writer.WriteIntValue("created", Created);
+            writer.WriteLongValue("created", Created);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("model", Model);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TextCompletionObject>("object", Object);

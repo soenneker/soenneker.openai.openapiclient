@@ -17,52 +17,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("filters") is null) { _explicitNullValueFiltersProp = default!; _explicitNullProperties?.Remove("filters"); }
-            else if (parseNode.GetChildNode("filters") is { } nullNodeFiltersProp && nullNodeFiltersProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FiltersProp = null;
-            if (parseNode.GetChildNode("key") is null) { _explicitNullValueKey = default!; _explicitNullProperties?.Remove("key"); }
-            else if (parseNode.GetChildNode("key") is { } nullNodeKey && nullNodeKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Key = null;
             if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
             else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
-            if (parseNode.GetChildNode("value") is null) { _explicitNullValueValue = default!; _explicitNullProperties?.Remove("value"); }
-            else if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Array of filters to combine. Items can be `ComparisonFilter` or `CompoundFilter`.</summary>
+        /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilterFiltersItem>? FiltersProp { get => _explicitNullValueFiltersProp; set { _explicitNullValueFiltersProp = value; AdditionalData?.Remove("filters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
-        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilterFiltersItem>? _explicitNullValueFiltersProp = default!;
-#nullable restore
-#else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilterFiltersItem> FiltersProp { get => _explicitNullValueFiltersProp; set { _explicitNullValueFiltersProp = value; AdditionalData?.Remove("filters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
-        private List<global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilterFiltersItem> _explicitNullValueFiltersProp = default!;
-#endif
-        /// <summary>The key to compare against the value.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Key { get => _explicitNullValueKey; set { _explicitNullValueKey = value; AdditionalData?.Remove("key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key"); else _explicitNullProperties?.Remove("key"); } }
-        private string? _explicitNullValueKey = default!;
-#nullable restore
-#else
-        public string Key { get => _explicitNullValueKey; set { _explicitNullValueKey = value; AdditionalData?.Remove("key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key"); else _explicitNullProperties?.Remove("key"); } }
-        private string _explicitNullValueKey = default!;
-#endif
-        /// <summary>Specifies the comparison operator: `eq`, `ne`, `gt`, `gte`, `lt`, `lte`, `in`, `nin`.- `eq`: equals- `ne`: not equal- `gt`: greater than- `gte`: greater than or equal- `lt`: less than- `lte`: less than or equal- `in`: in- `nin`: not in</summary>
 #nullable enable
         public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private string? _explicitNullValueType = default!;
 #nullable restore
-        /// <summary>The value to compare against the attribute key; supports string, number, or boolean types.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilterValue? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilterValue? _explicitNullValueValue = default!;
-#nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilterValue Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilterValue _explicitNullValueValue = default!;
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string _explicitNullValueType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.Filters"/> and sets the default values.
@@ -79,7 +48,21 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.Filters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.Filters(), parseNode);
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            return mappingValue switch
+            {
+                "and" => new global::Soenneker.OpenAI.OpenApiClient.Models.FiltersCompoundFilter(),
+                "eq" => new global::Soenneker.OpenAI.OpenApiClient.Models.FiltersComparisonFilter(),
+                "gt" => new global::Soenneker.OpenAI.OpenApiClient.Models.FiltersComparisonFilter(),
+                "gte" => new global::Soenneker.OpenAI.OpenApiClient.Models.FiltersComparisonFilter(),
+                "in" => new global::Soenneker.OpenAI.OpenApiClient.Models.FiltersComparisonFilter(),
+                "lt" => new global::Soenneker.OpenAI.OpenApiClient.Models.FiltersComparisonFilter(),
+                "lte" => new global::Soenneker.OpenAI.OpenApiClient.Models.FiltersComparisonFilter(),
+                "ne" => new global::Soenneker.OpenAI.OpenApiClient.Models.FiltersComparisonFilter(),
+                "nin" => new global::Soenneker.OpenAI.OpenApiClient.Models.FiltersComparisonFilter(),
+                "or" => new global::Soenneker.OpenAI.OpenApiClient.Models.FiltersCompoundFilter(),
+                _ => new global::Soenneker.OpenAI.OpenApiClient.Models.Filters(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,10 +72,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "filters", n => { FiltersProp = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilterFiltersItem>(global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilterFiltersItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "key", n => { Key = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilterValue>(global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilterValue.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -102,10 +82,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.CompoundFilterFiltersItem>("filters", FiltersProp);
-            writer.WriteStringValue("key", Key);
             writer.WriteStringValue("type", Type);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ComparisonFilterValue>("value", Value);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

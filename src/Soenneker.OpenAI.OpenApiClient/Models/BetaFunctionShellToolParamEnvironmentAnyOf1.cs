@@ -17,70 +17,22 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("container_id") is null) { _explicitNullValueContainerId = default!; _explicitNullProperties?.Remove("container_id"); }
-            else if (parseNode.GetChildNode("container_id") is { } nullNodeContainerId && nullNodeContainerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContainerId = null;
-            if (parseNode.GetChildNode("file_ids") is null) { _explicitNullValueFileIds = default!; _explicitNullProperties?.Remove("file_ids"); }
-            else if (parseNode.GetChildNode("file_ids") is { } nullNodeFileIds && nullNodeFileIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileIds = null;
-            if (parseNode.GetChildNode("memory_limit") is null) { _explicitNullValueMemoryLimit = default!; _explicitNullProperties?.Remove("memory_limit"); }
-            else if (parseNode.GetChildNode("memory_limit") is { } nullNodeMemoryLimit && nullNodeMemoryLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemoryLimit = null;
-            if (parseNode.GetChildNode("network_policy") is null) { _explicitNullValueNetworkPolicy = default!; _explicitNullProperties?.Remove("network_policy"); }
-            else if (parseNode.GetChildNode("network_policy") is { } nullNodeNetworkPolicy && nullNodeNetworkPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetworkPolicy = null;
-            if (parseNode.GetChildNode("skills") is null) { _explicitNullValueSkills = default!; _explicitNullProperties?.Remove("skills"); }
-            else if (parseNode.GetChildNode("skills") is { } nullNodeSkills && nullNodeSkills.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Skills = null;
             if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
             else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The ID of the referenced container.</summary>
+        /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ContainerId { get => _explicitNullValueContainerId; set { _explicitNullValueContainerId = value; AdditionalData?.Remove("container_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("container_id"); else _explicitNullProperties?.Remove("container_id"); } }
-        private string? _explicitNullValueContainerId = default!;
-#nullable restore
-#else
-        public string ContainerId { get => _explicitNullValueContainerId; set { _explicitNullValueContainerId = value; AdditionalData?.Remove("container_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("container_id"); else _explicitNullProperties?.Remove("container_id"); } }
-        private string _explicitNullValueContainerId = default!;
-#endif
-        /// <summary>An optional list of uploaded files to make available to your code.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? FileIds { get => _explicitNullValueFileIds; set { _explicitNullValueFileIds = value; AdditionalData?.Remove("file_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_ids"); else _explicitNullProperties?.Remove("file_ids"); } }
-        private List<string>? _explicitNullValueFileIds = default!;
-#nullable restore
-#else
-        public List<string> FileIds { get => _explicitNullValueFileIds; set { _explicitNullValueFileIds = value; AdditionalData?.Remove("file_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_ids"); else _explicitNullProperties?.Remove("file_ids"); } }
-        private List<string> _explicitNullValueFileIds = default!;
-#endif
-        /// <summary>The memory_limit property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerMemoryLimit? MemoryLimit { get => _explicitNullValueMemoryLimit; set { _explicitNullValueMemoryLimit = value; AdditionalData?.Remove("memory_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_limit"); else _explicitNullProperties?.Remove("memory_limit"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerMemoryLimit? _explicitNullValueMemoryLimit = default!;
-        /// <summary>Network access policy for the container.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAutoCodeInterpreterToolParamNetworkPolicy? NetworkPolicy { get => _explicitNullValueNetworkPolicy; set { _explicitNullValueNetworkPolicy = value; AdditionalData?.Remove("network_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_policy"); else _explicitNullProperties?.Remove("network_policy"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaAutoCodeInterpreterToolParamNetworkPolicy? _explicitNullValueNetworkPolicy = default!;
-#nullable restore
-#else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaAutoCodeInterpreterToolParamNetworkPolicy NetworkPolicy { get => _explicitNullValueNetworkPolicy; set { _explicitNullValueNetworkPolicy = value; AdditionalData?.Remove("network_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_policy"); else _explicitNullProperties?.Remove("network_policy"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaAutoCodeInterpreterToolParamNetworkPolicy _explicitNullValueNetworkPolicy = default!;
-#endif
-        /// <summary>An optional list of skills referenced by id or inline data.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerAutoParamSkillsItem>? Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; AdditionalData?.Remove("skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
-        private List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerAutoParamSkillsItem>? _explicitNullValueSkills = default!;
-#nullable restore
-#else
-        public List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerAutoParamSkillsItem> Skills { get => _explicitNullValueSkills; set { _explicitNullValueSkills = value; AdditionalData?.Remove("skills"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skills"); else _explicitNullProperties?.Remove("skills"); } }
-        private List<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerAutoParamSkillsItem> _explicitNullValueSkills = default!;
-#endif
-        /// <summary>Automatically creates a container for this request</summary>
 #nullable enable
         public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private string? _explicitNullValueType = default!;
 #nullable restore
+#else
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string _explicitNullValueType = default!;
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironmentAnyOf1"/> and sets the default values.
         /// </summary>
@@ -96,7 +48,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public static global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironmentAnyOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironmentAnyOf1(), parseNode);
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            return mappingValue switch
+            {
+                "container_auto" => new global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironmentAnyOf1BetaContainerAutoParam(),
+                "container_reference" => new global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironmentAnyOf1BetaContainerReferenceParam(),
+                "local" => new global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironmentAnyOf1BetaLocalEnvironmentParam(),
+                _ => new global::Soenneker.OpenAI.OpenApiClient.Models.BetaFunctionShellToolParamEnvironmentAnyOf1(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -106,11 +65,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "container_id", n => { ContainerId = n.GetStringValue(); } },
-                { "file_ids", n => { FileIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "memory_limit", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerMemoryLimit>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMemoryLimit = default; _explicitNullProperties?.Remove("memory_limit"); AdditionalData["memory_limit"] = unknown; } else { MemoryLimit = parsed; AdditionalData.Remove("memory_limit"); } } },
-                { "network_policy", n => { NetworkPolicy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAutoCodeInterpreterToolParamNetworkPolicy>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaAutoCodeInterpreterToolParamNetworkPolicy.CreateFromDiscriminatorValue); } },
-                { "skills", n => { Skills = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerAutoParamSkillsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerAutoParamSkillsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -121,11 +75,6 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("container_id", ContainerId);
-            writer.WriteCollectionOfPrimitiveValues<string>("file_ids", FileIds);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerMemoryLimit>("memory_limit", MemoryLimit);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaAutoCodeInterpreterToolParamNetworkPolicy>("network_policy", NetworkPolicy);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContainerAutoParamSkillsItem>("skills", Skills);
             writer.WriteStringValue("type", Type);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

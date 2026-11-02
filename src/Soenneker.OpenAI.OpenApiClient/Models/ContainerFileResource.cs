@@ -49,8 +49,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueContainerId = default!;
 #endif
         /// <summary>Unix timestamp (in seconds) when the file was created.</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
-        private int? _explicitNullValueCreatedAt = default!;
+        public long? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private long? _explicitNullValueCreatedAt = default!;
         /// <summary>Unique identifier for the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -118,7 +118,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "bytes", n => { Bytes = n.GetIntValue(); } },
                 { "container_id", n => { ContainerId = n.GetStringValue(); } },
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
@@ -134,7 +134,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("bytes", Bytes);
             writer.WriteStringValue("container_id", ContainerId);
-            writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteLongValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("object", Object);
             writer.WriteStringValue("path", Path);

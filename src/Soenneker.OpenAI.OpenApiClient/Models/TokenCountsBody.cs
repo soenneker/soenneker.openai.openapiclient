@@ -108,25 +108,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string PreviousResponseId { get => _explicitNullValuePreviousResponseId; set { _explicitNullValuePreviousResponseId = value; AdditionalData?.Remove("previous_response_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_response_id"); else _explicitNullProperties?.Remove("previous_response_id"); } }
         private string _explicitNullValuePreviousResponseId = default!;
 #endif
-        /// <summary>The reasoning property</summary>
+        /// <summary>**gpt-5 and o-series models only** Configuration options for [reasoning models](https://developers.openai.com/api/docs/guides/reasoning).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning? Reasoning { get => _explicitNullValueReasoning; set { _explicitNullValueReasoning = value; AdditionalData?.Remove("reasoning"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning"); else _explicitNullProperties?.Remove("reasoning"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning? _explicitNullValueReasoning = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning? Reasoning { get => _explicitNullValueReasoning; set { _explicitNullValueReasoning = value; AdditionalData?.Remove("reasoning"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning"); else _explicitNullProperties?.Remove("reasoning"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning? _explicitNullValueReasoning = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning Reasoning { get => _explicitNullValueReasoning; set { _explicitNullValueReasoning = value; AdditionalData?.Remove("reasoning"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning"); else _explicitNullProperties?.Remove("reasoning"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning _explicitNullValueReasoning = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning Reasoning { get => _explicitNullValueReasoning; set { _explicitNullValueReasoning = value; AdditionalData?.Remove("reasoning"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning"); else _explicitNullProperties?.Remove("reasoning"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning _explicitNullValueReasoning = default!;
 #endif
-        /// <summary>The text property</summary>
+        /// <summary>Configuration options for a text response from the model. Can be plaintext or structured JSON data. Learn more:- [Text inputs and outputs](https://developers.openai.com/api/docs/guides/text)- [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; AdditionalData?.Remove("text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam? _explicitNullValueText = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; AdditionalData?.Remove("text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText? _explicitNullValueText = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam Text { get => _explicitNullValueText; set { _explicitNullValueText = value; AdditionalData?.Remove("text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam _explicitNullValueText = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText Text { get => _explicitNullValueText; set { _explicitNullValueText = value; AdditionalData?.Remove("text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText _explicitNullValueText = default!;
 #endif
         /// <summary>The tool_choice property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -184,8 +184,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
                 { "personality", n => { Personality = n.GetStringValue(); } },
                 { "previous_response_id", n => { PreviousResponseId = n.GetStringValue(); } },
-                { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning.CreateFromDiscriminatorValue); } },
-                { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam.CreateFromDiscriminatorValue); } },
+                { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning.CreateFromDiscriminatorValue); } },
+                { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText.CreateFromDiscriminatorValue); } },
                 { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceParam>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceParam.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Tool>(global::Soenneker.OpenAI.OpenApiClient.Models.Tool.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "truncation", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationEnum>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTruncation = default; _explicitNullProperties?.Remove("truncation"); AdditionalData["truncation"] = unknown; } else { Truncation = parsed; AdditionalData.Remove("truncation"); } } },
@@ -205,8 +205,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
             writer.WriteStringValue("personality", Personality);
             writer.WriteStringValue("previous_response_id", PreviousResponseId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Reasoning>("reasoning", Reasoning);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseTextParam>("text", Text);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyReasoning>("reasoning", Reasoning);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenCountsBodyText>("text", Text);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ToolChoiceParam>("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.Tool>("tools", Tools);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationEnum>("truncation", Truncation);

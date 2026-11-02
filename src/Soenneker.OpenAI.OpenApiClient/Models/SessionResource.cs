@@ -124,12 +124,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Best-effort token usage for the session, or null if unknown. Recorded usage may change.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource? Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource? _explicitNullValueUsage = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SessionResourceUsage? Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.SessionResourceUsage? _explicitNullValueUsage = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource _explicitNullValueUsage = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SessionResourceUsage Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.SessionResourceUsage _explicitNullValueUsage = default!;
 #endif
         /// <summary>The IDs of vaults made available to the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -170,7 +170,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "required_actions", n => { RequiredActions = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResource>(global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResource.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "review", n => { Review = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionReviewResource>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionStatusResource>(); } },
-                { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource.CreateFromDiscriminatorValue); } },
+                { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionResourceUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.SessionResourceUsage.CreateFromDiscriminatorValue); } },
                 { "vault_ids", n => { VaultIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -192,7 +192,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SessionRequiredActionResource>("required_actions", RequiredActions);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionReviewResource>("review", Review);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionStatusResource>("status", Status);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource>("usage", Usage);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionResourceUsage>("usage", Usage);
             writer.WriteCollectionOfPrimitiveValues<string>("vault_ids", VaultIds);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

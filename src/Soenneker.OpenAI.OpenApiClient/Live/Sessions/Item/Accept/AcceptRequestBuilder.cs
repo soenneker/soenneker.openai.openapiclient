@@ -44,6 +44,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Live.Sessions.Item.Accept
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.AcceptLiveSession500PlainResponseSchemaError">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,6 +63,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Live.Sessions.Item.Accept
                 { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.OpenAI.OpenApiClient.Models.AcceptLiveSession500PlainResponseSchemaError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },

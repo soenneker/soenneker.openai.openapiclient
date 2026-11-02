@@ -40,8 +40,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Unix timestamp (in seconds) when the container was created.</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
-        private int? _explicitNullValueCreatedAt = default!;
+        public long? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private long? _explicitNullValueCreatedAt = default!;
         /// <summary>The container will expire after this time period.The anchor is the reference point for the expiration.The minutes is the number of minutes after the anchor before the container expires.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,8 +63,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>Unix timestamp (in seconds) when the container was last active.</summary>
-        public int? LastActiveAt { get => _explicitNullValueLastActiveAt; set { _explicitNullValueLastActiveAt = value; AdditionalData?.Remove("last_active_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_active_at"); else _explicitNullProperties?.Remove("last_active_at"); } }
-        private int? _explicitNullValueLastActiveAt = default!;
+        public long? LastActiveAt { get => _explicitNullValueLastActiveAt; set { _explicitNullValueLastActiveAt = value; AdditionalData?.Remove("last_active_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_active_at"); else _explicitNullProperties?.Remove("last_active_at"); } }
+        private long? _explicitNullValueLastActiveAt = default!;
         /// <summary>The memory limit configured for the container.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceMemoryLimit? MemoryLimit { get => _explicitNullValueMemoryLimit; set { _explicitNullValueMemoryLimit = value; AdditionalData?.Remove("memory_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_limit"); else _explicitNullProperties?.Remove("memory_limit"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceMemoryLimit? _explicitNullValueMemoryLimit = default!;
@@ -133,10 +133,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
                 { "expires_after", n => { ExpiresAfter = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfter>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfter.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "last_active_at", n => { LastActiveAt = n.GetIntValue(); } },
+                { "last_active_at", n => { LastActiveAt = n.GetLongValue(); } },
                 { "memory_limit", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceMemoryLimit>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMemoryLimit = default; _explicitNullProperties?.Remove("memory_limit"); AdditionalData["memory_limit"] = unknown; } else { MemoryLimit = parsed; AdditionalData.Remove("memory_limit"); } } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "network_policy", n => { NetworkPolicy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy>(global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy.CreateFromDiscriminatorValue); } },
@@ -151,10 +151,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteLongValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceExpiresAfter>("expires_after", ExpiresAfter);
             writer.WriteStringValue("id", Id);
-            writer.WriteIntValue("last_active_at", LastActiveAt);
+            writer.WriteLongValue("last_active_at", LastActiveAt);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceMemoryLimit>("memory_limit", MemoryLimit);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ContainerResourceNetworkPolicy>("network_policy", NetworkPolicy);

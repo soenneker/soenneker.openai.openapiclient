@@ -53,16 +53,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         }
 
         /// <summary>The Unix timestamp (in seconds) of when the user was added.</summary>
-        public int? AddedAt { get => _explicitNullValueAddedAt; set { _explicitNullValueAddedAt = value; AdditionalData?.Remove("added_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("added_at"); else _explicitNullProperties?.Remove("added_at"); } }
-        private int? _explicitNullValueAddedAt = default!;
+        public long? AddedAt { get => _explicitNullValueAddedAt; set { _explicitNullValueAddedAt = value; AdditionalData?.Remove("added_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("added_at"); else _explicitNullProperties?.Remove("added_at"); } }
+        private long? _explicitNullValueAddedAt = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Unix timestamp (in seconds) of the user&apos;s last API key usage.</summary>
-        public int? ApiKeyLastUsedAt { get => _explicitNullValueApiKeyLastUsedAt; set { _explicitNullValueApiKeyLastUsedAt = value; AdditionalData?.Remove("api_key_last_used_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_last_used_at"); else _explicitNullProperties?.Remove("api_key_last_used_at"); } }
-        private int? _explicitNullValueApiKeyLastUsedAt = default!;
+        public long? ApiKeyLastUsedAt { get => _explicitNullValueApiKeyLastUsedAt; set { _explicitNullValueApiKeyLastUsedAt = value; AdditionalData?.Remove("api_key_last_used_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_last_used_at"); else _explicitNullProperties?.Remove("api_key_last_used_at"); } }
+        private long? _explicitNullValueApiKeyLastUsedAt = default!;
         /// <summary>The Unix timestamp (in seconds) of when the user was created.</summary>
-        public int? Created { get => _explicitNullValueCreated; set { _explicitNullValueCreated = value; AdditionalData?.Remove("created"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created"); else _explicitNullProperties?.Remove("created"); } }
-        private int? _explicitNullValueCreated = default!;
+        public long? Created { get => _explicitNullValueCreated; set { _explicitNullValueCreated = value; AdditionalData?.Remove("created"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created"); else _explicitNullProperties?.Remove("created"); } }
+        private long? _explicitNullValueCreated = default!;
         /// <summary>The developer persona metadata for the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -183,9 +183,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "added_at", n => { AddedAt = n.GetIntValue(); } },
-                { "api_key_last_used_at", n => { ApiKeyLastUsedAt = n.GetIntValue(); } },
-                { "created", n => { Created = n.GetIntValue(); } },
+                { "added_at", n => { AddedAt = n.GetLongValue(); } },
+                { "api_key_last_used_at", n => { ApiKeyLastUsedAt = n.GetLongValue(); } },
+                { "created", n => { Created = n.GetLongValue(); } },
                 { "developer_persona", n => { DeveloperPersona = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -208,9 +208,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("added_at", AddedAt);
-            writer.WriteIntValue("api_key_last_used_at", ApiKeyLastUsedAt);
-            writer.WriteIntValue("created", Created);
+            writer.WriteLongValue("added_at", AddedAt);
+            writer.WriteLongValue("api_key_last_used_at", ApiKeyLastUsedAt);
+            writer.WriteLongValue("created", Created);
             writer.WriteStringValue("developer_persona", DeveloperPersona);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("id", Id);

@@ -61,12 +61,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>A customer-safe error. Non-null only for a failed turn.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SessionTurnErrorResource? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.SessionTurnErrorResource? _explicitNullValueError = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TurnResourceError? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.TurnResourceError? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.SessionTurnErrorResource Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.SessionTurnErrorResource _explicitNullValueError = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TurnResourceError Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.TurnResourceError _explicitNullValueError = default!;
 #endif
         /// <summary>The ID of the turn.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,12 +110,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Best-effort token usage for the turn, or null if unknown. Recorded usage may change.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource? Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource? _explicitNullValueUsage = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TurnResourceUsage? Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.TurnResourceUsage? _explicitNullValueUsage = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource _explicitNullValueUsage = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.TurnResourceUsage Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.TurnResourceUsage _explicitNullValueUsage = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -138,14 +138,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "agent_id", n => { AgentId = n.GetStringValue(); } },
                 { "completed_at", n => { CompletedAt = n.GetLongValue(); } },
                 { "created_at", n => { CreatedAt = n.GetLongValue(); } },
-                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionTurnErrorResource>(global::Soenneker.OpenAI.OpenApiClient.Models.SessionTurnErrorResource.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TurnResourceError>(global::Soenneker.OpenAI.OpenApiClient.Models.TurnResourceError.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TurnObjectResource>(); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
                 { "started_at", n => { StartedAt = n.GetLongValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TurnStatusResource>(); } },
                 { "subagent_id", n => { SubagentId = n.GetStringValue(); } },
-                { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource>(global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource.CreateFromDiscriminatorValue); } },
+                { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TurnResourceUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.TurnResourceUsage.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -158,14 +158,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("agent_id", AgentId);
             writer.WriteLongValue("completed_at", CompletedAt);
             writer.WriteLongValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionTurnErrorResource>("error", Error);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TurnResourceError>("error", Error);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TurnObjectResource>("object", Object);
             writer.WriteStringValue("session_id", SessionId);
             writer.WriteLongValue("started_at", StartedAt);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.TurnStatusResource>("status", Status);
             writer.WriteStringValue("subagent_id", SubagentId);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TokenUsageResource>("usage", Usage);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TurnResourceUsage>("usage", Usage);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

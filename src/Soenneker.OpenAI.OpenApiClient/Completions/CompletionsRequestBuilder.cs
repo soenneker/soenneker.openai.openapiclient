@@ -42,6 +42,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Completions
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletion403PlainResponseSchemaError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 500 status code</exception>
@@ -61,6 +62,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Completions
             {
                 { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.OpenAI.OpenApiClient.Models.CreateCompletion403PlainResponseSchemaError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },

@@ -66,14 +66,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Unix timestamp (in seconds) for when the batch was cancelled.</summary>
-        public int? CancelledAt { get => _explicitNullValueCancelledAt; set { _explicitNullValueCancelledAt = value; AdditionalData?.Remove("cancelled_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelled_at"); else _explicitNullProperties?.Remove("cancelled_at"); } }
-        private int? _explicitNullValueCancelledAt = default!;
+        public long? CancelledAt { get => _explicitNullValueCancelledAt; set { _explicitNullValueCancelledAt = value; AdditionalData?.Remove("cancelled_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelled_at"); else _explicitNullProperties?.Remove("cancelled_at"); } }
+        private long? _explicitNullValueCancelledAt = default!;
         /// <summary>The Unix timestamp (in seconds) for when the batch started cancelling.</summary>
-        public int? CancellingAt { get => _explicitNullValueCancellingAt; set { _explicitNullValueCancellingAt = value; AdditionalData?.Remove("cancelling_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelling_at"); else _explicitNullProperties?.Remove("cancelling_at"); } }
-        private int? _explicitNullValueCancellingAt = default!;
+        public long? CancellingAt { get => _explicitNullValueCancellingAt; set { _explicitNullValueCancellingAt = value; AdditionalData?.Remove("cancelling_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelling_at"); else _explicitNullProperties?.Remove("cancelling_at"); } }
+        private long? _explicitNullValueCancellingAt = default!;
         /// <summary>The Unix timestamp (in seconds) for when the batch was completed.</summary>
-        public int? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
-        private int? _explicitNullValueCompletedAt = default!;
+        public long? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
+        private long? _explicitNullValueCompletedAt = default!;
         /// <summary>The time frame within which the batch should be processed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,8 +85,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueCompletionWindow = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the batch was created.</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
-        private int? _explicitNullValueCreatedAt = default!;
+        public long? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private long? _explicitNullValueCreatedAt = default!;
         /// <summary>The OpenAI API endpoint used by the batch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -118,17 +118,17 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrors _explicitNullValueErrors = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the batch expired.</summary>
-        public int? ExpiredAt { get => _explicitNullValueExpiredAt; set { _explicitNullValueExpiredAt = value; AdditionalData?.Remove("expired_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expired_at"); else _explicitNullProperties?.Remove("expired_at"); } }
-        private int? _explicitNullValueExpiredAt = default!;
+        public long? ExpiredAt { get => _explicitNullValueExpiredAt; set { _explicitNullValueExpiredAt = value; AdditionalData?.Remove("expired_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expired_at"); else _explicitNullProperties?.Remove("expired_at"); } }
+        private long? _explicitNullValueExpiredAt = default!;
         /// <summary>The Unix timestamp (in seconds) for when the batch will expire.</summary>
-        public int? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
-        private int? _explicitNullValueExpiresAt = default!;
+        public long? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private long? _explicitNullValueExpiresAt = default!;
         /// <summary>The Unix timestamp (in seconds) for when the batch failed.</summary>
-        public int? FailedAt { get => _explicitNullValueFailedAt; set { _explicitNullValueFailedAt = value; AdditionalData?.Remove("failed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_at"); else _explicitNullProperties?.Remove("failed_at"); } }
-        private int? _explicitNullValueFailedAt = default!;
+        public long? FailedAt { get => _explicitNullValueFailedAt; set { _explicitNullValueFailedAt = value; AdditionalData?.Remove("failed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_at"); else _explicitNullProperties?.Remove("failed_at"); } }
+        private long? _explicitNullValueFailedAt = default!;
         /// <summary>The Unix timestamp (in seconds) for when the batch started finalizing.</summary>
-        public int? FinalizingAt { get => _explicitNullValueFinalizingAt; set { _explicitNullValueFinalizingAt = value; AdditionalData?.Remove("finalizing_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("finalizing_at"); else _explicitNullProperties?.Remove("finalizing_at"); } }
-        private int? _explicitNullValueFinalizingAt = default!;
+        public long? FinalizingAt { get => _explicitNullValueFinalizingAt; set { _explicitNullValueFinalizingAt = value; AdditionalData?.Remove("finalizing_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("finalizing_at"); else _explicitNullProperties?.Remove("finalizing_at"); } }
+        private long? _explicitNullValueFinalizingAt = default!;
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -140,8 +140,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the batch started processing.</summary>
-        public int? InProgressAt { get => _explicitNullValueInProgressAt; set { _explicitNullValueInProgressAt = value; AdditionalData?.Remove("in_progress_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_progress_at"); else _explicitNullProperties?.Remove("in_progress_at"); } }
-        private int? _explicitNullValueInProgressAt = default!;
+        public long? InProgressAt { get => _explicitNullValueInProgressAt; set { _explicitNullValueInProgressAt = value; AdditionalData?.Remove("in_progress_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_progress_at"); else _explicitNullProperties?.Remove("in_progress_at"); } }
+        private long? _explicitNullValueInProgressAt = default!;
         /// <summary>The ID of the input file for the batch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -233,20 +233,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "cancelled_at", n => { CancelledAt = n.GetIntValue(); } },
-                { "cancelling_at", n => { CancellingAt = n.GetIntValue(); } },
-                { "completed_at", n => { CompletedAt = n.GetIntValue(); } },
+                { "cancelled_at", n => { CancelledAt = n.GetLongValue(); } },
+                { "cancelling_at", n => { CancellingAt = n.GetLongValue(); } },
+                { "completed_at", n => { CompletedAt = n.GetLongValue(); } },
                 { "completion_window", n => { CompletionWindow = n.GetStringValue(); } },
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
+                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
                 { "endpoint", n => { Endpoint = n.GetStringValue(); } },
                 { "error_file_id", n => { ErrorFileId = n.GetStringValue(); } },
                 { "errors", n => { Errors = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrors>(global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrors.CreateFromDiscriminatorValue); } },
-                { "expired_at", n => { ExpiredAt = n.GetIntValue(); } },
-                { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
-                { "failed_at", n => { FailedAt = n.GetIntValue(); } },
-                { "finalizing_at", n => { FinalizingAt = n.GetIntValue(); } },
+                { "expired_at", n => { ExpiredAt = n.GetLongValue(); } },
+                { "expires_at", n => { ExpiresAt = n.GetLongValue(); } },
+                { "failed_at", n => { FailedAt = n.GetLongValue(); } },
+                { "finalizing_at", n => { FinalizingAt = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "in_progress_at", n => { InProgressAt = n.GetIntValue(); } },
+                { "in_progress_at", n => { InProgressAt = n.GetLongValue(); } },
                 { "input_file_id", n => { InputFileId = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchMetadata>(global::Soenneker.OpenAI.OpenApiClient.Models.BatchMetadata.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
@@ -264,20 +264,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("cancelled_at", CancelledAt);
-            writer.WriteIntValue("cancelling_at", CancellingAt);
-            writer.WriteIntValue("completed_at", CompletedAt);
+            writer.WriteLongValue("cancelled_at", CancelledAt);
+            writer.WriteLongValue("cancelling_at", CancellingAt);
+            writer.WriteLongValue("completed_at", CompletedAt);
             writer.WriteStringValue("completion_window", CompletionWindow);
-            writer.WriteIntValue("created_at", CreatedAt);
+            writer.WriteLongValue("created_at", CreatedAt);
             writer.WriteStringValue("endpoint", Endpoint);
             writer.WriteStringValue("error_file_id", ErrorFileId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchErrors>("errors", Errors);
-            writer.WriteIntValue("expired_at", ExpiredAt);
-            writer.WriteIntValue("expires_at", ExpiresAt);
-            writer.WriteIntValue("failed_at", FailedAt);
-            writer.WriteIntValue("finalizing_at", FinalizingAt);
+            writer.WriteLongValue("expired_at", ExpiredAt);
+            writer.WriteLongValue("expires_at", ExpiresAt);
+            writer.WriteLongValue("failed_at", FailedAt);
+            writer.WriteLongValue("finalizing_at", FinalizingAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteIntValue("in_progress_at", InProgressAt);
+            writer.WriteLongValue("in_progress_at", InProgressAt);
             writer.WriteStringValue("input_file_id", InputFileId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BatchMetadata>("metadata", Metadata);
             writer.WriteStringValue("model", Model);

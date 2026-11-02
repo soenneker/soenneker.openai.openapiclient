@@ -41,8 +41,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Live.Sessions.Item.Fork
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ForkLiveSession404PlainResponseSchemaError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 413 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ForkLiveSession500PlainResponseSchemaError">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,8 +60,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Live.Sessions.Item.Fork
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "400", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.OpenAI.OpenApiClient.Models.ForkLiveSession404PlainResponseSchemaError.CreateFromDiscriminatorValue },
                 { "413", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.OpenAI.OpenApiClient.Models.ForkLiveSession500PlainResponseSchemaError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },

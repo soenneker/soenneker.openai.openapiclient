@@ -87,20 +87,20 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueAssistantId = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the run was cancelled.</summary>
-        public int? CancelledAt { get => _explicitNullValueCancelledAt; set { _explicitNullValueCancelledAt = value; AdditionalData?.Remove("cancelled_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelled_at"); else _explicitNullProperties?.Remove("cancelled_at"); } }
-        private int? _explicitNullValueCancelledAt = default!;
+        public long? CancelledAt { get => _explicitNullValueCancelledAt; set { _explicitNullValueCancelledAt = value; AdditionalData?.Remove("cancelled_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelled_at"); else _explicitNullProperties?.Remove("cancelled_at"); } }
+        private long? _explicitNullValueCancelledAt = default!;
         /// <summary>The Unix timestamp (in seconds) for when the run was completed.</summary>
-        public int? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
-        private int? _explicitNullValueCompletedAt = default!;
+        public long? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
+        private long? _explicitNullValueCompletedAt = default!;
         /// <summary>The Unix timestamp (in seconds) for when the run was created.</summary>
-        public int? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
-        private int? _explicitNullValueCreatedAt = default!;
+        public long? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private long? _explicitNullValueCreatedAt = default!;
         /// <summary>The Unix timestamp (in seconds) for when the run will expire.</summary>
-        public int? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
-        private int? _explicitNullValueExpiresAt = default!;
+        public long? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private long? _explicitNullValueExpiresAt = default!;
         /// <summary>The Unix timestamp (in seconds) for when the run failed.</summary>
-        public int? FailedAt { get => _explicitNullValueFailedAt; set { _explicitNullValueFailedAt = value; AdditionalData?.Remove("failed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_at"); else _explicitNullProperties?.Remove("failed_at"); } }
-        private int? _explicitNullValueFailedAt = default!;
+        public long? FailedAt { get => _explicitNullValueFailedAt; set { _explicitNullValueFailedAt = value; AdditionalData?.Remove("failed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_at"); else _explicitNullProperties?.Remove("failed_at"); } }
+        private long? _explicitNullValueFailedAt = default!;
         /// <summary>The identifier, which can be referenced in API endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -194,8 +194,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption _explicitNullValueResponseFormat = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) for when the run was started.</summary>
-        public int? StartedAt { get => _explicitNullValueStartedAt; set { _explicitNullValueStartedAt = value; AdditionalData?.Remove("started_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("started_at"); else _explicitNullProperties?.Remove("started_at"); } }
-        private int? _explicitNullValueStartedAt = default!;
+        public long? StartedAt { get => _explicitNullValueStartedAt; set { _explicitNullValueStartedAt = value; AdditionalData?.Remove("started_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("started_at"); else _explicitNullProperties?.Remove("started_at"); } }
+        private long? _explicitNullValueStartedAt = default!;
         /// <summary>The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, `incomplete`, or `expired`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectStatus? _explicitNullValueStatus = default!;
@@ -235,15 +235,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The nucleus sampling value used for this run. If not set, defaults to 1.</summary>
         public double? TopP { get => _explicitNullValueTopP; set { _explicitNullValueTopP = value; AdditionalData?.Remove("top_p"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_p"); else _explicitNullProperties?.Remove("top_p"); } }
         private double? _explicitNullValueTopP = default!;
-        /// <summary>The truncation_strategy property</summary>
+        /// <summary>Controls for how a thread will be truncated prior to the run. Use this to control the initial context window of the run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject? TruncationStrategy { get => _explicitNullValueTruncationStrategy; set { _explicitNullValueTruncationStrategy = value; AdditionalData?.Remove("truncation_strategy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("truncation_strategy"); else _explicitNullProperties?.Remove("truncation_strategy"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject? _explicitNullValueTruncationStrategy = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy? TruncationStrategy { get => _explicitNullValueTruncationStrategy; set { _explicitNullValueTruncationStrategy = value; AdditionalData?.Remove("truncation_strategy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("truncation_strategy"); else _explicitNullProperties?.Remove("truncation_strategy"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy? _explicitNullValueTruncationStrategy = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject TruncationStrategy { get => _explicitNullValueTruncationStrategy; set { _explicitNullValueTruncationStrategy = value; AdditionalData?.Remove("truncation_strategy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("truncation_strategy"); else _explicitNullProperties?.Remove("truncation_strategy"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject _explicitNullValueTruncationStrategy = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy TruncationStrategy { get => _explicitNullValueTruncationStrategy; set { _explicitNullValueTruncationStrategy = value; AdditionalData?.Remove("truncation_strategy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("truncation_strategy"); else _explicitNullProperties?.Remove("truncation_strategy"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy _explicitNullValueTruncationStrategy = default!;
 #endif
         /// <summary>Usage statistics related to the run. This value will be `null` if the run is not in a terminal state (i.e. `in_progress`, `queued`, etc.).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -282,11 +282,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assistant_id", n => { AssistantId = n.GetStringValue(); } },
-                { "cancelled_at", n => { CancelledAt = n.GetIntValue(); } },
-                { "completed_at", n => { CompletedAt = n.GetIntValue(); } },
-                { "created_at", n => { CreatedAt = n.GetIntValue(); } },
-                { "expires_at", n => { ExpiresAt = n.GetIntValue(); } },
-                { "failed_at", n => { FailedAt = n.GetIntValue(); } },
+                { "cancelled_at", n => { CancelledAt = n.GetLongValue(); } },
+                { "completed_at", n => { CompletedAt = n.GetLongValue(); } },
+                { "created_at", n => { CreatedAt = n.GetLongValue(); } },
+                { "expires_at", n => { ExpiresAt = n.GetLongValue(); } },
+                { "failed_at", n => { FailedAt = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "incomplete_details", n => { IncompleteDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectIncompleteDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectIncompleteDetails.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
@@ -299,14 +299,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "parallel_tool_calls", n => { ParallelToolCalls = n.GetBoolValue(); } },
                 { "required_action", n => { RequiredAction = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredAction>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredAction.CreateFromDiscriminatorValue); } },
                 { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption.CreateFromDiscriminatorValue); } },
-                { "started_at", n => { StartedAt = n.GetIntValue(); } },
+                { "started_at", n => { StartedAt = n.GetLongValue(); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "thread_id", n => { ThreadId = n.GetStringValue(); } },
                 { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantObjectToolsItem>(global::Soenneker.OpenAI.OpenApiClient.Models.AssistantObjectToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },
-                { "truncation_strategy", n => { TruncationStrategy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject>(global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject.CreateFromDiscriminatorValue); } },
+                { "truncation_strategy", n => { TruncationStrategy = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy>(global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy.CreateFromDiscriminatorValue); } },
                 { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunCompletionUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.RunCompletionUsage.CreateFromDiscriminatorValue); } },
             };
         }
@@ -318,11 +318,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("assistant_id", AssistantId);
-            writer.WriteIntValue("cancelled_at", CancelledAt);
-            writer.WriteIntValue("completed_at", CompletedAt);
-            writer.WriteIntValue("created_at", CreatedAt);
-            writer.WriteIntValue("expires_at", ExpiresAt);
-            writer.WriteIntValue("failed_at", FailedAt);
+            writer.WriteLongValue("cancelled_at", CancelledAt);
+            writer.WriteLongValue("completed_at", CompletedAt);
+            writer.WriteLongValue("created_at", CreatedAt);
+            writer.WriteLongValue("expires_at", ExpiresAt);
+            writer.WriteLongValue("failed_at", FailedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectIncompleteDetails>("incomplete_details", IncompleteDetails);
             writer.WriteStringValue("instructions", Instructions);
@@ -335,14 +335,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteBoolValue("parallel_tool_calls", ParallelToolCalls);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectRequiredAction>("required_action", RequiredAction);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiResponseFormatOption>("response_format", ResponseFormat);
-            writer.WriteIntValue("started_at", StartedAt);
+            writer.WriteLongValue("started_at", StartedAt);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectStatus>("status", Status);
             writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteStringValue("thread_id", ThreadId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantsApiToolChoiceOption>("tool_choice", ToolChoice);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.AssistantObjectToolsItem>("tools", Tools);
             writer.WriteDoubleValue("top_p", TopP);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.TruncationObject>("truncation_strategy", TruncationStrategy);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunObjectTruncationStrategy>("truncation_strategy", TruncationStrategy);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.RunCompletionUsage>("usage", Usage);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

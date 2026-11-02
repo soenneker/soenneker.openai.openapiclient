@@ -144,15 +144,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if (parseNode.GetChildNode("workload_identity_provider.updated") is { } nullNodeWorkloadIdentityProviderUpdated && nullNodeWorkloadIdentityProviderUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProviderUpdated = null;
         }
 
-        /// <summary>The actor property</summary>
+        /// <summary>The actor who performed the audit logged action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor? Actor { get => _explicitNullValueActor; set { _explicitNullValueActor = value; AdditionalData?.Remove("actor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor"); else _explicitNullProperties?.Remove("actor"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor? _explicitNullValueActor = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed? Actor { get => _explicitNullValueActor; set { _explicitNullValueActor = value; AdditionalData?.Remove("actor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor"); else _explicitNullProperties?.Remove("actor"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed? _explicitNullValueActor = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor Actor { get => _explicitNullValueActor; set { _explicitNullValueActor = value; AdditionalData?.Remove("actor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor"); else _explicitNullProperties?.Remove("actor"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor _explicitNullValueActor = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed Actor { get => _explicitNullValueActor; set { _explicitNullValueActor = value; AdditionalData?.Remove("actor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor"); else _explicitNullProperties?.Remove("actor"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed _explicitNullValueActor = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -257,8 +257,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted _explicitNullValueCheckpointPermissionDeleted = default!;
 #endif
         /// <summary>The Unix timestamp (in seconds) of the event.</summary>
-        public int? EffectiveAt { get => _explicitNullValueEffectiveAt; set { _explicitNullValueEffectiveAt = value; AdditionalData?.Remove("effective_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_at"); else _explicitNullProperties?.Remove("effective_at"); } }
-        private int? _explicitNullValueEffectiveAt = default!;
+        public long? EffectiveAt { get => _explicitNullValueEffectiveAt; set { _explicitNullValueEffectiveAt = value; AdditionalData?.Remove("effective_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_at"); else _explicitNullProperties?.Remove("effective_at"); } }
+        private long? _explicitNullValueEffectiveAt = default!;
         /// <summary>The details for events with this `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -777,7 +777,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor.CreateFromDiscriminatorValue); } },
+                { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed.CreateFromDiscriminatorValue); } },
                 { "api_key.created", n => { ApiKeyCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated.CreateFromDiscriminatorValue); } },
                 { "api_key.deleted", n => { ApiKeyDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted.CreateFromDiscriminatorValue); } },
                 { "api_key.updated", n => { ApiKeyUpdated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated.CreateFromDiscriminatorValue); } },
@@ -788,7 +788,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "certificates.deactivated", n => { CertificatesDeactivated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesDeactivated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificatesDeactivated.CreateFromDiscriminatorValue); } },
                 { "checkpoint.permission.created", n => { CheckpointPermissionCreated = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionCreated>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionCreated.CreateFromDiscriminatorValue); } },
                 { "checkpoint.permission.deleted", n => { CheckpointPermissionDeleted = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted.CreateFromDiscriminatorValue); } },
-                { "effective_at", n => { EffectiveAt = n.GetIntValue(); } },
+                { "effective_at", n => { EffectiveAt = n.GetLongValue(); } },
                 { "external_key.registered", n => { ExternalKeyRegistered = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered.CreateFromDiscriminatorValue); } },
                 { "external_key.removed", n => { ExternalKeyRemoved = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved.CreateFromDiscriminatorValue); } },
                 { "external_storage.registered", n => { ExternalStorageRegistered = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegistered>(global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegistered.CreateFromDiscriminatorValue); } },
@@ -848,7 +848,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActor>("actor", Actor);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogActorComposed>("actor", Actor);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyCreated>("api_key.created", ApiKeyCreated);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyDeleted>("api_key.deleted", ApiKeyDeleted);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogApiKeyUpdated>("api_key.updated", ApiKeyUpdated);
@@ -859,7 +859,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCertificateUpdated>("certificate.updated", CertificateUpdated);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionCreated>("checkpoint.permission.created", CheckpointPermissionCreated);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogCheckpointPermissionDeleted>("checkpoint.permission.deleted", CheckpointPermissionDeleted);
-            writer.WriteIntValue("effective_at", EffectiveAt);
+            writer.WriteLongValue("effective_at", EffectiveAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRegistered>("external_key.registered", ExternalKeyRegistered);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalKeyRemoved>("external_key.removed", ExternalKeyRemoved);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AuditLogExternalStorageRegistered>("external_storage.registered", ExternalStorageRegistered);

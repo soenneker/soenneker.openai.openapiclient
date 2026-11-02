@@ -81,8 +81,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueModel = default!;
 #endif
         /// <summary>The reasoning_effort property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? ReasoningEffort { get => _explicitNullValueReasoningEffort; set { _explicitNullValueReasoningEffort = value; AdditionalData?.Remove("reasoning_effort"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_effort"); else _explicitNullProperties?.Remove("reasoning_effort"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? _explicitNullValueReasoningEffort = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort ReasoningEffort { get => _explicitNullValueReasoningEffort; set { _explicitNullValueReasoningEffort = value; AdditionalData?.Remove("reasoning_effort"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_effort"); else _explicitNullProperties?.Remove("reasoning_effort"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort _explicitNullValueReasoningEffort = default!;
+#endif
         /// <summary>Sampling temperature. This is a query parameter used to select responses.</summary>
         public double? Temperature { get => _explicitNullValueTemperature; set { _explicitNullValueTemperature = value; AdditionalData?.Remove("temperature"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temperature"); else _explicitNullProperties?.Remove("temperature"); } }
         private double? _explicitNullValueTemperature = default!;
@@ -142,7 +149,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "instructions_search", n => { InstructionsSearch = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "reasoning_effort", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueReasoningEffort = default; _explicitNullProperties?.Remove("reasoning_effort"); AdditionalData["reasoning_effort"] = unknown; } else { ReasoningEffort = parsed; AdditionalData.Remove("reasoning_effort"); } } },
+                { "reasoning_effort", n => { ReasoningEffort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort.CreateFromDiscriminatorValue); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "tools", n => { Tools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },
@@ -162,7 +169,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("instructions_search", InstructionsSearch);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.EvalResponsesSourceMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("model", Model);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("reasoning_effort", ReasoningEffort);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("reasoning_effort", ReasoningEffort);
             writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteCollectionOfPrimitiveValues<string>("tools", Tools);
             writer.WriteDoubleValue("top_p", TopP);

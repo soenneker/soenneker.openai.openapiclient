@@ -25,8 +25,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The reasoning effort to use for subsequent responses until anotherconfiguration update replaces it.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? Effort { get => _explicitNullValueEffort; set { _explicitNullValueEffort = value; AdditionalData?.Remove("effort"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effort"); else _explicitNullProperties?.Remove("effort"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort? _explicitNullValueEffort = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort Effort { get => _explicitNullValueEffort; set { _explicitNullValueEffort = value; AdditionalData?.Remove("effort"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effort"); else _explicitNullProperties?.Remove("effort"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort _explicitNullValueEffort = default!;
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateItemParamReasoning"/> and sets the default values.
         /// </summary>
@@ -52,7 +59,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "effort", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEffort = default; _explicitNullProperties?.Remove("effort"); AdditionalData["effort"] = unknown; } else { Effort = parsed; AdditionalData.Remove("effort"); } } },
+                { "effort", n => { Effort = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>(global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -62,7 +69,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("effort", Effort);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ReasoningEffort>("effort", Effort);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -56,12 +56,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The permanent delivery failure, or null when no failure occurred.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationErrorResource? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationErrorResource? _explicitNullValueError = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceError? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceError? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationErrorResource Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationErrorResource _explicitNullValueError = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceError Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceError _explicitNullValueError = default!;
 #endif
         /// <summary>The invocation ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -90,8 +90,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         private string _explicitNullValueSessionId = default!;
 #endif
         /// <summary>Why an occurrence was skipped, or null when it was not skipped.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceSkipReason? SkipReason { get => _explicitNullValueSkipReason; set { _explicitNullValueSkipReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_reason"); else _explicitNullProperties?.Remove("skip_reason"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceSkipReason? _explicitNullValueSkipReason = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceSkipReason SkipReason { get => _explicitNullValueSkipReason; set { _explicitNullValueSkipReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_reason"); else _explicitNullProperties?.Remove("skip_reason"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceSkipReason _explicitNullValueSkipReason = default!;
+#endif
         /// <summary>Whether the invocation was manual or scheduled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -125,12 +132,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "automation_id", n => { AutomationId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetLongValue(); } },
-                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationErrorResource>(global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationErrorResource.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceError>(global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceError.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "object", n => { Object = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AgentAutomationInvocationObject>(); } },
                 { "scheduled_at", n => { ScheduledAt = n.GetLongValue(); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
-                { "skip_reason", n => { SkipReason = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceSkipReason>(); } },
+                { "skip_reason", n => { SkipReason = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceSkipReason>(global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceSkipReason.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationSourceResource>(global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationSourceResource.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationStatusResource>(); } },
             };
@@ -144,12 +151,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("automation_id", AutomationId);
             writer.WriteLongValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationErrorResource>("error", Error);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceError>("error", Error);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AgentAutomationInvocationObject>("object", Object);
             writer.WriteLongValue("scheduled_at", ScheduledAt);
             writer.WriteStringValue("session_id", SessionId);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceSkipReason>("skip_reason", SkipReason);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationResourceSkipReason>("skip_reason", SkipReason);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationSourceResource>("source", Source);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.AutomationInvocationStatusResource>("status", Status);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
