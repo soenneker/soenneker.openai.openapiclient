@@ -41,9 +41,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Whether implicit prompt-cache breakpoints were enabled.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheModeEnum? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheModeEnum? _explicitNullValueMode = default!;
-        /// <summary>The ttl property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheTtlEnum? Ttl { get => _explicitNullValueTtl; set { _explicitNullValueTtl = value; AdditionalData?.Remove("ttl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ttl"); else _explicitNullProperties?.Remove("ttl"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheTtlEnum? _explicitNullValueTtl = default!;
+        /// <summary>The minimum lifetime applied to each cache breakpoint.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsTtl? Ttl { get => _explicitNullValueTtl; set { _explicitNullValueTtl = value; AdditionalData?.Remove("ttl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ttl"); else _explicitNullProperties?.Remove("ttl"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsTtl? _explicitNullValueTtl = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptions"/> and sets the default values.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "comparison_response_id", n => { ComparisonResponseId = n.GetStringValue(); } },
                 { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheModeEnum>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
-                { "ttl", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheTtlEnum>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTtl = default; _explicitNullProperties?.Remove("ttl"); AdditionalData["ttl"] = unknown; } else { Ttl = parsed; AdditionalData.Remove("ttl"); } } },
+                { "ttl", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsTtl>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTtl = default; _explicitNullProperties?.Remove("ttl"); AdditionalData["ttl"] = unknown; } else { Ttl = parsed; AdditionalData.Remove("ttl"); } } },
             };
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("comparison_response_id", ComparisonResponseId);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheModeEnum>("mode", Mode);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheTtlEnum>("ttl", Ttl);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPromptCacheOptionsTtl>("ttl", Ttl);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

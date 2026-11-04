@@ -11,6 +11,10 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         ContextLengthExceeded,
         #pragma warning restore CS1591
+        [EnumMember(Value = "max_output_tokens")]
+        #pragma warning disable CS1591
+        MaxOutputTokens,
+        #pragma warning restore CS1591
         [EnumMember(Value = "session_budget_exceeded")]
         #pragma warning disable CS1591
         SessionBudgetExceeded,

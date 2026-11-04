@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
+    /// <summary>
+    /// Options for prompt caching. Supported for `gpt-5.6` and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with `prompt_cache_breakpoint`. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set `mode` to `explicit` to disable the implicit breakpoint. The `ttl` defaults to `30m`. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class CreateResponseBodyPromptCacheOptions : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class ResponsePromptCacheOptionsParam : IAdditionalDataHolder, IParsable
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -45,25 +46,25 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Prepares the prompt cache without generating output. Defaults to `false`. When set to `true`, overrides the `generate` field to `false`.</summary>
         public bool? Prewarm { get => _explicitNullValuePrewarm; set { _explicitNullValuePrewarm = value; AdditionalData?.Remove("prewarm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prewarm"); else _explicitNullProperties?.Remove("prewarm"); } }
         private bool? _explicitNullValuePrewarm = default!;
-        /// <summary>The ttl property</summary>
-        public global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheTtlEnum? Ttl { get => _explicitNullValueTtl; set { _explicitNullValueTtl = value; AdditionalData?.Remove("ttl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ttl"); else _explicitNullProperties?.Remove("ttl"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheTtlEnum? _explicitNullValueTtl = default!;
+        /// <summary>The minimum lifetime applied to every implicit and explicit cache breakpoint written by the request. Supported values are `30m` (the default) and `12h`. The backend may retain cache entries for longer.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptCacheOptionsParamTtl? Ttl { get => _explicitNullValueTtl; set { _explicitNullValueTtl = value; AdditionalData?.Remove("ttl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ttl"); else _explicitNullProperties?.Remove("ttl"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptCacheOptionsParamTtl? _explicitNullValueTtl = default!;
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBodyPromptCacheOptions"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptCacheOptionsParam"/> and sets the default values.
         /// </summary>
-        public CreateResponseBodyPromptCacheOptions()
+        public ResponsePromptCacheOptionsParam()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBodyPromptCacheOptions"/></returns>
+        /// <returns>A <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptCacheOptionsParam"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBodyPromptCacheOptions CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptCacheOptionsParam CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.CreateResponseBodyPromptCacheOptions(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptCacheOptionsParam(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,7 +77,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "comparison_response_id", n => { ComparisonResponseId = n.GetStringValue(); } },
                 { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheModeEnum>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
                 { "prewarm", n => { Prewarm = n.GetBoolValue(); } },
-                { "ttl", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheTtlEnum>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTtl = default; _explicitNullProperties?.Remove("ttl"); AdditionalData["ttl"] = unknown; } else { Ttl = parsed; AdditionalData.Remove("ttl"); } } },
+                { "ttl", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptCacheOptionsParamTtl>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTtl = default; _explicitNullProperties?.Remove("ttl"); AdditionalData["ttl"] = unknown; } else { Ttl = parsed; AdditionalData.Remove("ttl"); } } },
             };
         }
         /// <summary>
@@ -89,7 +90,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("comparison_response_id", ComparisonResponseId);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheModeEnum>("mode", Mode);
             writer.WriteBoolValue("prewarm", Prewarm);
-            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.PromptCacheTtlEnum>("ttl", Ttl);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponsePromptCacheOptionsParamTtl>("ttl", Ttl);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

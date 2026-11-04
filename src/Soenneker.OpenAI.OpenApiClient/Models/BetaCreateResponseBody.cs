@@ -25,6 +25,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if (parseNode.GetChildNode("context_management") is { } nullNodeContextManagement && nullNodeContextManagement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContextManagement = null;
             if (parseNode.GetChildNode("conversation") is null) { _explicitNullValueConversation = default!; _explicitNullProperties?.Remove("conversation"); }
             else if (parseNode.GetChildNode("conversation") is { } nullNodeConversation && nullNodeConversation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conversation = null;
+            if (parseNode.GetChildNode("image") is null) { _explicitNullValueImage = default!; _explicitNullProperties?.Remove("image"); }
+            else if (parseNode.GetChildNode("image") is { } nullNodeImage && nullNodeImage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Image = null;
             if (parseNode.GetChildNode("include") is null) { _explicitNullValueInclude = default!; _explicitNullProperties?.Remove("include"); }
             else if (parseNode.GetChildNode("include") is { } nullNodeInclude && nullNodeInclude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Include = null;
             if (parseNode.GetChildNode("input") is null) { _explicitNullValueInput = default!; _explicitNullProperties?.Remove("input"); }
@@ -119,6 +121,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam Conversation { get => _explicitNullValueConversation; set { _explicitNullValueConversation = value; AdditionalData?.Remove("conversation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversation"); else _explicitNullProperties?.Remove("conversation"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam _explicitNullValueConversation = default!;
+#endif
+        /// <summary>Request level image options.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageOptionsParam? Image { get => _explicitNullValueImage; set { _explicitNullValueImage = value; AdditionalData?.Remove("image"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image"); else _explicitNullProperties?.Remove("image"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageOptionsParam? _explicitNullValueImage = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageOptionsParam Image { get => _explicitNullValueImage; set { _explicitNullValueImage = value; AdditionalData?.Remove("image"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image"); else _explicitNullProperties?.Remove("image"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageOptionsParam _explicitNullValueImage = default!;
 #endif
         /// <summary>Specify additional output data to include in the model response. Currently supported values are:- `web_search_call.action.sources`: Include the sources of the web search tool call.- `code_interpreter_call.outputs`: Includes the outputs of python code execution in code interpreter tool call items.- `computer_call_output.output.image_url`: Include image urls from the computer call output.- `file_search_call.results`: Include the search results of the file search tool call.- `message.input_image.image_url`: Include image urls from the input message.- `message.output_text.logprobs`: Include logprobs with assistant messages.- `reasoning.encrypted_content`: Includes an encrypted version of reasoning tokens in reasoning item outputs. This enables reasoning items to be used in multi-turn conversations when using the Responses API statelessly (like when the `store` parameter is set to `false`, or when an organization is enrolled in the zero data retention program).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -229,15 +241,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string PromptCacheKey { get => _explicitNullValuePromptCacheKey; set { _explicitNullValuePromptCacheKey = value; AdditionalData?.Remove("prompt_cache_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_key"); else _explicitNullProperties?.Remove("prompt_cache_key"); } }
         private string _explicitNullValuePromptCacheKey = default!;
 #endif
-        /// <summary>The prompt_cache_options property</summary>
+        /// <summary>Options for prompt caching. Supported for `gpt-5.6` and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with `prompt_cache_breakpoint`. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set `mode` to `explicit` to disable the implicit breakpoint. The `ttl` defaults to `30m`. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options? PromptCacheOptions { get => _explicitNullValuePromptCacheOptions; set { _explicitNullValuePromptCacheOptions = value; AdditionalData?.Remove("prompt_cache_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_options"); else _explicitNullProperties?.Remove("prompt_cache_options"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options? _explicitNullValuePromptCacheOptions = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheOptionsParam? PromptCacheOptions { get => _explicitNullValuePromptCacheOptions; set { _explicitNullValuePromptCacheOptions = value; AdditionalData?.Remove("prompt_cache_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_options"); else _explicitNullProperties?.Remove("prompt_cache_options"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheOptionsParam? _explicitNullValuePromptCacheOptions = default!;
 #nullable restore
 #else
-        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options PromptCacheOptions { get => _explicitNullValuePromptCacheOptions; set { _explicitNullValuePromptCacheOptions = value; AdditionalData?.Remove("prompt_cache_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_options"); else _explicitNullProperties?.Remove("prompt_cache_options"); } }
-        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options _explicitNullValuePromptCacheOptions = default!;
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheOptionsParam PromptCacheOptions { get => _explicitNullValuePromptCacheOptions; set { _explicitNullValuePromptCacheOptions = value; AdditionalData?.Remove("prompt_cache_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt_cache_options"); else _explicitNullProperties?.Remove("prompt_cache_options"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheOptionsParam _explicitNullValuePromptCacheOptions = default!;
 #endif
         /// <summary>Deprecated. Use `prompt_cache_options.ttl` instead.The retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](https://developers.openai.com/api/docs/guides/prompt-caching#prompt-cache-retention).This field expresses a maximum retention policy, while`prompt_cache_options.ttl` expresses a minimum cache lifetime. The twofields are independent and do not interact.For `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.For older models that support both `in_memory` and `24h`, the default depends on your organization&apos;s data retention policy:  - Organizations without ZDR enabled default to `24h`.  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.</summary>
         [Obsolete("")]
@@ -399,6 +411,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "background", n => { Background = n.GetBoolValue(); } },
                 { "context_management", n => { ContextManagement = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContextManagementParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaContextManagementParam.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "conversation", n => { Conversation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam.CreateFromDiscriminatorValue); } },
+                { "image", n => { Image = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageOptionsParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageOptionsParam.CreateFromDiscriminatorValue); } },
                 { "include", n => { Include = n.GetCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaIncludeEnum>()?.AsList(); } },
                 { "input", n => { Input = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputParam.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
@@ -412,7 +425,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "previous_response_id", n => { PreviousResponseId = n.GetStringValue(); } },
                 { "prompt", n => { Prompt = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt.CreateFromDiscriminatorValue); } },
                 { "prompt_cache_key", n => { PromptCacheKey = n.GetStringValue(); } },
-                { "prompt_cache_options", n => { PromptCacheOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options.CreateFromDiscriminatorValue); } },
+                { "prompt_cache_options", n => { PromptCacheOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheOptionsParam>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheOptionsParam.CreateFromDiscriminatorValue); } },
                 { "prompt_cache_retention", n => { PromptCacheRetention = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheRetention>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheRetention.CreateFromDiscriminatorValue); } },
                 { "reasoning", n => { Reasoning = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Reasoning>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Reasoning.CreateFromDiscriminatorValue); } },
                 { "safety_identifier", n => { SafetyIdentifier = n.GetStringValue(); } },
@@ -441,6 +454,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteBoolValue("background", Background);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaContextManagementParam>("context_management", ContextManagement);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaConversationParam>("conversation", Conversation);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageOptionsParam>("image", Image);
             writer.WriteCollectionOfEnumValues<global::Soenneker.OpenAI.OpenApiClient.Models.BetaIncludeEnum>("include", Include);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaInputParam>("input", Input);
             writer.WriteStringValue("instructions", Instructions);
@@ -454,7 +468,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteStringValue("previous_response_id", PreviousResponseId);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaPrompt>("prompt", Prompt);
             writer.WriteStringValue("prompt_cache_key", PromptCacheKey);
-            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBody_prompt_cache_options>("prompt_cache_options", PromptCacheOptions);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheOptionsParam>("prompt_cache_options", PromptCacheOptions);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponsePromptCacheRetention>("prompt_cache_retention", PromptCacheRetention);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCreateResponseBodyAllOf3Reasoning>("reasoning", Reasoning);
             writer.WriteStringValue("safety_identifier", SafetyIdentifier);

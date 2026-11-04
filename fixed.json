@@ -6100,7 +6100,7 @@
           "Live"
         ],
         "summary": "Create session",
-        "description": "Create a Live WebRTC session or place an outbound SIP call. Start with the\n[Live prompting guide](https://developers.openai.com/api/docs/guides/live-prompting) for session configuration\nand [Telephony and SIP](https://developers.openai.com/api/docs/guides/voice-sip?api=live#place-an-outbound-call)\nfor trunk setup and call monitoring.\n\nSet transport.type to \u0060webrtc\u0060 and supply an SDP offer, or set it to \u0060sip\u0060\nand supply an E.164 destination and trunk credentials. Outbound SIP calling\nmust be enabled for your organization.\nRinging is limited to 3 minutes and connected calls to 2 hours; these limits\nare not configurable in the request.\n\nReturns \u0060201 Created\u0060 after session initialization. WebRTC responses include an\nSDP answer. SIP responses do not wait for the callee to answer. Attach a\nsideband connection using session.id to monitor SIP call progress.\n\nEach SIP request creates a new call. If a request times out or the connection\nfails, retry with caution: the original request may have succeeded, and a\nretry can place another call.",
+        "description": "Create a Live WebRTC session or place an outbound SIP call. Start with the\n[Live prompting guide](https://developers.openai.com/api/docs/guides/live-prompting) for session configuration\nand [Telephony and SIP](https://developers.openai.com/api/docs/guides/voice-sip?api=live#place-an-outbound-call)\nfor trunk setup and call monitoring.\n\nSet transport.type to \u0060webrtc\u0060 and supply an SDP offer, or set it to \u0060sip\u0060\nand supply an E.164 destination and trunk credentials.\nRinging is limited to 3 minutes and connected calls to 2 hours; these limits\nare not configurable in the request.\n\nReturns \u0060201 Created\u0060 after session initialization. WebRTC responses include an\nSDP answer. SIP responses do not wait for the callee to answer. Attach a\nsideband connection using session.id to monitor SIP call progress.\n\nEach SIP request creates a new call. If a request times out or the connection\nfails, retry with caution: the original request may have succeeded, and a\nretry can place another call.",
         "operationId": "CreateLive",
         "requestBody": {
           "content": {
@@ -22967,6 +22967,569 @@
         }
       }
     },
+    "/organization/workload_identity_providers": {
+      "get": {
+        "summary": "List Platform workload identity providers",
+        "description": "List OIDC providers in the authenticated Admin API key\u0027s organization.",
+        "operationId": "ListPlatformworkloadidentityproviders",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string",
+              "x-ms-enum": {
+                "name": "Order",
+                "modelAsString": false,
+                "values": [
+                  {
+                    "value": "asc",
+                    "name": "Asc"
+                  },
+                  {
+                    "value": "desc",
+                    "name": "Desc"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlatformProviderListResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ],
+        "x-oaiMeta": {
+          "group": "administration",
+          "examples": {
+            "request": {
+              "curl": "curl -X GET \u0022https://api.openai.com/v1/organization/workload_identity_providers?limit=20\u0026order=asc\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022\n"
+            },
+            "response": "{\n  \u0022object\u0022: \u0022list\u0022,\n  \u0022data\u0022: [\n    {\n      \u0022object\u0022: \u0022organization.workload_identity_provider\u0022,\n      \u0022id\u0022: \u0022wip_example\u0022,\n      \u0022type\u0022: \u0022oidc\u0022,\n      \u0022name\u0022: \u0022CI provider\u0022,\n      \u0022issuer\u0022: \u0022https://issuer.example.com\u0022,\n      \u0022audience\u0022: \u0022openai\u0022,\n      \u0022verification\u0022: {\n        \u0022type\u0022: \u0022discovery\u0022,\n        \u0022discovery_url\u0022: null\n      },\n      \u0022description\u0022: null,\n      \u0022attribute_transformations\u0022: [],\n      \u0022enabled\u0022: true,\n      \u0022created_at\u0022: 1793664000,\n      \u0022updated_at\u0022: 1793664000\n    }\n  ],\n  \u0022first_id\u0022: \u0022wip_example\u0022,\n  \u0022last_id\u0022: \u0022wip_example\u0022,\n  \u0022has_more\u0022: false\n}\n"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Platform workload identity provider",
+        "description": "Register an OIDC provider for keyless project service-account authentication.",
+        "operationId": "CreatePlatformworkloadidentityprovider",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityProviderBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlatformProvider"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ],
+        "x-oaiMeta": {
+          "group": "administration",
+          "examples": {
+            "request": {
+              "curl": "curl -X POST \u0022https://api.openai.com/v1/organization/workload_identity_providers\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022 \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -d \u0027{\n  \u0022name\u0022: \u0022CI provider\u0022,\n  \u0022type\u0022: \u0022oidc\u0022,\n  \u0022issuer\u0022: \u0022https://issuer.example.com\u0022,\n  \u0022audience\u0022: \u0022openai\u0022\n}\u0027\n"
+            },
+            "response": "{\n  \u0022object\u0022: \u0022organization.workload_identity_provider\u0022,\n  \u0022id\u0022: \u0022wip_example\u0022,\n  \u0022type\u0022: \u0022oidc\u0022,\n  \u0022name\u0022: \u0022CI provider\u0022,\n  \u0022issuer\u0022: \u0022https://issuer.example.com\u0022,\n  \u0022audience\u0022: \u0022openai\u0022,\n  \u0022verification\u0022: {\n    \u0022type\u0022: \u0022discovery\u0022,\n    \u0022discovery_url\u0022: null\n  },\n  \u0022description\u0022: null,\n  \u0022attribute_transformations\u0022: [],\n  \u0022enabled\u0022: true,\n  \u0022created_at\u0022: 1793664000,\n  \u0022updated_at\u0022: 1793664000\n}\n"
+          }
+        }
+      }
+    },
+    "/organization/workload_identity_providers/{workloadIdentityProviderId}": {
+      "get": {
+        "summary": "Retrieve Platform workload identity provider",
+        "description": "Retrieve an OIDC provider in the authenticated organization.",
+        "operationId": "RetrievePlatformworkloadidentityprovider",
+        "parameters": [
+          {
+            "name": "workloadIdentityProviderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlatformProvider"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ],
+        "x-oaiMeta": {
+          "group": "administration",
+          "examples": {
+            "request": {
+              "curl": "curl -X GET \u0022https://api.openai.com/v1/organization/workload_identity_providers/wip_example\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022\n"
+            },
+            "response": "{\n  \u0022object\u0022: \u0022organization.workload_identity_provider\u0022,\n  \u0022id\u0022: \u0022wip_example\u0022,\n  \u0022type\u0022: \u0022oidc\u0022,\n  \u0022name\u0022: \u0022CI provider\u0022,\n  \u0022issuer\u0022: \u0022https://issuer.example.com\u0022,\n  \u0022audience\u0022: \u0022openai\u0022,\n  \u0022verification\u0022: {\n    \u0022type\u0022: \u0022discovery\u0022,\n    \u0022discovery_url\u0022: null\n  },\n  \u0022description\u0022: null,\n  \u0022attribute_transformations\u0022: [],\n  \u0022enabled\u0022: true,\n  \u0022created_at\u0022: 1793664000,\n  \u0022updated_at\u0022: 1793664000\n}\n"
+          }
+        }
+      },
+      "post": {
+        "summary": "Update Platform workload identity provider",
+        "description": "Update supplied provider fields, preserving omitted fields.",
+        "operationId": "UpdatePlatformworkloadidentityprovider",
+        "parameters": [
+          {
+            "name": "workloadIdentityProviderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePlatformWorkloadIdentityProviderBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlatformProvider"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ],
+        "x-oaiMeta": {
+          "group": "administration",
+          "examples": {
+            "request": {
+              "curl": "curl -X POST \u0022https://api.openai.com/v1/organization/workload_identity_providers/wip_example\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022 \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -d \u0027{\n  \u0022enabled\u0022: false\n}\u0027\n"
+            },
+            "response": "{\n  \u0022object\u0022: \u0022organization.workload_identity_provider\u0022,\n  \u0022id\u0022: \u0022wip_example\u0022,\n  \u0022type\u0022: \u0022oidc\u0022,\n  \u0022name\u0022: \u0022CI provider\u0022,\n  \u0022issuer\u0022: \u0022https://issuer.example.com\u0022,\n  \u0022audience\u0022: \u0022openai\u0022,\n  \u0022verification\u0022: {\n    \u0022type\u0022: \u0022discovery\u0022,\n    \u0022discovery_url\u0022: null\n  },\n  \u0022description\u0022: null,\n  \u0022attribute_transformations\u0022: [],\n  \u0022enabled\u0022: false,\n  \u0022created_at\u0022: 1793664000,\n  \u0022updated_at\u0022: 1793664000\n}\n"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Platform workload identity provider",
+        "description": "Delete a provider after deleting all its federation rules.",
+        "operationId": "DeletePlatformworkloadidentityprovider",
+        "parameters": [
+          {
+            "name": "workloadIdentityProviderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlatformProviderDeletedResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ],
+        "x-oaiMeta": {
+          "group": "administration",
+          "examples": {
+            "request": {
+              "curl": "curl -X DELETE \u0022https://api.openai.com/v1/organization/workload_identity_providers/wip_example\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022\n"
+            },
+            "response": "{\n  \u0022object\u0022: \u0022organization.workload_identity_provider.deleted\u0022,\n  \u0022id\u0022: \u0022wip_example\u0022,\n  \u0022deleted\u0022: true\n}\n"
+          }
+        }
+      }
+    },
+    "/organization/workload_identity_providers/{workloadIdentityProviderId}/federation_rules": {
+      "get": {
+        "summary": "List Platform workload identity federation rules",
+        "description": "List the provider\u0027s federation rules to project service accounts.",
+        "operationId": "ListPlatformworkloadidentityfederationrules",
+        "parameters": [
+          {
+            "name": "workloadIdentityProviderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string",
+              "x-ms-enum": {
+                "name": "Order",
+                "modelAsString": false,
+                "values": [
+                  {
+                    "value": "asc",
+                    "name": "Asc"
+                  },
+                  {
+                    "value": "desc",
+                    "name": "Desc"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          {
+            "name": "service_account_id",
+            "in": "query",
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlatformFederationRuleListResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ],
+        "x-oaiMeta": {
+          "group": "administration",
+          "examples": {
+            "request": {
+              "curl": "curl -X GET \u0022https://api.openai.com/v1/organization/workload_identity_providers/wip_example/federation_rules?limit=20\u0026order=asc\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022\n"
+            },
+            "response": "{\n  \u0022object\u0022: \u0022list\u0022,\n  \u0022data\u0022: [\n    {\n      \u0022object\u0022: \u0022organization.workload_identity_federation_rule\u0022,\n      \u0022id\u0022: \u0022wifr_example\u0022,\n      \u0022workload_identity_provider_id\u0022: \u0022wip_example\u0022,\n      \u0022project_id\u0022: \u0022proj_example\u0022,\n      \u0022service_account_id\u0022: \u0022svc_acct_example\u0022,\n      \u0022name\u0022: null,\n      \u0022description\u0022: null,\n      \u0022attribute_matchers\u0022: {\n        \u0022sub\u0022: \u0022ci:release\u0022\n      },\n      \u0022permissions\u0022: {\n        \u0022type\u0022: \u0022service_account_default\u0022\n      },\n      \u0022enabled\u0022: true,\n      \u0022created_at\u0022: 1793664000,\n      \u0022updated_at\u0022: 1793664000\n    }\n  ],\n  \u0022first_id\u0022: \u0022wifr_example\u0022,\n  \u0022last_id\u0022: \u0022wifr_example\u0022,\n  \u0022has_more\u0022: false\n}\n"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Platform workload identity federation rule",
+        "description": "Bind verified token attributes to an existing project service account.",
+        "operationId": "CreatePlatformworkloadidentityfederationrule",
+        "parameters": [
+          {
+            "name": "workloadIdentityProviderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityFederationRuleBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlatformFederationRule"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ],
+        "x-oaiMeta": {
+          "group": "administration",
+          "examples": {
+            "request": {
+              "curl": "curl -X POST \u0022https://api.openai.com/v1/organization/workload_identity_providers/wip_example/federation_rules\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022 \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -d \u0027{\n  \u0022project_id\u0022: \u0022proj_example\u0022,\n  \u0022service_account_id\u0022: \u0022svc_acct_example\u0022,\n  \u0022attribute_matchers\u0022: {\n    \u0022sub\u0022: \u0022ci:release\u0022\n  }\n}\u0027\n"
+            },
+            "response": "{\n  \u0022object\u0022: \u0022organization.workload_identity_federation_rule\u0022,\n  \u0022id\u0022: \u0022wifr_example\u0022,\n  \u0022workload_identity_provider_id\u0022: \u0022wip_example\u0022,\n  \u0022project_id\u0022: \u0022proj_example\u0022,\n  \u0022service_account_id\u0022: \u0022svc_acct_example\u0022,\n  \u0022name\u0022: null,\n  \u0022description\u0022: null,\n  \u0022attribute_matchers\u0022: {\n    \u0022sub\u0022: \u0022ci:release\u0022\n  },\n  \u0022permissions\u0022: {\n    \u0022type\u0022: \u0022service_account_default\u0022\n  },\n  \u0022enabled\u0022: true,\n  \u0022created_at\u0022: 1793664000,\n  \u0022updated_at\u0022: 1793664000\n}\n"
+          }
+        }
+      }
+    },
+    "/organization/workload_identity_providers/{workloadIdentityProviderId}/federation_rules/{workloadIdentityFederationRuleId}": {
+      "get": {
+        "summary": "Retrieve Platform workload identity federation rule",
+        "description": "Retrieve a federation rule owned by the authenticated organization and provider.",
+        "operationId": "RetrievePlatformworkloadidentityfederationrule",
+        "parameters": [
+          {
+            "name": "workloadIdentityProviderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          {
+            "name": "workloadIdentityFederationRuleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlatformFederationRule"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ],
+        "x-oaiMeta": {
+          "group": "administration",
+          "examples": {
+            "request": {
+              "curl": "curl -X GET \u0022https://api.openai.com/v1/organization/workload_identity_providers/wip_example/federation_rules/wifr_example\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022\n"
+            },
+            "response": "{\n  \u0022object\u0022: \u0022organization.workload_identity_federation_rule\u0022,\n  \u0022id\u0022: \u0022wifr_example\u0022,\n  \u0022workload_identity_provider_id\u0022: \u0022wip_example\u0022,\n  \u0022project_id\u0022: \u0022proj_example\u0022,\n  \u0022service_account_id\u0022: \u0022svc_acct_example\u0022,\n  \u0022name\u0022: null,\n  \u0022description\u0022: null,\n  \u0022attribute_matchers\u0022: {\n    \u0022sub\u0022: \u0022ci:release\u0022\n  },\n  \u0022permissions\u0022: {\n    \u0022type\u0022: \u0022service_account_default\u0022\n  },\n  \u0022enabled\u0022: true,\n  \u0022created_at\u0022: 1793664000,\n  \u0022updated_at\u0022: 1793664000\n}\n"
+          }
+        }
+      },
+      "post": {
+        "summary": "Update Platform workload identity federation rule",
+        "description": "Update supplied matcher, permission, metadata, or enabled fields.",
+        "operationId": "UpdatePlatformworkloadidentityfederationrule",
+        "parameters": [
+          {
+            "name": "workloadIdentityProviderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          {
+            "name": "workloadIdentityFederationRuleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePlatformWorkloadIdentityFederationRuleBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlatformFederationRule"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ],
+        "x-oaiMeta": {
+          "group": "administration",
+          "examples": {
+            "request": {
+              "curl": "curl -X POST \u0022https://api.openai.com/v1/organization/workload_identity_providers/wip_example/federation_rules/wifr_example\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022 \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -d \u0027{\n  \u0022enabled\u0022: false\n}\u0027\n"
+            },
+            "response": "{\n  \u0022object\u0022: \u0022organization.workload_identity_federation_rule\u0022,\n  \u0022id\u0022: \u0022wifr_example\u0022,\n  \u0022workload_identity_provider_id\u0022: \u0022wip_example\u0022,\n  \u0022project_id\u0022: \u0022proj_example\u0022,\n  \u0022service_account_id\u0022: \u0022svc_acct_example\u0022,\n  \u0022name\u0022: null,\n  \u0022description\u0022: null,\n  \u0022attribute_matchers\u0022: {\n    \u0022sub\u0022: \u0022ci:release\u0022\n  },\n  \u0022permissions\u0022: {\n    \u0022type\u0022: \u0022service_account_default\u0022\n  },\n  \u0022enabled\u0022: false,\n  \u0022created_at\u0022: 1793664000,\n  \u0022updated_at\u0022: 1793664000\n}\n"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Platform workload identity federation rule",
+        "description": "Delete a federation rule to a project service account.",
+        "operationId": "DeletePlatformworkloadidentityfederationrule",
+        "parameters": [
+          {
+            "name": "workloadIdentityProviderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          {
+            "name": "workloadIdentityFederationRuleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlatformFederationRuleDeletedResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ],
+        "x-oaiMeta": {
+          "group": "administration",
+          "examples": {
+            "request": {
+              "curl": "curl -X DELETE \u0022https://api.openai.com/v1/organization/workload_identity_providers/wip_example/federation_rules/wifr_example\u0022 \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022\n"
+            },
+            "response": "{\n  \u0022object\u0022: \u0022organization.workload_identity_federation_rule.deleted\u0022,\n  \u0022id\u0022: \u0022wifr_example\u0022,\n  \u0022deleted\u0022: true\n}\n"
+          }
+        }
+      }
+    },
     "/organization/usage/decisions": {
       "get": {
         "summary": "Decisions",
@@ -24090,6 +24653,104 @@
               "curl": "curl -X POST https://api.openai.com/v1/organization/projects/proj_abc/spend_limit \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022 \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -d \u0027{\n      \u0022threshold_amount\u0022: 10000,\n      \u0022currency\u0022: \u0022USD\u0022,\n      \u0022interval\u0022: \u0022month\u0022\n  }\u0027\n"
             },
             "response": "{\n    \u0022object\u0022: \u0022project.spend_limit\u0022,\n    \u0022threshold_amount\u0022: 10000,\n    \u0022currency\u0022: \u0022USD\u0022,\n    \u0022interval\u0022: \u0022month\u0022,\n    \u0022enforcement\u0022: {\n        \u0022status\u0022: \u0022enforcing\u0022\n    }\n}\n"
+          }
+        }
+      }
+    },
+    "/organization/projects/{projectId}/service_tier_settings": {
+      "get": {
+        "summary": "Retrieve project service tier settings",
+        "description": "Retrieve the configured default and enabled service tiers for a project.",
+        "operationId": "Retrieveprojectservicetiersettings",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "description": "The ID of the project",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the project"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectServiceTierSettingsResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ],
+        "x-oaiMeta": {
+          "group": "administration",
+          "examples": {
+            "request": {
+              "curl": "curl https://api.openai.com/v1/organization/projects/proj_abc/service_tier_settings \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022\n"
+            },
+            "response": "{\n  \u0022object\u0022: \u0022project.service_tier_settings\u0022,\n  \u0022default\u0022: \u0022standard\u0022,\n  \u0022enabled_tiers\u0022: \u0022all\u0022\n}\n"
+          }
+        }
+      },
+      "post": {
+        "summary": "Update project service tier settings",
+        "description": "Update the default or enabled service tiers atomically. Supply at least one field. Omitted fields keep their current values.",
+        "operationId": "Updateprojectservicetiersettings",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "description": "The ID of the project",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the project"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProjectServiceTierSettingsBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectServiceTierSettingsResource"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AdminApiKeyAuth": []
+          }
+        ],
+        "x-oaiMeta": {
+          "group": "administration",
+          "examples": {
+            "request": {
+              "curl": "curl https://api.openai.com/v1/organization/projects/proj_abc/service_tier_settings \\\n  -H \u0022Authorization: Bearer $OPENAI_ADMIN_KEY\u0022 \\\n  -H \u0022Content-Type: application/json\u0022 \\\n  -d \u0027{\u0022default\u0022:\u0022standard\u0022,\u0022enabled_tiers\u0022:[]}\u0027\n"
+            },
+            "response": "{\n  \u0022object\u0022: \u0022project.service_tier_settings\u0022,\n  \u0022default\u0022: \u0022standard\u0022,\n  \u0022enabled_tiers\u0022: []\n}\n"
           }
         }
       }
@@ -31369,6 +32030,15 @@
               "minLength": 0,
               "type": "string"
             }
+          },
+          {
+            "name": "include_obfuscation",
+            "in": "query",
+            "description": "Whether to include obfuscation padding in events on this connection. Defaults to \u0060true\u0060.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
           }
         ],
         "responses": {
@@ -38155,6 +38825,10 @@
         ],
         "type": "object",
         "properties": {
+          "prompt_cache_options": {
+            "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
+            "$ref": "#/components/schemas/PromptCacheOptionsParam"
+          },
           "messages": {
             "minItems": 1,
             "type": "array",
@@ -38383,10 +39057,6 @@
           },
           "prompt_cache_retention": {
             "$ref": "#/components/schemas/CreateModelResponsePropertiesPromptCacheRetention"
-          },
-          "prompt_cache_options": {
-            "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
-            "$ref": "#/components/schemas/PromptCacheOptionsParam"
           }
         }
       },
@@ -39417,9 +40087,6 @@
           "prompt_cache_retention": {
             "$ref": "#/components/schemas/CreateModelResponsePropertiesPromptCacheRetention"
           },
-          "prompt_cache_options": {
-            "$ref": "#/components/schemas/CreateResponseBodyPromptCacheOptions"
-          },
           "previous_response_id": {
             "type": [
               "null",
@@ -39467,6 +40134,14 @@
           "access_programs": {
             "description": "Domain-specific access programs to use for this request.",
             "$ref": "#/components/schemas/AccessProgramsParam"
+          },
+          "image": {
+            "description": "Request level image options.",
+            "$ref": "#/components/schemas/ImageOptionsParam"
+          },
+          "prompt_cache_options": {
+            "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
+            "$ref": "#/components/schemas/ResponsePromptCacheOptionsParam"
           },
           "service_tier": {
             "$ref": "#/components/schemas/ServiceTierResponses"
@@ -47856,6 +48531,9 @@
           "prompt": {
             "$ref": "#/components/schemas/Prompt"
           },
+          "image": {
+            "$ref": "#/components/schemas/ResolvedImageOptions"
+          },
           "service_tier": {
             "$ref": "#/components/schemas/ServiceTierResponses"
           },
@@ -52532,7 +53210,7 @@
             "$ref": "#/components/schemas/PromptCacheModeEnum"
           }
         },
-        "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details."
+        "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details."
       },
       "PromptCacheBreakpointParam": {
         "title": "Prompt cache breakpoint",
@@ -57523,12 +58201,49 @@
         "additionalProperties": false,
         "description": "Domain-specific access programs to use for this request."
       },
+      "ImageContextCompression": {
+        "enum": [
+          "auto",
+          "enabled",
+          "disabled"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ImageContextCompression",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "auto",
+              "name": "Auto"
+            },
+            {
+              "value": "enabled",
+              "name": "Enabled"
+            },
+            {
+              "value": "disabled",
+              "name": "Disabled"
+            }
+          ]
+        }
+      },
+      "ImageOptionsParam": {
+        "type": "object",
+        "properties": {
+          "context_compression": {
+            "description": "Controls image context optimization. Defaults to \u0060auto\u0060, which uses the model, transport, and input to select a policy. Use \u0060enabled\u0060 to require compression support or \u0060disabled\u0060 to turn it off.",
+            "$ref": "#/components/schemas/ImageContextCompression"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request level image options."
+      },
       "ResponsePromptCacheOptionsParam": {
         "title": "Prompt cache options",
         "type": "object",
         "properties": {
           "ttl": {
-            "$ref": "#/components/schemas/PromptCacheTtlEnum"
+            "$ref": "#/components/schemas/ResponsePromptCacheOptionsParamTtl"
           },
           "mode": {
             "description": "Controls whether OpenAI automatically creates an implicit cache breakpoint. Defaults to \u0060implicit\u0060. With \u0060implicit\u0060, OpenAI creates one implicit breakpoint and writes up to the latest three explicit breakpoints in the request. With \u0060explicit\u0060, OpenAI does not create an implicit breakpoint and writes up to the latest four explicit breakpoints. If there are no explicit breakpoints, the request does not use prompt caching.",
@@ -57547,7 +58262,7 @@
             "example": "resp_123"
           }
         },
-        "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details."
+        "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details."
       },
       "ReasoningModeEnum": {
         "type": "string",
@@ -57585,6 +58300,56 @@
               "integer"
             ],
             "description": "Token threshold at which compaction should be triggered for this entry."
+          }
+        }
+      },
+      "ResolvedImageContextCompressionEnum": {
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ResolvedImageContextCompressionEnum",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enabled",
+              "name": "Enabled"
+            },
+            {
+              "value": "disabled",
+              "name": "Disabled"
+            }
+          ]
+        }
+      },
+      "ResolvedImageOptions": {
+        "required": [
+          "context_compression"
+        ],
+        "type": "object",
+        "properties": {
+          "context_compression": {
+            "description": "Effective image context optimization policy.",
+            "$ref": "#/components/schemas/ResolvedImageContextCompressionEnum"
+          }
+        }
+      },
+      "CacheWriteTokensDetails": {
+        "required": [
+          "ttl_30m_tokens",
+          "ttl_12h_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "ttl_30m_tokens": {
+            "type": "integer",
+            "description": "The number of input tokens written with 30-minute retention."
+          },
+          "ttl_12h_tokens": {
+            "type": "integer",
+            "description": "The number of input tokens written with 12-hour retention."
           }
         }
       },
@@ -57684,7 +58449,7 @@
         "type": "object",
         "properties": {
           "ttl": {
-            "$ref": "#/components/schemas/PromptCacheTtlEnum"
+            "$ref": "#/components/schemas/PromptCacheOptionsTtl"
           },
           "mode": {
             "description": "Whether implicit prompt-cache breakpoints were enabled.",
@@ -58280,6 +59045,409 @@
         "properties": {
           "status": {
             "type": "string"
+          }
+        }
+      },
+      "Transformation": {
+        "required": [
+          "attribute",
+          "expression"
+        ],
+        "type": "object",
+        "properties": {
+          "attribute": {
+            "type": "string"
+          },
+          "expression": {
+            "type": "string"
+          }
+        }
+      },
+      "PlatformProvider": {
+        "required": [
+          "object",
+          "id",
+          "type",
+          "name",
+          "issuer",
+          "audience",
+          "verification",
+          "description",
+          "attribute_transformations",
+          "enabled",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/OrganizationWorkloadIdentityProviderObject"
+          },
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/OidcType"
+          },
+          "name": {
+            "type": "string"
+          },
+          "issuer": {
+            "type": "string"
+          },
+          "audience": {
+            "type": "string"
+          },
+          "verification": {
+            "$ref": "#/components/schemas/PlatformProviderVerification"
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "attribute_transformations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Transformation"
+            }
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "integer"
+          },
+          "updated_at": {
+            "type": "integer"
+          }
+        }
+      },
+      "PlatformProviderListResource": {
+        "required": [
+          "object",
+          "data",
+          "first_id",
+          "last_id",
+          "has_more"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/ListObject"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlatformProvider"
+            }
+          },
+          "first_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "last_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "has_more": {
+            "type": "boolean"
+          }
+        }
+      },
+      "TransformationParam": {
+        "required": [
+          "attribute",
+          "expression"
+        ],
+        "type": "object",
+        "properties": {
+          "attribute": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "expression": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          }
+        }
+      },
+      "CreatePlatformWorkloadIdentityProviderBody": {
+        "required": [
+          "name",
+          "type",
+          "issuer",
+          "audience"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/OidcType"
+          },
+          "issuer": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "audience": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "verification": {
+            "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityProviderBodyVerification"
+          },
+          "description": {
+            "type": "string"
+          },
+          "attribute_transformations": {
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransformationParam"
+            }
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        }
+      },
+      "UpdatePlatformWorkloadIdentityProviderBody": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "issuer": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "audience": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "verification": {
+            "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityProviderBodyVerification"
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "attribute_transformations": {
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransformationParam"
+            }
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PlatformProviderDeletedResource": {
+        "required": [
+          "object",
+          "id",
+          "deleted"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/OrganizationWorkloadIdentityProviderDeletedObject"
+          },
+          "id": {
+            "type": "string"
+          },
+          "deleted": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PlatformFederationRule": {
+        "required": [
+          "object",
+          "id",
+          "workload_identity_provider_id",
+          "project_id",
+          "service_account_id",
+          "name",
+          "description",
+          "attribute_matchers",
+          "permissions",
+          "enabled",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/OrganizationWorkloadIdentityFederationRuleObject"
+          },
+          "id": {
+            "type": "string"
+          },
+          "workload_identity_provider_id": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "service_account_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "attribute_matchers": {
+            "$ref": "#/components/schemas/PlatformFederationRuleAttributeMatchersProperty"
+          },
+          "permissions": {
+            "$ref": "#/components/schemas/PlatformFederationRulePermissions"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "integer"
+          },
+          "updated_at": {
+            "type": "integer"
+          }
+        }
+      },
+      "PlatformFederationRuleListResource": {
+        "required": [
+          "object",
+          "data",
+          "first_id",
+          "last_id",
+          "has_more"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/ListObject"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlatformFederationRule"
+            }
+          },
+          "first_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "last_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "has_more": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CreatePlatformWorkloadIdentityFederationRuleBody": {
+        "required": [
+          "project_id",
+          "service_account_id",
+          "attribute_matchers"
+        ],
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "service_account_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "attribute_matchers": {
+            "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityFederationRuleBodyAttributeMatchersProperty"
+          },
+          "permissions": {
+            "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityFederationRuleBodyPermissions"
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        }
+      },
+      "UpdatePlatformWorkloadIdentityFederationRuleBody": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "attribute_matchers": {
+            "$ref": "#/components/schemas/UpdatePlatformWorkloadIdentityFederationRuleBodyAttributeMatchersProperty"
+          },
+          "permissions": {
+            "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityFederationRuleBodyPermissions"
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PlatformFederationRuleDeletedResource": {
+        "required": [
+          "object",
+          "id",
+          "deleted"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/OrganizationWorkloadIdentityFederationRuleDeletedObject"
+          },
+          "id": {
+            "type": "string"
+          },
+          "deleted": {
+            "type": "boolean"
           }
         }
       },
@@ -58906,6 +60074,76 @@
           }
         },
         "description": "Confirmation payload returned after deleting a project hard spend limit."
+      },
+      "ProjectDefaultServiceTier": {
+        "enum": [
+          "standard",
+          "fast",
+          "scale"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ProjectDefaultServiceTier",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "standard",
+              "name": "Standard"
+            },
+            {
+              "value": "fast",
+              "name": "Fast"
+            },
+            {
+              "value": "scale",
+              "name": "Scale"
+            }
+          ]
+        }
+      },
+      "ProjectServiceTierSettingsResource": {
+        "required": [
+          "object",
+          "default",
+          "enabled_tiers"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/ProjectServiceTierSettingsObject"
+          },
+          "default": {
+            "description": "Default tier for requests that omit service_tier or use auto.",
+            "$ref": "#/components/schemas/ProjectDefaultServiceTier"
+          },
+          "enabled_tiers": {
+            "$ref": "#/components/schemas/ProjectServiceTierSettingsResourceEnabledTiers"
+          }
+        }
+      },
+      "UpdateProjectServiceTierSettingsBody": {
+        "type": "object",
+        "anyOf": [
+          {
+            "required": [
+              "default"
+            ]
+          },
+          {
+            "required": [
+              "enabled_tiers"
+            ]
+          }
+        ],
+        "properties": {
+          "default": {
+            "description": "Default tier for requests that omit service_tier or use auto.",
+            "$ref": "#/components/schemas/ProjectDefaultServiceTier"
+          },
+          "enabled_tiers": {
+            "$ref": "#/components/schemas/UpdateProjectServiceTierSettingsBodyEnabledTiers"
+          }
+        }
       },
       "CreateProjectServiceAccountApiKeyBody": {
         "type": "object",
@@ -59804,6 +61042,10 @@
             ],
             "description": "A system (or developer) message inserted into the model\u0027s context.\nWhen used along with \u0060previous_response_id\u0060, the instructions from a previous response will not be carried over to the next response. This makes it simple to swap out system (or developer) messages in new responses."
           },
+          "image": {
+            "description": "Request level image options.",
+            "$ref": "#/components/schemas/ImageOptionsParam"
+          },
           "prompt_cache_key": {
             "maxLength": 64,
             "type": [
@@ -59991,6 +61233,9 @@
         ],
         "type": "object",
         "properties": {
+          "image": {
+            "$ref": "#/components/schemas/ResolvedImageOptions"
+          },
           "id": {
             "type": "string",
             "description": "The unique identifier for the compacted response."
@@ -60019,6 +61264,9 @@
         "example": {
           "id": "resp_001",
           "object": "response.compaction",
+          "image": {
+            "context_compression": "disabled"
+          },
           "output": [
             {
               "id": "msg_001",
@@ -66810,6 +68058,7 @@
       "SessionTurnErrorCodeResource": {
         "enum": [
           "context_length_exceeded",
+          "max_output_tokens",
           "session_budget_exceeded",
           "usage_limit_exceeded",
           "project_spend_limit_exceeded",
@@ -66837,6 +68086,7 @@
         "description": "Stable public categories for session request failures.",
         "x-enumDescriptions": [
           "The request exceeds the model\u0027s context window.",
+          "The model reached its output token limit before finishing the response.",
           "The session has reached its usage budget.",
           "The organization has reached a usage, plan, or billing limit.",
           "The project has reached its enforced spend limit.",
@@ -66867,6 +68117,10 @@
             {
               "value": "context_length_exceeded",
               "name": "ContextLengthExceeded"
+            },
+            {
+              "value": "max_output_tokens",
+              "name": "MaxOutputTokens"
             },
             {
               "value": "session_budget_exceeded",
@@ -68608,6 +69862,18 @@
         ],
         "description": "Initial input submitted when creating a session."
       },
+      "SessionStreamOptionsParam": {
+        "type": "object",
+        "properties": {
+          "include_obfuscation": {
+            "type": "boolean",
+            "description": "Whether to include obfuscation padding in events on this connection. Defaults to \u0060true\u0060.",
+            "default": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Options for a Managed Agents session event stream."
+      },
       "CreateAgentSessionParams": {
         "required": [
           "environment"
@@ -68656,6 +69922,10 @@
             "type": "boolean",
             "description": "Whether to stream session events as server-sent events. Defaults to \u0060false\u0060.",
             "default": false
+          },
+          "stream_options": {
+            "description": "Options for the event stream. Only allowed when \u0060stream\u0060 is \u0060true\u0060.",
+            "$ref": "#/components/schemas/SessionStreamOptionsParam"
           }
         },
         "additionalProperties": false,
@@ -76479,6 +77749,10 @@
             ],
             "description": "A system (or developer) message inserted into the model\u0027s context.\nWhen used along with \u0060previous_response_id\u0060, the instructions from a previous response will not be carried over to the next response. This makes it simple to swap out system (or developer) messages in new responses."
           },
+          "image": {
+            "description": "Request level image options.",
+            "$ref": "#/components/schemas/BetaImageOptionsParam"
+          },
           "prompt_cache_key": {
             "maxLength": 64,
             "type": [
@@ -76534,20 +77808,6 @@
           ]
         }
       },
-      "BetaPromptCacheOptionsParam": {
-        "title": "Prompt cache options",
-        "type": "object",
-        "properties": {
-          "ttl": {
-            "$ref": "#/components/schemas/BetaPromptCacheTtlEnum"
-          },
-          "mode": {
-            "description": "Controls whether OpenAI automatically creates an implicit cache breakpoint. Defaults to \u0060implicit\u0060. With \u0060implicit\u0060, OpenAI creates one implicit breakpoint and writes up to the latest three explicit breakpoints in the request. With \u0060explicit\u0060, OpenAI does not create an implicit breakpoint and writes up to the latest four explicit breakpoints. If there are no explicit breakpoints, the request does not use prompt caching.",
-            "$ref": "#/components/schemas/BetaPromptCacheModeEnum"
-          }
-        },
-        "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details."
-      },
       "BetaPromptCacheModeEnum": {
         "enum": [
           "implicit",
@@ -76602,6 +77862,43 @@
             {
               "value": "24h",
               "name": "Value24H"
+            }
+          ]
+        }
+      },
+      "BetaImageOptionsParam": {
+        "type": "object",
+        "properties": {
+          "context_compression": {
+            "description": "Controls image context optimization. Defaults to \u0060auto\u0060, which uses the model, transport, and input to select a policy. Use \u0060enabled\u0060 to require compression support or \u0060disabled\u0060 to turn it off.",
+            "$ref": "#/components/schemas/BetaImageContextCompression"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request level image options."
+      },
+      "BetaImageContextCompression": {
+        "enum": [
+          "auto",
+          "enabled",
+          "disabled"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "BetaImageContextCompression",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "auto",
+              "name": "Auto"
+            },
+            {
+              "value": "enabled",
+              "name": "Enabled"
+            },
+            {
+              "value": "disabled",
+              "name": "Disabled"
             }
           ]
         }
@@ -78230,6 +79527,9 @@
         ],
         "type": "object",
         "properties": {
+          "image": {
+            "$ref": "#/components/schemas/BetaResolvedImageOptions"
+          },
           "id": {
             "type": "string",
             "description": "The unique identifier for the compacted response."
@@ -78258,6 +79558,9 @@
         "example": {
           "id": "resp_001",
           "object": "response.compaction",
+          "image": {
+            "context_compression": "disabled"
+          },
           "output": [
             {
               "id": "msg_001",
@@ -78334,6 +79637,23 @@
           }
         },
         "description": "Represents token usage details including input tokens, output tokens,\na breakdown of output tokens, and the total tokens used.\n"
+      },
+      "BetaCacheWriteTokensDetails": {
+        "required": [
+          "ttl_30m_tokens",
+          "ttl_12h_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "ttl_30m_tokens": {
+            "type": "integer",
+            "description": "The number of input tokens written with 30-minute retention."
+          },
+          "ttl_12h_tokens": {
+            "type": "integer",
+            "description": "The number of input tokens written with 12-hour retention."
+          }
+        }
       },
       "BetaItemField": {
         "oneOf": [
@@ -78597,6 +79917,39 @@
           ]
         }
       },
+      "BetaResolvedImageOptions": {
+        "required": [
+          "context_compression"
+        ],
+        "type": "object",
+        "properties": {
+          "context_compression": {
+            "description": "Effective image context optimization policy.",
+            "$ref": "#/components/schemas/BetaResolvedImageContextCompressionEnum"
+          }
+        }
+      },
+      "BetaResolvedImageContextCompressionEnum": {
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "BetaResolvedImageContextCompressionEnum",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enabled",
+              "name": "Enabled"
+            },
+            {
+              "value": "disabled",
+              "name": "Disabled"
+            }
+          ]
+        }
+      },
       "BetaResponse": {
         "title": "The response object",
         "required": [
@@ -78724,6 +80077,9 @@
           },
           "prompt": {
             "$ref": "#/components/schemas/BetaPrompt"
+          },
+          "image": {
+            "$ref": "#/components/schemas/BetaResolvedImageOptions"
           },
           "service_tier": {
             "$ref": "#/components/schemas/BetaServiceTierResponses"
@@ -79106,7 +80462,7 @@
         "type": "object",
         "properties": {
           "ttl": {
-            "$ref": "#/components/schemas/BetaPromptCacheTtlEnum"
+            "$ref": "#/components/schemas/BetaPromptCacheOptionsTtl"
           },
           "mode": {
             "description": "Whether implicit prompt-cache breakpoints were enabled.",
@@ -79882,17 +81238,13 @@
             "description": "Domain-specific access programs to use for this request.",
             "$ref": "#/components/schemas/BetaAccessProgramsParam"
           },
+          "image": {
+            "description": "Request level image options.",
+            "$ref": "#/components/schemas/BetaImageOptionsParam"
+          },
           "prompt_cache_options": {
-            "allOf": [
-              {
-                "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
-                "$ref": "#/components/schemas/BetaResponsePromptCacheOptionsParam"
-              },
-              {
-                "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
-                "$ref": "#/components/schemas/BetaPromptCacheOptionsParam"
-              }
-            ]
+            "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
+            "$ref": "#/components/schemas/BetaResponsePromptCacheOptionsParam"
           },
           "service_tier": {
             "$ref": "#/components/schemas/BetaServiceTierResponses"
@@ -80097,7 +81449,7 @@
         "type": "object",
         "properties": {
           "ttl": {
-            "$ref": "#/components/schemas/BetaPromptCacheTtlEnum"
+            "$ref": "#/components/schemas/BetaResponsePromptCacheOptionsParamTtl"
           },
           "mode": {
             "description": "Controls whether OpenAI automatically creates an implicit cache breakpoint. Defaults to \u0060implicit\u0060. With \u0060implicit\u0060, OpenAI creates one implicit breakpoint and writes up to the latest three explicit breakpoints in the request. With \u0060explicit\u0060, OpenAI does not create an implicit breakpoint and writes up to the latest four explicit breakpoints. If there are no explicit breakpoints, the request does not use prompt caching.",
@@ -80116,7 +81468,7 @@
             "example": "resp_123"
           }
         },
-        "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details."
+        "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details."
       },
       "BetaAccessProgramsParam": {
         "type": "object",
@@ -84990,6 +86342,159 @@
         },
         "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
       },
+      "PlatformProviderVerification": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "discovery": "#/components/schemas/PlatformProviderVerificationDiscoveryVerification",
+            "uploaded_jwks": "#/components/schemas/PlatformProviderVerificationUploadedJwksVerification"
+          }
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/DiscoveryVerification"
+            },
+            {
+              "$ref": "#/components/schemas/UploadedJwksVerification"
+            }
+          ],
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "discovery": "#/components/schemas/DiscoveryVerification",
+              "uploaded_jwks": "#/components/schemas/UploadedJwksVerification"
+            }
+          }
+        },
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "CreatePlatformWorkloadIdentityProviderBodyVerification": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "discovery": "#/components/schemas/CreatePlatformWorkloadIdentityProviderBodyVerificationDiscoveryVerificationParam",
+            "uploaded_jwks": "#/components/schemas/CreatePlatformWorkloadIdentityProviderBodyVerificationUploadedJwksVerificationParam"
+          }
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/DiscoveryVerificationParam"
+            },
+            {
+              "$ref": "#/components/schemas/UploadedJwksVerificationParam"
+            }
+          ],
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "discovery": "#/components/schemas/DiscoveryVerificationParam",
+              "uploaded_jwks": "#/components/schemas/UploadedJwksVerificationParam"
+            }
+          }
+        },
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "PlatformFederationRulePermissions": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "service_account_default": "#/components/schemas/PlatformFederationRulePermissionsDefaultPermissions",
+            "restricted": "#/components/schemas/PlatformFederationRulePermissionsRestrictedPermissions"
+          }
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/DefaultPermissions"
+            },
+            {
+              "$ref": "#/components/schemas/RestrictedPermissions"
+            }
+          ],
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "service_account_default": "#/components/schemas/DefaultPermissions",
+              "restricted": "#/components/schemas/RestrictedPermissions"
+            }
+          }
+        },
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "CreatePlatformWorkloadIdentityFederationRuleBodyAttributeMatchersAdditionalProperties": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "number"
+          }
+        ]
+      },
+      "CreatePlatformWorkloadIdentityFederationRuleBodyPermissions": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "service_account_default": "#/components/schemas/CreatePlatformWorkloadIdentityFederationRuleBodyPermissionsDefaultPermissionsParam",
+            "restricted": "#/components/schemas/CreatePlatformWorkloadIdentityFederationRuleBodyPermissionsRestrictedPermissionsParam"
+          }
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/DefaultPermissionsParam"
+            },
+            {
+              "$ref": "#/components/schemas/RestrictedPermissionsParam"
+            }
+          ],
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "service_account_default": "#/components/schemas/DefaultPermissionsParam",
+              "restricted": "#/components/schemas/RestrictedPermissionsParam"
+            }
+          }
+        },
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
       "DecisionsUsageResultApiSource": {
         "anyOf": [
           {
@@ -85109,6 +86614,80 @@
         "required": [
           "type"
         ]
+      },
+      "ProjectServiceTierSettingsResourceEnabledTiers": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ProjectServiceTierSettingsResourceEnabledTiersOneOf1"
+          },
+          {
+            "type": "array",
+            "items": {
+              "enum": [
+                "flex",
+                "fast",
+                "ultrafast"
+              ],
+              "type": "string",
+              "x-ms-enum": {
+                "name": "ProjectServiceTierSettingsResourceEnabledTiersItem",
+                "modelAsString": false,
+                "values": [
+                  {
+                    "value": "flex",
+                    "name": "Flex"
+                  },
+                  {
+                    "value": "fast",
+                    "name": "Fast"
+                  },
+                  {
+                    "value": "ultrafast",
+                    "name": "Ultrafast"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "description": "Additional service tiers enabled for this project. \u0022all\u0022 includes future tiers. An empty array allows only Standard. Organization policy and eligibility still apply."
+      },
+      "UpdateProjectServiceTierSettingsBodyEnabledTiers": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/UpdateProjectServiceTierSettingsBodyEnabledTiersOneOf1"
+          },
+          {
+            "type": "array",
+            "items": {
+              "enum": [
+                "flex",
+                "fast",
+                "ultrafast"
+              ],
+              "type": "string",
+              "x-ms-enum": {
+                "name": "UpdateProjectServiceTierSettingsBodyEnabledTiersItem",
+                "modelAsString": false,
+                "values": [
+                  {
+                    "value": "flex",
+                    "name": "Flex"
+                  },
+                  {
+                    "value": "fast",
+                    "name": "Fast"
+                  },
+                  {
+                    "value": "ultrafast",
+                    "name": "Ultrafast"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "description": "Additional service tiers enabled for this project. \u0022all\u0022 includes future tiers. An empty array allows only Standard. Organization policy and eligibility still apply."
       },
       "ProvenanceResourceResultsItem": {
         "x-client-original-discriminator": {
@@ -85370,7 +86949,7 @@
             "$ref": "#/components/schemas/PromptCacheModeEnum"
           }
         },
-        "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
+        "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
         "x-client-original-nullable-union": {
           "anyOf": [
             {
@@ -88628,7 +90207,7 @@
             "$ref": "#/components/schemas/BetaPromptCacheModeEnum"
           }
         },
-        "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
+        "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
         "x-client-original-nullable-union": {
           "anyOf": [
             {
@@ -92924,6 +94503,9 @@
           "cache_write_tokens": {
             "type": "integer",
             "description": "The number of input tokens that were written to the cache."
+          },
+          "cache_write_tokens_details": {
+            "$ref": "#/components/schemas/CacheWriteTokensDetails"
           }
         },
         "description": "A detailed breakdown of the input tokens."
@@ -93947,6 +95529,9 @@
           "cache_write_tokens": {
             "type": "integer",
             "description": "The number of input tokens that were written to the cache."
+          },
+          "cache_write_tokens_details": {
+            "$ref": "#/components/schemas/BetaCacheWriteTokensDetails"
           }
         },
         "description": "A detailed breakdown of the input tokens."
@@ -96343,18 +97928,6 @@
           }
         ]
       },
-      "CreateResponseBodyPromptCacheOptions": {
-        "allOf": [
-          {
-            "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
-            "$ref": "#/components/schemas/PromptCacheOptionsParam"
-          },
-          {
-            "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
-            "$ref": "#/components/schemas/ResponsePromptCacheOptionsParam"
-          }
-        ]
-      },
       "FunctionToolCallOutputResourceStatus": {
         "allOf": [
           {
@@ -97059,6 +98632,37 @@
           "type": "string"
         },
         "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard.\n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n"
+      },
+      "UploadedJwksVerificationJwksProperty": {
+        "type": "object",
+        "additionalProperties": {},
+        "x-oaiTypeLabel": "map"
+      },
+      "UploadedJwksVerificationParamJwksProperty": {
+        "type": "object",
+        "additionalProperties": {},
+        "x-oaiTypeLabel": "map"
+      },
+      "PlatformFederationRuleAttributeMatchersProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityFederationRuleBodyAttributeMatchersAdditionalProperties"
+        },
+        "x-oaiTypeLabel": "map"
+      },
+      "CreatePlatformWorkloadIdentityFederationRuleBodyAttributeMatchersProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityFederationRuleBodyAttributeMatchersAdditionalProperties"
+        },
+        "x-oaiTypeLabel": "map"
+      },
+      "UpdatePlatformWorkloadIdentityFederationRuleBodyAttributeMatchersProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityFederationRuleBodyAttributeMatchersAdditionalProperties"
+        },
+        "x-oaiTypeLabel": "map"
       },
       "Error2HeadersProperty": {
         "type": "object",
@@ -106912,6 +108516,50 @@
           ]
         }
       },
+      "ResponsePromptCacheOptionsParamTtl": {
+        "enum": [
+          "30m",
+          "12h"
+        ],
+        "type": "string",
+        "description": "The minimum lifetime applied to every implicit and explicit cache breakpoint written by the request. Supported values are \u006030m\u0060 (the default) and \u006012h\u0060. The backend may retain cache entries for longer.",
+        "x-ms-enum": {
+          "name": "ResponsePromptCacheOptionsParamTtl",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "30m",
+              "name": "Value30M"
+            },
+            {
+              "value": "12h",
+              "name": "Value12H"
+            }
+          ]
+        }
+      },
+      "PromptCacheOptionsTtl": {
+        "enum": [
+          "30m",
+          "12h"
+        ],
+        "type": "string",
+        "description": "The minimum lifetime applied to each cache breakpoint.",
+        "x-ms-enum": {
+          "name": "PromptCacheOptionsTtl",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "30m",
+              "name": "Value30M"
+            },
+            {
+              "value": "12h",
+              "name": "Value12H"
+            }
+          ]
+        }
+      },
       "CacheMissType": {
         "enum": [
           "cache_miss"
@@ -107010,6 +108658,159 @@
             {
               "value": "safety.alert",
               "name": "SafetyAlert"
+            }
+          ]
+        }
+      },
+      "DiscoveryType": {
+        "enum": [
+          "discovery"
+        ],
+        "type": "string",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "DiscoveryType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "discovery",
+              "name": "Discovery"
+            }
+          ]
+        }
+      },
+      "UploadedJwksType": {
+        "enum": [
+          "uploaded_jwks"
+        ],
+        "type": "string",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "UploadedJwksType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "uploaded_jwks",
+              "name": "UploadedJwks"
+            }
+          ]
+        }
+      },
+      "OrganizationWorkloadIdentityProviderObject": {
+        "enum": [
+          "organization.workload_identity_provider"
+        ],
+        "type": "string",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "OrganizationWorkloadIdentityProviderObject",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "organization.workload_identity_provider",
+              "name": "OrganizationWorkloadIdentityProvider"
+            }
+          ]
+        }
+      },
+      "OidcType": {
+        "enum": [
+          "oidc"
+        ],
+        "type": "string",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "OidcType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "oidc",
+              "name": "Oidc"
+            }
+          ]
+        }
+      },
+      "OrganizationWorkloadIdentityProviderDeletedObject": {
+        "enum": [
+          "organization.workload_identity_provider.deleted"
+        ],
+        "type": "string",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "OrganizationWorkloadIdentityProviderDeletedObject",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "organization.workload_identity_provider.deleted",
+              "name": "OrganizationWorkloadIdentityProviderDeleted"
+            }
+          ]
+        }
+      },
+      "ServiceAccountDefaultType": {
+        "enum": [
+          "service_account_default"
+        ],
+        "type": "string",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "ServiceAccountDefaultType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "service_account_default",
+              "name": "ServiceAccountDefault"
+            }
+          ]
+        }
+      },
+      "RestrictedType": {
+        "enum": [
+          "restricted"
+        ],
+        "type": "string",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "RestrictedType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "restricted",
+              "name": "Restricted"
+            }
+          ]
+        }
+      },
+      "OrganizationWorkloadIdentityFederationRuleObject": {
+        "enum": [
+          "organization.workload_identity_federation_rule"
+        ],
+        "type": "string",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "OrganizationWorkloadIdentityFederationRuleObject",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "organization.workload_identity_federation_rule",
+              "name": "OrganizationWorkloadIdentityFederationRule"
+            }
+          ]
+        }
+      },
+      "OrganizationWorkloadIdentityFederationRuleDeletedObject": {
+        "enum": [
+          "organization.workload_identity_federation_rule.deleted"
+        ],
+        "type": "string",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "OrganizationWorkloadIdentityFederationRuleDeletedObject",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "organization.workload_identity_federation_rule.deleted",
+              "name": "OrganizationWorkloadIdentityFederationRuleDeleted"
             }
           ]
         }
@@ -107133,6 +108934,23 @@
             {
               "value": "project.spend_limit.deleted",
               "name": "ProjectSpendLimitDeleted"
+            }
+          ]
+        }
+      },
+      "ProjectServiceTierSettingsObject": {
+        "enum": [
+          "project.service_tier_settings"
+        ],
+        "type": "string",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "ProjectServiceTierSettingsObject",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "project.service_tier_settings",
+              "name": "ProjectServiceTierSettings"
             }
           ]
         }
@@ -110526,6 +112344,28 @@
           ]
         }
       },
+      "BetaPromptCacheOptionsTtl": {
+        "enum": [
+          "30m",
+          "12h"
+        ],
+        "type": "string",
+        "description": "The minimum lifetime applied to each cache breakpoint.",
+        "x-ms-enum": {
+          "name": "BetaPromptCacheOptionsTtl",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "30m",
+              "name": "Value30M"
+            },
+            {
+              "value": "12h",
+              "name": "Value12H"
+            }
+          ]
+        }
+      },
       "BetaCreateResponseBodyTruncation": {
         "description": "The truncation strategy to use for the model response.\n- \u0060auto\u0060: If the input to this Response exceeds\n  the model\u0027s context window size, the model will truncate the\n  response to fit the context window by dropping items from the beginning of the conversation.\n- \u0060disabled\u0060 (default): If the input size will exceed the context window\n  size for a model, the request will fail with a 400 error.\n",
         "deprecated": true,
@@ -110557,6 +112397,28 @@
             "type": "null"
           }
         ]
+      },
+      "BetaResponsePromptCacheOptionsParamTtl": {
+        "enum": [
+          "30m",
+          "12h"
+        ],
+        "type": "string",
+        "description": "The minimum lifetime applied to every implicit and explicit cache breakpoint written by the request. Supported values are \u006030m\u0060 (the default) and \u006012h\u0060. The backend may retain cache entries for longer.",
+        "x-ms-enum": {
+          "name": "BetaResponsePromptCacheOptionsParamTtl",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "30m",
+              "name": "Value30M"
+            },
+            {
+              "value": "12h",
+              "name": "Value12H"
+            }
+          ]
+        }
       },
       "CreateFineTuningJobRequestHyperparametersBatchSizeOneOf1": {
         "enum": [
@@ -111182,6 +113044,40 @@
         "x-stainless-const": true,
         "x-ms-enum": {
           "name": "LiveDataChannelConfigParamAllowedServerEventsOneOf1",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "all",
+              "name": "All"
+            }
+          ]
+        }
+      },
+      "ProjectServiceTierSettingsResourceEnabledTiersOneOf1": {
+        "enum": [
+          "all"
+        ],
+        "type": "string",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "ProjectServiceTierSettingsResourceEnabledTiersOneOf1",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "all",
+              "name": "All"
+            }
+          ]
+        }
+      },
+      "UpdateProjectServiceTierSettingsBodyEnabledTiersOneOf1": {
+        "enum": [
+          "all"
+        ],
+        "type": "string",
+        "x-stainless-const": true,
+        "x-ms-enum": {
+          "name": "UpdateProjectServiceTierSettingsBodyEnabledTiersOneOf1",
           "modelAsString": false,
           "values": [
             {
@@ -120000,6 +121896,10 @@
               "defer_loading": {
                 "type": "boolean",
                 "description": "Whether the function is deferred and discovered through tool search."
+              },
+              "async": {
+                "type": "boolean",
+                "description": "Whether the agent continues without waiting for the function result."
               }
             },
             "additionalProperties": false,
@@ -121014,6 +122914,11 @@
               "defer_loading": {
                 "type": "boolean",
                 "description": "Whether this function is deferred and discovered through tool search. Defaults to \u0060false\u0060.",
+                "default": false
+              },
+              "async": {
+                "type": "boolean",
+                "description": "Whether the agent continues without waiting for the function result. Defaults to \u0060false\u0060.",
                 "default": false
               }
             },
@@ -123384,6 +125289,10 @@
               "defer_loading": {
                 "type": "boolean",
                 "description": "Whether the function is deferred and discovered through tool search."
+              },
+              "async": {
+                "type": "boolean",
+                "description": "Whether the agent continues without waiting for the function result."
               }
             },
             "additionalProperties": false,
@@ -123724,6 +125633,11 @@
               "defer_loading": {
                 "type": "boolean",
                 "description": "Whether this function is deferred and discovered through tool search. Defaults to \u0060false\u0060.",
+                "default": false
+              },
+              "async": {
+                "type": "boolean",
+                "description": "Whether the agent continues without waiting for the function result. Defaults to \u0060false\u0060.",
                 "default": false
               }
             },
@@ -124313,6 +126227,11 @@
               "error": {
                 "description": "The error that occurred.",
                 "$ref": "#/components/schemas/SessionErrorResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124372,6 +126291,11 @@
               "environment": {
                 "description": "The current environment state.",
                 "$ref": "#/components/schemas/SessionEnvironmentStateResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124418,6 +126342,11 @@
               "environment": {
                 "description": "The current environment state.",
                 "$ref": "#/components/schemas/SessionEnvironmentStateResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124464,6 +126393,11 @@
               "environment": {
                 "description": "The current environment state.",
                 "$ref": "#/components/schemas/SessionEnvironmentStateResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124518,6 +126452,11 @@
                 "type": "integer",
                 "description": "Monotonically increasing reset number. Repeated notifications share this number.",
                 "format": "int64"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124579,6 +126518,11 @@
                 "minLength": 0,
                 "type": "string",
                 "description": "The output text that was appended."
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124610,6 +126554,11 @@
               "session": {
                 "description": "The session that was created.",
                 "$ref": "#/components/schemas/SessionResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124653,6 +126602,11 @@
               "turn": {
                 "description": "The turn at the time it was created.",
                 "$ref": "#/components/schemas/TurnResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124696,6 +126650,11 @@
               "turn": {
                 "description": "The turn at the time it started running.",
                 "$ref": "#/components/schemas/TurnResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124743,6 +126702,11 @@
               },
               "usage": {
                 "$ref": "#/components/schemas/SessionEventAgentSessionTurnCancelledUsage"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124790,6 +126754,11 @@
               },
               "usage": {
                 "$ref": "#/components/schemas/SessionEventAgentSessionTurnCancelledUsage"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124837,6 +126806,11 @@
               },
               "usage": {
                 "$ref": "#/components/schemas/SessionEventAgentSessionTurnCancelledUsage"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124894,6 +126868,11 @@
               "item": {
                 "description": "The item that was added.",
                 "$ref": "#/components/schemas/SessionTurnItemResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124925,6 +126904,11 @@
               "session": {
                 "description": "The session that became idle.",
                 "$ref": "#/components/schemas/SessionResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124956,6 +126940,11 @@
               "session": {
                 "description": "The session that started processing.",
                 "$ref": "#/components/schemas/SessionResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -124987,6 +126976,11 @@
               "session": {
                 "description": "The session and its current required actions.",
                 "$ref": "#/components/schemas/SessionResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125018,6 +127012,11 @@
               "session": {
                 "description": "The failed session.",
                 "$ref": "#/components/schemas/SessionResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125064,6 +127063,11 @@
               "environment": {
                 "description": "The current environment state.",
                 "$ref": "#/components/schemas/SessionEnvironmentStateResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125110,6 +127114,11 @@
               "environment": {
                 "description": "The current environment state.",
                 "$ref": "#/components/schemas/SessionEnvironmentStateResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125156,6 +127165,11 @@
               "environment": {
                 "description": "The current environment state.",
                 "$ref": "#/components/schemas/SessionEnvironmentStateResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125202,6 +127216,11 @@
               "environment": {
                 "description": "The current environment state.",
                 "$ref": "#/components/schemas/SessionEnvironmentStateResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125233,6 +127252,11 @@
               "subagent": {
                 "description": "The subagent that was created.",
                 "$ref": "#/components/schemas/SubagentResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125264,6 +127288,11 @@
               "subagent": {
                 "description": "The subagent that resumed.",
                 "$ref": "#/components/schemas/SubagentResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125295,6 +127324,11 @@
               "subagent": {
                 "description": "The subagent that was closed.",
                 "$ref": "#/components/schemas/SubagentResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125349,6 +127383,11 @@
               "item": {
                 "description": "The completed output item.",
                 "$ref": "#/components/schemas/AgentOutputItemResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125417,6 +127456,11 @@
               "part": {
                 "description": "The initial content part.",
                 "$ref": "#/components/schemas/OutputTextResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125485,6 +127529,11 @@
               "part": {
                 "description": "The completed content part.",
                 "$ref": "#/components/schemas/OutputTextResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125554,6 +127603,11 @@
                 "minLength": 0,
                 "type": "string",
                 "description": "The text that was appended."
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125623,6 +127677,11 @@
                 "minLength": 0,
                 "type": "string",
                 "description": "The complete output text."
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125691,6 +127750,11 @@
               "part": {
                 "description": "The initial summary part.",
                 "$ref": "#/components/schemas/SummaryTextResource"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125763,6 +127827,11 @@
               },
               "status": {
                 "$ref": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus"
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125832,6 +127901,11 @@
                 "minLength": 0,
                 "type": "string",
                 "description": "The summary text that was appended."
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -125901,6 +127975,11 @@
                 "minLength": 0,
                 "type": "string",
                 "description": "The complete reasoning summary text."
+              },
+              "obfuscation": {
+                "minLength": 0,
+                "type": "string",
+                "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
               }
             },
             "additionalProperties": false,
@@ -131351,7 +133430,7 @@
               }
             },
             "additionalProperties": false,
-            "description": "Place an outbound SIP call using your provider\u0027s trunk. Outbound SIP calling must be enabled for your organization. The trunk must support TLS signaling, Opus audio, and SDES-SRTP media. See [Telephony and SIP](https://developers.openai.com/api/docs/guides/voice-sip?api=live#place-an-outbound-call)."
+            "description": "Place an outbound SIP call using your provider\u0027s trunk. The trunk must support TLS signaling, Opus audio, and SDES-SRTP media. See [Telephony and SIP](https://developers.openai.com/api/docs/guides/voice-sip?api=live#place-an-outbound-call)."
           }
         ]
       },
@@ -133620,6 +135699,187 @@
               }
             },
             "description": "An error produced while attempting moderation for the response input or output."
+          }
+        ]
+      },
+      "PlatformProviderVerificationDiscoveryVerification": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PlatformProviderVerification"
+          },
+          {
+            "required": [
+              "type",
+              "discovery_url"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/DiscoveryType"
+              },
+              "discovery_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "PlatformProviderVerificationUploadedJwksVerification": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PlatformProviderVerification"
+          },
+          {
+            "required": [
+              "type",
+              "jwks"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/UploadedJwksType"
+              },
+              "jwks": {
+                "$ref": "#/components/schemas/UploadedJwksVerificationJwksProperty"
+              }
+            }
+          }
+        ]
+      },
+      "CreatePlatformWorkloadIdentityProviderBodyVerificationDiscoveryVerificationParam": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityProviderBodyVerification"
+          },
+          {
+            "required": [
+              "type",
+              "discovery_url"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/DiscoveryType"
+              },
+              "discovery_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "CreatePlatformWorkloadIdentityProviderBodyVerificationUploadedJwksVerificationParam": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityProviderBodyVerification"
+          },
+          {
+            "required": [
+              "type",
+              "jwks"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/UploadedJwksType"
+              },
+              "jwks": {
+                "$ref": "#/components/schemas/UploadedJwksVerificationParamJwksProperty"
+              }
+            }
+          }
+        ]
+      },
+      "PlatformFederationRulePermissionsDefaultPermissions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PlatformFederationRulePermissions"
+          },
+          {
+            "required": [
+              "type"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/ServiceAccountDefaultType"
+              }
+            }
+          }
+        ]
+      },
+      "PlatformFederationRulePermissionsRestrictedPermissions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PlatformFederationRulePermissions"
+          },
+          {
+            "required": [
+              "type",
+              "scopes"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/RestrictedType"
+              },
+              "scopes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "CreatePlatformWorkloadIdentityFederationRuleBodyPermissionsDefaultPermissionsParam": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityFederationRuleBodyPermissions"
+          },
+          {
+            "required": [
+              "type"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/ServiceAccountDefaultType"
+              }
+            }
+          }
+        ]
+      },
+      "CreatePlatformWorkloadIdentityFederationRuleBodyPermissionsRestrictedPermissionsParam": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityFederationRuleBodyPermissions"
+          },
+          {
+            "required": [
+              "type",
+              "scopes"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/RestrictedType"
+              },
+              "scopes": {
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
           }
         ]
       },
@@ -139785,10 +142045,6 @@
         },
         "prompt_cache_retention": {
           "$ref": "#/components/schemas/CreateModelResponsePropertiesPromptCacheRetention"
-        },
-        "prompt_cache_options": {
-          "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
-          "$ref": "#/components/schemas/PromptCacheOptionsParam"
         }
       }
     },
@@ -141123,7 +143379,7 @@
         }
       },
       "additionalProperties": false,
-      "description": "Place an outbound SIP call using your provider\u0027s trunk. Outbound SIP calling must be enabled for your organization. The trunk must support TLS signaling, Opus audio, and SDES-SRTP media. See [Telephony and SIP](https://developers.openai.com/api/docs/guides/voice-sip?api=live#place-an-outbound-call)."
+      "description": "Place an outbound SIP call using your provider\u0027s trunk. The trunk must support TLS signaling, Opus audio, and SDES-SRTP media. See [Telephony and SIP](https://developers.openai.com/api/docs/guides/voice-sip?api=live#place-an-outbound-call)."
     },
     "LiveServerEvent": {
       "description": "Server events for Live. Response lifecycle events are wrapped inside response.event; dispatch the nested event by its full type and tolerate new response event types. Follow the [Live prompting guide](https://developers.openai.com/api/docs/guides/live-prompting) when designing the conversation and delegation policy.",
@@ -151196,9 +153452,6 @@
         "prompt_cache_retention": {
           "$ref": "#/components/schemas/CreateModelResponsePropertiesPromptCacheRetention"
         },
-        "prompt_cache_options": {
-          "$ref": "#/components/schemas/CreateResponseBodyPromptCacheOptions"
-        },
         "previous_response_id": {
           "type": [
             "null",
@@ -151246,6 +153499,14 @@
         "access_programs": {
           "description": "Domain-specific access programs to use for this request.",
           "$ref": "#/components/schemas/AccessProgramsParam"
+        },
+        "image": {
+          "description": "Request level image options.",
+          "$ref": "#/components/schemas/ImageOptionsParam"
+        },
+        "prompt_cache_options": {
+          "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
+          "$ref": "#/components/schemas/ResponsePromptCacheOptionsParam"
         },
         "service_tier": {
           "$ref": "#/components/schemas/ServiceTierResponses"
@@ -155657,6 +157918,131 @@
         }
       }
     },
+    "DiscoveryVerification": {
+      "required": [
+        "type",
+        "discovery_url"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/DiscoveryType"
+        },
+        "discovery_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "UploadedJwksVerification": {
+      "required": [
+        "type",
+        "jwks"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/UploadedJwksType"
+        },
+        "jwks": {
+          "$ref": "#/components/schemas/UploadedJwksVerificationJwksProperty"
+        }
+      }
+    },
+    "DiscoveryVerificationParam": {
+      "required": [
+        "type",
+        "discovery_url"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/DiscoveryType"
+        },
+        "discovery_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "UploadedJwksVerificationParam": {
+      "required": [
+        "type",
+        "jwks"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/UploadedJwksType"
+        },
+        "jwks": {
+          "$ref": "#/components/schemas/UploadedJwksVerificationParamJwksProperty"
+        }
+      }
+    },
+    "DefaultPermissions": {
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ServiceAccountDefaultType"
+        }
+      }
+    },
+    "RestrictedPermissions": {
+      "required": [
+        "type",
+        "scopes"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/RestrictedType"
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DefaultPermissionsParam": {
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ServiceAccountDefaultType"
+        }
+      }
+    },
+    "RestrictedPermissionsParam": {
+      "required": [
+        "type",
+        "scopes"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/RestrictedType"
+        },
+        "scopes": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "DecisionsUsageBucketWidth": {
       "enum": [
         "1m",
@@ -155827,6 +158213,32 @@
         "bucket": {
           "type": "string"
         }
+      }
+    },
+    "ProjectOptionalServiceTier": {
+      "enum": [
+        "flex",
+        "fast",
+        "ultrafast"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "name": "ProjectOptionalServiceTier",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "flex",
+            "name": "Flex"
+          },
+          {
+            "value": "fast",
+            "name": "Fast"
+          },
+          {
+            "value": "ultrafast",
+            "name": "Ultrafast"
+          }
+        ]
       }
     },
     "C2PaProvenanceResult": {
@@ -156936,6 +159348,10 @@
         "defer_loading": {
           "type": "boolean",
           "description": "Whether the function is deferred and discovered through tool search."
+        },
+        "async": {
+          "type": "boolean",
+          "description": "Whether the agent continues without waiting for the function result."
         }
       },
       "additionalProperties": false,
@@ -157944,6 +160360,11 @@
         "defer_loading": {
           "type": "boolean",
           "description": "Whether this function is deferred and discovered through tool search. Defaults to \u0060false\u0060.",
+          "default": false
+        },
+        "async": {
+          "type": "boolean",
+          "description": "Whether the agent continues without waiting for the function result. Defaults to \u0060false\u0060.",
           "default": false
         }
       },
@@ -159755,6 +162176,10 @@
         "defer_loading": {
           "type": "boolean",
           "description": "Whether the function is deferred and discovered through tool search."
+        },
+        "async": {
+          "type": "boolean",
+          "description": "Whether the agent continues without waiting for the function result."
         }
       },
       "additionalProperties": false,
@@ -160024,6 +162449,11 @@
         "defer_loading": {
           "type": "boolean",
           "description": "Whether this function is deferred and discovered through tool search. Defaults to \u0060false\u0060.",
+          "default": false
+        },
+        "async": {
+          "type": "boolean",
+          "description": "Whether the agent continues without waiting for the function result. Defaults to \u0060false\u0060.",
           "default": false
         }
       },
@@ -160618,6 +163048,11 @@
           "minLength": 0,
           "type": "string",
           "description": "The summary text that was appended."
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -160683,6 +163118,11 @@
         },
         "status": {
           "$ref": "#/components/schemas/SessionEventAgentSessionTurnReasoningSummaryPartDoneStatus"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -160745,6 +163185,11 @@
           "minLength": 0,
           "type": "string",
           "description": "The complete reasoning summary text."
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -160775,6 +163220,11 @@
         "error": {
           "description": "The error that occurred.",
           "$ref": "#/components/schemas/SessionErrorResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -160854,6 +163304,11 @@
         "environment": {
           "description": "The current environment state.",
           "$ref": "#/components/schemas/SessionEnvironmentStateResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -160893,6 +163348,11 @@
         "environment": {
           "description": "The current environment state.",
           "$ref": "#/components/schemas/SessionEnvironmentStateResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -160932,6 +163392,11 @@
         "environment": {
           "description": "The current environment state.",
           "$ref": "#/components/schemas/SessionEnvironmentStateResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -160979,6 +163444,11 @@
           "type": "integer",
           "description": "Monotonically increasing reset number. Repeated notifications share this number.",
           "format": "int64"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161033,6 +163503,11 @@
           "minLength": 0,
           "type": "string",
           "description": "The output text that was appended."
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161057,6 +163532,11 @@
         "session": {
           "description": "The session that was created.",
           "$ref": "#/components/schemas/SessionResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161093,6 +163573,11 @@
         "turn": {
           "description": "The turn at the time it was created.",
           "$ref": "#/components/schemas/TurnResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161129,6 +163614,11 @@
         "turn": {
           "description": "The turn at the time it started running.",
           "$ref": "#/components/schemas/TurnResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161169,6 +163659,11 @@
         },
         "usage": {
           "$ref": "#/components/schemas/SessionEventAgentSessionTurnCancelledUsage"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161209,6 +163704,11 @@
         },
         "usage": {
           "$ref": "#/components/schemas/SessionEventAgentSessionTurnCancelledUsage"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161249,6 +163749,11 @@
         },
         "usage": {
           "$ref": "#/components/schemas/SessionEventAgentSessionTurnCancelledUsage"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161299,6 +163804,11 @@
         "item": {
           "description": "The item that was added.",
           "$ref": "#/components/schemas/SessionTurnItemResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161323,6 +163833,11 @@
         "session": {
           "description": "The session that became idle.",
           "$ref": "#/components/schemas/SessionResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161347,6 +163862,11 @@
         "session": {
           "description": "The session that started processing.",
           "$ref": "#/components/schemas/SessionResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161371,6 +163891,11 @@
         "session": {
           "description": "The session and its current required actions.",
           "$ref": "#/components/schemas/SessionResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161395,6 +163920,11 @@
         "session": {
           "description": "The failed session.",
           "$ref": "#/components/schemas/SessionResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161434,6 +163964,11 @@
         "environment": {
           "description": "The current environment state.",
           "$ref": "#/components/schemas/SessionEnvironmentStateResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161473,6 +164008,11 @@
         "environment": {
           "description": "The current environment state.",
           "$ref": "#/components/schemas/SessionEnvironmentStateResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161512,6 +164052,11 @@
         "environment": {
           "description": "The current environment state.",
           "$ref": "#/components/schemas/SessionEnvironmentStateResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161551,6 +164096,11 @@
         "environment": {
           "description": "The current environment state.",
           "$ref": "#/components/schemas/SessionEnvironmentStateResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161575,6 +164125,11 @@
         "subagent": {
           "description": "The subagent that was created.",
           "$ref": "#/components/schemas/SubagentResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161599,6 +164154,11 @@
         "subagent": {
           "description": "The subagent that resumed.",
           "$ref": "#/components/schemas/SubagentResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161623,6 +164183,11 @@
         "subagent": {
           "description": "The subagent that was closed.",
           "$ref": "#/components/schemas/SubagentResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161670,6 +164235,11 @@
         "item": {
           "description": "The completed output item.",
           "$ref": "#/components/schemas/AgentOutputItemResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161731,6 +164301,11 @@
         "part": {
           "description": "The initial content part.",
           "$ref": "#/components/schemas/OutputTextResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161792,6 +164367,11 @@
         "part": {
           "description": "The completed content part.",
           "$ref": "#/components/schemas/OutputTextResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161854,6 +164434,11 @@
           "minLength": 0,
           "type": "string",
           "description": "The text that was appended."
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161916,6 +164501,11 @@
           "minLength": 0,
           "type": "string",
           "description": "The complete output text."
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -161977,6 +164567,11 @@
         "part": {
           "description": "The initial summary part.",
           "$ref": "#/components/schemas/SummaryTextResource"
+        },
+        "obfuscation": {
+          "minLength": 0,
+          "type": "string",
+          "description": "Random alphanumeric padding. Present when stream obfuscation is enabled."
         }
       },
       "additionalProperties": false,
@@ -167518,6 +170113,20 @@
       },
       "description": "A message input to the model with a role indicating instruction following\nhierarchy. Instructions given with the \u0060developer\u0060 or \u0060system\u0060 role take\nprecedence over instructions given with the \u0060user\u0060 role. Messages with the\n\u0060assistant\u0060 role are presumed to have been generated by the model in previous\ninteractions.\n"
     },
+    "BetaPromptCacheOptionsParam": {
+      "title": "Prompt cache options",
+      "type": "object",
+      "properties": {
+        "ttl": {
+          "$ref": "#/components/schemas/BetaPromptCacheTtlEnum"
+        },
+        "mode": {
+          "description": "Controls whether OpenAI automatically creates an implicit cache breakpoint. Defaults to \u0060implicit\u0060. With \u0060implicit\u0060, OpenAI creates one implicit breakpoint and writes up to the latest three explicit breakpoints in the request. With \u0060explicit\u0060, OpenAI does not create an implicit breakpoint and writes up to the latest four explicit breakpoints. If there are no explicit breakpoints, the request does not use prompt caching.",
+          "$ref": "#/components/schemas/BetaPromptCacheModeEnum"
+        }
+      },
+      "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details."
+    },
     "BetaModelIdsShared": {
       "type": "string",
       "x-client-inline-scalar": true,
@@ -171663,17 +174272,13 @@
           "description": "Domain-specific access programs to use for this request.",
           "$ref": "#/components/schemas/BetaAccessProgramsParam"
         },
+        "image": {
+          "description": "Request level image options.",
+          "$ref": "#/components/schemas/BetaImageOptionsParam"
+        },
         "prompt_cache_options": {
-          "allOf": [
-            {
-              "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
-              "$ref": "#/components/schemas/BetaResponsePromptCacheOptionsParam"
-            },
-            {
-              "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
-              "$ref": "#/components/schemas/BetaPromptCacheOptionsParam"
-            }
-          ]
+          "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
+          "$ref": "#/components/schemas/BetaResponsePromptCacheOptionsParam"
         },
         "service_tier": {
           "$ref": "#/components/schemas/BetaServiceTierResponses"
@@ -171941,10 +174546,6 @@
         },
         "prompt_cache_retention": {
           "$ref": "#/components/schemas/BetaResponsePromptCacheRetention"
-        },
-        "prompt_cache_options": {
-          "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
-          "$ref": "#/components/schemas/BetaPromptCacheOptionsParam"
         }
       }
     },
@@ -172491,6 +175092,10 @@
       ],
       "type": "object",
       "properties": {
+        "prompt_cache_options": {
+          "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
+          "$ref": "#/components/schemas/PromptCacheOptionsParam"
+        },
         "messages": {
           "minItems": 1,
           "type": "array",
@@ -172877,10 +175482,6 @@
     "CreateModelResponsePropertiesAllOf2": {
       "type": "object",
       "properties": {
-        "prompt_cache_options": {
-          "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
-          "$ref": "#/components/schemas/PromptCacheOptionsParam"
-        },
         "top_logprobs": {
           "maximum": 20,
           "minimum": 0,
@@ -172903,8 +175504,12 @@
           "description": "Domain-specific access programs to use for this request.",
           "$ref": "#/components/schemas/AccessProgramsParam"
         },
+        "image": {
+          "description": "Request level image options.",
+          "$ref": "#/components/schemas/ImageOptionsParam"
+        },
         "prompt_cache_options": {
-          "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
+          "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
           "$ref": "#/components/schemas/ResponsePromptCacheOptionsParam"
         },
         "service_tier": {
@@ -174111,6 +176716,9 @@
       ],
       "type": "object",
       "properties": {
+        "image": {
+          "$ref": "#/components/schemas/ResolvedImageOptions"
+        },
         "service_tier": {
           "$ref": "#/components/schemas/ServiceTierResponses"
         },
@@ -176039,6 +178647,66 @@
           "programmatic_tool_calling": "#/components/schemas/LiveProgrammaticToolInputParam",
           "computer": "#/components/schemas/LiveComputerToolInputParam",
           "apply_patch": "#/components/schemas/LiveApplyPatchToolInputParam"
+        }
+      }
+    },
+    "UpdatePlatformWorkloadIdentityProviderBodyVerification": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/DiscoveryVerificationParam"
+        },
+        {
+          "$ref": "#/components/schemas/UploadedJwksVerificationParam"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "discovery": "#/components/schemas/DiscoveryVerificationParam",
+          "uploaded_jwks": "#/components/schemas/UploadedJwksVerificationParam"
+        }
+      }
+    },
+    "PlatformFederationRuleAttributeMatchersAdditionalProperties": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "number"
+        }
+      ]
+    },
+    "UpdatePlatformWorkloadIdentityFederationRuleBodyAttributeMatchersAdditionalProperties": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "number"
+        }
+      ]
+    },
+    "UpdatePlatformWorkloadIdentityFederationRuleBodyPermissions": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/DefaultPermissionsParam"
+        },
+        {
+          "$ref": "#/components/schemas/RestrictedPermissionsParam"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "service_account_default": "#/components/schemas/DefaultPermissionsParam",
+          "restricted": "#/components/schemas/RestrictedPermissionsParam"
         }
       }
     },
@@ -178949,6 +181617,9 @@
       ],
       "type": "object",
       "properties": {
+        "image": {
+          "$ref": "#/components/schemas/BetaResolvedImageOptions"
+        },
         "service_tier": {
           "$ref": "#/components/schemas/BetaServiceTierResponses"
         },
@@ -181218,8 +183889,12 @@
           "description": "Domain-specific access programs to use for this request.",
           "$ref": "#/components/schemas/BetaAccessProgramsParam"
         },
+        "image": {
+          "description": "Request level image options.",
+          "$ref": "#/components/schemas/BetaImageOptionsParam"
+        },
         "prompt_cache_options": {
-          "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
+          "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
           "$ref": "#/components/schemas/BetaResponsePromptCacheOptionsParam"
         },
         "service_tier": {
@@ -181312,10 +183987,6 @@
     "BetaCreateModelResponsePropertiesAllOf2": {
       "type": "object",
       "properties": {
-        "prompt_cache_options": {
-          "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
-          "$ref": "#/components/schemas/BetaPromptCacheOptionsParam"
-        },
         "top_logprobs": {
           "maximum": 20,
           "minimum": 0,
@@ -183237,6 +185908,37 @@
       ],
       "additionalProperties": {},
       "description": "A JSON Schema object describing the arguments accepted by the function."
+    },
+    "UploadedJwksVerificationJwks": {
+      "type": "object",
+      "additionalProperties": {},
+      "x-oaiTypeLabel": "map"
+    },
+    "UploadedJwksVerificationParamJwks": {
+      "type": "object",
+      "additionalProperties": {},
+      "x-oaiTypeLabel": "map"
+    },
+    "PlatformFederationRuleAttributeMatchers": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityFederationRuleBodyAttributeMatchersAdditionalProperties"
+      },
+      "x-oaiTypeLabel": "map"
+    },
+    "CreatePlatformWorkloadIdentityFederationRuleBodyAttributeMatchers": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityFederationRuleBodyAttributeMatchersAdditionalProperties"
+      },
+      "x-oaiTypeLabel": "map"
+    },
+    "UpdatePlatformWorkloadIdentityFederationRuleBodyAttributeMatchers": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/CreatePlatformWorkloadIdentityFederationRuleBodyAttributeMatchersAdditionalProperties"
+      },
+      "x-oaiTypeLabel": "map"
     },
     "Error2Headers": {
       "type": "object",
@@ -189813,7 +192515,8 @@
         "gpt-daybreak-blue-latest",
         "gpt-daybreak-red-latest",
         "gpt-5.6-cyber",
-        "gpt-rosalind-research"
+        "gpt-rosalind-research",
+        "gpt-6-rosalind"
       ],
       "type": "string",
       "x-openai-enum-deprecations": {
@@ -189943,6 +192646,10 @@
           {
             "value": "gpt-rosalind-research",
             "name": "GptRosalindResearch"
+          },
+          {
+            "value": "gpt-6-rosalind",
+            "name": "Gpt6Rosalind"
           }
         ]
       }
@@ -194542,7 +197249,8 @@
         "gpt-daybreak-blue-latest",
         "gpt-daybreak-red-latest",
         "gpt-5.6-cyber",
-        "gpt-rosalind-research"
+        "gpt-rosalind-research",
+        "gpt-6-rosalind"
       ],
       "type": "string",
       "x-openai-enum-deprecations": {
@@ -194672,6 +197380,10 @@
           {
             "value": "gpt-rosalind-research",
             "name": "GptRosalindResearch"
+          },
+          {
+            "value": "gpt-6-rosalind",
+            "name": "Gpt6Rosalind"
           }
         ]
       }
@@ -198847,6 +201559,74 @@
           {
             "value": "response_not_found",
             "name": "ResponseNotFound"
+          }
+        ]
+      }
+    },
+    "ListPlatformworkloadidentityprovidersOrderParameterOneOf1": {
+      "enum": [
+        "asc"
+      ],
+      "type": "string",
+      "x-stainless-const": true,
+      "x-ms-enum": {
+        "name": "ListPlatformworkloadidentityprovidersOrderParameterOneOf1",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "asc",
+            "name": "Asc"
+          }
+        ]
+      }
+    },
+    "ListPlatformworkloadidentityprovidersOrderParameterOneOf2": {
+      "enum": [
+        "desc"
+      ],
+      "type": "string",
+      "x-stainless-const": true,
+      "x-ms-enum": {
+        "name": "ListPlatformworkloadidentityprovidersOrderParameterOneOf2",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "desc",
+            "name": "Desc"
+          }
+        ]
+      }
+    },
+    "ListPlatformworkloadidentityfederationrulesOrderParameterOneOf1": {
+      "enum": [
+        "asc"
+      ],
+      "type": "string",
+      "x-stainless-const": true,
+      "x-ms-enum": {
+        "name": "ListPlatformworkloadidentityfederationrulesOrderParameterOneOf1",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "asc",
+            "name": "Asc"
+          }
+        ]
+      }
+    },
+    "ListPlatformworkloadidentityfederationrulesOrderParameterOneOf2": {
+      "enum": [
+        "desc"
+      ],
+      "type": "string",
+      "x-stainless-const": true,
+      "x-ms-enum": {
+        "name": "ListPlatformworkloadidentityfederationrulesOrderParameterOneOf2",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "desc",
+            "name": "Desc"
           }
         ]
       }
@@ -210406,9 +213186,6 @@
             "prompt_cache_retention": {
               "$ref": "#/components/schemas/CreateModelResponsePropertiesPromptCacheRetention"
             },
-            "prompt_cache_options": {
-              "$ref": "#/components/schemas/CreateResponseBodyPromptCacheOptions"
-            },
             "previous_response_id": {
               "type": [
                 "null",
@@ -210456,6 +213233,14 @@
             "access_programs": {
               "description": "Domain-specific access programs to use for this request.",
               "$ref": "#/components/schemas/AccessProgramsParam"
+            },
+            "image": {
+              "description": "Request level image options.",
+              "$ref": "#/components/schemas/ImageOptionsParam"
+            },
+            "prompt_cache_options": {
+              "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
+              "$ref": "#/components/schemas/ResponsePromptCacheOptionsParam"
             },
             "service_tier": {
               "$ref": "#/components/schemas/ServiceTierResponses"
@@ -216835,17 +219620,13 @@
               "description": "Domain-specific access programs to use for this request.",
               "$ref": "#/components/schemas/BetaAccessProgramsParam"
             },
+            "image": {
+              "description": "Request level image options.",
+              "$ref": "#/components/schemas/BetaImageOptionsParam"
+            },
             "prompt_cache_options": {
-              "allOf": [
-                {
-                  "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
-                  "$ref": "#/components/schemas/BetaResponsePromptCacheOptionsParam"
-                },
-                {
-                  "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060, which is currently the only supported value. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
-                  "$ref": "#/components/schemas/BetaPromptCacheOptionsParam"
-                }
-              ]
+              "description": "Options for prompt caching. Supported for \u0060gpt-5.6\u0060 and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with \u0060prompt_cache_breakpoint\u0060. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set \u0060mode\u0060 to \u0060explicit\u0060 to disable the implicit breakpoint. The \u0060ttl\u0060 defaults to \u006030m\u0060. Supported lifetimes depend on the API. See the [prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) for current details.",
+              "$ref": "#/components/schemas/BetaResponsePromptCacheOptionsParam"
             },
             "service_tier": {
               "$ref": "#/components/schemas/BetaServiceTierResponses"

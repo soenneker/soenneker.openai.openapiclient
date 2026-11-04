@@ -17,6 +17,7 @@ using Soenneker.OpenAI.OpenApiClient.Organization.Spend_alerts;
 using Soenneker.OpenAI.OpenApiClient.Organization.Spend_limit;
 using Soenneker.OpenAI.OpenApiClient.Organization.Usage;
 using Soenneker.OpenAI.OpenApiClient.Organization.Users;
+using Soenneker.OpenAI.OpenApiClient.Organization.Workload_identity_providers;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -103,6 +104,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Users.UsersRequestBuilder Users
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Users.UsersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The workload_identity_providers property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Workload_identity_providers.Workload_identity_providersRequestBuilder Workload_identity_providers
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Workload_identity_providers.Workload_identity_providersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Organization.OrganizationRequestBuilder"/> and sets the default values.

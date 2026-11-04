@@ -22,7 +22,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item.Events
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agents/sessions/{sessionId}/events", pathParameters)
+        public EventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agents/sessions/{sessionId}/events{?include_obfuscation*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item.Events
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agents/sessions/{sessionId}/events", rawUrl)
+        public EventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agents/sessions/{sessionId}/events{?include_obfuscation*}", rawUrl)
         {
         }
         /// <summary>
@@ -48,11 +48,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item.Events
         /// <exception cref="global::Soenneker.OpenAI.OpenApiClient.Models.ErrorResponse2">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -115,11 +115,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item.Events
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -157,6 +157,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item.Events
         public global::Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item.Events.EventsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.OpenAI.OpenApiClient.Agents.Sessions.Item.Events.EventsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Streams live events for an agent session. See [session events](https://developers.openai.com/api/docs/guides/agents-api/sessions/events).
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class EventsRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Whether to include obfuscation padding in events on this connection. Defaults to `true`.</summary>
+            [QueryParameter("include_obfuscation")]
+            public bool? IncludeObfuscation { get; set; }
         }
     }
 }

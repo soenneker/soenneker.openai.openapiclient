@@ -32,6 +32,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if (parseNode.GetChildNode("review") is { } nullNodeReview && nullNodeReview.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Review = null;
             if (parseNode.GetChildNode("stream") is null) { _explicitNullValueStream = default!; _explicitNullProperties?.Remove("stream"); }
             else if (parseNode.GetChildNode("stream") is { } nullNodeStream && nullNodeStream.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stream = null;
+            if (parseNode.GetChildNode("stream_options") is null) { _explicitNullValueStreamOptions = default!; _explicitNullProperties?.Remove("stream_options"); }
+            else if (parseNode.GetChildNode("stream_options") is { } nullNodeStreamOptions && nullNodeStreamOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamOptions = null;
             if (parseNode.GetChildNode("vault_ids") is null) { _explicitNullValueVaultIds = default!; _explicitNullProperties?.Remove("vault_ids"); }
             else if (parseNode.GetChildNode("vault_ids") is { } nullNodeVaultIds && nullNodeVaultIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VaultIds = null;
         }
@@ -92,6 +94,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Whether to stream session events as server-sent events. Defaults to `false`.</summary>
         public bool? Stream { get => _explicitNullValueStream; set { _explicitNullValueStream = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream"); else _explicitNullProperties?.Remove("stream"); } }
         private bool? _explicitNullValueStream = default!;
+        /// <summary>Options for the event stream. Only allowed when `stream` is `true`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SessionStreamOptionsParam? StreamOptions { get => _explicitNullValueStreamOptions; set { _explicitNullValueStreamOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_options"); else _explicitNullProperties?.Remove("stream_options"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.SessionStreamOptionsParam? _explicitNullValueStreamOptions = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SessionStreamOptionsParam StreamOptions { get => _explicitNullValueStreamOptions; set { _explicitNullValueStreamOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_options"); else _explicitNullProperties?.Remove("stream_options"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.SessionStreamOptionsParam _explicitNullValueStreamOptions = default!;
+#endif
         /// <summary>The IDs of vaults made available to the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -134,6 +146,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentSessionParamsMetadataProperty>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentSessionParamsMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "review", n => { Review = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionReviewParam>(); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
+                { "stream_options", n => { StreamOptions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionStreamOptionsParam>(global::Soenneker.OpenAI.OpenApiClient.Models.SessionStreamOptionsParam.CreateFromDiscriminatorValue); } },
                 { "vault_ids", n => { VaultIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -151,6 +164,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateAgentSessionParamsMetadataProperty>("metadata", Metadata);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionReviewParam>("review", Review);
             writer.WriteBoolValue("stream", Stream);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SessionStreamOptionsParam>("stream_options", StreamOptions);
             writer.WriteCollectionOfPrimitiveValues<string>("vault_ids", VaultIds);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

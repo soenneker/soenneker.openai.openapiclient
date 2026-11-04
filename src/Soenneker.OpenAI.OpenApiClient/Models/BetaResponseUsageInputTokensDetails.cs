@@ -22,6 +22,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if (parseNode.GetChildNode("cached_tokens") is { } nullNodeCachedTokens && nullNodeCachedTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedTokens = null;
             if (parseNode.GetChildNode("cache_write_tokens") is null) { _explicitNullValueCacheWriteTokens = default!; _explicitNullProperties?.Remove("cache_write_tokens"); }
             else if (parseNode.GetChildNode("cache_write_tokens") is { } nullNodeCacheWriteTokens && nullNodeCacheWriteTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheWriteTokens = null;
+            if (parseNode.GetChildNode("cache_write_tokens_details") is null) { _explicitNullValueCacheWriteTokensDetails = default!; _explicitNullProperties?.Remove("cache_write_tokens_details"); }
+            else if (parseNode.GetChildNode("cache_write_tokens_details") is { } nullNodeCacheWriteTokensDetails && nullNodeCacheWriteTokensDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheWriteTokensDetails = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,6 +34,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The number of input tokens that were written to the cache.</summary>
         public int? CacheWriteTokens { get => _explicitNullValueCacheWriteTokens; set { _explicitNullValueCacheWriteTokens = value; AdditionalData?.Remove("cache_write_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_write_tokens"); else _explicitNullProperties?.Remove("cache_write_tokens"); } }
         private int? _explicitNullValueCacheWriteTokens = default!;
+        /// <summary>The cache_write_tokens_details property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCacheWriteTokensDetails? CacheWriteTokensDetails { get => _explicitNullValueCacheWriteTokensDetails; set { _explicitNullValueCacheWriteTokensDetails = value; AdditionalData?.Remove("cache_write_tokens_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_write_tokens_details"); else _explicitNullProperties?.Remove("cache_write_tokens_details"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaCacheWriteTokensDetails? _explicitNullValueCacheWriteTokensDetails = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.BetaCacheWriteTokensDetails CacheWriteTokensDetails { get => _explicitNullValueCacheWriteTokensDetails; set { _explicitNullValueCacheWriteTokensDetails = value; AdditionalData?.Remove("cache_write_tokens_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_write_tokens_details"); else _explicitNullProperties?.Remove("cache_write_tokens_details"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.BetaCacheWriteTokensDetails _explicitNullValueCacheWriteTokensDetails = default!;
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.OpenAI.OpenApiClient.Models.BetaResponseUsageInputTokensDetails"/> and sets the default values.
         /// </summary>
@@ -58,6 +70,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "cache_write_tokens", n => { CacheWriteTokens = n.GetIntValue(); } },
+                { "cache_write_tokens_details", n => { CacheWriteTokensDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCacheWriteTokensDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaCacheWriteTokensDetails.CreateFromDiscriminatorValue); } },
                 { "cached_tokens", n => { CachedTokens = n.GetIntValue(); } },
             };
         }
@@ -70,6 +83,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("cached_tokens", CachedTokens);
             writer.WriteIntValue("cache_write_tokens", CacheWriteTokens);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaCacheWriteTokensDetails>("cache_write_tokens_details", CacheWriteTokensDetails);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

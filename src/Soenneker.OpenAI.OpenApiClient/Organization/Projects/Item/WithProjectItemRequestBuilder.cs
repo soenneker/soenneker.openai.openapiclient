@@ -13,6 +13,7 @@ using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Hosted_tool_perm
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Model_permissions;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Rate_limits;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts;
+using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_tier_settings;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_limit;
 using Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Users;
@@ -73,6 +74,11 @@ namespace Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts.Service_accountsRequestBuilder Service_accounts
         {
             get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_accounts.Service_accountsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The service_tier_settings property</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_tier_settings.Service_tier_settingsRequestBuilder Service_tier_settings
+        {
+            get => new global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Service_tier_settings.Service_tier_settingsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The spend_alerts property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Organization.Projects.Item.Spend_alerts.Spend_alertsRequestBuilder Spend_alerts

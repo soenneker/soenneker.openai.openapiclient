@@ -31,6 +31,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("image") is null) { _explicitNullValueImage = default!; _explicitNullProperties?.Remove("image"); }
+            else if (parseNode.GetChildNode("image") is { } nullNodeImage && nullNodeImage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Image = null;
             if (parseNode.GetChildNode("incomplete_details") is null) { _explicitNullValueIncompleteDetails = default!; _explicitNullProperties?.Remove("incomplete_details"); }
             else if (parseNode.GetChildNode("incomplete_details") is { } nullNodeIncompleteDetails && nullNodeIncompleteDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncompleteDetails = null;
             if (parseNode.GetChildNode("instructions") is null) { _explicitNullValueInstructions = default!; _explicitNullProperties?.Remove("instructions"); }
@@ -145,6 +147,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
 #else
         public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
+#endif
+        /// <summary>The image property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResolvedImageOptions? Image { get => _explicitNullValueImage; set { _explicitNullValueImage = value; AdditionalData?.Remove("image"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image"); else _explicitNullProperties?.Remove("image"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ResolvedImageOptions? _explicitNullValueImage = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ResolvedImageOptions Image { get => _explicitNullValueImage; set { _explicitNullValueImage = value; AdditionalData?.Remove("image"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image"); else _explicitNullProperties?.Remove("image"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ResolvedImageOptions _explicitNullValueImage = default!;
 #endif
         /// <summary>Details about why the response is incomplete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -438,6 +450,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDoubleValue(); } },
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseError>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseError.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "image", n => { Image = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResolvedImageOptions>(global::Soenneker.OpenAI.OpenApiClient.Models.ResolvedImageOptions.CreateFromDiscriminatorValue); } },
                 { "incomplete_details", n => { IncompleteDetails = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3IncompleteDetails>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3IncompleteDetails.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3InstructionsAnyOf1>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3InstructionsAnyOf1.CreateFromDiscriminatorValue); } },
                 { "max_output_tokens", n => { MaxOutputTokens = n.GetIntValue(); } },
@@ -485,6 +498,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteDoubleValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseError>("error", Error);
             writer.WriteStringValue("id", Id);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResolvedImageOptions>("image", Image);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3IncompleteDetails>("incomplete_details", IncompleteDetails);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseValueAllOf3InstructionsAnyOf1>("instructions", Instructions);
             writer.WriteIntValue("max_output_tokens", MaxOutputTokens);
