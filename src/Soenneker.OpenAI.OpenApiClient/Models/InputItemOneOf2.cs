@@ -98,6 +98,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
             if (parseNode.GetChildNode("summary") is null) { _explicitNullValueSummary = default!; _explicitNullProperties?.Remove("summary"); }
             else if (parseNode.GetChildNode("summary") is { } nullNodeSummary && nullNodeSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Summary = null;
+            if (parseNode.GetChildNode("svg_usage") is null) { _explicitNullValueSvgUsage = default!; _explicitNullProperties?.Remove("svg_usage"); }
+            else if (parseNode.GetChildNode("svg_usage") is { } nullNodeSvgUsage && nullNodeSvgUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SvgUsage = null;
             if (parseNode.GetChildNode("text") is null) { _explicitNullValueText = default!; _explicitNullProperties?.Remove("text"); }
             else if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
             if (parseNode.GetChildNode("tools") is null) { _explicitNullValueTools = default!; _explicitNullProperties?.Remove("tools"); }
@@ -447,6 +449,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public List<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent> Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; AdditionalData?.Remove("summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
         private List<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent> _explicitNullValueSummary = default!;
 #endif
+        /// <summary>The svg_usage property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SvgUsage? SvgUsage { get => _explicitNullValueSvgUsage; set { _explicitNullValueSvgUsage = value; AdditionalData?.Remove("svg_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svg_usage"); else _explicitNullProperties?.Remove("svg_usage"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.SvgUsage? _explicitNullValueSvgUsage = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SvgUsage SvgUsage { get => _explicitNullValueSvgUsage; set { _explicitNullValueSvgUsage = value; AdditionalData?.Remove("svg_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svg_usage"); else _explicitNullProperties?.Remove("svg_usage"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.SvgUsage _explicitNullValueSvgUsage = default!;
+#endif
         /// <summary>The text output configuration for subsequent responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -537,6 +549,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "size", n => { Size = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallSize>(global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallSize.CreateFromDiscriminatorValue); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "summary", n => { Summary = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent>(global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "svg_usage", n => { SvgUsage = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SvgUsage>(global::Soenneker.OpenAI.OpenApiClient.Models.SvgUsage.CreateFromDiscriminatorValue); } },
                 { "text", n => { Text = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateItemParamText>(global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateItemParamText.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchOutputTool>(global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchOutputTool.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
@@ -589,6 +602,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.BetaImageGenToolCallSize>("size", Size);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputMessageStatus>("status", Status);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.SummaryTextContent>("summary", Summary);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SvgUsage>("svg_usage", SvgUsage);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ResponseConfigurationUpdateItemParamText>("text", Text);
             writer.WriteCollectionOfObjectValues<global::Soenneker.OpenAI.OpenApiClient.Models.ToolSearchOutputTool>("tools", Tools);
             writer.WriteStringValue("type", Type);

@@ -19,6 +19,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("background") is null) { _explicitNullValueBackground = default!; _explicitNullProperties?.Remove("background"); }
             else if (parseNode.GetChildNode("background") is { } nullNodeBackground && nullNodeBackground.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Background = null;
+            if (parseNode.GetChildNode("complexity") is null) { _explicitNullValueComplexity = default!; _explicitNullProperties?.Remove("complexity"); }
+            else if (parseNode.GetChildNode("complexity") is { } nullNodeComplexity && nullNodeComplexity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Complexity = null;
+            if (parseNode.GetChildNode("frame_count") is null) { _explicitNullValueFrameCount = default!; _explicitNullProperties?.Remove("frame_count"); }
+            else if (parseNode.GetChildNode("frame_count") is { } nullNodeFrameCount && nullNodeFrameCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FrameCount = null;
+            if (parseNode.GetChildNode("frame_duration_ms") is null) { _explicitNullValueFrameDurationMs = default!; _explicitNullProperties?.Remove("frame_duration_ms"); }
+            else if (parseNode.GetChildNode("frame_duration_ms") is { } nullNodeFrameDurationMs && nullNodeFrameDurationMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FrameDurationMs = null;
             if (parseNode.GetChildNode("model") is null) { _explicitNullValueModel = default!; _explicitNullProperties?.Remove("model"); }
             else if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
             if (parseNode.GetChildNode("moderation") is null) { _explicitNullValueModeration = default!; _explicitNullProperties?.Remove("moderation"); }
@@ -45,6 +51,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if (parseNode.GetChildNode("stream") is { } nullNodeStream && nullNodeStream.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stream = null;
             if (parseNode.GetChildNode("style") is null) { _explicitNullValueStyle = default!; _explicitNullProperties?.Remove("style"); }
             else if (parseNode.GetChildNode("style") is { } nullNodeStyle && nullNodeStyle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Style = null;
+            if (parseNode.GetChildNode("svg") is null) { _explicitNullValueSvg = default!; _explicitNullProperties?.Remove("svg"); }
+            else if (parseNode.GetChildNode("svg") is { } nullNodeSvg && nullNodeSvg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Svg = null;
             if (parseNode.GetChildNode("user") is null) { _explicitNullValueUser = default!; _explicitNullProperties?.Remove("user"); }
             else if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
         }
@@ -61,7 +69,23 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestBackground Background { get => _explicitNullValueBackground; set { _explicitNullValueBackground = value; AdditionalData?.Remove("background"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background"); else _explicitNullProperties?.Remove("background"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestBackground _explicitNullValueBackground = default!;
 #endif
-        /// <summary>The GPT image model to use for image generation. Specify a model explicitly.Supported models include `gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,`gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`,`gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`,`gpt-image-2.5-flare-2026-09-08`, and `chatgpt-image-latest`.`gpt-image-1` was shut down on October 23, 2026. Use`gpt-image-2.5-sunburst` or `gpt-image-2.5-flare` instead.</summary>
+        /// <summary>Computation spent planning the image, independently of rendering quality. Uses the image model&apos;s configured default when omitted. For SVG output, controls the reference image, independently of the SVG author&apos;s reasoning.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Complexity? Complexity { get => _explicitNullValueComplexity; set { _explicitNullValueComplexity = value; AdditionalData?.Remove("complexity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("complexity"); else _explicitNullProperties?.Remove("complexity"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.Complexity? _explicitNullValueComplexity = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Complexity Complexity { get => _explicitNullValueComplexity; set { _explicitNullValueComplexity = value; AdditionalData?.Remove("complexity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("complexity"); else _explicitNullProperties?.Remove("complexity"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.Complexity _explicitNullValueComplexity = default!;
+#endif
+        /// <summary>Number of frames for GIF output. Accepts integers from 2 through 16. Defaults to 9 when omitted. Only supported with output_format=gif. The requested size must satisfy the selected model&apos;s GIF size limits. GIF output does not support streaming, partial images, masks, or custom output compression. Requires access to the GIF preview for the selected model.</summary>
+        public int? FrameCount { get => _explicitNullValueFrameCount; set { _explicitNullValueFrameCount = value; AdditionalData?.Remove("frame_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("frame_count"); else _explicitNullProperties?.Remove("frame_count"); } }
+        private int? _explicitNullValueFrameCount = default!;
+        /// <summary>Requested delay per GIF frame, in milliseconds. Defaults to 200 when omitted. GIF output rounds to the nearest 10 ms and caps the encoded delay at 655,350 ms per frame. Only supported with output_format=gif.</summary>
+        public int? FrameDurationMs { get => _explicitNullValueFrameDurationMs; set { _explicitNullValueFrameDurationMs = value; AdditionalData?.Remove("frame_duration_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("frame_duration_ms"); else _explicitNullProperties?.Remove("frame_duration_ms"); } }
+        private int? _explicitNullValueFrameDurationMs = default!;
+        /// <summary>The GPT image model to use for image generation. Specify a model explicitly.Supported models include `gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,`gpt-image-2-2026-04-21`, `gpt-image-2.5-sunburst`,`gpt-image-2.5-sunburst-2026-09-08`, `gpt-image-2.5-flare`,`gpt-image-2.5-flare-2026-09-08`, `gpt-image-2.6-sunburst`, `gpt-image-2.6-flare`,and `chatgpt-image-latest`.`gpt-image-1` was shut down on October 23, 2026. Use`gpt-image-2.5-sunburst` or `gpt-image-2.5-flare` instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
@@ -87,7 +111,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>The compression level (0-100%) for the generated images. This parameter is only supported for the GPT image models with the `webp` or `jpeg` output formats, and defaults to 100.</summary>
         public int? OutputCompression { get => _explicitNullValueOutputCompression; set { _explicitNullValueOutputCompression = value; AdditionalData?.Remove("output_compression"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_compression"); else _explicitNullProperties?.Remove("output_compression"); } }
         private int? _explicitNullValueOutputCompression = default!;
-        /// <summary>The format in which the generated images are returned. This parameter is only supported for the GPT image models. Must be one of `png`, `jpeg`, or `webp`.</summary>
+        /// <summary>The format in which the generated images are returned. This parameter is only supported for the GPT image models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestOutputFormat? OutputFormat { get => _explicitNullValueOutputFormat; set { _explicitNullValueOutputFormat = value; AdditionalData?.Remove("output_format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_format"); else _explicitNullProperties?.Remove("output_format"); } }
@@ -165,6 +189,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestStyle Style { get => _explicitNullValueStyle; set { _explicitNullValueStyle = value; AdditionalData?.Remove("style"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("style"); else _explicitNullProperties?.Remove("style"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestStyle _explicitNullValueStyle = default!;
 #endif
+        /// <summary>Selects the model and reasoning effort used to author SVG output. Requires output_format=svg and access to SVG model selection. When model selection is enabled, supply svg.model. When model selection is disabled, omit this object. The top-level model selects the image model that creates the reference image. SVG generation requires n=1 and does not support streaming, partial images, prompt_rewriter, or output_compression. SVG edits are not supported.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Svg? Svg { get => _explicitNullValueSvg; set { _explicitNullValueSvg = value; AdditionalData?.Remove("svg"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svg"); else _explicitNullProperties?.Remove("svg"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.Svg? _explicitNullValueSvg = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.Svg Svg { get => _explicitNullValueSvg; set { _explicitNullValueSvg = value; AdditionalData?.Remove("svg"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svg"); else _explicitNullProperties?.Remove("svg"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.Svg _explicitNullValueSvg = default!;
+#endif
         /// <summary>Deprecated: use `safety_identifier` instead. This parameter remains accepted for backward compatibility and is used when `safety_identifier` is omitted, null, or empty. [Learn more](https://developers.openai.com/api/docs/guides/safety-best-practices#implement-safety-identifiers).</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -206,6 +240,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "background", n => { Background = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestBackground>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestBackground.CreateFromDiscriminatorValue); } },
+                { "complexity", n => { Complexity = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Complexity>(global::Soenneker.OpenAI.OpenApiClient.Models.Complexity.CreateFromDiscriminatorValue); } },
+                { "frame_count", n => { FrameCount = n.GetIntValue(); } },
+                { "frame_duration_ms", n => { FrameDurationMs = n.GetIntValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "moderation", n => { Moderation = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestModeration>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestModeration.CreateFromDiscriminatorValue); } },
                 { "n", n => { N = n.GetIntValue(); } },
@@ -219,6 +256,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "size", n => { Size = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSize>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSize.CreateFromDiscriminatorValue); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "style", n => { Style = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestStyle>(global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestStyle.CreateFromDiscriminatorValue); } },
+                { "svg", n => { Svg = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Svg>(global::Soenneker.OpenAI.OpenApiClient.Models.Svg.CreateFromDiscriminatorValue); } },
                 { "user", n => { User = n.GetStringValue(); } },
             };
         }
@@ -230,6 +268,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestBackground>("background", Background);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Complexity>("complexity", Complexity);
+            writer.WriteIntValue("frame_count", FrameCount);
+            writer.WriteIntValue("frame_duration_ms", FrameDurationMs);
             writer.WriteStringValue("model", Model);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestModeration>("moderation", Moderation);
             writer.WriteIntValue("n", N);
@@ -243,6 +284,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestSize>("size", Size);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.CreateImageRequestStyle>("style", Style);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.Svg>("svg", Svg);
             writer.WriteStringValue("user", User);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

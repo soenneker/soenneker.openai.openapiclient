@@ -39725,6 +39725,15 @@
         ],
         "type": "object",
         "properties": {
+          "frame_count": {
+            "$ref": "#/components/schemas/FrameCount"
+          },
+          "frame_duration_ms": {
+            "$ref": "#/components/schemas/FrameDurationMs"
+          },
+          "complexity": {
+            "$ref": "#/components/schemas/Complexity"
+          },
           "image": {
             "$ref": "#/components/schemas/CreateImageEditRequestImage"
           },
@@ -39749,7 +39758,7 @@
           "model": {
             "type": "string",
             "x-client-inline-scalar": true,
-            "description": "The GPT image model to use for image editing\n(\u0060gpt-image-1-mini\u0060, \u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, or \u0060chatgpt-image-latest\u0060).\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
+            "description": "The GPT image model to use for image editing\n(\u0060gpt-image-1-mini\u0060, \u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, \u0060gpt-image-2.6-sunburst\u0060, \u0060gpt-image-2.6-flare\u0060,\nor \u0060chatgpt-image-latest\u0060).\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
             "example": "gpt-image-1.5",
             "x-oaiTypeLabel": "string"
           },
@@ -39824,6 +39833,18 @@
         ],
         "type": "object",
         "properties": {
+          "frame_count": {
+            "$ref": "#/components/schemas/FrameCount"
+          },
+          "frame_duration_ms": {
+            "$ref": "#/components/schemas/FrameDurationMs"
+          },
+          "complexity": {
+            "$ref": "#/components/schemas/Complexity"
+          },
+          "svg": {
+            "$ref": "#/components/schemas/Svg"
+          },
           "prompt": {
             "type": "string",
             "description": "A text description of the desired image(s). The maximum length is 32000 characters.",
@@ -39832,7 +39853,7 @@
           "model": {
             "type": "string",
             "x-client-inline-scalar": true,
-            "description": "The GPT image model to use for image generation. Specify a model explicitly.\nSupported models include \u0060gpt-image-1-mini\u0060, \u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, and \u0060chatgpt-image-latest\u0060.\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
+            "description": "The GPT image model to use for image generation. Specify a model explicitly.\nSupported models include \u0060gpt-image-1-mini\u0060, \u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, \u0060gpt-image-2.6-sunburst\u0060, \u0060gpt-image-2.6-flare\u0060,\nand \u0060chatgpt-image-latest\u0060.\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
             "example": "gpt-image-2.5-flare",
             "x-oaiTypeLabel": "string"
           },
@@ -41458,6 +41479,15 @@
         ],
         "type": "object",
         "properties": {
+          "frame_count": {
+            "$ref": "#/components/schemas/FrameCount"
+          },
+          "frame_duration_ms": {
+            "$ref": "#/components/schemas/FrameDurationMs"
+          },
+          "complexity": {
+            "$ref": "#/components/schemas/Complexity"
+          },
           "model": {
             "$ref": "#/components/schemas/EditImageBodyJsonParamModel"
           },
@@ -43729,6 +43759,9 @@
             "type": "string",
             "x-client-inline-scalar": true
           },
+          "complexity": {
+            "$ref": "#/components/schemas/ImageGenToolComplexity"
+          },
           "quality": {
             "$ref": "#/components/schemas/ImageGenToolQuality"
           },
@@ -43739,6 +43772,24 @@
           },
           "output_format": {
             "$ref": "#/components/schemas/ImageGenToolOutputFormat"
+          },
+          "frame_count": {
+            "maximum": 16,
+            "minimum": 2,
+            "type": "integer",
+            "description": "Number of GIF frames. Requires \u0060output_format\u0060 to be \u0060gif\u0060. Default: 9.\n",
+            "default": 9
+          },
+          "frame_duration_ms": {
+            "maximum": 2000,
+            "minimum": 20,
+            "type": "integer",
+            "description": "Duration of each GIF frame in milliseconds, rounded to 10 ms.\nRequires \u0060output_format\u0060 to be \u0060gif\u0060. Default: 200.\n",
+            "default": 200
+          },
+          "svg": {
+            "description": "SVG author model settings. Requires \u0060output_format\u0060 to be \u0060svg\u0060.\nWhen SVG model selection is enabled, omitting this object uses the\nouter response model. Otherwise, the default SVG author is used and\nexplicit model overrides are unavailable.\n",
+            "$ref": "#/components/schemas/SvgParam"
           },
           "output_compression": {
             "maximum": 100,
@@ -43817,6 +43868,9 @@
         ],
         "type": "object",
         "properties": {
+          "svg_usage": {
+            "$ref": "#/components/schemas/ImagesResponseSvgUsage"
+          },
           "safety_identifier": {
             "type": [
               "null",
@@ -54312,7 +54366,9 @@
         "enum": [
           "png",
           "webp",
-          "jpeg"
+          "jpeg",
+          "gif",
+          "svg"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -54330,8 +54386,43 @@
             {
               "value": "jpeg",
               "name": "Jpeg"
+            },
+            {
+              "value": "gif",
+              "name": "Gif"
+            },
+            {
+              "value": "svg",
+              "name": "Svg"
             }
           ]
+        }
+      },
+      "SvgUsage": {
+        "required": [
+          "model",
+          "input_tokens",
+          "output_tokens",
+          "total_tokens",
+          "reasoning_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "input_tokens": {
+            "type": "integer"
+          },
+          "output_tokens": {
+            "type": "integer"
+          },
+          "total_tokens": {
+            "type": "integer"
+          },
+          "reasoning_tokens": {
+            "type": "integer"
+          }
         }
       },
       "ImageGenToolCall": {
@@ -54379,6 +54470,9 @@
           },
           "output_format": {
             "$ref": "#/components/schemas/ImageGenToolCallOutputFormat"
+          },
+          "svg_usage": {
+            "$ref": "#/components/schemas/SvgUsage"
           },
           "revised_prompt": {
             "type": [
@@ -54922,6 +55016,64 @@
         "properties": {
           "type": {
             "$ref": "#/components/schemas/ProgrammaticToolCallingType"
+          }
+        }
+      },
+      "ReasoningEffortEnum": {
+        "enum": [
+          "none",
+          "minimal",
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReasoningEffortEnum",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "minimal",
+              "name": "Minimal"
+            },
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            },
+            {
+              "value": "xhigh",
+              "name": "Xhigh"
+            },
+            {
+              "value": "max",
+              "name": "Max"
+            }
+          ]
+        }
+      },
+      "SvgParam": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "reasoning": {
+            "$ref": "#/components/schemas/SvgParamReasoning"
           }
         }
       },
@@ -56867,6 +57019,58 @@
           }
         }
       },
+      "FrameCount": {
+        "maximum": 16,
+        "minimum": 2,
+        "type": [
+          "null",
+          "integer"
+        ],
+        "description": "Number of frames for GIF output. Accepts integers from 2 through 16. Defaults to 9 when omitted. Only supported with output_format=gif. The requested size must satisfy the selected model\u0027s GIF size limits. GIF output does not support streaming, partial images, masks, or custom output compression. Requires access to the GIF preview for the selected model."
+      },
+      "FrameDurationMs": {
+        "minimum": 20,
+        "type": [
+          "null",
+          "integer"
+        ],
+        "description": "Requested delay per GIF frame, in milliseconds. Defaults to 200 when omitted. GIF output rounds to the nearest 10 ms and caps the encoded delay at 655,350 ms per frame. Only supported with output_format=gif."
+      },
+      "Complexity": {
+        "description": "Computation spent planning the image, independently of rendering quality. Uses the image model\u0027s configured default when omitted. For SVG output, controls the reference image, independently of the SVG author\u0027s reasoning.",
+        "anyOf": [
+          {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "type": "string",
+            "description": "Computation spent planning the image, independently of rendering quality. Uses the image model\u0027s configured default when omitted. For SVG output, controls the reference image, independently of the SVG author\u0027s reasoning.",
+            "x-ms-enum": {
+              "name": "Complexity",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "low",
+                  "name": "Low"
+                },
+                {
+                  "value": "medium",
+                  "name": "Medium"
+                },
+                {
+                  "value": "high",
+                  "name": "High"
+                }
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
       "ImageGenOutputTokensDetails": {
         "title": "Image generation output token details",
         "required": [
@@ -56937,6 +57141,26 @@
           }
         },
         "description": "For \u0060gpt-image-1\u0060 only, the token usage information for the image generation."
+      },
+      "Svg": {
+        "required": [
+          "model"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "model": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Model used to author the SVG. Required when SVG model selection is enabled."
+          },
+          "reasoning": {
+            "$ref": "#/components/schemas/SvgReasoning"
+          }
+        },
+        "description": "Selects the model and reasoning effort used to author SVG output. Requires output_format=svg and access to SVG model selection. When model selection is enabled, supply svg.model. When model selection is disabled, omit this object. The top-level model selects the image model that creates the reference image. SVG generation requires n=1 and does not support streaming, partial images, prompt_rewriter, or output_compression. SVG edits are not supported."
       },
       "Instructions": {
         "type": [
@@ -60222,7 +60446,7 @@
         "properties": {
           "file": {
             "type": "string",
-            "description": "The image or audio file to check for supported OpenAI provenance signals.",
+            "description": "The image or audio file to check for supported OpenAI provenance signals. Supported image formats are PNG, JPEG, WebP, and GIF (including animated GIFs).",
             "format": "binary"
           }
         }
@@ -73804,6 +74028,9 @@
             "type": "string",
             "x-client-inline-scalar": true
           },
+          "complexity": {
+            "$ref": "#/components/schemas/BetaImageGenToolComplexity"
+          },
           "quality": {
             "$ref": "#/components/schemas/BetaImageGenToolQuality"
           },
@@ -73814,6 +74041,24 @@
           },
           "output_format": {
             "$ref": "#/components/schemas/BetaImageGenToolOutputFormat"
+          },
+          "frame_count": {
+            "maximum": 16,
+            "minimum": 2,
+            "type": "integer",
+            "description": "Number of GIF frames. Requires \u0060output_format\u0060 to be \u0060gif\u0060. Default: 9.\n",
+            "default": 9
+          },
+          "frame_duration_ms": {
+            "maximum": 2000,
+            "minimum": 20,
+            "type": "integer",
+            "description": "Duration of each GIF frame in milliseconds, rounded to 10 ms.\nRequires \u0060output_format\u0060 to be \u0060gif\u0060. Default: 200.\n",
+            "default": 200
+          },
+          "svg": {
+            "description": "SVG author model settings. Requires \u0060output_format\u0060 to be \u0060svg\u0060.\nWhen SVG model selection is enabled, omitting this object uses the\nouter response model. Otherwise, the default SVG author is used and\nexplicit model overrides are unavailable.\n",
+            "$ref": "#/components/schemas/BetaSvgParam"
           },
           "output_compression": {
             "maximum": 100,
@@ -73892,6 +74137,64 @@
             {
               "value": "low",
               "name": "Low"
+            }
+          ]
+        }
+      },
+      "BetaSvgParam": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "reasoning": {
+            "$ref": "#/components/schemas/BetaSvgParamReasoning"
+          }
+        }
+      },
+      "BetaReasoningEffortEnum": {
+        "enum": [
+          "none",
+          "minimal",
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "BetaReasoningEffortEnum",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "minimal",
+              "name": "Minimal"
+            },
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            },
+            {
+              "value": "xhigh",
+              "name": "Xhigh"
+            },
+            {
+              "value": "max",
+              "name": "Max"
             }
           ]
         }
@@ -75943,6 +76246,9 @@
           "output_format": {
             "$ref": "#/components/schemas/BetaImageGenToolCallOutputFormat"
           },
+          "svg_usage": {
+            "$ref": "#/components/schemas/BetaSvgUsage"
+          },
           "revised_prompt": {
             "type": [
               "null",
@@ -75953,11 +76259,40 @@
         },
         "description": "An image generation request made by the model."
       },
+      "BetaSvgUsage": {
+        "required": [
+          "model",
+          "input_tokens",
+          "output_tokens",
+          "total_tokens",
+          "reasoning_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "input_tokens": {
+            "type": "integer"
+          },
+          "output_tokens": {
+            "type": "integer"
+          },
+          "total_tokens": {
+            "type": "integer"
+          },
+          "reasoning_tokens": {
+            "type": "integer"
+          }
+        }
+      },
       "BetaImageOutputFormat": {
         "enum": [
           "png",
           "webp",
-          "jpeg"
+          "jpeg",
+          "gif",
+          "svg"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -75975,6 +76310,14 @@
             {
               "value": "jpeg",
               "name": "Jpeg"
+            },
+            {
+              "value": "gif",
+              "name": "Gif"
+            },
+            {
+              "value": "svg",
+              "name": "Svg"
             }
           ]
         }
@@ -82877,7 +83220,7 @@
             "type": "null"
           }
         ],
-        "description": "The GPT image model to use for image editing, including \u0060gpt-image-2\u0060, its dated\nsnapshot \u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060, and\n\u0060gpt-image-2.5-flare-2026-09-08\u0060. Defaults to \u0060gpt-image-2.5-sunburst\u0060.\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
+        "description": "The GPT image model to use for image editing, including \u0060gpt-image-2\u0060, its dated\nsnapshot \u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, \u0060gpt-image-2.6-sunburst\u0060, and \u0060gpt-image-2.6-flare\u0060.\nDefaults to \u0060gpt-image-2.5-sunburst\u0060.\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
         "example": "gpt-image-2.5-sunburst",
         "x-oaiTypeLabel": "string"
       },
@@ -85051,6 +85394,33 @@
           }
         }
       },
+      "SvgReasoningParamEffort": {
+        "description": "Controls how much effort the model should spend on reasoning for this request.",
+        "$ref": "#/components/schemas/ReasoningEffortEnum"
+      },
+      "SvgParamReasoning": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "effort": {
+            "$ref": "#/components/schemas/SvgReasoningParamEffort"
+          }
+        },
+        "description": "Reasoning effort for SVG authoring. When omitted, uses the author model\u0027s default in both Images and Responses.",
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "description": "Reasoning effort for SVG authoring. When omitted, uses the author model\u0027s default in both Images and Responses.",
+              "$ref": "#/components/schemas/SvgReasoningParam"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
       "ContainerAutoParamMemoryLimit": {
         "anyOf": [
           {
@@ -85563,6 +85933,17 @@
             "type": "null"
           }
         ]
+      },
+      "SvgReasoningEffort": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ReasoningEffortEnum"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Controls how much effort the SVG author spends on reasoning. Uses the author model\u0027s default when omitted or null."
       },
       "LiveInitialSessionAudioOutputParamVoice": {
         "oneOf": [
@@ -89395,6 +89776,33 @@
             "type": "null"
           }
         ]
+      },
+      "BetaSvgParamReasoning": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "effort": {
+            "$ref": "#/components/schemas/BetaSvgReasoningParamEffort"
+          }
+        },
+        "description": "Reasoning effort for SVG authoring. When omitted, uses the author model\u0027s default in both Images and Responses.",
+        "x-client-original-nullable-union": {
+          "anyOf": [
+            {
+              "description": "Reasoning effort for SVG authoring. When omitted, uses the author model\u0027s default in both Images and Responses.",
+              "$ref": "#/components/schemas/BetaSvgReasoningParam"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "BetaSvgReasoningParamEffort": {
+        "description": "Controls how much effort the model should spend on reasoning for this request.",
+        "$ref": "#/components/schemas/BetaReasoningEffortEnum"
       },
       "BetaCodeInterpreterToolContainer": {
         "oneOf": [
@@ -93870,6 +94278,34 @@
         "additionalProperties": false,
         "description": "Optional mask for inpainting. Contains \u0060image_url\u0060\n(string, optional) and \u0060file_id\u0060 (string, optional).\n"
       },
+      "ImagesResponseSvgUsage": {
+        "required": [
+          "model",
+          "input_tokens",
+          "output_tokens",
+          "total_tokens",
+          "reasoning_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "input_tokens": {
+            "type": "integer"
+          },
+          "output_tokens": {
+            "type": "integer"
+          },
+          "total_tokens": {
+            "type": "integer"
+          },
+          "reasoning_tokens": {
+            "type": "integer"
+          }
+        },
+        "description": "Token usage for the model that authored the SVG, separate from image rendering usage."
+      },
       "InputAudioInputAudio": {
         "required": [
           "data",
@@ -95339,6 +95775,18 @@
           }
         },
         "additionalProperties": false
+      },
+      "SvgReasoning": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "effort": {
+            "$ref": "#/components/schemas/SvgReasoningEffort"
+          }
+        },
+        "description": "Reasoning settings for the SVG author, independent of image complexity. Omitted or null effort uses the author model\u0027s default. Supported efforts depend on the selected author model."
       },
       "DecisionInputTextPromptCacheBreakpoint": {
         "title": "Prompt cache breakpoint",
@@ -100925,17 +101373,18 @@
         ]
       },
       "CreateImageEditRequestOutputFormat": {
-        "description": "The format in which the generated images are returned. This parameter is\nonly supported for the GPT image models. Must be one of \u0060png\u0060, \u0060jpeg\u0060, or \u0060webp\u0060.\nThe default value is \u0060png\u0060.\n",
+        "description": "The format in which the generated images are returned. This parameter is\nonly supported for the GPT image models.\nThe default value is \u0060png\u0060.\n",
         "example": "png",
         "anyOf": [
           {
             "enum": [
               "png",
               "jpeg",
-              "webp"
+              "webp",
+              "gif"
             ],
             "type": "string",
-            "description": "The format in which the generated images are returned. This parameter is\nonly supported for the GPT image models. Must be one of \u0060png\u0060, \u0060jpeg\u0060, or \u0060webp\u0060.\nThe default value is \u0060png\u0060.\n",
+            "description": "The format in which the generated images are returned. This parameter is\nonly supported for the GPT image models.\nThe default value is \u0060png\u0060.\n",
             "example": "png",
             "x-ms-enum": {
               "name": "CreateImageEditRequestOutputFormat",
@@ -100952,6 +101401,10 @@
                 {
                   "value": "webp",
                   "name": "Webp"
+                },
+                {
+                  "value": "gif",
+                  "name": "Gif"
                 }
               ]
             }
@@ -101113,17 +101566,19 @@
         ]
       },
       "CreateImageRequestOutputFormat": {
-        "description": "The format in which the generated images are returned. This parameter is only supported for the GPT image models. Must be one of \u0060png\u0060, \u0060jpeg\u0060, or \u0060webp\u0060.",
+        "description": "The format in which the generated images are returned. This parameter is only supported for the GPT image models.",
         "example": "png",
         "anyOf": [
           {
             "enum": [
               "png",
               "jpeg",
-              "webp"
+              "webp",
+              "gif",
+              "svg"
             ],
             "type": "string",
-            "description": "The format in which the generated images are returned. This parameter is only supported for the GPT image models. Must be one of \u0060png\u0060, \u0060jpeg\u0060, or \u0060webp\u0060.",
+            "description": "The format in which the generated images are returned. This parameter is only supported for the GPT image models.",
             "example": "png",
             "x-ms-enum": {
               "name": "CreateImageRequestOutputFormat",
@@ -101140,6 +101595,14 @@
                 {
                   "value": "webp",
                   "name": "Webp"
+                },
+                {
+                  "value": "gif",
+                  "name": "Gif"
+                },
+                {
+                  "value": "svg",
+                  "name": "Svg"
                 }
               ]
             }
@@ -101961,7 +102424,8 @@
             "enum": [
               "png",
               "jpeg",
-              "webp"
+              "webp",
+              "gif"
             ],
             "type": "string",
             "description": "Output image format. Supported for GPT image models.",
@@ -101981,6 +102445,10 @@
                 {
                   "value": "webp",
                   "name": "Webp"
+                },
+                {
+                  "value": "gif",
+                  "name": "Gif"
                 }
               ]
             }
@@ -102971,6 +103439,33 @@
           ]
         }
       },
+      "ImageGenToolComplexity": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "description": "Computation spent planning the image, independently of rendering quality.\nOverrides the outer response\u0027s \u0060reasoning.effort\u0060 for image generation.\nWhen omitted, inherits a supported outer reasoning effort or uses the\nimage model\u0027s configured default.\nFor SVG output, controls the reference image, not the SVG author\u0027s\nreasoning.\n",
+        "x-ms-enum": {
+          "name": "ImageGenToolComplexity",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            }
+          ]
+        }
+      },
       "ImageGenToolQuality": {
         "enum": [
           "low",
@@ -103017,10 +103512,12 @@
         "enum": [
           "png",
           "webp",
-          "jpeg"
+          "jpeg",
+          "gif",
+          "svg"
         ],
         "type": "string",
-        "description": "The output format of the generated image. One of \u0060png\u0060, \u0060webp\u0060, or\n\u0060jpeg\u0060. Default: \u0060png\u0060.\n",
+        "description": "The output format of the generated image. One of \u0060png\u0060, \u0060webp\u0060, \u0060jpeg\u0060,\n\u0060gif\u0060, or \u0060svg\u0060. Default: \u0060png\u0060. GIF and SVG output require a model\nthat supports the selected format. GIF output does not support\npartial image streaming (\u0060partial_images\u0060 greater than \u00600\u0060),\n\u0060input_image_mask\u0060, or custom \u0060output_compression\u0060.\nResponses lifecycle events can still be streamed for GIF output.\n",
         "x-ms-enum": {
           "name": "ImageGenToolOutputFormat",
           "modelAsString": false,
@@ -103036,6 +103533,14 @@
             {
               "value": "jpeg",
               "name": "Jpeg"
+            },
+            {
+              "value": "gif",
+              "name": "Gif"
+            },
+            {
+              "value": "svg",
+              "name": "Svg"
             }
           ]
         }
@@ -103115,10 +103620,12 @@
         "enum": [
           "png",
           "webp",
-          "jpeg"
+          "jpeg",
+          "gif",
+          "svg"
         ],
         "type": "string",
-        "description": "The output format of the image generation. Either \u0060png\u0060, \u0060webp\u0060, or \u0060jpeg\u0060.",
+        "description": "The output format of the generated image.",
         "x-ms-enum": {
           "name": "ImagesResponseOutputFormat",
           "modelAsString": false,
@@ -103134,6 +103641,14 @@
             {
               "value": "jpeg",
               "name": "Jpeg"
+            },
+            {
+              "value": "gif",
+              "name": "Gif"
+            },
+            {
+              "value": "svg",
+              "name": "Svg"
             }
           ]
         }
@@ -111373,6 +111888,33 @@
           ]
         }
       },
+      "BetaImageGenToolComplexity": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "description": "Computation spent planning the image, independently of rendering quality.\nOverrides the outer response\u0027s \u0060reasoning.effort\u0060 for image generation.\nWhen omitted, inherits a supported outer reasoning effort or uses the\nimage model\u0027s configured default.\nFor SVG output, controls the reference image, not the SVG author\u0027s\nreasoning.\n",
+        "x-ms-enum": {
+          "name": "BetaImageGenToolComplexity",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            }
+          ]
+        }
+      },
       "BetaImageGenToolQuality": {
         "enum": [
           "low",
@@ -111419,10 +111961,12 @@
         "enum": [
           "png",
           "webp",
-          "jpeg"
+          "jpeg",
+          "gif",
+          "svg"
         ],
         "type": "string",
-        "description": "The output format of the generated image. One of \u0060png\u0060, \u0060webp\u0060, or\n\u0060jpeg\u0060. Default: \u0060png\u0060.\n",
+        "description": "The output format of the generated image. One of \u0060png\u0060, \u0060webp\u0060, \u0060jpeg\u0060,\n\u0060gif\u0060, or \u0060svg\u0060. Default: \u0060png\u0060. GIF and SVG output require a model\nthat supports the selected format. GIF output does not support\npartial image streaming (\u0060partial_images\u0060 greater than \u00600\u0060),\n\u0060input_image_mask\u0060, or custom \u0060output_compression\u0060.\nResponses lifecycle events can still be streamed for GIF output.\n",
         "x-ms-enum": {
           "name": "BetaImageGenToolOutputFormat",
           "modelAsString": false,
@@ -111438,6 +111982,14 @@
             {
               "value": "jpeg",
               "name": "Jpeg"
+            },
+            {
+              "value": "gif",
+              "name": "Gif"
+            },
+            {
+              "value": "svg",
+              "name": "Svg"
             }
           ]
         }
@@ -118248,6 +118800,9 @@
               "output_format": {
                 "$ref": "#/components/schemas/ImageGenToolCallOutputFormat"
               },
+              "svg_usage": {
+                "$ref": "#/components/schemas/SvgUsage"
+              },
               "revised_prompt": {
                 "type": [
                   "null",
@@ -119875,6 +120430,9 @@
                 "type": "string",
                 "x-client-inline-scalar": true
               },
+              "complexity": {
+                "$ref": "#/components/schemas/ImageGenToolComplexity"
+              },
               "quality": {
                 "$ref": "#/components/schemas/ImageGenToolQuality"
               },
@@ -119885,6 +120443,24 @@
               },
               "output_format": {
                 "$ref": "#/components/schemas/ImageGenToolOutputFormat"
+              },
+              "frame_count": {
+                "maximum": 16,
+                "minimum": 2,
+                "type": "integer",
+                "description": "Number of GIF frames. Requires \u0060output_format\u0060 to be \u0060gif\u0060. Default: 9.\n",
+                "default": 9
+              },
+              "frame_duration_ms": {
+                "maximum": 2000,
+                "minimum": 20,
+                "type": "integer",
+                "description": "Duration of each GIF frame in milliseconds, rounded to 10 ms.\nRequires \u0060output_format\u0060 to be \u0060gif\u0060. Default: 200.\n",
+                "default": 200
+              },
+              "svg": {
+                "description": "SVG author model settings. Requires \u0060output_format\u0060 to be \u0060svg\u0060.\nWhen SVG model selection is enabled, omitting this object uses the\nouter response model. Otherwise, the default SVG author is used and\nexplicit model overrides are unavailable.\n",
+                "$ref": "#/components/schemas/SvgParam"
               },
               "output_compression": {
                 "maximum": 100,
@@ -129236,6 +129812,9 @@
                 "type": "string",
                 "x-client-inline-scalar": true
               },
+              "complexity": {
+                "$ref": "#/components/schemas/BetaImageGenToolComplexity"
+              },
               "quality": {
                 "$ref": "#/components/schemas/BetaImageGenToolQuality"
               },
@@ -129246,6 +129825,24 @@
               },
               "output_format": {
                 "$ref": "#/components/schemas/BetaImageGenToolOutputFormat"
+              },
+              "frame_count": {
+                "maximum": 16,
+                "minimum": 2,
+                "type": "integer",
+                "description": "Number of GIF frames. Requires \u0060output_format\u0060 to be \u0060gif\u0060. Default: 9.\n",
+                "default": 9
+              },
+              "frame_duration_ms": {
+                "maximum": 2000,
+                "minimum": 20,
+                "type": "integer",
+                "description": "Duration of each GIF frame in milliseconds, rounded to 10 ms.\nRequires \u0060output_format\u0060 to be \u0060gif\u0060. Default: 200.\n",
+                "default": 200
+              },
+              "svg": {
+                "description": "SVG author model settings. Requires \u0060output_format\u0060 to be \u0060svg\u0060.\nWhen SVG model selection is enabled, omitting this object uses the\nouter response model. Otherwise, the default SVG author is used and\nexplicit model overrides are unavailable.\n",
+                "$ref": "#/components/schemas/BetaSvgParam"
               },
               "output_compression": {
                 "maximum": 100,
@@ -131474,6 +132071,9 @@
               },
               "output_format": {
                 "$ref": "#/components/schemas/BetaImageGenToolCallOutputFormat"
+              },
+              "svg_usage": {
+                "$ref": "#/components/schemas/BetaSvgUsage"
               },
               "revised_prompt": {
                 "type": [
@@ -155987,6 +156587,15 @@
       },
       "description": "A wait action."
     },
+    "SvgReasoningParam": {
+      "type": "object",
+      "properties": {
+        "effort": {
+          "$ref": "#/components/schemas/SvgReasoningParamEffort"
+        }
+      },
+      "description": "Reasoning effort for SVG authoring. When omitted, uses the author model\u0027s default in both Images and Responses."
+    },
     "ContainerAutoParam": {
       "required": [
         "type"
@@ -169014,6 +169623,15 @@
         }
       }
     },
+    "BetaSvgReasoningParam": {
+      "type": "object",
+      "properties": {
+        "effort": {
+          "$ref": "#/components/schemas/BetaSvgReasoningParamEffort"
+        }
+      },
+      "description": "Reasoning effort for SVG authoring. When omitted, uses the author model\u0027s default in both Images and Responses."
+    },
     "BetaAgentTagParam": {
       "required": [
         "agent_name"
@@ -175468,14 +176086,14 @@
     "CreateImageEditRequestModel": {
       "type": "string",
       "x-client-inline-scalar": true,
-      "description": "The GPT image model to use for image editing\n(\u0060gpt-image-1-mini\u0060, \u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, or \u0060chatgpt-image-latest\u0060).\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
+      "description": "The GPT image model to use for image editing\n(\u0060gpt-image-1-mini\u0060, \u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, \u0060gpt-image-2.6-sunburst\u0060, \u0060gpt-image-2.6-flare\u0060,\nor \u0060chatgpt-image-latest\u0060).\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
       "example": "gpt-image-1.5",
       "x-oaiTypeLabel": "string"
     },
     "CreateImageRequestModel": {
       "type": "string",
       "x-client-inline-scalar": true,
-      "description": "The GPT image model to use for image generation. Specify a model explicitly.\nSupported models include \u0060gpt-image-1-mini\u0060, \u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, and \u0060chatgpt-image-latest\u0060.\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
+      "description": "The GPT image model to use for image generation. Specify a model explicitly.\nSupported models include \u0060gpt-image-1-mini\u0060, \u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, \u0060gpt-image-2.6-sunburst\u0060, \u0060gpt-image-2.6-flare\u0060,\nand \u0060chatgpt-image-latest\u0060.\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
       "example": "gpt-image-2.5-flare",
       "x-oaiTypeLabel": "string"
     },
@@ -192515,6 +193133,7 @@
         "gpt-daybreak-blue-latest",
         "gpt-daybreak-red-latest",
         "gpt-5.6-cyber",
+        "gpt-6-cyber",
         "gpt-rosalind-research",
         "gpt-6-rosalind"
       ],
@@ -192642,6 +193261,10 @@
           {
             "value": "gpt-5.6-cyber",
             "name": "Gpt56Cyber"
+          },
+          {
+            "value": "gpt-6-cyber",
+            "name": "Gpt6Cyber"
           },
           {
             "value": "gpt-rosalind-research",
@@ -197249,6 +197872,7 @@
         "gpt-daybreak-blue-latest",
         "gpt-daybreak-red-latest",
         "gpt-5.6-cyber",
+        "gpt-6-cyber",
         "gpt-rosalind-research",
         "gpt-6-rosalind"
       ],
@@ -197376,6 +198000,10 @@
           {
             "value": "gpt-5.6-cyber",
             "name": "Gpt56Cyber"
+          },
+          {
+            "value": "gpt-6-cyber",
+            "name": "Gpt6Cyber"
           },
           {
             "value": "gpt-rosalind-research",
@@ -198513,6 +199141,8 @@
         "gpt-image-2.5-sunburst-2026-09-08",
         "gpt-image-2.5-flare",
         "gpt-image-2.5-flare-2026-09-08",
+        "gpt-image-2.6-sunburst",
+        "gpt-image-2.6-flare",
         "gpt-image-1",
         "gpt-image-1-mini",
         "chatgpt-image-latest",
@@ -198559,6 +199189,14 @@
           {
             "value": "gpt-image-2.5-flare-2026-09-08",
             "name": "GptImage25Flare20260908"
+          },
+          {
+            "value": "gpt-image-2.6-sunburst",
+            "name": "GptImage26Sunburst"
+          },
+          {
+            "value": "gpt-image-2.6-flare",
+            "name": "GptImage26Flare"
           },
           {
             "value": "gpt-image-1",
@@ -198637,6 +199275,8 @@
         "gpt-image-2.5-sunburst-2026-09-08",
         "gpt-image-2.5-flare",
         "gpt-image-2.5-flare-2026-09-08",
+        "gpt-image-2.6-sunburst",
+        "gpt-image-2.6-flare",
         "gpt-image-1",
         "gpt-image-1-mini",
         "chatgpt-image-latest",
@@ -198686,6 +199326,14 @@
           {
             "value": "gpt-image-2.5-flare-2026-09-08",
             "name": "GptImage25Flare20260908"
+          },
+          {
+            "value": "gpt-image-2.6-sunburst",
+            "name": "GptImage26Sunburst"
+          },
+          {
+            "value": "gpt-image-2.6-flare",
+            "name": "GptImage26Flare"
           },
           {
             "value": "gpt-image-1",
@@ -199221,6 +199869,8 @@
         "gpt-image-2.5-sunburst-2026-09-08",
         "gpt-image-2.5-flare",
         "gpt-image-2.5-flare-2026-09-08",
+        "gpt-image-2.6-sunburst",
+        "gpt-image-2.6-flare",
         "gpt-image-1",
         "gpt-image-1-mini",
         "chatgpt-image-latest"
@@ -199262,6 +199912,14 @@
           {
             "value": "gpt-image-2.5-flare-2026-09-08",
             "name": "GptImage25Flare20260908"
+          },
+          {
+            "value": "gpt-image-2.6-sunburst",
+            "name": "GptImage26Sunburst"
+          },
+          {
+            "value": "gpt-image-2.6-flare",
+            "name": "GptImage26Flare"
           },
           {
             "value": "gpt-image-1",
@@ -199437,16 +200095,19 @@
       "enum": [
         "gpt-image-1",
         "gpt-image-1-mini",
-        "gpt-image-1.5",
         "gpt-image-2",
         "gpt-image-2-2026-04-21",
         "gpt-image-2.5-sunburst",
         "gpt-image-2.5-sunburst-2026-09-08",
         "gpt-image-2.5-flare",
-        "gpt-image-2.5-flare-2026-09-08"
+        "gpt-image-2.5-flare-2026-09-08",
+        "gpt-image-2.6-sunburst",
+        "gpt-image-2.6-flare",
+        "gpt-image-1.5",
+        "chatgpt-image-latest"
       ],
       "type": "string",
-      "description": "The image generation model to use. One of \u0060gpt-image-1-mini\u0060,\n\u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, or \u0060chatgpt-image-latest\u0060. Default:\n\u0060gpt-image-2\u0060.\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
+      "description": "The image generation model to use. One of \u0060gpt-image-1-mini\u0060,\n\u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, \u0060gpt-image-2.6-sunburst\u0060,\n\u0060gpt-image-2.6-flare\u0060, or \u0060chatgpt-image-latest\u0060. Default:\n\u0060gpt-image-2\u0060.\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
       "x-openai-enum-deprecations": {
         "gpt-image-1": {
           "message": "GPT Image 1 was shut down on October 23, 2026. Use gpt-image-2.5-sunburst or gpt-image-2.5-flare instead."
@@ -199463,10 +200124,6 @@
           {
             "value": "gpt-image-1-mini",
             "name": "GptImage1Mini"
-          },
-          {
-            "value": "gpt-image-1.5",
-            "name": "GptImage15"
           },
           {
             "value": "gpt-image-2",
@@ -199491,6 +200148,22 @@
           {
             "value": "gpt-image-2.5-flare-2026-09-08",
             "name": "GptImage25Flare20260908"
+          },
+          {
+            "value": "gpt-image-2.6-sunburst",
+            "name": "GptImage26Sunburst"
+          },
+          {
+            "value": "gpt-image-2.6-flare",
+            "name": "GptImage26Flare"
+          },
+          {
+            "value": "gpt-image-1.5",
+            "name": "GptImage15"
+          },
+          {
+            "value": "chatgpt-image-latest",
+            "name": "ChatgptImageLatest"
           }
         ]
       }
@@ -200897,16 +201570,19 @@
       "enum": [
         "gpt-image-1",
         "gpt-image-1-mini",
-        "gpt-image-1.5",
         "gpt-image-2",
         "gpt-image-2-2026-04-21",
         "gpt-image-2.5-sunburst",
         "gpt-image-2.5-sunburst-2026-09-08",
         "gpt-image-2.5-flare",
-        "gpt-image-2.5-flare-2026-09-08"
+        "gpt-image-2.5-flare-2026-09-08",
+        "gpt-image-2.6-sunburst",
+        "gpt-image-2.6-flare",
+        "gpt-image-1.5",
+        "chatgpt-image-latest"
       ],
       "type": "string",
-      "description": "The image generation model to use. One of \u0060gpt-image-1-mini\u0060,\n\u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, or \u0060chatgpt-image-latest\u0060. Default:\n\u0060gpt-image-2\u0060.\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
+      "description": "The image generation model to use. One of \u0060gpt-image-1-mini\u0060,\n\u0060gpt-image-1.5\u0060, \u0060gpt-image-2\u0060,\n\u0060gpt-image-2-2026-04-21\u0060, \u0060gpt-image-2.5-sunburst\u0060,\n\u0060gpt-image-2.5-sunburst-2026-09-08\u0060, \u0060gpt-image-2.5-flare\u0060,\n\u0060gpt-image-2.5-flare-2026-09-08\u0060, \u0060gpt-image-2.6-sunburst\u0060,\n\u0060gpt-image-2.6-flare\u0060, or \u0060chatgpt-image-latest\u0060. Default:\n\u0060gpt-image-2\u0060.\n\n\u0060gpt-image-1\u0060 was shut down on October 23, 2026. Use\n\u0060gpt-image-2.5-sunburst\u0060 or \u0060gpt-image-2.5-flare\u0060 instead.\n",
       "x-openai-enum-deprecations": {
         "gpt-image-1": {
           "message": "GPT Image 1 was shut down on October 23, 2026. Use gpt-image-2.5-sunburst or gpt-image-2.5-flare instead."
@@ -200923,10 +201599,6 @@
           {
             "value": "gpt-image-1-mini",
             "name": "GptImage1Mini"
-          },
-          {
-            "value": "gpt-image-1.5",
-            "name": "GptImage15"
           },
           {
             "value": "gpt-image-2",
@@ -200951,6 +201623,22 @@
           {
             "value": "gpt-image-2.5-flare-2026-09-08",
             "name": "GptImage25Flare20260908"
+          },
+          {
+            "value": "gpt-image-2.6-sunburst",
+            "name": "GptImage26Sunburst"
+          },
+          {
+            "value": "gpt-image-2.6-flare",
+            "name": "GptImage26Flare"
+          },
+          {
+            "value": "gpt-image-1.5",
+            "name": "GptImage15"
+          },
+          {
+            "value": "chatgpt-image-latest",
+            "name": "ChatgptImageLatest"
           }
         ]
       }

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The output format of the image generation. Either `png`, `webp`, or `jpeg`.</summary>
+    /// <summary>The output format of the generated image.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ImagesResponseOutputFormat
     {
@@ -18,6 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "jpeg")]
         #pragma warning disable CS1591
         Jpeg,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gif")]
+        #pragma warning disable CS1591
+        Gif,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "svg")]
+        #pragma warning disable CS1591
+        Svg,
         #pragma warning restore CS1591
     }
 }

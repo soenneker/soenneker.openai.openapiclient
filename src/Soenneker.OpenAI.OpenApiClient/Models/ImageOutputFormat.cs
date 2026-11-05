@@ -19,5 +19,13 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         #pragma warning disable CS1591
         Jpeg,
         #pragma warning restore CS1591
+        [EnumMember(Value = "gif")]
+        #pragma warning disable CS1591
+        Gif,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "svg")]
+        #pragma warning disable CS1591
+        Svg,
+        #pragma warning restore CS1591
     }
 }

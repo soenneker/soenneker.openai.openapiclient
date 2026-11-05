@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.OpenAI.OpenApiClient.Models
 {
-    /// <summary>The output format of the generated image. One of `png`, `webp`, or`jpeg`. Default: `png`.</summary>
+    /// <summary>The output format of the generated image. One of `png`, `webp`, `jpeg`,`gif`, or `svg`. Default: `png`. GIF and SVG output require a modelthat supports the selected format. GIF output does not supportpartial image streaming (`partial_images` greater than `0`),`input_image_mask`, or custom `output_compression`.Responses lifecycle events can still be streamed for GIF output.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ImageGenToolOutputFormat
     {
@@ -18,6 +18,14 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         [EnumMember(Value = "jpeg")]
         #pragma warning disable CS1591
         Jpeg,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gif")]
+        #pragma warning disable CS1591
+        Gif,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "svg")]
+        #pragma warning disable CS1591
+        Svg,
         #pragma warning restore CS1591
     }
 }

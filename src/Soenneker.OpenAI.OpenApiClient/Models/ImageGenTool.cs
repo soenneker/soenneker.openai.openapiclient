@@ -22,6 +22,12 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
             if (parseNode.GetChildNode("background") is null) { _explicitNullValueBackground = default!; _explicitNullProperties?.Remove("background"); }
             else if (parseNode.GetChildNode("background") is { } nullNodeBackground && nullNodeBackground.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Background = null;
+            if (parseNode.GetChildNode("complexity") is null) { _explicitNullValueComplexity = default!; _explicitNullProperties?.Remove("complexity"); }
+            else if (parseNode.GetChildNode("complexity") is { } nullNodeComplexity && nullNodeComplexity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Complexity = null;
+            if (parseNode.GetChildNode("frame_count") is null) { _explicitNullValueFrameCount = default!; _explicitNullProperties?.Remove("frame_count"); }
+            else if (parseNode.GetChildNode("frame_count") is { } nullNodeFrameCount && nullNodeFrameCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FrameCount = null;
+            if (parseNode.GetChildNode("frame_duration_ms") is null) { _explicitNullValueFrameDurationMs = default!; _explicitNullProperties?.Remove("frame_duration_ms"); }
+            else if (parseNode.GetChildNode("frame_duration_ms") is { } nullNodeFrameDurationMs && nullNodeFrameDurationMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FrameDurationMs = null;
             if (parseNode.GetChildNode("input_fidelity") is null) { _explicitNullValueInputFidelity = default!; _explicitNullProperties?.Remove("input_fidelity"); }
             else if (parseNode.GetChildNode("input_fidelity") is { } nullNodeInputFidelity && nullNodeInputFidelity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputFidelity = null;
             if (parseNode.GetChildNode("input_image_mask") is null) { _explicitNullValueInputImageMask = default!; _explicitNullProperties?.Remove("input_image_mask"); }
@@ -40,6 +46,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             else if (parseNode.GetChildNode("quality") is { } nullNodeQuality && nullNodeQuality.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Quality = null;
             if (parseNode.GetChildNode("size") is null) { _explicitNullValueSize = default!; _explicitNullProperties?.Remove("size"); }
             else if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
+            if (parseNode.GetChildNode("svg") is null) { _explicitNullValueSvg = default!; _explicitNullProperties?.Remove("svg"); }
+            else if (parseNode.GetChildNode("svg") is { } nullNodeSvg && nullNodeSvg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Svg = null;
             if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
             else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
@@ -52,6 +60,15 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Set the background of the generated image. One of `transparent`, `opaque`,or `auto`. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, includingtheir `2026-09-08` snapshots, support `opaque` and `transparent`backgrounds. Transparent backgrounds are available for supported GPT Imagemodels. For `gpt-image-2` and `gpt-image-2-2026-04-21`, this support is inpreview. When using `transparent`, set the output format to `png` or `webp`.Default: `auto`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolBackground? Background { get => _explicitNullValueBackground; set { _explicitNullValueBackground = value; AdditionalData?.Remove("background"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background"); else _explicitNullProperties?.Remove("background"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolBackground? _explicitNullValueBackground = default!;
+        /// <summary>Computation spent planning the image, independently of rendering quality.Overrides the outer response&apos;s `reasoning.effort` for image generation.When omitted, inherits a supported outer reasoning effort or uses theimage model&apos;s configured default.For SVG output, controls the reference image, not the SVG author&apos;sreasoning.</summary>
+        public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolComplexity? Complexity { get => _explicitNullValueComplexity; set { _explicitNullValueComplexity = value; AdditionalData?.Remove("complexity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("complexity"); else _explicitNullProperties?.Remove("complexity"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolComplexity? _explicitNullValueComplexity = default!;
+        /// <summary>Number of GIF frames. Requires `output_format` to be `gif`. Default: 9.</summary>
+        public int? FrameCount { get => _explicitNullValueFrameCount; set { _explicitNullValueFrameCount = value; AdditionalData?.Remove("frame_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("frame_count"); else _explicitNullProperties?.Remove("frame_count"); } }
+        private int? _explicitNullValueFrameCount = default!;
+        /// <summary>Duration of each GIF frame in milliseconds, rounded to 10 ms.Requires `output_format` to be `gif`. Default: 200.</summary>
+        public int? FrameDurationMs { get => _explicitNullValueFrameDurationMs; set { _explicitNullValueFrameDurationMs = value; AdditionalData?.Remove("frame_duration_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("frame_duration_ms"); else _explicitNullProperties?.Remove("frame_duration_ms"); } }
+        private int? _explicitNullValueFrameDurationMs = default!;
         /// <summary>The input_fidelity property</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity? InputFidelity { get => _explicitNullValueInputFidelity; set { _explicitNullValueInputFidelity = value; AdditionalData?.Remove("input_fidelity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_fidelity"); else _explicitNullProperties?.Remove("input_fidelity"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity? _explicitNullValueInputFidelity = default!;
@@ -81,7 +98,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         /// <summary>Compression level for the output image. Default: 100.</summary>
         public int? OutputCompression { get => _explicitNullValueOutputCompression; set { _explicitNullValueOutputCompression = value; AdditionalData?.Remove("output_compression"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_compression"); else _explicitNullProperties?.Remove("output_compression"); } }
         private int? _explicitNullValueOutputCompression = default!;
-        /// <summary>The output format of the generated image. One of `png`, `webp`, or`jpeg`. Default: `png`.</summary>
+        /// <summary>The output format of the generated image. One of `png`, `webp`, `jpeg`,`gif`, or `svg`. Default: `png`. GIF and SVG output require a modelthat supports the selected format. GIF output does not supportpartial image streaming (`partial_images` greater than `0`),`input_image_mask`, or custom `output_compression`.Responses lifecycle events can still be streamed for GIF output.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolOutputFormat? OutputFormat { get => _explicitNullValueOutputFormat; set { _explicitNullValueOutputFormat = value; AdditionalData?.Remove("output_format"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output_format"); else _explicitNullProperties?.Remove("output_format"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolOutputFormat? _explicitNullValueOutputFormat = default!;
         /// <summary>Number of partial images to generate in streaming mode, from 0 (default value) to 3.</summary>
@@ -100,6 +117,16 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public string Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; AdditionalData?.Remove("size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
         private string _explicitNullValueSize = default!;
 #endif
+        /// <summary>SVG author model settings. Requires `output_format` to be `svg`.When SVG model selection is enabled, omitting this object uses theouter response model. Otherwise, the default SVG author is used andexplicit model overrides are unavailable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SvgParam? Svg { get => _explicitNullValueSvg; set { _explicitNullValueSvg = value; AdditionalData?.Remove("svg"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svg"); else _explicitNullProperties?.Remove("svg"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.SvgParam? _explicitNullValueSvg = default!;
+#nullable restore
+#else
+        public global::Soenneker.OpenAI.OpenApiClient.Models.SvgParam Svg { get => _explicitNullValueSvg; set { _explicitNullValueSvg = value; AdditionalData?.Remove("svg"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("svg"); else _explicitNullProperties?.Remove("svg"); } }
+        private global::Soenneker.OpenAI.OpenApiClient.Models.SvgParam _explicitNullValueSvg = default!;
+#endif
         /// <summary>The type of the image generation tool. Always `image_generation`.</summary>
         public global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenerationType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenerationType? _explicitNullValueType = default!;
@@ -109,6 +136,8 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
         public ImageGenTool()
         {
             AdditionalData = new Dictionary<string, object>();
+            FrameCount = 9;
+            FrameDurationMs = 200;
             OutputCompression = 100;
             PartialImages = 0;
         }
@@ -132,6 +161,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             {
                 { "action", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenActionEnum>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAction = default; _explicitNullProperties?.Remove("action"); AdditionalData["action"] = unknown; } else { Action = parsed; AdditionalData.Remove("action"); } } },
                 { "background", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolBackground>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBackground = default; _explicitNullProperties?.Remove("background"); AdditionalData["background"] = unknown; } else { Background = parsed; AdditionalData.Remove("background"); } } },
+                { "complexity", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolComplexity>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueComplexity = default; _explicitNullProperties?.Remove("complexity"); AdditionalData["complexity"] = unknown; } else { Complexity = parsed; AdditionalData.Remove("complexity"); } } },
+                { "frame_count", n => { FrameCount = n.GetIntValue(); } },
+                { "frame_duration_ms", n => { FrameDurationMs = n.GetIntValue(); } },
                 { "input_fidelity", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInputFidelity = default; _explicitNullProperties?.Remove("input_fidelity"); AdditionalData["input_fidelity"] = unknown; } else { InputFidelity = parsed; AdditionalData.Remove("input_fidelity"); } } },
                 { "input_image_mask", n => { InputImageMask = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolInputImageMask>(global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolInputImageMask.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
@@ -141,6 +173,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
                 { "partial_images", n => { PartialImages = n.GetIntValue(); } },
                 { "quality", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolQuality>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueQuality = default; _explicitNullProperties?.Remove("quality"); AdditionalData["quality"] = unknown; } else { Quality = parsed; AdditionalData.Remove("quality"); } } },
                 { "size", n => { Size = n.GetStringValue(); } },
+                { "svg", n => { Svg = n.GetObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SvgParam>(global::Soenneker.OpenAI.OpenApiClient.Models.SvgParam.CreateFromDiscriminatorValue); } },
                 { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenerationType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
@@ -153,6 +186,9 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenActionEnum>("action", Action);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolBackground>("background", Background);
+            writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolComplexity>("complexity", Complexity);
+            writer.WriteIntValue("frame_count", FrameCount);
+            writer.WriteIntValue("frame_duration_ms", FrameDurationMs);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.InputFidelity>("input_fidelity", InputFidelity);
             writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolInputImageMask>("input_image_mask", InputImageMask);
             writer.WriteStringValue("model", Model);
@@ -162,6 +198,7 @@ namespace Soenneker.OpenAI.OpenApiClient.Models
             writer.WriteIntValue("partial_images", PartialImages);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenToolQuality>("quality", Quality);
             writer.WriteStringValue("size", Size);
+            writer.WriteObjectValue<global::Soenneker.OpenAI.OpenApiClient.Models.SvgParam>("svg", Svg);
             writer.WriteEnumValue<global::Soenneker.OpenAI.OpenApiClient.Models.ImageGenerationType>("type", Type);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
